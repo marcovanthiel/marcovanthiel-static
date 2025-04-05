@@ -1,0 +1,12 @@
+# Cloudflare Pages configuration file
+# https://developers.cloudflare.com/pages/platform/build-configuration
+
+[build]
+  command = "hugo --minify"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.92.2"
+
+[site]
+  bucket = "./public"
