@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="hero-section">
+  <h1>{{ .Title }}</h1>
+  <div class="hero-content">
+    {{ .Content }}
+  </div>
+</div>
+
+{{ if .Params.showProjects }}
+<div class="projects-section">
+  <h2>{{ i18n "projectPortfolio" }}</h2>
+  <div class="project-grid">
+    {{ range .Site.Data.projects }}
+    <div class="project-item">
+      <a href="{{ .url }}">
+        <img src="{{ .image }}" alt="{{ .title }}">
+        <h3>{{ .title }}</h3>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ if .Params.showContact }}
+<div class="contact-section">
+  <h2>{{ i18n "contact" }}</h2>
+  <div class="contact-info">
+    <p>{{ .Site.Params.contact.email }}</p>
+    <p>{{ .Site.Params.contact.phone }}</p>
+    <p><a href="{{ .Site.Params.contact.linkedin }}">LinkedIn</a></p>
+  </div>
+</div>
+{{ end }}
+{{ end }}

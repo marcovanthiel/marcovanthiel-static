@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Daelzicht",
+    "description": "Strategic consultant & program manager",
+    "image": "/images/projects/daelzicht.jpg",
+    "url": "#"
+  },
+  {
+    "title": "Scala Basisscholen regio Heusden",
+    "description": "Interim ICT and Information Manager",
+    "image": "/images/projects/scala.jpg",
+    "url": "#"
+  },
+  {
+    "title": "ROC Friese Poort",
+    "description": "Project leader Broad deployment Eduarte",
+    "image": "/images/projects/roc-friese-poort.jpg",
+    "url": "#"
+  },
+  {
+    "title": "ROC Ter Aa Helmond",
+    "description": "Information management and portfolio management project",
+    "image": "/images/projects/roc-teraa-helmond.jpg",
+    "url": "#"
+  },
+  {
+    "title": "ROC Nijmegen",
+    "description": "Project leader implementation ELO",
+    "image": "/images/projects/roc-nijmegen.jpg",
+    "url": "#"
+  },
+  {
+    "title": "Innovio Papers",
+    "description": "Interim ICT manager: ICT Carve out realization",
+    "image": "/images/projects/innovio-papers.jpg",
+    "url": "#"
+  },
+  {
+    "title": "Sappi Fine Paper Europe",
+    "description": "IT Management",
+    "image": "/images/projects/sappi.jpg",
+    "url": "#"
+  },
+  {
+    "title": "LiQiT",
+    "description": "General Manager",
+    "image": "/images/projects/liqit.jpg",
+    "url": "#"
+  }
+]

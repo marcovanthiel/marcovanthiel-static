@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    
+    <!-- Stylesheets -->
+    {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<body class="{{ if .IsHome }}home{{ else }}page{{ end }}">
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="{{ .Site.Home.RelPermalink }}">
+                    <h1>{{ .Site.Title }}</h1>
+                </a>
+                <p>{{ .Site.Params.description }}</p>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    {{ range .Site.Menus.main }}
+                    <li><a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}class="active"{{ end }}>{{ .Name }}</a></li>
+                    {{ end }}
+                </ul>
+            </nav>
+            
+            <div class="language-switcher">
+                {{ range .Site.Home.AllTranslations }}
+                <a href="{{ .Permalink }}" class="{{ if eq .Language.Lang $.Site.Language.Lang }}active{{ end }}">{{ .Language.LanguageName }}</a>
+                {{ end }}
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3>{{ i18n "contactTitle" }}</h3>
+                    <p>{{ .Site.Params.contact.email }}</p>
+                    <p>{{ .Site.Params.contact.phone }}</p>
+                    <p><a href="{{ .Site.Params.contact.linkedin }}">LinkedIn</a></p>
+                    <p>{{ .Site.Params.contact.address }}</p>
+                </div>
+                
+                <div class="copyright">
+                    <p>© {{ now.Format "2006" }} {{ .Site.Title }}. {{ i18n "allRightsReserved" }}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $script.RelPermalink }}"></script>
+</body>
+</html>

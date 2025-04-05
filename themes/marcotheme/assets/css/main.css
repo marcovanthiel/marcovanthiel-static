@@ -1,0 +1,282 @@
+/* Main styles for Marco van Thiel website */
+
+:root {
+  --primary-color: #333;
+  --secondary-color: #e63946;
+  --background-color: #fff;
+  --text-color: #333;
+  --footer-bg: #333;
+  --footer-text: #fff;
+  --header-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --body-font: 'Georgia', serif;
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--background-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--header-font);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* Header */
+.site-header {
+  padding: 1rem 0;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* Navigation */
+.main-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.main-nav li {
+  margin-left: 1.5rem;
+}
+
+.main-nav a {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.main-nav a.active {
+  color: var(--secondary-color);
+}
+
+/* Language switcher */
+.language-switcher {
+  display: flex;
+  gap: 10px;
+}
+
+.language-switcher a {
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.language-switcher a.active {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Hero section */
+.home-hero, .hero-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+  text-align: center;
+  background-image: url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+.home-hero::before, .hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.home-hero h1, .hero-section h1,
+.home-hero .hero-content, .hero-section .hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Home content */
+.home-content {
+  padding: 3rem 0;
+}
+
+.experience-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.testimonials-section {
+  background-color: #f8f9fa;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.testimonial {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-style: italic;
+}
+
+/* Projects section */
+.projects-section {
+  padding: 3rem 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.project-item {
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+}
+
+.project-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-item h3 {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Contact section */
+.contact-section {
+  padding: 3rem 0;
+  background-color: #f8f9fa;
+}
+
+.contact-info {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 2rem 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.copyright {
+  margin-top: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .main-nav {
+    margin-top: 1rem;
+  }
+  
+  .main-nav ul {
+    justify-content: center;
+  }
+  
+  .main-nav li:first-child {
+    margin-left: 0;
+  }
+  
+  .language-switcher {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contact-info {
+    margin-bottom: 1.5rem;
+  }
+}

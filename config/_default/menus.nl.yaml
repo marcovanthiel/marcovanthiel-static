@@ -1,0 +1,17 @@
+main:
+  - identifier: home
+    name: Home
+    url: /
+    weight: 1
+  - identifier: kunst
+    name: Kunst
+    url: /kunst/
+    weight: 2
+  - identifier: portfolio
+    name: Portfolio
+    url: /#project-portfolio
+    weight: 3
+  - identifier: contact
+    name: Contact
+    url: /#contact
+    weight: 4

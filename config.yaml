@@ -1,0 +1,37 @@
+baseURL: "https://marcovanthiel.nl/"
+languageCode: "nl"
+title: "Marco van Thiel"
+theme: "marcotheme"
+
+# Multilingual settings
+defaultContentLanguage: "nl"
+defaultContentLanguageInSubdir: true
+
+languages:
+  nl:
+    languageName: "Nederlands"
+    weight: 1
+    contentDir: "content/nl"
+    title: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+    params:
+      description: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+  en:
+    languageName: "English"
+    weight: 2
+    contentDir: "content/en"
+    title: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+    params:
+      description: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+
+# Site parameters
+params:
+  author: "Marco van Thiel"
+  description: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+  mainSections: ["posts"]
+  contact:
+    email: "marco@marcovanthiel.nl"
+    phone: "+31 (0)6 54 211 659"
+    linkedin: "https://www.linkedin.com/in/marcovanthiel/"
+    address: "Nijmegen, Nederland"
+  
+# Menu configuration will be added later
