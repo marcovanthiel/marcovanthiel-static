@@ -39,13 +39,13 @@
             
             <div class="language-dropdown">
                 <button class="language-dropdown-btn">
-                    <img src="/images/flags/{{ if eq .Site.Language.Lang "en" }}gb{{ else }}{{ .Site.Language.Lang }}{{ end }}.png" alt="{{ .Site.Language.LanguageName }}">
+                    <img src="{{ .Site.BaseURL }}images/flags/{{ if eq .Site.Language.Lang "en" }}gb{{ else }}{{ .Site.Language.Lang }}{{ end }}.png" alt="{{ .Site.Language.LanguageName }}">
                     {{ .Site.Language.LanguageName }}
                 </button>
                 <div class="language-dropdown-content">
                     {{ range .Site.Home.AllTranslations }}
                     <a href="{{ .Permalink }}" class="{{ if eq .Language.Lang $.Site.Language.Lang }}active{{ end }}">
-                        <img src="/images/flags/{{ if eq .Language.Lang "en" }}gb{{ else }}{{ .Language.Lang }}{{ end }}.png" alt="{{ .Language.LanguageName }}">
+                        <img src="{{ $.Site.BaseURL }}images/flags/{{ if eq .Language.Lang "en" }}gb{{ else }}{{ .Language.Lang }}{{ end }}.png" alt="{{ .Language.LanguageName }}">
                         {{ .Language.LanguageName }}
                     </a>
                     {{ end }}
