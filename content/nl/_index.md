@@ -6,11 +6,11 @@ showProjects: true
 showContact: true
 experience:
   - title: "ICT Management & Consultancy"
-    description: "Over twintig jaar ervaring in ICT management en consultancy"
+    description: "Meer dan 25 jaar ervaring in strategisch ICT-management, digitale transformatie en IT-consultancy, inclusief toepassing van kunstmatige intelligentie (AI) in bedrijfsprocessen."
   - title: "Interim Management"
-    description: "Werk als interim manager, project manager, program manager, information manager en strategisch adviseur"
-  - title: "ICT Service Company"
-    description: "Leidde een ICT service bedrijf als directeur/eigenaar voor 10 jaar"
+    description: "Ervaren interim professional in rollen als CIO, projectmanager, programmamanager, informatiemanager en strategisch adviseur. Gespecialiseerd in verandermanagement, innovatie en AI-gedreven procesoptimalisatie."
+  - title: "ICT Servicebedrijf"
+    description: "Meer dan tien jaar succesvol leidinggegeven aan een ICT-serviceorganisatie als directeur/eigenaar, met focus op groei, klantgerichte dienstverlening, en integratie van nieuwe technologieën."
 ---
 
 # Expert in ICT, Verandermanagement en Kunstmatige Intelligentie – Interim CIO | Programmamanager | Projectmanager

@@ -6,11 +6,11 @@ showProjects: true
 showContact: true
 experience:
   - title: "ICT Management & Consultancy"
-    description: "Oltre vent'anni di esperienza in gestione ICT e consulenza"
+    description: "Più di 25 anni di esperienza in gestione strategica ICT, trasformazione digitale e consulenza IT, inclusa l'applicazione dell'intelligenza artificiale (IA) nei processi aziendali."
   - title: "Interim Management"
-    description: "Lavoro come interim manager, project manager, program manager, information manager e consulente strategico"
+    description: "Professionista interim esperto in ruoli come CIO, project manager, program manager, information manager e consulente strategico. Specializzato in change management, innovazione e ottimizzazione dei processi guidata dall'IA."
   - title: "ICT Service Company"
-    description: "Ha guidato un'azienda di servizi ICT come direttore/proprietario per 10 anni"
+    description: "Ha guidato con successo un'organizzazione di servizi ICT come direttore/proprietario per più di dieci anni, concentrandosi sulla crescita, sull'erogazione di servizi orientati al cliente e sull'integrazione di nuove tecnologie."
 ---
 
 # Esperto in ICT, Change Management e Intelligenza Artificiale – Interim CIO | Program Manager | Project Manager

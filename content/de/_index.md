@@ -6,11 +6,11 @@ showProjects: true
 showContact: true
 experience:
   - title: "ICT Management & Consultancy"
-    description: "Über zwanzig Jahre Erfahrung im ICT-Management und Beratung"
+    description: "Mehr als 25 Jahre Erfahrung im strategischen ICT-Management, digitaler Transformation und IT-Beratung, einschließlich der Anwendung künstlicher Intelligenz (KI) in Geschäftsprozessen."
   - title: "Interim Management"
-    description: "Tätig als Interim Manager, Projektmanager, Programmmanager, Informationsmanager und strategischer Berater"
+    description: "Erfahrener Interim-Fachmann in Rollen als CIO, Projektmanager, Programmmanager, Informationsmanager und strategischer Berater. Spezialisiert auf Veränderungsmanagement, Innovation und KI-gesteuerte Prozessoptimierung."
   - title: "ICT Service Company"
-    description: "Leitete ein ICT-Serviceunternehmen als Direktor/Eigentümer für 10 Jahre"
+    description: "Mehr als zehn Jahre erfolgreiche Leitung einer ICT-Serviceorganisation als Direktor/Eigentümer, mit Fokus auf Wachstum, kundenorientierte Dienstleistungen und Integration neuer Technologien."
 ---
 
 # Experte für ICT, Veränderungsmanagement und Künstliche Intelligenz – Interim CIO | Programmmanager | Projektmanager

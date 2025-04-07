@@ -6,11 +6,11 @@ showProjects: true
 showContact: true
 experience:
   - title: "ICT管理与咨询"
-    description: "在ICT管理和咨询领域拥有超过二十年的经验"
+    description: "在战略ICT管理、数字化转型和IT咨询领域拥有超过25年的经验，包括人工智能(AI)在业务流程中的应用。"
   - title: "临时管理"
-    description: "担任临时经理、项目经理、项目集经理、信息经理和战略顾问"
+    description: "在CIO、项目经理、项目集经理、信息经理和战略顾问等角色中经验丰富的临时专业人士。专注于变革管理、创新和AI驱动的流程优化。"
   - title: "ICT服务公司"
-    description: "作为董事/所有者领导ICT服务公司10年"
+    description: "作为董事/所有者成功领导ICT服务组织超过十年，专注于增长、以客户为中心的服务交付和新技术整合。"
 ---
 
 # 变革管理、ICT、AI和创新专家 – 临时CIO | 项目集经理 | 项目经理
