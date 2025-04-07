@@ -13,22 +13,26 @@ experience:
     description: "Leitete ein ICT-Serviceunternehmen als Direktor/Eigentümer für 10 Jahre"
 ---
 
-# Experte für Veränderungsmanagement, ICT, AI und Innovation
-# | Interim CIO, Programmmanager und Projektmanager |
+# Experte für ICT, Veränderungsmanagement und Künstliche Intelligenz – Interim CIO | Programmmanager | Projektmanager
 
-Veränderung von Geschäftsprozessen, Innovation und Motivation bilden den roten Faden in der Karriere dieses erfahrenen Fachmanns.
+Veränderung von Geschäftsprozessen, digitale Innovation, KI-Anwendungen und Motivation bilden den roten Faden in der Karriere dieses erfahrenen Interim-Fachmanns.
 
-Mit mehr als fünfundzwanzig Jahren Erfahrung im ICT-Management und in der Beratung wurde umfangreiche Expertise als Interim Manager, Projektmanager, Programmmanager, Informationsmanager und strategischer Berater aufgebaut. Mehr als zehn Jahre lang wurde ein ICT-Serviceunternehmen in der Rolle des Direktors/Eigentümers geleitet.
+Mit mehr als 25 Jahren Erfahrung im ICT-Management und in der Beratung wurde tiefgreifende Expertise in Rollen als Interim Manager, Projektmanager, Programmmanager, Informationsmanager und strategischer Berater aufgebaut. Mehr als zehn Jahre lang wurde ein ICT-Dienstleistungsunternehmen in der Rolle des Direktors/Eigentümers erfolgreich geleitet.
 
-Die Erfahrung erstreckt sich über verschiedene Sektoren wie Wirtschaft, Industrie, Bildung, Regierung, Gesundheitswesen, multinationale Unternehmen und kleine und mittlere Unternehmen (KMU). Zu den Spezialisierungen gehören Veränderungsmanagement, Fusions- und Übernahmeberatung und Begleitung bei Post-Fusionsprozessen.
+Die Erfahrung erstreckt sich über verschiedene Sektoren wie Wirtschaft, Industrie, Bildung, (halb-)staatliche Einrichtungen, Gesundheitswesen, multinationale Unternehmen und kleine und mittlere Unternehmen (KMU). Zu den Spezialisierungen gehören strategisches Veränderungsmanagement, Fusions- und Übernahmebegleitung, Post-Fusionsintegration, Prozessoptimierung und die Implementierung KI-gesteuerter Lösungen.
+
+## Mehrwert durch KI-Expertise
+
+Innerhalb komplexer digitaler Transformationsprojekte steht aktuelle Expertise im Bereich der künstlichen Intelligenz (KI) zur Verfügung, mit Anwendungen in der Datenanalyse, Prozessautomatisierung (RPA), Entscheidungsunterstützung und kundenorientierten KI-Tools. Dadurch entsteht maximale Wertschöpfung innerhalb innovativer Organisationen.
 
 ## Kernkompetenzen:
 
-* ICT-Strategie und -Politik
-* Veränderungsmanagement und Restrukturierung
-* Lean und Prozessoptimierung
-* Projekt- und Programmmanagement
+* ICT-Strategie und Digitalpolitik
+* Veränderungsmanagement und Organisationsrestrukturierung
+* Lean-Methodik und End-to-End-Prozessoptimierung
+* Projektmanagement und Programmsteuerung
 * Innovations- und Informationsmanagement
+* KI-Strategie und Implementierung in Geschäftsprozessen
 
 ## Referenzen von Auftraggebern:
 
@@ -38,4 +42,4 @@ Die Erfahrung erstreckt sich über verschiedene Sektoren wie Wirtschaft, Industr
 
 > "Denkt kreativ und innovativ, teilweise angetrieben durch ein breites Interesse an Kunst, Kultur und technologischen Entwicklungen."
 
-Verfügbar für Interimsaufträge als CIO, Programmmanager, Projektmanager und Veränderungsmanager.
+## Verfügbarkeit:

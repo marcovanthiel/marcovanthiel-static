@@ -13,22 +13,26 @@ experience:
     description: "Ha guidato un'azienda di servizi ICT come direttore/proprietario per 10 anni"
 ---
 
-# Esperto in Change Management, ICT, AI e Innovazione
-# | Interim CIO, Program Manager e Project Manager |
+# Esperto in ICT, Change Management e Intelligenza Artificiale – Interim CIO | Program Manager | Project Manager
 
-Cambiamento dei processi aziendali, innovazione e motivazione costituiscono il filo conduttore nella carriera di questo professionista esperto.
+Cambiamento dei processi aziendali, innovazione digitale, applicazioni di IA e motivazione costituiscono il filo conduttore nella carriera di questo professionista esperto interim.
 
-Con più di venticinque anni di esperienza nella gestione ICT e nella consulenza, è stata sviluppata un'ampia competenza come interim manager, project manager, program manager, information manager e consulente strategico. Per più di dieci anni, è stata fornita leadership a un'azienda di servizi ICT nel ruolo di direttore/proprietario.
+Con più di 25 anni di esperienza nella gestione ICT e nella consulenza, è stata sviluppata una profonda competenza in ruoli come interim manager, project manager, program manager, information manager e consulente strategico. Per più di dieci anni, è stata fornita una leadership di successo a un'azienda di servizi ICT nel ruolo di direttore/proprietario.
 
-L'esperienza si estende a vari settori come il mondo degli affari, l'industria, l'istruzione, il governo, la sanità, le multinazionali e le piccole e medie imprese (PMI). Le specializzazioni includono change management, consulenza per fusioni e acquisizioni, e guida nei percorsi post-fusione.
+L'esperienza si estende a vari settori come il mondo degli affari, l'industria, l'istruzione, il governo (e semi-governo), la sanità, le multinazionali e le piccole e medie imprese (PMI). Le specializzazioni includono change management strategico, consulenza per fusioni e acquisizioni, integrazione post-fusione, ottimizzazione dei processi e implementazione di soluzioni basate sull'IA.
+
+## Valore aggiunto attraverso l'expertise in IA
+
+All'interno di complessi percorsi di trasformazione digitale, è disponibile un'expertise aggiornata nel campo dell'intelligenza artificiale (IA), con applicazioni nell'analisi dei dati, automazione dei processi (RPA), supporto decisionale e strumenti di IA orientati al cliente. Questo crea una massima creazione di valore all'interno di organizzazioni innovative.
 
 ## Competenze Chiave:
 
-* Strategia e politica ICT
-* Change management e ristrutturazione
-* Lean e ottimizzazione dei processi
-* Project e program management
+* Strategia ICT e politica digitale
+* Change management e ristrutturazione organizzativa
+* Metodologia Lean e ottimizzazione dei processi end-to-end
+* Project management e controllo dei programmi
 * Gestione dell'innovazione e dell'informazione
+* Strategia IA e implementazione nei processi aziendali
 
 ## Referenze dei Clienti:
 
@@ -38,4 +42,4 @@ L'esperienza si estende a vari settori come il mondo degli affari, l'industria, 
 
 > "Pensa in modo creativo e innovativo, in parte alimentato da un ampio interesse per l'arte, la cultura e gli sviluppi tecnologici."
 
-Disponibile per incarichi ad interim come CIO, program manager, project manager e change manager.
+## Disponibilità:

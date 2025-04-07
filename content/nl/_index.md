@@ -13,22 +13,26 @@ experience:
     description: "Leidde een ICT service bedrijf als directeur/eigenaar voor 10 jaar"
 ---
 
-# Deskundige in Verandermanagement, ICT, AI en Innovatie
-# | Interim CIO, Programmamanager en Projectmanager |
+# Expert in ICT, Verandermanagement en Kunstmatige Intelligentie – Interim CIO | Programmamanager | Projectmanager
 
-Verandering van bedrijfsprocessen, innovatie en motivatie vormen de rode draad in de loopbaan van deze ervaren professional.
+Verandering van bedrijfsprocessen, digitale innovatie, AI-toepassingen en motivatie vormen de rode draad in de loopbaan van deze ervaren interim professional.
 
-Met meer dan vijfentwintig jaar ervaring in ICT-management en consultancy is uitgebreide expertise opgebouwd als interim manager, projectmanager, programmamanager, informatiemanager en strategisch adviseur. Gedurende meer dan tien jaar is leiding gegeven aan een ICT-servicebedrijf in de rol van directeur/eigenaar.
+Met meer dan 25 jaar ervaring in ICT-management en consultancy is diepgaande expertise opgebouwd in rollen als interim manager, projectmanager, programmamanager, informatiemanager en strategisch adviseur. Meer dan tien jaar is succesvol leiding gegeven aan een ICT-dienstverlenend bedrijf in de rol van directeur/eigenaar.
 
-De ervaring strekt zich uit over diverse sectoren zoals bedrijfsleven, industrie, onderwijs, overheid, gezondheidszorg, multinationals en het midden- en kleinbedrijf (MKB). Specialisaties omvatten onder meer verandermanagement, fusie- en overnameconsultancy, en begeleiding bij post-fusietrajecten.
+De ervaring strekt zich uit over uiteenlopende sectoren zoals het bedrijfsleven, de industrie, het onderwijs, de (semi)overheid, de gezondheidszorg, multinationals en het midden- en kleinbedrijf (MKB). Specialisaties omvatten onder meer strategisch verandermanagement, fusie- en overnamebegeleiding, post-fusie-integratie, procesoptimalisatie en de implementatie van AI-gedreven oplossingen.
+
+## Toegevoegde waarde door AI-expertise
+
+Binnen complexe digitale transformatietrajecten is actuele expertise op het gebied van kunstmatige intelligentie (AI) beschikbaar, met toepassingen in data-analyse, procesautomatisering (RPA), besluitvormingsondersteuning en klantgerichte AI-tools. Hierdoor ontstaat maximale waardecreatie binnen innovatieve organisaties.
 
 ## Kerncompetenties:
 
-* ICT-strategie en -beleid
-* Verandermanagement en herstructurering
-* Lean en procesoptimalisatie
-* Project- en programmamanagement
+* ICT-strategie en digitaal beleid
+* Verandermanagement en organisatieherstructurering
+* Lean-methodiek en end-to-end procesoptimalisatie
+* Projectmanagement en programmasturing
 * Innovatie- en informatiemanagement
+* AI-strategie en implementatie in bedrijfsprocessen
 
 ## Referenties van opdrachtgevers:
 
@@ -38,4 +42,4 @@ De ervaring strekt zich uit over diverse sectoren zoals bedrijfsleven, industrie
 
 > "Denkt creatief en innovatief, mede gevoed door een brede interesse in kunst, cultuur en technologische ontwikkelingen."
 
-Beschikbaar voor interim opdrachten als CIO, programmamanager, projectmanager en verandermanager.
+## Beschikbaarheid:

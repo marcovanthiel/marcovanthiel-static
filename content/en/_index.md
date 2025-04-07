@@ -13,22 +13,26 @@ experience:
     description: "Led an ICT service company as director/owner for 10 years"
 ---
 
-# Expert in Change Management, ICT, AI and Innovation
-# | Interim CIO, Program Manager and Project Manager |
+# Expert in ICT, Change Management and Artificial Intelligence – Interim CIO | Program Manager | Project Manager
 
-Changing business processes, innovation and motivation form the common thread in the career of this experienced professional.
+Changing business processes, digital innovation, AI applications and motivation form the common thread in the career of this experienced interim professional.
 
-With more than twenty-five years of experience in ICT management and consultancy, extensive expertise has been built up as interim manager, project manager, program manager, information manager and strategic advisor. For more than ten years, leadership was provided to an ICT service company in the role of director/owner.
+With more than 25 years of experience in ICT management and consultancy, in-depth expertise has been built up in roles as interim manager, project manager, program manager, information manager and strategic advisor. For more than ten years, successful leadership was provided to an ICT service company in the role of director/owner.
 
-The experience extends across various sectors such as business, industry, education, government, healthcare, multinationals and small and medium-sized enterprises (SMEs). Specializations include change management, merger and acquisition consultancy, and guidance in post-merger trajectories.
+The experience extends across various sectors such as business, industry, education, government, healthcare, multinationals and small and medium-sized enterprises (SMEs). Specializations include strategic change management, merger and acquisition guidance, post-merger integration, process optimization and the implementation of AI-driven solutions.
+
+## Added Value through AI Expertise
+
+Within complex digital transformation trajectories, current expertise in the field of artificial intelligence (AI) is available, with applications in data analysis, process automation (RPA), decision support and customer-oriented AI tools. This creates maximum value creation within innovative organizations.
 
 ## Core Competencies:
 
-* ICT strategy and policy
-* Change management and restructuring
-* Lean and process optimization
-* Project and program management
+* ICT strategy and digital policy
+* Change management and organizational restructuring
+* Lean methodology and end-to-end process optimization
+* Project management and program control
 * Innovation and information management
+* AI strategy and implementation in business processes
 
 ## Client References:
 
@@ -38,4 +42,4 @@ The experience extends across various sectors such as business, industry, educat
 
 > "Thinks creatively and innovatively, partly fueled by a broad interest in art, culture and technological developments."
 
-Available for interim assignments as CIO, program manager, project manager and change manager.
+## Availability:
