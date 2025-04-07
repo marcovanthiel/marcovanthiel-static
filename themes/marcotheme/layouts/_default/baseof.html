@@ -6,6 +6,11 @@
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <!-- Stylesheets -->
     {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
@@ -17,13 +22,14 @@
     <link rel="stylesheet" href="{{ $projectStyle.RelPermalink }}">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/images/logo/logo.png">
 </head>
 <body class="{{ if .IsHome }}home{{ else }}page{{ end }}">
     <header class="site-header">
         <div class="container">
             <div class="logo">
                 <a href="{{ .Site.Home.RelPermalink }}">
+                    <img src="/images/logo/logo.png" alt="Van Thiel Management & Consultancy">
                     <h1>{{ .Site.Title }}</h1>
                 </a>
                 <p>{{ .Site.Params.description }}</p>

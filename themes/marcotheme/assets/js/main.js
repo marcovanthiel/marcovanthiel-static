@@ -1,28 +1,50 @@
 // Main JavaScript for Marco van Thiel website
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu toggle
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mainNav = document.querySelector('.main-nav');
-  
-  if (menuToggle) {
-    menuToggle.addEventListener('click', function() {
-      mainNav.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    });
+  // Add logo to header
+  const logoContainer = document.querySelector('.logo a');
+  if (logoContainer) {
+    const logoImg = document.createElement('img');
+    logoImg.src = '/images/logo/logo.png';
+    logoImg.alt = 'Van Thiel Management & Consultancy';
+    
+    // Insert logo before the h1
+    const h1 = logoContainer.querySelector('h1');
+    if (h1) {
+      logoContainer.insertBefore(logoImg, h1);
+    } else {
+      logoContainer.appendChild(logoImg);
+    }
   }
-  
-  // Smooth scrolling for anchor links
+
+  // Add smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80, // Offset for fixed header
           behavior: 'smooth'
         });
       }
     });
+  });
+
+  // Add active class to current nav item
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.main-nav a');
+  
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath || 
+        (currentPath === '/' && linkPath === '/') || 
+        (currentPath !== '/' && linkPath !== '/' && currentPath.includes(linkPath))) {
+      link.classList.add('active');
+    }
   });
 });

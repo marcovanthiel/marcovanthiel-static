@@ -1,15 +1,19 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
 /* Main styles for Marco van Thiel website */
 
 :root {
-  --primary-color: #333;
-  --secondary-color: #e63946;
-  --background-color: #fff;
-  --text-color: #333;
-  --footer-bg: #333;
-  --footer-text: #fff;
-  --header-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --body-font: 'Georgia', serif;
-  --hero-bg: #5c0000; /* Dark red background for hero section */
+  --primary-color: #0077b6; /* Primary Blue */
+  --secondary-color: #90e0ef; /* Secondary Light Blue */
+  --text-color: #333333; /* Neutral Dark Gray */
+  --background-color: #ffffff; /* White */
+  --footer-bg: #0077b6; /* Primary Blue */
+  --footer-text: #ffffff; /* White */
+  --header-font: 'Montserrat', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+  --section-padding: 4rem 0;
+  --border-radius: 8px;
 }
 
 /* Base styles */
@@ -37,23 +41,24 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--header-font);
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--primary-color);
 }
 
 h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   line-height: 1.3;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 p {
@@ -61,13 +66,13 @@ p {
 }
 
 a {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 /* Header */
@@ -86,10 +91,26 @@ a:hover {
   align-items: center;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 15px;
+}
+
 .logo h1 {
   font-size: 1.5rem;
   margin-bottom: 0;
-  color: #e63946; /* Red color for the logo text */
+  color: var(--primary-color);
 }
 
 .logo p {
@@ -108,12 +129,18 @@ a:hover {
 }
 
 .main-nav a {
-  color: var(--primary-color);
+  color: var(--text-color);
   font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--primary-color);
 }
 
 .main-nav a.active {
-  color: var(--secondary-color);
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
 }
 
 /* Language switcher */
@@ -124,12 +151,17 @@ a:hover {
 
 .language-switcher a {
   padding: 5px 10px;
-  border-radius: 3px;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
 }
 
 .language-switcher a.active {
-  background-color: #e63946;
+  background-color: var(--primary-color);
   color: white;
+}
+
+.language-switcher a:hover:not(.active) {
+  background-color: var(--secondary-color);
 }
 
 /* Hero section */
@@ -138,7 +170,7 @@ a:hover {
   text-align: left;
   color: white;
   position: relative;
-  background-image: url('/images/backgrounds/hero-background.jpeg');
+  background-image: url('/images/profile/profile.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -151,7 +183,7 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Black overlay for text readability instead of red */
+  background-color: rgba(0, 119, 182, 0.7); /* Primary blue with 70% opacity */
   z-index: 0;
 }
 
@@ -171,12 +203,14 @@ a:hover {
 .hero-content h1 {
   font-weight: 700;
   margin-bottom: 2rem;
+  color: white;
 }
 
 .hero-content h2 {
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .hero-content ul {
@@ -200,8 +234,8 @@ a:hover {
 /* Home content */
 .home-content {
   padding: 3rem 0;
-  background-color: var(--hero-bg);
-  color: white;
+  background-color: var(--background-color);
+  color: var(--text-color);
   text-align: left;
 }
 
@@ -221,42 +255,24 @@ a:hover {
 
 /* Projects section */
 .projects-section {
-  padding: 3rem 0;
+  padding: var(--section-padding);
   background-color: #f8f9fa;
 }
 
+.projects-section h2 {
+  margin-left: 5%;
+  margin-bottom: 2rem;
+}
+
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.project-item {
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.project-item:hover {
-  transform: translateY(-5px);
-}
-
-.project-item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.project-item h3 {
-  padding: 1rem;
-  text-align: center;
+  margin-left: 5%;
+  width: 90%;
 }
 
 /* Contact section */
 .contact-section {
-  padding: 3rem 0;
-  background-color: #f8f9fa;
+  padding: var(--section-padding);
+  background-color: var(--background-color);
 }
 
 .contact-info {
@@ -283,10 +299,53 @@ a:hover {
   min-width: 250px;
 }
 
+.contact-info h3 {
+  color: var(--footer-text);
+}
+
+.contact-info a {
+  color: var(--secondary-color);
+}
+
+.contact-info a:hover {
+  color: var(--background-color);
+  text-decoration: underline;
+}
+
 .copyright {
   margin-top: 2rem;
   text-align: center;
   width: 100%;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: var(--header-font);
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 /* Responsive */
@@ -296,21 +355,52 @@ a:hover {
     text-align: center;
   }
   
+  .logo a {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
   .main-nav {
     margin-top: 1rem;
   }
   
   .main-nav ul {
     justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .main-nav li {
+    margin: 0.5rem 0.75rem;
   }
   
   .main-nav li:first-child {
-    margin-left: 0;
+    margin-left: 0.75rem;
   }
   
-  .language-switcher {
+  .language-dropdown {
     margin-top: 1rem;
-    justify-content: center;
+    align-self: center;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .home-hero, .hero-section {
+    padding: 3rem 0;
+  }
+  
+  .experience-section {
+    grid-template-columns: 1fr;
   }
   
   .footer-content {
@@ -320,5 +410,29 @@ a:hover {
   
   .contact-info {
     margin-bottom: 1.5rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  .hero-content {
+    font-size: 1rem;
+  }
+  
+  .home-hero, .hero-section {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    width: 95%;
+    padding: 0 10px;
   }
 }
