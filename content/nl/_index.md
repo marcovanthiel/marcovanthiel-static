@@ -13,7 +13,8 @@ experience:
     description: "Leidde een ICT service bedrijf als directeur/eigenaar voor 10 jaar"
 ---
 
-# Deskundige in Verandermanagement, ICT en Innovatie | Interim CIO, Programmamanager en Projectmanager
+# Deskundige in Verandermanagement, ICT, AI en Innovatie
+# | Interim CIO, Programmamanager en Projectmanager |
 
 Verandering van bedrijfsprocessen, innovatie en motivatie vormen de rode draad in de loopbaan van deze ervaren professional.
 

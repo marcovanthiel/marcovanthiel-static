@@ -13,7 +13,8 @@ experience:
     description: "Ha guidato un'azienda di servizi ICT come direttore/proprietario per 10 anni"
 ---
 
-# Esperto in Change Management, ICT e Innovazione | Interim CIO, Program Manager e Project Manager
+# Esperto in Change Management, ICT, AI e Innovazione
+# | Interim CIO, Program Manager e Project Manager |
 
 Cambiamento dei processi aziendali, innovazione e motivazione costituiscono il filo conduttore nella carriera di questo professionista esperto.
 

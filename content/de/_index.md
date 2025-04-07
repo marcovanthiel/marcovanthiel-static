@@ -13,7 +13,8 @@ experience:
     description: "Leitete ein ICT-Serviceunternehmen als Direktor/Eigentümer für 10 Jahre"
 ---
 
-# Experte für Veränderungsmanagement, ICT und Innovation | Interim CIO, Programmmanager und Projektmanager
+# Experte für Veränderungsmanagement, ICT, AI und Innovation
+# | Interim CIO, Programmmanager und Projektmanager |
 
 Veränderung von Geschäftsprozessen, Innovation und Motivation bilden den roten Faden in der Karriere dieses erfahrenen Fachmanns.
 

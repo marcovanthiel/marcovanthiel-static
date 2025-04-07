@@ -108,10 +108,10 @@ a:hover {
 }
 
 .logo p {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   margin-top: 5px;
   margin-bottom: 0;
-  color: var(--text-color);
+  color: var(--primary-color);
   font-family: var(--header-font);
   font-weight: 500;
 }

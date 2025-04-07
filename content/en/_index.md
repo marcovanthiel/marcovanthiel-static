@@ -13,7 +13,8 @@ experience:
     description: "Led an ICT service company as director/owner for 10 years"
 ---
 
-# Expert in Change Management, ICT and Innovation | Interim CIO, Program Manager and Project Manager
+# Expert in Change Management, ICT, AI and Innovation
+# | Interim CIO, Program Manager and Project Manager |
 
 Changing business processes, innovation and motivation form the common thread in the career of this experienced professional.
 
