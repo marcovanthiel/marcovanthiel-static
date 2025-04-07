@@ -13,6 +13,9 @@
     {{ $langStyle := resources.Get "css/language-switcher.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $langStyle.RelPermalink }}">
     
+    {{ $projectStyle := resources.Get "css/projects.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $projectStyle.RelPermalink }}">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
 </head>
