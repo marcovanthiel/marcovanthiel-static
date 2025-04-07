@@ -2,11 +2,9 @@ baseURL: "https://marcovanthiel.nl/"
 languageCode: "nl"
 title: "Marco van Thiel"
 theme: "marcotheme"
-
 # Multilingual settings
 defaultContentLanguage: "nl"
-defaultContentLanguageInSubdir: true
-
+defaultContentLanguageInSubdir: false
 languages:
   nl:
     languageName: "Nederlands"
@@ -22,7 +20,6 @@ languages:
     title: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
     params:
       description: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
-
 # Site parameters
 params:
   author: "Marco van Thiel"

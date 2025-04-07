@@ -5,7 +5,6 @@
     {{ .Content }}
   </div>
 </div>
-
 <div class="home-content">
   {{ if isset .Params "experience" }}
   <div class="experience-section">
@@ -17,7 +16,6 @@
     {{ end }}
   </div>
   {{ end }}
-
   {{ if isset .Params "testimonials" }}
   <div class="testimonials-section">
     <h2>{{ i18n "reviewsFromClients" }}</h2>
@@ -29,7 +27,6 @@
   </div>
   {{ end }}
 </div>
-
 {{ if .Params.showProjects }}
 <div class="projects-section">
   <h2>{{ i18n "projectPortfolio" }}</h2>

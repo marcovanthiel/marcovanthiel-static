@@ -9,6 +9,7 @@
   --footer-text: #fff;
   --header-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --body-font: 'Georgia', serif;
+  --hero-bg: #5c0000; /* Dark red background for hero section */
 }
 
 /* Base styles */
@@ -84,6 +85,7 @@ a:hover {
 .logo h1 {
   font-size: 1.5rem;
   margin-bottom: 0;
+  color: #e63946; /* Red color for the logo text */
 }
 
 .logo p {
@@ -122,30 +124,17 @@ a:hover {
 }
 
 .language-switcher a.active {
-  background-color: var(--secondary-color);
+  background-color: #e63946;
   color: white;
 }
 
 /* Hero section */
 .home-hero, .hero-section {
   padding: 4rem 0;
-  background-color: #f8f9fa;
   text-align: center;
-  background-image: url('/images/hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
+  background-color: var(--hero-bg);
   color: white;
   position: relative;
-}
-
-.home-hero::before, .hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
 }
 
 .home-hero h1, .hero-section h1,
@@ -157,6 +146,8 @@ a:hover {
 /* Home content */
 .home-content {
   padding: 3rem 0;
+  background-color: var(--hero-bg);
+  color: white;
 }
 
 .experience-section {
@@ -167,7 +158,6 @@ a:hover {
 }
 
 .testimonials-section {
-  background-color: #f8f9fa;
   padding: 3rem 0;
   text-align: center;
 }
@@ -181,6 +171,7 @@ a:hover {
 /* Projects section */
 .projects-section {
   padding: 3rem 0;
+  background-color: #f8f9fa;
 }
 
 .project-grid {
