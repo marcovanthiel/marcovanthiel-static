@@ -11,22 +11,30 @@ experience:
     description: "Work as interim manager, project manager, program manager, information manager and strategic advisor"
   - title: "ICT Service Company"
     description: "Led an ICT service company as director/owner for 10 years"
-testimonials:
-  - quote: "Marco has a connecting personality who is able to map and optimize processes, information flows and needs."
-  - quote: "With his analytical skills he can reduce complex projects to their essence. In doing so he does not shy away from making (sometimes hard) choices when restructuring and reorganizing the work. Marco is a supporter of the Lean idea, analytically strong and good at project management."
-  - quote: "Marco's passion lies in innovation. With a great interest in art, culture and innovation, he casts a creative and fresh look at reality."
 ---
 
-Changing business processes, innovation and motivation, these are the key words that apply to me.
+# Expert in Change Management, ICT and Innovation | Interim CIO, Program Manager and Project Manager
 
-With over twenty years of experience in ICT management and consultancy, I work as an interim manager, project manager, program manager, information manager and strategic advisor. I led an ICT service company as director/owner for 10 years.
+Changing business processes, innovation and motivation form the common thread in the career of this experienced professional.
 
-I have experience in change management, including merger and acquisition consultancy, and post-merger situations in a broad context of companies, industry, education, government, healthcare and both multinationals and SMEs.
+With more than twenty years of experience in ICT management and consultancy, extensive expertise has been built up as interim manager, project manager, program manager, information manager and strategic advisor. For fifteen years, leadership was provided to an ICT service company in the role of director/owner.
 
-Reviews from previous clients:
+The experience extends across various sectors such as business, industry, education, government, healthcare, multinationals and small and medium-sized enterprises (SMEs). Specializations include change management, merger and acquisition consultancy, and guidance in post-merger trajectories.
 
-Marco has a connecting personality who is able to map and optimize processes, information flows and needs.
+## Core Competencies:
 
-With his analytical skills he can reduce complex projects to their essence. In doing so he does not shy away from making (sometimes hard) choices when restructuring and reorganizing the work. Marco is a supporter of the Lean idea, analytically strong and good at project management.
+* ICT strategy and policy
+* Change management and restructuring
+* Lean and process optimization
+* Project and program management
+* Innovation and information management
 
-Marco's passion lies in innovation. With a great interest in art, culture and innovation, he casts a creative and fresh look at reality.
+## Client References:
+
+> "A connecting personality who is excellently able to make processes, information flows and needs transparent and optimize them."
+
+> "Possesses strong analytical skills and knows how to reduce complex projects to their essence. Does not shy away from making clear choices in restructuring and reorganization. Combines vision with result-orientation."
+
+> "Thinks creatively and innovatively, partly fueled by a broad interest in art, culture and technological developments."
+
+Available for interim assignments in the field of CIO, program management, project management and change management.

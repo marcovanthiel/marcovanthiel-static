@@ -11,22 +11,30 @@ experience:
     description: "Werk als interim manager, project manager, program manager, information manager en strategisch adviseur"
   - title: "ICT Service Company"
     description: "Leidde een ICT service bedrijf als directeur/eigenaar voor 10 jaar"
-testimonials:
-  - quote: "Marco heeft een verbindende persoonlijkheid die in staat is om processen, informatiestromen en behoeften in kaart te brengen en te optimaliseren."
-  - quote: "Met zijn analytische vaardigheden kan hij complexe projecten tot hun essentie terugbrengen. Daarbij schuwt hij niet om (soms moeilijke) keuzes te maken bij het herstructureren en reorganiseren van het werk. Marco is een voorstander van het Lean-idee, analytisch sterk en goed in projectmanagement."
-  - quote: "Marco's passie ligt in innovatie. Met een grote interesse in kunst, cultuur en innovatie, werpt hij een creatieve en frisse blik op de werkelijkheid."
 ---
 
-Verandering van bedrijfsprocessen, innovatie en motivatie, dit zijn de kernwoorden die op mij van toepassing zijn.
+# Deskundige in Verandermanagement, ICT en Innovatie | Interim CIO, Programmamanager en Projectmanager
 
-Met meer dan twintig jaar ervaring in ICT-management en consultancy, werk ik als interim manager, projectmanager, programmamanager, informatiemanager en strategisch adviseur. Ik leidde een ICT-servicebedrijf als directeur/eigenaar gedurende 10 jaar.
+Verandering van bedrijfsprocessen, innovatie en motivatie vormen de rode draad in de loopbaan van deze ervaren professional.
 
-Ik heb ervaring in verandermanagement, waaronder fusie- en overname-consultancy, en post-fusiesituaties in een brede context van bedrijven, industrie, onderwijs, overheid, gezondheidszorg en zowel multinationals als MKB.
+Met meer dan twintig jaar ervaring in ICT-management en consultancy is uitgebreide expertise opgebouwd als interim manager, projectmanager, programmamanager, informatiemanager en strategisch adviseur. Gedurende vijftien jaar is leiding gegeven aan een ICT-servicebedrijf in de rol van directeur/eigenaar.
 
-Recensies van eerdere klanten:
+De ervaring strekt zich uit over diverse sectoren zoals bedrijfsleven, industrie, onderwijs, overheid, gezondheidszorg, multinationals en het midden- en kleinbedrijf (MKB). Specialisaties omvatten onder meer verandermanagement, fusie- en overnameconsultancy, en begeleiding bij post-fusietrajecten.
 
-Marco heeft een verbindende persoonlijkheid die in staat is om processen, informatiestromen en behoeften in kaart te brengen en te optimaliseren.
+## Kerncompetenties:
 
-Met zijn analytische vaardigheden kan hij complexe projecten tot hun essentie terugbrengen. Daarbij schuwt hij niet om (soms moeilijke) keuzes te maken bij het herstructureren en reorganiseren van het werk. Marco is een voorstander van het Lean-idee, analytisch sterk en goed in projectmanagement.
+* ICT-strategie en -beleid
+* Verandermanagement en herstructurering
+* Lean en procesoptimalisatie
+* Project- en programmamanagement
+* Innovatie- en informatiemanagement
 
-Marco's passie ligt in innovatie. Met een grote interesse in kunst, cultuur en innovatie, werpt hij een creatieve en frisse blik op de werkelijkheid.
+## Referenties van opdrachtgevers:
+
+> "Een verbindende persoonlijkheid die uitstekend in staat is om processen, informatiestromen en behoeften inzichtelijk te maken en te optimaliseren."
+
+> "Beschikt over sterke analytische vaardigheden en weet complexe projecten terug te brengen tot de essentie. Schuwt daarbij niet om duidelijke keuzes te maken bij herstructurering en reorganisatie. Combineert visie met resultaatgerichtheid."
+
+> "Denkt creatief en innovatief, mede gevoed door een brede interesse in kunst, cultuur en technologische ontwikkelingen."
+
+Beschikbaar voor interim opdrachten op het gebied van CIO, programmamanagement, projectmanagement en verandermanagement.

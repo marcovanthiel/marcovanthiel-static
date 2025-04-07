@@ -1,25 +1,40 @@
 ---
 title: "Marco van Thiel"
-date: 2025-04-07T13:49:00+00:00
+date: 2025-04-05T09:45:00+00:00
 draft: false
 showProjects: true
 showContact: true
 experience:
-  - title: "ICT Management & Consulenza"
+  - title: "ICT Management & Consultancy"
     description: "Oltre vent'anni di esperienza in gestione ICT e consulenza"
   - title: "Interim Management"
-    description: "Lavoro come manager ad interim, project manager, program manager, information manager e consulente strategico"
+    description: "Lavoro come interim manager, project manager, program manager, information manager e consulente strategico"
   - title: "ICT Service Company"
-    description: "Ho diretto un'azienda di servizi ICT come direttore/proprietario per 10 anni"
-testimonials:
-  - quote: "Marco ha una personalità connettiva in grado di mappare e ottimizzare processi, flussi di informazioni e necessità."
-  - quote: "Con le sue capacità analitiche può ridurre progetti complessi alla loro essenza. Nel farlo non si tira indietro dal prendere decisioni (a volte difficili) quando ristruttura e riorganizza il lavoro. Marco è un sostenitore dell'idea Lean, analiticamente forte e bravo nella gestione dei progetti."
-  - quote: "La passione di Marco risiede nell'innovazione. Con un grande interesse per l'arte, la cultura e l'innovazione, getta uno sguardo creativo e fresco sulla realtà."
+    description: "Ha guidato un'azienda di servizi ICT come direttore/proprietario per 10 anni"
 ---
-Cambiare i processi aziendali, innovazione e motivazione, queste sono le parole chiave che si applicano a me.
-Con oltre vent'anni di esperienza nella gestione ICT e nella consulenza, lavoro come manager ad interim, project manager, program manager, information manager e consulente strategico. Ho diretto un'azienda di servizi ICT come direttore/proprietario per 10 anni.
-Ho esperienza nella gestione del cambiamento, inclusa la consulenza per fusioni e acquisizioni, e situazioni post-fusione in un ampio contesto di aziende, industria, istruzione, governo, sanità e sia multinazionali che PMI.
-Recensioni da clienti precedenti:
-Marco ha una personalità connettiva in grado di mappare e ottimizzare processi, flussi di informazioni e necessità.
-Con le sue capacità analitiche può ridurre progetti complessi alla loro essenza. Nel farlo non si tira indietro dal prendere decisioni (a volte difficili) quando ristruttura e riorganizza il lavoro. Marco è un sostenitore dell'idea Lean, analiticamente forte e bravo nella gestione dei progetti.
-La passione di Marco risiede nell'innovazione. Con un grande interesse per l'arte, la cultura e l'innovazione, getta uno sguardo creativo e fresco sulla realtà.
+
+# Esperto in Change Management, ICT e Innovazione | Interim CIO, Program Manager e Project Manager
+
+Cambiamento dei processi aziendali, innovazione e motivazione costituiscono il filo conduttore nella carriera di questo professionista esperto.
+
+Con più di vent'anni di esperienza nella gestione ICT e nella consulenza, è stata sviluppata un'ampia competenza come interim manager, project manager, program manager, information manager e consulente strategico. Per quindici anni, è stata fornita leadership a un'azienda di servizi ICT nel ruolo di direttore/proprietario.
+
+L'esperienza si estende a vari settori come il mondo degli affari, l'industria, l'istruzione, il governo, la sanità, le multinazionali e le piccole e medie imprese (PMI). Le specializzazioni includono change management, consulenza per fusioni e acquisizioni, e guida nei percorsi post-fusione.
+
+## Competenze Chiave:
+
+* Strategia e politica ICT
+* Change management e ristrutturazione
+* Lean e ottimizzazione dei processi
+* Project e program management
+* Gestione dell'innovazione e dell'informazione
+
+## Referenze dei Clienti:
+
+> "Una personalità connettiva che è eccellentemente in grado di rendere trasparenti e ottimizzare processi, flussi di informazioni e necessità."
+
+> "Possiede forti capacità analitiche e sa ridurre i progetti complessi alla loro essenza. Non esita a prendere decisioni chiare nella ristrutturazione e riorganizzazione. Combina visione con orientamento ai risultati."
+
+> "Pensa in modo creativo e innovativo, in parte alimentato da un ampio interesse per l'arte, la cultura e gli sviluppi tecnologici."
+
+Disponibile per incarichi ad interim nel campo di CIO, program management, project management e change management.
