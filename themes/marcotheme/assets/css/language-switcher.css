@@ -1,3 +1,25 @@
+/* Base64 encoded flag images */
+.flag-nl {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AkFCQYUFRpylwAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAnklEQVRYw+2XsQ2AMAwEHzRZgIqWCdiElgEYgJYJaOmoGICWCWjTUdAwAQ3KBxAiRjhOcMWXLr6zZL8tGWMQUQFUQA3kQAZkwABcgRNwALZAD4xLF1cLF5+BHWiBxkWlcPEJOLvgGO0bF5RLxLlgvIpzwXgV54LxKs4F41WcC8arOBeMV3EuGK/iXDBexbkgWsVZRPQfkf8JVEAFvJsHZeZhG4GCPYIAAAAASUVORK5CYII=');
+}
+
+.flag-gb {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AkFCQcB7YvEQAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAEcklEQVRYw8WXS2xUVRjHf+fce+d2Zjq0nZbS0hYQKFjlISAKVTQqGl0YibIwYqLGhSvjI8bEhRsTY+LCuDDRxCiJcWHUqHGhiQQTJEKEgFILLZRXS4FCH8y0c+fec4+LuTMdSjsy2PhPTs7ck3u/3/d/fN93vpHZ2Vk2bdpEFEUopQCwbRspJUKI/3zCMCSKIoQQCCGQUuI4DkIIhBBorVFKYds2WmuklFiWhdYaz/OYnp5mYmKCvr4+giAgDEOklGQyGZRSDA0NMTw8jNYapRSu6zI+Ps7U1BSFQoFsNks+n6dQKNDZ2cnAwADZbBbf9zl8+DDnz5/n5MmTjI6OMjMzQxRFCCHQWqO1BkBorVm/fj2bN2/m6NGjHD9+nJmZGaSUOI6DlBKtNUEQEIYhQRCgtcbzPCzLolgsUi6XmZubo1wuE4YhWmts28Z1XTKZDLZtI4QgiiKUUgRBgNYaz/NwXRfHcbBtG8dxcF0Xx3GwbRvLsrAsi0wmg+M4SCmRUuK6LlJKHMchk8mQyWRwXRfXdclms+RyOXK5HLlcjmw2i+u6OI6DZVkIIRBCIKXEsiwcx8FxHGzbxrZtHMfBdV0ymQyu6+I4DlJKLMtCSomUEiEElmXheR6e5+F5Hp7nkcvlyOVy5HI5PM/D8zw8z8PzPDzPw/M8XNfFtm2klFiWhWVZWJaFbdsopQiCgDAMCcOQIAiolCpUq1Wq1Sq1Wo1arUa9XqdWq1Gr1ahWq1QqFSqVCuVymXK5TLlcplQqUSwWKRaLFAoF8vk8+XyeXC5HNpslm83iui6O4yCEQGtNFEVEUUQYhgRBQBAE+L6P7/v4vk+9XqdWq1Gr1ajX69TrdWq1GtVqlUqlQrlcplQqUSwWKRQK5PN5crlcU4DjOFiWhRACrTVKKZRSKKUIw5AgCPB9n3q9Tr1ep1arUa1WqVQqlMtlSqUSxWKRfD5PLpcjm83iui6WZTUFCCGaAqIoQilFFEUopQiCAN/38X2fer1OrVajWq1SqVQol8uUSiWKxSKFQoF8Pk8ulyObzeK6LrZtI4RACIEQAiEElmU1BYRhSBiGhGFIEAT4vk+9XqdWq1GtVqlUKpTLZUqlEsVikUKhQD6fJ5fLkc1mcV0Xx3GwLKspQEqJlBLbtrFtG8dxsG0bx3FwXRfP88hkMriui+M4WJaFZVlIKZFSIqVsChBCIITAtu2mACklUkocx8F1XTzPI5PJ4LourusihMCyLKSUSCmbAoQQCCGwLAvLspBSIqVsZsC2bRzHwXVdPM8jk8nguq5pTIZxKSVSyqYAIQRCCKSUWJaFbdtIKbFtG8dxcF0Xz/PIZrNkMhlc18VxHGzbxrIsLMvCsqymACEEQgiEEEgpm9WQUmLbNo7j4HkemUyGTCaD67o4joNt282etywLy7KaAoQQCCGQUiKlbFZDSoltN0ZyJpMhk8nguq5hXEqJZVlIKZsCVFRVqtXqUr1eJ5/P4zgOQRBQKpWYnJxkdHSUkZERRkZGGB4eZmhoiMHBQfr7++nt7aWnp4fu7m66urro7Oyko6ODtrY22tvbaWtro7W1lZaWFlpaWmhpaaG5uZmmpiaamppoamqisbGRxsZGGhoaaGhooL6+nvr6eurq6qirq6O2tpba2lpqamqoqamhurqa6upqqqqqcF2XP/8CivmYgRXKQw0AAAAASUVORK5CYII=');
+}
+
+.flag-de {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AkFCQcMka4oHwAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAQklEQVRYw+3SsQ0AIAwDwYT9l8VJGMFKoUjpfgDe1bUXouNLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7lJpQWYAEWYAHfAjfxJGcdLzqcLAAAAABJRU5ErkJggg==');
+}
+
+.flag-it {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AkFCQcTUwZEDAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAPElEQVRYw+3SsQ0AIAzDwIb9l+WRMkKEFCFl+wF4V9deiI4vAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL9yE0oLsAAL+Bd4E9Uc1Sv3jQAAAABJRU5ErkJggg==');
+}
+
+.flag-cn {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AkFCQcXgm3wNQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAA50lEQVRYw+2XMQ6DMAxFn1m7wMoJegRO0LIDEyMTIydg6wm4UU/QI3QFJk7QseoDVIgaOSF2QsuXLNmx/J+d2I4xxhARNdACHVADFVABJXABTsAB2AEbYA2MUxdXExefgS3QA52LSuHiE3B2wTHaNy4ol4hzwXgV54LxKs4F41WcC8arOBeMV3EuGK/iXDBexbkgWsVZRPQfkf8JVEAFvJsHZeZhG4GCPYIAAAAASUVORK5CYII=');
+}
+
+/* Language dropdown styling with embedded flags */
 .language-dropdown {
   position: relative;
   display: inline-block;
@@ -13,9 +35,13 @@
   gap: 5px;
 }
 
-.language-dropdown-btn img {
+.language-dropdown-btn .flag-icon {
   width: 24px;
   height: 24px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
   border-radius: 2px;
 }
 
@@ -45,9 +71,13 @@
   gap: 10px;
 }
 
-.language-dropdown-content a img {
+.language-dropdown-content a .flag-icon {
   width: 24px;
   height: 24px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
   border-radius: 2px;
 }
 
