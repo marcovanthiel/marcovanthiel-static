@@ -20,6 +20,8 @@
   display: inline-block;
   border: 1px solid #ddd;
   box-sizing: content-box;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Netherlands flag */
@@ -30,40 +32,11 @@
     #21468B 66.6%);
 }
 
-/* British flag - Union Jack */
+/* British flag - Using provided image */
 .flag-gb {
-  background-color: #012169; /* Royal Blue background */
-  position: relative;
-  overflow: hidden;
-}
-
-/* White diagonal crosses (St. Andrew's Cross and St. Patrick's Cross) */
-.flag-gb:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: 
-    /* St. Andrew's Cross (white diagonal) */
-    linear-gradient(to bottom right, transparent calc(50% - 2px), #FFFFFF calc(50% - 2px), #FFFFFF calc(50% + 2px), transparent calc(50% + 2px)),
-    linear-gradient(to bottom left, transparent calc(50% - 2px), #FFFFFF calc(50% - 2px), #FFFFFF calc(50% + 2px), transparent calc(50% + 2px));
-}
-
-/* Red crosses (St. George's Cross and St. Patrick's Cross) */
-.flag-gb:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background:
-    /* St. George's Cross (red vertical and horizontal) */
-    linear-gradient(to bottom, transparent calc(50% - 1px), #C8102E calc(50% - 1px), #C8102E calc(50% + 1px), transparent calc(50% + 1px)),
-    linear-gradient(to right, transparent calc(50% - 1px), #C8102E calc(50% - 1px), #C8102E calc(50% + 1px), transparent calc(50% + 1px)),
-    /* St. Patrick's Cross (red diagonal) - thinner and offset from white */
-    linear-gradient(to bottom right, transparent calc(50% - 3.5px), #C8102E calc(50% - 3.5px), #C8102E calc(50% - 1.5px), transparent calc(50% - 1.5px)),
-    linear-gradient(to bottom left, transparent calc(50% - 3.5px), #C8102E calc(50% - 3.5px), #C8102E calc(50% - 1.5px), transparent calc(50% - 1.5px)),
-    linear-gradient(to top right, transparent calc(50% - 3.5px), #C8102E calc(50% - 3.5px), #C8102E calc(50% - 1.5px), transparent calc(50% - 1.5px)),
-    linear-gradient(to top left, transparent calc(50% - 3.5px), #C8102E calc(50% - 3.5px), #C8102E calc(50% - 1.5px), transparent calc(50% - 1.5px));
+  background-image: url('/images/flags/gb.png');
+  background-size: cover;
+  background-position: center;
 }
 
 /* German flag */
