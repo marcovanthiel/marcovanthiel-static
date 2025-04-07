@@ -40,13 +40,11 @@
             <div class="language-dropdown">
                 <button class="language-dropdown-btn">
                     <span class="flag-icon flag-{{ if eq .Site.Language.Lang "en" }}gb{{ else }}{{ .Site.Language.Lang }}{{ end }}"></span>
-                    {{ .Site.Language.LanguageName }}
                 </button>
                 <div class="language-dropdown-content">
                     {{ range .Site.Home.AllTranslations }}
                     <a href="{{ .Permalink }}" class="{{ if eq .Language.Lang $.Site.Language.Lang }}active{{ end }}">
                         <span class="flag-icon flag-{{ if eq .Language.Lang "en" }}gb{{ else }}{{ .Language.Lang }}{{ end }}"></span>
-                        {{ .Language.LanguageName }}
                     </a>
                     {{ end }}
                 </div>
