@@ -1,22 +1,6 @@
 // Main JavaScript for Marco van Thiel website
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Add logo to header
-  const logoContainer = document.querySelector('.logo a');
-  if (logoContainer) {
-    const logoImg = document.createElement('img');
-    logoImg.src = '/images/logo/logo.png';
-    logoImg.alt = 'Van Thiel Management & Consultancy';
-    
-    // Insert logo before the h1
-    const h1 = logoContainer.querySelector('h1');
-    if (h1) {
-      logoContainer.insertBefore(logoImg, h1);
-    } else {
-      logoContainer.appendChild(logoImg);
-    }
-  }
-
   // Add smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
