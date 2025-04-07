@@ -43,3 +43,5 @@ All'interno di complessi percorsi di trasformazione digitale, è disponibile un'
 > "Pensa in modo creativo e innovativo, in parte alimentato da un ampio interesse per l'arte, la cultura e gli sviluppi tecnologici."
 
 ## Disponibilità:
+
+Immediatamente disponibile per incarichi ad interim come Chief Information Officer (CIO), program manager, senior project manager o change manager all'interno di organizzazioni che si concentrano sulla trasformazione digitale, l'ottimizzazione dei processi e soluzioni innovative di IA.

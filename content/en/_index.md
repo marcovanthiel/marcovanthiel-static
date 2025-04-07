@@ -43,3 +43,5 @@ Within complex digital transformation trajectories, current expertise in the fie
 > "Thinks creatively and innovatively, partly fueled by a broad interest in art, culture and technological developments."
 
 ## Availability:
+
+Immediately available for interim assignments as Chief Information Officer (CIO), program manager, senior project manager or change manager within organizations focusing on digital transformation, process optimization and innovative AI solutions.

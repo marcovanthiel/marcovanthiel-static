@@ -43,3 +43,5 @@ Innerhalb komplexer digitaler Transformationsprojekte steht aktuelle Expertise i
 > "Denkt kreativ und innovativ, teilweise angetrieben durch ein breites Interesse an Kunst, Kultur und technologischen Entwicklungen."
 
 ## Verfügbarkeit:
+
+Sofort einsetzbar für Interimsaufträge als Chief Information Officer (CIO), Programmmanager, Senior Projektmanager oder Veränderungsmanager in Organisationen, die sich auf digitale Transformation, Prozessoptimierung und innovative KI-Lösungen konzentrieren.

@@ -43,3 +43,5 @@ Binnen complexe digitale transformatietrajecten is actuele expertise op het gebi
 > "Denkt creatief en innovatief, mede gevoed door een brede interesse in kunst, cultuur en technologische ontwikkelingen."
 
 ## Beschikbaarheid:
+
+Direct inzetbaar voor interim opdrachten als Chief Information Officer (CIO), programmamanager, senior projectmanager of verandermanager binnen organisaties die zich richten op digitale transformatie, procesoptimalisatie en innovatieve AI-oplossingen.
