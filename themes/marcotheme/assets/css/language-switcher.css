@@ -34,7 +34,7 @@
 
 /* British flag - Using provided image */
 .flag-gb {
-  background-image: url('/images/flags/gb.png');
+  background-image: url('/images/flags/GB.png');
   background-size: cover;
   background-position: center;
 }
