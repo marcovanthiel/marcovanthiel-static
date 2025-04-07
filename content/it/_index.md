@@ -17,7 +17,7 @@ experience:
 
 Cambiamento dei processi aziendali, innovazione e motivazione costituiscono il filo conduttore nella carriera di questo professionista esperto.
 
-Con più di vent'anni di esperienza nella gestione ICT e nella consulenza, è stata sviluppata un'ampia competenza come interim manager, project manager, program manager, information manager e consulente strategico. Per quindici anni, è stata fornita leadership a un'azienda di servizi ICT nel ruolo di direttore/proprietario.
+Con più di venticinque anni di esperienza nella gestione ICT e nella consulenza, è stata sviluppata un'ampia competenza come interim manager, project manager, program manager, information manager e consulente strategico. Per più di dieci anni, è stata fornita leadership a un'azienda di servizi ICT nel ruolo di direttore/proprietario.
 
 L'esperienza si estende a vari settori come il mondo degli affari, l'industria, l'istruzione, il governo, la sanità, le multinazionali e le piccole e medie imprese (PMI). Le specializzazioni includono change management, consulenza per fusioni e acquisizioni, e guida nei percorsi post-fusione.
 

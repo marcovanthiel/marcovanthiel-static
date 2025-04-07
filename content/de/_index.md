@@ -17,7 +17,7 @@ experience:
 
 Veränderung von Geschäftsprozessen, Innovation und Motivation bilden den roten Faden in der Karriere dieses erfahrenen Fachmanns.
 
-Mit mehr als zwanzig Jahren Erfahrung im ICT-Management und in der Beratung wurde umfangreiche Expertise als Interim Manager, Projektmanager, Programmmanager, Informationsmanager und strategischer Berater aufgebaut. Fünfzehn Jahre lang wurde ein ICT-Serviceunternehmen in der Rolle des Direktors/Eigentümers geleitet.
+Mit mehr als fünfundzwanzig Jahren Erfahrung im ICT-Management und in der Beratung wurde umfangreiche Expertise als Interim Manager, Projektmanager, Programmmanager, Informationsmanager und strategischer Berater aufgebaut. Mehr als zehn Jahre lang wurde ein ICT-Serviceunternehmen in der Rolle des Direktors/Eigentümers geleitet.
 
 Die Erfahrung erstreckt sich über verschiedene Sektoren wie Wirtschaft, Industrie, Bildung, Regierung, Gesundheitswesen, multinationale Unternehmen und kleine und mittlere Unternehmen (KMU). Zu den Spezialisierungen gehören Veränderungsmanagement, Fusions- und Übernahmeberatung und Begleitung bei Post-Fusionsprozessen.
 

@@ -17,7 +17,7 @@ experience:
 
 Verandering van bedrijfsprocessen, innovatie en motivatie vormen de rode draad in de loopbaan van deze ervaren professional.
 
-Met meer dan twintig jaar ervaring in ICT-management en consultancy is uitgebreide expertise opgebouwd als interim manager, projectmanager, programmamanager, informatiemanager en strategisch adviseur. Gedurende vijftien jaar is leiding gegeven aan een ICT-servicebedrijf in de rol van directeur/eigenaar.
+Met meer dan vijfentwintig jaar ervaring in ICT-management en consultancy is uitgebreide expertise opgebouwd als interim manager, projectmanager, programmamanager, informatiemanager en strategisch adviseur. Gedurende meer dan tien jaar is leiding gegeven aan een ICT-servicebedrijf in de rol van directeur/eigenaar.
 
 De ervaring strekt zich uit over diverse sectoren zoals bedrijfsleven, industrie, onderwijs, overheid, gezondheidszorg, multinationals en het midden- en kleinbedrijf (MKB). Specialisaties omvatten onder meer verandermanagement, fusie- en overnameconsultancy, en begeleiding bij post-fusietrajecten.
 

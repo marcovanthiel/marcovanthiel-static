@@ -17,7 +17,7 @@ experience:
 
 Changing business processes, innovation and motivation form the common thread in the career of this experienced professional.
 
-With more than twenty years of experience in ICT management and consultancy, extensive expertise has been built up as interim manager, project manager, program manager, information manager and strategic advisor. For fifteen years, leadership was provided to an ICT service company in the role of director/owner.
+With more than twenty-five years of experience in ICT management and consultancy, extensive expertise has been built up as interim manager, project manager, program manager, information manager and strategic advisor. For more than ten years, leadership was provided to an ICT service company in the role of director/owner.
 
 The experience extends across various sectors such as business, industry, education, government, healthcare, multinationals and small and medium-sized enterprises (SMEs). Specializations include change management, merger and acquisition consultancy, and guidance in post-merger trajectories.
 
