@@ -10,20 +10,41 @@ languages:
     languageName: "Nederlands"
     weight: 1
     contentDir: "content/nl"
-    title: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+    title: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
     params:
-      description: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+      description: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
   en:
     languageName: "English"
     weight: 2
     contentDir: "content/en"
-    title: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+    title: "Marco van Thiel - Interim manager, CIO, Program manager and Project manager"
     params:
-      description: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+      description: "Marco van Thiel - Interim manager, CIO, Program manager and Project manager"
+  de:
+    languageName: "Deutsch"
+    weight: 3
+    contentDir: "content/de"
+    title: "Marco van Thiel - Interimsmanager, CIO, Programmmanager und Projektmanager"
+    params:
+      description: "Marco van Thiel - Interimsmanager, CIO, Programmmanager und Projektmanager"
+  it:
+    languageName: "Italiano"
+    weight: 4
+    contentDir: "content/it"
+    title: "Marco van Thiel - Manager ad interim, CIO, Program manager e Project manager"
+    params:
+      description: "Marco van Thiel - Manager ad interim, CIO, Program manager e Project manager"
+  cn:
+    languageName: "中文"
+    weight: 5
+    contentDir: "content/cn"
+    title: "Marco van Thiel - 临时经理, CIO, 项目经理"
+    params:
+      description: "Marco van Thiel - 临时经理, CIO, 项目经理"
 # Site parameters
 params:
   author: "Marco van Thiel"
-  description: "Marco van Thiel - Interim Manager, Change Agent, ICT Manager"
+  description: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
   mainSections: ["posts"]
   contact:
     email: "marco@marcovanthiel.nl"

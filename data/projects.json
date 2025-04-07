@@ -46,5 +46,23 @@
     "description": "General Manager",
     "image": "/images/projects/liqit.jpg",
     "url": "#"
+  },
+  {
+    "title": "Radboud Universiteit",
+    "description": "Strategic IT Consultant",
+    "image": "/images/projects/Radboud universiteit.png",
+    "url": "#"
+  },
+  {
+    "title": "Radboud UMC",
+    "description": "IT Program Manager",
+    "image": "/images/projects/Radboud umc.png",
+    "url": "#"
+  },
+  {
+    "title": "Zuyd Hogeschool",
+    "description": "Interim ICT Manager",
+    "image": "/images/projects/zuyd_logo_niv_1_rd_rgb.png",
+    "url": "#"
   }
 ]
