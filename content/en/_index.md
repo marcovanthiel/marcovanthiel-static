@@ -37,4 +37,4 @@ The experience extends across various sectors such as business, industry, educat
 
 > "Thinks creatively and innovatively, partly fueled by a broad interest in art, culture and technological developments."
 
-Available for interim assignments in the field of CIO, program management, project management and change management.
+Available for interim assignments as CIO, program manager, project manager and change manager.

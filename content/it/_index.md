@@ -37,4 +37,4 @@ L'esperienza si estende a vari settori come il mondo degli affari, l'industria, 
 
 > "Pensa in modo creativo e innovativo, in parte alimentato da un ampio interesse per l'arte, la cultura e gli sviluppi tecnologici."
 
-Disponibile per incarichi ad interim nel campo di CIO, program management, project management e change management.
+Disponibile per incarichi ad interim come CIO, program manager, project manager e change manager.

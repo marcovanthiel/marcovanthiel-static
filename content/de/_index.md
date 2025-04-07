@@ -37,4 +37,4 @@ Die Erfahrung erstreckt sich über verschiedene Sektoren wie Wirtschaft, Industr
 
 > "Denkt kreativ und innovativ, teilweise angetrieben durch ein breites Interesse an Kunst, Kultur und technologischen Entwicklungen."
 
-Verfügbar für Interimsaufträge im Bereich CIO, Programmmanagement, Projektmanagement und Veränderungsmanagement.
+Verfügbar für Interimsaufträge als CIO, Programmmanager, Projektmanager und Veränderungsmanager.

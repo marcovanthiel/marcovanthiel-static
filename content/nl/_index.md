@@ -37,4 +37,4 @@ De ervaring strekt zich uit over diverse sectoren zoals bedrijfsleven, industrie
 
 > "Denkt creatief en innovatief, mede gevoed door een brede interesse in kunst, cultuur en technologische ontwikkelingen."
 
-Beschikbaar voor interim opdrachten op het gebied van CIO, programmamanagement, projectmanagement en verandermanagement.
+Beschikbaar voor interim opdrachten als CIO, programmamanager, projectmanager en verandermanager.
