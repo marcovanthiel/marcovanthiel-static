@@ -64,5 +64,23 @@
     "description": "Interim ICT Manager",
     "image": "/images/projects/zuyd_logo_niv_1_rd_rgb.png",
     "url": "#"
+  },
+  {
+    "title": "Albeda College Rotterdam",
+    "description": "IT Consultant & Project Manager",
+    "image": "/images/projects/albeda-college.png",
+    "url": "#"
+  },
+  {
+    "title": "Landstede Zwolle",
+    "description": "Strategic IT Advisor",
+    "image": "/images/projects/landstede-zwolle.webp",
+    "url": "#"
+  },
+  {
+    "title": "INR Trombosedienst Nijmegen",
+    "description": "IT Program Manager",
+    "image": "/images/projects/trombosezorg-dichtbij.png",
+    "url": "#"
   }
 ]
