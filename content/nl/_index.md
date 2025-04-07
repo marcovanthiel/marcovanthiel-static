@@ -17,16 +17,16 @@ testimonials:
   - quote: "Marco's passie ligt in innovatie. Met een grote interesse in kunst, cultuur en innovatie, werpt hij een creatieve en frisse blik op de werkelijkheid."
 ---
 
-Changing business processes, innovation and motivation, these are the key words that apply to me.
+Verandering van bedrijfsprocessen, innovatie en motivatie, dit zijn de kernwoorden die op mij van toepassing zijn.
 
-With over twenty years of experience in ICT management and consultancy, I work as an interim manager, project manager, program manager, information manager and strategic advisor. I led an ICT service company as director/owner for 10 years.
+Met meer dan twintig jaar ervaring in ICT-management en consultancy, werk ik als interim manager, projectmanager, programmamanager, informatiemanager en strategisch adviseur. Ik leidde een ICT-servicebedrijf als directeur/eigenaar gedurende 10 jaar.
 
-I have experience in change management, including merger and acquisition consultancy, and post-merger situations in a broad context of companies, industry, education, government, healthcare and both multinationals and SMEs.
+Ik heb ervaring in verandermanagement, waaronder fusie- en overname-consultancy, en post-fusiesituaties in een brede context van bedrijven, industrie, onderwijs, overheid, gezondheidszorg en zowel multinationals als MKB.
 
-Reviews from previous clients:
+Recensies van eerdere klanten:
 
-Marco has a connecting personality who is able to map and optimize processes, information flows and needs.
+Marco heeft een verbindende persoonlijkheid die in staat is om processen, informatiestromen en behoeften in kaart te brengen en te optimaliseren.
 
-With his analytical skills he can reduce complex projects to their essence. In doing so he does not shy away from making (sometimes hard) choices when restructuring and reorganizing the work. Marco is a supporter of the Lean idea, analytically strong and good at project management.
+Met zijn analytische vaardigheden kan hij complexe projecten tot hun essentie terugbrengen. Daarbij schuwt hij niet om (soms moeilijke) keuzes te maken bij het herstructureren en reorganiseren van het werk. Marco is een voorstander van het Lean-idee, analytisch sterk en goed in projectmanagement.
 
-Marco's passion lies in innovation. With a great interest in art, culture and innovation, he casts a creative and fresh look at reality.
+Marco's passie ligt in innovatie. Met een grote interesse in kunst, cultuur en innovatie, werpt hij een creatieve en frisse blik op de werkelijkheid.
