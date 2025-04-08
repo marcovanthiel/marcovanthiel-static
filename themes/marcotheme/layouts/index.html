@@ -35,7 +35,53 @@
     <div class="project-item">
       <a href="{{ .url }}">
         <img src="{{ .image }}" alt="{{ .title }}">
-        <div class="hover-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        <div class="hover-text">
+          {{ if eq .title "Daelzicht" }}
+            Stichting Daelzicht – Portfoliomanagement en Strategie<br><br>
+            Voor zorginstelling Daelzicht is als portfoliomanager en strategisch adviseur een projectenorganisatie opgezet. Ruim 100 projecten zijn aangestuurd, gericht op thema's als jeugd & gezin, voeding, ICT en facilitaire herstructurering. Samenwerking met directie en RvB stond centraal in de realisatie van IV-strategieën.
+          {{ else if eq .title "Scala Basisscholen regio Heusden" }}
+            Stichting Scala Scholen – Informatiemanagement & ICT-transitie<br><br>
+            Binnen Scala Scholen is als informatiemanager een complete herstructurering van de ICT-infrastructuur uitgevoerd. De uitbesteding naar een nieuwe leverancier, transitie naar Office 365, modernisering van netwerken en verbetering van beveiliging zijn succesvol gerealiseerd. Alle locaties zijn voorzien van volledige wifi-dekking en integraties met leerling- en interne systemen.
+          {{ else if eq .title "ROC Friese Poort" }}
+            ROC Friese Poort – Programma- en Portfoliomanagement Eduarte<br><br>
+            Instellingsbreed is Eduarte ingevoerd als kernsysteem voor studenteninformatie. Dit programma verving diverse losse systemen en omvatte de volledige studentenlogistiek, examenprocessen, DLO en zorgstructuren. De aansturing vond plaats via 12 deelprojecten met integratie naar Xedule, Office365 en financiële administratie. Lean-methoden zijn ingezet voor procesoptimalisatie en efficiency.
+          {{ else if eq .title "ROC Ter Aa Helmond" }}
+            ROC Ter AA – Kwartiermaker Informatiemanagement<br><br>
+            Binnen ROC Ter AA is een nieuwe projectenorganisatie opgezet volgens Prince2, als onderdeel van het instellingsbrede besturingsmodel. Belangrijke projecten betroffen ELO, studenteninformatiesystemen (Eduarte), E-HRM, en roostersoftware (Xedule). Alle systemen zijn geïntegreerd en projectmatig aangestuurd.
+          {{ else if eq .title "ROC Nijmegen" }}
+            ROC Nijmegen – Implementatie Elektronische Leeromgeving<br><br>
+            Als projectleider is binnen ROC Nijmegen een Elektronische Leeromgeving (ELO) geïmplementeerd. Na openbare aanbesteding is een breed gedragen implementatieplan gerealiseerd, met focus op training en adoptie. Prince2 werd toegepast als projectmethodiek, met goede afstemming tussen parallelle projecten.
+          {{ else if eq .title "Innovio Papers" }}
+            InnovioPapers BV – CIO bij Carve-out en Transitie<br><br>
+            Bij de verzelfstandiging van een papierfabriek vanuit de Sappi Group is de volledige ICT-afdeling heringericht. De carve-out omvatte vervanging van het applicatielandschap, herstructurering van infrastructuur en implementatie van een nieuw MES-systeem (Honeywell Optivision). SLA's en leveranciersmanagement zijn herzien voor continuïteit en schaalbaarheid.
+          {{ else if eq .title "Sappi Fine Paper Europe" }}
+            Sappi Nijmegen BV – IT Carve-out & Audit<br><br>
+            In het kader van een geplande overname is een carve-out plan opgesteld voor de volledige IT-organisatie van Sappi Nijmegen. De audit omvatte infrastructuur, MES, ERP, kantoorautomatisering, telefonie en supportprocessen. Dit leverde een compleet IT-dossier op voor due diligence.
+          {{ else if eq .title "LiQiT" }}
+            LiQiT – Directievoering ICT-dienstverlening<br><br>
+            Als oprichter en directeur van LiQiT is meer dan tien jaar leiding gegeven aan een team van ICT-professionals. Het bedrijf leverde systeem- en netwerkbeheer aan een breed klantenbestand. Verantwoordelijkheden omvatten bedrijfsvoering, HR, financiën, sales en klantrelaties.
+          {{ else if eq .title "Radboud Universiteit" }}
+            Radboud Universiteit & Radboud UMC – Advies onderzoeksprojecten<br><br>
+            Twee strategische projecten zijn geadviseerd binnen de onderzoekskolom van de Radboud Universiteit en het UMC. Het betrof de aanbesteding en implementatie van een nieuw Current Research Information System (CRIS) en de optimalisatie van financiële processen rond proefpersonenbetalingen. De inzet richtte zich op procesinrichting en projectstructuur, met aandacht voor governance en compliance.
+          {{ else if eq .title "Radboud UMC" }}
+            Radboud Universiteit & Radboud UMC – Advies onderzoeksprojecten<br><br>
+            Twee strategische projecten zijn geadviseerd binnen de onderzoekskolom van de Radboud Universiteit en het UMC. Het betrof de aanbesteding en implementatie van een nieuw Current Research Information System (CRIS) en de optimalisatie van financiële processen rond proefpersonenbetalingen. De inzet richtte zich op procesinrichting en projectstructuur, met aandacht voor governance en compliance.
+          {{ else if eq .title "Albeda College Rotterdam" }}
+            Albeda MBO – Optimalisatie ICT-dienstverlening<br><br>
+            Voor het Albeda College is de ICT-dienstverlening per business unit geoptimaliseerd met behulp van een centrale Product-diensten Catalogus. De aanpak versterkte de aansluiting van ICT op de onderwijsprocessen binnen ROC en VO-onderdelen.
+          {{ else if eq .title "Landstede Zwolle" }}
+            Landstede Zwolle – Strategisch ICT-advies<br><br>
+            Voor Landstede Zwolle is strategisch ICT-advies geleverd om de aansluiting tussen onderwijs en ICT te verbeteren. De focus lag op het optimaliseren van de ICT-infrastructuur en het implementeren van moderne onderwijstechnologieën.
+          {{ else if eq .title "INR Trombosedienst Nijmegen" }}
+            INR Trombosedienst Nijmegen – IT Programmamanagement<br><br>
+            Voor de INR Trombosedienst Nijmegen is een IT-programma geleid om de dienstverlening te digitaliseren en te moderniseren. Het project omvatte de implementatie van nieuwe systemen voor patiëntenbeheer en medische monitoring.
+          {{ else if eq .title "Zuyd Hogeschool" }}
+            Zuyd Hogeschool – Interim ICT Management<br><br>
+            Als interim ICT Manager bij Zuyd Hogeschool is de ICT-afdeling geherstructureerd en geprofessionaliseerd. Belangrijke projecten omvatten de modernisering van de IT-infrastructuur, implementatie van nieuwe onderwijssystemen en verbetering van de ICT-dienstverlening.
+          {{ else }}
+            {{ .description }}
+          {{ end }}
+        </div>
         <h3>{{ .title }}</h3>
       </a>
     </div>
