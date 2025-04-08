@@ -82,5 +82,17 @@
     "description": "IT Program Manager",
     "image": "/images/projects/trombosezorg-dichtbij.png",
     "url": "#"
+  },
+  {
+    "title": "KNMP",
+    "description": "Projectmanager Digitale Kennisbank",
+    "image": "/images/projects/knmp.png",
+    "url": "#"
+  },
+  {
+    "title": "Veiligheidsregio Gelderland Zuid",
+    "description": "ICT-prestatieverbetering",
+    "image": "/images/projects/veiligheidsregio.png",
+    "url": "#"
   }
 ]
