@@ -42,20 +42,22 @@
   height: auto;
   min-height: 250px;
   max-height: 600px;
-  background-color: rgba(0, 119, 182, 0.9);
+  /* Bijna-zwarte overlay voor maximaal leescomfort op witte tekst,
+     met blauwe rand-tint zodat de hover-stijl in lijn blijft */
+  background-color: rgba(8, 24, 38, 0.94);
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
-  padding: 25px;
+  padding: 1.75rem;
   text-align: left;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
   overflow-y: auto;
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 1rem; /* 16px (was 15px) */
+  line-height: 1.65;
 }
 
 .project-item:hover .hover-text {
