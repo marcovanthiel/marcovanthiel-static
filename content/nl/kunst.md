@@ -6,7 +6,7 @@ description: "De kunstcollectie van Marco van Thiel — een persoonlijk archief 
 showArtworkOfTheDay: true
 cta:
   label: "Bezoek de collectie"
-  url: "https://kunstcollectie.onrender.com/collectie"
+  url: "https://kunstcollectie.marcovanthiel.nl/collectie"
   external: true
 ---
 
