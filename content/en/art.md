@@ -4,13 +4,12 @@ date: 2026-05-02
 draft: false
 description: "Marco van Thiel's art collection — a personal archive of contemporary art, managed in a custom-built application."
 showArtworkOfTheDay: true
+heroIntro: "Alongside my work in IT and consultancy I collect art. A growing personal archive of contemporary works — painting, photography, sculpture — with attention to the makers and their stories."
 cta:
   label: "Visit the collection"
   url: "https://kunstcollectie.marcovanthiel.nl/collectie"
   external: true
 ---
-
-Alongside my work in IT and consultancy I collect art. A growing personal archive of contemporary works — painting, photography, sculpture — with attention to the makers and their stories.
 
 ## A custom archive
 

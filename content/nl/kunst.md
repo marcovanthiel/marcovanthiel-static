@@ -4,13 +4,12 @@ date: 2026-05-02
 draft: false
 description: "De kunstcollectie van Marco van Thiel — een persoonlijk archief van hedendaagse kunst, beheerd in een eigen applicatie."
 showArtworkOfTheDay: true
+heroIntro: "Naast werk in ICT en consultancy verzamel ik kunst. Een groeiend persoonlijk archief van hedendaagse werken — schilderkunst, fotografie, sculptuur — met aandacht voor de makers en hun verhalen."
 cta:
   label: "Bezoek de collectie"
   url: "https://kunstcollectie.marcovanthiel.nl/collectie"
   external: true
 ---
-
-Naast werk in ICT en consultancy verzamel ik kunst. Een groeiend persoonlijk archief van hedendaagse werken — schilderkunst, fotografie, sculptuur — met aandacht voor de makers en hun verhalen.
 
 ## Een eigen archief
 

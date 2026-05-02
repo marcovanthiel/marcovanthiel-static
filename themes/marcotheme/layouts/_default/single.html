@@ -1,6 +1,18 @@
 {{ define "main" }}
+{{ $hasAod := .Params.showArtworkOfTheDay }}
+{{ $hasIntro := isset .Params "heroIntro" }}
+
 <div class="hero-section">
   <h1>{{ .Title }}</h1>
+  {{/* Bij showArtworkOfTheDay: alleen heroIntro in de hero, body komt onder.
+       Anders (gewone single page): full content in de hero zoals voorheen. */}}
+  {{ if $hasAod }}
+    {{ if $hasIntro }}
+    <div class="hero-content hero-content--lead">
+      <p class="hero-lead">{{ .Params.heroIntro }}</p>
+    </div>
+    {{ end }}
+  {{ else }}
   <div class="hero-content">
     {{ .Content }}
 
@@ -12,19 +24,33 @@
     </p>
     {{ end }}
   </div>
+  {{ end }}
 </div>
 
-{{ if .Params.showArtworkOfTheDay }}
+{{ if $hasAod }}
 {{ $apiBase := .Site.Params.kunstcollectieApiUrl | default .Site.Params.kunstcollectieUrl | default "" }}
 {{ $frontendBase := .Site.Params.kunstcollectieUrl | default "" }}
-<section class="aod-section" data-aod-api="{{ $apiBase }}/api/public/artwork-of-the-day" data-aod-detail-base="{{ $frontendBase }}/collectie">
-  <div class="container">
-    <h2>{{ i18n "artworkOfTheDay" | default "Kunstwerk van de dag" }}</h2>
-    <div class="aod-card" id="aod-card" aria-live="polite">
-      <div class="aod-loading">{{ i18n "loading" | default "Bezig met laden…" }}</div>
-    </div>
+<div class="kunst-layout">
+  <div class="kunst-text">
+    {{ .Content }}
+
+    {{ if .Params.cta }}
+    <p class="kunst-cta">
+      <a href="{{ .Params.cta.url }}" class="btn"{{ if .Params.cta.external }} target="_blank" rel="noopener"{{ end }}>
+        {{ .Params.cta.label }} →
+      </a>
+    </p>
+    {{ end }}
   </div>
-</section>
+  <aside class="kunst-aod">
+    <section class="aod-section" data-aod-api="{{ $apiBase }}/api/public/artwork-of-the-day" data-aod-detail-base="{{ $frontendBase }}/collectie">
+      <h2>{{ i18n "artworkOfTheDay" | default "Kunstwerk van de dag" }}</h2>
+      <div class="aod-card" id="aod-card" aria-live="polite">
+        <div class="aod-loading">{{ i18n "loading" | default "Bezig met laden…" }}</div>
+      </div>
+    </section>
+  </aside>
+</div>
 {{ end }}
 
 {{ if .Params.showProjects }}

@@ -216,6 +216,12 @@ a:hover {
   max-width: 90%;
 }
 
+/* Failsafe: alle h1's binnen een hero-overlay zijn wit
+   (de globale h1-kleur is blauw — dat zou onleesbaar zijn op blauw) */
+.home-hero h1, .hero-section h1 {
+  color: white;
+}
+
 /* Content styling for new layout */
 .hero-content {
   font-size: 1.1rem;
@@ -467,7 +473,64 @@ a:hover {
   }
 }
 
-/* ============== Kunstwerk van de dag (aod) ============== */
+/* ============== Kunst-pagina layout (h2-tekst links + aod rechts) ============== */
+
+.kunst-layout {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--section-padding);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.kunst-text > h2:first-child {
+  margin-top: 0;
+}
+
+.kunst-cta {
+  margin-top: 2rem;
+}
+
+.kunst-aod .aod-section {
+  padding: 0;
+  background: transparent;
+}
+
+.kunst-aod .aod-section h2 {
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.kunst-aod .aod-card {
+  margin-left: 0;
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 1024px) {
+  .kunst-layout {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 4rem;
+  }
+  .kunst-aod {
+    position: sticky;
+    top: 6rem; /* hangt onder de sticky header */
+  }
+}
+
+/* Hero-lead: enkele intro-paragraaf in hero, iets ruimer dan body-tekst */
+.hero-lead {
+  font-size: 1.1rem;
+  font-weight: 400;
+  max-width: 65ch;
+}
+
+/* ============== Kunstwerk van de dag (aod) — fallback voor pagina's
+   waar de aod-section los gebruikt wordt zonder kunst-layout ============== */
 
 .aod-section {
   padding: var(--section-padding);
