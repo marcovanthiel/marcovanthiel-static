@@ -1,41 +1,46 @@
 {{ define "main" }}
-<article class="single">
-  <div class="container">
-    <p class="eyebrow fade-up">{{ .Section | default .Title }}</p>
-    <h1 class="fade-up delay-1">{{ .Title }}</h1>
-    <div class="fade-up delay-2">
-      {{ .Content }}
-    </div>
+<div class="hero-section">
+  <h1>{{ .Title }}</h1>
+  <div class="hero-content">
+    {{ .Content }}
 
     {{ if .Params.cta }}
-    <p style="margin-top: 2.5rem;">
-      <a href="{{ .Params.cta.url }}" class="cta-button"{{ if .Params.cta.external }} target="_blank" rel="noopener"{{ end }}>
-        {{ .Params.cta.label }}
-        <span class="arrow">↗</span>
+    <p style="margin-top: 2rem;">
+      <a href="{{ .Params.cta.url }}" class="btn"{{ if .Params.cta.external }} target="_blank" rel="noopener"{{ end }}>
+        {{ .Params.cta.label }} →
       </a>
     </p>
     {{ end }}
   </div>
-</article>
+</div>
 
 {{ if .Params.showProjects }}
-<section class="projects-section">
-  <div class="container">
-    <h2>{{ i18n "projectPortfolio" }}</h2>
-    <div class="project-grid">
-      {{ range .Site.Data.projects }}
-      {{ $body := .description }}
-      {{ with .details }}{{ $body = . }}{{ end }}
-      <article class="project-item">
-        <a href="{{ .url }}" {{ if ne .url "#" }}target="_blank" rel="noopener"{{ end }}>
-          <img src="{{ .image }}" alt="{{ .title }}" loading="lazy" decoding="async">
-          <div class="hover-text">{{ $body | replaceRE "\n" "<br>" | safeHTML }}</div>
-          <h3>{{ .title }}</h3>
-        </a>
-      </article>
-      {{ end }}
+<div class="projects-section">
+  <h2>{{ i18n "projectPortfolio" }}</h2>
+  <div class="project-grid">
+    {{ range .Site.Data.projects }}
+    {{ $body := .description }}
+    {{ with .details }}{{ $body = . }}{{ end }}
+    <div class="project-item">
+      <a href="{{ .url }}" {{ if ne .url "#" }}target="_blank" rel="noopener"{{ end }}>
+        <img src="{{ .image }}" alt="{{ .title }}" loading="lazy" decoding="async">
+        <div class="hover-text">{{ $body | replaceRE "\n" "<br>" | safeHTML }}</div>
+        <h3>{{ .title }}</h3>
+      </a>
     </div>
+    {{ end }}
   </div>
-</section>
+</div>
+{{ end }}
+
+{{ if .Params.showContact }}
+<div class="contact-section">
+  <h2>{{ i18n "contact" }}</h2>
+  <div class="contact-info">
+    <p><a href="mailto:{{ .Site.Params.contact.email }}">{{ .Site.Params.contact.email }}</a></p>
+    <p><a href="tel:{{ replace .Site.Params.contact.phone " " "" }}">{{ .Site.Params.contact.phone }}</a></p>
+    <p><a href="{{ .Site.Params.contact.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+  </div>
+</div>
 {{ end }}
 {{ end }}
