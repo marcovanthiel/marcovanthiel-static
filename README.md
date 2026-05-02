@@ -5,7 +5,7 @@ This repository contains a static version of the Marco van Thiel website, built 
 ## Features
 
 - Fast, static website with no WordPress dependency
-- Multilingual support (Dutch and English)
+- Multilingual support (Dutch, English, German, Italian, Chinese)
 - Responsive design
 - Project portfolio showcase
 - Contact information
@@ -59,4 +59,4 @@ This site is configured for deployment to Cloudflare Pages.
 
 ## License
 
-© 2025 Marco van Thiel. All rights reserved.
+© 2026 Marco van Thiel. All rights reserved.
