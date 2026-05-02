@@ -438,6 +438,137 @@ a:hover {
   }
 }
 
+/* ============== Kunstwerk van de dag (aod) ============== */
+
+.aod-section {
+  padding: var(--section-padding);
+  background-color: #f8f9fa;
+}
+
+.aod-section h2 {
+  margin-left: 5%;
+  margin-bottom: 2rem;
+}
+
+.aod-section .aod-card {
+  margin-left: 5%;
+  width: 90%;
+  max-width: 880px;
+}
+
+.aod-loading {
+  padding: 3rem 1rem;
+  color: var(--text-color);
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.aod-link {
+  display: grid;
+  grid-template-columns: minmax(180px, 320px) 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aod-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.18);
+  color: var(--text-color);
+}
+
+.aod-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f4f8;
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 240px;
+}
+
+.aod-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 360px;
+}
+
+.aod-noimg {
+  color: var(--text-color);
+  opacity: 0.4;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.aod-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.aod-eyebrow {
+  font-family: var(--header-font);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--primary-color);
+  opacity: 0.85;
+  margin: 0 0 0.25rem;
+}
+
+.aod-title {
+  font-family: var(--header-font);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.aod-artist {
+  font-size: 1.05rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.aod-detail {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin: 0.5rem 0 0;
+}
+
+.aod-detail .aod-dot {
+  margin: 0 0.4rem;
+  opacity: 0.4;
+}
+
+.aod-year {
+  font-weight: 500;
+}
+
+@media (max-width: 700px) {
+  .aod-section .aod-card { margin-left: 5%; width: 90%; }
+  .aod-link {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+  .aod-image { min-height: 200px; }
+  .aod-title { font-size: 1.35rem; }
+}
+
 /* Skip-link voor toetsenbord-navigatie — alleen zichtbaar bij focus */
 .skip-link {
   position: absolute;

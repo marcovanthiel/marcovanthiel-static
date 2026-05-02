@@ -3,6 +3,7 @@ title: "Art"
 date: 2026-05-02
 draft: false
 description: "Marco van Thiel's art collection — a personal archive of contemporary art, managed in a custom-built application."
+showArtworkOfTheDay: true
 cta:
   label: "Visit the collection"
   url: "https://kunstcollectie.onrender.com/collectie"

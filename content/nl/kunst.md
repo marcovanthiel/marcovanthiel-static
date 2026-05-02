@@ -3,6 +3,7 @@ title: "Kunst"
 date: 2026-05-02
 draft: false
 description: "De kunstcollectie van Marco van Thiel — een persoonlijk archief van hedendaagse kunst, beheerd in een eigen applicatie."
+showArtworkOfTheDay: true
 cta:
   label: "Bezoek de collectie"
   url: "https://kunstcollectie.onrender.com/collectie"

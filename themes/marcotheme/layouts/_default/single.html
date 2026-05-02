@@ -14,6 +14,18 @@
   </div>
 </div>
 
+{{ if .Params.showArtworkOfTheDay }}
+{{ $apiBase := .Site.Params.kunstcollectieUrl | default "" }}
+<section class="aod-section" data-aod-api="{{ $apiBase }}/api/public/artwork-of-the-day" data-aod-detail-base="{{ $apiBase }}/collectie">
+  <div class="container">
+    <h2>{{ i18n "artworkOfTheDay" | default "Kunstwerk van de dag" }}</h2>
+    <div class="aod-card" id="aod-card" aria-live="polite">
+      <div class="aod-loading">{{ i18n "loading" | default "Bezig met laden…" }}</div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
 {{ if .Params.showProjects }}
 <div class="projects-section">
   <h2>{{ i18n "projectPortfolio" }}</h2>
