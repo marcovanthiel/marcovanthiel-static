@@ -15,8 +15,9 @@
 </div>
 
 {{ if .Params.showArtworkOfTheDay }}
-{{ $apiBase := .Site.Params.kunstcollectieUrl | default "" }}
-<section class="aod-section" data-aod-api="{{ $apiBase }}/api/public/artwork-of-the-day" data-aod-detail-base="{{ $apiBase }}/collectie">
+{{ $apiBase := .Site.Params.kunstcollectieApiUrl | default .Site.Params.kunstcollectieUrl | default "" }}
+{{ $frontendBase := .Site.Params.kunstcollectieUrl | default "" }}
+<section class="aod-section" data-aod-api="{{ $apiBase }}/api/public/artwork-of-the-day" data-aod-detail-base="{{ $frontendBase }}/collectie">
   <div class="container">
     <h2>{{ i18n "artworkOfTheDay" | default "Kunstwerk van de dag" }}</h2>
     <div class="aod-card" id="aod-card" aria-live="polite">
