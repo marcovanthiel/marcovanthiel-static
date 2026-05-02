@@ -51,5 +51,8 @@ params:
     phone: "+31 (0)6 54 211 659"
     linkedin: "https://www.linkedin.com/in/marcovanthiel/"
     address: "Nijmegen, Nederland"
-  
+  # URL naar de aparte kunstcollectie-applicatie. Pas aan zodra je
+  # een eigen (sub)domein hebt, bv. https://collectie.marcovanthiel.nl
+  kunstcollectieUrl: "https://kunstcollectie.onrender.com"
+
 # Menu configuration will be added later

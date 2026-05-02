@@ -3,52 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
-    
-    <!-- Google Fonts -->
+
+    {{/* SEO + sociale-deel meta */}}
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:locale" content="{{ .Site.Language.Lang }}_{{ upper .Site.Language.Lang }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#040305">
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    {{/* Hreflang voor multilang SEO */}}
+    {{ range .AllTranslations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+    {{ end }}
+
+    <!-- Fonts: Inter (body) + Instrument Serif (display) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
     <!-- Stylesheets -->
-    {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-    
-    {{ $langStyle := resources.Get "css/language-switcher.css" | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $langStyle.RelPermalink }}">
-    
-    {{ $projectStyle := resources.Get "css/projects.css" | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $projectStyle.RelPermalink }}">
-    
+    {{ $main := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $main.RelPermalink }}" integrity="{{ $main.Data.Integrity }}">
+
+    {{ $lang := resources.Get "css/language-switcher.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $lang.RelPermalink }}" integrity="{{ $lang.Data.Integrity }}">
+
+    {{ $proj := resources.Get "css/projects.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $proj.RelPermalink }}" integrity="{{ $proj.Data.Integrity }}">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/logo/logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+
+    {{/* JSON-LD Person schema voor de homepage */}}
+    {{ if .IsHome }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Marco van Thiel",
+      "url": "{{ .Site.BaseURL }}",
+      "email": "{{ .Site.Params.contact.email }}",
+      "telephone": "{{ .Site.Params.contact.phone }}",
+      "address": "{{ .Site.Params.contact.address }}",
+      "sameAs": ["{{ .Site.Params.contact.linkedin }}"],
+      "jobTitle": "Interim CIO, Programma- en Projectmanager",
+      "description": "{{ .Site.Params.description }}"
+    }
+    </script>
+    {{ end }}
 </head>
 <body class="{{ if .IsHome }}home{{ else }}page{{ end }}">
+    <a href="#main" class="skip-link">{{ i18n "skipToContent" | default "Naar hoofdinhoud" }}</a>
+
     <header class="site-header">
         <div class="container">
             <div class="logo">
-                <a href="{{ .Site.Home.RelPermalink }}">
-                    <img src="/images/logo/logo.png" alt="Van Thiel Management & Consultancy">
+                <a href="{{ .Site.Home.RelPermalink }}" aria-label="Marco van Thiel — home">
+                    <span class="brand-mark">marco van thiel</span>
                 </a>
-                <p>Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager</p>
             </div>
-            
-            <nav class="main-nav">
+
+            <nav class="main-nav" aria-label="{{ i18n "mainNav" | default "Hoofdnavigatie" }}">
                 <ul>
                     {{ range .Site.Menus.main }}
                     <li><a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}class="active"{{ end }}>{{ .Name }}</a></li>
                     {{ end }}
                 </ul>
             </nav>
-            
+
             <div class="language-dropdown">
-                <button class="language-dropdown-btn">
+                <button class="language-dropdown-btn" aria-haspopup="true" aria-label="{{ i18n "languageMenu" | default "Taal kiezen" }}">
                     <span class="flag-icon flag-{{ if eq .Site.Language.Lang "en" }}gb{{ else }}{{ .Site.Language.Lang }}{{ end }}"></span>
                 </button>
-                <div class="language-dropdown-content">
+                <div class="language-dropdown-content" role="menu">
                     {{ range .Site.Home.AllTranslations }}
-                    <a href="{{ .Permalink }}" class="{{ if eq .Language.Lang $.Site.Language.Lang }}active{{ end }}">
+                    <a href="{{ .Permalink }}" class="{{ if eq .Language.Lang $.Site.Language.Lang }}active{{ end }}" role="menuitem" lang="{{ .Language.Lang }}">
                         <span class="flag-icon flag-{{ if eq .Language.Lang "en" }}gb{{ else }}{{ .Language.Lang }}{{ end }}"></span>
                     </a>
                     {{ end }}
@@ -57,7 +93,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main">
         {{ block "main" . }}{{ end }}
     </main>
 
@@ -66,14 +102,14 @@
             <div class="footer-content">
                 <div class="contact-info">
                     <h3>{{ i18n "contactTitle" }}</h3>
-                    <p>{{ .Site.Params.contact.email }}</p>
-                    <p>{{ .Site.Params.contact.phone }}</p>
-                    <p><a href="{{ .Site.Params.contact.linkedin }}">LinkedIn</a></p>
+                    <p><a href="mailto:{{ .Site.Params.contact.email }}">{{ .Site.Params.contact.email }}</a></p>
+                    <p><a href="tel:{{ replace .Site.Params.contact.phone " " "" }}">{{ .Site.Params.contact.phone }}</a></p>
+                    <p><a href="{{ .Site.Params.contact.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></p>
                     <p>{{ .Site.Params.contact.address }}</p>
                 </div>
-                
+
                 <div class="copyright">
-                    <p>© {{ now.Format "2006" }} {{ .Site.Title }}. {{ i18n "allRightsReserved" }}</p>
+                    <p>© {{ now.Format "2006" }} {{ .Site.Title }}<br>{{ i18n "allRightsReserved" }}</p>
                 </div>
             </div>
         </div>
@@ -81,6 +117,6 @@
 
     <!-- Scripts -->
     {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
-    <script src="{{ $script.RelPermalink }}"></script>
+    <script src="{{ $script.RelPermalink }}" defer></script>
 </body>
 </html>
