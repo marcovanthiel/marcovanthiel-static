@@ -2,7 +2,7 @@
   {
     "title": "Stichting Koraal & Via Jeugd",
     "description": "Programmamanager Fusie",
-    "details": "Stichting Koraal & Via Jeugd — Programmamanager Fusie (2025–heden)\n\nIntegrale sturing van het fusieproces van twee zorgorganisaties in een tweejaarstraject. Verantwoordelijk voor negen deelgebieden: governance, finance, HR, vastgoed, ICT, inkoop en communicatie. Focus op de realisatie van efficiency-doelstellingen en het identificeren van synergievoordelen.",
+    "details": "Stichting Koraal & Via Jeugd — Programmamanager Fusie\n\nIntegrale sturing van het fusieproces van twee zorgorganisaties in een tweejaarstraject. Verantwoordelijk voor negen deelgebieden: governance, finance, HR, vastgoed, ICT, inkoop en communicatie. Focus op de realisatie van efficiency-doelstellingen en het identificeren van synergievoordelen.",
     "image": "/images/projects/koraal-viajeugd.svg",
     "url": "#"
   },
@@ -14,10 +14,24 @@
     "url": "#"
   },
   {
-    "title": "Scala Basisscholen regio Heusden",
-    "description": "Interim ICT- en informatiemanager",
-    "details": "Stichting Scala Scholen — Informatiemanagement & ICT-transitie\n\nBinnen Scala Scholen is als informatiemanager een complete herstructurering van de ICT-infrastructuur uitgevoerd. De uitbesteding naar een nieuwe leverancier, transitie naar Office 365, modernisering van netwerken en verbetering van beveiliging zijn succesvol gerealiseerd. Alle locaties zijn voorzien van volledige wifi-dekking en integraties met leerling- en interne systemen.",
-    "image": "/images/projects/scala.jpg",
+    "title": "Radboud Universiteit",
+    "description": "Project Adviseur Organisatieprojecten",
+    "details": "Radboud Universiteit Nijmegen — Project Adviseur Organisatieprojecten\n\nAdvisering bij de vervanging van het Current Research Information System (CRIS) met impact op de gehele research-omgeving. Ontwikkeling van een centraal uitbetalingssysteem voor proefpersonen. Begeleiding van complexe organisatiewijzigingen binnen de universitaire context.",
+    "image": "/images/projects/Radboud universiteit.png",
+    "url": "#"
+  },
+  {
+    "title": "Radboud UMC",
+    "description": "IT-programmamanager onderzoek",
+    "details": "Radboud Universiteit & Radboud UMC — Advies onderzoeksprojecten\n\nTwee strategische projecten zijn geadviseerd binnen de onderzoekskolom van de Radboud Universiteit en het UMC. Het betrof de aanbesteding en implementatie van een nieuw Current Research Information System (CRIS) en de optimalisatie van financiële processen rond proefpersonenbetalingen. De inzet richtte zich op procesinrichting en projectstructuur, met aandacht voor governance en compliance.",
+    "image": "/images/projects/Radboud umc.png",
+    "url": "#"
+  },
+  {
+    "title": "Zuyd Hogeschool",
+    "description": "Programmamanager Research Project Lifecycle Management",
+    "details": "Zuyd Hogeschool — Programmamanager Research Project Lifecycle Management\n\nLeiding aan een transformatieprogramma ter verbetering van de ondersteuning van lectoraten. Herontwerp van het gehele onderzoekssupport — van idee tot valorisatie. Aanbesteding en implementatie van een nieuw softwareplatform voor de volledige research-lifecycle.",
+    "image": "/images/projects/zuyd_logo_niv_1_rd_rgb.png",
     "url": "#"
   },
   {
@@ -25,20 +39,6 @@
     "description": "Programma- en portfoliomanager Eduarte",
     "details": "ROC Friese Poort — Programma- en Portfoliomanagement Eduarte\n\nInstellingsbreed is Eduarte ingevoerd als kernsysteem voor studenteninformatie. Dit programma verving diverse losse systemen en omvatte de volledige studentenlogistiek, examenprocessen, DLO en zorgstructuren. De aansturing vond plaats via 12 deelprojecten met integratie naar Xedule, Office365 en financiële administratie. Lean-methoden zijn ingezet voor procesoptimalisatie en efficiency.",
     "image": "/images/projects/roc-friese-poort.jpg",
-    "url": "#"
-  },
-  {
-    "title": "ROC Ter Aa Helmond",
-    "description": "Kwartiermaker Informatiemanagement",
-    "details": "ROC Ter AA — Kwartiermaker Informatiemanagement\n\nBinnen ROC Ter AA is een nieuwe projectenorganisatie opgezet volgens Prince2, als onderdeel van het instellingsbrede besturingsmodel. Belangrijke projecten betroffen ELO, studenteninformatiesystemen (Eduarte), E-HRM, en roostersoftware (Xedule). Alle systemen zijn geïntegreerd en projectmatig aangestuurd.",
-    "image": "/images/projects/roc-teraa-helmond.jpg",
-    "url": "#"
-  },
-  {
-    "title": "ROC Nijmegen",
-    "description": "Projectleider implementatie ELO",
-    "details": "ROC Nijmegen — Implementatie Elektronische Leeromgeving\n\nAls projectleider is binnen ROC Nijmegen een Elektronische Leeromgeving (ELO) geïmplementeerd. Na openbare aanbesteding is een breed gedragen implementatieplan gerealiseerd, met focus op training en adoptie. Prince2 werd toegepast als projectmethodiek, met goede afstemming tussen parallelle projecten.",
-    "image": "/images/projects/roc-nijmegen.jpg",
     "url": "#"
   },
   {
@@ -56,31 +56,24 @@
     "url": "#"
   },
   {
+    "title": "Scala Basisscholen regio Heusden",
+    "description": "Interim ICT- en informatiemanager",
+    "details": "Stichting Scala Scholen — Informatiemanagement & ICT-transitie\n\nBinnen Scala Scholen is als informatiemanager een complete herstructurering van de ICT-infrastructuur uitgevoerd. De uitbesteding naar een nieuwe leverancier, transitie naar Office 365, modernisering van netwerken en verbetering van beveiliging zijn succesvol gerealiseerd. Alle locaties zijn voorzien van volledige wifi-dekking en integraties met leerling- en interne systemen.",
+    "image": "/images/projects/scala.jpg",
+    "url": "#"
+  },
+  {
+    "title": "ROC Ter Aa Helmond",
+    "description": "Kwartiermaker Informatiemanagement",
+    "details": "ROC Ter AA — Kwartiermaker Informatiemanagement\n\nBinnen ROC Ter AA is een nieuwe projectenorganisatie opgezet volgens Prince2, als onderdeel van het instellingsbrede besturingsmodel. Belangrijke projecten betroffen ELO, studenteninformatiesystemen (Eduarte), E-HRM, en roostersoftware (Xedule). Alle systemen zijn geïntegreerd en projectmatig aangestuurd.",
+    "image": "/images/projects/roc-teraa-helmond.jpg",
+    "url": "#"
+  },
+  {
     "title": "LiQiT",
     "description": "Oprichter & directeur ICT-dienstverlening",
     "details": "LiQiT — Directievoering ICT-dienstverlening\n\nAls oprichter en directeur van LiQiT is meer dan tien jaar leiding gegeven aan een team van ICT-professionals. Het bedrijf leverde systeem- en netwerkbeheer aan een breed klantenbestand. Verantwoordelijkheden omvatten bedrijfsvoering, HR, financiën, sales en klantrelaties.",
     "image": "/images/projects/liqit.jpg",
-    "url": "#"
-  },
-  {
-    "title": "Radboud Universiteit",
-    "description": "Project Adviseur Organisatieprojecten",
-    "details": "Radboud Universiteit Nijmegen — Project Adviseur Organisatieprojecten (2024–heden)\n\nAdvisering bij de vervanging van het Current Research Information System (CRIS) met impact op de gehele research-omgeving. Ontwikkeling van een centraal uitbetalingssysteem voor proefpersonen. Begeleiding van complexe organisatiewijzigingen binnen de universitaire context.",
-    "image": "/images/projects/Radboud universiteit.png",
-    "url": "#"
-  },
-  {
-    "title": "Radboud UMC",
-    "description": "IT-programmamanager onderzoek",
-    "details": "Radboud Universiteit & Radboud UMC — Advies onderzoeksprojecten\n\nTwee strategische projecten zijn geadviseerd binnen de onderzoekskolom van de Radboud Universiteit en het UMC. Het betrof de aanbesteding en implementatie van een nieuw Current Research Information System (CRIS) en de optimalisatie van financiële processen rond proefpersonenbetalingen. De inzet richtte zich op procesinrichting en projectstructuur, met aandacht voor governance en compliance.",
-    "image": "/images/projects/Radboud umc.png",
-    "url": "#"
-  },
-  {
-    "title": "Zuyd Hogeschool",
-    "description": "Programmamanager Research Project Lifecycle Management",
-    "details": "Zuyd Hogeschool — Programmamanager Research Project Lifecycle Management (2025–heden)\n\nLeiding aan een transformatieprogramma ter verbetering van de ondersteuning van lectoraten. Herontwerp van het gehele onderzoekssupport — van idee tot valorisatie. Aanbesteding en implementatie van een nieuw softwareplatform voor de volledige research-lifecycle.",
-    "image": "/images/projects/zuyd_logo_niv_1_rd_rgb.png",
     "url": "#"
   },
   {
@@ -91,10 +84,17 @@
     "url": "#"
   },
   {
-    "title": "Landstede Zwolle",
-    "description": "Strategisch ICT-advies",
-    "details": "Landstede Zwolle — Strategisch ICT-advies\n\nVoor Landstede Zwolle is strategisch ICT-advies geleverd om de aansluiting tussen onderwijs en ICT te verbeteren. De focus lag op het optimaliseren van de ICT-infrastructuur en het implementeren van moderne onderwijstechnologieën.",
-    "image": "/images/projects/landstede-zwolle.webp",
+    "title": "ROC Nijmegen",
+    "description": "Projectleider implementatie ELO",
+    "details": "ROC Nijmegen — Implementatie Elektronische Leeromgeving\n\nAls projectleider is binnen ROC Nijmegen een Elektronische Leeromgeving (ELO) geïmplementeerd. Na openbare aanbesteding is een breed gedragen implementatieplan gerealiseerd, met focus op training en adoptie. Prince2 werd toegepast als projectmethodiek, met goede afstemming tussen parallelle projecten.",
+    "image": "/images/projects/roc-nijmegen.jpg",
+    "url": "#"
+  },
+  {
+    "title": "KNMP",
+    "description": "Projectmanager Digitale Kennisbank",
+    "details": "KNMP — Projectmanager Digitale Kennisbank\n\nVoor de KNMP is een strategisch project gestart om de kennisbank voor apothekers in Nederland te moderniseren. De projectstructuur is ingericht en een diepgaande probleemanalyse uitgevoerd om de informatievoorziening te verbeteren en apothekers effectiever te ondersteunen in hun werk.",
+    "image": "/images/projects/knmp.png",
     "url": "#"
   },
   {
@@ -105,10 +105,10 @@
     "url": "#"
   },
   {
-    "title": "KNMP",
-    "description": "Projectmanager Digitale Kennisbank",
-    "details": "KNMP — Projectmanager Digitale Kennisbank\n\nVoor de KNMP is een strategisch project gestart om de kennisbank voor apothekers in Nederland te moderniseren. De projectstructuur is ingericht en een diepgaande probleemanalyse uitgevoerd om de informatievoorziening te verbeteren en apothekers effectiever te ondersteunen in hun werk.",
-    "image": "/images/projects/knmp.png",
+    "title": "Landstede Zwolle",
+    "description": "Strategisch ICT-advies",
+    "details": "Landstede Zwolle — Strategisch ICT-advies\n\nVoor Landstede Zwolle is strategisch ICT-advies geleverd om de aansluiting tussen onderwijs en ICT te verbeteren. De focus lag op het optimaliseren van de ICT-infrastructuur en het implementeren van moderne onderwijstechnologieën.",
+    "image": "/images/projects/landstede-zwolle.webp",
     "url": "#"
   },
   {
