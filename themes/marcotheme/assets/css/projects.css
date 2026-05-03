@@ -19,10 +19,28 @@
   box-shadow: 0 5px 15px rgba(0, 119, 182, 0.2);
 }
 
-.project-item a {
+.project-item a,
+.project-item-btn {
   display: block;
   text-decoration: none;
   color: #333333;
+}
+
+/* Knop-vormige variant (geen externe URL): geen knop-look, gedraagt zich
+   als een klikbare kaart die een modal opent. */
+.project-item-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  text-align: inherit;
+}
+.project-item-btn:focus-visible {
+  outline: 2px solid #0077b6;
+  outline-offset: 3px;
 }
 
 .project-item img {
@@ -34,36 +52,6 @@
   display: block;
 }
 
-.hover-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  min-height: 250px;
-  max-height: 600px;
-  /* Bijna-zwarte overlay voor maximaal leescomfort op witte tekst,
-     met blauwe rand-tint zodat de hover-stijl in lijn blijft */
-  background-color: rgba(8, 24, 38, 0.94);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 1.75rem;
-  text-align: left;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  overflow-y: auto;
-  font-size: 1rem; /* 16px (was 15px) */
-  line-height: 1.65;
-}
-
-.project-item:hover .hover-text {
-  opacity: 1;
-}
-
 .project-item h3 {
   padding: 15px;
   margin: 0;
@@ -72,4 +60,125 @@
   background-color: #f8f9fa;
   font-family: 'Montserrat', sans-serif;
   color: #0077b6;
+}
+
+/* ============================================================
+   PROJECT MODAL
+   ============================================================ */
+
+.project-modal[hidden] {
+  display: none;
+}
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: project-modal-fade-in 0.18s ease-out;
+}
+
+.project-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(8, 24, 38, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.project-modal-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  max-width: 720px;
+  width: 100%;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  animation: project-modal-rise 0.22s ease-out;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: rgba(248, 249, 250, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #23211c;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+  z-index: 2;
+}
+.project-modal-close:hover,
+.project-modal-close:focus-visible {
+  background: #0077b6;
+  color: #ffffff;
+  outline: none;
+}
+
+.project-modal-image-wrap {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.project-modal-image-wrap img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.project-modal-content {
+  padding: 1.5rem 1.75rem 1.75rem;
+}
+
+.project-modal-content h3 {
+  margin: 0 0 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #0077b6;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.project-modal-body {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #1f2937;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@keyframes project-modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes project-modal-rise {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Op kleine schermen vult de modal de hele breedte */
+@media (max-width: 600px) {
+  .project-modal { padding: 0.5rem; }
+  .project-modal-card { border-radius: 8px; }
+  .project-modal-content { padding: 1.25rem; }
+  .project-modal-content h3 { font-size: 1.2rem; }
+}
+
+/* Body-scroll-blokkade als modal open is */
+body.project-modal-open {
+  overflow: hidden;
 }

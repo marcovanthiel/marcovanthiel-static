@@ -34,7 +34,60 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Kunstwerk van de dag — alleen actief op pagina's met de aod-section
   initArtworkOfTheDay();
+
+  // Project-modal: opent bij klik op een project-item-btn
+  initProjectModal();
 });
+
+function initProjectModal() {
+  const modal = document.getElementById('project-modal');
+  if (!modal) return;
+  const titleEl = document.getElementById('project-modal-title');
+  const bodyEl = document.getElementById('project-modal-body');
+  const imageEl = document.getElementById('project-modal-image');
+  if (!titleEl || !bodyEl || !imageEl) return;
+
+  // Een tijdelijke buffer om de focus terug te zetten naar de knop
+  // die de modal opende — accessibility best-practice.
+  let lastTrigger = null;
+
+  function open(trigger) {
+    const title = trigger.getAttribute('data-project-title') || '';
+    const body = trigger.getAttribute('data-project-body') || '';
+    const image = trigger.getAttribute('data-project-image') || '';
+    titleEl.textContent = title;
+    bodyEl.textContent = body;
+    imageEl.src = image;
+    imageEl.alt = title;
+    modal.hidden = false;
+    document.body.classList.add('project-modal-open');
+    lastTrigger = trigger;
+    // Focus naar de sluit-knop voor toetsenbord-gebruikers
+    const closeBtn = modal.querySelector('.project-modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function close() {
+    modal.hidden = true;
+    document.body.classList.remove('project-modal-open');
+    if (lastTrigger && typeof lastTrigger.focus === 'function') {
+      lastTrigger.focus();
+    }
+    lastTrigger = null;
+  }
+
+  document.querySelectorAll('.project-item-btn').forEach((btn) => {
+    btn.addEventListener('click', function () { open(btn); });
+  });
+
+  modal.querySelectorAll('[data-project-modal-close]').forEach((el) => {
+    el.addEventListener('click', close);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hidden) close();
+  });
+}
 
 function initArtworkOfTheDay() {
   const section = document.querySelector('.aod-section');
