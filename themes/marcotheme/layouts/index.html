@@ -30,7 +30,9 @@
 <div class="projects-section">
   <h2>{{ i18n "projectPortfolio" }}</h2>
   <div class="project-grid">
-    {{ range .Site.Data.projects }}
+    {{ $projects := index .Site.Data.projects $.Site.Language.Lang }}
+    {{ if not $projects }}{{ $projects = .Site.Data.projects.nl }}{{ end }}
+    {{ range $projects }}
     {{ $body := .description }}
     {{ with .details }}{{ $body = . }}{{ end }}
     <div class="project-item">
