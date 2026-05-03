@@ -10,9 +10,9 @@ languages:
     languageName: "Nederlands"
     weight: 1
     contentDir: "content/nl"
-    title: "Marco van Thiel — Interim CIO | Programmamanager | Strategisch Consultant | Toezichthouder"
+    title: "Marco van Thiel — Senior Programmamanager | Toezichthouder | Interim Bestuurder & CIO"
     params:
-      description: "Marco van Thiel — Interim CIO, programmamanager, strategisch consultant en toezichthouder. Specialist in ICT, verandermanagement en kunstmatige intelligentie."
+      description: "Senior programmamanager, toezichthouder en interim bestuurder met meer dan 20 jaar ervaring in complexe organisatietransities binnen onderwijs, zorg en industrie."
   en:
     languageName: "English"
     weight: 2

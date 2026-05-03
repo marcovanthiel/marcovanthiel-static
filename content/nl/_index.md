@@ -7,17 +7,17 @@ showContact: true
 governance:
   - "Voorzitter Raad van Toezicht VO-school Beuningen (2018–2023)"
   - "Lid Raad van Commissarissen (stage) HEEMwonen, Kerkrade (2022–2023)"
-  - "Voorzitter Stichting Cherubino, professioneel opera productiehuis (2018–heden)"
-  - "Member Board of Patrons, International Festival of the Arts (2007–heden)"
+  - "Voorzitter Stichting Cherubino, professioneel opera-productiehuis (2018–heden)"
+  - "Member Board of Patrons, IFAA International Festival of the Arts (2007–heden)"
   - "Bestuurslid Ugenda, online culturele uitgaansagenda van Nijmegen (2018–2024)"
   - "Voorzitter Stichting Brabant Opera / Projectkoor Brabant (2012–2018)"
   - "Lid Rotary Nijmegen Stad & Land (2013–heden)"
-governanceFooter: "Onderbouwd door de opleiding voor aankomend toezichthouder aan Maastricht University (2021–2022) en de Leergang Transitiemanagement van Twynstra Gudde (2023)."
+governanceFooter: "Onderbouwd door de opleiding voor aankomend toezichthouder aan Maastricht University (2021–2022), de Leergang Transitiemanagement van Twynstra Gudde (2023) en de lopende MBA Leading Innovation and Change."
 education:
   - "MBA Leading Innovation and Change (2023, lopend)"
   - "Opleiding voor aankomend toezichthouder, Maastricht University (2021–2022)"
   - "Leergang Transitiemanagement, Twynstra Gudde (2023)"
-  - "Politicologie, Universiteit van Amsterdam"
+  - "Politicologie, Universiteit van Amsterdam (niet afgerond)"
   - "HBO-Verpleegkunde (HBO-V), Hogeschool van Arnhem en Nijmegen"
 methodology:
   - "Prince2, MSP en projectmanagement (PPMO)"
@@ -27,26 +27,25 @@ methodology:
   - "Algemene Verordening Gegevensbescherming (AVG) en IT-geschillen"
 ---
 
-# Expert in ICT, Verandermanagement en Kunstmatige Intelligentie — Interim CIO | Programmamanager | Strategisch Consultant | Toezichthouder
+# Senior Programmamanager voor complexe organisatietransities | Toezichthouder | Interim Bestuurder & CIO
 
-Senior manager en toezichthouder met meer dan 20 jaar ervaring in het realiseren van complexe programma's en organisatietransities binnen onderwijs, zorg en industrie. De combinatie van strategisch inzicht en operationele excellentie wordt zichtbaar in een bewezen track record bij organisaties tot ruim € 1 miljard omzet en meer dan 13.000 medewerkers.
+Senior manager, programmamanager en toezichthouder met meer dan 20 jaar ervaring in het realiseren van complexe organisatietransities en meerjarige veranderprogramma's binnen onderwijs, zorg en industrie. Het track record van bestuurlijke en programmasturing strekt zich uit tot organisaties met € 1,4 miljard omzet en meer dan 13.000 medewerkers, waaronder fusies, carve-outs, herstructureringen en strategische transformaties — onder meer als CIO van twee internationale industriële organisaties.
 
-De kracht ligt in het structureren van complexe vraagstukken, het kritisch toetsen van strategische keuzes en het vinden van praktische oplossingen — ook bij tegenslag. De inzet betreft fusies, carve-outs, systeemtransities en procesoptimalisatie volgens methodieken als ITIL, Prince2 en Lean. De combinatie van bestuurlijke en operationele expertise — onderbouwd door de opleiding tot toezichthouder aan Maastricht University — biedt aanvullende waarde voor toezichthoudende rollen.
+De kracht ligt in het structureren van complexe vraagstukken, het kritisch toetsen van strategische keuzes en het vinden van praktische oplossingen — ook bij tegenslag. Strategisch inzicht en operationele excellentie worden gecombineerd in het leiden van multidisciplinaire teams, het managen van bestuurlijke en stakeholderrelaties en het sturen op realisatie van organisatiedoelen. Werkmethodieken: Prince2, MSP, Lean en transitiemanagement.
 
-## Toegevoegde waarde door AI-expertise
-
-Binnen complexe digitale transformatietrajecten wordt actuele expertise op het gebied van kunstmatige intelligentie ingezet, met focus op de praktische vertaling naar bedrijfsprocessen en besluitvorming. Voorbeelden uit recente opdrachten zijn de inzet van AI bij portfolio-analyse, de doorontwikkeling van klantgerichte AI-oplossingen en de integratie van AI in bestuurlijke rapportages. De achtergrond is verankerd in de lopende MBA Leading Innovation and Change.
+Met de opleiding tot toezichthouder aan Maastricht University, een lopende MBA Leading Innovation and Change en concrete praktijkervaring in governance — als voorzitter Raad van Toezicht van een VO-school en lid Raad van Commissarissen bij een woningcorporatie — wordt zowel bestuurlijke als operationele expertise meegebracht naar zwaardere management- en toezichthoudende rollen.
 
 ## Kerncompetenties
 
-* ICT-strategie en digitaal beleid
-* Verandermanagement en organisatieherstructurering
-* Lean-methodiek en end-to-end procesoptimalisatie
-* Programmasturing en projectmanagement (Prince2, MSP)
-* Innovatie- en informatiemanagement
-* AI-strategie en implementatie in bedrijfsprocessen
-* Governance en toezicht
+* **Programmamanagement** — integrale sturing van complexe, meerjarige transformatieprogramma's
+* **Organisatieverandering** — fusies, carve-outs, herstructureringen, procesherontwerp en cultuurverandering
+* **Strategie en bestuurlijke sturing** — ontwikkeling van meerjarenvisies, roadmaps en businesscases in afstemming met RvB en RvT
+* **Stakeholdermanagement** — samenwerking met bestuur, directies, financiers, medezeggenschap en externe partners
+* **Team leiderschap** — aansturen van multidisciplinaire teams en projectleiders, coaching tijdens transities
+* **Vendor management** — leiding van complexe Europese aanbestedingen en leveranciersrelaties
+* **Governance en toezicht** — bestuurlijke en toezichthoudende ervaring in onderwijs, zorg, woningcorporatie en cultuur
+* **Domeinkennis digitale transformatie** — pragmatische inzet van informatie- en systeemvraagstukken als onderdeel van het bredere veranderprogramma
 
 ## Beschikbaarheid
 
-Direct inzetbaar voor interim opdrachten als Chief Information Officer (CIO), programmamanager, senior projectmanager of verandermanager binnen organisaties die zich richten op digitale transformatie, procesoptimalisatie en innovatieve AI-oplossingen. Tevens beschikbaar voor toezichthoudende rollen in zorg, onderwijs, woningcorporaties en culturele instellingen.
+Direct inzetbaar voor interim opdrachten als senior programmamanager, interim bestuurder, strategisch adviseur, CIO of verandermanager binnen organisaties die werken aan fusies, herstructureringen en bredere organisatietransities. Tevens beschikbaar voor toezichthoudende rollen in zorg, onderwijs, woningcorporaties en culturele instellingen.
