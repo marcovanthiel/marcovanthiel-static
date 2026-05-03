@@ -17,30 +17,30 @@ languages:
     languageName: "English"
     weight: 2
     contentDir: "content/en"
-    title: "Marco van Thiel — Interim CIO | Program Manager | Strategic Consultant | Supervisory Board"
+    title: "Marco van Thiel — Senior Program Manager | Supervisory Board Member | Interim Executive & CIO"
     params:
-      description: "Marco van Thiel — Interim CIO, program manager, strategic consultant and supervisory board member. Specialist in ICT, change management and artificial intelligence."
+      description: "Senior program manager, supervisory board member and interim executive with more than 20 years of experience in complex organizational transitions in education, healthcare and industry."
   de:
     languageName: "Deutsch"
     weight: 3
     contentDir: "content/de"
-    title: "Marco van Thiel — Interim CIO | Programmmanager | Strategischer Berater | Aufsichtsrat"
+    title: "Marco van Thiel — Senior-Programmmanager | Aufsichtsrat | Interim-Vorstand & CIO"
     params:
-      description: "Marco van Thiel — Interim CIO, Programmmanager, strategischer Berater und Aufsichtsrat. Spezialist für ICT, Veränderungsmanagement und künstliche Intelligenz."
+      description: "Senior-Programmmanager, Aufsichtsrat und Interim-Vorstand mit mehr als 20 Jahren Erfahrung in komplexen Organisationstransitionen in Bildung, Gesundheitswesen und Industrie."
   it:
     languageName: "Italiano"
     weight: 4
     contentDir: "content/it"
-    title: "Marco van Thiel — Interim CIO | Program Manager | Consulente Strategico | Membro Consiglio di Vigilanza"
+    title: "Marco van Thiel — Senior Program Manager | Membro del Consiglio di Vigilanza | Dirigente Interim & CIO"
     params:
-      description: "Marco van Thiel — Interim CIO, program manager, consulente strategico e membro di consigli di vigilanza. Specialista in ICT, change management e intelligenza artificiale."
+      description: "Senior program manager, membro di consigli di vigilanza e dirigente interim con più di 20 anni di esperienza in transizioni organizzative complesse nei settori istruzione, sanità e industria."
   cn:
     languageName: "中文"
     weight: 5
     contentDir: "content/cn"
-    title: "Marco van Thiel — 临时 CIO | 项目集经理 | 战略顾问 | 监事会成员"
+    title: "Marco van Thiel — 资深项目集经理 | 监事会成员 | 临时高管 & CIO"
     params:
-      description: "Marco van Thiel —— 临时 CIO、项目集经理、战略顾问和监事会成员。ICT、变革管理和人工智能专家。"
+      description: "资深项目集经理、监事会成员和临时高管，拥有超过 20 年在教育、医疗和工业领域实现复杂组织过渡的经验。"
 # Site parameters
 params:
   author: "Marco van Thiel"
