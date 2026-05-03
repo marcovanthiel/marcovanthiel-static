@@ -1,47 +1,52 @@
 ---
 title: "Marco van Thiel"
-date: 2025-04-05T09:45:00+00:00
+date: 2026-05-03
 draft: false
 showProjects: true
 showContact: true
-experience:
-  - title: "ICT Management & Consultancy"
-    description: "More than 25 years of experience in strategic ICT management, digital transformation and IT consultancy, including application of artificial intelligence (AI) in business processes."
-  - title: "Interim Management"
-    description: "Experienced interim professional in roles as CIO, project manager, program manager, information manager and strategic advisor. Specialized in change management, innovation and AI-driven process optimization."
-  - title: "ICT Service Company"
-    description: "Successfully led an ICT service organization as director/owner for more than ten years, focusing on growth, customer-oriented service delivery, and integration of new technologies."
+governance:
+  - "Chair, Supervisory Board of secondary school Beuningen (2018–2023)"
+  - "Member, Supervisory Board (internship) HEEMwonen, Kerkrade (2022–2023)"
+  - "Chair, Stichting Cherubino — professional opera production house (2018–present)"
+  - "Member, Board of Patrons, International Festival of the Arts (2007–present)"
+  - "Board member, Ugenda — online cultural agenda for Nijmegen (2018–2024)"
+  - "Chair, Stichting Brabant Opera / Projectkoor Brabant (2012–2018)"
+  - "Member, Rotary Nijmegen Stad & Land (2013–present)"
+governanceFooter: "Supported by the program for prospective supervisory board members at Maastricht University (2021–2022) and the Transition Management Course at Twynstra Gudde (2023)."
+education:
+  - "MBA Leading Innovation and Change (2023, ongoing)"
+  - "Program for prospective supervisory board members, Maastricht University (2021–2022)"
+  - "Transition Management Course, Twynstra Gudde (2023)"
+  - "Political Science, University of Amsterdam"
+  - "Bachelor of Nursing (HBO-V), HAN University of Applied Sciences"
+methodology:
+  - "Prince2, MSP and project management (PPMO)"
+  - "Lean Six Sigma Yellow Belt"
+  - "ITIL Foundation"
+  - "Professional Agile Leadership / Scrum"
+  - "General Data Protection Regulation (GDPR) and IT disputes"
 ---
 
-# Expert in ICT, Change Management and Artificial Intelligence – Interim CIO | Program Manager | Project Manager
+# Expert in ICT, Change Management and Artificial Intelligence — Interim CIO | Program Manager | Strategic Consultant | Supervisory Board Member
 
-Changing business processes, digital innovation, AI applications and motivation form the common thread in the career of this experienced interim professional.
+Senior manager and supervisory board member with more than 20 years of experience delivering complex programs and organizational transitions in education, healthcare and industry. The combination of strategic insight and operational excellence is evident in a proven track record at organizations with up to € 1 billion in revenue and more than 13,000 employees.
 
-With more than 25 years of experience in ICT management and consultancy, in-depth expertise has been built up in roles as interim manager, project manager, program manager, information manager and strategic advisor. For more than ten years, successful leadership was provided to an ICT service company in the role of director/owner.
-
-The experience extends across various sectors such as business, industry, education, government, healthcare, multinationals and small and medium-sized enterprises (SMEs). Specializations include strategic change management, merger and acquisition guidance, post-merger integration, process optimization and the implementation of AI-driven solutions.
+The strength lies in structuring complex issues, critically testing strategic choices and finding practical solutions — even in adversity. The work concerns mergers, carve-outs, system transitions and process optimization using methodologies such as ITIL, Prince2 and Lean. The combination of governance and operational expertise — underpinned by the supervisory board program at Maastricht University — adds value for supervisory roles.
 
 ## Added Value through AI Expertise
 
-Within complex digital transformation trajectories, current expertise in the field of artificial intelligence (AI) is available, with applications in data analysis, process automation (RPA), decision support and customer-oriented AI tools. This creates maximum value creation within innovative organizations.
+Within complex digital transformation trajectories, current expertise in artificial intelligence is applied, with focus on practical translation to business processes and decision-making. Examples from recent assignments include the use of AI in portfolio analysis, the further development of customer-oriented AI solutions and the integration of AI in board-level reporting. The background is anchored in the ongoing MBA Leading Innovation and Change.
 
-## Core Competencies:
+## Core Competencies
 
 * ICT strategy and digital policy
 * Change management and organizational restructuring
 * Lean methodology and end-to-end process optimization
-* Project management and program control
+* Program control and project management (Prince2, MSP)
 * Innovation and information management
 * AI strategy and implementation in business processes
+* Governance and supervision
 
-## Client References:
+## Availability
 
-> "A connecting personality who is excellently able to make processes, information flows and needs transparent and optimize them."
-
-> "Possesses strong analytical skills and knows how to reduce complex projects to their essence. Does not shy away from making clear choices in restructuring and reorganization. Combines vision with result-orientation."
-
-> "Thinks creatively and innovatively, partly fueled by a broad interest in art, culture and technological developments."
-
-## Availability:
-
-Immediately available for interim assignments as Chief Information Officer (CIO), program manager, senior project manager or change manager within organizations focusing on digital transformation, process optimization and innovative AI solutions.
+Immediately available for interim assignments as Chief Information Officer (CIO), program manager, senior project manager or change manager within organizations focusing on digital transformation, process optimization and innovative AI solutions. Also available for supervisory roles in healthcare, education, housing corporations and cultural institutions.

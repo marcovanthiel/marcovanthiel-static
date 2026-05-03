@@ -1,120 +1,148 @@
 [
   {
     "title": "Stichting Koraal & Via Jeugd",
-    "description": "Programmamanager Fusie",
-    "details": "Stichting Koraal & Via Jeugd — Programmamanager Fusie\n\nIntegrale sturing van het fusieproces van twee zorgorganisaties in een tweejaarstraject. Verantwoordelijk voor negen deelgebieden: governance, finance, HR, vastgoed, ICT, inkoop en communicatie. Focus op de realisatie van efficiency-doelstellingen en het identificeren van synergievoordelen.",
+    "description": "Programmamanager Fusie (2025–heden)",
+    "details": "Stichting Koraal & Via Jeugd — Programmamanager Fusie (2025–heden)\n\nIntegrale sturing van het bestuurlijke fusietraject tussen Stichting Koraal en Via Jeugd, twee gespecialiseerde zorg- en onderwijsorganisaties in Limburg en Noord-Brabant. Koraal beschikt over circa 3.000 fte, biedt zorg en onderwijs aan bijna 5.000 cliënten en leerlingen en realiseert bedrijfsopbrengsten van € 333 miljoen (2024). Het tweejarige programma omvat negen deelgebieden, waaronder governance, finance, HR, vastgoed, ICT, inkoop en communicatie. Aandacht ligt bij efficiency-doelstellingen, het identificeren van synergievoordelen en de borging van continuïteit van specialistische jeugdhulp, gehandicaptenzorg, (voortgezet) speciaal onderwijs en arbeidsparticipatie. De bestuurlijke fusie is per 1 juli 2025 geëffectueerd.",
     "image": "/images/projects/koraal-viajeugd.svg",
     "url": "#"
   },
   {
-    "title": "Daelzicht",
-    "description": "Strategisch adviseur & portfoliomanager",
-    "details": "Stichting Daelzicht — Portfoliomanagement en Strategie\n\nVoor zorginstelling Daelzicht is als portfoliomanager en strategisch adviseur een projectenorganisatie opgezet. Ruim 100 projecten zijn aangestuurd, gericht op thema's als jeugd & gezin, voeding, ICT en facilitaire herstructurering. Samenwerking met directie en RvB stond centraal in de realisatie van IV-strategieën.",
+    "title": "Parnassia Groep",
+    "description": "Programmamanager Cliëntenportaal en IAM (2020–2023)",
+    "details": "Parnassia Groep — Programmamanager Cliëntenportaal en Identity & Access Management (2020–2023)\n\nProgrammamanagement van de implementatie van een nieuw cliëntenportaal voor één van de grootste GGZ-organisaties van Nederland, met circa 13.000 medewerkers, ruim 158.000 cliënten en bedrijfsopbrengsten van € 1,4 miljard (2024). Het programma omvatte de aansturing van applicatiemigraties en integratie met de landelijke zorginfrastructuur (MedMij, DigiD), herstructurering van Identity & Access Management-processen en een complexe Europese aanbesteding inclusief leverancierswissel bij een ondermaats presterende partij.",
+    "image": "/images/projects/parnassia-groep.png",
+    "url": "#"
+  },
+  {
+    "title": "Royal Smit BV",
+    "description": "Chief Information Officer (2016–2017)",
+    "details": "Royal Smit BV — Chief Information Officer (2016–2017)\n\nCIO-rol bij internationale transformatorenproducent met 700 medewerkers en € 300 miljoen omzet. Ontwikkeling van een vijfjarenvisie en -strategie voor informatiemanagement binnen een internationale business unit. Aansturing van een IT-afdeling van 15 medewerkers in een engineer-to-order productieomgeving. Selectie en implementatie van enterprise systemen (PLM, uitbreidingen ERP, HRM) en businesscase-ontwikkeling voor een Manufacturing Execution System.",
+    "image": "/images/projects/royal-smit.jpg",
+    "url": "#"
+  },
+  {
+    "title": "InnovioPapers BV",
+    "description": "Chief Information Officer bij carve-out (2014–2016)",
+    "details": "InnovioPapers BV — Chief Information Officer bij Carve-out en Transitie (2014–2016)\n\nCIO-rol tijdens de verzelfstandiging van papierfabriek InnovioPapers (300 medewerkers, € 100 miljoen omzet) uit de Zuid-Afrikaanse multinational Sappi Paper. De carve-out omvatte vervanging van het volledige applicatielandschap, herstructurering van de infrastructuur en implementatie van een Manufacturing Execution System (Honeywell Optivision). SLA's en leveranciersmanagement zijn herzien voor continuïteit en schaalbaarheid.",
+    "image": "/images/projects/innovio-papers.jpg",
+    "url": "#"
+  },
+  {
+    "title": "ROC Friese Poort",
+    "description": "Programmamanager Systeemintegratie (2017–2019)",
+    "details": "ROC Friese Poort — Programmamanager Systeemintegratie (2017–2019)\n\nProgrammamanagement van de instellingsbrede invoering van Eduarte als kernsysteem voor studenteninformatie. Het programma omvatte de uitfasering van diverse legacy-registratiesystemen, de integratie met financiële systemen en de Europese aanbesteding van het studenteninformatiesysteem. Aansturing van 12 deelprojecten met 10 projectleiders, met inzet van Lean-methodiek voor procesoptimalisatie. Integraties zijn gerealiseerd met Xedule, Office 365 en de financiële administratie.",
+    "image": "/images/projects/roc-friese-poort.jpg",
+    "url": "#"
+  },
+  {
+    "title": "Stichting Daelzicht",
+    "description": "Programmamanager en Strategisch Consultant (2018–2019)",
+    "details": "Stichting Daelzicht — Programmamanager en Strategisch Consultant (2018–2019)\n\nProgrammasturing van het projectmanagementteam voor de realisatie van een nieuwe organisatiestrategie binnen zorginstelling Daelzicht. Samenwerking met directie en Raad van Bestuur bij de optimalisatie van beleidsuitvoering. Inrichting van projectportfoliomanagement met 104 actief aangestuurde projecten, gericht op thema's als jeugd & gezin, voeding, ICT en facilitaire herstructurering.",
     "image": "/images/projects/daelzicht.jpg",
     "url": "#"
   },
   {
-    "title": "Radboud Universiteit",
-    "description": "Project Adviseur Organisatieprojecten",
-    "details": "Radboud Universiteit Nijmegen — Project Adviseur Organisatieprojecten\n\nAdvisering bij de vervanging van het Current Research Information System (CRIS) met impact op de gehele research-omgeving. Ontwikkeling van een centraal uitbetalingssysteem voor proefpersonen. Begeleiding van complexe organisatiewijzigingen binnen de universitaire context.",
+    "title": "Stichting Josephscholen Nijmegen",
+    "description": "ICT Manager en Transformatieleider (2018–2020)",
+    "details": "Stichting Josephscholen Nijmegen — ICT Manager en Transformatieleider (2018–2020)\n\nOntwikkeling en implementatie van een ICT-visie voor een onderwijsorganisatie met 3.775 leerlingen. Leiding van de aanbesteding en transitie naar een nieuwe ICT-omgeving, gecombineerd met organisatieontwikkeling en change management.",
+    "image": "/images/projects/josephscholen.jpg",
+    "url": "#"
+  },
+  {
+    "title": "Stichting Scala Scholen",
+    "description": "Kwartiermaker en Strategisch Informatiemanager (2018–2020)",
+    "details": "Stichting Scala Scholen — Kwartiermaker en Strategisch Informatiemanager (2018–2020)\n\nOntwerp en realisatie van een strategisch plan voor informatisering en automatisering binnen een primair-onderwijsorganisatie in Noord-Brabant. Leiding van Europese aanbestedingen en outsourcing-trajecten. Opbouw van een beheerorganisatie inclusief coaching van medewerkers tijdens de transitie.",
+    "image": "/images/projects/scala.jpg",
+    "url": "#"
+  },
+  {
+    "title": "Radboud Universiteit Nijmegen",
+    "description": "Project Adviseur Organisatieprojecten (2024–heden)",
+    "details": "Radboud Universiteit Nijmegen — Project Adviseur Organisatieprojecten (2024–heden)\n\nAdvisering bij de vervanging van het Current Research Information System (CRIS) met impact op de gehele research-omgeving. Ontwikkeling van een centraal uitbetalingssysteem voor proefpersonen. Begeleiding van complexe organisatiewijzigingen binnen de universitaire context.",
     "image": "/images/projects/Radboud universiteit.png",
     "url": "#"
   },
   {
-    "title": "Radboud UMC",
-    "description": "IT-programmamanager onderzoek",
-    "details": "Radboud Universiteit & Radboud UMC — Advies onderzoeksprojecten\n\nTwee strategische projecten zijn geadviseerd binnen de onderzoekskolom van de Radboud Universiteit en het UMC. Het betrof de aanbesteding en implementatie van een nieuw Current Research Information System (CRIS) en de optimalisatie van financiële processen rond proefpersonenbetalingen. De inzet richtte zich op procesinrichting en projectstructuur, met aandacht voor governance en compliance.",
+    "title": "Radboud Universiteit en Radboud UMC",
+    "description": "Advies onderzoeksprojecten",
+    "details": "Radboud Universiteit en Radboud UMC — Advies onderzoeksprojecten\n\nTwee strategische projecten zijn geadviseerd binnen de onderzoekskolom van de Radboud Universiteit en het UMC: de aanbesteding en implementatie van een nieuw Current Research Information System (CRIS) en de optimalisatie van financiële processen rond proefpersonenbetalingen. De inzet richtte zich op procesinrichting en projectstructuur, met aandacht voor governance en compliance.",
     "image": "/images/projects/Radboud umc.png",
     "url": "#"
   },
   {
     "title": "Zuyd Hogeschool",
-    "description": "Programmamanager Research Project Lifecycle Management",
-    "details": "Zuyd Hogeschool — Programmamanager Research Project Lifecycle Management\n\nLeiding aan een transformatieprogramma ter verbetering van de ondersteuning van lectoraten. Herontwerp van het gehele onderzoekssupport — van idee tot valorisatie. Aanbesteding en implementatie van een nieuw softwareplatform voor de volledige research-lifecycle.",
+    "description": "Programmamanager Research Project Lifecycle Management (2025–heden)",
+    "details": "Zuyd Hogeschool — Programmamanager Research Project Lifecycle Management (2025–heden)\n\nLeiding van een transformatieprogramma ter verbetering van de ondersteuning van lectoraten. Herontwerp van het volledige onderzoekssupport — van idee tot valorisatie. Aanbesteding en implementatie van een nieuw softwareplatform voor de gehele research-lifecycle.",
     "image": "/images/projects/zuyd_logo_niv_1_rd_rgb.png",
     "url": "#"
   },
   {
-    "title": "ROC Friese Poort",
-    "description": "Programma- en portfoliomanager Eduarte",
-    "details": "ROC Friese Poort — Programma- en Portfoliomanagement Eduarte\n\nInstellingsbreed is Eduarte ingevoerd als kernsysteem voor studenteninformatie. Dit programma verving diverse losse systemen en omvatte de volledige studentenlogistiek, examenprocessen, DLO en zorgstructuren. De aansturing vond plaats via 12 deelprojecten met integratie naar Xedule, Office365 en financiële administratie. Lean-methoden zijn ingezet voor procesoptimalisatie en efficiency.",
-    "image": "/images/projects/roc-friese-poort.jpg",
-    "url": "#"
-  },
-  {
-    "title": "Innovio Papers",
-    "description": "Interim CIO bij carve-out & transitie",
-    "details": "InnovioPapers BV — CIO bij Carve-out en Transitie\n\nBij de verzelfstandiging van een papierfabriek vanuit de Sappi Group is de volledige ICT-afdeling heringericht. De carve-out omvatte vervanging van het applicatielandschap, herstructurering van infrastructuur en implementatie van een nieuw MES-systeem (Honeywell Optivision). SLA's en leveranciersmanagement zijn herzien voor continuïteit en schaalbaarheid.",
-    "image": "/images/projects/innovio-papers.jpg",
-    "url": "#"
-  },
-  {
-    "title": "Sappi Fine Paper Europe",
-    "description": "IT Carve-out & Audit",
-    "details": "Sappi Nijmegen BV — IT Carve-out & Audit\n\nIn het kader van een geplande overname is een carve-out plan opgesteld voor de volledige IT-organisatie van Sappi Nijmegen. De audit omvatte infrastructuur, MES, ERP, kantoorautomatisering, telefonie en supportprocessen. Dit leverde een compleet IT-dossier op voor due diligence.",
-    "image": "/images/projects/sappi.jpg",
-    "url": "#"
-  },
-  {
-    "title": "Scala Basisscholen regio Heusden",
-    "description": "Interim ICT- en informatiemanager",
-    "details": "Stichting Scala Scholen — Informatiemanagement & ICT-transitie\n\nBinnen Scala Scholen is als informatiemanager een complete herstructurering van de ICT-infrastructuur uitgevoerd. De uitbesteding naar een nieuwe leverancier, transitie naar Office 365, modernisering van netwerken en verbetering van beveiliging zijn succesvol gerealiseerd. Alle locaties zijn voorzien van volledige wifi-dekking en integraties met leerling- en interne systemen.",
-    "image": "/images/projects/scala.jpg",
-    "url": "#"
-  },
-  {
-    "title": "ROC Ter Aa Helmond",
-    "description": "Kwartiermaker Informatiemanagement",
-    "details": "ROC Ter AA — Kwartiermaker Informatiemanagement\n\nBinnen ROC Ter AA is een nieuwe projectenorganisatie opgezet volgens Prince2, als onderdeel van het instellingsbrede besturingsmodel. Belangrijke projecten betroffen ELO, studenteninformatiesystemen (Eduarte), E-HRM, en roostersoftware (Xedule). Alle systemen zijn geïntegreerd en projectmatig aangestuurd.",
+    "title": "ROC Ter AA",
+    "description": "Kwartiermaker Programmamanagement (2016–2017)",
+    "details": "ROC Ter AA — Kwartiermaker Programmamanagement (2016–2017)\n\nOpzet van een projectorganisatie volgens Prince2 binnen een nieuw besturingsmodel. Integrale sturing van het systemenlandschap (ELO, studenteninformatiesysteem Eduarte, E-HRM, roostersoftware Xedule). Leiding van Europese aanbestedingen en aansturing van 11 projectleiders.",
     "image": "/images/projects/roc-teraa-helmond.jpg",
     "url": "#"
   },
   {
-    "title": "LiQiT",
-    "description": "Oprichter & directeur ICT-dienstverlening",
-    "details": "LiQiT — Directievoering ICT-dienstverlening\n\nAls oprichter en directeur van LiQiT is meer dan tien jaar leiding gegeven aan een team van ICT-professionals. Het bedrijf leverde systeem- en netwerkbeheer aan een breed klantenbestand. Verantwoordelijkheden omvatten bedrijfsvoering, HR, financiën, sales en klantrelaties.",
-    "image": "/images/projects/liqit.jpg",
-    "url": "#"
-  },
-  {
-    "title": "Albeda College Rotterdam",
-    "description": "Optimalisatie ICT-dienstverlening",
-    "details": "Albeda MBO — Optimalisatie ICT-dienstverlening\n\nVoor het Albeda College is de ICT-dienstverlening per business unit geoptimaliseerd met behulp van een centrale Product-diensten Catalogus. De aanpak versterkte de aansluiting van ICT op de onderwijsprocessen binnen ROC en VO-onderdelen.",
-    "image": "/images/projects/albeda-college.png",
-    "url": "#"
-  },
-  {
-    "title": "ROC Nijmegen",
-    "description": "Projectleider implementatie ELO",
-    "details": "ROC Nijmegen — Implementatie Elektronische Leeromgeving\n\nAls projectleider is binnen ROC Nijmegen een Elektronische Leeromgeving (ELO) geïmplementeerd. Na openbare aanbesteding is een breed gedragen implementatieplan gerealiseerd, met focus op training en adoptie. Prince2 werd toegepast als projectmethodiek, met goede afstemming tussen parallelle projecten.",
-    "image": "/images/projects/roc-nijmegen.jpg",
+    "title": "Sappi Nijmegen BV",
+    "description": "IT Carve-out en Audit",
+    "details": "Sappi Nijmegen BV — IT Carve-out en Audit\n\nIn het kader van een geplande overname is een carve-out plan opgesteld voor de volledige IT-organisatie van Sappi Nijmegen. De audit omvatte infrastructuur, MES, ERP, kantoorautomatisering, telefonie en supportprocessen, en leverde een compleet IT-dossier op voor due diligence.",
+    "image": "/images/projects/sappi.jpg",
     "url": "#"
   },
   {
     "title": "KNMP",
-    "description": "Projectmanager Digitale Kennisbank",
-    "details": "KNMP — Projectmanager Digitale Kennisbank\n\nVoor de KNMP is een strategisch project gestart om de kennisbank voor apothekers in Nederland te moderniseren. De projectstructuur is ingericht en een diepgaande probleemanalyse uitgevoerd om de informatievoorziening te verbeteren en apothekers effectiever te ondersteunen in hun werk.",
+    "description": "Projectmanager Digitale Kennisbank (2023–2024)",
+    "details": "KNMP — Projectmanager Digitale Kennisbank (2023–2024)\n\nProjectleiding van de modernisering van de unieke medicatiedatabase voor alle Nederlandse apothekers. Probleemanalyse en ontwikkeling van een projectstructuur voor kennisontsluiting, gericht op een effectievere ondersteuning van apothekers. Stakeholdermanagement binnen een professionele beroepsorganisatie.",
     "image": "/images/projects/knmp.png",
+    "url": "#"
+  },
+  {
+    "title": "KION Kinderopvang",
+    "description": "Programmamanager VoIP-implementatie",
+    "details": "KION Kinderopvang — Programmamanager VoIP-implementatie\n\nProgrammasturing van de invoering van VoIP-telefonie over 100 locaties van een grote kinderopvangorganisatie, inclusief integratietraject met bestaande systemen.",
+    "image": "/images/projects/kion.png",
+    "url": "#"
+  },
+  {
+    "title": "ROC Nijmegen",
+    "description": "Implementatie Elektronische Leeromgeving",
+    "details": "ROC Nijmegen — Implementatie Elektronische Leeromgeving\n\nProjectleiding van de implementatie van een Elektronische Leeromgeving (ELO) na een openbare aanbesteding. Realisatie van een breed gedragen implementatieplan, met focus op training en adoptie. Inzet van Prince2 als projectmethodiek met afstemming tussen zes parallelle deelprojecten.",
+    "image": "/images/projects/roc-nijmegen.jpg",
+    "url": "#"
+  },
+  {
+    "title": "LiQiT Dienstverlening",
+    "description": "Algemeen Directeur en Eigenaar (2006–2016)",
+    "details": "LiQiT Dienstverlening — Algemeen Directeur en Eigenaar (2006–2016)\n\nOprichter en directeur van een ICT-consultancybedrijf met focus op de onderwijssector. Meer dan tien jaar leiding gegeven aan een team van ICT-professionals dat systeem- en netwerkbeheer leverde aan een breed klantenbestand. Verantwoordelijkheid voor bedrijfsvoering, HR, financiën, sales en klantrelaties.",
+    "image": "/images/projects/liqit.jpg",
+    "url": "#"
+  },
+  {
+    "title": "Albeda MBO",
+    "description": "Optimalisatie ICT-dienstverlening",
+    "details": "Albeda MBO — Optimalisatie van de ICT-dienstverlening per business unit met behulp van een centrale Product-diensten Catalogus.",
+    "image": "/images/projects/albeda-college.png",
     "url": "#"
   },
   {
     "title": "INR Trombosedienst Nijmegen",
     "description": "IT-programmamanager",
-    "details": "INR Trombosedienst Nijmegen — IT Programmamanagement\n\nVoor de INR Trombosedienst Nijmegen is een IT-programma geleid om de dienstverlening te digitaliseren en te moderniseren. Het project omvatte de implementatie van nieuwe systemen voor patiëntenbeheer en medische monitoring.",
+    "details": "INR Trombosedienst Nijmegen — Programmamanagement van de digitalisering en modernisering van patiëntenbeheer en medische monitoring.",
     "image": "/images/projects/trombosezorg-dichtbij.png",
     "url": "#"
   },
   {
     "title": "Landstede Zwolle",
     "description": "Strategisch ICT-advies",
-    "details": "Landstede Zwolle — Strategisch ICT-advies\n\nVoor Landstede Zwolle is strategisch ICT-advies geleverd om de aansluiting tussen onderwijs en ICT te verbeteren. De focus lag op het optimaliseren van de ICT-infrastructuur en het implementeren van moderne onderwijstechnologieën.",
+    "details": "Landstede Zwolle — Strategisch ICT-advies, gericht op de aansluiting tussen onderwijs en ICT en de implementatie van moderne onderwijstechnologieën.",
     "image": "/images/projects/landstede-zwolle.webp",
     "url": "#"
   },
   {
     "title": "Veiligheidsregio Gelderland Zuid",
     "description": "ICT-prestatieverbetering",
-    "details": "Veiligheidsregio Gelderland Zuid — ICT-prestatieverbetering\n\nAdvies geleverd aan de Veiligheidsregio Gelderland Zuid ter verbetering van de performance van een ICT-leverancier na een openbare aanbesteding. Focus lag op contractmanagement, leveranciersbeoordeling en optimalisatie van SLA-afspraken.",
+    "details": "Veiligheidsregio Gelderland Zuid — Advies voor prestatieverbetering van een ICT-leverancier na openbare aanbesteding, met focus op contractmanagement en SLA-optimalisatie.",
     "image": "/images/projects/veiligheidsregio.png",
     "url": "#"
   }

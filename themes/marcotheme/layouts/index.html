@@ -44,4 +44,36 @@
   </div>
 </div>
 {{ end }}
+
+{{ if isset .Params "governance" }}
+<div class="governance-section home-content">
+  <h2>{{ i18n "governanceTitle" | default "Toezichthoudende en bestuurlijke ervaring" }}</h2>
+  <ul class="info-list">
+    {{ range .Params.governance }}
+    <li>{{ . }}</li>
+    {{ end }}
+  </ul>
+  {{ with .Params.governanceFooter }}<p class="info-footer">{{ . }}</p>{{ end }}
+</div>
+{{ end }}
+
+{{ if or (isset .Params "education") (isset .Params "methodology") }}
+<div class="credentials-section home-content">
+  <h2>{{ i18n "credentialsTitle" | default "Opleiding en methodiek" }}</h2>
+  <div class="credentials-grid">
+    {{ if isset .Params "education" }}
+    <div class="credentials-block">
+      <h3>{{ i18n "educationLabel" | default "Opleiding" }}</h3>
+      <ul class="info-list">{{ range .Params.education }}<li>{{ . }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+    {{ if isset .Params "methodology" }}
+    <div class="credentials-block">
+      <h3>{{ i18n "methodologyLabel" | default "Methodiek" }}</h3>
+      <ul class="info-list">{{ range .Params.methodology }}<li>{{ . }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
 {{ end }}

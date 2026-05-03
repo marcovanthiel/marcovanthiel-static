@@ -10,37 +10,37 @@ languages:
     languageName: "Nederlands"
     weight: 1
     contentDir: "content/nl"
-    title: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
+    title: "Marco van Thiel — Interim CIO | Programmamanager | Strategisch Consultant | Toezichthouder"
     params:
-      description: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
+      description: "Marco van Thiel — Interim CIO, programmamanager, strategisch consultant en toezichthouder. Specialist in ICT, verandermanagement en kunstmatige intelligentie."
   en:
     languageName: "English"
     weight: 2
     contentDir: "content/en"
-    title: "Marco van Thiel - Interim manager, CIO, Program manager and Project manager"
+    title: "Marco van Thiel — Interim CIO | Program Manager | Strategic Consultant | Supervisory Board"
     params:
-      description: "Marco van Thiel - Interim manager, CIO, Program manager and Project manager"
+      description: "Marco van Thiel — Interim CIO, program manager, strategic consultant and supervisory board member. Specialist in ICT, change management and artificial intelligence."
   de:
     languageName: "Deutsch"
     weight: 3
     contentDir: "content/de"
-    title: "Marco van Thiel - Interimsmanager, CIO, Programmmanager und Projektmanager"
+    title: "Marco van Thiel — Interim CIO | Programmmanager | Strategischer Berater | Aufsichtsrat"
     params:
-      description: "Marco van Thiel - Interimsmanager, CIO, Programmmanager und Projektmanager"
+      description: "Marco van Thiel — Interim CIO, Programmmanager, strategischer Berater und Aufsichtsrat. Spezialist für ICT, Veränderungsmanagement und künstliche Intelligenz."
   it:
     languageName: "Italiano"
     weight: 4
     contentDir: "content/it"
-    title: "Marco van Thiel - Manager ad interim, CIO, Program manager e Project manager"
+    title: "Marco van Thiel — Interim CIO | Program Manager | Consulente Strategico | Membro Consiglio di Vigilanza"
     params:
-      description: "Marco van Thiel - Manager ad interim, CIO, Program manager e Project manager"
+      description: "Marco van Thiel — Interim CIO, program manager, consulente strategico e membro di consigli di vigilanza. Specialista in ICT, change management e intelligenza artificiale."
   cn:
     languageName: "中文"
     weight: 5
     contentDir: "content/cn"
-    title: "Marco van Thiel - 临时经理, CIO, 项目经理"
+    title: "Marco van Thiel — 临时 CIO | 项目集经理 | 战略顾问 | 监事会成员"
     params:
-      description: "Marco van Thiel - 临时经理, CIO, 项目经理"
+      description: "Marco van Thiel —— 临时 CIO、项目集经理、战略顾问和监事会成员。ICT、变革管理和人工智能专家。"
 # Site parameters
 params:
   author: "Marco van Thiel"

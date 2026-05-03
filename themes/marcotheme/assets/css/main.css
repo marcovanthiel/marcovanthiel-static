@@ -661,6 +661,75 @@ a:hover {
   .aod-title { font-size: 1.35rem; }
 }
 
+/* ============== Toezichthoudende ervaring + Opleiding/methodiek ============== */
+
+.governance-section,
+.credentials-section {
+  padding: var(--section-padding);
+}
+
+.credentials-section {
+  background-color: #f8f9fa;
+}
+
+.governance-section h2,
+.credentials-section h2 {
+  margin-left: 5%;
+  max-width: 90%;
+}
+
+.governance-section .info-list,
+.credentials-section .info-list {
+  margin-left: 5%;
+  width: 90%;
+  max-width: var(--read-max);
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.governance-section .info-list li,
+.credentials-section .info-list li {
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+.governance-section .info-footer {
+  margin-top: 1.5rem;
+  margin-left: 5%;
+  width: 90%;
+  max-width: var(--read-max);
+  font-style: italic;
+  color: var(--text-color);
+  opacity: 0.85;
+}
+
+.credentials-grid {
+  margin-left: 5%;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+.credentials-block h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.credentials-block .info-list {
+  margin-left: 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .credentials-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
 /* Skip-link voor toetsenbord-navigatie — alleen zichtbaar bij focus */
 .skip-link {
   position: absolute;
