@@ -1,0 +1,299 @@
+/* ============================================================
+   ANIMATIONS — subtiele beweging, professioneel & rustig.
+   Alle effecten worden uitgeschakeld als de bezoeker
+   prefers-reduced-motion heeft aanstaan.
+   ============================================================ */
+
+/* -- Hero: Ken-Burns slow zoom + drift op achtergrondfoto ----- */
+
+.home-hero,
+.hero-section {
+  overflow: hidden; /* nodig voor Ken-Burns: foto schaalt buiten frame */
+}
+
+@keyframes hero-ken-burns {
+  0%   { transform: scale(1.04) translate(0%, 0%); }
+  50%  { transform: scale(1.08) translate(-1%, -0.8%); }
+  100% { transform: scale(1.04) translate(0%, 0%); }
+}
+
+/* We laten ::before (de blauwe overlay) staan en zetten de foto-laag op
+   een aparte ::after met dezelfde achtergrondfoto. Op die laag passen we
+   het Ken-Burns-effect toe — anders verschuift de overlay mee. */
+.home-hero,
+.hero-section {
+  /* Reset background — de foto verhuist naar ::after */
+  background-image: none !important;
+}
+.home-hero::after,
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/profile/profile.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  animation: hero-ken-burns 28s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* -- Hero: zachte radiale gloed die langzaam beweegt ---------- */
+
+@keyframes hero-glow-drift {
+  0%, 100% { transform: translate(-10%, -10%); opacity: 0.6; }
+  50%      { transform: translate(8%, 6%);    opacity: 0.85; }
+}
+
+.home-hero .hero-content::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -15%;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(
+    circle at center,
+    rgba(144, 224, 239, 0.35) 0%,
+    rgba(144, 224, 239, 0) 65%
+  );
+  pointer-events: none;
+  z-index: -1;
+  animation: hero-glow-drift 18s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* -- Hero: tekst fade-in + slide-up bij page load ------------- */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content > * {
+  animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.20s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.35s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.50s; }
+.hero-content > *:nth-child(5) { animation-delay: 0.65s; }
+.hero-content > *:nth-child(6) { animation-delay: 0.80s; }
+
+/* -- Scroll-reveal: secties + losse elementen ----------------- */
+
+/* Default state: onzichtbaar, klaar om te onthullen.
+   JS voegt .is-visible toe als het element in beeld komt. */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -- Project-grid: gestaffelde reveal ------------------------- */
+
+.project-grid .project-item {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.project-grid.is-visible .project-item {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* Stagger op basis van volgorde (eerste 12 cards krijgen oplopende
+   delay; daarna stopt de stagger zodat lange lijsten niet eindeloos
+   wachten). */
+.project-grid.is-visible .project-item:nth-child(1)  { transition-delay: 0.00s; }
+.project-grid.is-visible .project-item:nth-child(2)  { transition-delay: 0.05s; }
+.project-grid.is-visible .project-item:nth-child(3)  { transition-delay: 0.10s; }
+.project-grid.is-visible .project-item:nth-child(4)  { transition-delay: 0.15s; }
+.project-grid.is-visible .project-item:nth-child(5)  { transition-delay: 0.20s; }
+.project-grid.is-visible .project-item:nth-child(6)  { transition-delay: 0.25s; }
+.project-grid.is-visible .project-item:nth-child(7)  { transition-delay: 0.30s; }
+.project-grid.is-visible .project-item:nth-child(8)  { transition-delay: 0.35s; }
+.project-grid.is-visible .project-item:nth-child(9)  { transition-delay: 0.40s; }
+.project-grid.is-visible .project-item:nth-child(10) { transition-delay: 0.45s; }
+.project-grid.is-visible .project-item:nth-child(11) { transition-delay: 0.50s; }
+.project-grid.is-visible .project-item:nth-child(12) { transition-delay: 0.55s; }
+
+/* -- Project-card: subtieler, levendiger hover ---------------- */
+
+.project-item {
+  /* Bestaande box-shadow uit projects.css blijft; we voegen een ringpuls toe */
+  position: relative;
+}
+.project-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 0 rgba(0, 119, 182, 0);
+  transition: box-shadow 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.project-item:hover::before {
+  box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.18);
+}
+.project-item img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-item:hover img {
+  transform: scale(1.04);
+}
+
+/* -- Bullet-lijsten (governance, education, methodology) ------ */
+
+.governance-section .info-list li,
+.credentials-section .info-list li {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+.governance-section.is-visible .info-list li,
+.credentials-section.is-visible .info-list li {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Stagger per regel */
+.governance-section.is-visible .info-list li:nth-child(1) { transition-delay: 0.05s; }
+.governance-section.is-visible .info-list li:nth-child(2) { transition-delay: 0.10s; }
+.governance-section.is-visible .info-list li:nth-child(3) { transition-delay: 0.15s; }
+.governance-section.is-visible .info-list li:nth-child(4) { transition-delay: 0.20s; }
+.governance-section.is-visible .info-list li:nth-child(5) { transition-delay: 0.25s; }
+.governance-section.is-visible .info-list li:nth-child(6) { transition-delay: 0.30s; }
+.governance-section.is-visible .info-list li:nth-child(7) { transition-delay: 0.35s; }
+.credentials-section.is-visible .info-list li:nth-child(1) { transition-delay: 0.05s; }
+.credentials-section.is-visible .info-list li:nth-child(2) { transition-delay: 0.10s; }
+.credentials-section.is-visible .info-list li:nth-child(3) { transition-delay: 0.15s; }
+.credentials-section.is-visible .info-list li:nth-child(4) { transition-delay: 0.20s; }
+.credentials-section.is-visible .info-list li:nth-child(5) { transition-delay: 0.25s; }
+
+/* -- Section-headings: korte onderlijn-pulse ------------------ */
+
+.projects-section h2,
+.governance-section h2,
+.credentials-section h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+}
+.projects-section h2::after,
+.governance-section h2::after,
+.credentials-section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--primary-color);
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.projects-section.is-visible h2::after,
+.governance-section.is-visible h2::after,
+.credentials-section.is-visible h2::after {
+  width: 64px;
+}
+
+/* -- Header link: onderlijn-glide in plaats van knal ---------- */
+
+.main-nav a {
+  position: relative;
+  padding-bottom: 2px;
+}
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+/* Bestaande active-onderlijn op .main-nav a.active wordt overgenomen
+   door ::after; verberg de oude border-bottom om dubbele streep te
+   voorkomen. */
+.main-nav a.active {
+  border-bottom: none;
+}
+
+/* -- Logo: subtiele opacity-puls -------------------------------- */
+
+@keyframes logo-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.85; }
+}
+.logo img {
+  transition: transform 0.4s ease;
+}
+.logo a:hover img {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+/* -- Aod-card: subtiel zwevend bij hover ---------------------- */
+/* (versterkt het bestaande translateY(-3px) effect) */
+.aod-link img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aod-link:hover img {
+  transform: scale(1.03);
+}
+
+/* ============================================================
+   RESPECTEER prefers-reduced-motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Schakel alle non-essentiële animaties uit */
+  .home-hero::after,
+  .hero-section::after,
+  .home-hero .hero-content::before,
+  .hero-content > *,
+  .reveal-on-scroll,
+  .project-grid .project-item,
+  .governance-section .info-list li,
+  .credentials-section .info-list li,
+  .project-item img,
+  .aod-link img,
+  .logo img,
+  .main-nav a::after,
+  .projects-section h2::after,
+  .governance-section h2::after,
+  .credentials-section h2::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  /* En zet alles standaard op zichtbaar zodat content niet verborgen blijft */
+  .reveal-on-scroll,
+  .project-grid .project-item,
+  .governance-section .info-list li,
+  .credentials-section .info-list li {
+    opacity: 1;
+    transform: none;
+  }
+  .projects-section h2::after,
+  .governance-section h2::after,
+  .credentials-section h2::after {
+    width: 64px;
+  }
+}

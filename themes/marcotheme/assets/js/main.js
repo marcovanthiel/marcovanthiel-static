@@ -37,7 +37,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Project-modal: opent bij klik op een project-item-btn
   initProjectModal();
+
+  // Scroll-onthul: voegt .is-visible toe wanneer een element in beeld komt
+  initScrollReveal();
 });
+
+function initScrollReveal() {
+  // Respecteer prefers-reduced-motion: zet alles meteen op zichtbaar
+  // zonder observer te starten.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document
+      .querySelectorAll('.reveal-on-scroll, .project-grid, .projects-section, .governance-section, .credentials-section')
+      .forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+
+  // Selecteer alle elementen die "onthuld" moeten worden bij scrolling.
+  const targets = document.querySelectorAll(
+    '.reveal-on-scroll, .project-grid, .projects-section, .governance-section, .credentials-section'
+  );
+
+  // Geen IntersectionObserver beschikbaar (oudere browser): alles meteen zichtbaar.
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Onthul gebeurt eenmalig — uitgevoerd, dan niet langer observeren
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      // Trigger zodra ~12% van het element zichtbaar is
+      threshold: 0.12,
+      // Iets eerder triggeren zodat de animatie loopt voordat de gebruiker
+      // erbij is — voelt vloeiender aan dan strikt op de viewport-rand
+      rootMargin: '0px 0px -8% 0px',
+    }
+  );
+
+  targets.forEach((el) => observer.observe(el));
+}
 
 function initProjectModal() {
   const modal = document.getElementById('project-modal');
