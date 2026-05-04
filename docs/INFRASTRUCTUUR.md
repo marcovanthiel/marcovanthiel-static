@@ -13,9 +13,19 @@ Een statische website (geen database, geen logins) die je portfolio en contactge
 | **De website zelf** | Cloudflare Pages — `marcovanthiel.nl` | Toont de kant-en-klare HTML/CSS aan bezoekers |
 | **De broncode** | GitHub — `marcovanthiel/marcovanthiel-static` (privé) | Markdown-content, templates, afbeeldingen |
 | **De build-tool** | Hugo (statische-site-generator, versie 0.140.2) | Zet jouw Markdown om naar HTML wanneer je iets verandert |
+| **Contactformulier-backend** | Cloudflare Pages Function (`functions/api/contact.ts`) | Verwerkt POST van het contactformulier |
+| **E-mail-API** | Resend | Verstuurt het contactbericht naar `marco@marcovanthiel.nl` |
+| **Daily Biennale-update** | GitHub Actions (`.github/workflows/biennale-daily-update.yml`) | Ververst de magazine-subpagina elke ochtend om 06:00 UTC |
 | **DNS** | Cloudflare | Het adres `marcovanthiel.nl` wijst naar Cloudflare Pages |
 | **TLS / HTTPS** | Cloudflare (automatisch) | Veilige verbindingen |
 | **E-mail (`marco@marcovanthiel.nl`)** | Microsoft 365 | Apart van de website — gewoon je zakelijke mail |
+
+### Vereiste API-keys / secrets
+
+| Locatie | Naam | Voor |
+|---|---|---|
+| Cloudflare Pages env-vars | `RESEND_API_KEY` | Contactformulier — zonder dit krijgt elke bezoeker een 503 |
+| GitHub Repo Secrets | `ANTHROPIC_API_KEY` | Daily Biennale-update — zonder dit faalt de workflow elke ochtend |
 
 **Hoe het werkt** (in normale taal): de site bestaat uit Markdown-tekstbestandjes en een paar HTML-templates. Hugo plakt die samen tot complete webpagina's. Het resultaat zijn gewoon HTML-bestanden die op Cloudflare's wereldwijde netwerk staan, dichtbij de bezoeker. Daardoor laadt de site razendsnel — er is geen database of server die elke pagina opnieuw genereert.
 
@@ -38,15 +48,19 @@ Je hoeft niets te "uploaden" — push naar GitHub triggert de rebuild.
 
 | Pagina | Bestand | Bevat |
 |---|---|---|
-| Home | `content/nl/_index.md` (en andere talen) | Hero-tekst, drie expertise-cards, klant-portfolio |
-| Kunst | `content/nl/kunst.md` + `content/en/art.md` | Beschrijving van je kunstcollectie + knop naar de aparte applicatie + kunstwerk-van-de-dag |
-| Klant-referenties | `data/projects.json` | Naam, korte rol, lange beschrijving (hover), logo, link |
-| Contact | In de footer (voor alle pagina's) | E-mail, telefoon, LinkedIn, adres |
+| Home | `content/{lang}/_index.md` | Hero-tekst, kerncompetenties, beschikbaarheid, governance, klant-portfolio |
+| Kunst | `content/{lang}/kunst.md` (NL/EN) | Beschrijving + knop naar kunstcollectie-app + kunstwerk-van-de-dag |
+| Cases | `content/{lang}/cases/*.md` (auto-gegenereerd) | 20 case-pagina's per taal — `python3 scripts/gen-cases.py` regenereert ze uit `data/projects/{lang}.json` |
+| Biennale | `static/biennalevenetie2026/` | Magazine-subpagina, dagelijks ververst door GitHub Action |
+| Contact | `content/{lang}/contact.md` + `functions/api/contact.ts` | Contactgegevens + werkend formulier (Resend) |
+| Privacy | `content/{lang}/privacy.md` | AVG-verklaring (NL/EN/DE/IT/CN) |
 
-**Klanten op portfolio:**
-- Volgorde in `data/projects.json` = volgorde op de site
-- Per klant: titel, korte beschrijving, lange beschrijving (`details`), logo-pad, link
+**Klanten op portfolio (homepage + cases):**
+- Bron-data: `data/projects/{lang}.json` (per taal, identieke structuur)
+- Volgorde in JSON = volgorde op de homepage
+- Per klant: titel, korte beschrijving, lange beschrijving (`details`), logo-pad, optionele externe link
 - Logo's staan in `static/images/projects/`
+- **Bij wijziging**: na bewerken van JSON altijd `python3 scripts/gen-cases.py` draaien zodat ook de standalone case-pagina's bijwerken
 
 ## Talen
 
