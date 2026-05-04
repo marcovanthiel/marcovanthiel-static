@@ -59,11 +59,10 @@ params:
   description: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
   mainSections: ["posts"]
   # Standaard-afbeelding voor sociale-deel-previews (LinkedIn / WhatsApp /
-  # iMessage). Pad relatief aan static/.
-  # TODO: vervang door een ontworpen 1200×630 PNG. Bron-SVG staat in
-  # static/images/og-cover.svg — open in browser, screenshot of exporteer
-  # naar PNG en sla op als static/images/og-cover.png.
-  ogImage: "/images/logo/logo.png"
+  # iMessage). Pad relatief aan static/. 1200×630 PNG, gegenereerd uit
+  # static/images/og-cover.svg via:
+  #   rsvg-convert -w 1200 -h 630 static/images/og-cover.svg -o static/images/og-cover.png
+  ogImage: "/images/og-cover.png"
   contact:
     email: "marco@marcovanthiel.nl"
     phone: "+31 (0)6 54 211 659"
