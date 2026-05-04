@@ -1,129 +1,208 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;700;900&display=swap');
+/* ============================================================
+   Biennale di Venezia 2026 — magazine
+   Editorial dark theme, in lijn met kunstcollectie.marcovanthiel.nl
+   ------------------------------------------------------------
+   - Dark "ink"-achtergrond met cream-tekst
+   - Display: Instrument Serif italic (zelfde h-display-italic uit
+     de kunstcollectie-app)
+   - Body: Instrument Serif regular voor leesvriendelijke runs
+   - Mono: IBM Plex Mono voor labels en kickers
+   - Lime-accent (#d4ff3a) als primair, coral-rood (#ff7066) als
+     secundair (vervangt de oude "Biennale red")
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;700;900&display=swap');
 
 :root {
-  --ink: #161412;
-  --paper: #f4ede1;
-  --paper-2: #ece2cf;
-  --rule: #1a1a1a;
-  --accent: #a51a1a;       /* Biennale red */
-  --accent-2: #1c3a5e;     /* Adriatic blue */
-  --gold: #b08a3e;
-  --muted: #6b6258;
-  --serif: "Playfair Display", "Cormorant Garamond", "Iowan Old Style", Georgia, "Times New Roman", "Noto Serif SC", serif;
-  --display: "Bodoni Moda", "Bodoni 72", "Didot", "Playfair Display", "Noto Serif SC", Georgia, serif;
-  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --mono: "IBM Plex Mono", "Courier New", monospace;
+  /* — palet — overgenomen uit kunstcollectie's @theme tokens — */
+  --ink-900: #08070a;
+  --ink-800: #0d0b08;
+  --ink-700: #13110d;
+  --ink-600: #1a1814;
+  --ink-500: #23211c;
+
+  --cream-50:  #faf8f3;
+  --cream-100: #f5f2eb;
+  --cream-200: #ebe6d9;
+  --cream-300: #d8d1bd;
+  --cream-400: #bbb094;
+
+  --lime-400:  #d4ff3a;
+  --coral-500: #ff7066;
+  --coral-600: #ff4d3d;
+  --cyan-500:  #3df8ff;
+  --gold:      #b08a3e;
+
+  /* Aliassen die de bestaande selectors gebruiken */
+  --ink: var(--cream-100);          /* Body-tekst is licht op donker */
+  --paper: var(--ink-900);
+  --paper-2: var(--ink-800);
+  --rule: rgba(245, 242, 235, 0.12);
+  --accent: var(--lime-400);
+  --accent-2: var(--coral-500);
+  --muted: var(--cream-400);
+
+  --display: 'Instrument Serif', 'Bodoni Moda', Georgia, serif;
+  --serif:   'Instrument Serif', Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+  --sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --mono:    'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--serif);
-  font-size: 17px;
-  line-height: 1.55;
-  background-image:
-    radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px);
-  background-size: 4px 4px, 7px 7px;
-  background-position: 0 0, 2px 3px;
-}
-/* Chinese-specific tweak */
-html[lang="zh"] body { font-family: "Noto Serif SC", "Songti SC", "STSong", serif; }
+html { background: var(--ink-900); }
 
-a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid rgba(28,58,94,.35); }
-a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+body {
+  background: var(--ink-900);
+  color: var(--cream-100);
+  font-family: var(--serif);
+  font-size: 17.5px;
+  line-height: 1.6;
+  /* Subtiele textuur — geen "paper-dots" meer; in plaats daarvan een
+     zacht radiaal accentlicht rechtsboven en een tweede linksonder */
+  background-image:
+    radial-gradient(circle at 88% -10%, rgba(212, 255, 58, 0.06), transparent 40%),
+    radial-gradient(circle at -10% 110%, rgba(255, 112, 102, 0.05), transparent 45%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html[lang="zh"] body { font-family: 'Noto Serif SC', 'Songti SC', 'STSong', serif; }
+
+a {
+  color: var(--lime-400);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212, 255, 58, 0.32);
+  transition: color .2s, border-color .2s;
+}
+a:hover {
+  color: var(--coral-500);
+  border-bottom-color: var(--coral-500);
+}
 
 /* ---------- Top strap ---------- */
 .strap {
   border-bottom: 1px solid var(--rule);
-  background: var(--paper-2);
+  background: rgba(13, 11, 8, 0.85);
+  backdrop-filter: blur(8px);
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: .08em;
+  font-size: 11px;
+  letter-spacing: .14em;
   text-transform: uppercase;
+  color: var(--cream-200);
+  position: sticky;
+  top: 0;
+  z-index: 30;
 }
 html[lang="zh"] .strap { text-transform: none; letter-spacing: .04em; }
 .strap-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 8px 28px;
+  padding: 10px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
 }
-.strap a { color: var(--ink); border-bottom: none; }
+.strap > .strap-inner > div { color: var(--cream-300); }
+.strap a { color: var(--cream-100); border-bottom: none; }
+.strap a:hover { color: var(--lime-400); }
+
 .lang-switch button {
-  background: none;
+  background: transparent;
   border: 1px solid transparent;
-  padding: 3px 8px;
+  padding: 3px 9px;
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: .12em;
+  font-size: 11px;
+  letter-spacing: .14em;
   cursor: pointer;
-  color: var(--ink);
+  color: var(--cream-300);
   text-transform: uppercase;
+  border-radius: 3px;
+  transition: all .18s;
 }
 .lang-switch button[aria-pressed="true"] {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--lime-400);
+  color: var(--ink-900);
+  font-weight: 600;
 }
-.lang-switch button:hover { border-color: var(--ink); }
+.lang-switch button:hover {
+  border-color: var(--lime-400);
+  color: var(--lime-400);
+}
+.lang-switch button[aria-pressed="true"]:hover {
+  color: var(--ink-900);
+  border-color: var(--lime-400);
+}
 
 /* ---------- Masthead ---------- */
 header.masthead {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 28px 28px 8px;
+  padding: 56px 28px 28px;
   text-align: center;
-  border-bottom: 3px double var(--rule);
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+header.masthead::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: var(--lime-400);
+  margin: 22px auto -1px;
 }
 .kicker {
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: .35em;
+  letter-spacing: .32em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 10px;
+  color: var(--lime-400);
+  margin-bottom: 18px;
 }
 html[lang="zh"] .kicker { letter-spacing: .12em; }
+
 h1.title {
   font-family: var(--display);
-  font-weight: 900;
-  font-size: clamp(46px, 8vw, 110px);
-  line-height: .92;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(54px, 9vw, 132px);
+  line-height: .95;
   margin: 0;
   letter-spacing: -.02em;
+  color: var(--cream-50);
 }
 h1.title em {
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  color: var(--accent);
+  color: var(--lime-400);
 }
+html[lang="zh"] h1.title { font-style: normal; }
+
 .subtitle {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(18px, 2.2vw, 26px);
-  margin: 16px auto 8px;
+  font-size: clamp(18px, 2.1vw, 24px);
+  line-height: 1.45;
+  margin: 22px auto 12px;
   max-width: 820px;
-  color: #2c2620;
+  color: var(--cream-200);
 }
 html[lang="zh"] .subtitle { font-style: normal; }
+
 .meta-row {
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 22px;
   flex-wrap: wrap;
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: .14em;
+  font-size: 11px;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--muted);
-  padding: 12px 0 16px;
+  color: var(--cream-400);
+  padding: 18px 0 6px;
 }
 html[lang="zh"] .meta-row { letter-spacing: .04em; text-transform: none; }
 .meta-row span { white-space: nowrap; }
@@ -132,80 +211,135 @@ html[lang="zh"] .meta-row { letter-spacing: .04em; text-transform: none; }
 main {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 32px 28px 60px;
+  padding: 24px 28px 80px;
+  /* CSS-counter zodat elke section een 001/002/...-nummer krijgt
+     zonder dat we dat in de HTML hoeven harden. */
+  counter-reset: section-counter;
 }
 section {
+  padding: 44px 0 36px;
   border-top: 1px solid var(--rule);
-  padding: 36px 0;
+  counter-increment: section-counter;
 }
 section:first-of-type { border-top: none; }
+
+/* Sectie-label krijgt het nummer + hairline-pattern uit de
+   kunstcollectie-DashboardSection: "001 ──────────  LABEL" */
 .section-label {
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: .35em;
+  letter-spacing: .26em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 14px;
+  color: var(--cream-300);
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
-html[lang="zh"] .section-label { letter-spacing: .12em; text-transform: none; }
-.section-label::before,
+html[lang="zh"] .section-label { letter-spacing: .08em; text-transform: none; }
+.section-label::before {
+  content: counter(section-counter, decimal-leading-zero);
+  flex: 0 0 auto;
+  color: var(--lime-400);
+  font-weight: 600;
+  letter-spacing: .14em;
+}
 .section-label::after {
   content: "";
-  flex: 0 0 28px;
+  flex: 1;
   height: 1px;
-  background: var(--accent);
+  background: var(--rule);
 }
-.section-label::after { flex: 1; }
+/* Per-sectie accent-kleur op het cijfer — herhaalt de "accent" property
+   van DashboardSection (lime/coral/cyan/etc.) */
+section#editorial .section-label::before  { color: var(--lime-400); }
+section#cover-story .section-label::before { color: var(--coral-500); }
+section#gossip .section-label::before      { color: #ffd23a; }
+section#pavilions .section-label::before   { color: var(--cyan-500); }
+section#reviews .section-label::before     { color: #b333ff; }
+section#updates .section-label::before     { color: var(--lime-400); }
 
 h2.head {
   font-family: var(--display);
-  font-weight: 900;
-  font-size: clamp(34px, 5vw, 60px);
-  line-height: 1;
-  letter-spacing: -.01em;
-  margin: 0 0 12px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(36px, 5.4vw, 66px);
+  line-height: 1.04;
+  letter-spacing: -.015em;
+  margin: 0 0 16px;
+  color: var(--cream-50);
 }
+h2.head::after {
+  content: ".";
+  color: var(--lime-400);
+  font-style: italic;
+}
+html[lang="zh"] h2.head { font-style: normal; }
+section#cover-story h2.head::after { color: var(--coral-500); }
+section#gossip h2.head::after      { color: #ffd23a; }
+section#pavilions h2.head::after   { color: var(--cyan-500); }
+section#reviews h2.head::after     { color: #b333ff; }
+
 h3.subhead {
   font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.15;
-  margin: 0 0 8px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.18;
+  margin: 0 0 10px;
+  color: var(--cream-50);
 }
+html[lang="zh"] h3.subhead { font-style: normal; }
+
 .lede {
   font-family: var(--serif);
-  font-size: clamp(18px, 1.6vw, 22px);
+  font-size: clamp(18px, 1.55vw, 22px);
   font-style: italic;
-  color: #2c2620;
-  margin: 0 0 18px;
+  color: var(--cream-200);
+  margin: 0 0 22px;
   max-width: 760px;
+  line-height: 1.5;
 }
 html[lang="zh"] .lede { font-style: normal; }
+
 .columns-2 {
   column-count: 2;
-  column-gap: 36px;
+  column-gap: 40px;
+  color: var(--cream-100);
 }
 .columns-3 {
   column-count: 3;
   column-gap: 32px;
+  color: var(--cream-100);
 }
 @media (max-width: 880px) {
   .columns-2, .columns-3 { column-count: 1; }
 }
 .columns-2 p, .columns-3 p { margin-top: 0; }
+.columns-2 strong, .columns-3 strong {
+  color: var(--cream-50);
+  font-weight: 600;
+}
+.columns-2 em, .columns-3 em {
+  font-style: italic;
+  color: var(--lime-400);
+}
+
 .dropcap::first-letter {
   font-family: var(--display);
-  font-weight: 900;
-  font-size: 5.4em;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 5.6em;
   float: left;
-  line-height: .82;
-  padding: 6px 10px 0 0;
-  color: var(--accent);
+  line-height: .8;
+  padding: 8px 12px 0 0;
+  color: var(--lime-400);
 }
-html[lang="zh"] .dropcap::first-letter { font-size: 3.4em; padding: 8px 8px 0 0; }
+html[lang="zh"] .dropcap::first-letter {
+  font-size: 3.4em;
+  padding: 8px 8px 0 0;
+  font-style: normal;
+}
 
 /* ---------- Cover story ---------- */
 .cover {
@@ -214,40 +348,47 @@ html[lang="zh"] .dropcap::first-letter { font-size: 3.4em; padding: 8px 8px 0 0;
   gap: 48px;
   align-items: start;
 }
-@media (max-width: 980px) {
-  .cover { grid-template-columns: 1fr; }
-}
+@media (max-width: 980px) { .cover { grid-template-columns: 1fr; } }
 .cover-art {
   border: 1px solid var(--rule);
-  background: #0c1622;
+  background: var(--ink-700);
   margin: 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  border-radius: 6px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .55);
 }
 .cover-art img { display: block; width: 100%; height: auto; }
 .cover-art figcaption {
   position: absolute;
-  bottom: 8px;
-  right: 12px;
+  bottom: 10px;
+  right: 14px;
   font-family: var(--mono);
   font-size: 10px;
-  letter-spacing: .2em;
-  color: #f5e9c8aa;
+  letter-spacing: .18em;
+  color: rgba(245, 242, 235, .6);
   text-transform: uppercase;
 }
-html[lang="zh"] .cover-art figcaption { letter-spacing: .08em; text-transform: none; }
+html[lang="zh"] .cover-art figcaption { letter-spacing: .06em; text-transform: none; }
 
 /* ---------- Cards ---------- */
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
+  gap: 26px;
 }
 .card {
   grid-column: span 4;
-  border-top: 4px solid var(--ink);
-  padding-top: 16px;
+  background: rgba(245, 242, 235, .025);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 18px 20px 22px;
+  transition: border-color .25s, transform .25s, background .25s;
+}
+.card:hover {
+  border-color: rgba(212, 255, 58, .3);
+  transform: translateY(-2px);
+  background: rgba(245, 242, 235, .04);
 }
 .card.span-6 { grid-column: span 6; }
 .card.span-12 { grid-column: span 12; }
@@ -255,59 +396,70 @@ html[lang="zh"] .cover-art figcaption { letter-spacing: .08em; text-transform: n
   .card, .card.span-6 { grid-column: span 12; }
 }
 .card-art {
-  margin: 0 0 14px;
+  margin: -18px -20px 14px;
   aspect-ratio: 16 / 10;
-  border: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
   overflow: hidden;
-  background: #0c0c0c;
+  background: var(--ink-700);
   position: relative;
+  border-radius: 6px 6px 0 0;
 }
 .card-art img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: saturate(.92);
 }
 .card .flag {
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: .25em;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 6px;
+  color: var(--lime-400);
+  margin-bottom: 8px;
 }
-html[lang="zh"] .card .flag { letter-spacing: .08em; text-transform: none; }
+html[lang="zh"] .card .flag { letter-spacing: .06em; text-transform: none; }
 .card h3 {
   font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
   font-size: 26px;
-  line-height: 1.1;
-  margin: 0 0 8px;
+  line-height: 1.15;
+  margin: 0 0 10px;
+  color: var(--cream-50);
 }
-.card p { margin: 0 0 10px; font-size: 16px; color: #2c2620; }
+html[lang="zh"] .card h3 { font-style: normal; }
+.card p {
+  margin: 0 0 12px;
+  font-size: 15.5px;
+  color: var(--cream-200);
+  line-height: 1.55;
+}
 .card .byline {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .15em;
+  font-size: 10.5px;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--cream-400);
 }
-html[lang="zh"] .card .byline { letter-spacing: .04em; text-transform: none; }
+html[lang="zh"] .card .byline { letter-spacing: .03em; text-transform: none; }
 
 .card-source {
-  margin-top: 6px;
+  margin-top: 8px;
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  color: var(--muted);
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  color: var(--cream-400);
 }
 .card-source a {
-  color: var(--accent-2);
-  border-bottom: 1px solid rgba(28,58,94,.35);
+  color: var(--lime-400);
+  border-bottom: 1px solid rgba(212, 255, 58, .3);
   margin-left: 4px;
 }
 .card-source a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--coral-500);
+  border-bottom-color: var(--coral-500);
 }
 html[lang="zh"] .card-source { letter-spacing: 0; }
 
@@ -315,80 +467,88 @@ html[lang="zh"] .card-source { letter-spacing: 0; }
 .pullquote {
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
-  padding: 28px 0;
-  margin: 28px 0;
+  padding: 32px 0;
+  margin: 32px 0;
   font-family: var(--display);
-  font-size: clamp(26px, 3.3vw, 38px);
-  line-height: 1.15;
   font-style: italic;
+  font-size: clamp(26px, 3.3vw, 40px);
+  line-height: 1.18;
   text-align: center;
-  color: #1a1a1a;
+  color: var(--cream-50);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 html[lang="zh"] .pullquote { font-style: normal; }
 .pullquote::before {
   content: "“";
   display: block;
-  font-size: 2em;
-  line-height: .5;
-  color: var(--accent);
-  margin-bottom: 6px;
+  font-size: 1.8em;
+  line-height: .55;
+  color: var(--lime-400);
+  margin-bottom: 8px;
 }
 .pullquote .source {
   display: block;
-  margin-top: 16px;
+  margin-top: 18px;
   font-style: normal;
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: .25em;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--cream-400);
 }
+html[lang="zh"] .pullquote .source { letter-spacing: .06em; text-transform: none; }
 
 /* ---------- Reviews ---------- */
 .review {
-  border-bottom: 1px solid rgba(0,0,0,.18);
-  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 22px 0;
   display: grid;
-  grid-template-columns: 200px 1fr auto;
-  gap: 24px;
+  grid-template-columns: 220px 1fr auto;
+  gap: 28px;
   align-items: baseline;
 }
 @media (max-width: 880px) {
-  .review { grid-template-columns: 1fr; gap: 6px; }
+  .review { grid-template-columns: 1fr; gap: 8px; }
 }
+.review:last-child { border-bottom: none; }
 .review .outlet {
   font-family: var(--display);
-  font-weight: 700;
   font-style: italic;
+  font-weight: 400;
   font-size: 22px;
   line-height: 1.2;
+  color: var(--cream-50);
 }
+html[lang="zh"] .review .outlet { font-style: normal; }
 .review .outlet a {
   color: inherit;
-  border-bottom: 1px solid rgba(165,26,26,.4);
+  border-bottom: 1px solid rgba(212, 255, 58, .35);
 }
 .review .outlet a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--lime-400);
+  border-bottom-color: var(--lime-400);
 }
 .review .outlet a::after {
   content: " ↗";
   font-style: normal;
   font-size: .65em;
   letter-spacing: 0;
-  color: var(--accent);
+  color: var(--lime-400);
   vertical-align: super;
 }
 .review .quote {
   font-family: var(--serif);
-  font-size: 17px;
-  color: #2c2620;
+  font-size: 16.5px;
+  color: var(--cream-200);
+  line-height: 1.55;
 }
 .review .stars {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: .2em;
-  color: var(--accent);
+  color: var(--lime-400);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -396,93 +556,139 @@ html[lang="zh"] .review .stars { letter-spacing: .04em; text-transform: none; }
 
 /* ---------- Gossip ---------- */
 .gossip {
-  background: var(--paper-2);
+  background: var(--ink-800);
   border: 1px solid var(--rule);
-  padding: 28px;
+  border-radius: 6px;
+  padding: 36px 32px 32px;
   position: relative;
+  margin-top: 8px;
 }
 .gossip::before {
   content: "";
   position: absolute;
-  inset: 6px;
-  border: 1px solid rgba(0,0,0,.25);
+  inset: 7px;
+  border: 1px solid rgba(245, 242, 235, .08);
+  border-radius: 4px;
   pointer-events: none;
 }
-.gossip ol { padding-left: 22px; margin: 0; }
-.gossip li { margin-bottom: 14px; font-family: var(--serif); font-size: 16.5px; }
-.gossip li strong { font-family: var(--display); font-style: italic; }
+.gossip ol {
+  padding-left: 26px;
+  margin: 0;
+  position: relative;
+}
+.gossip li {
+  margin-bottom: 16px;
+  font-family: var(--serif);
+  font-size: 16.5px;
+  color: var(--cream-100);
+  line-height: 1.55;
+  padding-left: 6px;
+}
+.gossip li::marker { color: var(--lime-400); font-weight: 600; }
+.gossip li strong {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cream-50);
+}
 html[lang="zh"] .gossip li strong { font-style: normal; }
 .gossip .stamp {
   position: absolute;
-  top: -14px; right: 24px;
-  background: var(--accent);
-  color: #fff8e7;
-  padding: 6px 14px;
+  top: -12px;
+  right: 24px;
+  background: var(--lime-400);
+  color: var(--ink-900);
+  padding: 5px 14px;
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .3em;
+  font-size: 10.5px;
+  letter-spacing: .26em;
   text-transform: uppercase;
-  transform: rotate(-2deg);
+  font-weight: 600;
+  border-radius: 2px;
+  transform: rotate(-1.5deg);
 }
 
 /* ---------- Daily updates ---------- */
 .updates {
   border: 1px solid var(--rule);
-  background: #fff8ed;
-  padding: 24px;
+  background: var(--ink-800);
+  border-radius: 6px;
+  padding: 26px 28px;
 }
 .updates header {
-  display: flex; justify-content: space-between; align-items: baseline;
-  border-bottom: 1px dashed rgba(0,0,0,.4); padding-bottom: 8px; margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
 }
 .updates header h3 {
-  font-family: var(--display); margin: 0; font-size: 26px;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  margin: 0;
+  font-size: 28px;
+  color: var(--cream-50);
 }
+html[lang="zh"] .updates header h3 { font-style: normal; }
 .updates header .stamp {
-  font-family: var(--mono); font-size: 11px; letter-spacing: .25em;
-  text-transform: uppercase; color: var(--accent);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--lime-400);
 }
-html[lang="zh"] .updates header .stamp { letter-spacing: .08em; text-transform: none; }
+html[lang="zh"] .updates header .stamp { letter-spacing: .06em; text-transform: none; }
 .update-entry {
-  border-bottom: 1px dotted rgba(0,0,0,.25);
-  padding: 14px 0;
+  border-bottom: 1px dotted rgba(245, 242, 235, .15);
+  padding: 16px 0;
 }
 .update-entry:last-child { border-bottom: none; }
 .update-entry time {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .2em;
-  color: var(--accent-2);
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  color: var(--coral-500);
   text-transform: uppercase;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .update-entry h4 {
   font-family: var(--display);
-  font-size: 20px;
-  margin: 0 0 4px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 21px;
+  margin: 0 0 6px;
+  color: var(--cream-50);
 }
-.update-entry p { margin: 0; font-size: 16px; }
+html[lang="zh"] .update-entry h4 { font-style: normal; }
+.update-entry p {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--cream-200);
+  line-height: 1.55;
+}
 
 .next-update {
-  margin-top: 18px;
+  margin-top: 22px;
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: .15em;
+  font-size: 11px;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--cream-400);
 }
 html[lang="zh"] .next-update { letter-spacing: .04em; text-transform: none; }
 
 /* ---------- Footer ---------- */
 footer.colofon {
-  border-top: 3px double var(--rule);
-  margin-top: 50px;
-  padding: 30px 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 60px;
+  padding: 32px 0 12px;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: .12em;
-  color: var(--muted);
+  color: var(--cream-400);
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
@@ -497,28 +703,69 @@ html[lang="zh"] footer.colofon { letter-spacing: .04em; text-transform: none; }
 /* ---------- Small utilities ---------- */
 .hr-fancy {
   text-align: center;
-  color: var(--accent);
+  color: var(--lime-400);
   font-family: var(--display);
+  font-style: italic;
   font-size: 18px;
   letter-spacing: .5em;
   margin: 28px 0 8px;
 }
 .badge {
   display: inline-block;
-  border: 1px solid var(--ink);
+  border: 1px solid rgba(245, 242, 235, .2);
   padding: 2px 8px;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .2em;
+  font-size: 9.5px;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  margin-left: 6px;
+  margin-left: 8px;
   vertical-align: middle;
+  color: var(--cream-200);
+  border-radius: 2px;
 }
-.badge.red { background: var(--accent); color: #fff8e7; border-color: var(--accent); }
-.badge.gold { background: var(--gold); color: #1a1a1a; border-color: var(--gold); }
+html[lang="zh"] .badge { letter-spacing: .06em; text-transform: none; }
+.badge.red {
+  background: rgba(255, 112, 102, .15);
+  color: var(--coral-500);
+  border-color: rgba(255, 112, 102, .35);
+}
+.badge.gold {
+  background: rgba(255, 210, 58, .15);
+  color: #ffd23a;
+  border-color: rgba(255, 210, 58, .35);
+}
 
-/* Print */
+/* ---------- Print fallback (laat magazine-leesbaar achter) ---------- */
 @media print {
+  html, body { background: #fff; color: #161412; }
+  body { background-image: none; }
   .strap, .lang-switch { display: none; }
-  body { background: #fff; }
+  a { color: #1c3a5e; border-bottom-color: rgba(28, 58, 94, .35); }
+  .section-label,
+  .section-label::before,
+  .section-label::after,
+  .kicker,
+  .meta-row,
+  .card .flag,
+  .card .byline,
+  .review .stars,
+  .gossip .stamp,
+  .updates header .stamp,
+  .update-entry time,
+  .next-update,
+  footer.colofon {
+    color: #6b6258;
+  }
+  h1.title, h1.title em,
+  h2.head, h2.head::after,
+  h3.subhead,
+  .card h3,
+  .review .outlet,
+  .updates header h3,
+  .update-entry h4,
+  .pullquote,
+  .columns-2 strong, .columns-3 strong { color: #161412; }
+  .columns-2, .columns-3, .lede, .card p, .review .quote, .gossip li,
+  .update-entry p, .subtitle { color: #2c2620; }
+  .gossip, .updates, .card { background: #f4ede1; border-color: #1a1a1a; }
 }
