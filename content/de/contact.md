@@ -34,25 +34,30 @@ Nijmegen, Niederlande
 
 ## Nachricht senden
 
-<form id="contact-form" class="contact-form" action="mailto:marco@marcovanthiel.nl" method="post" enctype="text/plain">
+<form id="contact-form" class="contact-form" data-lang="de" novalidate>
   <label>
     <span>Name</span>
-    <input type="text" name="name" autocomplete="name" required>
+    <input type="text" name="name" autocomplete="name" required maxlength="200">
   </label>
   <label>
     <span>E-Mail-Adresse</span>
-    <input type="email" name="email" autocomplete="email" required>
+    <input type="email" name="email" autocomplete="email" required maxlength="320">
   </label>
   <label>
     <span>Betreff</span>
-    <input type="text" name="subject" required>
+    <input type="text" name="subject" required maxlength="300">
   </label>
   <label>
     <span>Nachricht</span>
-    <textarea name="message" rows="6" required></textarea>
+    <textarea name="message" rows="6" required maxlength="10000"></textarea>
+  </label>
+  <label class="hp-field" aria-hidden="true">
+    <span>Website</span>
+    <input type="text" name="website" tabindex="-1" autocomplete="off">
   </label>
   <button type="submit" class="btn btn-primary">Nachricht senden →</button>
-  <p class="contact-form-note">Das Formular öffnet Ihr E-Mail-Programm mit voreingetragenem Text; der Versand erfolgt über Ihr eigenes E-Mail-Konto. Lieber direkt mailen? Nutzen Sie die Adresse oben.</p>
+  <p class="contact-form-note">Die Nachricht landet direkt in meinem Postfach. Lieber selbst mailen? Nutzen Sie die Adresse oben.</p>
+  <div class="contact-form-status" role="status" aria-live="polite" hidden></div>
 </form>
 
 </div>
@@ -63,16 +68,51 @@ Nijmegen, Niederlande
 (function () {
   var form = document.getElementById('contact-form');
   if (!form) return;
+  var status = form.querySelector('.contact-form-status');
+  var btn = form.querySelector('button[type="submit"]');
+  var t = {
+    sending: 'Wird gesendet…',
+    success: 'Danke — Ihre Nachricht wurde gesendet. Ich antworte in der Regel innerhalb eines Werktags.',
+    error: 'Etwas ist schiefgelaufen. Bitte erneut versuchen oder direkt mailen.',
+    network: 'Keine Verbindung. Bitte später erneut versuchen.'
+  };
+  function setStatus(kind, msg) {
+    status.hidden = false;
+    status.className = 'contact-form-status contact-form-status--' + kind;
+    status.textContent = msg;
+  }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
     var fd = new FormData(form);
-    var subject = encodeURIComponent(String(fd.get('subject') || 'Nachricht über Website'));
-    var body = encodeURIComponent(
-      'Name: ' + (fd.get('name') || '') + '\n' +
-      'E-Mail: ' + (fd.get('email') || '') + '\n\n' +
-      (fd.get('message') || '')
-    );
-    window.location.href = 'mailto:marco@marcovanthiel.nl?subject=' + subject + '&body=' + body;
+    var payload = {
+      name: fd.get('name'),
+      email: fd.get('email'),
+      subject: fd.get('subject'),
+      message: fd.get('message'),
+      website: fd.get('website') || '',
+      lang: form.getAttribute('data-lang') || 'de'
+    };
+    btn.disabled = true;
+    setStatus('pending', t.sending);
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      return r.json().then(function (j) { return { ok: r.ok && j.ok, body: j }; });
+    }).then(function (res) {
+      if (res.ok) {
+        setStatus('success', t.success);
+        form.reset();
+      } else {
+        setStatus('error', (res.body && res.body.error) || t.error);
+        btn.disabled = false;
+      }
+    }).catch(function () {
+      setStatus('error', t.network);
+      btn.disabled = false;
+    });
   });
 })();
 </script>

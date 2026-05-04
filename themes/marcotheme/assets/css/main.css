@@ -1087,3 +1087,37 @@ body.page main#main .hero-section h1 {
   color: var(--primary-color);
   margin-left: 5%;
 }
+
+/* Honeypot — visueel verstopt voor mensen, bots vullen 'm in */
+.contact-form .hp-field {
+  position: absolute !important;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Submit-status na fetch */
+.contact-form-status {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  max-width: none;
+  line-height: 1.45;
+}
+.contact-form-status--pending {
+  background: #f1f5f9;
+  color: #475569;
+}
+.contact-form-status--success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #6ee7b7;
+}
+.contact-form-status--error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}

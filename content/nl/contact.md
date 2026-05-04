@@ -34,25 +34,30 @@ Nijmegen, Nederland
 
 ## Stuur een bericht
 
-<form id="contact-form" class="contact-form" action="mailto:marco@marcovanthiel.nl" method="post" enctype="text/plain">
+<form id="contact-form" class="contact-form" data-lang="nl" novalidate>
   <label>
     <span>Naam</span>
-    <input type="text" name="naam" autocomplete="name" required>
+    <input type="text" name="name" autocomplete="name" required maxlength="200">
   </label>
   <label>
     <span>E-mailadres</span>
-    <input type="email" name="email" autocomplete="email" required>
+    <input type="email" name="email" autocomplete="email" required maxlength="320">
   </label>
   <label>
     <span>Onderwerp</span>
-    <input type="text" name="onderwerp" required>
+    <input type="text" name="subject" required maxlength="300">
   </label>
   <label>
     <span>Bericht</span>
-    <textarea name="bericht" rows="6" required></textarea>
+    <textarea name="message" rows="6" required maxlength="10000"></textarea>
+  </label>
+  <label class="hp-field" aria-hidden="true">
+    <span>Website</span>
+    <input type="text" name="website" tabindex="-1" autocomplete="off">
   </label>
   <button type="submit" class="btn btn-primary">Verstuur bericht →</button>
-  <p class="contact-form-note">Het formulier opent je e-mailprogramma met de tekst voor-ingevuld; verzending gaat via je eigen mailaccount. Liever direct mailen? Gebruik het adres hierboven.</p>
+  <p class="contact-form-note">Het bericht komt direct in mijn mailbox terecht. Liever zelf mailen? Gebruik het adres hierboven.</p>
+  <div class="contact-form-status" role="status" aria-live="polite" hidden></div>
 </form>
 
 </div>
@@ -63,16 +68,51 @@ Nijmegen, Nederland
 (function () {
   var form = document.getElementById('contact-form');
   if (!form) return;
+  var status = form.querySelector('.contact-form-status');
+  var btn = form.querySelector('button[type="submit"]');
+  var t = {
+    sending: 'Bezig met verzenden…',
+    success: 'Bedankt — je bericht is verstuurd. Ik reageer doorgaans binnen één werkdag.',
+    error: 'Er ging iets mis. Probeer het opnieuw of mail direct.',
+    network: 'Geen verbinding. Probeer het later opnieuw.'
+  };
+  function setStatus(kind, msg) {
+    status.hidden = false;
+    status.className = 'contact-form-status contact-form-status--' + kind;
+    status.textContent = msg;
+  }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
     var fd = new FormData(form);
-    var subject = encodeURIComponent(String(fd.get('onderwerp') || 'Bericht via website'));
-    var body = encodeURIComponent(
-      'Naam: ' + (fd.get('naam') || '') + '\n' +
-      'E-mailadres: ' + (fd.get('email') || '') + '\n\n' +
-      (fd.get('bericht') || '')
-    );
-    window.location.href = 'mailto:marco@marcovanthiel.nl?subject=' + subject + '&body=' + body;
+    var payload = {
+      name: fd.get('name'),
+      email: fd.get('email'),
+      subject: fd.get('subject'),
+      message: fd.get('message'),
+      website: fd.get('website') || '',
+      lang: form.getAttribute('data-lang') || 'nl'
+    };
+    btn.disabled = true;
+    setStatus('pending', t.sending);
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      return r.json().then(function (j) { return { ok: r.ok && j.ok, body: j }; });
+    }).then(function (res) {
+      if (res.ok) {
+        setStatus('success', t.success);
+        form.reset();
+      } else {
+        setStatus('error', (res.body && res.body.error) || t.error);
+        btn.disabled = false;
+      }
+    }).catch(function () {
+      setStatus('error', t.network);
+      btn.disabled = false;
+    });
   });
 })();
 </script>

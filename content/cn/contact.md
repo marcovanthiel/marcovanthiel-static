@@ -34,25 +34,30 @@ description: "与 Marco van Thiel 联系 — 驻奈梅亨的临时 CIO 与项目
 
 ## 发送消息
 
-<form id="contact-form" class="contact-form" action="mailto:marco@marcovanthiel.nl" method="post" enctype="text/plain">
+<form id="contact-form" class="contact-form" data-lang="cn" novalidate>
   <label>
     <span>姓名</span>
-    <input type="text" name="name" autocomplete="name" required>
+    <input type="text" name="name" autocomplete="name" required maxlength="200">
   </label>
   <label>
     <span>邮箱地址</span>
-    <input type="email" name="email" autocomplete="email" required>
+    <input type="email" name="email" autocomplete="email" required maxlength="320">
   </label>
   <label>
     <span>主题</span>
-    <input type="text" name="subject" required>
+    <input type="text" name="subject" required maxlength="300">
   </label>
   <label>
     <span>消息</span>
-    <textarea name="message" rows="6" required></textarea>
+    <textarea name="message" rows="6" required maxlength="10000"></textarea>
+  </label>
+  <label class="hp-field" aria-hidden="true">
+    <span>Website</span>
+    <input type="text" name="website" tabindex="-1" autocomplete="off">
   </label>
   <button type="submit" class="btn btn-primary">发送消息 →</button>
-  <p class="contact-form-note">表单将打开您的邮件客户端并预填内容；邮件将通过您自己的邮箱发送。希望直接发邮件？请使用上方地址。</p>
+  <p class="contact-form-note">消息将直接送达我的邮箱。希望自己发邮件？请使用上方的地址。</p>
+  <div class="contact-form-status" role="status" aria-live="polite" hidden></div>
 </form>
 
 </div>
@@ -63,16 +68,51 @@ description: "与 Marco van Thiel 联系 — 驻奈梅亨的临时 CIO 与项目
 (function () {
   var form = document.getElementById('contact-form');
   if (!form) return;
+  var status = form.querySelector('.contact-form-status');
+  var btn = form.querySelector('button[type="submit"]');
+  var t = {
+    sending: '正在发送…',
+    success: '谢谢 — 您的消息已发送。我通常会在一个工作日内回复。',
+    error: '出了点问题。请重试或直接发邮件。',
+    network: '无连接。请稍后重试。'
+  };
+  function setStatus(kind, msg) {
+    status.hidden = false;
+    status.className = 'contact-form-status contact-form-status--' + kind;
+    status.textContent = msg;
+  }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
     var fd = new FormData(form);
-    var subject = encodeURIComponent(String(fd.get('subject') || '来自网站的消息'));
-    var body = encodeURIComponent(
-      '姓名: ' + (fd.get('name') || '') + '\n' +
-      '邮箱: ' + (fd.get('email') || '') + '\n\n' +
-      (fd.get('message') || '')
-    );
-    window.location.href = 'mailto:marco@marcovanthiel.nl?subject=' + subject + '&body=' + body;
+    var payload = {
+      name: fd.get('name'),
+      email: fd.get('email'),
+      subject: fd.get('subject'),
+      message: fd.get('message'),
+      website: fd.get('website') || '',
+      lang: form.getAttribute('data-lang') || 'cn'
+    };
+    btn.disabled = true;
+    setStatus('pending', t.sending);
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      return r.json().then(function (j) { return { ok: r.ok && j.ok, body: j }; });
+    }).then(function (res) {
+      if (res.ok) {
+        setStatus('success', t.success);
+        form.reset();
+      } else {
+        setStatus('error', (res.body && res.body.error) || t.error);
+        btn.disabled = false;
+      }
+    }).catch(function () {
+      setStatus('error', t.network);
+      btn.disabled = false;
+    });
   });
 })();
 </script>
