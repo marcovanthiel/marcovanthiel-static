@@ -49,8 +49,10 @@ function jsonResponse(
   });
 }
 
-function escapeHtml(s: string): string {
-  return s
+function escapeHtml(s: unknown): string {
+  // Coerce defensief naar string — voorkomt crashes als een caller
+  // ooit een undefined/null doorgeeft.
+  return String(s ?? '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -107,10 +109,14 @@ async function handleContact({
   const email = (payload.email ?? '').trim();
   const subject = (payload.subject ?? '').trim();
   const message = (payload.message ?? '').trim();
+  // Bug-fix: bij ontbrekende payload.lang viel de oude ternary terug
+  // op `payload.lang as string` → undefined, en escapeHtml(undefined)
+  // crashte vervolgens op .replace. Eerst defaulten, dan valideren.
+  const langInput = payload.lang ?? 'nl';
   const lang = ALLOWED_LANGS.includes(
-    (payload.lang ?? 'nl') as (typeof ALLOWED_LANGS)[number]
+    langInput as (typeof ALLOWED_LANGS)[number]
   )
-    ? (payload.lang as string)
+    ? langInput
     : 'nl';
 
   // Basis-validatie. Lengte-limieten zijn ruim genoeg voor echte
