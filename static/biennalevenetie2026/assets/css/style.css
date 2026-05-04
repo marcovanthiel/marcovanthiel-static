@@ -800,30 +800,6 @@ header.masthead {
 }
 header.masthead > *:not(.masthead-particles) { position: relative; z-index: 1; }
 
-/* ----- Ghost-cijfer "61" als hero-decoratie ----- */
-.ghost-number {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(180px, 24vw, 320px);
-  line-height: .85;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(212, 255, 58, .14);
-  letter-spacing: -.04em;
-  z-index: 0;
-  pointer-events: none;
-  user-select: none;
-  animation: ghost-drift 22s ease-in-out infinite alternate;
-}
-@keyframes ghost-drift {
-  0%   { transform: translate(-52%, -48%) rotate(-1.5deg); }
-  100% { transform: translate(-48%, -52%) rotate(1.5deg); }
-}
-
 /* ----- Hero-tekst entry-animatie ----- */
 .kicker, h1.title, .subtitle, .meta-row {
   animation: hero-rise .9s cubic-bezier(.2, .8, .2, 1) both;
@@ -863,7 +839,7 @@ h1.title em::after {
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   background: rgba(8, 7, 10, .85);
-  padding: 18px 28px;
+  padding: 14px 20px;
   margin-bottom: -1px; /* opvang voor section-border-top */
 }
 .stat-strip-inner {
@@ -873,36 +849,42 @@ h1.title em::after {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px 26px;
+  gap: 8px 14px;
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: .12em;
+  font-size: 10.5px;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--cream-300);
   text-align: center;
+  line-height: 1.35;
 }
 .stat-strip-inner > span:not(.dot) {
   white-space: nowrap;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
 }
 .stat-strip-inner b {
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 18px;
   color: var(--lime-400);
   letter-spacing: 0;
-  margin-right: 8px;
   text-transform: none;
 }
 .stat-strip-inner .dot {
   color: var(--coral-500);
-  font-size: 6px;
+  font-size: 5px;
   line-height: 1;
   vertical-align: middle;
 }
+@media (max-width: 1024px) {
+  .stat-strip-inner { gap: 6px 12px; font-size: 10px; }
+  .stat-strip-inner b { font-size: 16px; }
+}
 @media (max-width: 760px) {
-  .stat-strip-inner { gap: 8px 18px; font-size: 11px; }
-  .stat-strip-inner b { font-size: 18px; margin-right: 6px; }
+  .stat-strip-inner { gap: 6px 10px; }
   .stat-strip-inner .dot { display: none; }
 }
 
@@ -1088,19 +1070,11 @@ footer.colofon.in-view::before {
   width: 80px;
 }
 
-/* ----- Mobile fallback voor ghost-number ----- */
-@media (max-width: 760px) {
-  .ghost-number { font-size: 240px; opacity: .7; }
-  .stat-ticker-group { gap: 22px; padding-right: 22px; font-size: 11px; }
-  .stat-ticker-group b { font-size: 18px; }
-}
-
 /* ============================================================
    Print fallback — flits-elementen verbergen
    ============================================================ */
 .scroll-progress,
 .masthead-particles,
-.ghost-number,
 .stat-strip {
   /* zichtbaar op scherm; verborgen via @media print hieronder */
 }
@@ -1112,7 +1086,6 @@ footer.colofon.in-view::before {
   .strap, .lang-switch,
   .scroll-progress,
   .masthead-particles,
-  .ghost-number,
   .stat-strip { display: none; }
   /* Animaties uit voor print */
   * { animation: none !important; transition: none !important; }
