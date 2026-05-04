@@ -58,7 +58,31 @@ function escapeHtml(s: string): string {
     .replace(/'/g, '&#39;');
 }
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+export const onRequestPost: PagesFunction<Env> = async (ctx) => {
+  // Outer try/catch — zonder dit komt een runtime-exception terug als
+  // Cloudflare error 1101 (text/plain), waarna de browser r.json()
+  // niet kan parsen en 'Geen verbinding' toont. Nu krijgt de gebruiker
+  // een leesbare error in JSON én verschijnt de stacktrace in de
+  // Pages-logs.
+  try {
+    return await handleContact(ctx);
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : String(err);
+    console.error('contact handler crashed:', detail);
+    return jsonResponse(
+      { ok: false, error: `Server-fout: ${detail}` },
+      500
+    );
+  }
+};
+
+async function handleContact({
+  request,
+  env,
+}: {
+  request: Request;
+  env: Env;
+}): Promise<Response> {
   if (!env.RESEND_API_KEY) {
     return jsonResponse(
       { ok: false, error: 'Mailing service is niet geconfigureerd.' },
