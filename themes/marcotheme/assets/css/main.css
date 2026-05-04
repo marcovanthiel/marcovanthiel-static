@@ -109,13 +109,19 @@ a:hover {
 
 /* Grid-layout — voorspelbaarder dan flex voor 3 items met
    "logo links, nav+lang rechts". Kolom 1 = logo (auto), kolom 2 =
-   filler (1fr), kolommen 3-4 = nav + lang. */
+   filler (1fr), kolommen 3-4 = nav + lang.
+   De header spant de volle viewport-breedte (override .container
+   max-width: 1200px) zodat het logo écht aan de linkerkant zit en
+   niet binnen een gecentreerd eiland. */
 .site-header .container {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 1.5rem;
   text-align: left;
+  width: 100%;
+  max-width: none;
+  padding: 0 2rem;
 }
 
 .logo {

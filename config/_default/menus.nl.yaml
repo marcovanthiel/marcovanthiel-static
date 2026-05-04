@@ -6,11 +6,11 @@ main:
   - identifier: kunst
     name: Kunst
     url: /kunst/
-    weight: 2
+    weight: 3
   - identifier: cases
     name: Cases
     url: /cases/
-    weight: 3
+    weight: 2
   - identifier: biennale
     name: Biennale
     url: /biennalevenetie2026/

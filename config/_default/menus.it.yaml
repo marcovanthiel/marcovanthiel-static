@@ -10,7 +10,7 @@ main:
   - identifier: cases
     name: Casi
     url: /cases/
-    weight: 3
+    weight: 2
   - identifier: biennale
     name: Biennale
     url: /biennalevenetie2026/

@@ -10,7 +10,7 @@ main:
   - identifier: cases
     name: 案例
     url: /cases/
-    weight: 3
+    weight: 2
   - identifier: biennale
     name: 双年展
     url: /biennalevenetie2026/
