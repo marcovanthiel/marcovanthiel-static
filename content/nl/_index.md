@@ -50,4 +50,4 @@ Met de opleiding tot toezichthouder aan Maastricht University, een lopende MBA L
 
 Direct inzetbaar voor interim opdrachten als senior programmamanager, interim bestuurder, strategisch adviseur, CIO of verandermanager binnen organisaties die werken aan fusies, herstructureringen en bredere organisatietransities. Tevens beschikbaar voor toezichthoudende rollen in zorg, onderwijs, woningcorporaties en culturele instellingen.
 
-*Naast het werk: ik schrijf een dagelijks bijgewerkt magazine over de [Biënnale van Venetië 2026](/biennalevenetie2026/).*
+*Naast het werk: maak ik de komende weken een dagelijks bijgewerkt magazine over de [Biënnale van Venetië 2026](/biennalevenetie2026/).*
