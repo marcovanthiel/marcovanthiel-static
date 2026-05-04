@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" role="img" aria-label="India paviljoen — Vijf stemmen">
+  <defs>
+    <linearGradient id="in-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff9933"/>
+      <stop offset=".5" stop-color="#fff8e7"/>
+      <stop offset="1" stop-color="#138808"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="375" fill="url(#in-bg)"/>
+  <!-- ashoka chakra inspired wheel -->
+  <g transform="translate(300 187)" stroke="#1a3a82" fill="none" stroke-width="2">
+    <circle r="80"/>
+    <g>
+      <line x1="0" y1="-80" x2="0" y2="80"/>
+      <line x1="-80" y1="0" x2="80" y2="0"/>
+      <line x1="-56" y1="-56" x2="56" y2="56"/>
+      <line x1="-56" y1="56" x2="56" y2="-56"/>
+      <line x1="-30" y1="-74" x2="30" y2="74"/>
+      <line x1="30" y1="-74" x2="-30" y2="74"/>
+      <line x1="-74" y1="-30" x2="74" y2="30"/>
+      <line x1="-74" y1="30" x2="74" y2="-30"/>
+    </g>
+    <circle r="14" fill="#1a3a82"/>
+  </g>
+  <!-- 5 abstract figures around -->
+  <g fill="#1a1a1a">
+    <circle cx="120" cy="120" r="22"/>
+    <rect x="105" y="138" width="30" height="60" rx="6"/>
+    <circle cx="480" cy="120" r="22"/>
+    <rect x="465" y="138" width="30" height="60" rx="6"/>
+    <circle cx="120" cy="270" r="22"/>
+    <rect x="105" y="288" width="30" height="60" rx="6"/>
+    <circle cx="480" cy="270" r="22"/>
+    <rect x="465" y="288" width="30" height="60" rx="6"/>
+    <circle cx="300" cy="50" r="22"/>
+  </g>
+  <text x="30" y="32" font-family="monospace" font-size="11" letter-spacing="3" fill="#1a1a1a">PAVILION · IN · ARSENALE</text>
+  <text x="300" y="350" font-family="Georgia, serif" font-style="italic" font-size="14" fill="#1a1a1a" text-anchor="middle">Five voices, one polyphonic pavilion</text>
+</svg>

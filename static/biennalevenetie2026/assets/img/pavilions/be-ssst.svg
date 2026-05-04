@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" role="img" aria-label="Belgisch paviljoen — It Never SSST">
+  <defs>
+    <linearGradient id="be-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd200"/>
+      <stop offset=".55" stop-color="#ff7a00"/>
+      <stop offset="1" stop-color="#c91212"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="375" fill="url(#be-bg)"/>
+  <!-- sound waves -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="2" opacity=".75">
+    <path d="M40 200 Q 100 140 160 200 T 280 200 T 400 200 T 520 200"/>
+    <path d="M40 220 Q 100 160 160 220 T 280 220 T 400 220 T 520 220" opacity=".6"/>
+    <path d="M40 180 Q 100 120 160 180 T 280 180 T 400 180 T 520 180" opacity=".5"/>
+  </g>
+  <!-- musical sculpture: stacked figures -->
+  <g transform="translate(300 230)">
+    <ellipse cx="0" cy="0" rx="90" ry="14" fill="#1a1a1a"/>
+    <rect x="-50" y="-90" width="100" height="90" rx="6" fill="#1a1a1a"/>
+    <circle cx="0" cy="-130" r="36" fill="#1a1a1a"/>
+    <!-- horn -->
+    <path d="M-95 -70 Q -150 -50 -150 -10 L -130 0 Q -130 -40 -100 -55 Z" fill="#1a1a1a"/>
+    <!-- arms -->
+    <rect x="40" y="-85" width="14" height="80" fill="#1a1a1a" transform="rotate(-30 47 -45)"/>
+  </g>
+  <!-- letters dancing -->
+  <g font-family="Georgia, serif" font-style="italic" font-size="48" fill="#1a1a1a">
+    <text x="60" y="320">I</text>
+    <text x="100" y="305" transform="rotate(-8 105 305)">t</text>
+    <text x="140" y="320">n</text>
+    <text x="180" y="305" transform="rotate(6 185 305)">e</text>
+    <text x="220" y="320">v</text>
+    <text x="260" y="305" transform="rotate(-4 265 305)">e</text>
+    <text x="300" y="320">r</text>
+    <text x="360" y="320" font-weight="900">S</text>
+    <text x="400" y="305" font-weight="900" transform="rotate(8 410 305)">S</text>
+    <text x="445" y="320" font-weight="900">S</text>
+    <text x="490" y="305" font-weight="900" transform="rotate(-6 500 305)">T</text>
+  </g>
+  <text x="30" y="32" font-family="monospace" font-size="11" letter-spacing="3" fill="#1a1a1a">PAVILION · BE · GIARDINI</text>
+</svg>

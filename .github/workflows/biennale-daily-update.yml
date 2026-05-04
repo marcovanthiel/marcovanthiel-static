@@ -1,0 +1,74 @@
+name: Biennale daily update
+
+# Runs every day at 06:00 UTC
+# = 08:00 Europe/Amsterdam (CEST, summer)
+# = 07:00 Europe/Amsterdam (CET, winter)
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write          # to commit back to main
+
+concurrency:
+  group: biennale-daily-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r scripts/biennale/requirements.txt
+
+      - name: Run daily update via Claude API
+        id: claude
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_MODEL:   ${{ vars.ANTHROPIC_MODEL || 'claude-sonnet-4-6' }}
+        run: |
+          set -e
+          python scripts/biennale/daily-update.py | tee scripts/biennale/last-run.log
+          echo "changed=$(git diff --quiet static/biennalevenetie2026/index.html && echo false || echo true)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit changes
+        if: steps.claude.outputs.changed == 'true'
+        run: |
+          git config user.name  "biennale-bot"
+          git config user.email "bot@marcovanthiel.nl"
+          git add static/biennalevenetie2026/index.html
+          git commit -m "biennale: daily auto-update $(date -u +'%Y-%m-%d')"
+          git push
+          echo "✓ pushed to main — Cloudflare Pages will rebuild within ~1–2 minutes"
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Biennale daily-update report"
+            echo ""
+            if [ "${{ steps.claude.outputs.changed }}" = "true" ]; then
+              echo "✅ \`static/biennalevenetie2026/index.html\` updated and pushed."
+              echo ""
+              echo "Cloudflare Pages will redeploy automatically."
+            else
+              echo "ℹ️  No new material today — index.html unchanged."
+            fi
+            echo ""
+            echo "### Claude run log"
+            echo '```'
+            tail -n 60 scripts/biennale/last-run.log 2>/dev/null || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

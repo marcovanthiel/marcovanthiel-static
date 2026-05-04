@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" role="img" aria-label="Nederlands paviljoen — The Fortress">
+  <defs>
+    <linearGradient id="nl-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdd9d6"/>
+      <stop offset="1" stop-color="#9ea99e"/>
+    </linearGradient>
+    <linearGradient id="nl-shutter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3a3a"/>
+      <stop offset="1" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <pattern id="nl-louvre" x="0" y="0" width="40" height="14" patternUnits="userSpaceOnUse">
+      <rect width="40" height="14" fill="url(#nl-shutter)"/>
+      <line x1="0" y1="13" x2="40" y2="13" stroke="#000" stroke-width="1"/>
+      <line x1="0" y1="2" x2="40" y2="2" stroke="#5a5a5a" stroke-width=".6"/>
+    </pattern>
+  </defs>
+  <!-- sky -->
+  <rect width="600" height="375" fill="url(#nl-sky)"/>
+  <!-- ground -->
+  <rect y="295" width="600" height="80" fill="#8a8475"/>
+  <!-- pavilion wall -->
+  <rect x="80" y="120" width="440" height="180" fill="#e9e3d6"/>
+  <!-- roof slab Rietveld -->
+  <rect x="60" y="105" width="480" height="22" fill="#1a1a1a"/>
+  <!-- portico beam -->
+  <rect x="80" y="118" width="440" height="6" fill="#b08a3e"/>
+  <!-- big steel shutter blocking entrance -->
+  <rect x="120" y="135" width="360" height="160" fill="url(#nl-louvre)"/>
+  <!-- lock chain -->
+  <rect x="288" y="200" width="24" height="40" fill="#a51a1a"/>
+  <circle cx="300" cy="195" r="10" fill="none" stroke="#a51a1a" stroke-width="3"/>
+  <!-- ground line -->
+  <line x1="0" y1="295" x2="600" y2="295" stroke="#1a1a1a" stroke-width="1.5"/>
+  <!-- caption mark -->
+  <text x="30" y="345" font-family="Georgia, serif" font-style="italic" font-size="16" fill="#1a1a1a">The Fortress · Dries Verhoeven · 2026</text>
+  <text x="30" y="32" font-family="monospace" font-size="11" letter-spacing="3" fill="#1a1a1a">PAVILION · NL · GIARDINI</text>
+</svg>
