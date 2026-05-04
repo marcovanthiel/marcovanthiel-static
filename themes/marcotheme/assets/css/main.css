@@ -109,14 +109,22 @@ a:hover {
 
 .site-header .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .logo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  /* Pin logo links; alle andere flex-children worden naar rechts
+     geduwd dankzij margin-left:auto op .main-nav */
+  margin-right: auto;
+}
+
+.main-nav {
+  margin-left: auto;
 }
 
 .logo a {
