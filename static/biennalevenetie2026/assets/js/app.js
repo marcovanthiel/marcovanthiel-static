@@ -202,7 +202,7 @@
   // ----- Scroll-reveal via IntersectionObserver -----
   function initReveal() {
     var els = document.querySelectorAll(
-      'section, .card, .review, .update-entry, .pullquote, .gossip, .cover-art, .meta-row, footer.colofon'
+      'section, .card, .review, .update-entry, .pullquote, .gossip, .cover-art, footer.colofon'
     );
     if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
       for (var i = 0; i < els.length; i++) els[i].classList.add('in-view');
