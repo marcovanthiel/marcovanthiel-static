@@ -179,34 +179,58 @@ async function handleContact({
   // Resend API-call. Reply-To = bezoeker, zodat antwoord direct in de
   // mailbox van de afzender belandt zonder dat we de envelope-from
   // misbruiken.
-  const resendRes = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: fromAddress,
-      to: [toAddress],
-      reply_to: email,
-      subject: `[Contact] ${subject}`,
-      text: textBody,
-      html: htmlBody,
-    }),
-  });
-
-  if (!resendRes.ok) {
-    const detail = await resendRes.text().catch(() => '');
-    console.error('Resend error', resendRes.status, detail);
+  //
+  // Eigen try/catch + AbortController-timeout: als Resend langzaam is
+  // of de TLS-handshake faalt, willen we niet dat het Worker hangt en
+  // Cloudflare een platte 502 retourneert. Diagnostische details gaan
+  // mee in de JSON-response zodat we ze in de UI zien.
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 12_000);
+  let resendRes: Response;
+  try {
+    resendRes = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: fromAddress,
+        to: [toAddress],
+        reply_to: email,
+        subject: `[Contact] ${subject}`,
+        text: textBody,
+        html: htmlBody,
+      }),
+      signal: controller.signal,
+    });
+  } catch (err) {
+    clearTimeout(timeoutId);
+    const detail = err instanceof Error ? err.message : String(err);
+    console.error('Resend fetch failed:', detail);
     return jsonResponse(
       {
         ok: false,
-        error:
-          'Bericht kon niet worden verzonden. Probeer het later nog eens of mail direct.',
+        error: `Mailprovider onbereikbaar: ${detail}`,
+      },
+      502
+    );
+  }
+  clearTimeout(timeoutId);
+
+  if (!resendRes.ok) {
+    const detail = await resendRes.text().catch(() => '');
+    console.error('Resend non-OK', resendRes.status, detail);
+    return jsonResponse(
+      {
+        ok: false,
+        error: `Mailprovider weigerde de mail (${resendRes.status}): ${
+          detail.slice(0, 240) || 'geen detail'
+        }`,
       },
       502
     );
   }
 
   return jsonResponse({ ok: true });
-};
+}
