@@ -2,25 +2,43 @@
 <html lang="{{ .Site.Language.Lang }}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    {{/* Title — kort + lokaal-keyword voor betere SERP-CTR */}}
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
 
-    {{/* Open Graph + Twitter Card voor sociale-deel-previews */}}
+    {{/* Sociale-deel-previews. og:image valt terug op site-default als
+         de pagina geen eigen image meegeeft. */}}
+    {{ $ogImg := .Site.Params.ogImage | default "/images/og-cover.png" }}
+    {{ with .Params.ogImage }}{{ $ogImg = . }}{{ end }}
+    {{ $absOg := absURL $ogImg }}
+
     <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
     <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
     <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:locale" content="{{ .Site.Language.Lang }}_{{ upper .Site.Language.Lang }}">
+    <meta property="og:image" content="{{ $absOg }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Marco van Thiel — Interim CIO & Programmamanager">
+
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+    <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    <meta name="twitter:image" content="{{ $absOg }}">
+
     <meta name="theme-color" content="#0077b6">
     <link rel="canonical" href="{{ .Permalink }}">
 
-    {{/* Hreflang voor multilang SEO */}}
+    {{/* Hreflang voor multilang SEO; gebruik het taalcode-attribuut van
+         de target-pagina (zh-CN voor Mandarijn) i.p.v. de URL-prefix. */}}
     {{ range .AllTranslations }}
-    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+    <link rel="alternate" hreflang="{{ .Site.Language.LanguageCode | default .Language.Lang }}" href="{{ .Permalink }}">
     {{ end }}
+    <link rel="alternate" hreflang="x-default" href="{{ .Site.BaseURL }}">
 
     <!-- Stylesheets (Google Fonts worden via @import binnen main.css geladen) -->
     {{ $main := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
@@ -35,10 +53,13 @@
     {{ $anim := resources.Get "css/animations.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $anim.RelPermalink }}" integrity="{{ $anim.Data.Integrity }}">
 
-    <!-- Favicon -->
+    <!-- Favicon + PWA-manifest + Apple touch-icon -->
     <link rel="icon" type="image/png" href="/images/logo/logo.png">
+    <link rel="apple-touch-icon" href="/images/logo/logo.png">
+    <link rel="manifest" href="/manifest.webmanifest">
 
-    {{/* JSON-LD Person schema voor de homepage */}}
+    {{/* JSON-LD Person + LocalBusiness schema voor de homepage —
+         brengt entity-recognition naar Google's Knowledge Graph. */}}
     {{ if .IsHome }}
     <script type="application/ld+json">
     {
@@ -48,10 +69,31 @@
       "url": "{{ .Site.BaseURL }}",
       "email": "{{ .Site.Params.contact.email }}",
       "telephone": "{{ .Site.Params.contact.phone }}",
-      "address": "{{ .Site.Params.contact.address }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ .Site.Params.contact.locality | default "Nijmegen" }}",
+        "addressRegion": "{{ .Site.Params.contact.region | default "Gelderland" }}",
+        "addressCountry": "{{ .Site.Params.contact.country | default "NL" }}"
+      },
       "sameAs": ["{{ .Site.Params.contact.linkedin }}"],
       "jobTitle": "Interim CIO, Programma- en Projectmanager",
-      "description": "{{ .Site.Params.description }}"
+      "description": "{{ .Site.Params.description }}",
+      "alumniOf": [
+        {"@type": "EducationalOrganization", "name": "Maastricht University"},
+        {"@type": "EducationalOrganization", "name": "Hogeschool van Arnhem en Nijmegen"}
+      ],
+      "knowsAbout": [
+        "Programmamanagement",
+        "Organisatieverandering",
+        "Carve-out",
+        "Fusiemanagement",
+        "Prince2",
+        "MSP",
+        "Lean Six Sigma",
+        "Governance",
+        "Interim management",
+        "Digitale transformatie"
+      ]
     }
     </script>
     {{ end }}
@@ -82,7 +124,7 @@
                 </button>
                 <div class="language-dropdown-content" role="menu">
                     {{ range .Site.Home.AllTranslations }}
-                    <a href="{{ .Permalink }}" class="{{ if eq .Language.Lang $.Site.Language.Lang }}active{{ end }}" role="menuitem" lang="{{ .Language.Lang }}">
+                    <a href="{{ .Permalink }}" class="{{ if eq .Language.Lang $.Site.Language.Lang }}active{{ end }}" role="menuitem" lang="{{ .Site.Language.LanguageCode | default .Language.Lang }}">
                         <span class="flag-icon flag-{{ if eq .Language.Lang "en" }}gb{{ else }}{{ .Language.Lang }}{{ end }}"></span>
                     </a>
                     {{ end }}
@@ -104,6 +146,12 @@
                     <p><a href="tel:{{ replace .Site.Params.contact.phone " " "" }}">{{ .Site.Params.contact.phone }}</a></p>
                     <p><a href="{{ .Site.Params.contact.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                     <p>{{ .Site.Params.contact.address }}</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>{{ i18n "footerLinksTitle" | default "Meer" }}</h3>
+                    <p><a href="/privacy/">{{ i18n "privacyTitle" | default "Privacyverklaring" }}</a></p>
+                    <p><a href="{{ "/sitemap.xml" | absURL }}">Sitemap</a></p>
                 </div>
 
                 <div class="copyright">

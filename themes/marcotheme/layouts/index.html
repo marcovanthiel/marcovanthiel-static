@@ -2,6 +2,17 @@
 <div class="home-hero">
   <div class="hero-content">
     {{ .Content }}
+    {{/* Prominente call-to-action direct na de hero — voor een interim
+         manager telt elke kennismaking. Twee opties: mail (primair) en
+         telefoon (laagdrempeliger voor sommige bezoekers). */}}
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="mailto:{{ .Site.Params.contact.email }}?subject={{ i18n "ctaMailSubject" | default "Kennismakingsgesprek" }}">
+        {{ i18n "ctaPrimary" | default "Plan een kennismakingsgesprek →" }}
+      </a>
+      <a class="btn btn-secondary" href="tel:{{ replace .Site.Params.contact.phone " " "" }}">
+        {{ i18n "ctaSecondary" | default "Bel direct" }}
+      </a>
+    </div>
   </div>
 </div>
 <div class="home-content">
@@ -100,23 +111,6 @@
 </div>
 {{ end }}
 
-{{ if or (isset .Params "education") (isset .Params "methodology") }}
-<div class="credentials-section home-content">
-  <h2>{{ i18n "credentialsTitle" | default "Opleiding en methodiek" }}</h2>
-  <div class="credentials-grid">
-    {{ if isset .Params "education" }}
-    <div class="credentials-block">
-      <h3>{{ i18n "educationLabel" | default "Opleiding" }}</h3>
-      <ul class="info-list">{{ range .Params.education }}<li>{{ . }}</li>{{ end }}</ul>
-    </div>
-    {{ end }}
-    {{ if isset .Params "methodology" }}
-    <div class="credentials-block">
-      <h3>{{ i18n "methodologyLabel" | default "Methodiek" }}</h3>
-      <ul class="info-list">{{ range .Params.methodology }}<li>{{ . }}</li>{{ end }}</ul>
-    </div>
-    {{ end }}
-  </div>
-</div>
-{{ end }}
+{{/* "Opleiding en methodiek"-sectie is verwijderd op verzoek; de
+     onderbouwing zit voldoende in de governance-footer en in de hero. */}}
 {{ end }}

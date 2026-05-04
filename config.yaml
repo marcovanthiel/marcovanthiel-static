@@ -2,6 +2,10 @@ baseURL: "https://marcovanthiel.nl/"
 languageCode: "nl"
 title: "Marco van Thiel"
 theme: "marcotheme"
+
+# Verberg de Hugo-versie uit de generator-meta-tag (kleine attack-surface).
+disableHugoGeneratorInject: true
+
 # Multilingual settings
 defaultContentLanguage: "nl"
 defaultContentLanguageInSubdir: false
@@ -10,47 +14,65 @@ languages:
     languageName: "Nederlands"
     weight: 1
     contentDir: "content/nl"
-    title: "Marco van Thiel — Senior Programmamanager | Toezichthouder | Interim Bestuurder & CIO"
+    title: "Marco van Thiel — Interim CIO & Programmamanager Nijmegen"
     params:
-      description: "Senior programmamanager, toezichthouder en interim bestuurder met meer dan 20 jaar ervaring in complexe organisatietransities binnen onderwijs, zorg en industrie."
+      description: "Senior programmamanager en interim CIO uit Nijmegen — 20+ jaar ervaring met fusies, carve-outs en organisatietransities in onderwijs, zorg en industrie."
   en:
     languageName: "English"
     weight: 2
     contentDir: "content/en"
-    title: "Marco van Thiel — Senior Program Manager | Supervisory Board Member | Interim Executive & CIO"
+    languageCode: "en"
+    title: "Marco van Thiel — Interim CIO & Program Manager Nijmegen"
     params:
-      description: "Senior program manager, supervisory board member and interim executive with more than 20 years of experience in complex organizational transitions in education, healthcare and industry."
+      description: "Senior program manager and interim CIO based in Nijmegen — 20+ years of experience with mergers, carve-outs and organisational transitions in education, healthcare and industry."
   de:
     languageName: "Deutsch"
     weight: 3
     contentDir: "content/de"
-    title: "Marco van Thiel — Senior-Programmmanager | Aufsichtsrat | Interim-Vorstand & CIO"
+    languageCode: "de"
+    title: "Marco van Thiel — Interim-CIO & Programmmanager Nijmegen"
     params:
-      description: "Senior-Programmmanager, Aufsichtsrat und Interim-Vorstand mit mehr als 20 Jahren Erfahrung in komplexen Organisationstransitionen in Bildung, Gesundheitswesen und Industrie."
+      description: "Senior-Programmmanager und Interim-CIO aus Nijmegen — 20+ Jahre Erfahrung mit Fusionen, Carve-outs und Organisationstransformation in Bildung, Gesundheitswesen und Industrie."
   it:
     languageName: "Italiano"
     weight: 4
     contentDir: "content/it"
-    title: "Marco van Thiel — Senior Program Manager | Membro del Consiglio di Vigilanza | Dirigente Interim & CIO"
+    languageCode: "it"
+    title: "Marco van Thiel — Interim CIO & Program Manager Nijmegen"
     params:
-      description: "Senior program manager, membro di consigli di vigilanza e dirigente interim con più di 20 anni di esperienza in transizioni organizzative complesse nei settori istruzione, sanità e industria."
+      description: "Senior program manager e CIO interim a Nijmegen — oltre 20 anni di esperienza in fusioni, carve-out e transizioni organizzative in istruzione, sanità e industria."
   cn:
     languageName: "中文"
     weight: 5
     contentDir: "content/cn"
-    title: "Marco van Thiel — 资深项目集经理 | 监事会成员 | 临时高管 & CIO"
+    # `cn` blijft het URL-prefix (al bekend bij zoekmachines), maar het
+    # taalattribuut wijst correct naar Mandarijn (zh-CN), niet naar het
+    # land "China" — dat scheelt rare hreflang-warnings in Search Console.
+    languageCode: "zh-CN"
+    title: "Marco van Thiel — 临时 CIO 与项目集经理（奈梅亨）"
     params:
-      description: "资深项目集经理、监事会成员和临时高管，拥有超过 20 年在教育、医疗和工业领域实现复杂组织过渡的经验。"
+      description: "驻奈梅亨的资深项目集经理与临时 CIO，拥有 20 多年合并、剥离和组织转型经验，覆盖教育、医疗与工业领域。"
+
 # Site parameters
 params:
   author: "Marco van Thiel"
   description: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
   mainSections: ["posts"]
+  # Standaard-afbeelding voor sociale-deel-previews (LinkedIn / WhatsApp /
+  # iMessage). Pad relatief aan static/.
+  # TODO: vervang door een ontworpen 1200×630 PNG. Bron-SVG staat in
+  # static/images/og-cover.svg — open in browser, screenshot of exporteer
+  # naar PNG en sla op als static/images/og-cover.png.
+  ogImage: "/images/logo/logo.png"
   contact:
     email: "marco@marcovanthiel.nl"
     phone: "+31 (0)6 54 211 659"
     linkedin: "https://www.linkedin.com/in/marcovanthiel/"
     address: "Nijmegen, Nederland"
+    # Locatie-gegevens voor LocalBusiness/Person schema en lokale SEO.
+    locality: "Nijmegen"
+    region: "Gelderland"
+    country: "NL"
   # URL naar de kunstcollectie-frontend (custom subdomein voor CTA-links).
   kunstcollectieUrl: "https://kunstcollectie.marcovanthiel.nl"
   # URL naar de kunstcollectie-backend API (Render-service zonder custom domein).

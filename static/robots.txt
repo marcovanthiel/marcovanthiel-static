@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap (multi-language)
+Sitemap: https://marcovanthiel.nl/sitemap.xml
