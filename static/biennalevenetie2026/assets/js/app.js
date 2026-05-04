@@ -67,6 +67,158 @@
     try { localStorage.setItem('mvt-biennale-lang', lang); } catch (e) {}
   }
 
+  // =====================================================
+  // FLITS — moderne effecten (scroll progress, particles,
+  // scroll-reveal, strap-shadow). Bewust vanilla, geen
+  // bibliotheken; respecteert prefers-reduced-motion.
+  // =====================================================
+
+  function prefersReducedMotion() {
+    try {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // ----- Scroll progress bar -----
+  function initScrollProgress() {
+    var bar = document.querySelector('.scroll-progress');
+    if (!bar) return;
+    var ticking = false;
+    function update() {
+      var doc = document.documentElement;
+      var scrolled = doc.scrollTop || document.body.scrollTop;
+      var height = (doc.scrollHeight - doc.clientHeight) || 1;
+      var pct = Math.max(0, Math.min(100, (scrolled / height) * 100));
+      bar.style.width = pct + '%';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    update();
+  }
+
+  // ----- Strap krijgt schaduw bij scroll -----
+  function initStrapShadow() {
+    var strap = document.querySelector('.strap');
+    if (!strap) return;
+    function update() {
+      if ((window.scrollY || window.pageYOffset) > 4) {
+        strap.classList.add('is-scrolled');
+      } else {
+        strap.classList.remove('is-scrolled');
+      }
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  // ----- Constellation-particles op de masthead -----
+  function initParticles() {
+    if (prefersReducedMotion()) return;
+    var canvas = document.querySelector('.masthead-particles');
+    if (!canvas) return;
+    var header = canvas.parentElement;
+    var ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
+
+    var dpr = window.devicePixelRatio || 1;
+    var W = 0, H = 0;
+    var nodes = [];
+    var NODE_COUNT = 48;
+    var LINK_DISTANCE = 130;
+
+    function resize() {
+      var rect = header.getBoundingClientRect();
+      W = rect.width;
+      H = rect.height;
+      canvas.width = Math.floor(W * dpr);
+      canvas.height = Math.floor(H * dpr);
+      canvas.style.width = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function seed() {
+      nodes = [];
+      for (var i = 0; i < NODE_COUNT; i++) {
+        nodes.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: (Math.random() - 0.5) * 0.18,
+          r: Math.random() * 1.4 + 0.6
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      // dots
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(212, 255, 58, 0.55)';
+        ctx.fill();
+      }
+      // links
+      ctx.lineWidth = 0.6;
+      for (var a = 0; a < nodes.length; a++) {
+        for (var b = a + 1; b < nodes.length; b++) {
+          var dx = nodes[a].x - nodes[b].x;
+          var dy = nodes[a].y - nodes[b].y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < LINK_DISTANCE) {
+            var alpha = (1 - d / LINK_DISTANCE) * 0.32;
+            ctx.strokeStyle = 'rgba(212, 255, 58, ' + alpha + ')';
+            ctx.beginPath();
+            ctx.moveTo(nodes[a].x, nodes[a].y);
+            ctx.lineTo(nodes[b].x, nodes[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    seed();
+    draw();
+    window.addEventListener('resize', function () {
+      resize();
+      seed();
+    });
+  }
+
+  // ----- Scroll-reveal via IntersectionObserver -----
+  function initReveal() {
+    var els = document.querySelectorAll(
+      'section, .card, .review, .update-entry, .pullquote, .gossip, .cover-art, .meta-row, footer.colofon'
+    );
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+      for (var i = 0; i < els.length; i++) els[i].classList.add('in-view');
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    for (var j = 0; j < els.length; j++) io.observe(els[j]);
+  }
+
   // ----- Init -----
   document.addEventListener('DOMContentLoaded', function () {
     var buttons = document.querySelectorAll('.lang-switch button');
@@ -87,5 +239,11 @@
       var detected = SUPPORTED.indexOf(nav) !== -1 ? nav : 'nl';
       setLang(detected);
     }
+
+    // Flits-effecten activeren
+    initScrollProgress();
+    initStrapShadow();
+    initReveal();
+    initParticles();
   });
 })();
