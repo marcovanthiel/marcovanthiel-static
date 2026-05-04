@@ -54,6 +54,9 @@
     <link rel="stylesheet" href="{{ $anim.RelPermalink }}" integrity="{{ $anim.Data.Integrity }}">
 
     <!-- Favicon + PWA-manifest + Apple touch-icon -->
+    <!-- SVG-favicon eerst (modern, scherp op alle DPRs); PNG als fallback
+         voor oudere browsers. iOS pakt voor het home-scherm de PNG. -->
+    <link rel="icon" type="image/svg+xml" href="/images/logo/logo.svg">
     <link rel="icon" type="image/png" href="/images/logo/logo.png">
     <link rel="apple-touch-icon" href="/images/logo/logo.png">
     <link rel="manifest" href="/manifest.webmanifest">
@@ -105,7 +108,7 @@
         <div class="container">
             <div class="logo">
                 <a href="{{ .Site.Home.RelPermalink }}" aria-label="Marco van Thiel — home">
-                    <img src="/images/logo/logo.png" alt="Van Thiel Management & Consultancy">
+                    <img src="/images/logo/logo.svg" alt="Van Thiel Management & Consultancy" width="600" height="180">
                 </a>
                 <p>Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager</p>
             </div>
