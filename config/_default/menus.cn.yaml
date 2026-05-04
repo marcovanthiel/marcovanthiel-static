@@ -11,7 +11,11 @@ main:
     name: 案例
     url: /cases/
     weight: 3
+  - identifier: biennale
+    name: 双年展
+    url: /biennalevenetie2026/
+    weight: 4
   - identifier: contact
     name: 联系方式
     url: /#contact
-    weight: 4
+    weight: 5

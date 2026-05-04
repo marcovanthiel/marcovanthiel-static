@@ -49,3 +49,5 @@ Con il corso di vigilanza presso l'Università di Maastricht, un MBA Leading Inn
 ## Disponibilità
 
 Immediatamente disponibile per incarichi ad interim come senior program manager, dirigente interim, consulente strategico, CIO o change manager all'interno di organizzazioni impegnate in fusioni, ristrutturazioni e più ampie transizioni organizzative. Anche disponibile per ruoli di vigilanza nella sanità, istruzione, società di edilizia abitativa e istituzioni culturali.
+
+*Oltre al lavoro: scrivo una rivista aggiornata quotidianamente sulla [Biennale di Venezia 2026](/biennalevenetie2026/).*
