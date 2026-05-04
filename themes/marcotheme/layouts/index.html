@@ -2,17 +2,6 @@
 <div class="home-hero">
   <div class="hero-content">
     {{ .Content }}
-    {{/* Prominente call-to-action direct na de hero — voor een interim
-         manager telt elke kennismaking. Twee opties: mail (primair) en
-         telefoon (laagdrempeliger voor sommige bezoekers). */}}
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="mailto:{{ .Site.Params.contact.email }}?subject={{ i18n "ctaMailSubject" | default "Kennismakingsgesprek" }}">
-        {{ i18n "ctaPrimary" | default "Plan een kennismakingsgesprek →" }}
-      </a>
-      <a class="btn btn-secondary" href="tel:{{ replace .Site.Params.contact.phone " " "" }}">
-        {{ i18n "ctaSecondary" | default "Bel direct" }}
-      </a>
-    </div>
   </div>
 </div>
 <div class="home-content">

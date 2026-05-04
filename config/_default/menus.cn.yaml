@@ -17,5 +17,5 @@ main:
     weight: 4
   - identifier: contact
     name: 联系方式
-    url: /#contact
+    url: /contact/
     weight: 5

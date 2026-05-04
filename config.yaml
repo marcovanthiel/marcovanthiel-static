@@ -6,6 +6,12 @@ theme: "marcotheme"
 # Verberg de Hugo-versie uit de generator-meta-tag (kleine attack-surface).
 disableHugoGeneratorInject: true
 
+# Sta inline-HTML in markdown toe (nodig voor het contactformulier).
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 # Multilingual settings
 defaultContentLanguage: "nl"
 defaultContentLanguageInSubdir: false
