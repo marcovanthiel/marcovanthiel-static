@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="hero-section">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="page-subtitle">{{ . }}</p>{{ end }}
+</div>
+
+<div class="cases-listing">
+  <div class="project-grid">
+    {{ range .Pages.ByTitle }}
+    {{ $title := .Title }}
+    <a href="{{ .RelPermalink }}" class="project-item project-item-link">
+      {{ with .Params.image }}
+      <img src="{{ . }}" alt="{{ $title }}" loading="lazy" decoding="async">
+      {{ end }}
+      <h3>{{ $title }}</h3>
+      {{ with .Description }}<p class="project-subtitle">{{ . }}</p>{{ end }}
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

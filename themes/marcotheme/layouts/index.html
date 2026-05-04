@@ -43,10 +43,18 @@
   <div class="project-grid">
     {{ $projects := index .Site.Data.projects $.Site.Language.Lang }}
     {{ if not $projects }}{{ $projects = .Site.Data.projects.nl }}{{ end }}
+    {{ $cases := where $.Site.RegularPages "Section" "cases" }}
     {{ range $projects }}
     {{ $body := .description }}
     {{ with .details }}{{ $body = . }}{{ end }}
     {{ $hasExternalUrl := and (ne .url "") (ne .url "#") }}
+    {{/* Zoek de bijbehorende case-pagina via title-match zodat het tegel
+         een "Lees volledige case →" link in de modal kan tonen. */}}
+    {{ $title := .title }}
+    {{ $casePage := false }}
+    {{ range $cases }}{{ if eq .Title $title }}{{ $casePage = . }}{{ end }}{{ end }}
+    {{ $caseUrl := "" }}
+    {{ with $casePage }}{{ $caseUrl = .RelPermalink }}{{ end }}
     <div class="project-item">
       {{ if $hasExternalUrl }}
       <a href="{{ .url }}" target="_blank" rel="noopener">
@@ -60,6 +68,7 @@
         data-project-title="{{ .title }}"
         data-project-body="{{ $body }}"
         data-project-image="{{ .image }}"
+        data-project-url="{{ $caseUrl }}"
         aria-haspopup="dialog"
       >
         <img src="{{ .image }}" alt="{{ .title }}" loading="lazy" decoding="async">
@@ -94,6 +103,11 @@
     <div class="project-modal-content">
       <h3 id="project-modal-title"></h3>
       <div id="project-modal-body" class="project-modal-body"></div>
+      <p class="project-modal-link" id="project-modal-link-wrap" hidden>
+        <a id="project-modal-link" href="" class="btn btn-secondary">
+          {{ i18n "projectFullCase" | default "Lees volledige case" }} →
+        </a>
+      </p>
     </div>
   </div>
 </div>

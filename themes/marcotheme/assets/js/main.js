@@ -91,6 +91,8 @@ function initProjectModal() {
   const titleEl = document.getElementById('project-modal-title');
   const bodyEl = document.getElementById('project-modal-body');
   const imageEl = document.getElementById('project-modal-image');
+  const linkEl = document.getElementById('project-modal-link');
+  const linkWrap = document.getElementById('project-modal-link-wrap');
   if (!titleEl || !bodyEl || !imageEl) return;
 
   // Een tijdelijke buffer om de focus terug te zetten naar de knop
@@ -101,10 +103,19 @@ function initProjectModal() {
     const title = trigger.getAttribute('data-project-title') || '';
     const body = trigger.getAttribute('data-project-body') || '';
     const image = trigger.getAttribute('data-project-image') || '';
+    const url = trigger.getAttribute('data-project-url') || '';
     titleEl.textContent = title;
     bodyEl.textContent = body;
     imageEl.src = image;
     imageEl.alt = title;
+    if (linkEl && linkWrap) {
+      if (url) {
+        linkEl.href = url;
+        linkWrap.hidden = false;
+      } else {
+        linkWrap.hidden = true;
+      }
+    }
     modal.hidden = false;
     document.body.classList.add('project-modal-open');
     lastTrigger = trigger;

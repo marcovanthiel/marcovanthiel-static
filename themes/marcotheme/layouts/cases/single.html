@@ -1,0 +1,64 @@
+{{ define "main" }}
+<article class="case-detail">
+  <header class="case-header">
+    <p class="case-eyebrow">
+      <a href="{{ .Site.BaseURL }}cases/">← {{ i18n "casesBackToOverview" | default "Alle cases" }}</a>
+    </p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="case-subtitle">{{ . }}</p>{{ end }}
+  </header>
+
+  {{ with .Params.image }}
+  <figure class="case-image">
+    <img src="{{ . }}" alt="{{ $.Title }}" loading="eager" decoding="async">
+  </figure>
+  {{ end }}
+
+  <div class="case-body">
+    {{ .Content }}
+  </div>
+
+  {{ with .Params.externalUrl }}
+  <p class="case-external">
+    <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+      {{ i18n "casesVisitExternal" | default "Bezoek de organisatie" }} →
+    </a>
+  </p>
+  {{ end }}
+
+  <aside class="case-cta">
+    <h2>{{ i18n "casesCTAHeading" | default "Soortgelijk vraagstuk?" }}</h2>
+    <p>{{ i18n "casesCTABody" | default "Neem contact op voor een vrijblijvende kennismaking." }}</p>
+    <p>
+      <a class="btn btn-primary" href="mailto:{{ .Site.Params.contact.email }}?subject={{ i18n "ctaMailSubject" | default "Kennismakingsgesprek" }}">
+        {{ i18n "ctaPrimary" | default "Plan een kennismakingsgesprek →" }}
+      </a>
+    </p>
+  </aside>
+</article>
+
+{{/* JSON-LD: structured data per case zodat Google deze kan oppikken
+     als CreativeWork / Article. De client wordt expliciet als provider
+     gemarkeerd voor entity-recognition. */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ .Title }}",
+  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}",
+  "url": "{{ .Permalink }}",
+  {{ with .Params.image }}"image": "{{ . | absURL }}",{{ end }}
+  "author": {
+    "@type": "Person",
+    "name": "Marco van Thiel",
+    "url": "{{ .Site.BaseURL }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Marco van Thiel"
+  },
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "inLanguage": "{{ .Site.Language.Lang }}"
+}
+</script>
+{{ end }}

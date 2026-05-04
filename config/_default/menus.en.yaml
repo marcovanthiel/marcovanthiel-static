@@ -7,7 +7,11 @@ main:
     name: Art
     url: /art/
     weight: 2
+  - identifier: cases
+    name: Cases
+    url: /cases/
+    weight: 3
   - identifier: contact
     name: Contact
     url: /#contact
-    weight: 3
+    weight: 4
