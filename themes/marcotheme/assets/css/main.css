@@ -107,24 +107,33 @@ a:hover {
   z-index: 100;
 }
 
+/* Grid-layout — voorspelbaarder dan flex voor 3 items met
+   "logo links, nav+lang rechts". Kolom 1 = logo (auto), kolom 2 =
+   filler (1fr), kolommen 3-4 = nav + lang. */
 .site-header .container {
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 1.5rem;
+  text-align: left;
 }
 
 .logo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* Pin logo links; alle andere flex-children worden naar rechts
-     geduwd dankzij margin-left:auto op .main-nav */
-  margin-right: auto;
+  grid-column: 1;
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
 
 .main-nav {
-  margin-left: auto;
+  grid-column: 3;
+}
+
+.language-dropdown {
+  grid-column: 4;
 }
 
 .logo a {
