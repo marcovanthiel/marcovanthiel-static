@@ -34,6 +34,13 @@ description: "与 Marco van Thiel 联系 — 驻奈梅亨的临时 CIO 与项目
 
 ## 发送消息
 
+<p class="contact-form-disabled">联系表单暂时不可用。请使用上方地址直接发送邮件 — 我通常会在一个工作日内回复。</p>
+
+<!-- Contactformulier tijdelijk uitgeschakeld — verzending
+     werkt nog niet betrouwbaar. Verwijder de comment-tags
+     en de <p class="contact-form-disabled"> hierboven om het
+     formulier weer te activeren.
+
 <form id="contact-form" class="contact-form" data-lang="cn" novalidate>
   <label>
     <span>姓名</span>
@@ -116,3 +123,5 @@ description: "与 Marco van Thiel 联系 — 驻奈梅亨的临时 CIO 与项目
   });
 })();
 </script>
+-->
+

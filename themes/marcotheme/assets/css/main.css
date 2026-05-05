@@ -1127,3 +1127,16 @@ body.page main#main .hero-section h1 {
   color: #b91c1c;
   border: 1px solid #fca5a5;
 }
+
+/* Tijdelijke melding ipv contactformulier (form is uitgecomment in
+   de markdown-files; verwijder als 'ie weer aan staat). */
+.contact-form-disabled {
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  color: #9a3412;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: none;
+}

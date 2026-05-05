@@ -34,6 +34,13 @@ Nijmegen, Paesi Bassi
 
 ## Invia un messaggio
 
+<p class="contact-form-disabled">Il modulo di contatto è temporaneamente disabilitato. Scrivi direttamente all'indirizzo sopra — di solito rispondo entro un giorno lavorativo.</p>
+
+<!-- Contactformulier tijdelijk uitgeschakeld — verzending
+     werkt nog niet betrouwbaar. Verwijder de comment-tags
+     en de <p class="contact-form-disabled"> hierboven om het
+     formulier weer te activeren.
+
 <form id="contact-form" class="contact-form" data-lang="it" novalidate>
   <label>
     <span>Nome</span>
@@ -116,3 +123,5 @@ Nijmegen, Paesi Bassi
   });
 })();
 </script>
+-->
+

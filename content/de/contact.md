@@ -34,6 +34,13 @@ Nijmegen, Niederlande
 
 ## Nachricht senden
 
+<p class="contact-form-disabled">Das Kontaktformular ist vorübergehend deaktiviert. Bitte schreiben Sie direkt an die obige Adresse — ich antworte in der Regel innerhalb eines Werktags.</p>
+
+<!-- Contactformulier tijdelijk uitgeschakeld — verzending
+     werkt nog niet betrouwbaar. Verwijder de comment-tags
+     en de <p class="contact-form-disabled"> hierboven om het
+     formulier weer te activeren.
+
 <form id="contact-form" class="contact-form" data-lang="de" novalidate>
   <label>
     <span>Name</span>
@@ -116,3 +123,5 @@ Nijmegen, Niederlande
   });
 })();
 </script>
+-->
+

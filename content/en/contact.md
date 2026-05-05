@@ -34,6 +34,13 @@ Nijmegen, the Netherlands
 
 ## Send a message
 
+<p class="contact-form-disabled">The contact form is temporarily disabled. Please email directly using the address above — I usually reply within one business day.</p>
+
+<!-- Contactformulier tijdelijk uitgeschakeld — verzending
+     werkt nog niet betrouwbaar. Verwijder de comment-tags
+     en de <p class="contact-form-disabled"> hierboven om het
+     formulier weer te activeren.
+
 <form id="contact-form" class="contact-form" data-lang="en" novalidate>
   <label>
     <span>Name</span>
@@ -116,3 +123,5 @@ Nijmegen, the Netherlands
   });
 })();
 </script>
+-->
+

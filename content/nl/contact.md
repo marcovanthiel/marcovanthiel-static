@@ -34,6 +34,13 @@ Nijmegen, Nederland
 
 ## Stuur een bericht
 
+<p class="contact-form-disabled">Het contactformulier is tijdelijk uit de lucht. Mail rechtstreeks via het adres hierboven — ik reageer doorgaans binnen één werkdag.</p>
+
+<!-- Contactformulier tijdelijk uitgeschakeld — verzending
+     werkt nog niet betrouwbaar. Verwijder de comment-tags
+     en de <p class="contact-form-disabled"> hierboven om het
+     formulier weer te activeren.
+
 <form id="contact-form" class="contact-form" data-lang="nl" novalidate>
   <label>
     <span>Naam</span>
@@ -116,3 +123,5 @@ Nijmegen, Nederland
   });
 })();
 </script>
+-->
+
