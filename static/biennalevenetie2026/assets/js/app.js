@@ -38,9 +38,14 @@
     if (u) u.textContent = labels[lang][1] + ': ' + formatDate(lang);
   }
 
+  // Huidige taal (zo weet de editorial-renderer naar welke variant
+  // hij moet wisselen wanneer setLang() draait).
+  var CURRENT_LANG = 'nl';
+
   // ----- Language switcher -----
   function setLang(lang) {
     if (SUPPORTED.indexOf(lang) === -1) lang = 'nl';
+    CURRENT_LANG = lang;
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('data-lang', lang);
 
@@ -63,8 +68,187 @@
     }
 
     updateDates(lang);
+    renderCurrentEditorial();
 
     try { localStorage.setItem('mvt-biennale-lang', lang); } catch (e) {}
+  }
+
+  // =====================================================
+  // EDITORIALS — dynamische data-load vanuit JSON
+  // =====================================================
+  // Laadt het JSON-bestand één keer en houdt de gesorteerde lijst
+  // (nieuwste eerst) in module-state. De gebruiker kan via het
+  // archief klikken op een oudere editie; ACTIVE_INDEX onthoudt welke
+  // editorial momenteel als hoofdartikel zichtbaar is.
+  var EDITORIALS = null;       // gesorteerde array (nieuwste eerst)
+  var ACTIVE_INDEX = 0;        // 0 = newest
+
+  // Hugo serveert de pagina onder /biennalevenetie2026/. Bij file://
+  // tests pakt fetch hetzelfde relatieve pad. We geven het JSON-pad
+  // expliciet zodat het ook werkt bij sub-paths.
+  function editorialsUrl() {
+    // Pak alles tot en met de slug, ongeacht of er een trailing slash
+    // of een /index.html in de URL zit.
+    var path = window.location.pathname;
+    var slug = '/biennalevenetie2026/';
+    var idx = path.indexOf(slug);
+    var base = idx >= 0 ? path.slice(0, idx + slug.length) : '/biennalevenetie2026/';
+    return base + 'data/editorials.json';
+  }
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  // Body-HTML in JSON gebruikt <p>, <strong>, <em> — die laten we door.
+  // Strong tag-allowlist tegen XSS via toekomstige content.
+  function sanitiseBodyHtml(html) {
+    if (typeof html !== 'string') return '';
+    // Verwijder script/style/link/iframe-tags volledig.
+    var cleaned = html.replace(
+      /<\s*(script|style|link|iframe|object|embed)[^>]*>[\s\S]*?<\s*\/\s*\1\s*>/gi,
+      ''
+    );
+    // Verwijder alle on*-attributen — paranoid maar goedkoop.
+    cleaned = cleaned.replace(/\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+    // Verwijder javascript:-URLs in href/src.
+    cleaned = cleaned.replace(/(href|src)\s*=\s*("|')\s*javascript:[^"']*\2/gi, '');
+    return cleaned;
+  }
+
+  function formatStamp(dateIso, lang) {
+    var d = new Date(dateIso + 'T00:00:00');
+    if (isNaN(d.getTime())) return dateIso;
+    if (lang === 'zh') {
+      return d.getFullYear() + '年' + months.zh[d.getMonth()] + d.getDate() + '日';
+    }
+    return d.getDate() + ' ' + months[lang][d.getMonth()] + ' ' + d.getFullYear();
+  }
+
+  // Eerste alinea een dropcap geven, paragrafen in de columns-2 zetten.
+  function buildBodyMarkup(html) {
+    var safe = sanitiseBodyHtml(html);
+    var firstP = safe.indexOf('<p');
+    if (firstP === -1) {
+      // Geen paragraphs gevonden — gewoon het geheel in een dropcap-p
+      return '<div class="columns-2"><p class="dropcap">' + safe + '</p></div>';
+    }
+    // Voeg class="dropcap" toe aan de eerste <p>.
+    var withDrop;
+    var firstClose = safe.indexOf('>', firstP);
+    if (firstClose === -1) {
+      withDrop = safe;
+    } else {
+      // Slim: als het al een class-attribuut bevat, voeg hem toe; anders nieuwe class.
+      var openTag = safe.slice(firstP, firstClose + 1);
+      var newOpen;
+      if (/\sclass\s*=/.test(openTag)) {
+        newOpen = openTag.replace(/(\sclass\s*=\s*"[^"]*)"/, '$1 dropcap"');
+      } else {
+        newOpen = openTag.replace('<p', '<p class="dropcap"');
+      }
+      withDrop = safe.slice(0, firstP) + newOpen + safe.slice(firstClose + 1);
+    }
+    return '<div class="columns-2">' + withDrop + '</div>';
+  }
+
+  function pickLang(map, lang) {
+    if (!map) return '';
+    if (map[lang] != null) return map[lang];
+    if (map.nl != null) return map.nl;
+    if (map.en != null) return map.en;
+    var first = Object.keys(map)[0];
+    return first ? map[first] : '';
+  }
+
+  function renderCurrentEditorial() {
+    if (!EDITORIALS || EDITORIALS.length === 0) return;
+    var ed = EDITORIALS[ACTIVE_INDEX] || EDITORIALS[0];
+    var lang = CURRENT_LANG;
+
+    // Sectie-label — overschrijven met datum-versie uit JSON.
+    var labelHost = document.querySelector('[data-editorial-label]');
+    if (labelHost && ed.label) {
+      labelHost.innerHTML =
+        '<span lang="nl"' + (lang === 'nl' ? ' data-active' : '') + '>' + escapeHtml(pickLang(ed.label, 'nl')) + '</span>' +
+        '<span lang="en"' + (lang === 'en' ? ' data-active' : '') + '>' + escapeHtml(pickLang(ed.label, 'en')) + '</span>' +
+        '<span lang="it"' + (lang === 'it' ? ' data-active' : '') + '>' + escapeHtml(pickLang(ed.label, 'it')) + '</span>' +
+        '<span lang="de"' + (lang === 'de' ? ' data-active' : '') + '>' + escapeHtml(pickLang(ed.label, 'de')) + '</span>' +
+        '<span lang="zh"' + (lang === 'zh' ? ' data-active' : '') + '>' + escapeHtml(pickLang(ed.label, 'zh')) + '</span>';
+    }
+
+    var article = document.querySelector('[data-editorial-article]');
+    if (!article) return;
+    var title = pickLang(ed.title, lang);
+    var lede  = pickLang(ed.lede, lang);
+    var body  = pickLang(ed.body_html, lang);
+
+    article.innerHTML =
+      '<h2 class="head">' + escapeHtml(title) + '</h2>' +
+      '<p class="lede">' + escapeHtml(lede) + '</p>' +
+      buildBodyMarkup(body);
+  }
+
+  function renderEditorialArchive() {
+    var host = document.querySelector('[data-editorial-archive]');
+    var list = document.querySelector('[data-editorial-archive-list]');
+    if (!host || !list || !EDITORIALS) return;
+    if (EDITORIALS.length <= 1) {
+      host.setAttribute('hidden', '');
+      return;
+    }
+    host.removeAttribute('hidden');
+    list.innerHTML = '';
+    for (var i = 0; i < EDITORIALS.length; i++) {
+      var ed = EDITORIALS[i];
+      var li = document.createElement('li');
+      li.className = 'editorial-archive-item' + (i === ACTIVE_INDEX ? ' is-active' : '');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'editorial-archive-btn';
+      btn.setAttribute('data-index', String(i));
+      btn.innerHTML =
+        '<time>' + escapeHtml(formatStamp(ed.date, CURRENT_LANG)) + '</time>' +
+        '<span class="editorial-archive-title">' + escapeHtml(pickLang(ed.title, CURRENT_LANG)) + '</span>';
+      btn.addEventListener('click', (function (idx) {
+        return function () {
+          ACTIVE_INDEX = idx;
+          renderCurrentEditorial();
+          renderEditorialArchive();
+          // Scroll de gebruiker terug naar de top van de section.
+          var section = document.getElementById('editorial');
+          if (section && section.scrollIntoView) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        };
+      })(i));
+      li.appendChild(btn);
+      list.appendChild(li);
+    }
+  }
+
+  function loadEditorials() {
+    fetch(editorialsUrl(), { cache: 'no-cache' })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var items = (data && data.editorials) || [];
+        // Sorteer nieuwste eerst.
+        items.sort(function (a, b) {
+          return (b.date || '').localeCompare(a.date || '');
+        });
+        EDITORIALS = items;
+        ACTIVE_INDEX = 0;
+        renderCurrentEditorial();
+        renderEditorialArchive();
+      })
+      .catch(function (err) {
+        console.error('editorials laden mislukt:', err);
+      });
   }
 
   // =====================================================
@@ -245,5 +429,8 @@
     initStrapShadow();
     initReveal();
     initParticles();
+
+    // Editorial-data ophalen en renderen.
+    loadEditorials();
   });
 })();
