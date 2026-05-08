@@ -187,11 +187,49 @@
     var title = pickLang(ed.title, lang);
     var lede  = pickLang(ed.lede, lang);
     var body  = pickLang(ed.body_html, lang);
+    // Lede mag inline <em>/<strong> bevatten (bv. een citaat in italics);
+    // sanitiseBodyHtml laat die tags door en strip script/style/on*.
+    var safeLede = sanitiseBodyHtml(lede);
 
     article.innerHTML =
       '<h2 class="head">' + escapeHtml(title) + '</h2>' +
-      '<p class="lede">' + escapeHtml(lede) + '</p>' +
-      buildBodyMarkup(body);
+      '<p class="lede">' + safeLede + '</p>' +
+      buildBodyMarkup(body) +
+      buildMediaMarkup(ed.media, lang);
+  }
+
+  // Renderen van een optioneel media-element (video of afbeelding) onder
+  // het hoofdartikel. Toont caption in de actieve taal.
+  function buildMediaMarkup(media, lang) {
+    if (!media || !media.src) return '';
+    var src = String(media.src).replace(/^\/+/, ''); // relatief houden
+    var caption = media.caption ? escapeHtml(pickLang(media.caption, lang)) : '';
+    var poster = media.poster
+      ? ' poster="' + escapeHtml(String(media.poster).replace(/^\/+/, '')) + '"'
+      : '';
+    if (media.type === 'video') {
+      // Twee <source>-elementen voor wijdere browser-compat: de meeste
+      // .mov-bestanden van iPhone bevatten H.264 die alle moderne
+      // browsers afspelen, ongeacht de container-naam.
+      return (
+        '<figure class="editorial-media editorial-media--video">' +
+          '<video controls preload="metadata" playsinline' + poster + '>' +
+            '<source src="' + escapeHtml(src) + '" type="video/mp4" />' +
+            '<source src="' + escapeHtml(src) + '" type="video/quicktime" />' +
+          '</video>' +
+          (caption ? '<figcaption>' + caption + '</figcaption>' : '') +
+        '</figure>'
+      );
+    }
+    if (media.type === 'image') {
+      return (
+        '<figure class="editorial-media editorial-media--image">' +
+          '<img src="' + escapeHtml(src) + '" alt="' + caption + '" loading="lazy" />' +
+          (caption ? '<figcaption>' + caption + '</figcaption>' : '') +
+        '</figure>'
+      );
+    }
+    return '';
   }
 
   function renderEditorialArchive() {
