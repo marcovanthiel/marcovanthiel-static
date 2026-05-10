@@ -764,7 +764,7 @@ html[lang="zh"] .badge { letter-spacing: .06em; text-transform: none; }
 }
 
 /* ============================================================
-   EDITORIAL MEDIA — optionele video/afbeelding onder het artikel
+   EDITORIAL MEDIA — optionele video/afbeelding(en) onder het artikel
    ============================================================ */
 .editorial-media {
   margin: 28px 0 0;
@@ -797,6 +797,41 @@ html[lang="zh"] .badge { letter-spacing: .06em; text-transform: none; }
 html[lang="zh"] .editorial-media figcaption {
   letter-spacing: .04em;
   text-transform: none;
+}
+
+/* Grid voor meerdere foto's binnen één editorial. Schaalt
+   automatisch met het aantal: 2 = naast elkaar, 3+ = 3-koloms,
+   4 = 2x2 op desktop, valt terug naar 1 kolom op mobiel. */
+.editorial-media-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.editorial-media-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.editorial-media-grid--4 { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 980px) {
+  .editorial-media-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .editorial-media-grid,
+  .editorial-media-grid--3,
+  .editorial-media-grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+.editorial-media--in-grid {
+  margin: 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+}
+.editorial-media--in-grid img {
+  max-height: 360px;
+  object-fit: cover;
+}
+.editorial-media--in-grid figcaption {
+  font-size: 10px;
+  letter-spacing: .1em;
+  padding: 8px 12px;
 }
 
 /* ============================================================

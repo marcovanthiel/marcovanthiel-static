@@ -195,24 +195,67 @@
       '<h2 class="head">' + escapeHtml(title) + '</h2>' +
       '<p class="lede">' + safeLede + '</p>' +
       buildBodyMarkup(body) +
-      buildMediaMarkup(ed.media, lang);
+      buildMediaListMarkup(ed.media, lang);
   }
 
-  // Renderen van een optioneel media-element (video of afbeelding) onder
-  // het hoofdartikel. Toont caption in de actieve taal.
-  function buildMediaMarkup(media, lang) {
+  // Normaliseert ed.media naar een array. Accepteert zowel een single-
+  // object (oude vorm: { type, src, caption }) als een array van objects
+  // (nieuwe vorm: meerdere afbeeldingen / videos per editie).
+  function normaliseMedia(media) {
+    if (!media) return [];
+    if (Array.isArray(media)) return media;
+    return [media];
+  }
+
+  function buildMediaListMarkup(media, lang) {
+    var list = normaliseMedia(media).filter(function (m) {
+      return m && m.src;
+    });
+    if (list.length === 0) return '';
+    var images = list.filter(function (m) { return m.type === 'image'; });
+    var others = list.filter(function (m) { return m.type !== 'image'; });
+    var html = '';
+    // Niet-image (typisch video) krijgen elk een eigen volle figure.
+    for (var i = 0; i < others.length; i++) {
+      html += buildMediaMarkup(others[i], lang);
+    }
+    // Images groeperen we — bij meer dan één in een grid, bij precies
+    // één in een enkele full-width figure (zoals voorheen).
+    if (images.length === 1) {
+      html += buildMediaMarkup(images[0], lang);
+    } else if (images.length > 1) {
+      var inner = '';
+      for (var j = 0; j < images.length; j++) {
+        inner += buildMediaMarkup(images[j], lang, /*inGrid*/ true);
+      }
+      html +=
+        '<div class="editorial-media-grid editorial-media-grid--' +
+        Math.min(images.length, 4) +
+        '">' +
+        inner +
+        '</div>';
+    }
+    return html;
+  }
+
+  // Renderen van één enkel media-element. inGrid=true betekent dat het
+  // figure binnen een grid komt te staan; layout wordt dan compacter.
+  function buildMediaMarkup(media, lang, inGrid) {
     if (!media || !media.src) return '';
     var src = String(media.src).replace(/^\/+/, ''); // relatief houden
     var caption = media.caption ? escapeHtml(pickLang(media.caption, lang)) : '';
     var poster = media.poster
       ? ' poster="' + escapeHtml(String(media.poster).replace(/^\/+/, '')) + '"'
       : '';
+    var classes =
+      'editorial-media editorial-media--' + (media.type || 'image') +
+      (inGrid ? ' editorial-media--in-grid' : '');
     if (media.type === 'video') {
       // Twee <source>-elementen voor wijdere browser-compat: de meeste
       // .mov-bestanden van iPhone bevatten H.264 die alle moderne
       // browsers afspelen, ongeacht de container-naam.
       return (
-        '<figure class="editorial-media editorial-media--video">' +
+        '<figure class="' + classes + '">' +
           '<video controls preload="metadata" playsinline' + poster + '>' +
             '<source src="' + escapeHtml(src) + '" type="video/mp4" />' +
             '<source src="' + escapeHtml(src) + '" type="video/quicktime" />' +
@@ -221,15 +264,13 @@
         '</figure>'
       );
     }
-    if (media.type === 'image') {
-      return (
-        '<figure class="editorial-media editorial-media--image">' +
-          '<img src="' + escapeHtml(src) + '" alt="' + caption + '" loading="lazy" />' +
-          (caption ? '<figcaption>' + caption + '</figcaption>' : '') +
-        '</figure>'
-      );
-    }
-    return '';
+    // Default: image
+    return (
+      '<figure class="' + classes + '">' +
+        '<img src="' + escapeHtml(src) + '" alt="' + caption + '" loading="lazy" />' +
+        (caption ? '<figcaption>' + caption + '</figcaption>' : '') +
+      '</figure>'
+    );
   }
 
   function renderEditorialArchive() {
