@@ -196,6 +196,10 @@
       '<p class="lede">' + safeLede + '</p>' +
       buildBodyMarkup(body) +
       buildMediaListMarkup(ed.media, lang);
+
+    // Maak alle media in deze editie klikbaar en open een lightbox
+    // wanneer de gebruiker er een aanklikt.
+    wireLightboxToCurrentEditorial();
   }
 
   // Normaliseert ed.media naar een array. Accepteert zowel een single-
@@ -212,30 +216,24 @@
       return m && m.src;
     });
     if (list.length === 0) return '';
-    var images = list.filter(function (m) { return m.type === 'image'; });
-    var others = list.filter(function (m) { return m.type !== 'image'; });
-    var html = '';
-    // Niet-image (typisch video) krijgen elk een eigen volle figure.
-    for (var i = 0; i < others.length; i++) {
-      html += buildMediaMarkup(others[i], lang);
+    // Single item → full-width figure zonder grid.
+    if (list.length === 1) {
+      return buildMediaMarkup(list[0], lang);
     }
-    // Images groeperen we — bij meer dan één in een grid, bij precies
-    // één in een enkele full-width figure (zoals voorheen).
-    if (images.length === 1) {
-      html += buildMediaMarkup(images[0], lang);
-    } else if (images.length > 1) {
-      var inner = '';
-      for (var j = 0; j < images.length; j++) {
-        inner += buildMediaMarkup(images[j], lang, /*inGrid*/ true);
-      }
-      html +=
-        '<div class="editorial-media-grid editorial-media-grid--' +
-        Math.min(images.length, 4) +
-        '">' +
-        inner +
-        '</div>';
+    // Meerdere items (foto's + eventuele video's) — alles in één grid
+    // zodat Marco's instructie "laat ze allemaal zien" netjes oogt en
+    // de lightbox door alles heen kan klikken.
+    var inner = '';
+    for (var i = 0; i < list.length; i++) {
+      inner += buildMediaMarkup(list[i], lang, /*inGrid*/ true);
     }
-    return html;
+    return (
+      '<div class="editorial-media-grid editorial-media-grid--' +
+      Math.min(list.length, 4) +
+      '">' +
+      inner +
+      '</div>'
+    );
   }
 
   // Renderen van één enkel media-element. inGrid=true betekent dat het
@@ -251,15 +249,22 @@
       'editorial-media editorial-media--' + (media.type || 'image') +
       (inGrid ? ' editorial-media--in-grid' : '');
     if (media.type === 'video') {
-      // Twee <source>-elementen voor wijdere browser-compat: de meeste
-      // .mov-bestanden van iPhone bevatten H.264 die alle moderne
-      // browsers afspelen, ongeacht de container-naam.
+      // In een grid → eerste frame als thumbnail (geen controls, geen
+      // autoplay), klik opent lightbox waar de video afspeelt.
+      // Buiten een grid → volledige speler met controls.
+      var videoAttrs = inGrid
+        ? 'preload="metadata" playsinline muted'
+        : 'controls preload="metadata" playsinline';
+      var playOverlay = inGrid
+        ? '<span class="editorial-media-play" aria-hidden="true">▶</span>'
+        : '';
       return (
         '<figure class="' + classes + '">' +
-          '<video controls preload="metadata" playsinline' + poster + '>' +
+          '<video ' + videoAttrs + poster + '>' +
             '<source src="' + escapeHtml(src) + '" type="video/mp4" />' +
             '<source src="' + escapeHtml(src) + '" type="video/quicktime" />' +
           '</video>' +
+          playOverlay +
           (caption ? '<figcaption>' + caption + '</figcaption>' : '') +
         '</figure>'
       );
@@ -480,6 +485,154 @@
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
     for (var j = 0; j < els.length; j++) io.observe(els[j]);
+  }
+
+  // =====================================================
+  // LIGHTBOX — klik op een foto/video opent een full-screen
+  // modal met prev/next-navigatie en toetsenbord-bediening.
+  // =====================================================
+  var lightboxItems = [];     // huidige set die we doorlopen
+  var lightboxIndex = 0;
+  var lightboxEl = null;
+
+  function ensureLightboxDom() {
+    if (lightboxEl) return lightboxEl;
+    var el = document.createElement('div');
+    el.className = 'mvt-lightbox';
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML =
+      '<div class="mvt-lightbox-backdrop" data-lb-close></div>' +
+      '<button class="mvt-lightbox-close" type="button" data-lb-close aria-label="Sluiten">×</button>' +
+      '<button class="mvt-lightbox-prev" type="button" data-lb-prev aria-label="Vorige">‹</button>' +
+      '<button class="mvt-lightbox-next" type="button" data-lb-next aria-label="Volgende">›</button>' +
+      '<div class="mvt-lightbox-stage" data-lb-stage></div>' +
+      '<div class="mvt-lightbox-caption" data-lb-caption></div>' +
+      '<div class="mvt-lightbox-counter" data-lb-counter></div>';
+    document.body.appendChild(el);
+    el.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!t || !t.getAttribute) return;
+      if (t.hasAttribute('data-lb-close')) closeLightbox();
+      else if (t.hasAttribute('data-lb-prev')) navLightbox(-1);
+      else if (t.hasAttribute('data-lb-next')) navLightbox(1);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (lightboxEl && lightboxEl.classList.contains('is-open')) {
+        if (e.key === 'Escape') closeLightbox();
+        else if (e.key === 'ArrowLeft') navLightbox(-1);
+        else if (e.key === 'ArrowRight') navLightbox(1);
+      }
+    });
+    lightboxEl = el;
+    return el;
+  }
+
+  function openLightbox(items, startIndex) {
+    if (!items || items.length === 0) return;
+    ensureLightboxDom();
+    lightboxItems = items;
+    lightboxIndex = Math.max(0, Math.min(startIndex || 0, items.length - 1));
+    renderLightbox();
+    lightboxEl.classList.add('is-open');
+    lightboxEl.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('mvt-lightbox-open');
+  }
+
+  function closeLightbox() {
+    if (!lightboxEl) return;
+    lightboxEl.classList.remove('is-open');
+    lightboxEl.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('mvt-lightbox-open');
+    var stage = lightboxEl.querySelector('[data-lb-stage]');
+    if (stage) stage.innerHTML = ''; // stop video's onmiddellijk
+  }
+
+  function navLightbox(delta) {
+    if (lightboxItems.length === 0) return;
+    lightboxIndex =
+      (lightboxIndex + delta + lightboxItems.length) % lightboxItems.length;
+    renderLightbox();
+  }
+
+  function renderLightbox() {
+    if (!lightboxEl) return;
+    var item = lightboxItems[lightboxIndex];
+    var stage = lightboxEl.querySelector('[data-lb-stage]');
+    var caption = lightboxEl.querySelector('[data-lb-caption]');
+    var counter = lightboxEl.querySelector('[data-lb-counter]');
+    stage.innerHTML = '';
+    if (item.type === 'video') {
+      var v = document.createElement('video');
+      v.controls = true;
+      v.autoplay = true;
+      v.playsInline = true;
+      v.preload = 'metadata';
+      var s1 = document.createElement('source');
+      s1.src = item.src; s1.type = 'video/mp4';
+      var s2 = document.createElement('source');
+      s2.src = item.src; s2.type = 'video/quicktime';
+      v.appendChild(s1); v.appendChild(s2);
+      stage.appendChild(v);
+    } else {
+      var img = document.createElement('img');
+      img.src = item.src;
+      img.alt = item.caption || '';
+      stage.appendChild(img);
+    }
+    caption.textContent = item.caption || '';
+    caption.style.display = item.caption ? 'block' : 'none';
+    counter.textContent =
+      lightboxItems.length > 1
+        ? String(lightboxIndex + 1) + ' / ' + lightboxItems.length
+        : '';
+    var prev = lightboxEl.querySelector('[data-lb-prev]');
+    var next = lightboxEl.querySelector('[data-lb-next]');
+    var multi = lightboxItems.length > 1;
+    if (prev) prev.style.display = multi ? '' : 'none';
+    if (next) next.style.display = multi ? '' : 'none';
+  }
+
+  // Wire de huidige editorial-media-elementen aan de lightbox.
+  function wireLightboxToCurrentEditorial() {
+    var article = document.querySelector('[data-editorial-article]');
+    if (!article) return;
+    var figures = article.querySelectorAll('.editorial-media');
+    if (figures.length === 0) return;
+    // Bouw de items-lijst in DOM-volgorde zodat prev/next overeenkomt.
+    var items = [];
+    var indexMap = [];
+    figures.forEach(function (fig, i) {
+      var img = fig.querySelector('img');
+      var video = fig.querySelector('video');
+      var src = video
+        ? (video.querySelector('source') || {}).src || ''
+        : (img && img.src) || '';
+      if (!src) return;
+      var captionEl = fig.querySelector('figcaption');
+      items.push({
+        type: video ? 'video' : 'image',
+        src: src,
+        caption: captionEl ? captionEl.textContent.trim() : '',
+      });
+      indexMap.push(i);
+    });
+    figures.forEach(function (fig, i) {
+      // Zoek welke index dit figure heeft in de items-lijst.
+      var idx = indexMap.indexOf(i);
+      if (idx < 0) return;
+      fig.classList.add('editorial-media--clickable');
+      fig.setAttribute('role', 'button');
+      fig.setAttribute('tabindex', '0');
+      fig.addEventListener('click', function () {
+        openLightbox(items, idx);
+      });
+      fig.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(items, idx);
+        }
+      });
+    });
   }
 
   // ----- Init -----
