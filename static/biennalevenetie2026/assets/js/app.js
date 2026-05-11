@@ -249,11 +249,11 @@
       'editorial-media editorial-media--' + (media.type || 'image') +
       (inGrid ? ' editorial-media--in-grid' : '');
     if (media.type === 'video') {
-      // In een grid → eerste frame als thumbnail (geen controls, geen
-      // autoplay), klik opent lightbox waar de video afspeelt.
-      // Buiten een grid → volledige speler met controls.
+      // In een grid → autoplay-loop zonder geluid; klik opent lightbox
+      // met volume + controls. Buiten een grid → volledige speler met
+      // controls. 'muted' is verplicht voor browser-autoplay-policy.
       var videoAttrs = inGrid
-        ? 'preload="metadata" playsinline muted'
+        ? 'autoplay loop muted playsinline preload="metadata" disablepictureinpicture'
         : 'controls preload="metadata" playsinline';
       var playOverlay = inGrid
         ? '<span class="editorial-media-play" aria-hidden="true">▶</span>'
