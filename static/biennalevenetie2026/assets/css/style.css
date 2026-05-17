@@ -1180,8 +1180,11 @@ h1.title     { animation-delay: .15s; }
 .subtitle    { animation-delay: .35s; }
 .meta-row    { animation-delay: .5s; }
 @keyframes hero-rise {
-  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
-  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+  /* filter:blur bewust weggelaten — laat hero-tekst op Samsung Internet
+     stuck op opacity:0 staan (animeren van filter samen met opacity+transform
+     start daar niet betrouwbaar) */
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ----- Title — italic em krijgt een onderlijn-sweep ----- */

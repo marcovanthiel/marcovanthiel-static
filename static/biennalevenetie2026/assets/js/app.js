@@ -485,6 +485,19 @@
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
     for (var j = 0; j < els.length; j++) io.observe(els[j]);
+
+    // Samsung Internet (en sommige andere mobiele browsers) triggert de
+    // observer-callback voor reeds-in-viewport elementen soms pas heel laat
+    // of helemaal niet — wat secties op opacity:0 laat staan en zo een
+    // grote lege ruimte onder de stat-strip oplevert. Na 1,2 s alles dat
+    // nog niet is onthuld alsnog forceren.
+    setTimeout(function () {
+      for (var k = 0; k < els.length; k++) {
+        if (!els[k].classList.contains('in-view')) {
+          els[k].classList.add('in-view');
+        }
+      }
+    }, 1200);
   }
 
   // =====================================================
