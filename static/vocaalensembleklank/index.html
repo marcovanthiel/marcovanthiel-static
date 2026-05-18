@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MidzomerConcert · Vocaal Ensemble Klank · 21 juni 2026, Bussum</title>
+<meta name="description" content="MidzomerConcert van Vocaal Ensemble Klank — zondag 21 juni 2026, 14.30 uur, Remonstrantse kerk Bussum. Reserveer hier je kaarten (€ 17,-)." />
+<meta property="og:title" content="MidzomerConcert · Vocaal Ensemble Klank" />
+<meta property="og:description" content="21 juni 2026 · 14.30 uur · Remonstrantse kerk Bussum · € 17,-" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/vocaalensembleklank/assets/img/poster.jpg" />
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<div class="aurora-bg" aria-hidden="true">
+  <span class="aurora a1"></span>
+  <span class="aurora a2"></span>
+  <span class="aurora a3"></span>
+</div>
+
+<header class="masthead">
+  <a href="https://marcovanthiel.nl/" class="back-home">← Marco van Thiel</a>
+</header>
+
+<main>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="hero-wreath" aria-hidden="true">
+      <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M60 12 a3 3 0 1 1 -0.1 0 z" fill="currentColor"/>
+        <path d="M50 8 q-12 4 -22 0" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        <path d="M70 8 q12 4 22 0" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="1" fill="currentColor"/>
+        <circle cx="100" cy="20" r="1" fill="currentColor"/>
+        <circle cx="40" cy="2" r="0.7" fill="currentColor"/>
+        <circle cx="80" cy="2" r="0.7" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <h1 class="hero-title">MidzomerConcert</h1>
+    <div class="hero-divider"><span>✦</span></div>
+    <p class="hero-date">21 juni 2026 · 14.30 uur</p>
+    <p class="hero-ensemble">
+      <span class="hero-ensemble-label">Vocaal Ensemble</span>
+      <span class="hero-ensemble-name">KLANK</span>
+    </p>
+
+    <dl class="hero-meta">
+      <div>
+        <dt>Locatie</dt>
+        <dd>Remonstrantse kerk<br>Koningslaan 2, Bussum</dd>
+      </div>
+      <div>
+        <dt>Entree</dt>
+        <dd>€ 17,00 <span class="muted">— aan de deur te voldoen</span></dd>
+      </div>
+    </dl>
+
+    <a class="hero-cta" href="#reserveer">Reserveer kaarten</a>
+  </section>
+
+  <!-- ============== POSTER ============== -->
+  <section class="poster-section">
+    <figure class="poster-figure">
+      <img src="assets/img/poster.jpg"
+           alt="Affiche van het MidzomerConcert van Vocaal Ensemble Klank — zondag 21 juni 2026, 14.30 uur, Remonstrantse kerk Bussum"
+           loading="lazy" />
+    </figure>
+  </section>
+
+  <!-- ============== RESERVATIE ============== -->
+  <section class="reserve" id="reserveer">
+    <h2 class="section-title">Reserveer kaarten</h2>
+    <p class="lede">
+      Vul hieronder je gegevens in. Je ontvangt direct een bevestigingsmail —
+      een geprint of digitaal exemplaar van die mail is je toegangsbewijs. Aan
+      de deur reken je af (€ 17,00 per kaart, contant of via betaalverzoek).
+    </p>
+
+    <form id="reserve-form" class="reserve-form" novalidate>
+      <label>
+        <span class="label-text">Naam</span>
+        <input type="text" name="naam" autocomplete="name" required maxlength="200" />
+      </label>
+
+      <label>
+        <span class="label-text">Woonplaats</span>
+        <input type="text" name="woonplaats" autocomplete="address-level2" required maxlength="120" />
+      </label>
+
+      <label>
+        <span class="label-text">E-mailadres</span>
+        <input type="email" name="email" autocomplete="email" inputmode="email" required maxlength="320" />
+      </label>
+
+      <label>
+        <span class="label-text">Aantal kaarten</span>
+        <input type="number" name="aantal" min="1" max="10" step="1" value="2" required inputmode="numeric" />
+      </label>
+
+      <!-- Honeypot — verborgen veld dat alleen bots invullen -->
+      <label class="hp-field" aria-hidden="true">
+        <span>Website</span>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" />
+      </label>
+
+      <p class="totaal-line" aria-live="polite">
+        Totaal te voldoen aan de deur: <strong id="totaal-bedrag">€ 34,00</strong>
+      </p>
+
+      <button type="submit" class="btn-primary">
+        Verstuur reservering →
+      </button>
+
+      <div class="reserve-status" id="reserve-status" role="status" aria-live="polite" hidden></div>
+    </form>
+  </section>
+
+  <!-- ============== PRAKTISCH ============== -->
+  <section class="practical">
+    <h2 class="section-title">Praktisch</h2>
+    <div class="practical-grid">
+      <div>
+        <h3>Bereikbaarheid</h3>
+        <p>De Remonstrantse kerk ligt aan de Koningslaan 2 in Bussum, op vijf minuten lopen vanaf station Bussum-Zuid. In de omliggende straten is meestal voldoende parkeergelegenheid.</p>
+      </div>
+      <div>
+        <h3>Aanvang &amp; duur</h3>
+        <p>Inloop vanaf 14.00 uur. Het concert begint om 14.30 uur en duurt ongeveer een uur, zonder pauze.</p>
+      </div>
+      <div>
+        <h3>Vragen?</h3>
+        <p>Mail naar <a href="mailto:klank@marcovanthiel.nl">klank@marcovanthiel.nl</a> — we antwoorden meestal binnen een dag.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p class="footer-line">mede mogelijk gemaakt door <strong>het Cultuurfonds</strong></p>
+  <p class="footer-meta">© Vocaal Ensemble Klank · 2026</p>
+</footer>
+
+<script src="assets/js/order.js" defer></script>
+</body>
+</html>
