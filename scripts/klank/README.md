@@ -69,6 +69,13 @@ Of plak gewoon in de browser:
 Default-filter is `concert=midzomer-2026`. Voor een ander concert:
 `...?token=…&concert=<id>`.
 
+### Admin-pagina
+
+`https://marcovanthiel.nl/vocaalensembleklank/admin/` — login met
+`KLANK_ADMIN_TOKEN`, daarna live overzicht met totalen + tabel +
+één-klik CSV-download. Token blijft in sessionStorage (alleen in dat
+browser-tabblad). Pagina is `noindex, nofollow`.
+
 ## Velden in de CSV
 
 | Kolom        | Toelichting                                     |
