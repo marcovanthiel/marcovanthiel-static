@@ -1,0 +1,130 @@
+/* ============================================================
+   Fundraising-hub specifieke styles
+   ============================================================ */
+
+.hub-hero {
+  --hero-bg: linear-gradient(135deg, #17458F 0%, #0C2A5C 60%, #1f0d2a 100%);
+  padding: 6rem 0 5rem;
+  position: relative;
+}
+.hub-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(247,168,27,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.section-title {
+  text-align: center;
+  margin: 0 0 0.4rem;
+}
+.section-sub {
+  text-align: center;
+  font-family: var(--serif);
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  margin: 0 0 3rem;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .15s;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+.action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(12, 42, 92, 0.18);
+  border-color: var(--rotary-gold);
+}
+
+.action-card-art {
+  position: relative;
+  aspect-ratio: 200 / 120;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+.action-card-art svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.action-card-body {
+  padding: 1.6rem 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.action-card-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rotary-gold-deep);
+  font-weight: 600;
+}
+
+.action-card h3 {
+  font-size: 1.45rem;
+  margin: 0 0 0.4rem;
+  line-height: 1.2;
+}
+
+.action-card p {
+  flex: 1;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0 0 0.8rem;
+}
+
+.action-card-cta {
+  margin-top: auto;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  color: var(--rotary-azure);
+  transition: color .15s, transform .15s;
+  display: inline-block;
+}
+.action-card:hover .action-card-cta {
+  color: var(--rotary-gold-deep);
+  transform: translateX(4px);
+}
+
+/* ============== Context-section ============== */
+.rotary-context {
+  background: var(--paper-2);
+  text-align: center;
+}
+.rotary-context .wrap {
+  max-width: 720px;
+}
+.rotary-context p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+.rotary-context p:last-child {
+  margin-top: 1.4rem;
+}

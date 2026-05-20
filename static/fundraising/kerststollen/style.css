@@ -1,0 +1,262 @@
+/* ============================================================
+   Kerststollen — warm bordeaux + goud + crème
+   ============================================================ */
+
+:root {
+  --burgundy:       #7c1d1d;
+  --burgundy-deep:  #4a0f0f;
+  --pine:           #1f5a3a;
+  --pine-deep:      #103a26;
+  --cream-warm:     #fdf6e3;
+  --paper-warm:     #fbf3e0;
+  --gold-glow:      #e8b53f;
+}
+
+body { background: var(--cream-warm); }
+
+a { color: var(--burgundy); border-bottom-color: rgba(124, 29, 29, 0.3); }
+a:hover { color: var(--gold-glow); border-bottom-color: var(--gold-glow); }
+
+.rotary-masthead {
+  background: var(--burgundy-deep);
+  border-bottom-color: var(--gold-glow);
+}
+.rotary-mark-tag {
+  font-style: italic;
+  color: var(--gold-glow);
+  opacity: 1;
+}
+
+.stollen-hero {
+  --hero-bg: linear-gradient(135deg,
+    var(--burgundy) 0%,
+    var(--burgundy-deep) 50%,
+    #2c0a0a 100%);
+  padding: 6rem 0 5rem;
+  position: relative;
+}
+.stollen-hero h1 {
+  background: linear-gradient(180deg, #ffffff 0%, #e8d9b0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.stollen-hero .hero-eyebrow {
+  background: rgba(232, 181, 63, 0.18);
+  border-color: rgba(232, 181, 63, 0.5);
+  color: var(--gold-glow);
+}
+.stollen-hero .hero-meta dt { color: rgba(232, 181, 63, 0.85); }
+
+.snow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.snowflake {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.2rem;
+  animation: snowfall 12s linear infinite;
+  text-shadow: 0 0 4px rgba(255,255,255,0.4);
+}
+.snowflake.s1 { left: 8%;  top: -5%;  font-size: 1.5rem; animation-delay: 0s;    animation-duration: 14s; }
+.snowflake.s2 { left: 22%; top: -10%; font-size: 1rem;   animation-delay: 2s;    animation-duration: 11s; }
+.snowflake.s3 { left: 42%; top: -8%;  font-size: 1.3rem; animation-delay: 4.5s;  animation-duration: 13s; }
+.snowflake.s4 { left: 60%; top: -3%;  font-size: 0.9rem; animation-delay: 1.2s;  animation-duration: 16s; }
+.snowflake.s5 { left: 75%; top: -7%;  font-size: 1.4rem; animation-delay: 3.6s;  animation-duration: 12s; }
+.snowflake.s6 { left: 88%; top: -5%;  font-size: 1.1rem; animation-delay: 6s;    animation-duration: 15s; }
+.snowflake.s7 { left: 30%; top: -2%;  font-size: 1.6rem; animation-delay: 8s;    animation-duration: 13.5s; }
+
+@keyframes snowfall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.85; }
+  100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .snowflake { animation: none; opacity: 0.4; }
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+}
+
+/* ============== Why ============== */
+.why {
+  background: var(--cream-warm);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 720px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
+.why-text p { font-family: var(--serif); font-size: 1.1rem; line-height: 1.55; color: var(--ink-2); }
+.why-text strong { color: var(--burgundy); }
+
+.why-quote blockquote {
+  margin: 0;
+  padding: 1.8rem 1.5rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--burgundy);
+  border-radius: 2px;
+}
+.why-quote blockquote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--burgundy-deep);
+  margin: 0;
+}
+.why-quote blockquote footer {
+  margin-top: 1rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ============== All4small ============== */
+.all4small {
+  background: var(--paper-warm);
+  text-align: center;
+}
+.all4small .lede { margin: 1rem auto 3rem; }
+
+.all4small-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.6rem;
+  margin: 2rem 0 2.5rem;
+  text-align: left;
+}
+.point {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1.4rem 1.4rem;
+  border-top: 4px solid var(--burgundy);
+}
+.point h3 { font-size: 1.1rem; color: var(--burgundy); margin-bottom: 0.5rem; }
+.point p { font-size: 0.95rem; margin: 0; }
+
+/* ============== Bestel ============== */
+.bestel {
+  background: linear-gradient(180deg, var(--burgundy-deep) 0%, #2c0a0a 100%);
+  color: #fff;
+}
+.bestel h2, .bestel .lede { color: #fff; }
+.bestel .lede { color: rgba(255,255,255,0.85); }
+
+.stol-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem auto;
+  max-width: 640px;
+}
+.stol-card {
+  background: var(--cream-warm);
+  color: var(--ink);
+  border: 1px solid rgba(232, 181, 63, 0.4);
+  border-radius: 4px;
+  padding: 1.8rem 1.6rem;
+  position: relative;
+  text-align: center;
+}
+.stol-card.featured {
+  background: linear-gradient(160deg, var(--cream-warm) 0%, #f5e2a8 100%);
+  border-color: var(--gold-glow);
+  transform: scale(1.04);
+  box-shadow: 0 12px 30px rgba(232, 181, 63, 0.25);
+}
+.badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold-glow);
+  color: var(--burgundy-deep);
+  padding: 0.25em 0.9em;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.stol-card h3 {
+  font-size: 1.3rem;
+  color: var(--burgundy-deep);
+  margin: 0.3rem 0 0.2rem;
+}
+.stol-weight {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.8rem;
+}
+.stol-price {
+  font-family: var(--serif);
+  font-size: 2rem;
+  margin: 0 0 0.8rem;
+  color: var(--burgundy);
+}
+.stol-desc {
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.bestel-note {
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+}
+.bestel-note a { color: var(--gold-glow); border-bottom-color: rgba(232,181,63,0.4); }
+.bestel-note a:hover { border-bottom-color: var(--gold-glow); }
+
+.afhaal {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.6rem 1.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+.afhaal h3 {
+  color: var(--gold-glow);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.afhaal p { color: rgba(255, 255, 255, 0.85); margin: 0; }
+
+/* ============== Kiwanis + Rotary ============== */
+.kiwanis-rotary {
+  background: var(--cream-warm);
+}
+.kiwanis-rotary .lede {
+  margin: 1rem auto 1.5rem;
+  max-width: 640px;
+}
+
+/* Footer overrides */
+.site-footer {
+  background: #2c0a0a;
+}
+.site-footer h3 { color: var(--gold-glow); }
+.site-footer a:hover { color: var(--gold-glow); border-bottom-color: var(--gold-glow); }

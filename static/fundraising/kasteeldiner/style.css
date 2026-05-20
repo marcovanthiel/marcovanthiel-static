@@ -1,0 +1,278 @@
+/* ============================================================
+   Kasteeldiner — donker, elegant: navy + bordeaux + goud
+   ============================================================ */
+
+:root {
+  --castle-night:   #0a1a35;
+  --castle-deep:    #050d20;
+  --burgundy-rich:  #5a1a1a;
+  --gold-warm:      #d4b86a;
+  --gold-bright:    #f1d27c;
+  --cream-paper:    #f5ede0;
+}
+
+body {
+  background: var(--castle-deep);
+  color: #ebe6d9;
+}
+
+.rotary-masthead {
+  background: var(--castle-deep);
+  border-bottom-color: var(--gold-warm);
+}
+.rotary-mark-tag {
+  color: var(--gold-warm);
+  opacity: 1;
+}
+
+a { color: var(--gold-bright); border-bottom-color: rgba(241, 210, 124, 0.35); }
+a:hover { color: var(--gold-bright); border-bottom-color: var(--gold-bright); }
+
+h1, h2, h3 { color: var(--cream-paper); }
+p { color: rgba(245, 237, 224, 0.85); }
+.lede { color: rgba(245, 237, 224, 0.78); }
+.muted-inv {
+  font-family: var(--sans);
+  font-style: italic;
+  color: rgba(245, 237, 224, 0.55);
+  font-size: 0.85em;
+}
+
+section + section { border-top-color: rgba(245, 237, 224, 0.06); }
+
+/* ============== Hero ============== */
+.castle-hero {
+  --hero-bg:
+    radial-gradient(ellipse at 50% 18%, rgba(212, 184, 106, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(90, 26, 26, 0.25) 0%, transparent 50%),
+    linear-gradient(180deg,
+      var(--castle-deep)   0%,
+      var(--castle-night)  35%,
+      #1a0d2a              80%,
+      #0a0510              100%);
+  padding: 7rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.castle-hero::before {
+  /* Subtiele sterren */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 8%  12%, rgba(255,255,255,0.6), transparent 50%),
+    radial-gradient(1px 1px at 22% 8%,  rgba(255,255,255,0.5), transparent 50%),
+    radial-gradient(1px 1px at 38% 18%, rgba(255,255,255,0.7), transparent 50%),
+    radial-gradient(1px 1px at 55% 6%,  rgba(255,255,255,0.5), transparent 50%),
+    radial-gradient(1px 1px at 72% 16%, rgba(255,255,255,0.6), transparent 50%),
+    radial-gradient(1px 1px at 88% 10%, rgba(255,255,255,0.5), transparent 50%),
+    radial-gradient(1.5px 1.5px at 15% 30%, rgba(255,255,255,0.4), transparent 50%),
+    radial-gradient(1px 1px at 90% 35%, rgba(255,255,255,0.5), transparent 50%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.castle-hero h1 {
+  background: linear-gradient(180deg, #fff 0%, var(--gold-bright) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.005em;
+}
+.hero-italic {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.55em;
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--gold-warm);
+  -webkit-text-fill-color: var(--gold-warm);
+  background: none;
+}
+
+.castle-hero .hero-eyebrow {
+  background: rgba(212, 184, 106, 0.15);
+  border-color: rgba(212, 184, 106, 0.45);
+  color: var(--gold-bright);
+}
+
+.castle-hero .hero-meta {
+  border-top-color: rgba(212, 184, 106, 0.3);
+}
+.castle-hero .hero-meta dt {
+  color: rgba(212, 184, 106, 0.8);
+}
+.castle-hero .hero-meta dd { color: var(--cream-paper); }
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+}
+
+/* Kaarsje rechtsboven */
+.candle {
+  position: absolute;
+  top: 18%;
+  right: 8%;
+  width: 8px;
+  height: 32px;
+  background: linear-gradient(180deg, #d4b86a 0%, #b08a3e 100%);
+  border-radius: 2px;
+  z-index: 1;
+  opacity: 0.7;
+}
+.flame {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 12px;
+  height: 18px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 70%,
+    #fff8e6 0%,
+    #f1d27c 30%,
+    #f7a81b 60%,
+    transparent 100%);
+  border-radius: 50% 50% 35% 35%;
+  filter: blur(0.5px);
+  box-shadow: 0 0 16px rgba(241, 210, 124, 0.6);
+  animation: flicker 2.4s ease-in-out infinite;
+}
+@keyframes flicker {
+  0%, 100% { transform: translateX(-50%) scaleY(1)    rotate(-1deg); opacity: 1;   }
+  25%      { transform: translateX(-52%) scaleY(1.1)  rotate(1.5deg); opacity: 0.9; }
+  50%      { transform: translateX(-50%) scaleY(0.95) rotate(-0.5deg); opacity: 1; }
+  75%      { transform: translateX(-48%) scaleY(1.05) rotate(0.8deg); opacity: 0.95; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flame { animation: none; }
+}
+
+/* ============== Avond/programma ============== */
+.avond {
+  background: linear-gradient(180deg, var(--castle-deep) 0%, var(--castle-night) 100%);
+}
+
+.programma {
+  list-style: none;
+  padding: 0;
+  margin: 3rem auto 0;
+  max-width: 720px;
+  border-left: 1px solid rgba(212, 184, 106, 0.25);
+  padding-left: 0;
+}
+.programma li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  position: relative;
+  border-bottom: 1px solid rgba(245, 237, 224, 0.06);
+}
+.programma li:last-child { border-bottom: none; }
+.programma li::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 1.9rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold-warm);
+  box-shadow: 0 0 8px rgba(212, 184, 106, 0.5);
+}
+.programma-time {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--gold-warm);
+  font-weight: 500;
+}
+.programma h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.4rem;
+  color: var(--cream-paper);
+}
+.programma p { font-size: 0.98rem; margin: 0; }
+
+@media (max-width: 540px) {
+  .programma li { grid-template-columns: 70px 1fr; gap: 1rem; padding-left: 1rem; }
+  .programma-time { font-size: 1.2rem; }
+}
+
+/* ============== Goed doel ============== */
+.goed-doel {
+  background:
+    radial-gradient(circle at 70% 30%, rgba(90, 26, 26, 0.5) 0%, transparent 60%),
+    linear-gradient(135deg, var(--castle-night) 0%, var(--castle-deep) 100%);
+}
+.goed-doel-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.goed-doel .lede {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+.goed-doel strong { color: var(--gold-bright); font-weight: 600; }
+.goed-doel em { font-style: italic; color: var(--gold-warm); }
+
+/* ============== Inspiratie ============== */
+.inspiratie {
+  background: var(--castle-deep);
+}
+.inspiratie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8rem;
+  margin-top: 3rem;
+}
+.ins-item {
+  padding: 1.6rem 1.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 184, 106, 0.2);
+  border-top: 3px solid var(--gold-warm);
+  border-radius: 4px;
+}
+.ins-item h3 {
+  font-size: 1.15rem;
+  color: var(--gold-bright);
+  margin-bottom: 0.5rem;
+}
+.ins-item p { font-size: 0.98rem; margin: 0; }
+
+/* ============== Aanmelden ============== */
+.aanmelden {
+  background: linear-gradient(180deg, var(--castle-deep) 0%, #0a0510 100%);
+}
+.aanmelden-card {
+  max-width: 680px;
+  margin: 2.5rem auto 0;
+  padding: 2rem 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 184, 106, 0.35);
+  border-radius: 4px;
+}
+.aanmelden-card ul {
+  margin: 1rem 0 1.4rem;
+  padding-left: 1.4rem;
+  color: rgba(245, 237, 224, 0.85);
+}
+.aanmelden-card li {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+.aanmelden-card a { font-family: var(--sans); font-weight: 600; }
+
+/* ============== Footer overrides ============== */
+.site-footer {
+  background: #050810;
+  border-top: 1px solid rgba(212, 184, 106, 0.15);
+}
+.site-footer h3 { color: var(--gold-warm); }
+.site-footer p { color: rgba(245, 237, 224, 0.7); }
+.site-footer a:hover { color: var(--gold-bright); border-bottom-color: var(--gold-bright); }
