@@ -130,16 +130,26 @@
   }, { passive: true });
   onScroll(); // initial
 
-  // ---------- 4. Easter egg: klik op Rotary-wiel → spin ----------
+  // ---------- 4. Easter egg: Rotary-wiel spint bij hover (desktop)
+  //                of tap (mobiel). De klik zelf navigeert nog steeds
+  //                naar rotary.nl, zoals de gebruiker verwacht; de spin
+  //                wordt al gestart vóór de navigatie zodat hij zichtbaar
+  //                is in het laatste frame, en blijft direct zichtbaar
+  //                bij hover. ----------
   var rotaryLogo = document.querySelector('.rotary-logo, .rotary-mark img');
-  if (rotaryLogo) {
+  if (rotaryLogo && !reduced) {
     rotaryLogo.style.transition = 'transform 1.4s cubic-bezier(.16,1.2,.3,1)';
-    rotaryLogo.addEventListener('click', function (e) {
-      // Niet alle navigatie afbreken — alleen visueel
+    function spinRotary() {
       var current = rotaryLogo.dataset.spins ? parseInt(rotaryLogo.dataset.spins, 10) : 0;
       current += 1;
       rotaryLogo.dataset.spins = current;
       rotaryLogo.style.transform = 'rotate(' + (current * 360) + 'deg)';
+    }
+    // Desktop: iedere keer dat de muis binnenkomt → een hele draai
+    rotaryLogo.addEventListener('mouseenter', spinRotary);
+    // Touch: tap zonder navigatie te blokkeren (navigatie volgt nét daarna)
+    rotaryLogo.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'touch') spinRotary();
     });
   }
 
