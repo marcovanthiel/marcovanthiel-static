@@ -19,37 +19,87 @@
 
 <header class="rotary-masthead">
   <a class="rotary-mark" href="https://www.rotary.nl/nijmegenstadenland/" rel="external">
-    <svg class="rotary-wheel" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="50" cy="50" r="46" fill="#F7A81B"/>
-      <circle cx="50" cy="50" r="14" fill="none" stroke="#0C2A5C" stroke-width="6"/>
-      <circle cx="50" cy="50" r="4" fill="#0C2A5C"/>
-      <g fill="#0C2A5C">
-        <rect x="46" y="2"  width="8" height="14" rx="2"/>
-        <rect x="46" y="84" width="8" height="14" rx="2"/>
-        <rect x="2"  y="46" width="14" height="8" rx="2"/>
-        <rect x="84" y="46" width="14" height="8" rx="2"/>
-        <rect x="46" y="2"  width="8" height="14" rx="2" transform="rotate(45 50 50)"/>
-        <rect x="46" y="2"  width="8" height="14" rx="2" transform="rotate(-45 50 50)"/>
-        <rect x="46" y="84" width="8" height="14" rx="2" transform="rotate(45 50 50)"/>
-        <rect x="46" y="84" width="8" height="14" rx="2" transform="rotate(-45 50 50)"/>
-      </g>
-    </svg>
-    <span class="rotary-mark-text">
-      <span class="rotary-mark-club">Rotary Nijmegen Stad en Land</span>
-      <span class="rotary-mark-tag">×  Soroptimisten</span>
-    </span>
+    <img class="rotary-logo" src="../assets/img/rotary-nijmegen-stadenland.png" alt="Rotary Nijmegen Stad en Land" width="500" height="150" />
+    <span class="rotary-mark-tag">× Soroptimisten</span>
   </a>
   <a href="../" class="masthead-back">← alle acties</a>
 </header>
 
 <section class="hero castle-hero">
-  <div class="candle" aria-hidden="true">
-    <span class="flame"></span>
+  <!-- Kasteel-silhouet onderaan de hero — sfeervol decor -->
+  <svg class="castle-silhouette" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Verre bos-silhouet (achtergrond) -->
+    <path d="M0 280 Q120 250 240 270 Q360 240 480 265 Q600 235 720 260 Q840 230 960 255 Q1080 225 1200 250 Q1320 225 1440 245 L1440 320 L0 320 Z"
+          fill="#050813" opacity="0.85"/>
+    <!-- Kasteel-silhouet -->
+    <g fill="#020611">
+      <!-- Linker toren -->
+      <rect x="180" y="160" width="60" height="160"/>
+      <polygon points="180,160 210,120 240,160"/>
+      <!-- Hoofdgebouw -->
+      <rect x="240" y="200" width="380" height="120"/>
+      <!-- Centrale toren -->
+      <rect x="370" y="120" width="80" height="100"/>
+      <polygon points="370,120 410,70 450,120"/>
+      <!-- Donjon (rechts) -->
+      <rect x="600" y="140" width="70" height="180"/>
+      <polygon points="600,140 635,90 670,140"/>
+      <!-- Rechter vleugel -->
+      <rect x="670" y="220" width="240" height="100"/>
+      <!-- Tinnen / crenellations -->
+      <g>
+        <rect x="180" y="156" width="8" height="6"/><rect x="194" y="156" width="8" height="6"/>
+        <rect x="208" y="156" width="8" height="6"/><rect x="222" y="156" width="8" height="6"/>
+        <rect x="240" y="196" width="8" height="6"/><rect x="254" y="196" width="8" height="6"/>
+        <rect x="268" y="196" width="8" height="6"/><rect x="282" y="196" width="8" height="6"/>
+        <rect x="296" y="196" width="8" height="6"/><rect x="310" y="196" width="8" height="6"/>
+        <rect x="324" y="196" width="8" height="6"/><rect x="338" y="196" width="8" height="6"/>
+        <rect x="370" y="116" width="8" height="6"/><rect x="384" y="116" width="8" height="6"/>
+        <rect x="398" y="116" width="8" height="6"/><rect x="412" y="116" width="8" height="6"/>
+        <rect x="426" y="116" width="8" height="6"/><rect x="440" y="116" width="8" height="6"/>
+        <rect x="600" y="136" width="8" height="6"/><rect x="614" y="136" width="8" height="6"/>
+        <rect x="628" y="136" width="8" height="6"/><rect x="642" y="136" width="8" height="6"/>
+        <rect x="656" y="136" width="8" height="6"/>
+        <rect x="670" y="216" width="8" height="6"/><rect x="684" y="216" width="8" height="6"/>
+        <rect x="698" y="216" width="8" height="6"/><rect x="712" y="216" width="8" height="6"/>
+        <rect x="726" y="216" width="8" height="6"/><rect x="740" y="216" width="8" height="6"/>
+        <rect x="754" y="216" width="8" height="6"/><rect x="768" y="216" width="8" height="6"/>
+      </g>
+    </g>
+    <!-- Verlichte ramen — goud-gloed -->
+    <g fill="#f1d27c" class="castle-windows">
+      <rect x="200" y="200" width="8" height="14"/>
+      <rect x="215" y="200" width="8" height="14"/>
+      <rect x="260" y="225" width="10" height="16"/>
+      <rect x="280" y="225" width="10" height="16"/>
+      <rect x="305" y="225" width="10" height="16"/>
+      <rect x="330" y="225" width="10" height="16"/>
+      <rect x="385" y="160" width="10" height="14"/>
+      <rect x="402" y="160" width="10" height="14"/>
+      <rect x="425" y="160" width="10" height="14"/>
+      <rect x="620" y="180" width="10" height="14"/>
+      <rect x="638" y="180" width="10" height="14"/>
+      <rect x="690" y="245" width="8" height="14"/>
+      <rect x="710" y="245" width="8" height="14"/>
+      <rect x="730" y="245" width="8" height="14"/>
+      <rect x="750" y="245" width="8" height="14"/>
+      <rect x="770" y="245" width="8" height="14"/>
+    </g>
+    <!-- Hoofdpoort (gouden gloed) -->
+    <rect x="410" y="260" width="30" height="60" fill="#f1d27c" opacity="0.9"/>
+  </svg>
+
+  <!-- Meerdere flikkerende kaarsen -->
+  <div class="candles-row" aria-hidden="true">
+    <div class="candle c1"><span class="flame"></span></div>
+    <div class="candle c2"><span class="flame"></span></div>
+    <div class="candle c3"><span class="flame"></span></div>
   </div>
+
   <div class="wrap">
-    <span class="hero-eyebrow">November 2026 · exacte datum volgt</span>
-    <h1>Kasteeldiner<br><span class="hero-italic">een avond van smaak en zingeving</span></h1>
-    <p class="lede">
+    <span class="hero-eyebrow" data-reveal>November 2026 · exacte datum volgt</span>
+    <h1 data-reveal data-reveal-delay="1">Kasteeldiner<br><span class="hero-italic">een avond van smaak en zingeving</span></h1>
+    <p class="lede" data-reveal data-reveal-delay="2">
       In een sfeervol kasteel in de regio Nijmegen ontvangen we u op een
       stijlvolle avond. Een meergangen­diner door een topkok, een
       doordacht wijnarrangement, een muzikaal intermezzo en een stille
@@ -215,5 +265,6 @@
   </div>
 </footer>
 
+<script src="../assets/js/common.js" defer></script>
 </body>
 </html>

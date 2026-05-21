@@ -19,43 +19,110 @@
 
 <header class="rotary-masthead">
   <a class="rotary-mark" href="https://www.rotary.nl/nijmegenstadenland/" rel="external">
-    <svg class="rotary-wheel" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="50" cy="50" r="46" fill="#F7A81B"/>
-      <circle cx="50" cy="50" r="14" fill="none" stroke="#0C2A5C" stroke-width="6"/>
-      <circle cx="50" cy="50" r="4" fill="#0C2A5C"/>
-      <g fill="#0C2A5C">
-        <rect x="46" y="2"  width="8" height="14" rx="2"/>
-        <rect x="46" y="84" width="8" height="14" rx="2"/>
-        <rect x="2"  y="46" width="14" height="8" rx="2"/>
-        <rect x="84" y="46" width="14" height="8" rx="2"/>
-        <rect x="46" y="2"  width="8" height="14" rx="2" transform="rotate(45 50 50)"/>
-        <rect x="46" y="2"  width="8" height="14" rx="2" transform="rotate(-45 50 50)"/>
-        <rect x="46" y="84" width="8" height="14" rx="2" transform="rotate(45 50 50)"/>
-        <rect x="46" y="84" width="8" height="14" rx="2" transform="rotate(-45 50 50)"/>
-      </g>
-    </svg>
-    <span class="rotary-mark-text">
-      <span class="rotary-mark-club">Rotary Nijmegen Stad en Land</span>
-      <span class="rotary-mark-tag">×  Kiwanis Cuijk</span>
-    </span>
+    <img class="rotary-logo" src="../assets/img/rotary-nijmegen-stadenland.png" alt="Rotary Nijmegen Stad en Land" width="500" height="150" />
+    <span class="rotary-mark-tag">× Kiwanis Cuijk</span>
   </a>
   <a href="../" class="masthead-back">← alle acties</a>
 </header>
 
 <section class="hero stollen-hero">
-  <div class="snow" aria-hidden="true">
-    <span class="snowflake s1">❄</span>
-    <span class="snowflake s2">❅</span>
-    <span class="snowflake s3">❆</span>
-    <span class="snowflake s4">❄</span>
-    <span class="snowflake s5">❅</span>
-    <span class="snowflake s6">❆</span>
-    <span class="snowflake s7">❄</span>
+  <!-- Sneeuwval — SVG-vlokken (svg <symbol> hergebruikt) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="flake-a" viewBox="-12 -12 24 24">
+        <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none">
+          <line x1="-10" y1="0" x2="10" y2="0"/>
+          <line x1="0" y1="-10" x2="0" y2="10"/>
+          <line x1="-7" y1="-7" x2="7" y2="7"/>
+          <line x1="-7" y1="7" x2="7" y2="-7"/>
+          <path d="M-10 0 L-8 -2 M-10 0 L-8 2"/>
+          <path d="M10 0 L8 -2 M10 0 L8 2"/>
+          <path d="M0 -10 L-2 -8 M0 -10 L2 -8"/>
+          <path d="M0 10 L-2 8 M0 10 L2 8"/>
+        </g>
+      </symbol>
+      <symbol id="flake-b" viewBox="-12 -12 24 24">
+        <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none">
+          <line x1="-10" y1="0" x2="10" y2="0"/>
+          <line x1="-5" y1="-8.66" x2="5" y2="8.66"/>
+          <line x1="5" y1="-8.66" x2="-5" y2="8.66"/>
+          <circle cx="0" cy="0" r="2"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+  <div class="snow-field" aria-hidden="true">
+    <svg class="flake f1"><use href="#flake-a"/></svg>
+    <svg class="flake f2"><use href="#flake-b"/></svg>
+    <svg class="flake f3"><use href="#flake-a"/></svg>
+    <svg class="flake f4"><use href="#flake-b"/></svg>
+    <svg class="flake f5"><use href="#flake-a"/></svg>
+    <svg class="flake f6"><use href="#flake-b"/></svg>
+    <svg class="flake f7"><use href="#flake-a"/></svg>
+    <svg class="flake f8"><use href="#flake-b"/></svg>
+    <svg class="flake f9"><use href="#flake-a"/></svg>
+    <svg class="flake f10"><use href="#flake-b"/></svg>
   </div>
+  <!-- Grote stollen-illustratie als hero-art -->
+  <svg class="stollen-art" viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="stol-body" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"  stop-color="#fff8e6"/>
+        <stop offset="70%" stop-color="#e8d9b0"/>
+        <stop offset="100%" stop-color="#b88a4a"/>
+      </linearGradient>
+      <radialGradient id="stol-glow" cx="0.5" cy="0.4" r="0.7">
+        <stop offset="0%"  stop-color="rgba(247,168,27,0.45)"/>
+        <stop offset="100%" stop-color="rgba(247,168,27,0)"/>
+      </radialGradient>
+    </defs>
+    <!-- Goud-gloed achter de stol -->
+    <ellipse cx="180" cy="110" rx="160" ry="80" fill="url(#stol-glow)"/>
+    <!-- Bord (zwakke schaduw) -->
+    <ellipse cx="180" cy="170" rx="155" ry="14" fill="rgba(255,255,255,0.08)"/>
+    <!-- Stol-lichaam -->
+    <path d="M55 145 Q60 100 100 92 Q180 80 260 92 Q300 100 305 145 Q295 165 180 168 Q65 165 55 145 Z"
+          fill="url(#stol-body)" stroke="#a87b3e" stroke-width="0.8"/>
+    <!-- Vouw-lijn (typisch stol) -->
+    <path d="M90 130 Q180 120 270 130" stroke="#caac6e" stroke-width="2" fill="none" opacity="0.7"/>
+    <!-- Poedersuiker bovenop -->
+    <path d="M75 130 Q120 95 180 92 Q240 95 285 130"
+          stroke="rgba(255,255,255,0.95)" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M85 142 Q140 122 180 120 Q220 122 275 142"
+          stroke="rgba(255,255,255,0.7)" stroke-width="3" fill="none"/>
+    <!-- Rozijnen + sukade -->
+    <g fill="#5a2a1f">
+      <ellipse cx="115" cy="130" rx="3" ry="2"/>
+      <ellipse cx="145" cy="138" rx="3" ry="2"/>
+      <ellipse cx="170" cy="125" rx="3" ry="2"/>
+      <ellipse cx="195" cy="135" rx="3" ry="2"/>
+      <ellipse cx="225" cy="128" rx="3" ry="2"/>
+      <ellipse cx="250" cy="138" rx="3" ry="2"/>
+    </g>
+    <g fill="#d4a543">
+      <rect x="130" y="132" width="3" height="3" rx="0.5"/>
+      <rect x="205" y="125" width="3" height="3" rx="0.5"/>
+      <rect x="240" y="130" width="3" height="3" rx="0.5"/>
+    </g>
+    <!-- Dennentakken links + rechts -->
+    <g stroke="#1f5a3a" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.9">
+      <path d="M30 175 L60 160 M35 180 L60 160 M40 185 L60 160 M45 155 L60 160"/>
+      <path d="M330 175 L300 160 M325 180 L300 160 M320 185 L300 160 M315 155 L300 160"/>
+    </g>
+    <circle cx="62" cy="158" r="3" fill="#c41e3a"/>
+    <circle cx="55" cy="166" r="2.5" fill="#c41e3a"/>
+    <circle cx="298" cy="158" r="3" fill="#c41e3a"/>
+    <circle cx="305" cy="166" r="2.5" fill="#c41e3a"/>
+    <!-- Gouden lint -->
+    <path d="M180 168 L150 195 L210 195 Z" fill="#e8b53f" opacity="0.85"/>
+    <path d="M168 178 L150 195 L172 188 Z" fill="#c89a2a"/>
+    <path d="M192 178 L210 195 L188 188 Z" fill="#c89a2a"/>
+  </svg>
+
   <div class="wrap">
-    <span class="hero-eyebrow">December 2026</span>
-    <h1>Kerststollen<br>voor de allerkleinsten</h1>
-    <p class="lede">
+    <span class="hero-eyebrow" data-reveal>December 2026</span>
+    <h1 data-reveal data-reveal-delay="1">Kerststollen<br><span class="title-italic">voor de allerkleinsten</span></h1>
+    <p class="lede" data-reveal data-reveal-delay="2">
       Eén ambachtelijke kerststol, één betere kans voor een pasgeborene. Rotary
       Nijmegen Stad en Land en Kiwanis Cuijk slaan dit kerstseizoen de handen
       ineen voor stichting <strong>All4small</strong> — die onderzoek financiert
@@ -203,5 +270,6 @@
   </div>
 </footer>
 
+<script src="../assets/js/common.js" defer></script>
 </body>
 </html>

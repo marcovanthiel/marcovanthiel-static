@@ -19,50 +19,77 @@
 
 <header class="rotary-masthead">
   <a class="rotary-mark" href="https://www.rotary.nl/nijmegenstadenland/" rel="external">
-    <svg class="rotary-wheel" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="50" cy="50" r="46" fill="#F7A81B"/>
-      <circle cx="50" cy="50" r="14" fill="none" stroke="#0C2A5C" stroke-width="6"/>
-      <circle cx="50" cy="50" r="4" fill="#0C2A5C"/>
-      <g fill="#0C2A5C">
-        <rect x="46" y="2"  width="8" height="14" rx="2"/>
-        <rect x="46" y="84" width="8" height="14" rx="2"/>
-        <rect x="2"  y="46" width="14" height="8" rx="2"/>
-        <rect x="84" y="46" width="14" height="8" rx="2"/>
-        <rect x="46" y="2"  width="8" height="14" rx="2" transform="rotate(45 50 50)"/>
-        <rect x="46" y="2"  width="8" height="14" rx="2" transform="rotate(-45 50 50)"/>
-        <rect x="46" y="84" width="8" height="14" rx="2" transform="rotate(45 50 50)"/>
-        <rect x="46" y="84" width="8" height="14" rx="2" transform="rotate(-45 50 50)"/>
-      </g>
-    </svg>
-    <span class="rotary-mark-text">
-      <span class="rotary-mark-club">Rotary Nijmegen Stad en Land</span>
-      <span class="rotary-mark-tag">Service Above Self</span>
-    </span>
+    <img class="rotary-logo" src="assets/img/rotary-nijmegen-stadenland.png" alt="Rotary Nijmegen Stad en Land" width="500" height="150" />
+    <span class="rotary-mark-tag">Service Above Self</span>
   </a>
   <a href="https://marcovanthiel.nl/" class="masthead-back">← marcovanthiel.nl</a>
 </header>
 
 <section class="hero hub-hero">
   <div class="wrap">
-    <span class="hero-eyebrow">Drie acties · één opdracht</span>
-    <h1>Fundraising</h1>
-    <p class="lede">
+    <span class="hero-eyebrow" data-reveal>Drie acties · één opdracht</span>
+    <h1 data-reveal data-reveal-delay="1">
+      Fundraising
+      <span class="accent">met karakter</span>
+    </h1>
+    <p class="lede" data-reveal data-reveal-delay="2">
       Rotary Nijmegen Stad en Land zet zich het hele jaar door in voor goede doelen —
-      lokaal, regionaal en wereldwijd. Hieronder vind je onze drie lopende
-      fondsenwervingsacties. Mooie evenementen, leuke prijzen, écht verschil.
+      lokaal, regionaal en wereldwijd. Hieronder onze drie lopende acties.
+      Mooie evenementen, leuke prijzen, écht verschil.
     </p>
+    <div class="hero-tagline" data-reveal data-reveal-delay="3">
+      <strong>Eendjes</strong>
+      <span class="sep"></span>
+      <strong>Stollen</strong>
+      <span class="sep"></span>
+      <strong>Kasteel</strong>
+      <span class="sep"></span>
+      <span>één opdracht: het leven van anderen iets beter maken</span>
+    </div>
+  </div>
+</section>
+
+<section class="impact-strip" aria-label="Rotary in cijfers">
+  <div class="wrap">
+    <div class="impact-grid">
+      <div class="impact-cell" data-reveal>
+        <span class="impact-num">
+          <span data-counter="3" data-counter-duration="900">0</span>
+        </span>
+        <span class="impact-label">Acties dit seizoen</span>
+      </div>
+      <div class="impact-cell" data-reveal data-reveal-delay="1">
+        <span class="impact-num">
+          <span data-counter="100" data-counter-duration="1400">0</span><span aria-hidden="true">%</span>
+        </span>
+        <span class="impact-label">Naar het goede doel</span>
+      </div>
+      <div class="impact-cell" data-reveal data-reveal-delay="2">
+        <span class="impact-num">
+          <span data-counter="200" data-counter-duration="1500" data-counter-suffix="+">0</span>
+        </span>
+        <span class="impact-label">Landen Rotary&#8209;wereldwijd</span>
+      </div>
+      <div class="impact-cell" data-reveal data-reveal-delay="3">
+        <span class="impact-num">
+          <span data-counter="1.4" data-counter-duration="1600" data-counter-decimals="1">0</span><span aria-hidden="true">&nbsp;mln</span>
+        </span>
+        <span class="impact-label">Rotariërs wereldwijd</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="action-grid-section">
   <div class="wrap">
-    <h2 class="section-title">Kies een actie</h2>
-    <p class="section-sub">Klik op een actie voor het volledige verhaal, de data en hoe je meedoet.</p>
+    <span class="section-title-eyebrow" data-reveal>De drie acties</span>
+    <h2 class="section-title" data-reveal data-reveal-delay="1">Kies een actie</h2>
+    <p class="section-sub" data-reveal data-reveal-delay="2">Klik op een actie voor het volledige verhaal, de data en hoe je meedoet.</p>
 
     <div class="action-grid">
 
       <!-- ============== BADEENDJES ============== -->
-      <a class="action-card action-card--ducks" href="badeendjesrace/">
+      <a class="action-card action-card--ducks" href="badeendjesrace/" data-reveal>
         <div class="action-card-art" aria-hidden="true">
           <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -112,7 +139,7 @@
       </a>
 
       <!-- ============== KERSTSTOLLEN ============== -->
-      <a class="action-card action-card--stollen" href="kerststollen/">
+      <a class="action-card action-card--stollen" href="kerststollen/" data-reveal data-reveal-delay="1">
         <div class="action-card-art" aria-hidden="true">
           <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -170,7 +197,7 @@
       </a>
 
       <!-- ============== KASTEELDINER ============== -->
-      <a class="action-card action-card--castle" href="kasteeldiner/">
+      <a class="action-card action-card--castle" href="kasteeldiner/" data-reveal data-reveal-delay="2">
         <div class="action-card-art" aria-hidden="true">
           <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -248,11 +275,28 @@
   </div>
 </section>
 
+<section class="mission-quote">
+  <div class="wrap">
+    <blockquote data-reveal>
+      Service Above Self — een netwerk inzetten voor wie het zelf even niet redt.
+      <cite>Rotary, sinds 1905</cite>
+    </blockquote>
+  </div>
+</section>
+
 <section class="rotary-context">
   <div class="wrap">
-    <h2>Waarom Rotary?</h2>
-    <p>Rotary is wereldwijd de oudste serviceorganisatie van vrijwilligers — bijna 1,4 miljoen leden in ruim 200 landen, werkend onder het motto <em>Service Above Self</em>. Onze club Rotary Nijmegen Stad en Land verbindt ondernemers, professionals en bestuurders uit de regio, en zet die netwerken in voor lokale, regionale en internationale doelen. Van een tulpenactie tegen polio tot rugby voor Stichting Koprol — en de drie acties op deze pagina.</p>
-    <p><a href="https://www.rotary.nl/nijmegenstadenland/" rel="external">Meer over onze club →</a></p>
+    <svg class="context-ornament" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-reveal>
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+        <circle cx="32" cy="32" r="9"/>
+        <circle cx="32" cy="32" r="3" fill="currentColor"/>
+        <path d="M32 4 L32 14 M32 50 L32 60 M4 32 L14 32 M50 32 L60 32"/>
+        <path d="M12 12 L19 19 M45 45 L52 52 M52 12 L45 19 M19 45 L12 52"/>
+      </g>
+    </svg>
+    <h2 data-reveal data-reveal-delay="1">Waarom Rotary?</h2>
+    <p data-reveal data-reveal-delay="2">Rotary is wereldwijd de oudste serviceorganisatie van vrijwilligers — bijna 1,4 miljoen leden in ruim 200 landen, werkend onder het motto <em>Service Above Self</em>. Onze club Rotary Nijmegen Stad en Land verbindt ondernemers, professionals en bestuurders uit de regio, en zet die netwerken in voor lokale, regionale en internationale doelen. Van een tulpenactie tegen polio tot rugby voor Stichting Koprol — en de drie acties op deze pagina.</p>
+    <p data-reveal data-reveal-delay="3"><a href="https://www.rotary.nl/nijmegenstadenland/" rel="external">Meer over onze club →</a></p>
   </div>
 </section>
 
@@ -275,5 +319,6 @@
   </div>
 </footer>
 
+<script src="assets/js/common.js" defer></script>
 </body>
 </html>

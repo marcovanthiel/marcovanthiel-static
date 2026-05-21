@@ -19,41 +19,64 @@
 
 <header class="rotary-masthead">
   <a class="rotary-mark" href="https://www.rotary.nl/nijmegenstadenland/" rel="external">
-    <svg class="rotary-wheel" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="50" cy="50" r="46" fill="#F7A81B"/>
-      <circle cx="50" cy="50" r="14" fill="none" stroke="#0C2A5C" stroke-width="6"/>
-      <circle cx="50" cy="50" r="4" fill="#0C2A5C"/>
-      <g fill="#0C2A5C">
-        <rect x="46" y="2"  width="8" height="14" rx="2"/>
-        <rect x="46" y="84" width="8" height="14" rx="2"/>
-        <rect x="2"  y="46" width="14" height="8" rx="2"/>
-        <rect x="84" y="46" width="14" height="8" rx="2"/>
-        <rect x="46" y="2"  width="8" height="14" rx="2" transform="rotate(45 50 50)"/>
-        <rect x="46" y="2"  width="8" height="14" rx="2" transform="rotate(-45 50 50)"/>
-        <rect x="46" y="84" width="8" height="14" rx="2" transform="rotate(45 50 50)"/>
-        <rect x="46" y="84" width="8" height="14" rx="2" transform="rotate(-45 50 50)"/>
-      </g>
-    </svg>
-    <span class="rotary-mark-text">
-      <span class="rotary-mark-club">Rotary Nijmegen Stad en Land</span>
-      <span class="rotary-mark-tag">Service Above Self</span>
-    </span>
+    <img class="rotary-logo" src="../assets/img/rotary-nijmegen-stadenland.png" alt="Rotary Nijmegen Stad en Land" width="500" height="150" />
+    <span class="rotary-mark-tag">Service Above Self</span>
   </a>
   <a href="../" class="masthead-back">← alle acties</a>
 </header>
 
 <section class="hero ducks-hero">
-  <div class="hero-ducks" aria-hidden="true">
-    <span class="duck d1">🦆</span>
-    <span class="duck d2">🦆</span>
-    <span class="duck d3">🦆</span>
-    <span class="duck d4">🦆</span>
-    <span class="duck d5">🦆</span>
+  <!-- Achtergrond-waterscène: drie wave-lagen + drijvende eendjes (SVG) -->
+  <div class="duck-scene" aria-hidden="true">
+    <svg class="duck-waves" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="wave wave-back"  d="M0 120 C 240 90 480 150 720 120 S 1200 90 1440 120 L 1440 200 L 0 200 Z" />
+      <path class="wave wave-mid"   d="M0 140 C 240 110 480 170 720 140 S 1200 110 1440 140 L 1440 200 L 0 200 Z" />
+      <path class="wave wave-front" d="M0 160 C 240 130 480 190 720 160 S 1200 130 1440 160 L 1440 200 L 0 200 Z" />
+    </svg>
+    <svg class="float-duck d1" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="30" cy="32" rx="20" ry="13" fill="#FFD43B"/>
+      <ellipse cx="30" cy="38" rx="18" ry="6" fill="#E8B619" opacity="0.6"/>
+      <circle cx="42" cy="20" r="10" fill="#FFD43B"/>
+      <circle cx="46" cy="18" r="1.6" fill="#1a1a1a"/>
+      <circle cx="46.5" cy="17.5" r="0.5" fill="#fff"/>
+      <path d="M50 20 L58 19 L58 24 L50 23 Z" fill="#F7931E"/>
+      <path d="M30 25 Q34 22 38 25" stroke="#E8B619" stroke-width="1.2" fill="none"/>
+    </svg>
+    <svg class="float-duck d2" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="30" cy="32" rx="20" ry="13" fill="#FFD43B"/>
+      <ellipse cx="30" cy="38" rx="18" ry="6" fill="#E8B619" opacity="0.6"/>
+      <circle cx="42" cy="20" r="10" fill="#FFD43B"/>
+      <circle cx="46" cy="18" r="1.6" fill="#1a1a1a"/>
+      <circle cx="46.5" cy="17.5" r="0.5" fill="#fff"/>
+      <path d="M50 20 L58 19 L58 24 L50 23 Z" fill="#F7931E"/>
+    </svg>
+    <svg class="float-duck d3" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="30" cy="32" rx="20" ry="13" fill="#FFD43B"/>
+      <ellipse cx="30" cy="38" rx="18" ry="6" fill="#E8B619" opacity="0.6"/>
+      <circle cx="42" cy="20" r="10" fill="#FFD43B"/>
+      <circle cx="46" cy="18" r="1.6" fill="#1a1a1a"/>
+      <circle cx="46.5" cy="17.5" r="0.5" fill="#fff"/>
+      <path d="M50 20 L58 19 L58 24 L50 23 Z" fill="#F7931E"/>
+    </svg>
+    <svg class="float-duck d4" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="30" cy="32" rx="20" ry="13" fill="#FFD43B"/>
+      <circle cx="42" cy="20" r="10" fill="#FFD43B"/>
+      <circle cx="46" cy="18" r="1.6" fill="#1a1a1a"/>
+      <path d="M50 20 L58 19 L58 24 L50 23 Z" fill="#F7931E"/>
+    </svg>
+    <svg class="float-duck d5" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="30" cy="32" rx="20" ry="13" fill="#FFD43B"/>
+      <circle cx="42" cy="20" r="10" fill="#FFD43B"/>
+      <circle cx="46" cy="18" r="1.6" fill="#1a1a1a"/>
+      <path d="M50 20 L58 19 L58 24 L50 23 Z" fill="#F7931E"/>
+    </svg>
+    <!-- Zon rechtsboven -->
+    <div class="hero-sun"></div>
   </div>
   <div class="wrap">
-    <span class="hero-eyebrow">Zaterdag 17 april 2027 · 15.00 uur</span>
-    <h1>Badeendjesrace<br>in de Spiegelwaal</h1>
-    <p class="lede">
+    <span class="hero-eyebrow" data-reveal>Zaterdag 17 april 2027 · 15.00 uur</span>
+    <h1 data-reveal data-reveal-delay="1">Badeendjesrace<br><span class="title-italic">in de Spiegelwaal</span></h1>
+    <p class="lede" data-reveal data-reveal-delay="2">
       Duizenden genummerde gele badeendjes worden te water gelaten in de
       Spiegelwaal in Nijmegen. Het eendje dat als eerste over de finish drijft,
       bezorgt zijn eigenaar een onvergetelijke hoofdprijs — en de opbrengst
@@ -237,5 +260,6 @@
   </div>
 </footer>
 
+<script src="../assets/js/common.js" defer></script>
 </body>
 </html>

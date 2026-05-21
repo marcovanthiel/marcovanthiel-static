@@ -16,13 +16,11 @@ body {
   color: #ebe6d9;
 }
 
-.rotary-masthead {
-  background: var(--castle-deep);
-  border-bottom-color: var(--gold-warm);
-}
+/* Masthead blijft licht (common.css) — alleen de partner-tag krijgt
+   de subsite-accent (donker navy met goud-randje) */
 .rotary-mark-tag {
-  color: var(--gold-warm);
-  opacity: 1;
+  color: var(--castle-night);
+  border-left-color: rgba(212, 184, 106, 0.4);
 }
 
 a { color: var(--gold-bright); border-bottom-color: rgba(241, 210, 124, 0.35); }
@@ -112,43 +110,100 @@ section + section { border-top-color: rgba(245, 237, 224, 0.06); }
   margin-top: 2.5rem;
 }
 
-/* Kaarsje rechtsboven */
-.candle {
+/* ============== Kasteel-silhouet onderaan de hero ============== */
+.castle-silhouette {
   position: absolute;
-  top: 18%;
-  right: 8%;
-  width: 8px;
-  height: 32px;
-  background: linear-gradient(180deg, #d4b86a 0%, #b08a3e 100%);
-  border-radius: 2px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
   z-index: 1;
-  opacity: 0.7;
+  pointer-events: none;
+  filter: drop-shadow(0 -8px 24px rgba(241, 210, 124, 0.12));
 }
+.castle-windows rect {
+  animation: castle-window-glow 4.5s ease-in-out infinite;
+}
+.castle-windows rect:nth-child(odd)  { animation-duration: 5.5s; }
+.castle-windows rect:nth-child(3n)   { animation-delay: -1.6s; }
+.castle-windows rect:nth-child(4n)   { animation-delay: -3.2s; }
+.castle-windows rect:nth-child(5n)   { animation-delay: -0.8s; animation-duration: 6.5s; }
+@keyframes castle-window-glow {
+  0%, 100% { opacity: 0.9; }
+  47%      { opacity: 0.9; }
+  50%      { opacity: 0.45; }
+  53%      { opacity: 0.9; }
+}
+
+/* ============== Drie kaarsen voor in de hero ============== */
+.candles-row {
+  position: absolute;
+  top: 22%;
+  right: 8%;
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  z-index: 2;
+  pointer-events: none;
+}
+@media (max-width: 880px) {
+  .candles-row {
+    top: auto;
+    bottom: 12%;
+    right: 6%;
+    gap: 16px;
+  }
+}
+.candle {
+  position: relative;
+  width: 9px;
+  background: linear-gradient(180deg,
+    #fff8e6 0%,
+    #e8d4a3 20%,
+    #c9a85f 100%);
+  border-radius: 2px 2px 1px 1px;
+  box-shadow:
+    inset -2px 0 3px rgba(0,0,0,0.25),
+    inset 2px 0 2px rgba(255,255,255,0.4);
+}
+.candle.c1 { height: 48px; }
+.candle.c2 { height: 64px; }
+.candle.c3 { height: 40px; }
+
 .flame {
   position: absolute;
-  top: -18px;
+  top: -22px;
   left: 50%;
-  width: 12px;
-  height: 18px;
+  width: 14px;
+  height: 22px;
   transform: translateX(-50%);
-  background: radial-gradient(ellipse at 50% 70%,
+  background: radial-gradient(ellipse at 50% 75%,
     #fff8e6 0%,
-    #f1d27c 30%,
-    #f7a81b 60%,
+    #f1d27c 32%,
+    #f7a81b 65%,
     transparent 100%);
   border-radius: 50% 50% 35% 35%;
-  filter: blur(0.5px);
-  box-shadow: 0 0 16px rgba(241, 210, 124, 0.6);
-  animation: flicker 2.4s ease-in-out infinite;
+  filter: blur(0.4px);
+  box-shadow:
+    0 0 18px rgba(241, 210, 124, 0.7),
+    0 0 36px rgba(241, 210, 124, 0.35);
 }
+.candle.c1 .flame { animation: flicker 2.6s ease-in-out infinite; }
+.candle.c2 .flame { animation: flicker 3.2s ease-in-out infinite 0.4s; width: 16px; height: 26px; top: -26px; }
+.candle.c3 .flame { animation: flicker 2.2s ease-in-out infinite 0.9s; width: 12px; height: 18px; top: -18px; }
+
 @keyframes flicker {
-  0%, 100% { transform: translateX(-50%) scaleY(1)    rotate(-1deg); opacity: 1;   }
-  25%      { transform: translateX(-52%) scaleY(1.1)  rotate(1.5deg); opacity: 0.9; }
-  50%      { transform: translateX(-50%) scaleY(0.95) rotate(-0.5deg); opacity: 1; }
-  75%      { transform: translateX(-48%) scaleY(1.05) rotate(0.8deg); opacity: 0.95; }
+  0%, 100% { transform: translateX(-50%) scaleY(1)    rotate(-1deg);  opacity: 1; }
+  20%      { transform: translateX(-54%) scaleY(1.12) rotate(2deg);   opacity: 0.92; }
+  40%      { transform: translateX(-50%) scaleY(0.92) rotate(-1.5deg); opacity: 1; }
+  60%      { transform: translateX(-47%) scaleY(1.05) rotate(1deg);   opacity: 0.95; }
+  80%      { transform: translateX(-50%) scaleY(0.98) rotate(-0.5deg); opacity: 1; }
 }
+
 @media (prefers-reduced-motion: reduce) {
   .flame { animation: none; }
+  .castle-windows rect { animation: none; }
 }
 
 /* ============== Avond/programma ============== */

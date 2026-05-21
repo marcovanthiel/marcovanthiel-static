@@ -17,14 +17,11 @@ body { background: var(--cream-warm); }
 a { color: var(--burgundy); border-bottom-color: rgba(124, 29, 29, 0.3); }
 a:hover { color: var(--gold-glow); border-bottom-color: var(--gold-glow); }
 
-.rotary-masthead {
-  background: var(--burgundy-deep);
-  border-bottom-color: var(--gold-glow);
-}
+/* Masthead blijft licht (common.css) — alleen de partner-tag krijgt
+   de subsite-accent zodat hij visueel bij het thema past */
 .rotary-mark-tag {
-  font-style: italic;
-  color: var(--gold-glow);
-  opacity: 1;
+  color: var(--burgundy);
+  border-left-color: rgba(124, 29, 29, 0.25);
 }
 
 .stollen-hero {
@@ -48,35 +45,83 @@ a:hover { color: var(--gold-glow); border-bottom-color: var(--gold-glow); }
 }
 .stollen-hero .hero-meta dt { color: rgba(232, 181, 63, 0.85); }
 
-.snow {
+/* ============== Sneeuwval (SVG-flakes) ============== */
+.snow-field {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
 }
-.snowflake {
+.flake {
   position: absolute;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 1.2rem;
-  animation: snowfall 12s linear infinite;
-  text-shadow: 0 0 4px rgba(255,255,255,0.4);
+  top: -40px;
+  color: rgba(255, 255, 255, 0.85);
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.5));
+  animation: flake-fall 14s linear infinite;
 }
-.snowflake.s1 { left: 8%;  top: -5%;  font-size: 1.5rem; animation-delay: 0s;    animation-duration: 14s; }
-.snowflake.s2 { left: 22%; top: -10%; font-size: 1rem;   animation-delay: 2s;    animation-duration: 11s; }
-.snowflake.s3 { left: 42%; top: -8%;  font-size: 1.3rem; animation-delay: 4.5s;  animation-duration: 13s; }
-.snowflake.s4 { left: 60%; top: -3%;  font-size: 0.9rem; animation-delay: 1.2s;  animation-duration: 16s; }
-.snowflake.s5 { left: 75%; top: -7%;  font-size: 1.4rem; animation-delay: 3.6s;  animation-duration: 12s; }
-.snowflake.s6 { left: 88%; top: -5%;  font-size: 1.1rem; animation-delay: 6s;    animation-duration: 15s; }
-.snowflake.s7 { left: 30%; top: -2%;  font-size: 1.6rem; animation-delay: 8s;    animation-duration: 13.5s; }
+.flake.f1  { left:  6%; width: 24px; height: 24px; animation-duration: 14s; animation-delay: 0s; }
+.flake.f2  { left: 14%; width: 16px; height: 16px; animation-duration: 11s; animation-delay: 2s; opacity: 0.7; }
+.flake.f3  { left: 22%; width: 28px; height: 28px; animation-duration: 16s; animation-delay: 4s; }
+.flake.f4  { left: 32%; width: 18px; height: 18px; animation-duration: 12s; animation-delay: 1s; opacity: 0.8; }
+.flake.f5  { left: 44%; width: 22px; height: 22px; animation-duration: 15s; animation-delay: 3.5s; }
+.flake.f6  { left: 55%; width: 14px; height: 14px; animation-duration: 10s; animation-delay: 6s; opacity: 0.65; }
+.flake.f7  { left: 65%; width: 26px; height: 26px; animation-duration: 13.5s; animation-delay: 5s; }
+.flake.f8  { left: 76%; width: 20px; height: 20px; animation-duration: 12.5s; animation-delay: 2.5s; opacity: 0.78; }
+.flake.f9  { left: 86%; width: 24px; height: 24px; animation-duration: 15.5s; animation-delay: 7s; }
+.flake.f10 { left: 94%; width: 18px; height: 18px; animation-duration: 11.5s; animation-delay: 0.5s; opacity: 0.75; }
 
-@keyframes snowfall {
-  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
-  10%  { opacity: 0.85; }
-  100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+@keyframes flake-fall {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(120vh) translateX(40px) rotate(540deg); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .snowflake { animation: none; opacity: 0.4; }
+  .flake { animation: none; opacity: 0.5; top: 30%; }
+}
+
+/* ============== Grote stollen-illustratie in hero ============== */
+.stollen-art {
+  position: absolute;
+  bottom: -30px;
+  right: -40px;
+  width: 540px;
+  max-width: 70vw;
+  height: auto;
+  z-index: 1;
+  opacity: 0.95;
+  filter: drop-shadow(0 14px 30px rgba(0,0,0,0.4));
+  pointer-events: none;
+  animation: stollen-float 8s ease-in-out infinite;
+}
+@keyframes stollen-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@media (max-width: 880px) {
+  .stollen-art {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 2rem auto 0;
+    width: 80%;
+    display: block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stollen-art { animation: none; }
+}
+
+/* Titel-italic accent */
+.stollen-hero h1 .title-italic {
+  display: inline-block;
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(180deg, var(--gold-glow) 0%, #c89a2a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero-cta-row {
