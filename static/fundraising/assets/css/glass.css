@@ -1,0 +1,444 @@
+/* ============================================================
+   Liquid-Glass · gedeelde laag voor alle fundraising-pagina's
+   Geïnspireerd op iOS 26 Liquid Glass — refractieve translucentie,
+   randhighlights, cursor-volgende specular, organische beweging.
+   ============================================================ */
+
+:root {
+  /* Glass tokens — licht thema (hub, badeendjes, kerststollen-light) */
+  --g-bg:        rgba(255, 255, 255, 0.55);
+  --g-bg-soft:   rgba(255, 255, 255, 0.42);
+  --g-bg-strong: rgba(255, 255, 255, 0.72);
+  --g-edge-hi:   rgba(255, 255, 255, 0.85);
+  --g-edge-lo:   rgba(0, 0, 0, 0.10);
+  --g-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.05) inset,
+    0 10px 30px -10px rgba(12, 42, 92, 0.18),
+    0 30px 60px -20px rgba(12, 42, 92, 0.16);
+  --g-blur: blur(22px) saturate(170%);
+  --g-blur-strong: blur(40px) saturate(190%);
+
+  /* Spring-easings */
+  --spring-out:  cubic-bezier(.16, 1.2, .3, 1);
+  --spring-soft: cubic-bezier(.2,  .9, .3, 1.02);
+  --ease-glass:  cubic-bezier(.22, 1,  .36, 1);
+}
+
+/* Donker thema (kasteeldiner): override op de body-scope */
+body.glass-dark {
+  --g-bg:        rgba(20, 26, 46, 0.42);
+  --g-bg-soft:   rgba(20, 26, 46, 0.30);
+  --g-bg-strong: rgba(20, 26, 46, 0.62);
+  --g-edge-hi:   rgba(255, 255, 255, 0.32);
+  --g-edge-lo:   rgba(0, 0, 0, 0.45);
+  --g-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.4) inset,
+    0 12px 30px -10px rgba(0, 0, 0, 0.55),
+    0 40px 80px -20px rgba(0, 0, 0, 0.5);
+}
+
+/* =============================================================
+   Drijvende kleur-orbs achter alles. Per pagina geconfigureerd
+   via --orb-{1,2,3}-color / --orb-{1,2,3}-x / -y / -size.
+   ============================================================= */
+body { isolation: isolate; } /* Geeft body een eigen stacking-context zodat .aurora-field op z-index -1 onder content blijft */
+
+.aurora-field {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  /* Lichte body-kleur als fallback zodat glas iets te tonen heeft */
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(247, 168, 27, 0.06), transparent 50%),
+    radial-gradient(ellipse at 10% 90%, rgba(23, 69, 143, 0.08), transparent 55%);
+}
+body.glass-dark .aurora-field {
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(212, 184, 106, 0.10), transparent 50%),
+    radial-gradient(ellipse at 10% 90%, rgba(90, 26, 26, 0.18), transparent 55%);
+}
+
+.aurora-field .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px) saturate(140%);
+  opacity: 0.55;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+body:not(.glass-dark) .aurora-field .orb {
+  mix-blend-mode: multiply;
+  opacity: 0.32;
+}
+
+.orb.orb-1 {
+  width: var(--orb-1-size, 38vmax);
+  height: var(--orb-1-size, 38vmax);
+  left: var(--orb-1-x, -10%);
+  top:  var(--orb-1-y, -10%);
+  background: radial-gradient(circle at 50% 50%, var(--orb-1-color, #17458F), transparent 60%);
+  animation: orb-drift-a 24s var(--ease-glass) infinite alternate;
+}
+.orb.orb-2 {
+  width: var(--orb-2-size, 32vmax);
+  height: var(--orb-2-size, 32vmax);
+  right: var(--orb-2-x, -8%);
+  top:   var(--orb-2-y, 18%);
+  background: radial-gradient(circle at 50% 50%, var(--orb-2-color, #F7A81B), transparent 60%);
+  animation: orb-drift-b 28s var(--ease-glass) infinite alternate;
+}
+.orb.orb-3 {
+  width: var(--orb-3-size, 34vmax);
+  height: var(--orb-3-size, 34vmax);
+  left:   var(--orb-3-x, 30%);
+  bottom: var(--orb-3-y, -10%);
+  background: radial-gradient(circle at 50% 50%, var(--orb-3-color, #5aa8e6), transparent 60%);
+  animation: orb-drift-c 32s var(--ease-glass) infinite alternate;
+}
+
+@keyframes orb-drift-a {
+  0%   { transform: translate3d(0, 0, 0)         scale(1);    }
+  50%  { transform: translate3d(8vw, 4vh, 0)     scale(1.12); }
+  100% { transform: translate3d(-4vw, 10vh, 0)   scale(0.94); }
+}
+@keyframes orb-drift-b {
+  0%   { transform: translate3d(0, 0, 0)         scale(1);    }
+  50%  { transform: translate3d(-10vw, 6vh, 0)   scale(0.88); }
+  100% { transform: translate3d(-3vw, 12vh, 0)   scale(1.16); }
+}
+@keyframes orb-drift-c {
+  0%   { transform: translate3d(0, 0, 0)         scale(1);    }
+  50%  { transform: translate3d(6vw, -4vh, 0)    scale(1.18); }
+  100% { transform: translate3d(-8vw, -2vh, 0)   scale(0.92); }
+}
+
+/* SVG-noise overlay voor de gefroste textuur die Apple gebruikt */
+.aurora-field::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .14 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.42;
+  mix-blend-mode: overlay;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none; }
+}
+
+/* =============================================================
+   .glass — algemene glas-oppervlak
+   - translucente fill
+   - achterliggend gauss-blur via backdrop-filter
+   - lichte rand-highlight (top) + donkere rand-shadow (bottom)
+   - cursor-volgende specular via --mx / --my (gezet door glass.js)
+   ============================================================= */
+.glass,
+.glass-strong {
+  position: relative;
+  isolation: isolate;
+  background: var(--g-bg);
+  -webkit-backdrop-filter: var(--g-blur);
+          backdrop-filter: var(--g-blur);
+  border-radius: 18px;
+  box-shadow: var(--g-shadow);
+  overflow: hidden;
+  /* Hint to the compositor: most glass surfaces transform on hover */
+  will-change: transform;
+}
+.glass-strong {
+  background: var(--g-bg-strong);
+  -webkit-backdrop-filter: var(--g-blur-strong);
+          backdrop-filter: var(--g-blur-strong);
+}
+
+/* Cursor-volgende specular — een zachte radial-light die meebeweegt
+   met de muis. JS zet --mx/--my als percentage.
+   Refractieve randhoogtepunten zitten al in --g-shadow (1px inset
+   top/bottom), dus we hebben hier maar één pseudo-element nodig. */
+.glass::before,
+.glass-strong::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity .45s var(--ease-glass);
+  background:
+    radial-gradient(
+      320px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(255, 255, 255, 0.36) 0%,
+      transparent 55%);
+}
+body.glass-dark .glass::before,
+body.glass-dark .glass-strong::before {
+  background:
+    radial-gradient(
+      320px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(255, 255, 255, 0.18) 0%,
+      transparent 55%);
+}
+.glass:hover::before,
+.glass-strong:hover::before,
+.glass.is-hot::before,
+.glass-strong.is-hot::before {
+  opacity: 1;
+}
+
+/* Sweep — een 1× shimmer over het glas op hover/visible.
+   Gebruikt ::after zodat het naast ::before (specular) kan staan. */
+.glass-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.0) 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.0) 70%,
+    transparent 100%);
+  transform: skewX(-18deg);
+  pointer-events: none;
+  z-index: 3;
+}
+.glass-sweep:hover::after,
+.glass-sweep.is-hot::after {
+  animation: glass-sweep 900ms var(--ease-glass);
+}
+@keyframes glass-sweep {
+  0%   { left: -150%; }
+  100% { left:  120%; }
+}
+
+/* =============================================================
+   Tilt — kaarten met cursor-gestuurde 3D parallax
+   --rx, --ry worden door JS gezet (in graden, max ±6)
+   ============================================================= */
+.tilt {
+  transform-style: preserve-3d;
+  transition:
+    transform 600ms var(--spring-soft),
+    box-shadow 400ms var(--ease-glass);
+}
+.tilt:hover {
+  transform:
+    perspective(900px)
+    rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg))
+    translateZ(0);
+}
+.tilt > .tilt-layer {
+  transform: translateZ(40px);
+  transition: transform 600ms var(--spring-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt, .tilt:hover { transform: none !important; }
+  .tilt > .tilt-layer { transform: none !important; }
+}
+
+/* =============================================================
+   Sticky glas-masthead — alleen onder de hero verdiept de blur
+   ============================================================= */
+.rotary-masthead {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+          backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(252, 248, 240, 0.72);
+  border-bottom-color: var(--rotary-gold, #F7A81B);
+  transition: background .4s var(--ease-glass), padding .3s var(--ease-glass);
+}
+body.glass-dark .rotary-masthead {
+  background: rgba(10, 12, 24, 0.55);
+  border-bottom-color: rgba(212, 184, 106, 0.55);
+}
+.rotary-masthead.is-scrolled {
+  background: rgba(252, 248, 240, 0.88);
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+body.glass-dark .rotary-masthead.is-scrolled {
+  background: rgba(10, 12, 24, 0.78);
+}
+
+/* =============================================================
+   Scroll-progress bar bovenaan
+   ============================================================= */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 200;
+  pointer-events: none;
+  background: transparent;
+}
+.scroll-progress > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,
+    #F7A81B 0%,
+    #ffd778 40%,
+    #17458F 100%);
+  box-shadow: 0 0 8px rgba(247, 168, 27, 0.55);
+  transition: width 80ms linear;
+}
+
+/* =============================================================
+   Floating CTA pill — verschijnt na scrollen op subsites
+   ============================================================= */
+.float-cta {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 90;
+  padding: 0.85rem 1.4rem;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  text-decoration: none;
+  background: rgba(247, 168, 27, 0.92);
+  color: #0C2A5C;
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+          backdrop-filter: blur(16px) saturate(180%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 6px 18px rgba(247, 168, 27, 0.45),
+    0 12px 36px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(20px) scale(0.92);
+  transition:
+    opacity .45s var(--ease-glass),
+    transform .55s var(--spring-soft),
+    background .2s,
+    color .2s;
+  pointer-events: none;
+}
+.float-cta:hover {
+  background: #F7A81B;
+  color: #0C2A5C;
+}
+.float-cta.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* =============================================================
+   Marquee — Service Above Self · 1,4 mln leden · 200 landen · …
+   ============================================================= */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 1.1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.marquee-track {
+  display: inline-flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  animation: marquee 38s linear infinite;
+  font-family: var(--serif, Georgia);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+.marquee-track span { letter-spacing: 0.04em; }
+.marquee-track .dot { color: var(--rotary-gold, #F7A81B); opacity: 0.85; }
+@keyframes marquee {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* =============================================================
+   Spring-overshoot scroll-reveal — overschrijft .is-visible
+   transitie uit common.css met een organischer ease
+   ============================================================= */
+[data-reveal] {
+  transition:
+    opacity   .9s  var(--ease-glass),
+    transform .9s  var(--spring-out);
+}
+
+/* =============================================================
+   Knopen — glas-variant met sweep
+   ============================================================= */
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 999px;
+  background: var(--g-bg-strong);
+  color: var(--rotary-blue-deep, #0C2A5C);
+  -webkit-backdrop-filter: var(--g-blur);
+          backdrop-filter: var(--g-blur);
+  box-shadow: var(--g-shadow);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform .35s var(--spring-soft), box-shadow .3s;
+  border: none;
+}
+.btn-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, var(--g-edge-hi), transparent 50%, var(--g-edge-lo));
+  -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+.btn-glass:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 10px 28px rgba(247, 168, 27, 0.28),
+    0 30px 60px -20px rgba(12, 42, 92, 0.25);
+}
+.btn-glass.btn-gold {
+  background: linear-gradient(180deg, #ffd778 0%, #F7A81B 100%);
+  color: #0C2A5C;
+}
+body.glass-dark .btn-glass {
+  color: #fff8e6;
+}
+
+/* =============================================================
+   Custom focus — toegankelijke gouden gloed
+   ============================================================= */
+:where(a, button, summary, input, select, textarea):focus-visible {
+  outline: 2px solid #F7A81B;
+  outline-offset: 3px;
+  border-radius: 4px;
+}

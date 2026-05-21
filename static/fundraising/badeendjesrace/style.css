@@ -302,3 +302,101 @@
   font-size: 0.98rem;
   color: var(--ink-2);
 }
+
+/* ===========================================================
+   ──── LIQUID GLASS OVERRIDES — badeendjes ────
+   =========================================================== */
+.page-ducks {
+  --orb-1-color: #5aa8e6;   /* water-blauw */
+  --orb-2-color: #ffd778;   /* zonlicht */
+  --orb-3-color: #3a82bf;   /* diep water */
+  --orb-1-size: 44vmax;
+  --orb-2-size: 30vmax;
+  --orb-3-size: 38vmax;
+}
+
+/* Hero — al gradient maar laat orbs door */
+.page-ducks .ducks-hero {
+  background: linear-gradient(180deg,
+    rgba(167, 216, 255, 0.92) 0%,
+    rgba(90, 168, 230, 0.85) 35%,
+    rgba(44, 111, 176, 0.85) 70%,
+    rgba(30, 82, 133, 0.92) 100%);
+}
+
+.page-ducks section { background: transparent; }
+.page-ducks .prizes { background: transparent; }
+.page-ducks .faq    { background: transparent; }
+.page-ducks .bestel { background: transparent; }
+
+/* Prize-cards — transparant maken zodat glas pakt */
+.page-ducks .prize-card {
+  background: transparent;
+  border: none;
+  padding: 1.8rem 1.6rem;
+  border-radius: 18px;
+  transform-style: preserve-3d;
+}
+.page-ducks .prize-card:hover {
+  transform:
+    perspective(900px)
+    rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg))
+    translateY(-4px);
+}
+/* Hoofdprijs blijft gold-glow maar nu met dubbele laag */
+.page-ducks .prize-card--top {
+  background:
+    linear-gradient(135deg, rgba(255, 224, 102, 0.85) 0%, rgba(247, 168, 27, 0.85) 100%);
+}
+
+/* Bestel-blocks — transparant */
+.page-ducks .bestel-block {
+  background: transparent;
+  border: none;
+  padding: 1.8rem 1.6rem;
+  border-radius: 18px;
+}
+
+/* FAQ-details glas */
+.page-ducks .faq details {
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 0.9rem;
+}
+.page-ducks .faq details[open] { border-color: transparent; }
+.page-ducks .faq summary { color: var(--rotary-blue-deep); }
+
+/* Steps li → glas (ze hebben nu de class glass) */
+.page-ducks .steps li {
+  background: transparent;
+  padding: 1.6rem 1.5rem;
+  border-radius: 18px;
+}
+
+/* Goed-doel sectie — donker glas voor hard contrast */
+.page-ducks .goed-doel {
+  background: transparent;
+  padding: 4rem 0;
+  position: relative;
+}
+.page-ducks .goed-doel .wrap {
+  max-width: 760px;
+  padding: 2.5rem 2.5rem;
+  background: rgba(12, 42, 92, 0.78);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+          backdrop-filter:  blur(20px) saturate(160%);
+  border-radius: 22px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 24px 60px -20px rgba(12, 42, 92, 0.55);
+}
+
+/* Footer met blur */
+.page-ducks .site-footer {
+  background: linear-gradient(180deg, rgba(12, 42, 92, 0.92), rgba(8, 26, 60, 0.96));
+  -webkit-backdrop-filter: blur(18px);
+          backdrop-filter:  blur(18px);
+}

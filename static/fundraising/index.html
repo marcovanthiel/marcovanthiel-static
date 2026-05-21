@@ -13,9 +13,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/common.css" />
+<link rel="stylesheet" href="assets/css/glass.css" />
 <link rel="stylesheet" href="assets/css/hub.css" />
 </head>
-<body>
+<body class="glass-light page-hub">
+
+<div class="aurora-field" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
 
 <header class="rotary-masthead">
   <a class="rotary-mark" href="https://www.rotary.nl/nijmegenstadenland/" rel="external">
@@ -52,7 +61,7 @@
 <section class="impact-strip" aria-label="Rotary in cijfers">
   <div class="wrap">
     <div class="impact-grid">
-      <div class="impact-cell" data-reveal>
+      <div class="impact-cell glass" data-reveal>
         <span class="impact-num">
           <span data-counter="3" data-counter-duration="900">0</span>
         </span>
@@ -89,7 +98,8 @@
     <div class="action-grid">
 
       <!-- ============== BADEENDJES ============== -->
-      <a class="action-card action-card--ducks" href="badeendjesrace/" data-reveal>
+      <a class="action-card action-card--ducks glass tilt glass-sweep" href="badeendjesrace/" data-reveal data-tilt-max="6">
+        <span class="corner-acc" aria-hidden="true"></span>
         <div class="action-card-art" aria-hidden="true">
           <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -139,7 +149,8 @@
       </a>
 
       <!-- ============== KERSTSTOLLEN ============== -->
-      <a class="action-card action-card--stollen" href="kerststollen/" data-reveal data-reveal-delay="1">
+      <a class="action-card action-card--stollen glass tilt glass-sweep" href="kerststollen/" data-reveal data-reveal-delay="1" data-tilt-max="6">
+        <span class="corner-acc" aria-hidden="true"></span>
         <div class="action-card-art" aria-hidden="true">
           <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -197,7 +208,8 @@
       </a>
 
       <!-- ============== KASTEELDINER ============== -->
-      <a class="action-card action-card--castle" href="kasteeldiner/" data-reveal data-reveal-delay="2">
+      <a class="action-card action-card--castle glass tilt glass-sweep" href="kasteeldiner/" data-reveal data-reveal-delay="2" data-tilt-max="6">
+        <span class="corner-acc" aria-hidden="true"></span>
         <div class="action-card-art" aria-hidden="true">
           <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -277,10 +289,29 @@
 
 <section class="mission-quote">
   <div class="wrap">
-    <blockquote data-reveal>
+    <blockquote class="glass-strong glass-sweep" data-reveal>
       Service Above Self — een netwerk inzetten voor wie het zelf even niet redt.
       <cite>Rotary, sinds 1905</cite>
     </blockquote>
+  </div>
+</section>
+
+<section class="marquee-section" aria-hidden="true">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Service Above Self</span><span class="dot">✦</span>
+      <span>1,4 mln Rotariërs</span><span class="dot">✦</span>
+      <span>200+ landen</span><span class="dot">✦</span>
+      <span>End Polio Now</span><span class="dot">✦</span>
+      <span>Service Above Self</span><span class="dot">✦</span>
+      <span>Drie acties · één opdracht</span><span class="dot">✦</span>
+      <span>Service Above Self</span><span class="dot">✦</span>
+      <span>1,4 mln Rotariërs</span><span class="dot">✦</span>
+      <span>200+ landen</span><span class="dot">✦</span>
+      <span>End Polio Now</span><span class="dot">✦</span>
+      <span>Service Above Self</span><span class="dot">✦</span>
+      <span>Drie acties · één opdracht</span><span class="dot">✦</span>
+    </div>
   </div>
 </section>
 
@@ -320,5 +351,6 @@
 </footer>
 
 <script src="assets/js/common.js" defer></script>
+<script src="assets/js/glass.js" defer></script>
 </body>
 </html>

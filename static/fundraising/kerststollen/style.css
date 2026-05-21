@@ -305,3 +305,102 @@ a:hover { color: var(--gold-glow); border-bottom-color: var(--gold-glow); }
 }
 .site-footer h3 { color: var(--gold-glow); }
 .site-footer a:hover { color: var(--gold-glow); border-bottom-color: var(--gold-glow); }
+
+/* ===========================================================
+   ──── LIQUID GLASS OVERRIDES — kerststollen ────
+   =========================================================== */
+.page-stollen {
+  --orb-1-color: #c41e3a;   /* kerst-rood */
+  --orb-2-color: #e8b53f;   /* goud */
+  --orb-3-color: #1f5a3a;   /* pine-groen */
+  --orb-1-size: 38vmax;
+  --orb-2-size: 32vmax;
+  --orb-3-size: 32vmax;
+}
+
+/* Hero met enigszins doorlatende deze keer */
+.page-stollen .stollen-hero {
+  background: linear-gradient(135deg,
+    rgba(124, 29, 29, 0.92) 0%,
+    rgba(74, 15, 15, 0.92) 50%,
+    rgba(44, 10, 10, 0.95) 100%);
+}
+
+.page-stollen section { background: transparent; }
+.page-stollen .why { background: transparent; }
+.page-stollen .all4small { background: transparent; }
+.page-stollen .bestel { background: transparent; }
+.page-stollen .kiwanis-rotary { background: transparent; }
+
+/* Point-cards — transparant */
+.page-stollen .point {
+  background: transparent;
+  border: none;
+  padding: 1.6rem 1.5rem;
+  border-radius: 18px;
+  border-top: 3px solid var(--burgundy);
+  transform-style: preserve-3d;
+}
+
+/* Why-quote glas-strong (al class toegevoegd in HTML) */
+.page-stollen .why-quote blockquote {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.page-stollen .why-quote.glass-strong {
+  padding: 1.8rem 1.5rem;
+  border-radius: 18px;
+  border-left: 4px solid var(--burgundy);
+}
+
+/* Stol-cards — transparant, glass laag eronder */
+.page-stollen .stol-card {
+  background: transparent;
+  border: none;
+  border-radius: 18px;
+  padding: 2rem 1.8rem;
+  transform-style: preserve-3d;
+}
+.page-stollen .stol-card.featured {
+  /* Behoud goud-glow boven het glas-strong */
+  background:
+    linear-gradient(160deg, rgba(253, 246, 227, 0.4) 0%, rgba(245, 226, 168, 0.5) 100%);
+}
+
+/* Bestel-sectie — donker, dus laat het glasdonker doen */
+.page-stollen .bestel {
+  position: relative;
+  padding: 4rem 0;
+}
+.page-stollen .bestel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(74, 15, 15, 0.78), rgba(44, 10, 10, 0.85));
+  -webkit-backdrop-filter: blur(16px);
+          backdrop-filter:  blur(16px);
+  z-index: -1;
+}
+
+.page-stollen .afhaal {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 18px;
+  padding: 1.6rem 1.8rem;
+}
+
+/* Footer */
+.page-stollen .site-footer {
+  background: linear-gradient(180deg, rgba(44, 10, 10, 0.92), rgba(20, 5, 5, 0.96));
+  -webkit-backdrop-filter: blur(18px);
+          backdrop-filter:  blur(18px);
+}
+
+/* Badge "Populair" zit boven de stol-card heen; sta overflow toe ondanks glass */
+.page-stollen .stol-card.featured {
+  overflow: visible;
+}
+.page-stollen .stol-card.featured > .badge {
+  z-index: 5;  /* boven glass ::before/::after */
+}

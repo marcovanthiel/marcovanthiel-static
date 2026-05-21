@@ -331,3 +331,100 @@ section + section { border-top-color: rgba(245, 237, 224, 0.06); }
 .site-footer h3 { color: var(--gold-warm); }
 .site-footer p { color: rgba(245, 237, 224, 0.7); }
 .site-footer a:hover { color: var(--gold-bright); border-bottom-color: var(--gold-bright); }
+
+/* ===========================================================
+   ──── LIQUID GLASS OVERRIDES — kasteeldiner (dark) ────
+   =========================================================== */
+.page-castle {
+  --orb-1-color: #5a1a1a;   /* bordeaux */
+  --orb-2-color: #d4b86a;   /* gold-warm */
+  --orb-3-color: #17458F;   /* royal blue, koel */
+  --orb-1-size: 38vmax;
+  --orb-2-size: 30vmax;
+  --orb-3-size: 36vmax;
+}
+
+/* Hero half-transparant zodat orbs doorslaan */
+.page-castle .castle-hero {
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(212, 184, 106, 0.20) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(90, 26, 26, 0.30) 0%, transparent 50%),
+    linear-gradient(180deg,
+      rgba(5, 13, 32, 0.85)  0%,
+      rgba(10, 26, 53, 0.78) 35%,
+      rgba(26, 13, 42, 0.82) 80%,
+      rgba(10, 5, 16, 0.92)  100%);
+}
+
+.page-castle section { background: transparent; }
+.page-castle .avond { background: transparent; }
+.page-castle .goed-doel { background: transparent; }
+.page-castle .inspiratie { background: transparent; }
+.page-castle .aanmelden { background: transparent; }
+
+/* Programma li — dark glas */
+.page-castle .programma li {
+  background: transparent;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  border-bottom: none;
+  border-radius: 18px;
+  margin-bottom: 0.8rem;
+}
+.page-castle .programma {
+  border-left: none;
+  padding-left: 0;
+}
+.page-castle .programma li::before {
+  left: 14px;
+  top: 2.2rem;
+}
+
+/* Inspiratie items — glas tilt al toegevoegd */
+.page-castle .ins-item {
+  background: transparent;
+  border: none;
+  border-top: 3px solid var(--gold-warm);
+  border-radius: 18px;
+  padding: 1.8rem 1.6rem;
+  transform-style: preserve-3d;
+}
+
+/* Aanmelden-card — al class glass-strong toegevoegd */
+.page-castle .aanmelden-card {
+  background: transparent;
+  border: none;
+  padding: 2rem 2rem;
+  border-radius: 22px;
+}
+
+/* Goed-doel donker glas-paneel */
+.page-castle .goed-doel-content {
+  background: rgba(10, 26, 53, 0.55);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+          backdrop-filter:  blur(22px) saturate(170%);
+  padding: 2.5rem 2.5rem;
+  border-radius: 22px;
+  position: relative;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.16) inset,
+    0 30px 60px -20px rgba(0, 0, 0, 0.55);
+}
+.page-castle .goed-doel-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(212, 184, 106, 0.5), transparent 60%);
+  -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Footer */
+.page-castle .site-footer {
+  background: linear-gradient(180deg, rgba(5, 8, 16, 0.92), rgba(0, 0, 0, 0.96));
+  -webkit-backdrop-filter: blur(18px);
+          backdrop-filter:  blur(18px);
+}

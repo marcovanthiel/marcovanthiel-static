@@ -13,9 +13,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../assets/css/common.css" />
+<link rel="stylesheet" href="../assets/css/glass.css" />
 <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="glass-dark page-castle">
+
+<div class="aurora-field" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+<a class="float-cta" href="#aanmelden">Houd me op de hoogte →</a>
 
 <header class="rotary-masthead">
   <a class="rotary-mark" href="https://www.rotary.nl/nijmegenstadenland/" rel="external">
@@ -139,28 +150,28 @@
     <p class="lede center">Vier momenten, één rode draad.</p>
 
     <ol class="programma">
-      <li>
+      <li class="glass" data-reveal>
         <span class="programma-time">19.00</span>
         <div>
           <h3>Ontvangst in de hal</h3>
           <p>Welkomstdrankje, hapjes uit eigen keuken en — als het kasteel het toelaat — een korte rondleiding langs de oorspronkelijke vertrekken.</p>
         </div>
       </li>
-      <li>
+      <li class="glass" data-reveal>
         <span class="programma-time">19.30</span>
         <div>
           <h3>Vijfgangendiner</h3>
           <p>Een seizoensmenu door een gerenommeerde kok uit de regio, met een wijn­arrangement waar de sommelier u graag iets over vertelt. Bij elke gang een kort verhaal — over het ingrediënt, het kasteel, of het project waarvoor we deze avond inzamelen.</p>
         </div>
       </li>
-      <li>
+      <li class="glass" data-reveal>
         <span class="programma-time">21.00</span>
         <div>
           <h3>Muzikaal intermezzo</h3>
           <p>Een live optreden — klassiek of jazz, afhankelijk van de gekozen locatie — tussen het hoofdgerecht en het dessert. Korte set, maar onvergetelijk.</p>
         </div>
       </li>
-      <li>
+      <li class="glass" data-reveal>
         <span class="programma-time">22.00</span>
         <div>
           <h3>Stille veiling &amp; afsluitende toost</h3>
@@ -205,15 +216,15 @@
     </p>
 
     <div class="inspiratie-grid">
-      <div class="ins-item">
+      <div class="ins-item glass tilt">
         <h3>Sfeer als hefboom</h3>
         <p>Een kasteel is geen restaurant; het is een decor dat de avond optilt en gasten doet voelen dat er iets bijzonders gebeurt. Geen toeval dat de bekendste fundraising-diners zich juist op die plekken afspelen.</p>
       </div>
-      <div class="ins-item">
+      <div class="ins-item glass tilt">
         <h3>Veiling als kantelpunt</h3>
         <p>De stille veiling — biedingen op formulieren bij elk lot — is een vast onderdeel. Hij doorbreekt de avond, geeft sponsoren zichtbaarheid en zorgt dat 30–40% van de avond­opbrengst niet uit ticketprijzen komt, maar uit gulheid.</p>
       </div>
-      <div class="ins-item">
+      <div class="ins-item glass tilt">
         <h3>Verhaal tussen de gangen</h3>
         <p>Niet één lange speech achteraf, maar korte momenten verspreid over de avond. De gast eet, hoort iets, eet door, en weet aan het einde precies waaraan ze hebben bijgedragen — zonder dat het ooit zwaar werd.</p>
       </div>
@@ -230,15 +241,15 @@
       reserveren of een seintje krijgen zodra het zover is?
     </p>
 
-    <div class="aanmelden-card">
+    <div class="aanmelden-card glass-strong glass-sweep">
       <p>Mail naar
         <a href="mailto:kasteeldiner@marcovanthiel.nl?subject=Kasteeldiner%20november%202026">kasteeldiner@marcovanthiel.nl</a>
         met:</p>
       <ul>
-        <li>Uw naam en (telefoon)nummer.</li>
-        <li>Het aantal personen waarvoor u interesse heeft.</li>
-        <li>Eventuele dieetwensen of allergieën — we plannen ze in.</li>
-        <li>Of u open staat voor een sponsor- of veiling-rol.</li>
+        <li class="glass" data-reveal>Uw naam en (telefoon)nummer.</li>
+        <li class="glass" data-reveal>Het aantal personen waarvoor u interesse heeft.</li>
+        <li class="glass" data-reveal>Eventuele dieetwensen of allergieën — we plannen ze in.</li>
+        <li class="glass" data-reveal>Of u open staat voor een sponsor- of veiling-rol.</li>
       </ul>
       <p>U ontvangt persoonlijk antwoord en bent eerste in de rij voor de definitieve uitnodiging.</p>
     </div>
@@ -266,5 +277,6 @@
 </footer>
 
 <script src="../assets/js/common.js" defer></script>
+<script src="../assets/js/glass.js" defer></script>
 </body>
 </html>
