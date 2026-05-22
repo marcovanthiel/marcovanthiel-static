@@ -12,6 +12,15 @@
   padding: 6rem 0 5rem;
   position: relative;
 }
+
+/* Theme-blue: terug naar het oorspronkelijke water-blauw */
+body.theme-blue .ducks-hero {
+  --hero-bg: linear-gradient(180deg,
+    #a7d8ff 0%,
+    #5aa8e6 35%,
+    #2c6fb0 70%,
+    #1e5285 100%);
+}
 .ducks-hero::after {
   /* Water-reflectie strepen onderaan */
   content: '';
@@ -386,18 +395,18 @@
 .page-ducks .goed-doel .wrap {
   max-width: 760px;
   padding: 2.5rem 2.5rem;
-  background: rgba(126, 0, 20, 0.78);
+  background: rgba(var(--brand-deep-rgb), 0.78);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
           backdrop-filter:  blur(20px) saturate(160%);
   border-radius: 22px;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.18) inset,
-    0 24px 60px -20px rgba(126, 0, 20, 0.55);
+    0 24px 60px -20px rgba(var(--brand-deep-rgb), 0.55);
 }
 
 /* Footer met blur */
 .page-ducks .site-footer {
-  background: linear-gradient(180deg, rgba(126, 0, 20, 0.92), rgba(80, 0, 12, 0.96));
+  background: linear-gradient(180deg, rgba(var(--brand-deep-rgb), 0.92), rgba(var(--brand-shadow-rgb), 0.96));
   -webkit-backdrop-filter: blur(18px);
           backdrop-filter:  blur(18px);
 }

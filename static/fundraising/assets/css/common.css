@@ -5,15 +5,29 @@
    ============================================================ */
 
 :root {
-  /* Brand — rood als hoofdkleur (i.p.v. blauw),
-     goud accent behouden. De namen --rotary-blue/-azure
-     blijven bestaan zodat per-subsite CSS niet hoeft te wijzigen;
-     de waarden zijn nu rood. */
+  /* ============================================================
+     Brand-kleuren — DEFAULT THEMA = ROOD (gekoppeld aan EN).
+     `body.theme-blue` (gekoppeld aan NL) zet ze terug naar Rotary-blauw.
+     `body.theme-gold` (gekoppeld aan DE, voor later) staat onderaan.
+     Namen --rotary-blue/-deep/-azure houden bestaande CSS heel; de
+     waarden veranderen per theme via class-switch op body.
+     ============================================================ */
   --rotary-blue:        #C8102E;   /* sterk rood */
   --rotary-blue-deep:   #7E0014;   /* diep bordeaux */
   --rotary-azure:       #E6314A;   /* helder rood voor links */
   --rotary-gold:        #F7A81B;
   --rotary-gold-deep:   #D9881A;
+
+  /* RGB-channels (voor rgba() / linear-gradient met alpha) */
+  --brand-rgb:          200, 16, 46;
+  --brand-deep-rgb:     126, 0, 20;
+  --brand-shadow-rgb:   80, 0, 12;
+
+  /* Hero-gradient — kan per theme overruled worden */
+  --brand-hero-gradient:
+    radial-gradient(ellipse at 75% 25%, rgba(247,168,27,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 85%, rgba(247,168,27,0.10) 0%, transparent 45%),
+    linear-gradient(135deg, #C8102E 0%, #7E0014 60%, #2c0612 100%);
 
   /* Aliassen met juiste naam voor toekomstig gebruik */
   --brand:              var(--rotary-blue);
@@ -52,7 +66,7 @@ html, body {
 
 body { min-height: 100vh; }
 
-a { color: var(--rotary-azure); text-decoration: none; border-bottom: 1px solid rgba(200, 16, 46, 0.3); transition: color .15s, border-color .15s; }
+a { color: var(--rotary-azure); text-decoration: none; border-bottom: 1px solid rgba(var(--brand-rgb), 0.3); transition: color .15s, border-color .15s; }
 a:hover { color: var(--rotary-gold-deep); border-bottom-color: var(--rotary-gold-deep); }
 
 /* ============== Rotary masthead ============== */
@@ -71,7 +85,7 @@ a:hover { color: var(--rotary-gold-deep); border-bottom-color: var(--rotary-gold
   border-bottom: 4px solid var(--rotary-gold);
   position: relative;
   z-index: 5;
-  box-shadow: 0 1px 0 rgba(126, 0, 20, 0.05);
+  box-shadow: 0 1px 0 rgba(var(--brand-deep-rgb), 0.05);
 }
 
 .rotary-mark {
@@ -107,11 +121,23 @@ a:hover { color: var(--rotary-gold-deep); border-bottom-color: var(--rotary-gold
   color: var(--rotary-blue-deep);
   white-space: nowrap;
   padding-left: 1rem;
-  border-left: 1px solid rgba(126, 0, 20, 0.18);
+  border-left: 1px solid rgba(var(--brand-deep-rgb), 0.18);
   line-height: 1.2;
 }
 @media (max-width: 640px) {
   .rotary-mark-tag { display: none; }
+}
+
+/* Container voor rechterkant masthead — taal-knoppen + back-link */
+.masthead-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+@media (max-width: 480px) {
+  .masthead-right { gap: 0.6rem; }
 }
 
 .masthead-back {
@@ -119,7 +145,7 @@ a:hover { color: var(--rotary-gold-deep); border-bottom-color: var(--rotary-gold
   font-size: 0.85rem;
   color: var(--rotary-blue);
   letter-spacing: 0.03em;
-  border-bottom: 1px solid rgba(200, 16, 46, 0.3);
+  border-bottom: 1px solid rgba(var(--brand-rgb), 0.3);
   padding-bottom: 2px;
   font-weight: 500;
 }
@@ -253,7 +279,7 @@ p:last-child { margin-bottom: 0; }
 .btn-dark {
   background: var(--rotary-blue);
   color: #fff;
-  box-shadow: 0 4px 14px rgba(200, 16, 46, 0.25);
+  box-shadow: 0 4px 14px rgba(var(--brand-rgb), 0.25);
 }
 .btn-dark:hover {
   background: var(--rotary-blue-deep);
@@ -312,6 +338,115 @@ p:last-child { margin-bottom: 0; }
   border-top: 1px solid var(--line);
   margin: 2.5rem 0;
 }
+
+/* ============================================================
+   THEME-VARIANTEN — gekoppeld aan taalkeuze.
+   body.theme-blue  → NL  (Rotary royal blue)
+   (geen class)     → EN  (rood, default uit :root)
+   body.theme-gold  → DE  (warm goud-rood, placeholder voor later)
+   ============================================================ */
+body.theme-blue {
+  --rotary-blue:        #17458F;
+  --rotary-blue-deep:   #0C2A5C;
+  --rotary-azure:       #005DAA;
+
+  --brand-rgb:          23, 69, 143;
+  --brand-deep-rgb:     12, 42, 92;
+  --brand-shadow-rgb:   8, 26, 60;
+
+  --brand-hero-gradient:
+    radial-gradient(ellipse at 75% 25%, rgba(247,168,27,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 85%, rgba(247,168,27,0.10) 0%, transparent 45%),
+    linear-gradient(135deg, #17458F 0%, #0C2A5C 60%, #1f0d2a 100%);
+}
+
+body.theme-gold {
+  /* Placeholder voor DE — gouden velvet. Wordt aangevuld als DE-content live gaat. */
+  --rotary-blue:        #B08025;
+  --rotary-blue-deep:   #6E4F12;
+  --rotary-azure:       #D9881A;
+
+  --brand-rgb:          176, 128, 37;
+  --brand-deep-rgb:     110, 79, 18;
+  --brand-shadow-rgb:   70, 50, 10;
+
+  --brand-hero-gradient:
+    radial-gradient(ellipse at 75% 25%, rgba(247,168,27,0.30) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 85%, rgba(126,0,20,0.20) 0%, transparent 45%),
+    linear-gradient(135deg, #B08025 0%, #6E4F12 60%, #2a1d05 100%);
+}
+
+/* Vloeiend animeren bij theme-switch (alleen op de overgang, niet
+   tijdens animation/transition van andere properties). */
+body, .hero, a, .btn, .rotary-mark-tag, .masthead-back {
+  transition-property: background-color, color, border-color, box-shadow;
+  transition-duration: .35s;
+  transition-timing-function: ease;
+}
+
+/* ============================================================
+   TAAL-SCHAKELAAR — knoppen in de masthead.
+   Toont alleen het tekst-fragment dat past bij <html lang="...">.
+   ============================================================ */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  background: rgba(var(--brand-deep-rgb), 0.06);
+  border: 1px solid rgba(var(--brand-deep-rgb), 0.12);
+  border-radius: 999px;
+}
+.lang-switch button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--rotary-blue-deep);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 32px;
+  min-width: 40px;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.lang-switch button:hover {
+  background: rgba(var(--brand-rgb), 0.12);
+}
+.lang-switch button[aria-pressed="true"] {
+  background: var(--rotary-blue);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(var(--brand-rgb), 0.35);
+  transform: translateY(-1px);
+}
+.lang-switch button[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+@media (max-width: 480px) {
+  .lang-switch button {
+    font-size: 0.68rem;
+    padding: 0.4rem 0.7rem;
+    min-height: 36px;
+  }
+}
+
+/* ============================================================
+   TAAL-CONTENT — toon alleen het taal-fragment dat actief is.
+   Default: <html lang="nl"> toont [data-lang-nl] / verbergt -en/-de.
+   ============================================================ */
+[data-lang-en], [data-lang-de] { display: none; }
+html[lang="en"] [data-lang-nl], html[lang="en"] [data-lang-de] { display: none; }
+html[lang="en"] [data-lang-en] { display: revert; }
+html[lang="de"] [data-lang-nl], html[lang="de"] [data-lang-en] { display: none; }
+html[lang="de"] [data-lang-de] { display: revert; }
+/* Inline-spans moeten weer inline tonen, niet block */
+html[lang="en"] span[data-lang-en],
+html[lang="de"] span[data-lang-de] { display: inline; }
 
 /* ============== Scroll-reveal ============== */
 [data-reveal] {
@@ -434,7 +569,7 @@ p:last-child { margin-bottom: 0; }
 }
 .rotary-mark:hover .rotary-logo {
   transform: translateY(-1px);
-  filter: drop-shadow(0 4px 8px rgba(126, 0, 20, 0.18));
+  filter: drop-shadow(0 4px 8px rgba(var(--brand-deep-rgb), 0.18));
 }
 
 /* ============== Focus voor toetsenbord-gebruikers ============== */

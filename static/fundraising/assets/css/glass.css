@@ -14,8 +14,8 @@
   --g-shadow:
     0 1px 0 rgba(255, 255, 255, 0.55) inset,
     0 -1px 0 rgba(0, 0, 0, 0.05) inset,
-    0 10px 30px -10px rgba(126, 0, 20, 0.18),
-    0 30px 60px -20px rgba(126, 0, 20, 0.16);
+    0 10px 30px -10px rgba(var(--brand-deep-rgb), 0.18),
+    0 30px 60px -20px rgba(var(--brand-deep-rgb), 0.16);
   --g-blur: blur(22px) saturate(170%);
   --g-blur-strong: blur(40px) saturate(190%);
 
@@ -54,7 +54,7 @@ body { isolation: isolate; } /* Geeft body een eigen stacking-context zodat .aur
   /* Lichte body-kleur als fallback zodat glas iets te tonen heeft */
   background:
     radial-gradient(ellipse at 80% 10%, rgba(247, 168, 27, 0.06), transparent 50%),
-    radial-gradient(ellipse at 10% 90%, rgba(200, 16, 46, 0.08), transparent 55%);
+    radial-gradient(ellipse at 10% 90%, rgba(var(--brand-rgb), 0.08), transparent 55%);
 }
 body.glass-dark .aurora-field {
   background:
@@ -424,7 +424,7 @@ body.glass-dark .rotary-masthead.is-scrolled {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.7) inset,
     0 10px 28px rgba(247, 168, 27, 0.28),
-    0 30px 60px -20px rgba(126, 0, 20, 0.25);
+    0 30px 60px -20px rgba(var(--brand-deep-rgb), 0.25);
 }
 .btn-glass.btn-gold {
   background: linear-gradient(180deg, #ffd778 0%, #F7A81B 100%);

@@ -3,13 +3,20 @@
    ============================================================ */
 
 :root {
-  /* Rode velvet evening — i.p.v. navy nacht */
+  /* Rode velvet evening — DEFAULT (EN-theme) */
   --castle-night:   #3a0a18;
   --castle-deep:    #1a0408;
   --burgundy-rich:  #6e0a1c;
   --gold-warm:      #d4b86a;
   --gold-bright:    #f1d27c;
   --cream-paper:    #f5ede0;
+}
+
+/* Theme-blue: navy nachtblauw — Rotary-classic */
+body.theme-blue {
+  --castle-night:   #0a1a35;
+  --castle-deep:    #050d20;
+  --burgundy-rich:  #5a1a1a;
 }
 
 body {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../assets/css/glass.css" />
 <link rel="stylesheet" href="style.css" />
 </head>
-<body class="glass-light page-ducks">
+<body class="glass-light page-ducks theme-blue">
 
 <div class="aurora-field" aria-hidden="true">
   <span class="orb orb-1"></span>
@@ -26,14 +26,23 @@
 
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-<a class="float-cta" href="#buy">🦆 Buy tickets</a>
+<a class="float-cta" href="#buy">🦆
+  <span data-lang-nl>Koop loten</span>
+  <span data-lang-en>Buy tickets</span>
+</a>
 
 <header class="rotary-masthead">
   <a class="rotary-mark" href="https://www.rotary.nl/nijmegenstadenland/" rel="external">
     <img class="rotary-logo" src="../assets/img/rotary-nijmegen-stadenland.png" alt="Rotary Nijmegen Stad en Land" width="500" height="150" />
     <span class="rotary-mark-tag">Service Above Self</span>
   </a>
-  <a href="../" class="masthead-back">← all campaigns</a>
+  <div class="masthead-right">
+    <span class="lang-switch" data-lang-switch></span>
+    <a href="../" class="masthead-back">
+      <span data-lang-nl>← alle acties</span>
+      <span data-lang-en>← all campaigns</span>
+    </a>
+  </div>
 </header>
 
 <section class="hero ducks-hero">
@@ -85,59 +94,99 @@
     <div class="hero-sun"></div>
   </div>
   <div class="wrap">
-    <span class="hero-eyebrow" data-reveal>Saturday 17 April 2027 · 15:00</span>
-    <h1 data-reveal data-reveal-delay="1">Rubber Duck Race<br><span class="title-italic">on the Spiegelwaal</span></h1>
+    <span class="hero-eyebrow" data-reveal>
+      <span data-lang-nl>Zaterdag 17 april 2027 · 15.00 uur</span>
+      <span data-lang-en>Saturday 17 April 2027 · 15:00</span>
+    </span>
+    <h1 data-reveal data-reveal-delay="1">
+      <span data-lang-nl>Badeendjesrace<br><span class="title-italic">in de Spiegelwaal</span></span>
+      <span data-lang-en>Rubber Duck Race<br><span class="title-italic">on the Spiegelwaal</span></span>
+    </h1>
     <p class="lede" data-reveal data-reveal-delay="2">
-      Thousands of numbered yellow rubber ducks are released into the
-      Spiegelwaal in Nijmegen. The first duck to drift across the finish
-      line wins its owner an unforgettable grand prize — and all the
-      proceeds go to charity.
+      <span data-lang-nl>Duizenden genummerde gele badeendjes worden te water gelaten in de Spiegelwaal in Nijmegen. Het eendje dat als eerste over de finish drijft, bezorgt zijn eigenaar een onvergetelijke hoofdprijs — en de opbrengst gaat naar het goede doel.</span>
+      <span data-lang-en>Thousands of numbered yellow rubber ducks are released into the Spiegelwaal in Nijmegen. The first duck to drift across the finish line wins its owner an unforgettable grand prize — and all the proceeds go to charity.</span>
     </p>
 
     <dl class="hero-meta">
       <div>
-        <dt>Date</dt>
-        <dd>Saturday 17 April 2027</dd>
+        <dt><span data-lang-nl>Datum</span><span data-lang-en>Date</span></dt>
+        <dd>
+          <span data-lang-nl>zaterdag 17 april 2027</span>
+          <span data-lang-en>Saturday 17 April 2027</span>
+        </dd>
       </div>
       <div>
-        <dt>Launch from</dt>
-        <dd>15:00</dd>
+        <dt><span data-lang-nl>Te water vanaf</span><span data-lang-en>Launch from</span></dt>
+        <dd>
+          <span data-lang-nl>15.00 uur</span>
+          <span data-lang-en>15:00</span>
+        </dd>
       </div>
       <div>
-        <dt>Location</dt>
+        <dt><span data-lang-nl>Locatie</span><span data-lang-en>Location</span></dt>
         <dd>Spiegelwaal, Nijmegen</dd>
       </div>
       <div>
-        <dt>Ticket</dt>
-        <dd>€ 5.00 each</dd>
+        <dt><span data-lang-nl>Lot</span><span data-lang-en>Ticket</span></dt>
+        <dd>
+          <span data-lang-nl>€ 5,00 per stuk</span>
+          <span data-lang-en>€ 5.00 each</span>
+        </dd>
       </div>
     </dl>
 
     <div class="hero-cta-row">
-      <a class="btn btn-primary" href="#buy">Buy tickets →</a>
-      <a class="btn btn-ghost" href="#how">How does it work?</a>
+      <a class="btn btn-primary" href="#buy">
+        <span data-lang-nl>Koop loten →</span>
+        <span data-lang-en>Buy tickets →</span>
+      </a>
+      <a class="btn btn-ghost" href="#how">
+        <span data-lang-nl>Hoe werkt het?</span>
+        <span data-lang-en>How does it work?</span>
+      </a>
     </div>
   </div>
 </section>
 
 <section id="how" class="how">
   <div class="wrap">
-    <h2 class="center">How the race works</h2>
+    <h2 class="center">
+      <span data-lang-nl>Zo werkt de race</span>
+      <span data-lang-en>How the race works</span>
+    </h2>
     <ol class="steps">
       <li class="glass" data-reveal>
         <span class="step-num">1</span>
-        <h3>Buy one or more tickets</h3>
-        <p>Each ticket costs <strong>€ 5.00</strong> and is linked to one numbered duck. The more tickets, the bigger your chance of a prize.</p>
+        <h3>
+          <span data-lang-nl>Koop een of meer loten</span>
+          <span data-lang-en>Buy one or more tickets</span>
+        </h3>
+        <p>
+          <span data-lang-nl>Elk lot kost <strong>€ 5,00</strong> en is gekoppeld aan één genummerd eendje. Hoe meer loten, hoe groter je kans op een prijs.</span>
+          <span data-lang-en>Each ticket costs <strong>€ 5.00</strong> and is linked to one numbered duck. The more tickets, the bigger your chance of a prize.</span>
+        </p>
       </li>
       <li class="glass" data-reveal>
         <span class="step-num">2</span>
-        <h3>We set them adrift</h3>
-        <p>On Saturday 17 April 2027 at 15:00, all rubber ducks float from the upstream end of the Spiegelwaal towards the finish. The current, the wind and a touch of luck do the rest.</p>
+        <h3>
+          <span data-lang-nl>Wij laten ze te water</span>
+          <span data-lang-en>We set them adrift</span>
+        </h3>
+        <p>
+          <span data-lang-nl>Op zaterdag 17 april 2027 om 15.00 uur dobberen alle badeendjes vanaf de bovenstroomse zijde van de Spiegelwaal richting de finish. De stroming, de wind en een vleugje geluk doen de rest.</span>
+          <span data-lang-en>On Saturday 17 April 2027 at 15:00, all rubber ducks float from the upstream end of the Spiegelwaal towards the finish. The current, the wind and a touch of luck do the rest.</span>
+        </p>
       </li>
       <li class="glass" data-reveal>
         <span class="step-num">3</span>
-        <h3>Win a prize</h3>
-        <p>Winners are announced straight after the race from the riverside stage, and digitally via this page and by email. The grand prize: <strong>a car</strong>. Alongside it: a series of weekends in holiday homes at home and abroad, and dozens of other prizes.</p>
+        <h3>
+          <span data-lang-nl>Win een prijs</span>
+          <span data-lang-en>Win a prize</span>
+        </h3>
+        <p>
+          <span data-lang-nl>De winnaars worden bekendgemaakt direct na de race, vanaf het podium aan de oever, en ook digitaal via deze pagina en e-mail. De hoofdprijs: <strong>een auto</strong>. Daarnaast een reeks weekenden in vakantiehuizen in binnen- en buitenland, en tientallen andere prijzen.</span>
+          <span data-lang-en>Winners are announced straight after the race from the riverside stage, and digitally via this page and by email. The grand prize: <strong>a car</strong>. Alongside it: a series of weekends in holiday homes at home and abroad, and dozens of other prizes.</span>
+        </p>
       </li>
     </ol>
   </div>
@@ -145,60 +194,119 @@
 
 <section class="prizes">
   <div class="wrap">
-    <h2 class="center">The prizes</h2>
-    <p class="center muted prizes-intro">All prizes are donated by our sponsors, so the full proceeds from the tickets can go to charity.</p>
+    <h2 class="center">
+      <span data-lang-nl>De prijzen</span>
+      <span data-lang-en>The prizes</span>
+    </h2>
+    <p class="center muted prizes-intro">
+      <span data-lang-nl>Alle prijzen worden geschonken door onze sponsoren, zodat de volledige opbrengst van de loten naar het goede doel kan gaan.</span>
+      <span data-lang-en>All prizes are donated by our sponsors, so the full proceeds from the tickets can go to charity.</span>
+    </p>
 
     <div class="prize-grid">
       <div class="prize-card prize-card--top glass-strong tilt glass-sweep" data-tilt-max="5">
-        <span class="prize-rank">Grand prize</span>
-        <h3>A car</h3>
-        <p>A brand-new passenger car, donated by our main sponsor — model and trim to be announced in January 2027.</p>
+        <span class="prize-rank"><span data-lang-nl>Hoofdprijs</span><span data-lang-en>Grand prize</span></span>
+        <h3><span data-lang-nl>Een auto</span><span data-lang-en>A car</span></h3>
+        <p>
+          <span data-lang-nl>Een gloednieuwe personenauto, geschonken door onze hoofdsponsor — type en uitvoering worden bekendgemaakt in januari 2027.</span>
+          <span data-lang-en>A brand-new passenger car, donated by our main sponsor — model and trim to be announced in January 2027.</span>
+        </p>
       </div>
       <div class="prize-card glass tilt">
-        <span class="prize-rank">Second prize</span>
-        <h3>Weekend in a holiday home in Tuscany</h3>
-        <p>Three nights for four people in a hand-picked holiday home in the Italian hill country.</p>
+        <span class="prize-rank"><span data-lang-nl>Tweede prijs</span><span data-lang-en>Second prize</span></span>
+        <h3>
+          <span data-lang-nl>Weekend in een vakantiehuis in Toscane</span>
+          <span data-lang-en>Weekend in a holiday home in Tuscany</span>
+        </h3>
+        <p>
+          <span data-lang-nl>Drie nachten verblijf voor vier personen in een geselecteerd vakantiehuis in het Italiaanse heuvelland.</span>
+          <span data-lang-en>Three nights for four people in a hand-picked holiday home in the Italian hill country.</span>
+        </p>
       </div>
       <div class="prize-card glass tilt">
-        <span class="prize-rank">Third prize</span>
-        <h3>Weekend in a holiday home on Texel</h3>
-        <p>A long weekend for four people in a dune cottage on the Wadden island.</p>
+        <span class="prize-rank"><span data-lang-nl>Derde prijs</span><span data-lang-en>Third prize</span></span>
+        <h3>
+          <span data-lang-nl>Weekend in een vakantiehuis op Texel</span>
+          <span data-lang-en>Weekend in a holiday home on Texel</span>
+        </h3>
+        <p>
+          <span data-lang-nl>Een verlengd weekend voor vier personen in een duinhuis op het Wadden&shy;eiland.</span>
+          <span data-lang-en>A long weekend for four people in a dune cottage on the Wadden island.</span>
+        </p>
       </div>
       <div class="prize-card glass tilt">
-        <span class="prize-rank">Fourth to tenth prize</span>
-        <h3>Weekend in a holiday home in the Netherlands</h3>
-        <p>A collection of weekends at well-known holiday parks — Veluwe, Limburg, Zeeland and Friesland.</p>
+        <span class="prize-rank"><span data-lang-nl>Vierde t/m tiende prijs</span><span data-lang-en>Fourth to tenth prize</span></span>
+        <h3>
+          <span data-lang-nl>Weekend in een vakantiehuis in Nederland</span>
+          <span data-lang-en>Weekend in a holiday home in the Netherlands</span>
+        </h3>
+        <p>
+          <span data-lang-nl>Een verzameling weekenden bij gerenommeerde vakantieparken — Veluwe, Limburg, Zeeland en Friesland.</span>
+          <span data-lang-en>A collection of weekends at well-known holiday parks — Veluwe, Limburg, Zeeland and Friesland.</span>
+        </p>
       </div>
       <div class="prize-card glass tilt">
-        <span class="prize-rank">And more</span>
-        <h3>Dozens of smaller prizes</h3>
-        <p>Dinners at Nijmegen restaurants, wine hampers, beauty treatments, theatre tickets and more. The full list of prizes will be published in early 2027.</p>
+        <span class="prize-rank"><span data-lang-nl>En verder</span><span data-lang-en>And more</span></span>
+        <h3>
+          <span data-lang-nl>Tientallen kleinere prijzen</span>
+          <span data-lang-en>Dozens of smaller prizes</span>
+        </h3>
+        <p>
+          <span data-lang-nl>Diners bij Nijmeegse restaurants, wijnpakketten, beautybehandelingen, theatertickets en meer. De volledige prijzenlijst publiceren we begin 2027.</span>
+          <span data-lang-en>Dinners at Nijmegen restaurants, wine hampers, beauty treatments, theatre tickets and more. The full list of prizes will be published in early 2027.</span>
+        </p>
       </div>
     </div>
 
     <p class="center prizes-note">
-      <strong>Tip:</strong> sponsors who donate a prize get mentioned on this page, on the posters and at the prize giving. Email <a href="mailto:badeendjesrace@marcovanthiel.nl">badeendjesrace@marcovanthiel.nl</a>.
+      <strong>Tip:</strong>
+      <span data-lang-nl>sponsoren die een prijs willen schenken, krijgen vermelding op deze pagina, op de affiches en bij de prijsuitreiking. Mail naar <a href="mailto:badeendjesrace@marcovanthiel.nl">badeendjesrace@marcovanthiel.nl</a>.</span>
+      <span data-lang-en>sponsors who donate a prize get mentioned on this page, on the posters and at the prize giving. Email <a href="mailto:badeendjesrace@marcovanthiel.nl">badeendjesrace@marcovanthiel.nl</a>.</span>
     </p>
   </div>
 </section>
 
 <section id="buy" class="bestel">
   <div class="wrap">
-    <h2 class="center">Buy tickets</h2>
-    <p class="lede center">€ 5.00 per ticket · multiple tickets multiply your chances.</p>
+    <h2 class="center">
+      <span data-lang-nl>Loten kopen</span>
+      <span data-lang-en>Buy tickets</span>
+    </h2>
+    <p class="lede center">
+      <span data-lang-nl>€ 5,00 per lot · meerdere loten verhogen je kans.</span>
+      <span data-lang-en>€ 5.00 per ticket · multiple tickets multiply your chances.</span>
+    </p>
 
     <div class="bestel-grid">
       <div class="bestel-block glass">
-        <h3>By email</h3>
-        <p>Email your name, address and the number of tickets you'd like to <a href="mailto:badeendjesrace@marcovanthiel.nl?subject=Tickets%20duck%20race%202027">badeendjesrace@marcovanthiel.nl</a>. You'll receive a payment request, and once it's settled, we'll send you the numbers of your ducks.</p>
+        <h3>
+          <span data-lang-nl>Via e-mail</span>
+          <span data-lang-en>By email</span>
+        </h3>
+        <p>
+          <span data-lang-nl>Mail je naam, adres en het aantal loten dat je wilt naar <a href="mailto:badeendjesrace@marcovanthiel.nl?subject=Loten%20badeendjesrace%202027">badeendjesrace@marcovanthiel.nl</a>. Je krijgt een betaalverzoek terug en zodra dat is voldaan, sturen we je de nummers van je eendjes.</span>
+          <span data-lang-en>Email your name, address and the number of tickets you'd like to <a href="mailto:badeendjesrace@marcovanthiel.nl?subject=Tickets%20duck%20race%202027">badeendjesrace@marcovanthiel.nl</a>. You'll receive a payment request, and once it's settled, we'll send you the numbers of your ducks.</span>
+        </p>
       </div>
       <div class="bestel-block glass">
-        <h3>Online (soon)</h3>
-        <p>The web shop for individual tickets and ticket bundles opens on <strong>1 January 2027</strong>. Want a heads-up when it goes live? Email <em>"keep me posted"</em> to the address above.</p>
+        <h3>
+          <span data-lang-nl>Online (binnenkort)</span>
+          <span data-lang-en>Online (soon)</span>
+        </h3>
+        <p>
+          <span data-lang-nl>De webwinkel voor losse loten en lotenpakketten gaat <strong>1 januari 2027</strong> open. Wil je een seintje krijgen zodra dat zover is? Mail <em>"houd me op de hoogte"</em> naar het bovenstaande adres.</span>
+          <span data-lang-en>The web shop for individual tickets and ticket bundles opens on <strong>1 January 2027</strong>. Want a heads-up when it goes live? Email <em>"keep me posted"</em> to the address above.</span>
+        </p>
       </div>
       <div class="bestel-block glass">
-        <h3>At a sales point</h3>
-        <p>From February 2027 we'll be selling tickets at selected Nijmegen businesses and events. The locations will appear on this page in March 2027.</p>
+        <h3>
+          <span data-lang-nl>Op een verkooppunt</span>
+          <span data-lang-en>At a sales point</span>
+        </h3>
+        <p>
+          <span data-lang-nl>Vanaf februari 2027 verkopen we loten bij uitgekozen Nijmeegse ondernemers en op evenementen. De locaties verschijnen in maart 2027 op deze pagina.</span>
+          <span data-lang-en>From February 2027 we'll be selling tickets at selected Nijmegen businesses and events. The locations will appear on this page in March 2027.</span>
+        </p>
       </div>
     </div>
   </div>
@@ -206,47 +314,88 @@
 
 <section class="goed-doel">
   <div class="wrap">
-    <h2 class="center">For what cause?</h2>
+    <h2 class="center">
+      <span data-lang-nl>Voor welk doel?</span>
+      <span data-lang-en>For what cause?</span>
+    </h2>
     <p class="lede center">
-      The full proceeds go to projects supported by Rotary Nijmegen Stad en
-      Land — local and international. The specific cause for 2027 will be
-      announced early next year.
+      <span data-lang-nl>De volledige opbrengst gaat naar projecten die Rotary Nijmegen Stad en Land ondersteunt — lokaal en internationaal. Het specifieke bestemmings&shy;doel voor 2027 maken we begin volgend jaar bekend.</span>
+      <span data-lang-en>The full proceeds go to projects supported by Rotary Nijmegen Stad en Land — local and international. The specific cause for 2027 will be announced early next year.</span>
     </p>
   </div>
 </section>
 
 <section class="faq">
   <div class="wrap">
-    <h2 class="center">Frequently asked questions</h2>
+    <h2 class="center">
+      <span data-lang-nl>Veelgestelde vragen</span>
+      <span data-lang-en>Frequently asked questions</span>
+    </h2>
 
     <details class="glass">
-      <summary>How do I know which duck is mine?</summary>
-      <p>Each ticket shows the number of its duck. The same numbers are printed on the ducks themselves — so afterwards you can simply check whether your number is among the winners.</p>
+      <summary>
+        <span data-lang-nl>Hoe weet ik welk eendje van mij is?</span>
+        <span data-lang-en>How do I know which duck is mine?</span>
+      </summary>
+      <p>
+        <span data-lang-nl>Elk lot vermeldt het nummer van het bijbehorende eendje. Dezelfde nummers staan op de eendjes — dus na afloop kun je gewoon controleren of je nummer bij de winnaars staat.</span>
+        <span data-lang-en>Each ticket shows the number of its duck. The same numbers are printed on the ducks themselves — so afterwards you can simply check whether your number is among the winners.</span>
+      </p>
     </details>
 
     <details class="glass">
-      <summary>Do I have to be there to win?</summary>
-      <p>No. We call or email the winners on the evening of the race. Being there is great fun though — a free live spectacle on the banks of the Spiegelwaal.</p>
+      <summary>
+        <span data-lang-nl>Moet ik bij de race aanwezig zijn om te winnen?</span>
+        <span data-lang-en>Do I have to be there to win?</span>
+      </summary>
+      <p>
+        <span data-lang-nl>Nee. We bellen of mailen de winnaars de avond van de race nog. Aanwezig zijn is wél leuk — gratis live-spektakel aan de Spiegelwaal.</span>
+        <span data-lang-en>No. We call or email the winners on the evening of the race. Being there is great fun though — a free live spectacle on the banks of the Spiegelwaal.</span>
+      </p>
     </details>
 
     <details class="glass">
-      <summary>What if my duck gets stuck?</summary>
-      <p>We have safety kayakers on the water who nudge stranded ducks back into the current. All ducks are collected after the race; the Waal stays clean.</p>
+      <summary>
+        <span data-lang-nl>Wat als mijn eendje vastloopt?</span>
+        <span data-lang-en>What if my duck gets stuck?</span>
+      </summary>
+      <p>
+        <span data-lang-nl>We hebben safety-kayakers in het water die vastgelopen eendjes terugzetten in de stroming. Alle eendjes worden na afloop opgevist; de Waal blijft schoon.</span>
+        <span data-lang-en>We have safety kayakers on the water who nudge stranded ducks back into the current. All ducks are collected after the race; the Waal stays clean.</span>
+      </p>
     </details>
 
     <details class="glass">
-      <summary>How many ducks are you setting adrift?</summary>
-      <p>We're aiming for at least 3,000 numbered ducks — the exact number depends on ticket sales. The more tickets sold, the bigger the race and the takings.</p>
+      <summary>
+        <span data-lang-nl>Hoeveel eendjes laten jullie te water?</span>
+        <span data-lang-en>How many ducks are you setting adrift?</span>
+      </summary>
+      <p>
+        <span data-lang-nl>We mikken op minstens 3.000 genummerde eendjes — het exacte aantal hangt af van de verkoop. Hoe meer loten, hoe groter de race én de opbrengst.</span>
+        <span data-lang-en>We're aiming for at least 3,000 numbered ducks — the exact number depends on ticket sales. The more tickets sold, the bigger the race and the takings.</span>
+      </p>
     </details>
 
     <details class="glass">
-      <summary>I'd like to sponsor. How?</summary>
-      <p>Great — email <a href="mailto:badeendjesrace@marcovanthiel.nl">badeendjesrace@marcovanthiel.nl</a>. We have packages for donating prizes, name placement on the posters, or sponsoring an entire grandstand at the finish.</p>
+      <summary>
+        <span data-lang-nl>Ik wil sponsor worden. Hoe?</span>
+        <span data-lang-en>I'd like to sponsor. How?</span>
+      </summary>
+      <p>
+        <span data-lang-nl>Top — mail <a href="mailto:badeendjesrace@marcovanthiel.nl">badeendjesrace@marcovanthiel.nl</a>. We hebben pakketten voor het schenken van prijzen, naamsvermelding op affiches, of een hele sponsor&shy;tribune aan de finish.</span>
+        <span data-lang-en>Great — email <a href="mailto:badeendjesrace@marcovanthiel.nl">badeendjesrace@marcovanthiel.nl</a>. We have packages for donating prizes, name placement on the posters, or sponsoring an entire grandstand at the finish.</span>
+      </p>
     </details>
 
     <details class="glass">
-      <summary>Isn't the idea a little... quacky?</summary>
-      <p>Rubber duck races for charity have been organised for years by Rotary and Lions clubs across the Netherlands. Everyone has a smile on, sponsors love joining in, and on an ordinary Saturday afternoon half of Nijmegen suddenly turns up at the Spiegelwaal to cheer on a rubber duck. Service Above Self — with a wink.</p>
+      <summary>
+        <span data-lang-nl>Is het idee niet wat... eend?</span>
+        <span data-lang-en>Isn't the idea a little... quacky?</span>
+      </summary>
+      <p>
+        <span data-lang-nl>Badeendjesraces voor het goede doel worden al jarenlang georganiseerd door Rotary- en Lions-clubs in heel Nederland. Iedereen heeft een goed humeur erbij, sponsoren steunen graag, en op een doorsnee zaterdagmiddag staat opeens half Nijmegen aan de Spiegelwaal te juichen voor een rubberen eendje. Service Above Self, met een knipoog.</span>
+        <span data-lang-en>Rubber duck races for charity have been organised for years by Rotary and Lions clubs across the Netherlands. Everyone has a smile on, sponsors love joining in, and on an ordinary Saturday afternoon half of Nijmegen suddenly turns up at the Spiegelwaal to cheer on a rubber duck. Service Above Self — with a wink.</span>
+      </p>
     </details>
   </div>
 </section>
@@ -256,17 +405,34 @@
     <div class="footer-cols">
       <div>
         <h3>Contact</h3>
-        <p>Questions about the campaign, sponsorship packages or volunteering? Email <a href="mailto:badeendjesrace@marcovanthiel.nl">badeendjesrace@marcovanthiel.nl</a>.</p>
+        <p>
+          <span data-lang-nl>Vragen over de actie, sponsorpakketten of zelf meehelpen? Mail naar <a href="mailto:badeendjesrace@marcovanthiel.nl">badeendjesrace@marcovanthiel.nl</a>.</span>
+          <span data-lang-en>Questions about the campaign, sponsorship packages or volunteering? Email <a href="mailto:badeendjesrace@marcovanthiel.nl">badeendjesrace@marcovanthiel.nl</a>.</span>
+        </p>
       </div>
       <div>
-        <h3>Other campaigns</h3>
-        <p><a href="../kerststollen/">Christmas Stollen for All4small</a><br>
-        <a href="../kasteeldiner/">Castle Dinner with the Soroptimists</a></p>
+        <h3>
+          <span data-lang-nl>Andere acties</span>
+          <span data-lang-en>Other campaigns</span>
+        </h3>
+        <p>
+          <a href="../kerststollen/">
+            <span data-lang-nl>Kerststollen voor All4small</span>
+            <span data-lang-en>Christmas Stollen for All4small</span>
+          </a><br>
+          <a href="../kasteeldiner/">
+            <span data-lang-nl>Kasteeldiner met de Soroptimisten</span>
+            <span data-lang-en>Castle Dinner with the Soroptimists</span>
+          </a>
+        </p>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© Rotary Nijmegen Stad en Land · 2026</span>
-      <span><a href="../">← all campaigns</a></span>
+      <span><a href="../">
+        <span data-lang-nl>← alle acties</span>
+        <span data-lang-en>← all campaigns</span>
+      </a></span>
     </div>
   </div>
 </footer>

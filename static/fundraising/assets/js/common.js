@@ -2,16 +2,25 @@
 // Rotary Nijmegen Stad en Land — fundraising · common.js
 // Gedeeld over hub + 3 subsites. Geen frameworks, geen build.
 //
-// 1. Scroll-reveal via IntersectionObserver — markeert elementen
-//    met data-reveal als .is-visible zodra ze in beeld komen.
-// 2. Count-up — animeert elementen met data-counter naar hun
-//    eind­getal zodra ze in beeld komen.
-// 3. Veiligheids­timer — Samsung Internet vuurt IO soms niet
-//    voor reeds-zichtbare elementen; na 1,2 s wordt alles dat
-//    nog niet onthuld is alsnog geforceerd.
+// 1. Scroll-reveal via IntersectionObserver
+// 2. Count-up animatie
+// 3. Veiligheidstimer voor Samsung Internet
+// 4. Taal-schakelaar: knoppen, theme-class, persist in localStorage
 // =====================================================
 (function () {
   'use strict';
+
+  // -----------------------------------------------------
+  // Taal-configuratie. Theme volgt taal automatisch.
+  // Nieuwe talen toevoegen = entry hier + vertaling in HTML.
+  // -----------------------------------------------------
+  var LANG_CONFIG = {
+    nl: { label: 'NL', theme: 'theme-blue', title: 'Nederlands' },
+    en: { label: 'EN', theme: '',           title: 'English'    },
+    de: { label: 'DE', theme: 'theme-gold', title: 'Deutsch',   disabled: true }
+  };
+  var DEFAULT_LANG = 'nl';
+  var STORAGE_KEY  = 'mvt-fundraising-lang';
 
   function prefersReducedMotion() {
     return window.matchMedia &&
@@ -73,5 +82,68 @@
       revealAll(reveals);
       for (var m = 0; m < counters.length; m++) animateCounter(counters[m]);
     }, 1200);
+
+    initLangSwitch();
   });
+
+  // =====================================================
+  // Taal-schakelaar
+  // - Bouwt knoppen in [data-lang-switch] containers.
+  // - Past <html lang="..."> en body theme-class toe.
+  // - Persist in localStorage; eerste bezoek leest browserkeuze.
+  // - Stuurt 'languagechange' event af zodat andere modules
+  //   (zoals glass.js) kunnen reageren.
+  // =====================================================
+  function getInitialLang() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && LANG_CONFIG[saved] && !LANG_CONFIG[saved].disabled) return saved;
+    } catch (e) {}
+    var nav = (navigator.language || '').slice(0, 2).toLowerCase();
+    if (LANG_CONFIG[nav] && !LANG_CONFIG[nav].disabled) return nav;
+    return DEFAULT_LANG;
+  }
+
+  function applyLang(lang) {
+    var cfg = LANG_CONFIG[lang];
+    if (!cfg || cfg.disabled) return;
+    document.documentElement.setAttribute('lang', lang);
+    var body = document.body;
+    // Verwijder alle theme-* classes, voeg de juiste toe
+    body.classList.remove('theme-blue', 'theme-red', 'theme-gold');
+    if (cfg.theme) body.classList.add(cfg.theme);
+    // Update knop-toestand
+    var btns = document.querySelectorAll('[data-lang-switch] button[data-lang]');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].setAttribute('aria-pressed', btns[i].getAttribute('data-lang') === lang ? 'true' : 'false');
+    }
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    document.dispatchEvent(new CustomEvent('languagechange', { detail: { lang: lang } }));
+  }
+
+  function initLangSwitch() {
+    var hosts = document.querySelectorAll('[data-lang-switch]');
+    if (!hosts.length) return;
+    var keys = Object.keys(LANG_CONFIG);
+
+    hosts.forEach(function (host) {
+      host.innerHTML = ''; // start schoon
+      host.setAttribute('role', 'group');
+      host.setAttribute('aria-label', 'Language');
+      keys.forEach(function (k) {
+        var cfg = LANG_CONFIG[k];
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = cfg.label;
+        btn.setAttribute('data-lang', k);
+        btn.setAttribute('title', cfg.title);
+        btn.setAttribute('aria-pressed', 'false');
+        if (cfg.disabled) btn.setAttribute('disabled', '');
+        btn.addEventListener('click', function () { applyLang(k); });
+        host.appendChild(btn);
+      });
+    });
+
+    applyLang(getInitialLang());
+  }
 })();
