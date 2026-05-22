@@ -7,7 +7,7 @@
   --hero-bg:
     radial-gradient(ellipse at 75% 25%, rgba(247,168,27,0.22) 0%, transparent 55%),
     radial-gradient(ellipse at 20% 85%, rgba(247,168,27,0.10) 0%, transparent 45%),
-    linear-gradient(135deg, #17458F 0%, #0C2A5C 60%, #1f0d2a 100%);
+    linear-gradient(135deg, #C8102E 0%, #7E0014 60%, #1f0d2a 100%);
   padding: 7rem 0 6rem;
   position: relative;
 }
@@ -186,12 +186,12 @@
   transition: transform .35s cubic-bezier(.22,.8,.22,1),
               box-shadow .35s cubic-bezier(.22,.8,.22,1),
               border-color .15s;
-  box-shadow: 0 2px 6px rgba(12, 42, 92, 0.06);
+  box-shadow: 0 2px 6px rgba(126, 0, 20, 0.06);
   position: relative;
 }
 .action-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 28px 56px rgba(12, 42, 92, 0.20);
+  box-shadow: 0 28px 56px rgba(126, 0, 20, 0.20);
   border-color: var(--rotary-gold);
 }
 .action-card::after {
@@ -406,10 +406,10 @@
    =========================================================== */
 
 .page-hub {
-  /* Drie orbs: deep blue, rotary gold, sky blue */
-  --orb-1-color: #17458F;
+  /* Drie orbs: fire red, rotary gold, sunset orange */
+  --orb-1-color: #C8102E;
   --orb-2-color: #F7A81B;
-  --orb-3-color: #5aa8e6;
+  --orb-3-color: #FF6F4A;
   --orb-1-size: 42vmax;
   --orb-2-size: 36vmax;
   --orb-3-size: 38vmax;
@@ -418,8 +418,8 @@
 /* Hub-hero — laat orbs door de oude solid-gradient schijnen */
 .page-hub .hub-hero {
   background: linear-gradient(135deg,
-    rgba(23, 69, 143, 0.85) 0%,
-    rgba(12, 42, 92, 0.78) 60%,
+    rgba(200, 16, 46, 0.85) 0%,
+    rgba(126, 0, 20, 0.78) 60%,
     rgba(31, 13, 42, 0.85) 100%);
   -webkit-backdrop-filter: blur(8px) saturate(140%);
           backdrop-filter:  blur(8px) saturate(140%);
@@ -455,7 +455,7 @@
     translateY(-8px) translateZ(0);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.85) inset,
-    0 30px 60px -20px rgba(12, 42, 92, 0.28),
+    0 30px 60px -20px rgba(126, 0, 20, 0.28),
     0 50px 90px -30px rgba(247, 168, 27, 0.22);
 }
 /* Hoek-accent vóór ::before/::after van glass — gebruik andere selector */
@@ -539,7 +539,7 @@
 .page-hub .marquee-section {
   padding: 0;
   background: linear-gradient(180deg,
-    rgba(12, 42, 92, 0.88) 0%,
+    rgba(126, 0, 20, 0.88) 0%,
     rgba(31, 13, 42, 0.88) 100%);
   color: #fff;
   position: relative;
@@ -567,8 +567,8 @@
 /* Footer iets transparanter zodat overlap met orbs leeft */
 .page-hub .site-footer {
   background: linear-gradient(180deg,
-    rgba(12, 42, 92, 0.92) 0%,
-    rgba(8, 26, 60, 0.96) 100%);
+    rgba(126, 0, 20, 0.92) 0%,
+    rgba(80, 0, 12, 0.96) 100%);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter:  blur(20px);
 }

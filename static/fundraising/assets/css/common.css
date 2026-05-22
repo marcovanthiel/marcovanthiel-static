@@ -5,12 +5,20 @@
    ============================================================ */
 
 :root {
-  /* Rotary brand */
-  --rotary-blue:        #17458F;
-  --rotary-blue-deep:   #0C2A5C;
-  --rotary-azure:       #005DAA;
+  /* Brand — rood als hoofdkleur (i.p.v. blauw),
+     goud accent behouden. De namen --rotary-blue/-azure
+     blijven bestaan zodat per-subsite CSS niet hoeft te wijzigen;
+     de waarden zijn nu rood. */
+  --rotary-blue:        #C8102E;   /* sterk rood */
+  --rotary-blue-deep:   #7E0014;   /* diep bordeaux */
+  --rotary-azure:       #E6314A;   /* helder rood voor links */
   --rotary-gold:        #F7A81B;
   --rotary-gold-deep:   #D9881A;
+
+  /* Aliassen met juiste naam voor toekomstig gebruik */
+  --brand:              var(--rotary-blue);
+  --brand-deep:         var(--rotary-blue-deep);
+  --brand-accent:       var(--rotary-azure);
 
   /* Neutrals */
   --paper:    #faf8f3;
@@ -44,7 +52,7 @@ html, body {
 
 body { min-height: 100vh; }
 
-a { color: var(--rotary-azure); text-decoration: none; border-bottom: 1px solid rgba(0, 93, 170, 0.3); transition: color .15s, border-color .15s; }
+a { color: var(--rotary-azure); text-decoration: none; border-bottom: 1px solid rgba(200, 16, 46, 0.3); transition: color .15s, border-color .15s; }
 a:hover { color: var(--rotary-gold-deep); border-bottom-color: var(--rotary-gold-deep); }
 
 /* ============== Rotary masthead ============== */
@@ -63,7 +71,7 @@ a:hover { color: var(--rotary-gold-deep); border-bottom-color: var(--rotary-gold
   border-bottom: 4px solid var(--rotary-gold);
   position: relative;
   z-index: 5;
-  box-shadow: 0 1px 0 rgba(12, 42, 92, 0.05);
+  box-shadow: 0 1px 0 rgba(126, 0, 20, 0.05);
 }
 
 .rotary-mark {
@@ -99,7 +107,7 @@ a:hover { color: var(--rotary-gold-deep); border-bottom-color: var(--rotary-gold
   color: var(--rotary-blue-deep);
   white-space: nowrap;
   padding-left: 1rem;
-  border-left: 1px solid rgba(12, 42, 92, 0.18);
+  border-left: 1px solid rgba(126, 0, 20, 0.18);
   line-height: 1.2;
 }
 @media (max-width: 640px) {
@@ -111,7 +119,7 @@ a:hover { color: var(--rotary-gold-deep); border-bottom-color: var(--rotary-gold
   font-size: 0.85rem;
   color: var(--rotary-blue);
   letter-spacing: 0.03em;
-  border-bottom: 1px solid rgba(23, 69, 143, 0.3);
+  border-bottom: 1px solid rgba(200, 16, 46, 0.3);
   padding-bottom: 2px;
   font-weight: 500;
 }
@@ -245,7 +253,7 @@ p:last-child { margin-bottom: 0; }
 .btn-dark {
   background: var(--rotary-blue);
   color: #fff;
-  box-shadow: 0 4px 14px rgba(23, 69, 143, 0.25);
+  box-shadow: 0 4px 14px rgba(200, 16, 46, 0.25);
 }
 .btn-dark:hover {
   background: var(--rotary-blue-deep);
@@ -426,7 +434,7 @@ p:last-child { margin-bottom: 0; }
 }
 .rotary-mark:hover .rotary-logo {
   transform: translateY(-1px);
-  filter: drop-shadow(0 4px 8px rgba(12, 42, 92, 0.18));
+  filter: drop-shadow(0 4px 8px rgba(126, 0, 20, 0.18));
 }
 
 /* ============== Focus voor toetsenbord-gebruikers ============== */

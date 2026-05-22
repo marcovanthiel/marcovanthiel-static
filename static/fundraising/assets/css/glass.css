@@ -14,8 +14,8 @@
   --g-shadow:
     0 1px 0 rgba(255, 255, 255, 0.55) inset,
     0 -1px 0 rgba(0, 0, 0, 0.05) inset,
-    0 10px 30px -10px rgba(12, 42, 92, 0.18),
-    0 30px 60px -20px rgba(12, 42, 92, 0.16);
+    0 10px 30px -10px rgba(126, 0, 20, 0.18),
+    0 30px 60px -20px rgba(126, 0, 20, 0.16);
   --g-blur: blur(22px) saturate(170%);
   --g-blur-strong: blur(40px) saturate(190%);
 
@@ -54,7 +54,7 @@ body { isolation: isolate; } /* Geeft body een eigen stacking-context zodat .aur
   /* Lichte body-kleur als fallback zodat glas iets te tonen heeft */
   background:
     radial-gradient(ellipse at 80% 10%, rgba(247, 168, 27, 0.06), transparent 50%),
-    radial-gradient(ellipse at 10% 90%, rgba(23, 69, 143, 0.08), transparent 55%);
+    radial-gradient(ellipse at 10% 90%, rgba(200, 16, 46, 0.08), transparent 55%);
 }
 body.glass-dark .aurora-field {
   background:
@@ -80,7 +80,7 @@ body:not(.glass-dark) .aurora-field .orb {
   height: var(--orb-1-size, 38vmax);
   left: var(--orb-1-x, -10%);
   top:  var(--orb-1-y, -10%);
-  background: radial-gradient(circle at 50% 50%, var(--orb-1-color, #17458F), transparent 60%);
+  background: radial-gradient(circle at 50% 50%, var(--orb-1-color, #C8102E), transparent 60%);
   animation: orb-drift-a 24s var(--ease-glass) infinite alternate;
 }
 .orb.orb-2 {
@@ -293,7 +293,7 @@ body.glass-dark .rotary-masthead.is-scrolled {
   background: linear-gradient(90deg,
     #F7A81B 0%,
     #ffd778 40%,
-    #17458F 100%);
+    #C8102E 100%);
   box-shadow: 0 0 8px rgba(247, 168, 27, 0.55);
   transition: width 80ms linear;
 }
@@ -314,7 +314,7 @@ body.glass-dark .rotary-masthead.is-scrolled {
   border-radius: 999px;
   text-decoration: none;
   background: rgba(247, 168, 27, 0.92);
-  color: #0C2A5C;
+  color: #7E0014;
   -webkit-backdrop-filter: blur(16px) saturate(180%);
           backdrop-filter: blur(16px) saturate(180%);
   box-shadow:
@@ -332,7 +332,7 @@ body.glass-dark .rotary-masthead.is-scrolled {
 }
 .float-cta:hover {
   background: #F7A81B;
-  color: #0C2A5C;
+  color: #7E0014;
 }
 .float-cta.is-visible {
   opacity: 1;
@@ -397,7 +397,7 @@ body.glass-dark .rotary-masthead.is-scrolled {
   text-decoration: none;
   border-radius: 999px;
   background: var(--g-bg-strong);
-  color: var(--rotary-blue-deep, #0C2A5C);
+  color: var(--rotary-blue-deep, #7E0014);
   -webkit-backdrop-filter: var(--g-blur);
           backdrop-filter: var(--g-blur);
   box-shadow: var(--g-shadow);
@@ -424,11 +424,11 @@ body.glass-dark .rotary-masthead.is-scrolled {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.7) inset,
     0 10px 28px rgba(247, 168, 27, 0.28),
-    0 30px 60px -20px rgba(12, 42, 92, 0.25);
+    0 30px 60px -20px rgba(126, 0, 20, 0.25);
 }
 .btn-glass.btn-gold {
   background: linear-gradient(180deg, #ffd778 0%, #F7A81B 100%);
-  color: #0C2A5C;
+  color: #7E0014;
 }
 body.glass-dark .btn-glass {
   color: #fff8e6;

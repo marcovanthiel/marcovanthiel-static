@@ -1,11 +1,12 @@
 /* ============================================================
-   Kasteeldiner — donker, elegant: navy + bordeaux + goud
+   Castle Dinner — dark, elegant: deep red velvet + gold
    ============================================================ */
 
 :root {
-  --castle-night:   #0a1a35;
-  --castle-deep:    #050d20;
-  --burgundy-rich:  #5a1a1a;
+  /* Rode velvet evening — i.p.v. navy nacht */
+  --castle-night:   #3a0a18;
+  --castle-deep:    #1a0408;
+  --burgundy-rich:  #6e0a1c;
   --gold-warm:      #d4b86a;
   --gold-bright:    #f1d27c;
   --cream-paper:    #f5ede0;
@@ -336,9 +337,9 @@ section + section { border-top-color: rgba(245, 237, 224, 0.06); }
    ──── LIQUID GLASS OVERRIDES — kasteeldiner (dark) ────
    =========================================================== */
 .page-castle {
-  --orb-1-color: #5a1a1a;   /* bordeaux */
+  --orb-1-color: #6e0a1c;   /* deep bordeaux */
   --orb-2-color: #d4b86a;   /* gold-warm */
-  --orb-3-color: #17458F;   /* royal blue, koel */
+  --orb-3-color: #C8102E;   /* fire red */
   --orb-1-size: 38vmax;
   --orb-2-size: 30vmax;
   --orb-3-size: 36vmax;

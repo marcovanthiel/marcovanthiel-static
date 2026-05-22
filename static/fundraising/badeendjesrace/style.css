@@ -1,13 +1,14 @@
 /* ============================================================
-   Badeendjesrace — geel + water-blauw thema
+   Rubber Duck Race — yellow ducks on a red sunset
    ============================================================ */
 
 .ducks-hero {
+  /* Rode zonsondergang — fel oranje boven, naar diep rood beneden */
   --hero-bg: linear-gradient(180deg,
-    #a7d8ff 0%,
-    #5aa8e6 35%,
-    #2c6fb0 70%,
-    #1e5285 100%);
+    #FFB47A 0%,
+    #FF6F4A 25%,
+    #C8102E 60%,
+    #7E0014 100%);
   padding: 6rem 0 5rem;
   position: relative;
 }
@@ -307,9 +308,9 @@
    ──── LIQUID GLASS OVERRIDES — badeendjes ────
    =========================================================== */
 .page-ducks {
-  --orb-1-color: #5aa8e6;   /* water-blauw */
-  --orb-2-color: #ffd778;   /* zonlicht */
-  --orb-3-color: #3a82bf;   /* diep water */
+  --orb-1-color: #FF6F4A;   /* sunset orange */
+  --orb-2-color: #ffd778;   /* sunlight */
+  --orb-3-color: #7E0014;   /* deep red */
   --orb-1-size: 44vmax;
   --orb-2-size: 30vmax;
   --orb-3-size: 38vmax;
@@ -385,18 +386,18 @@
 .page-ducks .goed-doel .wrap {
   max-width: 760px;
   padding: 2.5rem 2.5rem;
-  background: rgba(12, 42, 92, 0.78);
+  background: rgba(126, 0, 20, 0.78);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
           backdrop-filter:  blur(20px) saturate(160%);
   border-radius: 22px;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.18) inset,
-    0 24px 60px -20px rgba(12, 42, 92, 0.55);
+    0 24px 60px -20px rgba(126, 0, 20, 0.55);
 }
 
 /* Footer met blur */
 .page-ducks .site-footer {
-  background: linear-gradient(180deg, rgba(12, 42, 92, 0.92), rgba(8, 26, 60, 0.96));
+  background: linear-gradient(180deg, rgba(126, 0, 20, 0.92), rgba(80, 0, 12, 0.96));
   -webkit-backdrop-filter: blur(18px);
           backdrop-filter:  blur(18px);
 }
