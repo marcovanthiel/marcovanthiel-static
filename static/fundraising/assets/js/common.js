@@ -16,8 +16,8 @@
   // -----------------------------------------------------
   var LANG_CONFIG = {
     nl: { label: 'NL', theme: 'theme-blue', title: 'Nederlands' },
-    en: { label: 'EN', theme: '',           title: 'English'    },
-    de: { label: 'DE', theme: 'theme-gold', title: 'Deutsch',   disabled: true }
+    de: { label: 'DE', theme: 'theme-gold', title: 'Deutsch'    },
+    en: { label: 'EN', theme: '',           title: 'English'    }
   };
   var DEFAULT_LANG = 'nl';
   var STORAGE_KEY  = 'mvt-fundraising-lang';

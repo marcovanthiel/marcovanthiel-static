@@ -437,16 +437,18 @@ body, .hero, a, .btn, .rotary-mark-tag, .masthead-back {
 
 /* ============================================================
    TAAL-CONTENT — toon alleen het taal-fragment dat actief is.
-   Default: <html lang="nl"> toont [data-lang-nl] / verbergt -en/-de.
+   Vereist <html lang="…"> als nl / en / de.
+   Alleen HIDE-regels — actieve taal behoudt eigen display-waarde
+   (inline voor span, block voor div, etc.). Geen `revert` nodig.
    ============================================================ */
-[data-lang-en], [data-lang-de] { display: none; }
-html[lang="en"] [data-lang-nl], html[lang="en"] [data-lang-de] { display: none; }
-html[lang="en"] [data-lang-en] { display: revert; }
-html[lang="de"] [data-lang-nl], html[lang="de"] [data-lang-en] { display: none; }
-html[lang="de"] [data-lang-de] { display: revert; }
-/* Inline-spans moeten weer inline tonen, niet block */
-html[lang="en"] span[data-lang-en],
-html[lang="de"] span[data-lang-de] { display: inline; }
+html[lang="nl"] [data-lang-en],
+html[lang="nl"] [data-lang-de] { display: none !important; }
+
+html[lang="en"] [data-lang-nl],
+html[lang="en"] [data-lang-de] { display: none !important; }
+
+html[lang="de"] [data-lang-nl],
+html[lang="de"] [data-lang-en] { display: none !important; }
 
 /* ============== Scroll-reveal ============== */
 [data-reveal] {
