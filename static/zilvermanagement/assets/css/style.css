@@ -639,12 +639,12 @@ a:hover {
   padding: 0;
   position: relative;
 }
-/* Het tijdlijn-streepje loopt door achter de logo-kolom */
+/* Het tijdlijn-streepje loopt door het midden van de logo-kolom (96 / 2) */
 .timeline::before {
   content: '';
   position: absolute;
   top: 0; bottom: 0;
-  left: 31px;
+  left: 47px;
   width: 1px;
   background: linear-gradient(180deg,
     transparent 0%,
@@ -655,35 +655,109 @@ a:hover {
 .timeline-item {
   position: relative;
   display: grid;
-  grid-template-columns: 64px 180px 1fr;
+  grid-template-columns: 96px 160px 1fr;
   gap: 1.6rem;
   padding: 1.2rem 0;
   align-items: start;
 }
 
-/* === Logo-monogram === */
-.t-org-logo {
-  width: 64px; height: 64px;
-  border-radius: 50%;
+/* ============================================================
+   Logo-kaart — prominent witte tegel met sector-streep bovenaan.
+   Toont echte werkgever-logo (assets/img/logos/<naam>.png) zodra
+   het bestand bestaat; anders fallback-monogram met letters.
+   ============================================================ */
+.t-logo-card {
   position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
   z-index: 1;
+  /* Hairline + zachte elevation + extra outline ring rond de tegel */
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 0 0 4px var(--silver-mist),
+    0 14px 30px rgba(45, 53, 72, 0.14),
+    0 4px 10px rgba(45, 53, 72, 0.06);
+  transition: transform .35s cubic-bezier(.22,.8,.22,1),
+              box-shadow .35s ease;
+}
+.timeline-item:hover .t-logo-card {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 0 0 4px var(--silver-mist),
+    0 22px 44px rgba(45, 53, 72, 0.18),
+    0 6px 14px rgba(45, 53, 72, 0.08);
+}
+
+/* Sector-streep bovenaan de kaart (currentColor = sector) */
+.t-logo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg,
+    currentColor 0%,
+    color-mix(in srgb, currentColor 70%, white) 100%);
+  z-index: 3;
+}
+/* Browsers zonder color-mix krijgen gewoon currentColor */
+@supports not (background: color-mix(in srgb, red, blue)) {
+  .t-logo-card::before { background: currentColor; }
+}
+
+/* Subtiele binnen-randring voor extra diepte */
+.t-logo-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* === Echte logo (img) — vult de kaart met padding === */
+.t-logo-img {
+  position: absolute;
+  inset: 16px 12px 12px;  /* extra ruimte boven voor de sector-streep */
+  width: calc(100% - 24px);
+  height: calc(100% - 28px);
+  object-fit: contain;
+  z-index: 4;             /* bovenop het monogram als img laadt */
+  background: #fff;
+  display: block;
+}
+
+/* === Monogram-fallback (toont automatisch als img mist) === */
+.t-logo-monogram {
+  position: absolute;
+  inset: 6px 0 0;         /* onder de sector-streep */
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    0 0 0 4px var(--silver-mist),
-    0 0 0 5px rgba(45, 53, 72, 0.10),
-    0 8px 18px rgba(45, 53, 72, 0.12);
-  transition: transform .3s;
+  z-index: 1;
 }
-.t-org-logo svg { display: block; width: 100%; height: 100%; }
-.timeline-item:hover .t-org-logo { transform: scale(1.06); }
+.mono-letters {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: currentColor;
+  letter-spacing: -0.01em;
+}
 
-/* Per-sector kleurcodering — currentColor wordt fill-kleur van de cirkel */
-.t-org-logo--zorg     { color: #2D3548; }   /* slate navy — zorg */
-.t-org-logo--justitie { color: #5C2E2E; }   /* deep burgundy — justitie */
-.t-org-logo--publiek  { color: #486C6E; }   /* teal — publieke sector */
-.t-org-logo--bedrijf  { color: #8A6B2E; }   /* warm goud-brons — bedrijfsleven */
+/* Per-sector kleurcodering — currentColor = sector-kleur, gebruikt
+   voor de sector-streep én de monogram-letters */
+.t-logo-card--zorg     { color: #2D3548; }   /* slate navy — zorg */
+.t-logo-card--justitie { color: #5C2E2E; }   /* deep burgundy — justitie */
+.t-logo-card--publiek  { color: #486C6E; }   /* teal — publieke sector */
+.t-logo-card--bedrijf  { color: #8A6B2E; }   /* warm goud-brons — bedrijfsleven */
 .t-when {
   font-family: var(--sans);
   font-weight: 600;
@@ -751,14 +825,22 @@ a:hover {
 
 @media (max-width: 840px) {
   .timeline-item {
-    grid-template-columns: 48px 1fr;
+    grid-template-columns: 72px 1fr;
     grid-template-areas:
       "logo when"
       "logo card";
     gap: 0.4rem 1rem;
   }
-  .timeline::before { left: 23px; }
-  .t-org-logo { width: 48px; height: 48px; grid-area: logo; align-self: start; }
+  .timeline::before { left: 35px; }
+  .t-logo-card {
+    width: 72px;
+    height: 72px;
+    grid-area: logo;
+    align-self: start;
+    margin-top: 0.4rem;
+  }
+  .mono-letters { font-size: 1.7rem; }
+  .t-logo-img { inset: 14px 9px 9px; }
   .t-when { grid-area: when; padding-top: 0.4rem; font-size: 0.72rem; }
   .t-card { grid-area: card; }
 }
@@ -771,6 +853,8 @@ a:hover {
       "card";
   }
   .timeline::before { display: none; }
+  .t-logo-card { width: 80px; height: 80px; margin-top: 0; }
+  .mono-letters { font-size: 1.9rem; }
 }
 
 /* ============== SECTOREN-STRIP — bovenaan, boven de tabs ============== */
