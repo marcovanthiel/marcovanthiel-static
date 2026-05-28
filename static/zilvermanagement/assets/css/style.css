@@ -102,6 +102,11 @@ a:hover {
     radial-gradient(ellipse at 0% 100%, rgba(122, 62, 62, 0.06), transparent 55%),
     linear-gradient(180deg, var(--paper) 0%, var(--silver-mist) 100%);
 }
+/* Compacte variant — wanneer er tabs onder de hero komen */
+.hero--compact { padding: 3.5rem 0 2.8rem; }
+.hero--compact .hero-wordmark { margin-bottom: 1.4rem; }
+.hero--compact .hero-title { font-size: clamp(1.7rem, 3.4vw, 2.6rem); margin-bottom: 1.1rem; }
+.hero--compact .hero-lede { margin-bottom: 0; }
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -288,12 +293,104 @@ a:hover {
   color: var(--ink);
 }
 
+/* ============================================================
+   TABBLADEN — sticky horizontale nav onder de stats-strip.
+   Elke .tab-panel toont alleen content wanneer .is-active.
+   ============================================================ */
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(250, 249, 246, 0.92);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 14px rgba(45, 53, 72, 0.04);
+}
+.tabs-inner {
+  display: flex;
+  align-items: stretch;
+  gap: 0.2rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.tabs-inner::-webkit-scrollbar { display: none; }
+
+.tab {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  padding: 1.2rem 1.4rem 1.05rem;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  transition: color .2s, background .2s;
+  min-height: 52px;
+}
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 0;
+  height: 2px;
+  background: var(--burgundy);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .35s cubic-bezier(.22,.8,.22,1);
+  border-radius: 1px;
+}
+.tab:hover { color: var(--ink); background: rgba(122, 62, 62, 0.04); }
+.tab.is-active {
+  color: var(--burgundy);
+  font-weight: 600;
+}
+.tab.is-active::after { transform: scaleX(1); }
+.tab:focus-visible {
+  outline: 2px solid var(--burgundy);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .tab { padding: 1rem 1rem 0.85rem; font-size: 0.88rem; min-height: 48px; }
+  .tab::after { left: 1rem; right: 1rem; }
+}
+
+/* Tab-panels — alleen .is-active toont; bij toggle een zachte fade-in */
+.tab-stage {
+  display: block;
+  position: relative;
+}
+.tab-panel { display: none; }
+.tab-panel.is-active {
+  display: block;
+  animation: panel-in .45s cubic-bezier(.22,.8,.22,1);
+}
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tab-panel.is-active { animation: none; }
+}
+
 /* ============== ALGEMENE SECTIES ============== */
 .section {
   padding: 5rem 0;
   position: relative;
 }
 .section + .section { border-top: 1px solid var(--line-soft); }
+/* Wanneer een sectie tab-panel is, hebben aangrenzende panels geen border-top nodig */
+.tab-panel + .tab-panel { border-top: none; }
 .section-eyebrow {
   font-family: var(--sans);
   font-size: 0.74rem;
@@ -539,27 +636,54 @@ a:hover {
 .timeline {
   list-style: none;
   margin: 2.4rem 0 0;
-  padding: 0 0 0 1.6rem;
+  padding: 0;
   position: relative;
-  border-left: 1px solid var(--line);
+}
+/* Het tijdlijn-streepje loopt door achter de logo-kolom */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 31px;
+  width: 1px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    var(--line) 8%,
+    var(--line) 92%,
+    transparent 100%);
 }
 .timeline-item {
   position: relative;
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 2rem;
-  padding: 1.4rem 0 1.4rem;
+  grid-template-columns: 64px 180px 1fr;
+  gap: 1.6rem;
+  padding: 1.2rem 0;
+  align-items: start;
 }
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -1.66rem;
-  top: 1.95rem;
-  width: 12px; height: 12px;
+
+/* === Logo-monogram === */
+.t-org-logo {
+  width: 64px; height: 64px;
   border-radius: 50%;
-  background: var(--burgundy);
-  box-shadow: 0 0 0 4px var(--silver-mist), 0 0 0 5px rgba(122, 62, 62, 0.18);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 4px var(--silver-mist),
+    0 0 0 5px rgba(45, 53, 72, 0.10),
+    0 8px 18px rgba(45, 53, 72, 0.12);
+  transition: transform .3s;
 }
+.t-org-logo svg { display: block; width: 100%; height: 100%; }
+.timeline-item:hover .t-org-logo { transform: scale(1.06); }
+
+/* Per-sector kleurcodering — currentColor wordt fill-kleur van de cirkel */
+.t-org-logo--zorg     { color: #2D3548; }   /* slate navy — zorg */
+.t-org-logo--justitie { color: #5C2E2E; }   /* deep burgundy — justitie */
+.t-org-logo--publiek  { color: #486C6E; }   /* teal — publieke sector */
+.t-org-logo--bedrijf  { color: #8A6B2E; }   /* warm goud-brons — bedrijfsleven */
 .t-when {
   font-family: var(--sans);
   font-weight: 600;
@@ -625,17 +749,50 @@ a:hover {
 }
 .t-card--legacy { background: linear-gradient(180deg, #fff 0%, var(--paper-2) 100%); }
 
-@media (max-width: 720px) {
-  .timeline-item { grid-template-columns: 1fr; gap: 0.6rem; }
-  .timeline-item::before { left: -1.66rem; top: 0.7rem; }
-  .t-when { font-size: 0.72rem; }
+@media (max-width: 840px) {
+  .timeline-item {
+    grid-template-columns: 48px 1fr;
+    grid-template-areas:
+      "logo when"
+      "logo card";
+    gap: 0.4rem 1rem;
+  }
+  .timeline::before { left: 23px; }
+  .t-org-logo { width: 48px; height: 48px; grid-area: logo; align-self: start; }
+  .t-when { grid-area: when; padding-top: 0.4rem; font-size: 0.72rem; }
+  .t-card { grid-area: card; }
+}
+@media (max-width: 480px) {
+  .timeline-item {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "when"
+      "card";
+  }
+  .timeline::before { display: none; }
 }
 
-/* ============== SECTOREN-STRIP ============== */
+/* ============== SECTOREN-STRIP — bovenaan, boven de tabs ============== */
 .sectoren-strip {
   background: var(--ink);
   color: #fff;
-  padding: 3.2rem 0;
+  padding: 2.6rem 0;
+  position: relative;
+}
+.sectoren-strip::before {
+  /* Dunne goud-streep onderaan voor visuele scheiding met de tabs */
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--gold) 20%,
+    var(--gold-warm) 50%,
+    var(--gold) 80%,
+    transparent 100%);
+  opacity: 0.5;
 }
 .sectoren-strip .strip-grid {
   display: grid;
@@ -869,20 +1026,8 @@ a:hover {
   .foot-end { align-items: flex-start; }
 }
 
-/* ============== SCROLL-REVEAL ============== */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .9s cubic-bezier(.22,.8,.22,1),
-              transform .9s cubic-bezier(.22,.8,.22,1);
-}
-[data-reveal].is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-[data-reveal][data-reveal-delay="1"] { transition-delay: .12s; }
-[data-reveal][data-reveal-delay="2"] { transition-delay: .24s; }
-[data-reveal][data-reveal-delay="3"] { transition-delay: .36s; }
+/* ============== SCROLL-REVEAL (uitgeschakeld nu we tabs hebben) ============== */
+/* Tab-panels gebruiken eigen panel-in animatie; geen scroll-reveal nodig. */
 
 /* ============== HERO-ENTRY ============== */
 .hero .hero-wordmark,

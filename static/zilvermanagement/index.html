@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/style.css?v=2026-05-28-1" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026-05-28-2" />
 </head>
 <body>
 
@@ -27,18 +27,16 @@
 </header>
 
 <!-- ============== HERO ============== -->
-<section class="hero">
+<section class="hero hero--compact">
   <div class="hero-bg" aria-hidden="true">
     <span class="orb orb-a"></span>
     <span class="orb orb-b"></span>
   </div>
-
   <div class="hero-inner wrap">
     <div class="hero-wordmark" aria-label="Zilver Interim-Management &amp; Advies">
       <div class="wordmark-script">Zilver</div>
       <div class="wordmark-sub"><span>Interim Management</span> <em>&amp;</em> <span>Advies</span></div>
     </div>
-
     <p class="hero-eyebrow">Jaya Boland</p>
     <h1 class="hero-title">
       Verbinden, leidinggeven en
@@ -48,35 +46,61 @@
     <p class="hero-lede">
       Sterk betrokken interim-manager en adviseur met 25+ jaar ervaring in
       zorg, justitie en organisatie&shy;ontwikkeling. Loyaal, plichtsgetrouw,
-      zonder 9-tot-5-mentaliteit — met lef en doorzettings­vermogen om
-      processen daadwerkelijk in beweging te krijgen.
+      zonder 9-tot-5-mentaliteit.
     </p>
-
-    <div class="hero-ctas">
-      <a class="btn btn-primary" href="#contact">Neem contact op →</a>
-      <a class="btn btn-ghost" href="#ervaring">Bekijk ervaring</a>
-    </div>
-
-    <ul class="hero-meta" aria-label="Kerngegevens">
-      <li><span class="m-label">Beschikbaar voor</span><span class="m-value">interim &amp; advies</span></li>
-      <li><span class="m-label">Sectoren</span><span class="m-value">zorg · justitie · publiek</span></li>
-      <li><span class="m-label">Standplaats</span><span class="m-value">Beek (Berg en Dal)</span></li>
-    </ul>
   </div>
 </section>
 
-<!-- ============== PROFIEL ============== -->
-<section id="profiel" class="section profiel">
+<!-- ============== STATS-STRIP — bovenaan, boven de tabbladen ============== -->
+<section class="sectoren-strip">
   <div class="wrap">
-    <p class="section-eyebrow" data-reveal>Over Jaya</p>
-    <h2 class="section-title" data-reveal data-reveal-delay="1">
+    <div class="strip-grid">
+      <div class="strip-cell">
+        <div class="strip-num">25+</div>
+        <div class="strip-label">jaar werkervaring</div>
+      </div>
+      <div class="strip-cell">
+        <div class="strip-num">1.000+</div>
+        <div class="strip-label">aangestuurde medewerkers (piek)</div>
+      </div>
+      <div class="strip-cell">
+        <div class="strip-num">10+</div>
+        <div class="strip-label">organisaties &amp; instellingen</div>
+      </div>
+      <div class="strip-cell">
+        <div class="strip-num">4</div>
+        <div class="strip-label">sectoren: zorg · justitie · publiek · bedrijfsleven</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TABS NAV ============== -->
+<nav class="tabs" role="tablist" aria-label="Hoofdnavigatie">
+  <div class="tabs-inner wrap">
+    <button role="tab" id="tab-profiel"   class="tab is-active" aria-controls="panel-profiel"   aria-selected="true"  data-tab="profiel">Profiel</button>
+    <button role="tab" id="tab-diensten"  class="tab"           aria-controls="panel-diensten"  aria-selected="false" data-tab="diensten">Diensten</button>
+    <button role="tab" id="tab-aanpak"    class="tab"           aria-controls="panel-aanpak"    aria-selected="false" data-tab="aanpak">Aanpak</button>
+    <button role="tab" id="tab-ervaring"  class="tab"           aria-controls="panel-ervaring"  aria-selected="false" data-tab="ervaring">Ervaring</button>
+    <button role="tab" id="tab-contact"   class="tab"           aria-controls="panel-contact"   aria-selected="false" data-tab="contact">Contact</button>
+    <button role="tab" id="tab-opleiding" class="tab"           aria-controls="panel-opleiding" aria-selected="false" data-tab="opleiding">Opleiding</button>
+  </div>
+</nav>
+
+<main class="tab-stage">
+
+<!-- ============== TAB: PROFIEL ============== -->
+<section id="panel-profiel" class="section profiel tab-panel is-active" role="tabpanel" aria-labelledby="tab-profiel">
+  <div class="wrap">
+    <p class="section-eyebrow">Over Jaya</p>
+    <h2 class="section-title">
       Anderen zeggen over mij dat ik
       <em>sterk betrokken</em> ben — en daar ben ik
       <em>oprecht trots</em> op.
     </h2>
 
     <div class="profiel-grid">
-      <div class="profiel-body" data-reveal data-reveal-delay="2">
+      <div class="profiel-body">
         <p>
           Het samenwerken, leidinggeven, verbinden en betrekken van anderen
           in interne en overstijgende projecten geeft mij energie en is dan
@@ -97,7 +121,7 @@
         </p>
       </div>
 
-      <aside class="profiel-card" data-reveal data-reveal-delay="3">
+      <aside class="profiel-card">
         <div class="card-flourish"></div>
         <h3>Mijn werkwijze</h3>
         <ul class="bullet-list">
@@ -112,16 +136,16 @@
   </div>
 </section>
 
-<!-- ============== DIENSTEN ============== -->
-<section id="diensten" class="section diensten">
+<!-- ============== TAB: DIENSTEN ============== -->
+<section id="panel-diensten" class="section diensten tab-panel" role="tabpanel" aria-labelledby="tab-diensten" hidden>
   <div class="wrap">
-    <p class="section-eyebrow" data-reveal>Diensten</p>
-    <h2 class="section-title" data-reveal data-reveal-delay="1">
+    <p class="section-eyebrow">Diensten</p>
+    <h2 class="section-title">
       Vier manieren waarop ik organisaties verder breng.
     </h2>
 
     <div class="dienst-grid">
-      <article class="dienst-card" data-reveal>
+      <article class="dienst-card">
         <div class="dienst-num">01</div>
         <h3>Interim leider­schap</h3>
         <p>
@@ -136,7 +160,7 @@
         </ul>
       </article>
 
-      <article class="dienst-card" data-reveal data-reveal-delay="1">
+      <article class="dienst-card">
         <div class="dienst-num">02</div>
         <h3>Verander­management</h3>
         <p>
@@ -151,7 +175,7 @@
         </ul>
       </article>
 
-      <article class="dienst-card" data-reveal data-reveal-delay="2">
+      <article class="dienst-card">
         <div class="dienst-num">03</div>
         <h3>Team­ontwikkeling &amp; verzuim</h3>
         <p>
@@ -166,7 +190,7 @@
         </ul>
       </article>
 
-      <article class="dienst-card" data-reveal data-reveal-delay="3">
+      <article class="dienst-card">
         <div class="dienst-num">04</div>
         <h3>Strategie &amp; advies</h3>
         <p>
@@ -184,10 +208,15 @@
   </div>
 </section>
 
-<!-- ============== AANPAK / WAARDEN ============== -->
-<section id="aanpak" class="section aanpak">
+<!-- ============== TAB: AANPAK ============== -->
+<section id="panel-aanpak" class="section aanpak tab-panel" role="tabpanel" aria-labelledby="tab-aanpak" hidden>
   <div class="wrap">
-    <blockquote class="big-quote" data-reveal>
+    <p class="section-eyebrow">Aanpak &amp; waarden</p>
+    <h2 class="section-title">
+      Hoe ik werk — vier waarden die mij dragen.
+    </h2>
+
+    <blockquote class="big-quote">
       <span class="quote-mark" aria-hidden="true">&ldquo;</span>
       Vertrouwen en respect als basis. Lef en doorzettings­vermogen
       als motor. Een team dat zich gezien voelt als resultaat.
@@ -195,22 +224,22 @@
     </blockquote>
 
     <div class="waarden-grid">
-      <div class="waarde" data-reveal>
+      <div class="waarde">
         <span class="waarde-dot"></span>
         <h4>Betrokken</h4>
         <p>Sterk betrokken bij alles wat ik doe — geen formaliteit, wel oprechtheid.</p>
       </div>
-      <div class="waarde" data-reveal data-reveal-delay="1">
+      <div class="waarde">
         <span class="waarde-dot"></span>
         <h4>Verbindend</h4>
         <p>Brug tussen werkvloer, management en Raad van Bestuur — zonder bias.</p>
       </div>
-      <div class="waarde" data-reveal data-reveal-delay="2">
+      <div class="waarde">
         <span class="waarde-dot"></span>
         <h4>Analytisch</h4>
         <p>Knelpunten signaleren en praktische, doordachte oplossingen ontwerpen.</p>
       </div>
-      <div class="waarde" data-reveal data-reveal-delay="3">
+      <div class="waarde">
         <span class="waarde-dot"></span>
         <h4>Stress­bestendig</h4>
         <p>Effectief blijven handelen in complexe, dynamische omgevingen.</p>
@@ -219,14 +248,14 @@
   </div>
 </section>
 
-<!-- ============== ERVARING — tijdlijn ============== -->
-<section id="ervaring" class="section ervaring">
+<!-- ============== TAB: ERVARING — tijdlijn met logos ============== -->
+<section id="panel-ervaring" class="section ervaring tab-panel" role="tabpanel" aria-labelledby="tab-ervaring" hidden>
   <div class="wrap">
-    <p class="section-eyebrow" data-reveal>Werkervaring</p>
-    <h2 class="section-title" data-reveal data-reveal-delay="1">
+    <p class="section-eyebrow">Werkervaring</p>
+    <h2 class="section-title">
       25+ jaar in <em>leiderschap, zorg en verandering</em>.
     </h2>
-    <p class="section-sub" data-reveal data-reveal-delay="2">
+    <p class="section-sub">
       Een greep uit de opdrachten en functies — van verpleegkundige bij
       Radboudumc tot interim-teamleider in justitie, zorg en publieke
       dienstverlening.
@@ -234,7 +263,13 @@
 
     <ol class="timeline">
 
-      <li class="timeline-item" data-reveal>
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--zorg">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-weight="500" font-size="20" fill="#fff">22g</text>
+          </svg>
+        </div>
         <div class="t-when">2021 — heden</div>
         <div class="t-card">
           <h3>Adviseur</h3>
@@ -244,27 +279,37 @@
             opdrachten in: collega's adviseren, artikelen schrijven en CRM
             op orde brengen.
           </p>
-          <div class="t-tags">
-            <span>interim</span><span>advies</span><span>acquisitie</span>
-          </div>
+          <div class="t-tags"><span>interim</span><span>advies</span><span>acquisitie</span></div>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal data-reveal-delay="1">
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--zorg">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">VC</text>
+          </svg>
+        </div>
         <div class="t-when">okt 2025 — apr 2026</div>
         <div class="t-card">
           <h3>A.I. Teamleider — BCU, SVA Neurologie &amp; Longgeneeskunde</h3>
           <div class="t-org">VieCuri Ziekenhuis</div>
           <p>
-            Leidinggeven aan drie afdelingen. Jaarplan, begroting, beleids­-
+            Leidinggeven aan drie afdelingen. Jaarplan, begroting, beleids&shy;-
             en organisatieontwikkeling. Drie hoofdprojecten: flexibilisering
-            AOA &amp; BCU, wervingscampagne neurologie­verpleegkundigen, en
+            AOA &amp; BCU, wervingscampagne neurologie&shy;verpleegkundigen, en
             samenvoeging SVA Neurologie en SVA Long.
           </p>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal>
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--zorg">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff">VN</text>
+          </svg>
+        </div>
         <div class="t-when">mei — aug 2025</div>
         <div class="t-card">
           <h3>A.I. Teamleider, Locatie Boswijk</h3>
@@ -278,61 +323,91 @@
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal data-reveal-delay="1">
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--zorg">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">VC</text>
+          </svg>
+        </div>
         <div class="t-when">nov 2024 — mrt 2025</div>
         <div class="t-card">
-          <h3>Teamleider Geboorte­centrum — Verloskamer, Kraam, Kind</h3>
+          <h3>Teamleider Geboorte&shy;centrum — Verloskamer, Kraam, Kind</h3>
           <div class="t-org">VieCuri Ziekenhuis</div>
           <p>
-            Aansturen, coachen en begeleiden van medewerkers. Personeels­bezetting
+            Aansturen, coachen en begeleiden van medewerkers. Personeels&shy;bezetting
             coördineren, jaarplan invullen, samenwerking met andere afdelingen
             stimuleren, en inkoop &amp; voorraad beheren.
           </p>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal>
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--justitie">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">JC</text>
+          </svg>
+        </div>
         <div class="t-when">nov 2023 — nov 2024</div>
         <div class="t-card">
-          <h3>Afdelings­hoofd Verpleging</h3>
-          <div class="t-org">Justitieel Centrum voor Somatische Zorg (JCvSZ) — Ministerie van J&amp;V</div>
+          <h3>Afdelings&shy;hoofd Verpleging</h3>
+          <div class="t-org">JCvSZ — Ministerie van Justitie en Veiligheid</div>
           <p>
             Operationele aansturing van ~40 verpleegkundigen. Zorg aan
             gedetineerde patiënten, veilige werkomgeving en naleving van
-            behandel­voorschriften. Verzuim aanpakken bij de bron en
+            behandel&shy;voorschriften. Verzuim aanpakken bij de bron en
             sociale veiligheid centraal.
           </p>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal data-reveal-delay="1">
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--zorg">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">FG</text>
+          </svg>
+        </div>
         <div class="t-when">nov 2022 — okt 2023</div>
         <div class="t-card">
-          <h3>Team­manager Poli Neurologie, Neurochirurgie &amp; KNF</h3>
+          <h3>Team&shy;manager Poli Neurologie, Neurochirurgie &amp; KNF</h3>
           <div class="t-org">Franciscus Gasthuis &amp; Vlietland</div>
           <p>
             Aansturen en coachen van 45 medewerkers over twee locaties.
             Werkprocessen harmoniseren, Qualicor Audit 2023 voorbereiden, en
             locatie-overstijgend werken implementeren. Bijdrage aan
-            ICM-project (Integraal Capaciteits­management).
+            ICM-project (Integraal Capaciteits&shy;management).
           </p>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal>
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--zorg">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">KA</text>
+          </svg>
+        </div>
         <div class="t-when">aug — okt 2022</div>
         <div class="t-card">
-          <h3>Kwartier­maker</h3>
+          <h3>Kwartier&shy;maker</h3>
           <div class="t-org">Kalorama</div>
           <p>
-            Marktonderzoek en stakeholder­gesprekken voor het versterken van
+            Marktonderzoek en stakeholder&shy;gesprekken voor het versterken van
             imago en naamsbekendheid. Het verhaal van Kalorama opnieuw
             bepalen, met aandacht voor medewerker- en familieperspectief.
           </p>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal data-reveal-delay="1">
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--bedrijf">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">PP</text>
+          </svg>
+        </div>
         <div class="t-when">mrt — aug 2022</div>
         <div class="t-card">
           <h3>Team Lead Customer Care</h3>
@@ -345,7 +420,13 @@
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal>
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--zorg">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">HD</text>
+          </svg>
+        </div>
         <div class="t-when">sep 2021 — feb 2022</div>
         <div class="t-card">
           <h3>Teamleider Acute Zorg</h3>
@@ -353,18 +434,24 @@
           <p>
             45 medewerkers (triagisten, medisch studenten, ZZP'ers). MT-lid
             en lid van het HaROP Crisisteam — wekelijks overleg over de
-            corona­situatie. Brug tussen werkvloer, management en RvB.
+            corona&shy;situatie. Brug tussen werkvloer, management en RvB.
           </p>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal data-reveal-delay="1">
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--publiek">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">GG</text>
+          </svg>
+        </div>
         <div class="t-when">apr — sep 2021</div>
         <div class="t-card">
           <h3>Teamleider Vaccinatie</h3>
           <div class="t-org">GGD Gelderland-Midden (VGGM)</div>
           <p>
-            Leidinggeven aan 1.000+ medewerkers over 7 vaccinatie­locaties.
+            Leidinggeven aan 1.000+ medewerkers over 7 vaccinatie&shy;locaties.
             Op- en afschalen van personeel en locaties, coördinatie van
             massavaccinatie, en deel van managementteam vaccineren en
             medisch operationeel team.
@@ -372,7 +459,13 @@
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal>
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--bedrijf">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="18" fill="#fff" letter-spacing="0.5">Pr</text>
+          </svg>
+        </div>
         <div class="t-when">2019 — 2022</div>
         <div class="t-card">
           <h3>Adviseur · Consultant · Change Manager</h3>
@@ -381,40 +474,58 @@
             Wisselende rollen voor onder andere Sevagram (adviseur /
             change manager), Aventus (projectcoördinator
             allyoucanlearn.eu), Oro (ontwikkelcoach) en FMO
-            (change manager bij de Nederlandse Financierings­maatschappij
+            (change manager bij de Nederlandse Financierings&shy;maatschappij
             voor Ontwikkeling).
           </p>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal data-reveal-delay="1">
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--bedrijf">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">AD</text>
+          </svg>
+        </div>
         <div class="t-when">2017 — 2019</div>
         <div class="t-card">
-          <h3>Team­manager &amp; Projectleider Deelmee</h3>
+          <h3>Team&shy;manager &amp; Projectleider Deelmee</h3>
           <div class="t-org">Adsysco</div>
           <p>Aansturing en projectleiderschap binnen het Deelmee-traject.</p>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal>
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--publiek">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">ME</text>
+          </svg>
+        </div>
         <div class="t-when">2015 — 2017</div>
         <div class="t-card">
-          <h3>Team­manager &amp; Projectleider Deelmee</h3>
+          <h3>Team&shy;manager &amp; Projectleider Deelmee</h3>
           <div class="t-org">MEE-Oost</div>
           <p>Aansturing en projectleiderschap binnen het Deelmee-traject in de regio.</p>
         </div>
       </li>
 
-      <li class="timeline-item" data-reveal data-reveal-delay="1">
+      <li class="timeline-item">
+        <div class="t-org-logo t-org-logo--zorg">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="currentColor"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="20" fill="#fff" letter-spacing="0.5">Ru</text>
+          </svg>
+        </div>
         <div class="t-when">1999 — 2015</div>
         <div class="t-card t-card--legacy">
           <h3>Radboudumc Nijmegen</h3>
           <div class="t-org">16 jaar — van verpleegkundige tot AYA-community manager</div>
           <p>
             Adviseur en community manager van het (Nationaal) AYA Expertise
-            Platform (AYA4). Daarvoor: oncologie­verpleegkundige Poli Mond-Kaak
-            &amp; Aangezichts­chirurgie, neurologie- &amp; neuro­chirurgie­verpleegkundige
-            Medium Care, en neurologie­verpleegkundige. Het fundament onder mijn
+            Platform (AYA4). Daarvoor: oncologie&shy;verpleegkundige Poli Mond-Kaak
+            &amp; Aangezichts&shy;chirurgie, neurologie- &amp; neuro&shy;chirurgie&shy;verpleegkundige
+            Medium Care, en neurologie&shy;verpleegkundige. Het fundament onder mijn
             zorginhoudelijke en organisatorische bagage.
           </p>
         </div>
@@ -424,64 +535,18 @@
   </div>
 </section>
 
-<!-- ============== SECTOREN — strook met cijfers ============== -->
-<section class="section sectoren-strip">
+<!-- ============== TAB: CONTACT ============== -->
+<section id="panel-contact" class="section contact tab-panel" role="tabpanel" aria-labelledby="tab-contact" hidden>
   <div class="wrap">
-    <div class="strip-grid">
-      <div class="strip-cell" data-reveal>
-        <div class="strip-num">25+</div>
-        <div class="strip-label">jaar werkervaring</div>
-      </div>
-      <div class="strip-cell" data-reveal data-reveal-delay="1">
-        <div class="strip-num">1.000+</div>
-        <div class="strip-label">aangestuurde medewerkers (piek)</div>
-      </div>
-      <div class="strip-cell" data-reveal data-reveal-delay="2">
-        <div class="strip-num">10+</div>
-        <div class="strip-label">organisaties &amp; instellingen</div>
-      </div>
-      <div class="strip-cell" data-reveal data-reveal-delay="3">
-        <div class="strip-num">4</div>
-        <div class="strip-label">sectoren: zorg · justitie · publiek · bedrijfsleven</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== OPLEIDING ============== -->
-<section id="opleiding" class="section opleiding">
-  <div class="wrap">
-    <p class="section-eyebrow" data-reveal>Opleiding</p>
-    <h2 class="section-title" data-reveal data-reveal-delay="1">
-      Een lerende basis — van verpleegkunde tot wijnkennis.
-    </h2>
-
-    <ul class="opleiding-list">
-      <li data-reveal><span class="o-year">2022 — 2023</span><span class="o-name">WSET niveau 3 (afgerond) &amp; niveau 2 (certificaat behaald)</span></li>
-      <li data-reveal><span class="o-year">2016</span><span class="o-name">Leergang Krachtig Projectleiderschap</span></li>
-      <li data-reveal><span class="o-year">2007</span><span class="o-name">Opleiding tot Oncologie­verpleegkundige</span></li>
-      <li data-reveal><span class="o-year">2005</span><span class="o-name">Opleiding tot Medium Care-verpleegkundige</span></li>
-      <li data-reveal><span class="o-year">2005</span><span class="o-name">Neurologie- &amp; Neurochirurgie-cursus (certificaat)</span></li>
-      <li data-reveal><span class="o-year">2001 — 2003</span><span class="o-name">Psychologie, Katholieke Universiteit Nijmegen</span></li>
-      <li data-reveal><span class="o-year">2001</span><span class="o-name">ROC — Wiskunde A (vwo 6, diploma)</span></li>
-      <li data-reveal><span class="o-year">1999</span><span class="o-name">HBO-V, Hogeschool Arnhem Nijmegen</span></li>
-      <li data-reveal><span class="o-year">1995</span><span class="o-name">HAVO, Liemers College Zevenaar</span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============== CONTACT ============== -->
-<section id="contact" class="section contact">
-  <div class="wrap">
-    <p class="section-eyebrow" data-reveal>Contact</p>
-    <h2 class="section-title" data-reveal data-reveal-delay="1">
+    <p class="section-eyebrow">Contact</p>
+    <h2 class="section-title">
       Klaar voor een nieuwe opdracht of vrijblijvend
-      <em>kennismakings­gesprek</em>?
+      <em>kennismakings&shy;gesprek</em>?
     </h2>
 
     <div class="contact-grid">
 
-      <a class="contact-card" href="mailto:jayaboland@gmail.com" data-reveal>
+      <a class="contact-card" href="mailto:jayaboland@gmail.com">
         <div class="cc-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -492,7 +557,7 @@
         <div class="cc-value">jayaboland@gmail.com</div>
       </a>
 
-      <a class="contact-card" href="tel:+31619558305" data-reveal data-reveal-delay="1">
+      <a class="contact-card" href="tel:+31619558305">
         <div class="cc-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.13 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.95.36 1.88.7 2.77a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.31-1.31a2 2 0 0 1 2.11-.45c.89.34 1.82.57 2.77.7A2 2 0 0 1 22 16.92z"/>
@@ -502,7 +567,7 @@
         <div class="cc-value">06 19 55 83 05</div>
       </a>
 
-      <a class="contact-card" href="https://www.linkedin.com/in/jaya-boland-5a030719/" rel="external" data-reveal data-reveal-delay="2">
+      <a class="contact-card" href="https://www.linkedin.com/in/jaya-boland-5a030719/" rel="external">
         <div class="cc-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -514,7 +579,7 @@
         <div class="cc-value">jaya-boland</div>
       </a>
 
-      <div class="contact-card contact-card--info" data-reveal data-reveal-delay="3">
+      <div class="contact-card contact-card--info">
         <div class="cc-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -527,12 +592,36 @@
 
     </div>
 
-    <p class="contact-footnote" data-reveal>
+    <p class="contact-footnote">
       KvK 42054346 · Zilver Interim-Management &amp; Advies · Reageer doorgaans
       binnen één werkdag.
     </p>
   </div>
 </section>
+
+<!-- ============== TAB: OPLEIDING ============== -->
+<section id="panel-opleiding" class="section opleiding tab-panel" role="tabpanel" aria-labelledby="tab-opleiding" hidden>
+  <div class="wrap">
+    <p class="section-eyebrow">Opleiding</p>
+    <h2 class="section-title">
+      Een lerende basis — van verpleegkunde tot wijnkennis.
+    </h2>
+
+    <ul class="opleiding-list">
+      <li><span class="o-year">2022 — 2023</span><span class="o-name">WSET niveau 3 (afgerond) &amp; niveau 2 (certificaat behaald)</span></li>
+      <li><span class="o-year">2016</span><span class="o-name">Leergang Krachtig Projectleiderschap</span></li>
+      <li><span class="o-year">2007</span><span class="o-name">Opleiding tot Oncologie&shy;verpleegkundige</span></li>
+      <li><span class="o-year">2005</span><span class="o-name">Opleiding tot Medium Care-verpleegkundige</span></li>
+      <li><span class="o-year">2005</span><span class="o-name">Neurologie- &amp; Neurochirurgie-cursus (certificaat)</span></li>
+      <li><span class="o-year">2001 — 2003</span><span class="o-name">Psychologie, Katholieke Universiteit Nijmegen</span></li>
+      <li><span class="o-year">2001</span><span class="o-name">ROC — Wiskunde A (vwo 6, diploma)</span></li>
+      <li><span class="o-year">1999</span><span class="o-name">HBO-V, Hogeschool Arnhem Nijmegen</span></li>
+      <li><span class="o-year">1995</span><span class="o-name">HAVO, Liemers College Zevenaar</span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
 
 <!-- ============== FOOTER ============== -->
 <footer class="site-footer">
@@ -546,11 +635,12 @@
         <p class="foot-by">Jaya Boland · interim &amp; advies</p>
       </div>
       <div class="foot-links">
-        <a href="#profiel">Profiel</a>
-        <a href="#diensten">Diensten</a>
-        <a href="#ervaring">Ervaring</a>
-        <a href="#opleiding">Opleiding</a>
-        <a href="#contact">Contact</a>
+        <a href="#profiel"   data-foot-tab="profiel">Profiel</a>
+        <a href="#diensten"  data-foot-tab="diensten">Diensten</a>
+        <a href="#aanpak"    data-foot-tab="aanpak">Aanpak</a>
+        <a href="#ervaring"  data-foot-tab="ervaring">Ervaring</a>
+        <a href="#contact"   data-foot-tab="contact">Contact</a>
+        <a href="#opleiding" data-foot-tab="opleiding">Opleiding</a>
       </div>
       <div class="foot-end">
         <a href="https://marcovanthiel.nl/" class="foot-back">← marcovanthiel.nl</a>
@@ -560,6 +650,6 @@
   </div>
 </footer>
 
-<script src="assets/js/app.js?v=2026-05-28-1" defer></script>
+<script src="assets/js/app.js?v=2026-05-28-2" defer></script>
 </body>
 </html>
