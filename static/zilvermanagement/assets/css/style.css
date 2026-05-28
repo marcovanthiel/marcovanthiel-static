@@ -733,23 +733,125 @@ a:hover {
   display: block;
 }
 
-/* === Monogram-fallback (toont automatisch als img mist) === */
+/* === Monogram-fallback (toont automatisch als img mist) ===
+   Premium typografische marks per organisatie. Geen reproductie van
+   echte huisstijl — alleen de naam-letters in eigen Cormorant-italic
+   en zilver-brand-kleurpalet. Per org een eigen treatment voor karakter. */
 .t-logo-monogram {
   position: absolute;
   inset: 6px 0 0;         /* onder de sector-streep */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  padding: 0 6px;
+  text-align: center;
+  gap: 2px;
 }
 .mono-letters {
   font-family: var(--display);
   font-style: italic;
-  font-weight: 600;
-  font-size: 2.2rem;
-  line-height: 1;
+  font-weight: 500;
+  font-size: 2.6rem;
+  line-height: 0.95;
   color: currentColor;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+/* Verfijnde varianten — class-modifiers per organisatie */
+
+/* Lowercase italic — voor vggm, mee */
+.mono-letters--lower {
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+  font-size: 2.05rem;
+  font-weight: 500;
+}
+
+/* Mixed case — vN, aD: lowercase eerste + uppercase tweede */
+.mono-letters--mix .mono-cap {
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-left: -1px;
+}
+
+/* Punt-accent na de letters (Vc. / Hd. / Pr. / Ru.) */
+.mono-period {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  color: currentColor;
+  opacity: 0.55;
+  margin-left: 1px;
+}
+
+/* Degree-treatment voor 22graden (graden = degrees) */
+.mono-letters--deg {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2.55rem;
   letter-spacing: -0.01em;
+}
+.mono-degree {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1rem;
+  vertical-align: top;
+  line-height: 1;
+  margin-left: 2px;
+  color: currentColor;
+  opacity: 0.85;
+}
+.mono-trail {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.95rem;
+  vertical-align: baseline;
+  margin-left: 0;
+  align-self: flex-end;
+  margin-bottom: 0.15rem;
+  opacity: 0.75;
+  color: currentColor;
+}
+
+/* Gestapelde compositie — JC·vSZ */
+.mono-stack-top {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: currentColor;
+}
+.mono-stack-bot {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: currentColor;
+  opacity: 0.65;
+  margin-top: 1px;
+}
+
+/* Onder-strip met org-naam-initialen — geeft "wordmark"-gevoel */
+.mono-tagline {
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: currentColor;
+  opacity: 0.55;
+  line-height: 1;
+  margin-top: 4px;
 }
 
 /* Per-sector kleurcodering — currentColor = sector-kleur, gebruikt
