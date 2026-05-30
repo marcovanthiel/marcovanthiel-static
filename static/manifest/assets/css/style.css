@@ -1,0 +1,508 @@
+/* ------------------------------------------------------------------
+   Een Liberaal Manifest — stylesheet
+   Sober, klassiek, leesbaar. Bordeaux #5a1a1a als enige accentkleur.
+   ------------------------------------------------------------------ */
+
+:root {
+  --bordeaux: #5a1a1a;
+  --bordeaux-soft: #7a2a2a;
+  --bordeaux-bg: #f7f1f0;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-mute: #7a7a7a;
+  --rule: #d8d0c8;
+  --paper: #fdfbf7;
+  --paper-alt: #f4efe8;
+  --sidebar-width: 300px;
+  --content-max: 68ch;
+  --font-serif: "Crimson Pro", "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  font-feature-settings: "kern", "liga", "onum";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------
+   Layout: vaste sidebar links, scrollbare hoofdkolom rechts
+   -------------------------------------------------------------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--paper-alt);
+  border-right: 1px solid var(--rule);
+  padding: 2.25rem 1.75rem 2rem;
+  font-family: var(--font-sans);
+}
+
+.sidebar__brand {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--bordeaux);
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+.sidebar__sub {
+  margin: 0 0 1.5rem;
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sidebar__nav {
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+.sidebar__nav ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: chap;
+}
+
+.sidebar__nav li {
+  counter-increment: chap;
+  margin: 0;
+}
+
+.sidebar__nav a {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  padding: 0.45rem 0.5rem 0.45rem 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  padding-left: 0.7rem;
+  margin-left: -0.7rem;
+  transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.sidebar__nav a::before {
+  content: counter(chap, decimal-leading-zero);
+  font-feature-settings: "tnum";
+  font-size: 0.72rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.06em;
+  min-width: 1.6rem;
+}
+
+.sidebar__nav a:hover {
+  color: var(--bordeaux);
+  background: rgba(90, 26, 26, 0.04);
+}
+
+.sidebar__nav a.is-active {
+  color: var(--bordeaux);
+  border-left-color: var(--bordeaux);
+  font-weight: 600;
+}
+
+.sidebar__nav a.is-active::before {
+  color: var(--bordeaux);
+}
+
+.sidebar__meta {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8rem;
+  color: var(--ink-mute);
+  line-height: 1.55;
+}
+
+.sidebar__meta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  background: var(--bordeaux);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 120ms ease;
+}
+
+.sidebar__meta a:hover { background: var(--bordeaux-soft); }
+
+/* --------------------------------------------------------------
+   Hoofdkolom
+   -------------------------------------------------------------- */
+
+.main {
+  padding: 4rem 4rem 6rem;
+  max-width: calc(var(--content-max) + 8rem);
+}
+
+.hero {
+  margin-bottom: 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--bordeaux);
+  margin: 0 0 1.25rem;
+}
+
+.hero__title {
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  line-height: 1.08;
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.hero__subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.35;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 1.75rem;
+  font-weight: 400;
+}
+
+.hero__byline {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.02em;
+}
+
+.hero__byline strong {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+/* Leeswijzer-blok */
+.leeswijzer {
+  background: var(--paper-alt);
+  border-left: 3px solid var(--bordeaux);
+  padding: 1.6rem 1.8rem;
+  margin: 0 0 3.5rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.leeswijzer h2 {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.75rem;
+  color: var(--bordeaux);
+  font-weight: 600;
+}
+
+.leeswijzer p { margin: 0 0 0.8rem; }
+.leeswijzer p:last-child { margin: 0; }
+
+/* Inhoudsopgave */
+.toc {
+  margin: 0 0 4rem;
+}
+
+.toc__title {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 0 0 1rem;
+  color: var(--bordeaux);
+  font-weight: 600;
+}
+
+.toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: tocnum;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.35rem 1.5rem;
+}
+
+.toc li {
+  counter-increment: tocnum;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.toc a {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.5rem 0;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1rem;
+  align-items: baseline;
+}
+
+.toc a::before {
+  content: counter(tocnum, decimal-leading-zero);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.06em;
+  font-feature-settings: "tnum";
+  min-width: 1.8rem;
+}
+
+.toc a:hover {
+  color: var(--bordeaux);
+}
+
+/* --------------------------------------------------------------
+   Hoofdstukken
+   -------------------------------------------------------------- */
+
+.chapter {
+  margin: 0 0 5rem;
+  scroll-margin-top: 1rem;
+}
+
+.chapter + .chapter {
+  padding-top: 4rem;
+  border-top: 1px solid var(--rule);
+}
+
+.chapter__number {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+}
+
+.chapter__title {
+  font-size: clamp(1.9rem, 3.2vw, 2.4rem);
+  line-height: 1.12;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  max-width: var(--content-max);
+}
+
+.chapter__intro {
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--bordeaux);
+  margin: 0 0 2.25rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--bordeaux);
+  max-width: var(--content-max);
+}
+
+.chapter h3 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bordeaux);
+  margin: 2.4rem 0 0.6rem;
+  max-width: var(--content-max);
+}
+
+.chapter p {
+  margin: 0 0 1.1rem;
+  max-width: var(--content-max);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.chapter__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ink-mute);
+  padding-bottom: 2px;
+}
+
+.chapter__back:hover {
+  color: var(--bordeaux);
+  border-bottom-color: var(--bordeaux);
+}
+
+/* --------------------------------------------------------------
+   Status-blok onderaan
+   -------------------------------------------------------------- */
+
+.status {
+  margin-top: 5rem;
+  padding-top: 2.5rem;
+  border-top: 2px solid var(--bordeaux);
+  max-width: var(--content-max);
+}
+
+.status h2 {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--bordeaux);
+  margin: 0 0 1rem;
+  font-weight: 600;
+}
+
+.status p {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------
+   Mobiel
+   -------------------------------------------------------------- */
+
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 0.9rem;
+  right: 0.9rem;
+  z-index: 100;
+  background: var(--bordeaux);
+  color: #fff;
+  border: 0;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(85vw, 320px);
+    z-index: 90;
+    transform: translateX(-100%);
+    transition: transform 220ms ease;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+  }
+
+  .sidebar.is-open { transform: translateX(0); }
+
+  .menu-toggle { display: inline-flex; align-items: center; }
+
+  .main {
+    padding: 4.5rem 1.5rem 4rem;
+  }
+
+  .hero__title { font-size: 2rem; }
+  .toc ol { grid-template-columns: 1fr; }
+  .chapter { margin-bottom: 3.5rem; }
+  .chapter + .chapter { padding-top: 2.5rem; }
+  body { font-size: 1.05rem; }
+}
+
+@media (max-width: 480px) {
+  .main { padding: 4.5rem 1.1rem 3rem; }
+  .leeswijzer { padding: 1.25rem 1.25rem; }
+  .chapter__intro { font-size: 1.08rem; padding-left: 0.9rem; }
+}
+
+/* --------------------------------------------------------------
+   Backdrop voor mobiele open sidebar
+   -------------------------------------------------------------- */
+
+.backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 80;
+}
+
+.backdrop.is-visible { display: block; }
+
+/* --------------------------------------------------------------
+   Print-stylesheet
+   -------------------------------------------------------------- */
+
+@media print {
+  :root { --paper: #fff; --paper-alt: #fff; }
+  body { font-size: 11pt; line-height: 1.5; color: #000; background: #fff; }
+  .sidebar, .menu-toggle, .backdrop, .chapter__back, .sidebar__meta a { display: none !important; }
+  .layout { grid-template-columns: 1fr; display: block; }
+  .main { padding: 0; max-width: none; }
+  .hero { page-break-after: avoid; }
+  .chapter { page-break-inside: avoid; margin: 0 0 1.5rem; padding: 0; border-top: 0; }
+  .chapter + .chapter { border-top: 0; padding-top: 0.8rem; page-break-before: auto; }
+  .chapter__title, h2, h3 { page-break-after: avoid; }
+  a { color: #000; text-decoration: none; }
+  .leeswijzer { border-left: 2px solid #000; background: #f5f5f5; }
+  .chapter__intro { color: #000; border-left-color: #000; }
+  .chapter__number, .chapter h3, .toc__title, .leeswijzer h2, .status h2 { color: #000; }
+}
+
+/* --------------------------------------------------------------
+   Subtiele leesfocus (tap highlight uit)
+   -------------------------------------------------------------- */
+
+a:focus-visible {
+  outline: 2px solid var(--bordeaux);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
