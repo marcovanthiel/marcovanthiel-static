@@ -2,8 +2,8 @@
   const sidebar = document.querySelector('.sidebar');
   const toggle = document.querySelector('.menu-toggle');
   const backdrop = document.querySelector('.backdrop');
-  const navLinks = document.querySelectorAll('.sidebar__nav a');
-  const chapters = document.querySelectorAll('.chapter');
+  const navLinks = document.querySelectorAll('.sidebar__nav a, .sidebar__nav-opening');
+  const chapters = document.querySelectorAll('.chapter, .opening');
 
   function closeSidebar() {
     sidebar.classList.remove('is-open');
