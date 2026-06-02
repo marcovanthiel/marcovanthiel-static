@@ -15,9 +15,11 @@
   // Nieuwe talen toevoegen = entry hier + vertaling in HTML.
   // -----------------------------------------------------
   var LANG_CONFIG = {
-    nl: { label: 'NL', theme: 'theme-blue', title: 'Nederlands' },
-    de: { label: 'DE', theme: 'theme-gold', title: 'Deutsch'    },
-    en: { label: 'EN', theme: '',           title: 'English'    }
+    nl: { label: 'NL', theme: 'theme-blue',  title: 'Nederlands'        },
+    de: { label: 'DE', theme: 'theme-gold',  title: 'Deutsch'           },
+    en: { label: 'EN', theme: '',            title: 'English'           },
+    zh: { label: '中', theme: 'theme-jade',  title: '中文 · Chinese'     },
+    id: { label: 'ID', theme: 'theme-spice', title: 'Bahasa Indonesia'  }
   };
   var DEFAULT_LANG = 'nl';
   var STORAGE_KEY  = 'mvt-fundraising-lang';
@@ -110,7 +112,7 @@
     document.documentElement.setAttribute('lang', lang);
     var body = document.body;
     // Verwijder alle theme-* classes, voeg de juiste toe
-    body.classList.remove('theme-blue', 'theme-red', 'theme-gold');
+    body.classList.remove('theme-blue', 'theme-red', 'theme-gold', 'theme-jade', 'theme-spice');
     if (cfg.theme) body.classList.add(cfg.theme);
     // Update knop-toestand
     var btns = document.querySelectorAll('[data-lang-switch] button[data-lang]');
