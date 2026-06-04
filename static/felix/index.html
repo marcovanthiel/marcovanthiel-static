@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Felix Jagtenborg · presentatie</title>
+<meta name="description" content="Doorlopende fotopresentatie van Felix Jagtenborg — selectie 13 mei 2026." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#0a0a0a" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='40' fill='%23e8c878' text-anchor='middle' font-style='italic'%3EF%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026-06-04-1" />
+</head>
+<body>
+
+<div class="stage" id="stage">
+  <!-- Two stacked image layers for crossfade -->
+  <div class="slide slide-a is-active" id="slide-a">
+    <img alt="" decoding="async" />
+  </div>
+  <div class="slide slide-b" id="slide-b">
+    <img alt="" decoding="async" />
+  </div>
+
+  <!-- Loading state -->
+  <div class="loader" id="loader" aria-live="polite">
+    <div class="loader-ring"></div>
+    <p>Foto's laden…</p>
+  </div>
+
+  <!-- Top bar -->
+  <header class="top-bar" id="top-bar">
+    <div class="title">
+      <span class="title-main">Felix Jagtenborg</span>
+      <span class="title-sub">Rotary · selectie 13 mei 2026</span>
+    </div>
+    <div class="counter">
+      <span id="counter-now">—</span>
+      <span class="sep">/</span>
+      <span id="counter-total">—</span>
+    </div>
+  </header>
+
+  <!-- Progress bar -->
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+  <!-- Side click-zones for prev/next -->
+  <button class="zone zone-prev" id="zone-prev" aria-label="Vorige foto" tabindex="-1"></button>
+  <button class="zone zone-next" id="zone-next" aria-label="Volgende foto" tabindex="-1"></button>
+
+  <!-- Bottom controls -->
+  <footer class="controls" id="controls">
+    <button class="btn btn-icon" id="btn-prev" aria-label="Vorige (←)" title="Vorige (←)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="btn btn-icon btn-play" id="btn-play" aria-label="Pauze (spatie)" title="Pauze / afspelen (spatie)" data-state="playing">
+      <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z" fill="currentColor"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>
+    </button>
+    <button class="btn btn-icon" id="btn-next" aria-label="Volgende (→)" title="Volgende (→)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <span class="divider" aria-hidden="true"></span>
+    <label class="speed" title="Tijd per foto">
+      <span>Snelheid</span>
+      <select id="speed-select" aria-label="Seconden per foto">
+        <option value="3">3 s</option>
+        <option value="5" selected>5 s</option>
+        <option value="7">7 s</option>
+        <option value="10">10 s</option>
+        <option value="15">15 s</option>
+      </select>
+    </label>
+    <span class="divider" aria-hidden="true"></span>
+    <button class="btn btn-icon" id="btn-shuffle" aria-label="Willekeurig (S)" title="Willekeurig (S)" data-state="off">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3l3 4-3 4H3M15 7h3l3 4-3 4h-3M14 7l-4 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 4l2 3-2 3M19 14l2 3-2 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="btn btn-icon" id="btn-fullscreen" aria-label="Schermvullend (F)" title="Schermvullend (F · dubbelklik)">
+      <svg class="icon-enter-fs" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-exit-fs" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="btn btn-icon" id="btn-help" aria-label="Hulp (?)" title="Sneltoetsen (?)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 9a3 3 0 1 1 4.5 2.6c-.9.5-1.5 1-1.5 2.4M12 17.5v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </footer>
+
+  <!-- Help overlay -->
+  <div class="help" id="help" hidden>
+    <div class="help-card">
+      <h2>Sneltoetsen</h2>
+      <dl>
+        <dt><kbd>←</kbd> / <kbd>→</kbd></dt><dd>vorige · volgende foto</dd>
+        <dt><kbd>spatie</kbd></dt><dd>pauze · afspelen</dd>
+        <dt><kbd>F</kbd> · dubbelklik</dt><dd>schermvullend toggle</dd>
+        <dt><kbd>S</kbd></dt><dd>willekeurige volgorde</dd>
+        <dt><kbd>Home</kbd> / <kbd>End</kbd></dt><dd>eerste · laatste foto</dd>
+        <dt><kbd>1</kbd>–<kbd>5</kbd></dt><dd>snelheid 3/5/7/10/15 s</dd>
+        <dt><kbd>Esc</kbd></dt><dd>fullscreen verlaten · help sluiten</dd>
+        <dt>klik links · rechts</dt><dd>vorige · volgende</dd>
+      </dl>
+      <p class="help-foot">Tip: pauzeer op een foto die je wil bespreken.</p>
+      <button class="btn btn-text" id="btn-help-close">Sluiten</button>
+    </div>
+  </div>
+
+  <!-- Error state -->
+  <div class="error" id="error" hidden>
+    <p id="error-msg">Kon de foto's niet laden.</p>
+  </div>
+</div>
+
+<script src="assets/js/slideshow.js?v=2026-06-04-1" defer></script>
+</body>
+</html>
