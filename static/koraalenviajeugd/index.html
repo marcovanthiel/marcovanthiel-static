@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cultuurmeting Koraal &amp; Via Jeugd (OCAI)</title>
+<style>
+  :root { --blauw:#004289; --dblauw:#003366; --cyaan:#009DDF; --groen:#4FAE32;
+          --kaart:#E5F1FA; --zacht:#F2F8FD; --grijs:#555; }
+  * { box-sizing:border-box; }
+  body { font-family:Arial,Helvetica,sans-serif; margin:0; background:#fff; color:#333; }
+  .wrap { max-width:880px; margin:0 auto; padding:18px 16px 60px; }
+  header { display:flex; justify-content:space-between; align-items:center; gap:12px;
+           padding:14px 0 10px; border-bottom:3px solid var(--cyaan); }
+  header img { height:34px; }
+  h1 { color:var(--blauw); font-size:1.45em; margin:18px 0 4px; }
+  .sub { color:#666; font-style:italic; margin:0 0 18px; font-size:.95em; }
+  h2 { color:var(--blauw); font-size:1.1em; margin:26px 0 8px; }
+  .kaart { background:var(--zacht); border-radius:10px; padding:14px 16px; margin:0 0 16px; }
+  .uitleg { font-size:.95em; line-height:1.45; }
+  /* organisatiekeuze */
+  .orgknoppen { display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 6px; }
+  .orgknop { flex:1 1 200px; border:2px solid var(--blauw); border-radius:10px; background:#fff;
+             padding:16px 10px; font-size:1.05em; font-weight:bold; color:var(--blauw);
+             cursor:pointer; text-align:center; }
+  .orgknop.actief { background:var(--blauw); color:#fff; }
+  .orgknop.vj.actief { background:var(--groen); border-color:var(--groen); }
+  input[type=text] { width:100%; padding:9px; border:1px solid #BBD4EA; border-radius:7px; font-size:1em; }
+  /* dimensietabellen */
+  .dim { border:1px solid #C9DCEF; border-radius:10px; overflow:hidden; margin:0 0 18px; }
+  .dim .kop { background:var(--blauw); color:#fff; padding:9px 14px; font-weight:bold; }
+  .rij { display:grid; grid-template-columns:34px 1fr 86px 86px; gap:0; align-items:center;
+         padding:8px 10px; border-top:1px solid #E4EFF8; }
+  .rij.even { background:var(--zacht); }
+  .rij .ltr { font-weight:bold; color:var(--cyaan); text-align:center; }
+  .rij .st { font-size:.92em; padding-right:8px; line-height:1.35; }
+  .rij input { width:74px; padding:7px 6px; text-align:center; border:1px solid #BBD4EA;
+               border-radius:7px; font-size:1em; }
+  .kolomkop { display:grid; grid-template-columns:34px 1fr 86px 86px; padding:6px 10px;
+              background:var(--kaart); font-size:.82em; font-weight:bold; color:var(--dblauw); }
+  .kolomkop span:nth-child(3), .kolomkop span:nth-child(4) { text-align:center; }
+  .totaalrij { display:grid; grid-template-columns:34px 1fr 86px 86px; padding:8px 10px;
+               background:var(--kaart); font-weight:bold; font-size:.92em; align-items:center; }
+  .badge { text-align:center; border-radius:7px; padding:5px 0; background:#fff; border:1px solid #BBD4EA; }
+  .badge.goed { background:#E4F4E0; border-color:var(--groen); color:#2E7D1E; }
+  .badge.fout { background:#FDEBEA; border-color:#D9534F; color:#B52B27; }
+  .knop { display:inline-block; background:var(--blauw); color:#fff; border:none; border-radius:9px;
+          padding:13px 26px; font-size:1.05em; font-weight:bold; cursor:pointer; }
+  .knop:disabled { background:#9FB8D2; cursor:not-allowed; }
+  .hint { font-size:.88em; color:#8A6D1A; background:#FFF6DE; border-radius:8px; padding:9px 12px;
+          margin:8px 0 0; display:none; }
+  /* resultaat */
+  #resultaat { display:none; }
+  table.res { border-collapse:collapse; width:100%; margin:8px 0 16px; }
+  table.res th, table.res td { border:1px solid #C9DCEF; padding:7px 10px; text-align:center; font-size:.95em; }
+  table.res th { background:var(--blauw); color:#fff; }
+  table.res td:first-child { text-align:left; font-weight:bold; color:var(--dblauw); }
+  table.res tr:nth-child(even) td { background:var(--zacht); }
+  .legenda { font-size:.85em; color:var(--grijs); margin-top:6px; }
+  .legenda b { color:var(--blauw); }
+  svg text { font-family:Arial,Helvetica,sans-serif; }
+  @media (max-width:560px){
+    .rij, .kolomkop, .totaalrij { grid-template-columns:26px 1fr 64px 64px; }
+    .rij input { width:56px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <img src="koraal_logo.png" alt="Koraal">
+  <img src="vj_logo_ok.png" alt="Via Jeugd">
+</header>
+
+<h1>Cultuurmeting Koraal &amp; Via Jeugd</h1>
+<p class="sub">OCAI (Cameron &amp; Quinn) &middot; programma invlechting &middot; anoniem &middot; ca. 10 minuten</p>
+
+<div id="formulier">
+
+  <div class="kaart uitleg">
+    <b>Zo werkt het.</b> Hieronder staan zes onderwerpen met telkens vier uitspraken.
+    Verdeel per onderwerp <b>100 punten</b> over de vier uitspraken: hoe beter een uitspraak past,
+    hoe meer punten. Doe dit twee keer &ndash; in de kolom <b>Nu</b> voor de organisatie zoals die nu is,
+    in de kolom <b>Gewenst</b> zoals u haar over twee jaar het liefst ziet.
+    Er zijn geen goede of foute antwoorden; het gaat om uw eigen beeld.
+  </div>
+
+  <h2>1. Bij welke organisatie werkt u?</h2>
+  <div class="orgknoppen">
+    <button type="button" class="orgknop" id="knopKoraal" onclick="kiesOrg('Koraal')">Koraal</button>
+    <button type="button" class="orgknop vj" id="knopVJ" onclick="kiesOrg('Via Jeugd')">Via Jeugd</button>
+  </div>
+  <p style="margin:12px 0 4px;font-size:.93em;"><b>Team of afdeling</b> (niet verplicht):</p>
+  <input type="text" id="team" maxlength="80" placeholder="bijv. ambulant team Zuid, HR, financi&#235;n &hellip;">
+
+  <h2 style="margin-top:30px;">2. Verdeel per onderwerp 100 punten (Nu &eacute;n Gewenst)</h2>
+  <div id="dimensies"></div>
+
+  <div class="hint" id="hint"></div>
+  <p style="margin-top:18px;">
+    <button class="knop" id="verstuur" onclick="verstuur()" disabled>Bekijk mijn resultaat</button>
+  </p>
+</div>
+
+<div id="resultaat">
+  <h2>3. Uw persoonlijke cultuurprofiel</h2>
+  <div class="kaart uitleg" id="duiding"></div>
+  <table class="res" id="restabel"></table>
+  <div id="grafiek" style="text-align:center;"></div>
+  <p class="legenda">
+    <b>Familie</b> = mensgericht en informeel &middot; <b>Adhocratie</b> = ondernemend en vernieuwend &middot;
+    <b>Markt</b> = resultaatgericht (positie bij opdrachtgevers/gemeenten) &middot; <b>Hi&euml;rarchie</b> = procedureel en geborgd
+  </p>
+  <div class="kaart uitleg" style="margin-top:14px;">
+    <b>Bedankt voor het invullen!</b> Uw antwoorden zijn anoniem opgeslagen en worden samen met die van
+    uw collega&rsquo;s gebruikt in het cultuurtraject van de invlechting. Het gesprek over de uitkomsten
+    voeren we met elkaar &ndash; onder meer tijdens de medewerkersbijeenkomsten.
+  </div>
+</div>
+
+</div>
+<script>
+const DIMS = [
+ ["Dominante kenmerken", [
+  "De organisatie is heel persoonlijk, als een grote familie; mensen delen veel met elkaar.",
+  "De organisatie is dynamisch en ondernemend; mensen durven hun nek uit te steken en pakken kansen.",
+  "De organisatie is resultaatgericht; het werk afkrijgen telt; mensen zijn prestatiegericht.",
+  "De organisatie is beheerst en gestructureerd; formele procedures bepalen in hoge mate het handelen."]],
+ ["De leiding van de organisatie", [
+  "De leiding wordt gezien als mentor en coach: faciliteren, ondersteunen en zorgen voor mensen.",
+  "De leiding staat voor ondernemerschap, vernieuwing en het durven nemen van risico's.",
+  "De leiding is no-nonsense, ambitieus en stuurt scherp op resultaten.",
+  "De leiding co\u00f6rdineert en organiseert en zorgt dat processen soepel en voorspelbaar verlopen."]],
+ ["Omgang met medewerkers", [
+  "De stijl kenmerkt zich door teamwerk, consensus en participatie.",
+  "De stijl kenmerkt zich door ruimte voor eigen initiatief, vrijheid en eigenheid.",
+  "De stijl kenmerkt zich door hoge eisen, prestatiegerichtheid en onderlinge wedijver.",
+  "De stijl kenmerkt zich door zekerheid, voorspelbaarheid en stabiele arbeidsverhoudingen."]],
+ ["Het bindmiddel van de organisatie", [
+  "Loyaliteit en onderling vertrouwen houden de organisatie bijeen; betrokkenheid staat hoog in het vaandel.",
+  "Betrokkenheid bij vernieuwing en ontwikkeling houdt de organisatie bijeen; we willen vooroplopen.",
+  "De nadruk op prestaties en het behalen van doelen houdt de organisatie bijeen.",
+  "Formele regels, beleid en een soepel draaiende organisatie houden het geheel bijeen."]],
+ ["Strategische accenten", [
+  "De organisatie legt de nadruk op ontwikkeling van mensen, vertrouwen, openheid en participatie.",
+  "De organisatie legt de nadruk op nieuwe mogelijkheden aanboren, experimenteren en kansen pakken.",
+  "De organisatie legt de nadruk op prestaties, ambitieuze doelen en een sterke positie bij opdrachtgevers en gemeenten.",
+  "De organisatie legt de nadruk op continu\u00efteit, stabiliteit, doelmatigheid en beheersing."]],
+ ["Succescriteria", [
+  "Succes betekent: ontwikkeling van medewerkers, sterk teamwerk en goede zorg voor mensen.",
+  "Succes betekent: vernieuwend aanbod en vooroplopen in het werkveld.",
+  "Succes betekent: een sterke positie bij opdrachtgevers en het halen van doelen en productie.",
+  "Succes betekent: betrouwbaarheid, doelmatige processen, goede planning en geborgde kwaliteit."]]
+];
+const LETTERS = ["A","B","C","D"];
+const TYPEN = {A:"Familie", B:"Adhocratie", C:"Markt", D:"Hi\u00ebrarchie"};
+let organisatie = null;
+
+function kiesOrg(o){
+  organisatie = o;
+  document.getElementById('knopKoraal').classList.toggle('actief', o==='Koraal');
+  document.getElementById('knopVJ').classList.toggle('actief', o==='Via Jeugd');
+  controleer();
+}
+
+function bouw(){
+  const houder = document.getElementById('dimensies');
+  DIMS.forEach((d,i)=>{
+    const blok = document.createElement('div'); blok.className='dim';
+    let html = `<div class="kop">${i+1}. ${d[0]}</div>
+      <div class="kolomkop"><span></span><span></span><span>Nu</span><span>Gewenst</span></div>`;
+    d[1].forEach((st,j)=>{
+      html += `<div class="rij ${j%2? 'even':''}">
+        <span class="ltr">${LETTERS[j]}</span>
+        <span class="st">${st}</span>
+        <input type="number" min="0" max="100" step="5" inputmode="numeric" id="d${i}n${j}" oninput="controleer()">
+        <input type="number" min="0" max="100" step="5" inputmode="numeric" id="d${i}g${j}" oninput="controleer()">
+      </div>`;
+    });
+    html += `<div class="totaalrij"><span></span><span style="text-align:right;padding-right:8px;">Totaal (moet 100 zijn)</span>
+      <span class="badge" id="t${i}n">0</span><span class="badge" id="t${i}g">0</span></div>`;
+    blok.innerHTML = html;
+    houder.appendChild(blok);
+  });
+}
+
+function som(i, ronde){
+  let s = 0, leeg = 0;
+  for (let j=0;j<4;j++){
+    const v = document.getElementById(`d${i}${ronde}${j}`).value;
+    if (v === '') leeg++;
+    s += Number(v||0);
+  }
+  return {s, leeg};
+}
+
+function controleer(){
+  let alles = true;
+  for (let i=0;i<6;i++){
+    for (const r of ['n','g']){
+      const {s, leeg} = som(i,r);
+      const b = document.getElementById(`t${i}${r}`);
+      b.textContent = s;
+      b.className = 'badge ' + (s===100 ? 'goed' : (s>0||leeg<4 ? 'fout' : ''));
+      if (s!==100) alles = false;
+    }
+  }
+  if (!organisatie) alles = false;
+  document.getElementById('verstuur').disabled = !alles;
+  const hint = document.getElementById('hint');
+  if (!alles){
+    hint.style.display='block';
+    hint.textContent = !organisatie
+      ? 'Kies eerst uw organisatie (Koraal of Via Jeugd).'
+      : 'De knop wordt actief zodra elke verdeling (Nu \u00e9n Gewenst) precies op 100 punten uitkomt.';
+  } else hint.style.display='none';
+}
+
+function profiel(){
+  const p = {nu:{}, gewenst:{}};
+  for (const L of LETTERS){ p.nu[L]=0; p.gewenst[L]=0; }
+  for (let i=0;i<6;i++) for (let j=0;j<4;j++){
+    p.nu[LETTERS[j]]      += Number(document.getElementById(`d${i}n${j}`).value||0);
+    p.gewenst[LETTERS[j]] += Number(document.getElementById(`d${i}g${j}`).value||0);
+  }
+  for (const L of LETTERS){ p.nu[L]=Math.round(p.nu[L]/6*10)/10; p.gewenst[L]=Math.round(p.gewenst[L]/6*10)/10; }
+  return p;
+}
+
+function vlieger(profielen, breed){
+  // profielen: [{p:{A,B,C,D}, kleur, naam, stippel}]
+  const W=breed||440, H=W, C=W/2, S=(W/2-58)/60; // schaal: 60 punten = rand
+  const dir = {A:[-1,1], B:[1,1], C:[1,-1], D:[-1,-1]}; // Familie lb? nee: A familie linksboven
+  const pt = (L,v)=>{ const f=v*S/Math.SQRT2; return [C+dir[L][0]*f, C-dir[L][1]*f]; };
+  let s = `<svg width="${W}" height="${H+34}" viewBox="0 0 ${W} ${H+34}" xmlns="http://www.w3.org/2000/svg">`;
+  s += `<rect x="${C-60*S/Math.SQRT2}" y="${C-60*S/Math.SQRT2}" width="${120*S/Math.SQRT2}" height="${120*S/Math.SQRT2}" fill="#F4FAFD"/>`;
+  for (const v of [20,40,60]) s += `<circle cx="${C}" cy="${C}" r="${v*S}" fill="none" stroke="#DDE9F4" stroke-dasharray="3 4"/>`;
+  s += `<line x1="${C-62*S/Math.SQRT2}" y1="${C}" x2="${C+62*S/Math.SQRT2}" y2="${C}" stroke="#BBC9D8"/>`;
+  s += `<line x1="${C}" y1="${C-62*S/Math.SQRT2}" x2="${C}" y2="${C+62*S/Math.SQRT2}" stroke="#BBC9D8"/>`;
+  for (const pr of profielen){
+    const pts = LETTERS.map(L=>pt(L,pr.p[L]).join(',')).join(' ');
+    s += `<polygon points="${pts}" fill="${pr.stippel?'none':pr.kleur}" fill-opacity="0.15"
+          stroke="${pr.kleur}" stroke-width="3" ${pr.stippel?'stroke-dasharray="8 6"':''}/>`;
+  }
+  const lab = (t,x,y,anch)=>`<text x="${x}" y="${y}" font-size="13" font-weight="bold" fill="#004289" text-anchor="${anch}">${t}</text>`;
+  s += lab('FAMILIE', 14, 18, 'start') + lab('ADHOCRATIE', W-14, 18, 'end');
+  s += lab('HI\u00cbRARCHIE', 14, H-6, 'start') + lab('MARKT', W-14, H-6, 'end');
+  let lx = 10;
+  for (const pr of profielen){
+    s += `<line x1="${lx}" y1="${H+22}" x2="${lx+26}" y2="${H+22}" stroke="${pr.kleur}" stroke-width="3" ${pr.stippel?'stroke-dasharray="8 6"':''}/>`;
+    s += `<text x="${lx+32}" y="${H+26}" font-size="12" fill="#333">${pr.naam}</text>`;
+    lx += 36 + pr.naam.length*6.4 + 18;
+  }
+  return s + '</svg>';
+}
+
+function dominant(p){ let m='A'; for (const L of LETTERS) if (p[L]>p[m]) m=L; return m; }
+
+async function verstuur(){
+  document.getElementById('verstuur').disabled = true;
+  const scores = [];
+  for (let i=0;i<6;i++){
+    const dim = {nu:{}, gewenst:{}};
+    for (let j=0;j<4;j++){
+      dim.nu[LETTERS[j]]      = Number(document.getElementById(`d${i}n${j}`).value||0);
+      dim.gewenst[LETTERS[j]] = Number(document.getElementById(`d${i}g${j}`).value||0);
+    }
+    scores.push(dim);
+  }
+  const p = profiel();
+  try {
+    await fetch('/api/koraalenviajeugd/opslaan', { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ organisatie, team: document.getElementById('team').value, scores }) });
+  } catch(e) { /* resultaat toch tonen */ }
+
+  // resultaat tonen
+  document.getElementById('formulier').style.display='none';
+  const res = document.getElementById('resultaat'); res.style.display='block';
+  let t = `<tr><th>Cultuurtype</th><th>Nu</th><th>Gewenst</th><th>Verschil</th></tr>`;
+  for (const L of LETTERS){
+    const d = Math.round((p.gewenst[L]-p.nu[L])*10)/10;
+    t += `<tr><td>${TYPEN[L]}</td><td>${p.nu[L]}</td><td>${p.gewenst[L]}</td>
+          <td>${d>0?'+':''}${d}</td></tr>`;
+  }
+  document.getElementById('restabel').innerHTML = t;
+  const kleur = organisatie==='Via Jeugd' ? '#4FAE32' : '#004289';
+  document.getElementById('grafiek').innerHTML = vlieger([
+    {p:p.nu, kleur, naam:'Nu', stippel:false},
+    {p:p.gewenst, kleur:'#009DDF', naam:'Gewenst', stippel:true}
+  ], Math.min(460, document.querySelector('.wrap').clientWidth-20));
+  const dn = dominant(p.nu), dg = dominant(p.gewenst);
+  let duiding = `In uw beeld is de cultuur nu vooral een <b>${TYPEN[dn].toLowerCase()}cultuur</b>`;
+  duiding += dn===dg
+    ? `, en dat blijft ook in uw gewenste beeld het zwaartepunt &ndash; kijk vooral naar de verschuivingen in de tabel.`
+    : `; in uw gewenste beeld verschuift het zwaartepunt naar een <b>${TYPEN[dg].toLowerCase()}cultuur</b>.`;
+  document.getElementById('duiding').innerHTML = duiding;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+bouw(); controleer();
+</script>
+</body>
+</html>
