@@ -9,7 +9,7 @@
 <title>Cultuurmeting Koraal &amp; Via Jeugd (OCAI)</title>
 <link rel="mask-icon" href="/koraalenviajeugd/favicon/safari-pinned-tab.svg?v=2" color="#00a7e7">
 <link rel="shortcut icon" href="/koraalenviajeugd/favicon/favicon.ico?v=2">
-<link rel="stylesheet" href="/koraalenviajeugd/assets/stijl.css?v=2">
+<link rel="stylesheet" href="/koraalenviajeugd/assets/stijl.css?v=3">
 </head>
 <body>
 
@@ -287,11 +287,14 @@ async function verstuur(){
     {p:p.gewenst, kleur:'#009DDF', naam:'Gewenst', stippel:true}
   ], Math.min(420, document.getElementById('grafiek').clientWidth-30));
   const dn = dominant(p.nu), dg = dominant(p.gewenst);
-  let duiding = `<span class="dombadge" style="background:${TYPEKLEUR[dn]}">${TYPEN[dn]}cultuur</span> <span style="display:inline-block;margin-top:8px;"></span><br>
-    In jouw beeld is de cultuur nu vooral een <b>${TYPEN[dn].toLowerCase()}cultuur</b>`;
+  let duiding = `<div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px;">
+      <span class="dombadge" style="background:${TYPEKLEUR[dn]}">${TYPEN[dn]}cultuur</span>
+      <span style="color:var(--muted); font-size:.9em;">jouw dominante cultuurtype &middot; nu</span>
+    </div>
+    <p style="margin:0;">In jouw beeld is de cultuur nu vooral een <b>${TYPEN[dn].toLowerCase()}cultuur</b>`;
   duiding += dn===dg
-    ? `, en dat blijft ook in jouw gewenste beeld het zwaartepunt &ndash; kijk vooral naar de verschuivingen in de tabel.`
-    : `; in jouw gewenste beeld verschuift het zwaartepunt naar een <b>${TYPEN[dg].toLowerCase()}cultuur</b>.`;
+    ? `, en dat blijft ook in je gewenste beeld het zwaartepunt &ndash; kijk vooral naar de verschuivingen in de tabel.</p>`
+    : `; in je gewenste beeld verschuift het zwaartepunt naar een <b>${TYPEN[dg].toLowerCase()}cultuur</b>.</p>`;
   document.getElementById('duiding').innerHTML = duiding;
   window.scrollTo({top:0, behavior:'smooth'});
 }

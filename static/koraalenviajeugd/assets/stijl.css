@@ -162,6 +162,7 @@ tr.klikbaar:hover td{background:var(--kaart);}
 table.res td:first-child{text-align:left; font-weight:700; color:var(--dblauw);}
 
 /* ---- resultaat-layout ---- */
+#resultaat{display:none;} /* pas tonen na verzenden (JS zet display:block) */
 .resgrid{display:grid; grid-template-columns:1.05fr .95fr; gap:18px; align-items:start;}
 @media (max-width:680px){ .resgrid{grid-template-columns:1fr;} }
 .legenda{font-size:.86em; color:var(--muted); margin-top:8px; line-height:1.5;}
