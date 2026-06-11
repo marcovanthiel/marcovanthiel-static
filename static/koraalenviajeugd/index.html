@@ -9,7 +9,7 @@
 <title>Cultuurmeting Koraal &amp; Via Jeugd (OCAI)</title>
 <link rel="mask-icon" href="/koraalenviajeugd/favicon/safari-pinned-tab.svg?v=2" color="#00a7e7">
 <link rel="shortcut icon" href="/koraalenviajeugd/favicon/favicon.ico?v=2">
-<link rel="stylesheet" href="/koraalenviajeugd/assets/stijl.css?v=3">
+<link rel="stylesheet" href="/koraalenviajeugd/assets/stijl.css?v=4">
 </head>
 <body>
 
@@ -147,8 +147,8 @@ function bouw(){
       const L = LETTERS[j];
       html += `<div class="rij">
         <span class="st"><span class="ltr" style="background:${TYPEKLEUR[L]}">${L}</span>${st}</span>
-        <input type="number" min="0" max="100" step="5" inputmode="numeric" placeholder="0" id="d${i}n${j}" oninput="controleer()">
-        <input type="number" min="0" max="100" step="5" inputmode="numeric" placeholder="0" id="d${i}g${j}" oninput="controleer()">
+        <label class="invul"><span class="cap">Nu</span><input type="number" min="0" max="100" step="5" inputmode="numeric" placeholder="0" id="d${i}n${j}" oninput="controleer()"></label>
+        <label class="invul"><span class="cap">Gewenst</span><input type="number" min="0" max="100" step="5" inputmode="numeric" placeholder="0" id="d${i}g${j}" oninput="controleer()"></label>
       </div>`;
     });
     const seg = r => LETTERS.map((L,j)=>`<i id="b${i}${r}${j}" style="background:${TYPEKLEUR[L]}"></i>`).join('');

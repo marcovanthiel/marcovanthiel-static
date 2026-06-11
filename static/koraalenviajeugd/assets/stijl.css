@@ -125,6 +125,11 @@ input:focus{outline:none; border-color:var(--cyaan); box-shadow:0 0 0 3px rgba(0
   font-size:1.02em; -moz-appearance:textfield;}
 .rij input::-webkit-outer-spin-button,.rij input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
 .rij input:not(:placeholder-shown){background:var(--zacht);}
+/* invulveld-wrapper: op desktop alleen het veld (kolomkop geeft Nu/Gewenst),
+   op mobiel met zichtbaar label erboven (zie media-query) */
+.invul{display:block;}
+.invul .cap{display:none; font-size:.72em; font-weight:700; text-transform:uppercase;
+  letter-spacing:.03em; color:var(--muted); margin-bottom:2px;}
 .dimfoot{padding:10px 16px 15px; border-top:1px solid #EDF4FA; background:var(--zacht);}
 .dimfoot .totrij{display:grid; grid-template-columns:1fr 78px 78px; gap:8px; align-items:center; font-size:.9em;}
 .dimfoot .totlabel{font-weight:700; color:var(--dblauw); text-align:right; padding-right:4px;}
@@ -228,5 +233,14 @@ svg text{font-family:var(--font);}
 @media (max-width:560px){
   .hero{padding:22px 18px 24px;}
   .orgknoppen{grid-template-columns:1fr;}
-  .kolomkop,.rij,.dimfoot .totrij,.balken{grid-template-columns:1fr 60px 60px;}
+  .dimfoot .totrij,.balken{grid-template-columns:1fr 56px 56px;}
+  /* Invulrij stapelt op mobiel: stelling boven de volle breedte, daaronder de
+     twee invulvelden mét label (Nu / Gewenst) naast elkaar — comfortabel op
+     een telefoon i.p.v. tekst en velden samengeperst op één rij. */
+  .kolomkop{display:none;}
+  .rij{grid-template-columns:1fr 1fr; gap:8px 12px; padding:12px 14px;}
+  .rij .st{grid-column:1 / -1; font-size:.96em;}
+  .invul{display:flex; flex-direction:column; gap:3px;}
+  .invul .cap{display:block;}
+  .invul input{font-size:1.05em; padding:11px 6px;}
 }
