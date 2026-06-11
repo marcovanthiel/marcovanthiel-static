@@ -64,30 +64,39 @@
   </div>
 
   <p>
-    Hieronder ziet u de gemiddelde profielen per organisatie. De gevulde
-    ellips toont de gemiddelde <em>nu</em>-positie, de open ellips de
-    gemiddelde <em>gewenst</em>-positie. De pijl per organisatie geeft
-    de richting van de gewenste verschuiving weer.
+    Hieronder ziet u de gemiddelde positie per organisatie op één plaat.
+    De stip is het <em>zwaartepunt</em> van het gemiddelde nu-profiel
+    (Koraal donkerblauw, Via Jeugd groen). Voor leesbaarheid is de
+    afstand van het centrum 3,2× uitvergroot.
   </p>
 
-  <div class="duo">
-    <section class="plot">
-      <h2 id="t-koraal-h">Koraal</h2>
-      <div class="legend">
-        <span class="item"><span class="sw" style="background:#0F4C97"></span>nu</span>
-        <span class="item"><span class="sw gewenst" style="border-color:#0F4C97"></span>gewenst</span>
+  <section class="plot">
+    <h2>Totaalplaat — gemiddelde nu-positie per organisatie</h2>
+    <div class="legend">
+      <span class="item"><span class="sw" style="background:#0F4C97"></span>Koraal-gemiddelde</span>
+      <span class="item"><span class="sw" style="background:#4FAE32"></span>Via Jeugd-gemiddelde</span>
+    </div>
+    <div id="grafiek-totaal"></div>
+    <p class="voetnoot" style="font-size:.82em;color:#666;font-style:italic;margin:6px 2px 0;">
+      Stippen zijn 3,2× vergroot t.o.v. het werkelijke zwaartepunt — alleen
+      voor leesbaarheid. Geen gewenst-richtbeeld op de totaalplaat; zie de
+      cijfertabel hieronder voor de nu- én gewenst-gemiddelden.
+    </p>
+  </section>
+
+  <section class="plot" id="vlieger-details" style="margin-top:18px;">
+    <h2>Per organisatie — vlieger met nu en gewenst</h2>
+    <div class="duo">
+      <div>
+        <h3 id="t-koraal-h" style="color:#0F4C97;font-size:.95em;margin:0 0 4px;">Koraal</h3>
+        <div id="grafiek-koraal"></div>
       </div>
-      <div id="grafiek-koraal"></div>
-    </section>
-    <section class="plot">
-      <h2 id="t-vj-h">Via Jeugd</h2>
-      <div class="legend">
-        <span class="item"><span class="sw" style="background:#4FAE32"></span>nu</span>
-        <span class="item"><span class="sw gewenst" style="border-color:#4FAE32"></span>gewenst</span>
+      <div>
+        <h3 id="t-vj-h" style="color:#4FAE32;font-size:.95em;margin:0 0 4px;">Via Jeugd</h3>
+        <div id="grafiek-vj"></div>
       </div>
-      <div id="grafiek-vj"></div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <h2>Gemiddelden in cijfers</h2>
   <table>
@@ -103,7 +112,7 @@
 
 </div>
 
-<script src="../../assets/diagram.js"></script>
+<script src="../../assets/diagram-vlieger.js?v=3"></script>
 <script>
 'use strict';
 const STORAGE_KEY = 'ocai-admin-token';
@@ -160,22 +169,35 @@ function render(data) {
   document.getElementById('t-koraal-h').textContent = `Koraal (n=${k.n})`;
   document.getElementById('t-vj-h').textContent     = `Via Jeugd (n=${vj.n})`;
 
-  // Koraal-plot
+  // Totaalplaat — stippen-versie (één plaat, twee stippen op
+  // uitvergroot zwaartepunt — conform CLAUDE.md).
+  const stippenProfielen = [];
+  if (k.n > 0)  stippenProfielen.push({ naam:'Koraal',    kleur: KORAAL_KLEUR, nu: k.nu });
+  if (vj.n > 0) stippenProfielen.push({ naam:'Via Jeugd', kleur: VJ_KLEUR,     nu: vj.nu });
+  if (stippenProfielen.length > 0) {
+    OcaiVlieger.renderTotaalStippen(document.getElementById('grafiek-totaal'), {
+      width: 880,
+      profielen: stippenProfielen,
+    });
+  } else {
+    document.getElementById('grafiek-totaal').innerHTML =
+      '<p class="geen">Nog geen inzendingen om te tonen.</p>';
+  }
+
+  // Per-organisatie vlieger met nu + gewenst
   if (k.n > 0) {
-    OcaiDiagram.render(document.getElementById('grafiek-koraal'), {
-      width: 720,
-      profielen: [{ label:'K', naam:'Koraal', kleur: KORAAL_KLEUR, nu: k.nu, gewenst: k.gewenst }],
+    OcaiVlieger.render(document.getElementById('grafiek-koraal'), {
+      width: 540,
+      profielen: [{ naam:'Koraal', kleur: KORAAL_KLEUR, nu: k.nu, gewenst: k.gewenst }],
     });
   } else {
     document.getElementById('grafiek-koraal').innerHTML =
       '<p class="geen">Nog geen inzendingen voor Koraal.</p>';
   }
-
-  // Via Jeugd-plot
   if (vj.n > 0) {
-    OcaiDiagram.render(document.getElementById('grafiek-vj'), {
-      width: 720,
-      profielen: [{ label:'VJ', naam:'Via Jeugd', kleur: VJ_KLEUR, nu: vj.nu, gewenst: vj.gewenst }],
+    OcaiVlieger.render(document.getElementById('grafiek-vj'), {
+      width: 540,
+      profielen: [{ naam:'Via Jeugd', kleur: VJ_KLEUR, nu: vj.nu, gewenst: vj.gewenst }],
     });
   } else {
     document.getElementById('grafiek-vj').innerHTML =

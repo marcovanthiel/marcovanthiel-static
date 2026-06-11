@@ -64,14 +64,16 @@
 <div id="inhoud" style="display:none;">
   <p>
     Hieronder ziet u waar uw eigen invulling de organisatiecultuur plaatst —
-    zowel zoals u die <strong>nu</strong> beleeft als zoals u die <strong>gewenst</strong>
-    ziet binnen ongeveer vijf jaar. De pijl loopt van uw "nu" naar uw "gewenst";
-    de richting laat zien welke kant u op zou willen.
+    zowel zoals u die <strong>nu</strong> beleeft (doorgetrokken lijn) als zoals
+    u die <strong>gewenst</strong> ziet binnen ongeveer vijf jaar (gestippelde
+    lijn). De vorm van de vlieger laat zien op welke cultuurtypes het
+    zwaartepunt ligt, en het verschil tussen beide lijnen toont welke kant
+    u op zou willen.
   </p>
 
   <div class="legend">
-    <span class="item"><span class="sw" id="sw-nu"></span> uw beleving — <em>nu</em></span>
-    <span class="item"><span class="sw gewenst" id="sw-gewenst"></span> uw beleving — <em>gewenst</em></span>
+    <span class="item"><span class="sw" id="sw-nu" style="border-radius:0;height:4px;border:none;"></span> uw beleving — <em>nu</em></span>
+    <span class="item"><span class="sw gewenst" id="sw-gewenst" style="border-radius:0;height:4px;border:none;background:repeating-linear-gradient(90deg,transparent 0 5px,#004289 5px 11px);"></span> uw beleving — <em>gewenst</em></span>
   </div>
 
   <div class="diagram"><div id="grafiek"></div></div>
@@ -106,7 +108,7 @@
 
 </div>
 
-<script src="../assets/diagram.js"></script>
+<script src="../assets/diagram-vlieger.js?v=3"></script>
 <script>
 'use strict';
 const CULTUUR_NAAM = { A:'Familie', B:'Adhocratie', C:'Markt', D:'Hiërarchie' };
@@ -157,16 +159,16 @@ async function laad() {
 
 function render(item) {
   const kleur = ORG_KLEUR[item.organisatie] || '#004289';
-  const label = ORG_LABEL[item.organisatie] || '?';
 
   document.getElementById('meta').innerHTML =
     `Inzending voor <strong>${item.organisatie}</strong>` +
     (item.team ? ` — team <em>${escapeHtml(item.team)}</em>` : '') +
     ` · ingestuurd ${fmtDatum(item.tijdstip)}<br>Referentie ${item.ref}`;
 
-  // Legenda-kleur
+  // Legenda-kleur (lijn ipv blokje, in vlieger-stijl)
   document.getElementById('sw-nu').style.background = kleur;
-  document.getElementById('sw-gewenst').style.borderColor = kleur;
+  document.getElementById('sw-gewenst').style.background =
+    `repeating-linear-gradient(90deg, transparent 0 5px, ${kleur} 5px 11px)`;
 
   // Tabel
   const n = item.profiel.nu, g = item.profiel.gewenst;
@@ -177,11 +179,10 @@ function render(item) {
       `<tr><td class="l">${CULTUUR_NAAM[L]}</td><td>${n[L]}</td><td>${g[L]}</td><td>${fmtVerschil(g[L]-n[L])}</td></tr>`);
   }
 
-  // Diagram
-  OcaiDiagram.render(document.getElementById('grafiek'), {
+  // Vlieger-diagram (variant B)
+  OcaiVlieger.render(document.getElementById('grafiek'), {
     width: 880,
     profielen: [{
-      label: label,
       naam: item.organisatie,
       kleur: kleur,
       nu: n,

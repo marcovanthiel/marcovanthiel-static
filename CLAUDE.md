@@ -21,20 +21,45 @@ Medewerkersbijeenkomst: 23 juni 2026. Juridische fusiedatum: 1 maart 2027.
    organisatie, totaalgrafiek, tabel met alle inzendingen, CSV-export (puntkomma,
    met BOM voor Excel).
 
-## Architectuur
-- Statisch + PHP, geen database. Bestanden: index.html (vragenlijst),
-  opslaan.php (POST-endpoint), admin.php (dashboard), config.php (instellingen),
-  data/inzendingen.jsonl (één JSON-record per regel, append met LOCK_EX).
-- data/ afgeschermd via .htaccess (Apache). Bij nginx: locatie laten blokkeren.
-- Profielberekening: gemiddelde per letter over de zes dimensies, afgerond op 1
-  decimaal; gebeurt zowel client- als serverzijde (server is leidend in opslag).
-- Geen mb_-functies gebruiken (mbstring niet overal beschikbaar); gewone substr.
-- Geen externe JS-libraries; grafieken zijn inline SVG, zelf gegenereerd.
+## Architectuur (2026-06-11 herzien)
+- Statisch onder `static/koraalenviajeugd/` + Cloudflare Pages Functions
+  (TypeScript) onder `functions/api/koraalenviajeugd/`. Opslag in Cloudflare
+  **D1** (sqlite-edge-DB), niet in een JSONL-bestand. PHP is uitgefaseerd
+  omdat marcovanthiel.nl op Cloudflare Pages draait (geen PHP-runtime).
+- Pagina's:
+  * `/koraalenviajeugd/` — vragenlijst (`index.html`)
+  * `/resultaat/?ref=O-…` — individuele uitslag voor de invuller; geen
+    login (ref is onraadbaar en de data anoniem). Redirect na succesvolle
+    POST.
+  * `/uitleg/` — statische OCAI-uitleg (~3 A4, C1-NL).
+  * `/admin/` — token-login; tellers, klikbare lijst, CSV-export, knop
+    "Totaalresultaat".
+  * `/admin/totaal/` — token-vereist; één stippenplaat (zwaartepunt
+    Koraal + Via Jeugd, factor 3,2 vergroot) + per-organisatie vlieger
+    nu+gewenst.
+- Endpoints (`functions/api/koraalenviajeugd/`):
+  * `POST /opslaan` — valideert (6×{nu,gewenst} som=100), insert in D1
+    `OCAI_DB`, returnt `{ ok, ref, profiel }`.
+  * `GET  /resultaat?ref=O-…` — publiek; één inzending op basis van ref.
+  * `GET  /resultaat?summary=1&token=…` — admin; gemiddelden per org.
+  * `GET  /admin/list` — admin; alle inzendingen + aggregaten.
+  * `GET  /admin/export` — admin; CSV (UTF-8 BOM, ;-separator).
+- Auth: admin via bearer-token in env-var `OCAI_ADMIN_TOKEN` (Cloudflare
+  Pages secret). Frontend bewaart in `sessionStorage` per browser-tabblad.
+- Profielberekening: gemiddelde per letter over de zes dimensies, afgerond
+  op 1 decimaal; gebeurt zowel client- (preview) als serverzijde (server
+  is leidend in opslag). Ruwe scores blijven bewaard als JSON in
+  `scores_json`-kolom voor latere analyse.
+- Geen externe JS-libraries; grafieken zijn inline SVG, zelf gegenereerd
+  in `static/koraalenviajeugd/assets/diagram-vlieger.js`.
+- Setup-stappen in `scripts/koraalenviajeugd/README.md` (D1-binding,
+  schema.sql, OCAI_ADMIN_TOKEN, retry-deploy).
 
 ## Privacy
 Anoniem: geen namen of e-mailadressen. Opgeslagen: tijdstip, organisatie,
-optioneel team, scores, berekend profiel. Wachtwoorden/secrets nooit in chats
-plakken; FTP/deploy-gegevens als GitHub-secret of lokaal in .env.
+optioneel team, scores, berekend profiel + IP (abuse-mitigation, niet voor
+identificatie). Wachtwoorden/secrets nooit in chats plakken; secrets in
+Cloudflare Pages → Environment variables (Production, Secret).
 
 ## Huisstijl (Koraal, met Via Jeugd-logo)
 - Kleuren: donkerblauw #004289 (koppen/banners), #003366 (donker accent),
@@ -72,12 +97,15 @@ opdrachtgevers/gemeenten) staan in index.html in de constante DIMS. Die teksten
 zijn afgestemd met het Word-instrument — bij wijziging beide bijwerken.
 
 ## Deploy
-- Doelmap op hosting: /koraalenviajeugd/
-- Voorkeursroute: GitHub-repo + automatische deploy (git-deploy of GitHub
-  Action met FTP-deploy; credentials als repo-secrets).
-- Vereiste: PHP 7.4+; data/ schrijfbaar voor de webserver.
-- Voor livegang: wachtwoord in config.php wijzigen en testinzendingen uit
-  data/inzendingen.jsonl verwijderen.
+- Repo `marcovanthiel/marcovanthiel-static` → push naar `main` triggert
+  Cloudflare Pages-build (Hugo + Pages Functions) → live op
+  `https://marcovanthiel.nl/koraalenviajeugd/`.
+- Bindings in Cloudflare-dashboard: D1 `OCAI_DB` (database `ocai`,
+  uuid in `wrangler d1 list`); env-var `OCAI_ADMIN_TOKEN` (Secret).
+- Schema in `scripts/koraalenviajeugd/schema.sql` (eenmalig via
+  `wrangler d1 execute ocai --remote --file=…`).
+- Voor livegang: alle ref's beginnend met `O-DEMO-` of `O-DEAD0/O-BEEF0`
+  uit D1 verwijderen (`DELETE FROM inzendingen WHERE ref LIKE 'O-DE%' OR ref LIKE 'O-BE%';`).
 
 ## Gerelateerde deliverables (in claude.ai-project, niet in deze repo)
 Brainstorm-placemat (2×A4), presentatie 23 juni (pptx op Koraal-sjabloon),
