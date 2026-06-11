@@ -83,11 +83,11 @@
     <b>Zo werkt het.</b> Hieronder staan zes onderwerpen met telkens vier uitspraken.
     Verdeel per onderwerp <b>100 punten</b> over de vier uitspraken: hoe beter een uitspraak past,
     hoe meer punten. Doe dit twee keer &ndash; in de kolom <b>Nu</b> voor de organisatie zoals die nu is,
-    in de kolom <b>Gewenst</b> zoals u haar over twee jaar het liefst ziet.
-    Er zijn geen goede of foute antwoorden; het gaat om uw eigen beeld.
+    in de kolom <b>Gewenst</b> zoals je haar over twee jaar het liefst ziet.
+    Er zijn geen goede of foute antwoorden; het gaat om je eigen beeld.
   </div>
 
-  <h2>1. Bij welke organisatie werkt u?</h2>
+  <h2>1. Bij welke organisatie werk je?</h2>
   <div class="orgknoppen">
     <button type="button" class="orgknop" id="knopKoraal" onclick="kiesOrg('Koraal')">Koraal</button>
     <button type="button" class="orgknop vj" id="knopVJ" onclick="kiesOrg('Via Jeugd')">Via Jeugd</button>
@@ -105,7 +105,7 @@
 </div>
 
 <div id="resultaat">
-  <h2>3. Uw persoonlijke cultuurprofiel</h2>
+  <h2>3. Jouw persoonlijke cultuurprofiel</h2>
   <div class="kaart uitleg" id="duiding"></div>
   <table class="res" id="restabel"></table>
   <div id="grafiek" style="text-align:center;"></div>
@@ -114,8 +114,8 @@
     <b>Markt</b> = resultaatgericht (positie bij opdrachtgevers/gemeenten) &middot; <b>Hi&euml;rarchie</b> = procedureel en geborgd
   </p>
   <div class="kaart uitleg" style="margin-top:14px;">
-    <b>Bedankt voor het invullen!</b> Uw antwoorden zijn anoniem opgeslagen en worden samen met die van
-    uw collega&rsquo;s gebruikt in het cultuurtraject van de invlechting. Het gesprek over de uitkomsten
+    <b>Bedankt voor het invullen!</b> Je antwoorden zijn anoniem opgeslagen en worden samen met die van
+    je collega&rsquo;s gebruikt in het cultuurtraject van de invlechting. Het gesprek over de uitkomsten
     voeren we met elkaar &ndash; onder meer tijdens de medewerkersbijeenkomsten.
   </div>
 </div>
@@ -213,7 +213,7 @@ function controleer(){
   if (!alles){
     hint.style.display='block';
     hint.textContent = !organisatie
-      ? 'Kies eerst uw organisatie (Koraal of Via Jeugd).'
+      ? 'Kies eerst je organisatie (Koraal of Via Jeugd).'
       : 'De knop wordt actief zodra elke verdeling (Nu \u00e9n Gewenst) precies op 100 punten uitkomt.';
   } else hint.style.display='none';
 }
@@ -304,10 +304,10 @@ async function verstuur(){
     {p:p.gewenst, kleur:'#009DDF', naam:'Gewenst', stippel:true}
   ], Math.min(460, document.querySelector('.wrap').clientWidth-20));
   const dn = dominant(p.nu), dg = dominant(p.gewenst);
-  let duiding = `In uw beeld is de cultuur nu vooral een <b>${TYPEN[dn].toLowerCase()}cultuur</b>`;
+  let duiding = `In jouw beeld is de cultuur nu vooral een <b>${TYPEN[dn].toLowerCase()}cultuur</b>`;
   duiding += dn===dg
-    ? `, en dat blijft ook in uw gewenste beeld het zwaartepunt &ndash; kijk vooral naar de verschuivingen in de tabel.`
-    : `; in uw gewenste beeld verschuift het zwaartepunt naar een <b>${TYPEN[dg].toLowerCase()}cultuur</b>.`;
+    ? `, en dat blijft ook in jouw gewenste beeld het zwaartepunt &ndash; kijk vooral naar de verschuivingen in de tabel.`
+    : `; in jouw gewenste beeld verschuift het zwaartepunt naar een <b>${TYPEN[dg].toLowerCase()}cultuur</b>.`;
   document.getElementById('duiding').innerHTML = duiding;
   window.scrollTo({top:0, behavior:'smooth'});
 }
