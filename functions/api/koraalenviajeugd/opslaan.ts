@@ -168,7 +168,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       )
       .run();
 
-    return json({ ok: true, profiel });
+    return json({ ok: true, ref, profiel });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error('koraalenviajeugd/opslaan crashed:', msg);

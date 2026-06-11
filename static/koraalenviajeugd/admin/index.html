@@ -21,6 +21,8 @@
   th, td { border:1px solid #C9DCEF; padding:6px 9px; text-align:center; }
   th { background:var(--blauw); color:#fff; }
   tr:nth-child(even) td { background:var(--zacht); }
+  tr.klikbaar { cursor:pointer; }
+  tr.klikbaar:hover td { background:var(--kaart); }
   td.l, th.l { text-align:left; }
   .knop { display:inline-block; background:var(--blauw); color:#fff; border:none; border-radius:8px;
           padding:10px 18px; font-size:1em; font-weight:bold; cursor:pointer; text-decoration:none; }
@@ -61,6 +63,7 @@
 <section id="paneel" class="verborgen">
   <h1>Resultaten cultuurmeting (OCAI)</h1>
   <div class="acties">
+    <a id="totaal-link" class="knop" href="totaal/">Totaalresultaat</a>
     <button id="download" class="knop" type="button">Download CSV</button>
     <button id="uitloggen" class="knop grijs" type="button">Uitloggen</button>
   </div>
@@ -194,19 +197,29 @@ function render(data, token){
         <td>${ge.A}</td><td>${ge.B}</td><td>${ge.C}</td><td>${ge.D}</td></tr>`);
   }
 
-  // Tabel alle inzendingen
+  // Tabel alle inzendingen — rijen zijn klikbaar en openen de individuele
+  // uitslagpagina in een nieuw tabblad.
   const inzBody = document.getElementById('inz-body');
   inzBody.innerHTML = '';
   for (const r of items) {
     const n = r.profiel.nu, g = r.profiel.gewenst;
     const dt = String(r.tijdstip ?? '').slice(0, 16).replace('T', ' ');
+    const url = '../resultaat/?ref=' + encodeURIComponent(r.ref ?? '');
     inzBody.insertAdjacentHTML('beforeend',
-      `<tr><td class="l">${esc(dt)}</td>
+      `<tr class="klikbaar" data-url="${esc(url)}" title="Bekijk individuele uitslag">
+        <td class="l">${esc(dt)}</td>
         <td class="l">${esc(r.organisatie)}</td>
         <td class="l">${esc(r.team)}</td>
         <td>${n.A}</td><td>${n.B}</td><td>${n.C}</td><td>${n.D}</td>
         <td>${g.A}</td><td>${g.B}</td><td>${g.C}</td><td>${g.D}</td></tr>`);
   }
+  // Click-handler delegatie.
+  inzBody.onclick = function(ev){
+    const tr = ev.target.closest('tr.klikbaar');
+    if (!tr) return;
+    const url = tr.getAttribute('data-url');
+    if (url) window.open(url, '_blank', 'noopener');
+  };
 
   // Vlieger-grafiek
   const reeks = [];

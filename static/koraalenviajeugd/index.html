@@ -268,13 +268,26 @@ async function verstuur(){
     }
     scores.push(dim);
   }
-  const p = profiel();
+  let ref = null;
   try {
-    await fetch('/api/koraalenviajeugd/opslaan', { method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ organisatie, team: document.getElementById('team').value, scores }) });
-  } catch(e) { /* resultaat toch tonen */ }
+    const res = await fetch('/api/koraalenviajeugd/opslaan', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ organisatie, team: document.getElementById('team').value, scores }),
+    });
+    const data = await res.json();
+    if (data && data.ok && data.ref) ref = data.ref;
+  } catch(e) { /* fallthrough — we tonen sowieso een resultaat */ }
 
-  // resultaat tonen
+  if (ref) {
+    // Doorklik naar de resultaatpagina die het OCAI-diagram laat zien.
+    location.href = 'resultaat/?ref=' + encodeURIComponent(ref);
+    return;
+  }
+
+  // Fallback (bv. netwerk-fout bij POST): laat alsnog een tabel zien
+  // zodat de invuller niet met lege handen blijft staan.
+  const p = profiel();
   document.getElementById('formulier').style.display='none';
   const res = document.getElementById('resultaat'); res.style.display='block';
   let t = `<tr><th>Cultuurtype</th><th>Nu</th><th>Gewenst</th><th>Verschil</th></tr>`;
