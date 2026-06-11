@@ -58,7 +58,7 @@
     </div>
 
     <h2>Totaalbeeld (gemiddelde profielen)</h2>
-    <div id="grafiek" style="text-align:center;"></div>
+    <div class="plot" style="max-width:680px; margin:0 auto;"><div id="grafiek"></div></div>
 
     <h2>Gemiddelden per organisatie</h2>
     <table>
@@ -215,7 +215,7 @@ function render(data, token){
     reeks.push({ p:aggregates.totaal.gewenst, kleur:'#009DDF', naam:'Alle – gewenst', stippel:true });
   }
   document.getElementById('grafiek').innerHTML =
-    vlieger(reeks, Math.min(520, document.querySelector('.wrap').clientWidth - 20));
+    vlieger(reeks, 680); // viewBox-breedte; CSS schaalt 'm naar de container
 
   // CSV-knop
   document.getElementById('download').onclick = function(){
