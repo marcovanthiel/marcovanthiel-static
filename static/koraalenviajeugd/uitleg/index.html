@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="/koraalenviajeugd/koraal_logo.png">
-<title>Het OCAI-model · uitleg · Cultuurmeting Koraal &amp; Via Jeugd</title>
+<title>Eén organisatie, twee verhalen · Cultuurmeting Koraal &amp; Via Jeugd</title>
 <style>
   :root {
     --blauw:#004289; --dblauw:#003366; --cyaan:#009DDF;
@@ -22,26 +22,53 @@
   h2 { color:var(--blauw); font-size:1.2em; margin:30px 0 8px; }
   h3 { color:var(--blauw); font-size:1.02em; margin:22px 0 6px; }
   p, li { font-size:1.02em; }
-  ul { padding-left:1.3em; }
-  ul li { margin:5px 0; }
+  ul, ol { padding-left:1.3em; }
+  ul li, ol li { margin:5px 0; }
   .lede { color:#444; font-style:italic; margin:6px 0 18px; }
-  .kwadranten {
-    display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0 24px;
+  blockquote { border-left:4px solid var(--cyaan); margin:18px 0; padding:6px 14px;
+               background:var(--zacht); color:#333; font-style:italic; }
+  /* CTA-blok */
+  .cta {
+    background:linear-gradient(180deg, #FFF7E1 0%, #FFE9A8 100%);
+    border:2px solid #E0B040;
+    border-radius:14px;
+    padding:24px 26px;
+    margin:36px 0 24px;
     font-family:Arial,Helvetica,sans-serif;
+    box-shadow:0 6px 18px rgba(160,120,20,0.18);
   }
-  .kwa {
-    background:#E3ECF6; border-radius:10px; padding:14px 16px; min-height:130px;
+  .cta h2 { color:#7A5A14; margin-top:0; font-size:1.35em; line-height:1.25; }
+  .cta ol { padding-left:1.4em; }
+  .cta li { margin:10px 0; line-height:1.5; }
+  .cta strong { color:#5A3F0E; }
+  .cta .slogan {
+    background:#FFF;
+    border-radius:10px;
+    padding:14px 16px;
+    margin:18px 0 0;
+    font-weight:bold;
+    color:var(--blauw);
+    text-align:center;
+    font-size:1.05em;
   }
-  .kwa.fam   { background:#D9E7F3; }
-  .kwa.adh   { background:#D5E2EF; }
-  .kwa.hir   { background:#E3ECF6; }
-  .kwa.mar   { background:#DDE7F2; }
-  .kwa h3 { margin:0 0 6px; color:var(--dblauw); font-size:1.02em; letter-spacing:.5px; }
-  .kwa p  { margin:0; font-size:.94em; color:#445; }
+  .kopieer-rij { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:6px; }
+  .kopieer-knop {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--blauw); color:#fff; border:none; border-radius:9px;
+    padding:9px 16px; font-size:.95em; font-weight:bold; cursor:pointer;
+  }
+  .kopieer-knop:hover { background:var(--dblauw); }
+  .kopieer-knop:disabled { background:var(--groen); }
+  .kopieer-url {
+    font-family:Menlo,Consolas,monospace; font-size:.85em;
+    color:#444; background:#FFFBE7; padding:5px 9px; border-radius:6px;
+    border:1px solid #E0B040;
+    word-break:break-all;
+  }
+  /* Footer-link terug */
   .terug { display:inline-block; color:var(--blauw); font-family:Arial,sans-serif;
            font-weight:bold; text-decoration:none; margin-top:30px; }
   .terug:hover { text-decoration:underline; }
-  blockquote { border-left:4px solid var(--cyaan); margin:18px 0; padding:6px 14px; background:var(--zacht); color:#333; }
 </style>
 </head>
 <body>
@@ -52,205 +79,274 @@
   <img src="../vj_logo_ok.png" alt="Via Jeugd">
 </header>
 
-<h1>Wil je meer weten?</h1>
+<h1>Eén organisatie, twee verhalen</h1>
 <p class="lede">
-  Een korte introductie van het Organizational Culture Assessment
-  Instrument (OCAI) — het model achter de vragen die je zojuist hebt
-  ingevuld.
+  Dank voor het invullen! Hieronder lees je wat er achter de vragen zit —
+  en vooral: wat we er samen mee gaan doen.
+</p>
+
+<p>
+  Sinds 1 juli 2025 horen Via Jeugd en Koraal bestuurlijk bij elkaar, en op
+  1 maart 2027 worden we ook juridisch één organisatie. Maar een organisatie
+  is meer dan een structuur — het is vooral een manier van werken. En die
+  twee manieren van werken hebben elk hun eigen kracht.
+</p>
+<p>
+  Via Jeugd is groot geworden met korte lijnen, snel schakelen en dicht op de
+  jeugdige en het gezin staan: zien wat nodig is en het vandaag nog regelen.
+  Koraal is groot geworden met zorgvuldigheid, continuïteit en borging:
+  zorgen dat goede zorg navolgbaar, voorspelbaar en óók volgend jaar nog op
+  orde is.
+</p>
+<p>
+  De invlechting is nadrukkelijk niet bedoeld om één van die twee culturen te
+  laten winnen. Het doel is het beste van beide: <strong>snelheid mét
+  borging</strong>. Juist voor jeugdigen en gezinnen die op ons rekenen, zijn
+  snelheid én voorspelbaarheid allebei vormen van betrouwbaarheid. Om daar te
+  komen moeten we eerst weten waar we nu staan — niet op papier, maar in de
+  beleving van de mensen die het werk doen. Daar heb jij zojuist aan
+  bijgedragen.
 </p>
 
 <h2>Waar komt het OCAI vandaan?</h2>
 <p>
-  Het OCAI is een gestandaardiseerd meetinstrument voor organisatiecultuur,
-  ontwikkeld door <strong>Kim&nbsp;S. Cameron</strong> en <strong>Robert&nbsp;E. Quinn</strong>
-  aan de University of Michigan. Beide onderzoekers werkten aan een
-  bredere theorie over wat organisaties succesvol of effectief maakt —
-  het zogenoemde <em>Competing Values Framework</em>. Daaruit destilleerden
-  zij een korte vragenlijst die met betrekkelijk weinig vragen een
-  herkenbaar beeld oplevert van de cultuur waarin medewerkers werken.
-  Sinds de eerste publicatie eind jaren negentig is het instrument in
-  duizenden organisaties wereldwijd toegepast en is de Nederlandse
-  vertaling op zorg-, jeugdhulp- en onderwijsorganisaties beproefd.
+  Het OCAI (Organizational Culture Assessment Instrument) is een
+  gestandaardiseerd meetinstrument voor organisatiecultuur, ontwikkeld door
+  <strong>Kim&nbsp;S. Cameron</strong> en <strong>Robert&nbsp;E. Quinn</strong>
+  aan de University of Michigan. Beide onderzoekers werkten aan een bredere
+  theorie over wat organisaties succesvol maakt — het zogenoemde
+  <em>Competing Values Framework</em>. Daaruit destilleerden zij een korte
+  vragenlijst die met betrekkelijk weinig vragen een herkenbaar beeld
+  oplevert van de cultuur waarin medewerkers werken. Sinds de eerste
+  publicatie eind jaren negentig is het instrument in duizenden organisaties
+  wereldwijd toegepast, en is de Nederlandse vertaling veelvuldig gebruikt
+  in zorg-, jeugdhulp- en onderwijsorganisaties.
 </p>
 <p>
   De aantrekkingskracht van het OCAI ligt in de combinatie van eenvoud en
-  herkenbaarheid. Je verdeelt op zes onderwerpen telkens honderd punten
-  over vier mogelijke beelden van je organisatie. Daarna doe je hetzelfde
-  voor de organisatie zoals je die over ongeveer vijf jaar zou willen zien.
-  Het verschil tussen die twee profielen — het <em>huidige</em> en het
-  <em>gewenste</em> beeld — wordt veelal als startpunt gebruikt voor een
-  gesprek over koers, leiderschap en gewenste verandering.
+  herkenbaarheid. Je verdeelt op zes onderwerpen telkens honderd punten over
+  vier mogelijke beelden van je organisatie. Daarna doe je hetzelfde voor de
+  organisatie zoals je die over twee jaar zou willen zien. Het verschil
+  tussen die twee profielen — het <em>huidige</em> en het <em>gewenste</em>
+  beeld — is het startpunt voor het gesprek over koers, leiderschap en
+  gewenste verandering.
 </p>
 
 <h2>Het denkmodel: vier concurrerende waarden</h2>
 <p>
   Het Competing Values Framework gaat ervan uit dat elke organisatie zich
-  in een spanningsveld tussen twee tegengestelde paren bevindt.
-  De eerste as loopt van <strong>interne gerichtheid</strong> (aandacht
-  voor wat er binnen de organisatie gebeurt — mensen, samenwerking,
-  processen) naar <strong>externe gerichtheid</strong> (aandacht voor de
-  buitenwereld — markt, cliënten, concurrenten, partners). De tweede as
-  loopt van <strong>flexibiliteit</strong> (ruimte, autonomie,
-  veranderbereidheid) naar <strong>stabiliteit en beheersbaarheid</strong>
-  (regels, voorspelbaarheid, controle).
+  in een spanningsveld tussen twee tegengestelde paren bevindt. De eerste as
+  loopt van <strong>interne gerichtheid</strong> (aandacht voor wat er
+  binnen de organisatie gebeurt — mensen, samenwerking, processen) naar
+  <strong>externe gerichtheid</strong> (aandacht voor de buitenwereld —
+  cliënten, opdrachtgevers, partners). De tweede as loopt van
+  <strong>flexibiliteit</strong> (ruimte, autonomie, veranderbereidheid)
+  naar <strong>stabiliteit en beheersbaarheid</strong> (regels,
+  voorspelbaarheid, controle).
 </p>
 <p>
   Deze twee assen vormen samen vier kwadranten. Elk kwadrant
-  vertegenwoordigt een ideaaltypische cultuur. Geen enkele organisatie is
-  in werkelijkheid één pure cultuur: je herkent altijd elementen van alle
-  vier, alleen in andere verhoudingen. Het zwaartepunt op de kaart laat
-  zien welke cultuur het meeste gewicht heeft.
+  vertegenwoordigt een ideaaltypische cultuur. Geen enkele organisatie is in
+  werkelijkheid één pure cultuur: je herkent altijd elementen van alle vier,
+  alleen in andere verhoudingen. Het zwaartepunt op de kaart laat zien welke
+  cultuur het meeste gewicht heeft.
 </p>
 
 <h2>De vier cultuurtypen in het kort</h2>
 
-<div class="kwadranten">
-  <div class="kwa fam">
-    <h3>Familiecultuur</h3>
-    <p>
-      Intern + flexibel. De organisatie als een uitgebreide familie:
-      onderlinge betrokkenheid, loyaliteit, mentor-leiderschap en aandacht
-      voor persoonlijke ontwikkeling staan centraal. Succes wordt gemeten
-      aan teamgevoel en zorg voor medewerkers.
-    </p>
-  </div>
-  <div class="kwa adh">
-    <h3>Adhocratie&nbsp;(innovatie)</h3>
-    <p>
-      Extern + flexibel. Een dynamische, ondernemende organisatie waarin
-      vernieuwing telt. Risico's nemen is normaal, leiderschap is
-      visionair, en succes wordt afgemeten aan unieke nieuwe diensten of
-      werkwijzen.
-    </p>
-  </div>
-  <div class="kwa hir">
-    <h3>Hiërarchie</h3>
-    <p>
-      Intern + beheersbaar. Een geformaliseerde, gestructureerde
-      organisatie. Procedures, voorspelbaarheid, efficiëntie en
-      betrouwbaarheid staan voorop. Leiderschap is coördinerend en
-      controlerend; succes betekent dat de processen soepel lopen.
-    </p>
-  </div>
-  <div class="kwa mar">
-    <h3>Marktcultuur</h3>
-    <p>
-      Extern + beheersbaar. Resultaatgerichtheid en prestatiedruk
-      typeren deze cultuur. Concurrentie, doelgerichtheid en harde
-      cijfers zijn richtinggevend. Leiderschap is veeleisend; succes is
-      meetbaar in marktaandeel, productie of klanttevredenheid.
-    </p>
-  </div>
-</div>
+<h3>Familiecultuur</h3>
+<p>
+  Intern + flexibel. De organisatie als een uitgebreide familie: onderlinge
+  betrokkenheid, loyaliteit, mentor-leiderschap en aandacht voor persoonlijke
+  ontwikkeling staan centraal. Succes wordt gemeten aan teamgevoel en zorg
+  voor medewerkers. Veel Via Jeugd-collega's zullen hier iets van hun eigen
+  huis in herkennen — het is een kracht die we willen behouden.
+</p>
+
+<h3>Adhocratie (innovatie)</h3>
+<p>
+  Extern + flexibel. Een dynamische, ondernemende organisatie waarin
+  vernieuwing telt. Risico's nemen is normaal, leiderschap is visionair, en
+  succes wordt afgemeten aan nieuwe diensten of werkwijzen die het verschil
+  maken.
+</p>
+
+<h3>Hiërarchie</h3>
+<p>
+  Intern + beheersbaar. Een geformaliseerde, gestructureerde organisatie.
+  Procedures, voorspelbaarheid, efficiëntie en betrouwbaarheid staan voorop.
+  Leiderschap is coördinerend; succes betekent dat processen soepel en
+  navolgbaar lopen. Veel Koraal-collega's zullen hier hun eigen huis in
+  herkennen — ook dát is een kracht, geen last: borging beschermt de cliënt.
+</p>
+
+<h3>Marktcultuur</h3>
+<p>
+  Extern + beheersbaar. Resultaatgerichtheid typeert deze cultuur:
+  doelgerichtheid, prestaties en een sterke positie bij opdrachtgevers en
+  gemeenten zijn richtinggevend. Succes is meetbaar in resultaten en
+  tevredenheid van wie op ons rekent.
+</p>
+
+<p>
+  Belangrijk: geen enkel type is "goed" of "fout". Elk heeft sterke kanten
+  en valkuilen. De vraag is niet welk type wint, maar welke <em>míx</em>
+  past bij de zorg die wij samen willen leveren.
+</p>
 
 <h2>De zes onderwerpen in de vragenlijst</h2>
 <p>
-  Cultuur is moeilijk in één vraag te vangen. Cameron en Quinn kozen
-  daarom voor zes inhoudelijke onderwerpen, die samen de meest bepalende
-  facetten van een organisatie afdekken:
+  Cultuur is moeilijk in één vraag te vangen. Cameron en Quinn kozen daarom
+  voor zes inhoudelijke onderwerpen die samen de meest bepalende facetten
+  van een organisatie afdekken:
 </p>
 <ul>
   <li><strong>Dominante kenmerken</strong> — wat typeert de organisatie als geheel?</li>
   <li><strong>Leiderschapsstijl</strong> — hoe gedragen leidinggevenden zich?</li>
-  <li><strong>Personeelsbeleid en omgang</strong> — wat houdt mensen binnen, wat verbindt hen?</li>
+  <li><strong>Omgang met medewerkers</strong> — wat houdt mensen binnen, wat verbindt hen?</li>
   <li><strong>Bindmiddel van de organisatie</strong> — wat houdt het geheel bijeen?</li>
   <li><strong>Strategische accenten</strong> — waar zet de organisatie op in?</li>
   <li><strong>Succescriteria</strong> — waaraan meet de organisatie haar succes?</li>
 </ul>
 <p>
-  Op elk van deze onderwerpen verdeelt de invuller telkens honderd
-  punten over vier korte beschrijvingen (één per cultuurtype). Door deze
-  verdeling te middelen over alle zes onderwerpen ontstaat per
-  cultuurtype een gemiddelde score — en daarmee één positie op het
-  cultuurdiagram. Doordat de invuller dit twee keer doet (één keer voor
-  de huidige situatie, één keer voor de gewenste), is in één oogopslag
-  zichtbaar waar het verschil zit.
+  Op elk onderwerp verdeelde je honderd punten over vier korte
+  beschrijvingen (één per cultuurtype). Door die verdeling te middelen over
+  de zes onderwerpen ontstaat per cultuurtype een gemiddelde score — en
+  daarmee jouw positie op het cultuurdiagram. Omdat je dit twee keer deed
+  (nu én gewenst), is in één oogopslag zichtbaar waar voor jou het verschil
+  zit.
 </p>
 
 <h2>Het verschil tussen <em>nu</em> en <em>gewenst</em></h2>
 <p>
   De vergelijking tussen de twee profielen is vaak het meest waardevolle
-  resultaat van het instrument. Soms blijkt dat de invuller eigenlijk
-  tevreden is over de hoofdkoers en dat alleen op één onderdeel een
-  accent verschoven moet worden; soms is het verschil aanzienlijk en
-  wijst dat op een wens tot fundamentele verandering. In beide gevallen
-  is het signaal informatief: medewerkers laten zien welke richting
-  zij denken dat de organisatie op zou moeten bewegen.
+  resultaat. Soms blijkt dat je eigenlijk tevreden bent over de hoofdkoers
+  en dat alleen een accent hoeft te verschuiven; soms is het verschil groot
+  en wijst het op een wens tot fundamentele verandering. Beide signalen
+  zijn waardevol: ze laten zien welke richting medewerkers de organisatie
+  op zien bewegen.
 </p>
 <blockquote>
-  Cultuurverandering is zelden een kwestie van een nieuw kwadrant
-  kiezen. Vaker gaat het om het verschuiven van accenten — méér
-  flexibiliteit zonder de borging te verliezen, of méér extern gericht
-  zonder de mensgerichtheid los te laten.
+  Cultuurverandering is zelden een kwestie van een nieuw kwadrant kiezen.
+  Vaker gaat het om het verschuiven van accenten — méér flexibiliteit
+  zonder de borging te verliezen, of méér borging zonder de snelheid en
+  nabijheid los te laten. Precies de opgave waar Via Jeugd en Koraal nu
+  samen voor staan.
 </blockquote>
 
-<h2>Hoe interpreteer je de uitslag?</h2>
-<p>
-  Op je uitslagpagina zie je je eigen positie op het cultuurdiagram. Een
-  paar handvatten bij het lezen ervan:
-</p>
+<h2>Hoe lees je je uitslag?</h2>
 <ul>
   <li>
-    <strong>Geen "goede" of "foute" uitslag.</strong> Elk cultuurtype
-    heeft sterke kanten en valkuilen. De vraag is niet wélk type het
-    beste is, maar of de cultuur past bij wat de organisatie wil
-    realiseren.
+    <strong>Geen "goede" of "foute" uitslag.</strong> Elk cultuurtype heeft
+    sterke kanten en valkuilen. De vraag is of de cultuur past bij wat we
+    willen realiseren.
   </li>
   <li>
     <strong>Let op het verschil tussen je twee polygonen.</strong> De
     doorgetrokken lijn is je "nu", de gestippelde je "gewenst". Een klein
-    verschil betekent dat je tevreden bent met de huidige koers; een
-    groot verschil signaleert een veranderwens. De richting van de
-    verschuiving (welk kwadrant groeit, welk krimpt) zegt iets over de
-    inhoud van die wens.
+    verschil betekent tevredenheid met de huidige koers; een groot verschil
+    signaleert een veranderwens.
   </li>
   <li>
-    <strong>Een verschuiving naar boven</strong> betekent meer
-    flexibiliteit; <strong>naar beneden</strong> juist meer beheersing.
-    <strong>Naar links</strong> wijst op meer interne gerichtheid;
-    <strong>naar rechts</strong> juist op meer externe oriëntatie.
+    <strong>Een verschuiving omhoog</strong> betekent meer flexibiliteit;
+    <strong>omlaag</strong> meer borging. <strong>Naar links</strong> wijst
+    op meer interne gerichtheid, <strong>naar rechts</strong> op meer
+    externe oriëntatie.
   </li>
   <li>
-    <strong>Vergelijk je beeld met dat van collega's.</strong> Eén
-    individuele uitslag is interessant; het écht waardevolle ontstaat
-    wanneer een team of organisatie de uitslagen naast elkaar legt en
-    bespreekt waar de beelden overeenkomen en waar ze uiteenlopen.
+    <strong>Vergelijk je beeld met dat van collega's.</strong> Eén uitslag
+    is interessant; het écht waardevolle ontstaat wanneer we de beelden van
+    Via Jeugd- en Koraal-collega's naast elkaar leggen: waar denken we
+    hetzelfde, waar verschillen we — en wat gunnen we elkaar?
   </li>
 </ul>
 
-<h2>Wat doet een organisatie typisch met de uitslag?</h2>
+<h2>Wat gebeurt er met jouw antwoorden?</h2>
 <p>
-  Het OCAI is geen rapportcijfer en geen einduitspraak. Het is een
-  gespreksinstrument. Organisaties gebruiken de uitkomsten meestal voor:
+  Je antwoorden zijn anoniem en worden alleen op groepsniveau gebruikt. We
+  brengen het cultuurbeeld van beide organisaties in kaart en koppelen het
+  totaalbeeld terug, onder meer tijdens de medewerkersbijeenkomsten van het
+  invlechtingsprogramma. De meting wordt periodiek herhaald, zodat
+  zichtbaar wordt of we daadwerkelijk bewegen richting het beeld dat we
+  samen willen. Meedenken krijgt dus zichtbaar gevolg — dat is een belofte
+  van het programma.
 </p>
-<ul>
-  <li>
-    een gestructureerd gesprek binnen het team of MT over de gewenste
-    cultuur en wat daarvoor nodig is;
-  </li>
-  <li>
-    het vergelijken van beelden tussen teams, afdelingen of locaties —
-    waar denkt men hetzelfde, waar wijkt men juist af?
-  </li>
-  <li>
-    het verbinden van cultuurambities aan concrete keuzes:
-    leiderschapsstijl, beoordelingsbeleid, communicatie, besluitvormings­processen;
-  </li>
-  <li>
-    het periodiek herhalen van de meting (bijvoorbeeld om de twee jaar)
-    om te zien of de gewenste verschuiving zich daadwerkelijk voltrekt.
-  </li>
-</ul>
-<p>
-  Cultuurverandering kost tijd en vergt consistentie. Het OCAI maakt het
-  gesprek erover concreter, maar de verandering zelf vraagt aandacht in
-  het dagelijkse werk — in hoe leidinggevenden voorbeeldgedrag laten
-  zien, in welke onderwerpen vergaderingen krijgen, en in waar de
-  organisatie haar mensen op aanspreekt.
-</p>
+
+<!-- ====================== CTA ====================== -->
+<section class="cta" aria-labelledby="cta-h">
+  <h2 id="cta-h">Werk mee aan het overbruggen van de cultuurverschillen</h2>
+  <p>
+    De meting is het startpunt; de cultuur maken we in het dagelijkse werk.
+    Zo help je je organisatie integreren:
+  </p>
+  <ol>
+    <li>
+      <strong>Bespreek je uitslag in je teamoverleg.</strong> Leg de
+      profielen naast elkaar: waar zit jullie gezamenlijke pijl, en wat zegt
+      dat over wat jullie team nodig heeft?
+    </li>
+    <li>
+      <strong>Zoek een collega van de andere organisatie op.</strong> Vraag
+      hoe zíj iets aanpakken wat jij anders doet — en wat jullie van elkaars
+      werkwijze zouden willen overnemen. Nieuwsgierigheid is de snelste
+      brug.
+    </li>
+    <li>
+      <strong>Breng het beste van beide in de praktijk.</strong> Zie je een
+      werkwijze van de andere organisatie die jouw team verder helpt? Benoem
+      het, probeer het, en deel het met je leidinggevende of het
+      programmateam.
+    </li>
+    <li>
+      <strong>Doe mee aan de medewerkersbijeenkomsten</strong> van het
+      invlechtingsprogramma — daar bespreken we het totaalbeeld en bepalen
+      we samen de vervolgstappen.
+    </li>
+    <li>
+      <strong>Stuur de link door</strong> aan collega's die de meting nog
+      niet invulden: hoe meer mensen meedoen, hoe betrouwbaarder het beeld.
+      <div class="kopieer-rij">
+        <button class="kopieer-knop" id="kopieer-knop" type="button"
+                onclick="kopieerLink()">
+          <span id="kopieer-label">Kopieer de link</span>
+        </button>
+        <code class="kopieer-url" id="kopieer-url">https://marcovanthiel.nl/koraalenviajeugd/</code>
+      </div>
+    </li>
+  </ol>
+  <p class="slogan">
+    Samen maken we van twee sterke verhalen één sterke organisatie —
+    snelheid mét borging.
+  </p>
+</section>
 
 <a class="terug" href="javascript:history.back()">← terug naar mijn uitslag</a>
 
 </div>
+
+<script>
+'use strict';
+async function kopieerLink() {
+  const url = document.getElementById('kopieer-url').textContent.trim();
+  const knop  = document.getElementById('kopieer-knop');
+  const label = document.getElementById('kopieer-label');
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(url);
+    } else {
+      // Fallback: tijdelijk textarea
+      const ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+    }
+    label.textContent = '✓ Gekopieerd!';
+    knop.disabled = true;
+    setTimeout(function(){ label.textContent = 'Kopieer de link'; knop.disabled = false; }, 2400);
+  } catch (e) {
+    label.textContent = 'Kopiëren niet gelukt';
+    setTimeout(function(){ label.textContent = 'Kopieer de link'; }, 2400);
+  }
+}
+</script>
 </body>
 </html>
