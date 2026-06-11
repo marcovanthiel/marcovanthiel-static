@@ -9,81 +9,21 @@
 <link rel="mask-icon" href="/koraalenviajeugd/favicon/safari-pinned-tab.svg?v=2" color="#00a7e7">
 <link rel="shortcut icon" href="/koraalenviajeugd/favicon/favicon.ico?v=2">
 <title>Eén organisatie, twee verhalen · Cultuurmeting Koraal &amp; Via Jeugd</title>
-<style>
-  :root {
-    --blauw:#004289; --dblauw:#003366; --cyaan:#009DDF;
-    --groen:#4FAE32; --zacht:#F2F8FD; --kaart:#E5F1FA;
-    --grijs:#555; --rand:#C9DCEF;
-  }
-  * { box-sizing:border-box; }
-  body { font-family:Georgia, "Times New Roman", serif; margin:0; background:#fff; color:#222; line-height:1.55; }
-  .wrap { max-width:780px; margin:0 auto; padding:18px 24px 80px; }
-  header { display:flex; justify-content:space-between; align-items:center; gap:12px;
-           padding:14px 0 10px; border-bottom:3px solid var(--cyaan);
-           font-family:Arial,Helvetica,sans-serif; }
-  header img { height:34px; }
-  h1 { color:var(--blauw); font-size:1.8em; margin:24px 0 6px; line-height:1.2; }
-  h2 { color:var(--blauw); font-size:1.2em; margin:30px 0 8px; }
-  h3 { color:var(--blauw); font-size:1.02em; margin:22px 0 6px; }
-  p, li { font-size:1.02em; }
-  ul, ol { padding-left:1.3em; }
-  ul li, ol li { margin:5px 0; }
-  .lede { color:#444; font-style:italic; margin:6px 0 18px; }
-  blockquote { border-left:4px solid var(--cyaan); margin:18px 0; padding:6px 14px;
-               background:var(--zacht); color:#333; font-style:italic; }
-  /* CTA-blok */
-  .cta {
-    background:linear-gradient(180deg, #FFF7E1 0%, #FFE9A8 100%);
-    border:2px solid #E0B040;
-    border-radius:14px;
-    padding:24px 26px;
-    margin:36px 0 24px;
-    font-family:Arial,Helvetica,sans-serif;
-    box-shadow:0 6px 18px rgba(160,120,20,0.18);
-  }
-  .cta h2 { color:#7A5A14; margin-top:0; font-size:1.35em; line-height:1.25; }
-  .cta ol { padding-left:1.4em; }
-  .cta li { margin:10px 0; line-height:1.5; }
-  .cta strong { color:#5A3F0E; }
-  .cta .slogan {
-    background:#FFF;
-    border-radius:10px;
-    padding:14px 16px;
-    margin:18px 0 0;
-    font-weight:bold;
-    color:var(--blauw);
-    text-align:center;
-    font-size:1.05em;
-  }
-  .kopieer-rij { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:6px; }
-  .kopieer-knop {
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--blauw); color:#fff; border:none; border-radius:9px;
-    padding:9px 16px; font-size:.95em; font-weight:bold; cursor:pointer;
-  }
-  .kopieer-knop:hover { background:var(--dblauw); }
-  .kopieer-knop:disabled { background:var(--groen); }
-  .kopieer-url {
-    font-family:Menlo,Consolas,monospace; font-size:.85em;
-    color:#444; background:#FFFBE7; padding:5px 9px; border-radius:6px;
-    border:1px solid #E0B040;
-    word-break:break-all;
-  }
-  /* Footer-link terug */
-  .terug { display:inline-block; color:var(--blauw); font-family:Arial,sans-serif;
-           font-weight:bold; text-decoration:none; margin-top:30px; }
-  .terug:hover { text-decoration:underline; }
-</style>
+<link rel="stylesheet" href="/koraalenviajeugd/assets/stijl.css?v=1">
 </head>
 <body>
-<div class="wrap">
+<div class="wrap lees">
 
-<header>
-  <img src="../koraal_logo.png" alt="Koraal">
-  <img src="../vj_logo_ok.png" alt="Via Jeugd">
-</header>
+<div class="hero">
+  <div class="logos">
+    <span><img src="../koraal_logo.png" alt="Koraal"></span>
+    <span><img src="../vj_logo_ok.png" alt="Via Jeugd"></span>
+  </div>
+  <h1>Eén organisatie, twee verhalen</h1>
+  <p class="sub">Wat zit er achter de vragen &ndash; en wat doen we er samen mee?</p>
+</div>
 
-<h1>Eén organisatie, twee verhalen</h1>
+<div class="kaart lees-body">
 <p class="lede">
   Dank voor het invullen! Hieronder lees je wat er achter de vragen zit —
   en vooral: wat we er samen mee gaan doen.
@@ -275,6 +215,8 @@
   samen willen. Meedenken krijgt dus zichtbaar gevolg — dat is een belofte
   van het programma.
 </p>
+
+</div><!-- /.lees-body -->
 
 <!-- ====================== CTA ====================== -->
 <section class="cta" aria-labelledby="cta-h">

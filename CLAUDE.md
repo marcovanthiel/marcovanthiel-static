@@ -65,7 +65,15 @@ Cloudflare Pages → Environment variables (Production, Secret).
 - Kleuren: donkerblauw #004289 (koppen/banners), #003366 (donker accent),
   cyaan #009DDF (accenten, vraag-markeringen), Via Jeugd-groen #4FAE32,
   kaartvulling #E5F1FA, zachte vulling #F2F8FD / #F4FAFD.
-- Font: Arial/Helvetica. Beide logo's in de kop: Koraal links, Via Jeugd rechts.
+- Font: **Avenir Next** (stack `'Avenir Next',Avenir,system-ui,'Segoe UI',Roboto,Arial`).
+  Avenir Next is commercieel → niet zelf-gehost; Apple-apparaten tonen het echt,
+  overig valt terug op systeem-sans. Eventueel gelicentieerde `.woff2` zelf-hosten.
+- **Designsysteem in één gedeeld stylesheet** `static/koraalenviajeugd/assets/stijl.css`
+  (gelinkt via absoluut pad `/koraalenviajeugd/assets/stijl.css`); alle pagina's
+  delen hetzelfde: hero met gradient + logo-pills, kaarten met schaduw,
+  voortgangsbalk + verdeelbalkjes + kleur-gecodeerde A–D-chips op de vragenlijst.
+  Restyle juni 2026 — inline `<style>` per pagina is vervangen door deze link.
+- Beide logo's in de kop (hero): Koraal links, Via Jeugd rechts.
 - Logobestanden: koraal_logo.png (uit SVG gerenderd, transparant),
   vj_logo_ok.png (aangeleverde versie met transparantie — NIET de oude variant
   met zwarte achtergrond gebruiken).

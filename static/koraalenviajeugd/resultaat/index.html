@@ -10,55 +10,19 @@
 <link rel="shortcut icon" href="/koraalenviajeugd/favicon/favicon.ico?v=2">
 <meta name="robots" content="noindex, nofollow">
 <title>Mijn uitslag · Cultuurmeting Koraal &amp; Via Jeugd</title>
-<style>
-  :root {
-    --blauw:#004289; --dblauw:#003366; --cyaan:#009DDF;
-    --groen:#4FAE32; --zacht:#F2F8FD; --kaart:#E5F1FA;
-    --grijs:#555; --rand:#C9DCEF;
-  }
-  * { box-sizing:border-box; }
-  body { font-family:Arial,Helvetica,sans-serif; margin:0; background:#fff; color:#333; }
-  .wrap { max-width:980px; margin:0 auto; padding:18px 16px 60px; }
-  header { display:flex; justify-content:space-between; align-items:center; gap:12px;
-           padding:14px 0 10px; border-bottom:3px solid var(--cyaan); }
-  header img { height:34px; }
-  h1 { color:var(--blauw); font-size:1.55em; margin:18px 0 6px; }
-  h2 { color:var(--blauw); font-size:1.1em; margin:26px 0 10px; }
-  .meta { color:#666; font-size:.95em; margin:0 0 18px; }
-  .kaart { background:var(--zacht); border-radius:10px; padding:14px 16px; margin:0 0 16px; }
-  .diagram { background:#fff; border:1px solid var(--rand); border-radius:10px; padding:14px; margin:14px 0 22px; }
-  .diagram svg { width:100%; height:auto; display:block; }
-  table { border-collapse:collapse; width:100%; margin:8px 0 16px; font-size:.92em; }
-  th, td { border:1px solid var(--rand); padding:7px 9px; text-align:center; }
-  th { background:var(--blauw); color:#fff; }
-  tr:nth-child(even) td { background:var(--zacht); }
-  td.l, th.l { text-align:left; }
-  .delta-plus { color:#2E7D1E; font-weight:bold; }
-  .delta-min  { color:#B52B27; font-weight:bold; }
-  .legend { display:flex; gap:18px; flex-wrap:wrap; margin:10px 0; font-size:.92em; }
-  .legend .item { display:inline-flex; align-items:center; gap:7px; }
-  .legend .sw { width:14px; height:14px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 1px #ccc; }
-  .legend .gewenst { background:#fff; border:2.5px solid var(--blauw); }
-  .acties { display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 6px; }
-  .knop { display:inline-block; background:var(--blauw); color:#fff; border:none; border-radius:9px;
-          padding:11px 22px; font-size:1em; font-weight:bold; cursor:pointer; text-decoration:none; }
-  .knop.lijn { background:#fff; color:var(--blauw); border:2px solid var(--blauw); padding:9px 20px; }
-  .knop.grijs { background:#888; }
-  .fout { color:#B52B27; }
-  @media print {
-    .acties, .geenprint { display:none; }
-    header { border-color:#888; }
-  }
-</style>
+<link rel="stylesheet" href="/koraalenviajeugd/assets/stijl.css?v=1">
 </head>
 <body>
-<div class="wrap">
-<header>
-  <img src="../koraal_logo.png" alt="Koraal">
-  <img src="../vj_logo_ok.png" alt="Via Jeugd">
-</header>
+<div class="wrap breed">
 
-<h1>Jouw uitslag</h1>
+<div class="hero">
+  <div class="logos">
+    <span><img src="../koraal_logo.png" alt="Koraal"></span>
+    <span><img src="../vj_logo_ok.png" alt="Via Jeugd"></span>
+  </div>
+  <h1>Jouw uitslag</h1>
+  <p class="sub">Waar plaatst jouw invulling de organisatiecultuur &ndash; nu en gewenst?</p>
+</div>
 <p class="meta" id="meta">Even laden…</p>
 
 <div id="leeg" class="kaart" style="display:none;">

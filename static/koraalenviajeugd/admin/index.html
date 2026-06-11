@@ -10,44 +10,19 @@
 <link rel="shortcut icon" href="/koraalenviajeugd/favicon/favicon.ico?v=2">
 <meta name="robots" content="noindex, nofollow">
 <title>Beheer · Cultuurmeting Koraal &amp; Via Jeugd</title>
-<style>
-  :root { --blauw:#004289; --dblauw:#003366; --cyaan:#009DDF; --groen:#4FAE32;
-          --zacht:#F2F8FD; --kaart:#E5F1FA; }
-  * { box-sizing:border-box; }
-  body { font-family:Arial,Helvetica,sans-serif; margin:0; color:#333; background:#fff; }
-  .wrap { max-width:980px; margin:0 auto; padding:18px 16px 60px; }
-  header { display:flex; justify-content:space-between; align-items:center; gap:12px;
-           padding:14px 0 10px; border-bottom:3px solid var(--cyaan); }
-  header img { height:30px; }
-  h1 { color:var(--blauw); font-size:1.4em; margin:18px 0 6px; }
-  h2 { color:var(--blauw); font-size:1.1em; margin:26px 0 8px; }
-  .kaart { background:var(--zacht); border-radius:10px; padding:14px 16px; margin:0 0 16px; }
-  table { border-collapse:collapse; width:100%; margin:8px 0 14px; font-size:.92em; }
-  th, td { border:1px solid #C9DCEF; padding:6px 9px; text-align:center; }
-  th { background:var(--blauw); color:#fff; }
-  tr:nth-child(even) td { background:var(--zacht); }
-  tr.klikbaar { cursor:pointer; }
-  tr.klikbaar:hover td { background:var(--kaart); }
-  td.l, th.l { text-align:left; }
-  .knop { display:inline-block; background:var(--blauw); color:#fff; border:none; border-radius:8px;
-          padding:10px 18px; font-size:1em; font-weight:bold; cursor:pointer; text-decoration:none; }
-  .knop.grijs { background:#888; }
-  .tellers { display:flex; gap:12px; flex-wrap:wrap; margin:6px 0 14px; }
-  .tel { flex:1 1 160px; background:var(--zacht); border-radius:10px; padding:12px; text-align:center; }
-  .tel .n { font-size:1.9em; font-weight:bold; color:var(--blauw); }
-  input[type=password]{ padding:10px; border:1px solid #BBD4EA; border-radius:8px; font-size:1em; width:260px; }
-  .fout { color:#B52B27; }
-  .acties { display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 16px; }
-  svg text { font-family:Arial,Helvetica,sans-serif; }
-  .verborgen { display:none; }
-</style>
+<link rel="stylesheet" href="/koraalenviajeugd/assets/stijl.css?v=1">
 </head>
 <body>
-<div class="wrap">
-<header>
-  <img src="../koraal_logo.png" alt="Koraal">
-  <img src="../vj_logo_ok.png" alt="Via Jeugd">
-</header>
+<div class="wrap breed">
+
+<div class="hero slank">
+  <div class="logos">
+    <span><img src="../koraal_logo.png" alt="Koraal"></span>
+    <span><img src="../vj_logo_ok.png" alt="Via Jeugd"></span>
+  </div>
+  <h1>Beheer &mdash; cultuurmeting</h1>
+  <p class="sub">Resultaten, gemiddelden en CSV-export &middot; token-beveiligd.</p>
+</div>
 
 <!-- ============== TOKEN-LOGIN ============== -->
 <section id="login" class="kaart">
@@ -77,9 +52,9 @@
 
   <div id="inhoud" class="verborgen">
     <div class="tellers">
-      <div class="tel"><div class="n" id="n-totaal">0</div>inzendingen totaal</div>
-      <div class="tel"><div class="n" id="n-koraal">0</div>Koraal</div>
-      <div class="tel"><div class="n" id="n-vj">0</div>Via Jeugd</div>
+      <div class="tel"><div class="n" id="n-totaal">0</div><small>inzendingen totaal</small></div>
+      <div class="tel"><div class="n" id="n-koraal">0</div><small>Koraal</small></div>
+      <div class="tel"><div class="n" id="n-vj">0</div><small>Via Jeugd</small></div>
     </div>
 
     <h2>Totaalbeeld (gemiddelde profielen)</h2>
