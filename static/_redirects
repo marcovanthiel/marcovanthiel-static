@@ -1,0 +1,3 @@
+/koraalenviajeugd       https://koraalenviajeugd.nl/  301
+/koraalenviajeugd/      https://koraalenviajeugd.nl/  301
+/koraalenviajeugd/*     https://koraalenviajeugd.nl/:splat  301
