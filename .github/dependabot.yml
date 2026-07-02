@@ -16,3 +16,18 @@ updates:
       - 'ci'
     commit-message:
       prefix: 'deps(ci)'
+
+  # Python-bot voor de dagelijkse Biennale-update (scripts/biennale/requirements.txt)
+  - package-ecosystem: 'pip'
+    directory: '/scripts/biennale'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '06:00'
+      timezone: 'Europe/Amsterdam'
+    open-pull-requests-limit: 3
+    labels:
+      - 'dependencies'
+      - 'python'
+    commit-message:
+      prefix: 'deps(biennale)'

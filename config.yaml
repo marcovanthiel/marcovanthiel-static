@@ -81,6 +81,6 @@ params:
   # URL naar de kunstcollectie-frontend (custom subdomein voor CTA-links).
   kunstcollectieUrl: "https://kunstcollectie.marcovanthiel.nl"
   # URL naar de kunstcollectie-backend API (Render-service zonder custom domein).
-  kunstcollectieApiUrl: "https://kunstcollectie-api.onrender.com"
+  kunstcollectieApiUrl: "https://api.kunstcollectie.marcovanthiel.nl"
 
 # Menu configuration will be added later

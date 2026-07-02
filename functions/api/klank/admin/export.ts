@@ -65,7 +65,13 @@ export const onRequestGet: PagesFunction<Env> = async ({ request, env }) => {
     .trim();
   const queryToken = (url.searchParams.get('token') || '').trim();
   const provided = headerToken || queryToken;
-  if (provided !== env.KLANK_ADMIN_TOKEN) {
+  // Constant-tijd vergelijk: geen vroegtijdige exit op de eerste afwijkende byte.
+  const expected = env.KLANK_ADMIN_TOKEN || '';
+  let diff = provided.length ^ expected.length;
+  for (let i = 0; i < provided.length; i++) {
+    diff |= provided.charCodeAt(i) ^ expected.charCodeAt(i % (expected.length || 1));
+  }
+  if (diff !== 0 || !expected) {
     return unauthorized();
   }
 

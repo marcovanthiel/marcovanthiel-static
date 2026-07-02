@@ -164,7 +164,7 @@ function initArtworkOfTheDay() {
       return r.json();
     })
     .then(function (data) {
-      const detailUrl = detailBase ? detailBase + '/' + (data.id || '') : null;
+      const detailUrl = detailBase ? detailBase + '/' + encodeURIComponent(data.id || '') : null;
       const yearLine = data.year ? '<span class="aod-year">' + escapeHtml(data.year) + '</span>' : '';
       const mediumLine = data.medium ? '<span class="aod-medium">' + escapeHtml(data.medium) + '</span>' : '';
       const meta = [yearLine, mediumLine].filter(Boolean).join(' <span class="aod-dot">·</span> ');
