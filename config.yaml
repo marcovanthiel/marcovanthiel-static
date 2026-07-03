@@ -61,7 +61,7 @@ languages:
 
 # Site parameters
 params:
-  version: "1.0"
+  version: "1.17.7"
   author: "Marco van Thiel"
   description: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
   mainSections: ["posts"]
