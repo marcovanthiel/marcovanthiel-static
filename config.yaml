@@ -61,6 +61,7 @@ languages:
 
 # Site parameters
 params:
+  version: "1.0"
   author: "Marco van Thiel"
   description: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
   mainSections: ["posts"]
@@ -84,3 +85,12 @@ params:
   kunstcollectieApiUrl: "https://api.kunstcollectie.marcovanthiel.nl"
 
 # Menu configuration will be added later
+
+# Sta os.Getenv toe voor de Cloudflare Pages build-commit (voor het versienummer
+# in de footer). Naast Hugo's standaard-allowlist (^HUGO_, ^CI$).
+security:
+  funcs:
+    getenv:
+      - '^HUGO_'
+      - '^CI$'
+      - '^CF_PAGES'

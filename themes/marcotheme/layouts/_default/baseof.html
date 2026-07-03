@@ -159,6 +159,7 @@
 
                 <div class="copyright">
                     <p>© {{ now.Format "2006" }} {{ .Site.Title }}. {{ i18n "allRightsReserved" }}</p>
+                    <p class="site-version" style="opacity:.5;font-size:.8em;margin:4px 0 0">v{{ site.Params.version | default "1.0" }}{{ with (os.Getenv "CF_PAGES_COMMIT_SHA") }} · {{ substr . 0 7 }}{{ end }}</p>
                 </div>
             </div>
         </div>
