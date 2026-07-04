@@ -163,9 +163,9 @@
 
   function geo(ev){
     var pair = ev && ev.pair;
-    var slotW = pair ? 240 : 158, colStep = pair ? 268 : 186;
-    var champW = pair ? 240 : 190;
-    var W = 2 * (margin + 4 * colStep + slotW) + (pair ? 220 : 136);
+    var slotW = pair ? 280 : 200, colStep = pair ? 306 : 226;
+    var champW = pair ? 280 : 210;
+    var W = 2 * (margin + 4 * colStep + slotW) + (pair ? 220 : 140);
     return { slotW: slotW, colStep: colStep, W: W, champW: champW, pair: pair };
   }
   function colX(g, side, r){

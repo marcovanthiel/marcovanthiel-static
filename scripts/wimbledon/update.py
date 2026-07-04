@@ -133,6 +133,12 @@ def norm(naam):
     return " ".join(delen)
 
 
+def zelfde_speler(slottekst, kortnorm):
+    """Is de speler in een slot (volledige naam) dezelfde als een ESPN-shortName-norm?"""
+    s = norm(slottekst)
+    return s == kortnorm or s.endswith(" " + kortnorm)
+
+
 def nl_tijd(dt_utc):
     lokaal = dt_utc.astimezone(TZ)
     return DAGEN[lokaal.weekday()], lokaal.strftime("%H:%M"), lokaal.date()
@@ -192,12 +198,20 @@ def score_wim(m):
         return ""
 
 
+def wim_speler(team, kant):
+    """Volledige naam (voornaam + achternaam) van speler A of B in een wim-team."""
+    voor, achter, disp = team.get(f"firstName{kant}"), team.get(f"lastName{kant}"), team.get(f"displayName{kant}")
+    if voor and achter:
+        return f"{voor} {achter}"
+    return disp or ""
+
+
 def wim_team_naam(team, pair):
     if not team or not team.get("displayNameA"):
         return ""
-    naam = vlag(team.get("nationA")) + team["displayNameA"]
+    naam = vlag(team.get("nationA")) + wim_speler(team, "A")
     if pair and team.get("displayNameB"):
-        naam += " / " + vlag(team.get("nationB")) + team["displayNameB"]
+        naam += " / " + vlag(team.get("nationB")) + wim_speler(team, "B")
     if team.get("seed"):
         naam += f" [{team['seed']}]"
     return naam
@@ -210,15 +224,25 @@ def bouw_singles(code, espn_data, vandaag):
     comps = groep["competitions"] if groep else []
 
     slots = {}
-    vlaggen = {}  # norm-naam -> vlag-emoji
+    vlaggen = {}     # norm-naam -> vlag-emoji
+    vollenamen = {}  # norm-naam -> volledige naam (voornaam + achternaam)
     for c in comps:
         for t in c.get("competitors", []):
             n = norm(espn_naam(t))
-            if n and n not in vlaggen:
+            if not n:
+                continue
+            if n not in vlaggen:
                 vlaggen[n] = vlag(espn_vlagcode(t))
+            volle = (t.get("athlete") or {}).get("fullName")
+            if volle and n not in vollenamen:
+                vollenamen[n] = volle
 
     def toon(naam_met_seed):
-        return vlaggen.get(norm(naam_met_seed), "") + naam_met_seed
+        n = norm(naam_met_seed)
+        m = re.search(r"\s*(\[\d+\])", naam_met_seed)
+        seed = f" {m.group(1)}" if m else ""
+        basis = vollenamen.get(n) or re.sub(r"\s*\[\d+\]", "", naam_met_seed)
+        return vlaggen.get(n, "") + basis + seed
 
     # kolom 0 uit de seed-lijst
     seeds = SEED_R32[code]
@@ -262,7 +286,7 @@ def bouw_singles(code, espn_data, vandaag):
             if k == 0:
                 score = score_espn(c)
                 bovenste = slots.get(f"{kant}-0-{paar*2}", "")
-                if namen and norm(namen[0]) != norm(bovenste):
+                if namen and not zelfde_speler(bovenste, norm(namen[0])):
                     score = " ".join("-".join(reversed(p.split("-"))) for p in score.split())
                 if status["completed"]:
                     labels[kant][paar] = f"{dag} {datum.day} jul · {score}"
@@ -277,9 +301,8 @@ def bouw_singles(code, espn_data, vandaag):
                 if w is not None:
                     wnorm = norm(espn_naam(w))
                     # volledige naam met seed opzoeken in huidige kolomtekst
-                    huidig = slots.get(f"{kant}-{k}-", "")
                     bron = next((slots[f"{kant}-{k}-{j}"] for j in (idx, idx + 1 if idx % 2 == 0 else idx - 1)
-                                 if norm(slots.get(f"{kant}-{k}-{j}", "")) == wnorm), None)
+                                 if zelfde_speler(slots.get(f"{kant}-{k}-{j}", ""), wnorm)), None)
                     if bron is None:
                         bron = toon(espn_naam(w))
                     if k < 4:
@@ -304,14 +327,6 @@ def bouw_singles(code, espn_data, vandaag):
                               else (f"LIVE · {status.get('detail','')}" if status["state"] == "in" else "gepland"),
                     "tv": tv,
                 })
-
-    # posities van kolom k+1 vullen voor nog niet gespeelde rondes (uit bestaande slots)
-    for k in range(1, 5):
-        for kant in ("L", "R"):
-            for idx in range(16 >> k if k < 4 else 1):
-                naam = slots.get(f"{kant}-{k}-{idx}")
-                if naam:
-                    positie[k][norm(naam)] = (kant, idx)
 
     vandaag_lijst.sort(key=lambda x: x["tijd"])
     return {"tab": ev["tab"], "badge": ev["badge"], "rondes": ev["rondes"], "finale": ev["finale"],
