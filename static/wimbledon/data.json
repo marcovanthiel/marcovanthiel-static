@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "4 juli 2026, 13:31",
- "bijgewerkt_iso": "2026-07-04T13:31+02:00",
+ "bijgewerkt": "4 juli 2026, 13:35",
+ "bijgewerkt_iso": "2026-07-04T13:35+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -346,6 +346,7 @@
     "R-0-15": "🇪🇸 M. Granollers / 🇦🇷 H. Zeballos [2]",
     "L-1-0": "🇫🇮 H. Heliovaara / 🇬🇧 H. Patten [1]",
     "L-1-1": "🇨🇿 A. Pavlasek / 🇨🇿 P. Rikl",
+    "L-1-2": "🇹🇼 R. Ho / 🇩🇪 H. Jebens",
     "L-1-4": "🇮🇹 S. Bolelli / 🇮🇹 A. Vavassori [4]",
     "L-1-5": "🇺🇸 A. Krajicek / 🇭🇷 N. Mektic [14]",
     "L-1-6": "🇦🇺 T. Kokkinakis / 🇺🇸 A. Kovacevic",
@@ -360,7 +361,7 @@
     "L": [
      "vr 3 jul · 7-6 6-7 7-6",
      "vr 3 jul · 6-3 6-4",
-     "vandaag · Court 5 · HBO Max",
+     "za 4 jul · 5-7 6-7",
      "vandaag · Court 5 · HBO Max",
      "za 4 jul · 6-1 6-4",
      "vr 3 jul · 7-6 6-7 6-7",
@@ -397,11 +398,11 @@
      "tv": "HBO Max"
     },
     {
-     "tijd": "–",
+     "tijd": "13:33",
      "court": "Court 5",
      "ronde": "2e ronde",
      "partij": "🇫🇷 T. Arribage / 🇫🇷 A. Olivetti [10] – 🇹🇼 R. Ho / 🇩🇪 H. Jebens",
-     "status": "gepland",
+     "status": "gespeeld · 5-7 6-7",
      "tv": "HBO Max"
     },
     {
