@@ -36,6 +36,43 @@ tab-wissel, touch-swipe. Sneltoetsen: `←`/`→`, `spatie` (pauze), `F`
 **Deploy:** push naar `main` → Cloudflare Pages bouwt Hugo → `/felix` is live.
 Geen aparte build-stap voor de subsite, geen API, geen externe afhankelijkheden.
 
+## Subsite: /wimbledon
+
+**marcovanthiel.nl/wimbledon** — interactief wedstrijdschema Wimbledon 2026 met
+7 onderdelen (Heren, Dames, Heren dubbel, Dames dubbel, Mixed, Jongens, Meisjes),
+landvlaggen, live standen, daglijst met Nederlandse tijden en tv-zender per partij.
+Gemaakt 2026-07-04. Kale static (geen Hugo-content): `static/wimbledon/`.
+
+```
+static/wimbledon/
+├── index.html            # datagestuurde bracket-pagina (7 tabs), leest data.json
+└── data.json             # gegenereerd — NIET met de hand bewerken
+scripts/wimbledon/update.py             # generator (Python 3.12, stdlib only)
+.github/workflows/wimbledon-hourly.yml  # cron elk uur (minuut 7), commit bij wijziging
+```
+
+**Databronnen** (beide gratis, geen key):
+- **ESPN scoreboard-API** (`site.api.espn.com/.../tennis/atp/scoreboard`): enkelspel
+  heren/dames + speeltijden/banen/uitslagen/live standen/vlaggen. De ESPN-volgorde is
+  NIET de loting-volgorde; daarom staat de laatste-32-loting van MS/LS als
+  `SEED_R32` in `update.py` en worden uitslagen op genormaliseerde naam gematcht.
+- **wimbledon.com draw-feeds** (`/en_GB/scores/feeds/2026/draws/{MD,LD,MX,BS,GS}.json`):
+  dubbels + junioren in loting-volgorde (`match_id` oplopend). De MS/LS-feeds zijn
+  door Akamai afgeschermd (302 naar robots.txt) — óók voor echte browsers; niet
+  proberen te scrapen, de seed + ESPN volstaat.
+
+**Tv-logica NL** (bron: WBD-persbericht Wimbledon 2026, `tv_kanaal()` in update.py):
+HBO Max streamt alle banen; Eurosport 1/2 lineair (Centre Court); **Court No. 1 is
+t/m de achtste finales exclusief bij Ziggo Sport**; vanaf de halve finales alles overal.
+
+**CSP**: de pagina heeft één inline `<script>`; `static/_headers` bevat daarom een
+`/wimbledon/*`-blok dat de site-CSP vervangt (`! Content-Security-Policy` +
+versie met `'unsafe-inline'`). Niet weghalen, anders doen de tabs niets.
+
+**Onderhoud**: het script stopt zichzelf na 2026-07-13 (EINDDATUM); daarna de
+workflow `wimbledon-hourly.yml` verwijderen (en evt. de hele subsite archiveren).
+Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
+
 ## Verhuisde projecten
 
 - **OCAI-cultuurmeting Koraal & Via Jeugd** (voorheen onder
