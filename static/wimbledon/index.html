@@ -508,6 +508,9 @@
     return score.split(' ').map(function(p){ return p.split('-').reverse().join('-'); }).join(' ');
   }
 
+  function liveDetail(status){
+    return (status.detail || '').replace(/(\d)(?:st|nd|rd|th)\s+Set/, '$1e set');
+  }
   function scoreEspn(comp){
     try{
       var t1 = comp.competitors[0], t2 = comp.competitors[1];
@@ -582,7 +585,7 @@
           var bovenste = slots[kant + '-' + k + '-' + (paar * 2)] || '';
           if (namen.length && !zelfdeSpeler(bovenste, norm(namen[0]))) score = flipScore(score);
           if (status.completed) labels[kant][k][paar] = ti.dag + ' ' + ti.dagnr + ' jul · ' + score;
-          else if (status.state === 'in') labels[kant][k][paar] = 'LIVE · ' + (status.detail || '') + ' · ' + tv;
+          else if (status.state === 'in') labels[kant][k][paar] = 'LIVE · ' + liveDetail(status) + (score.replace(/[-\s]/g, '') ? ' · ' + score : '') + ' · ' + tv;
           else if (c.timeValid !== false) labels[kant][k][paar] = ti.dag + ' ' + ti.tijd + ' · ' + (court || 'baan volgt') + ' · ' + tv;
           else labels[kant][k][paar] = ti.dag + ' ' + ti.dagnr + ' jul · tijd volgt · ' + tv;
         }
@@ -618,7 +621,9 @@
             ronde: (meta.rondes[k] || '').split(' ·')[0],
             partij: namen.filter(Boolean).map(toon).join(' – '),
             status: status.completed ? ('gespeeld · ' + scoreEspn(c))
-                    : (status.state === 'in' ? ('LIVE · ' + (status.detail || '')) : 'gepland'),
+                    : (status.state === 'in'
+                       ? ('LIVE · ' + liveDetail(status) + (scoreEspn(c).replace(/[-\s]/g, '') ? ' · ' + scoreEspn(c) : ''))
+                       : 'gepland'),
             tv: tv
           });
         }
@@ -678,7 +683,8 @@
         tijd: ti ? ti.tijd : '–', court: court || 'baan volgt',
         ronde: WIM_RONDE[rc] || rc,
         partij: t1 + ' – ' + t2,
-        status: klaar ? ('gespeeld · ' + scoreWim(m)) : (m.status ? 'LIVE' : 'gepland'),
+        status: klaar ? ('gespeeld · ' + scoreWim(m))
+                      : (m.status ? ('LIVE' + (scoreWim(m) ? ' · ' + scoreWim(m) : '')) : 'gepland'),
         tv: tvKanaal(court, kolom)
       });
     }
@@ -710,7 +716,7 @@
         if (k <= 3 && rc !== 'F'){
           var ti = m.epoch ? tijdInfo(m.epoch) : null;
           if (klaar) labels[kant][k][paar] = (ti ? ti.dag + ' ' + ti.dagnr + ' jul · ' : '') + scoreWim(m);
-          else if (m.status) labels[kant][k][paar] = 'LIVE · ' + tv;
+          else if (m.status) labels[kant][k][paar] = 'LIVE' + (scoreWim(m) ? ' · ' + scoreWim(m) : '') + ' · ' + tv;
           else if (court) labels[kant][k][paar] = (ti ? ti.tijd : 'vandaag') + ' · ' + court + ' · ' + tv;
         }
         daglijstItem(m, rc, k);

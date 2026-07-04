@@ -174,6 +174,11 @@ def espn_vlagcode(t):
     return m.group(1).upper() if m else ""
 
 
+def live_detail(status):
+    """'2nd Set' -> '2e set' (voor LIVE-labels)."""
+    return re.sub(r"(\d)(?:st|nd|rd|th)\s+Set", r"\1e set", status.get("detail", "") or "")
+
+
 def score_espn(comp):
     """Setstanden in de volgorde waarin de spelers getoond worden."""
     try:
@@ -292,7 +297,8 @@ def bouw_singles(code, espn_data, vandaag):
                 if status["completed"]:
                     labels[kant][k][paar] = f"{dag} {datum.day} jul · {score}"
                 elif status["state"] == "in":
-                    labels[kant][k][paar] = f"LIVE · {status.get('detail','')} · {tv}"
+                    stand = f" · {score}" if score.strip("- ") else ""
+                    labels[kant][k][paar] = f"LIVE · {live_detail(status)}{stand} · {tv}"
                 elif c.get("timeValid", True):
                     labels[kant][k][paar] = f"{dag} {tijd} · {court or 'baan volgt'} · {tv}"
                 else:
@@ -327,7 +333,9 @@ def bouw_singles(code, espn_data, vandaag):
                     "ronde": ev["rondes"][k].split(" ·")[0] if k < len(ev["rondes"]) else "",
                     "partij": " – ".join(toon(n) for n in namen if n),
                     "status": ("gespeeld · " + score_espn(c)) if status["completed"]
-                              else (f"LIVE · {status.get('detail','')}" if status["state"] == "in" else "gepland"),
+                              else ((f"LIVE · {live_detail(status)}"
+                                     + (f" · {score_espn(c)}" if score_espn(c).strip("- ") else ""))
+                                    if status["state"] == "in" else "gepland"),
                     "tv": tv,
                 })
 
@@ -399,7 +407,8 @@ def bouw_wim(code, vandaag):
                     wanneer = f"{DAGEN[datum.weekday()]} {datum.day} jul · " if datum else ""
                     labels[kant][k][paar] = f"{wanneer}{score_wim(m)}"
                 elif m.get("status"):
-                    labels[kant][k][paar] = f"LIVE · {tv}"
+                    stand = score_wim(m)
+                    labels[kant][k][paar] = f"LIVE{' · ' + stand if stand else ''} · {tv}"
                 elif court:
                     labels[kant][k][paar] = f"{tijd or 'vandaag'} · {court} · {tv}"
 
@@ -413,7 +422,8 @@ def bouw_wim(code, vandaag):
                               "Q": "Kwartfinale", "S": "Halve finale", "F": "Finale"}.get(rc, rc),
                     "partij": f"{t1} – {t2}",
                     "status": (f"gespeeld · {score_wim(m)}") if klaar
-                              else ("LIVE" if m.get("status") else "gepland"),
+                              else ((("LIVE · " + score_wim(m)) if score_wim(m) else "LIVE")
+                                    if m.get("status") else "gepland"),
                     "tv": tv,
                 })
 
