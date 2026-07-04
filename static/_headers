@@ -12,6 +12,13 @@
   Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: https://api.kunstcollectie.marcovanthiel.nl https://kunstcollectie.marcovanthiel.nl; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.kunstcollectie.marcovanthiel.nl; form-action 'self'
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
+# /wimbledon: zelfstandige pagina met één inline <script> (tabs + dblclick);
+# de site-brede CSP (script-src 'self') zou die blokkeren. Alleen hier
+# versoepelen; de overige security-headers erven van /* hierboven.
+/wimbledon/*
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'
+
 # Statische assets met fingerprint in de filename — agressief cachen
 /css/*
   Cache-Control: public, max-age=31536000, immutable

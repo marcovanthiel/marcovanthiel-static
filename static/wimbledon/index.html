@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wimbledon 2026 — Wedstrijdschema</title>
+<style>
+  :root{
+    --purple:#54008b;
+    --purple-soft:#e9d9ff;
+    --green-deep:#124a25;
+    --green-mid:#1d6234;
+    --green-light:#2e7d46;
+    --line:rgba(255,255,255,.9);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; padding:24px 16px;
+    background:#0e2b17;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    color:#fff;
+  }
+  header{ max-width:1200px; margin:0 auto 14px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .tab{
+    padding:9px 26px; border-radius:999px; border:2px solid var(--purple-soft);
+    background:transparent; color:var(--purple-soft); font-weight:700; font-size:14px;
+    cursor:pointer; letter-spacing:.5px; font-family:inherit;
+  }
+  .tab.active{ background:var(--purple); border-color:var(--purple); color:#fff; }
+  .tab:focus-visible{ outline:3px solid #fff; outline-offset:2px; }
+  .hint{ font-size:12.5px; color:rgba(255,255,255,.65); margin-left:auto; }
+  .scroller{
+    overflow-x:auto; border-radius:16px;
+    box-shadow:0 10px 40px rgba(0,0,0,.45);
+    max-width:2040px; margin:0 auto;
+  }
+  .canvas{
+    position:relative; width:2000px; height:960px;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 90px, rgba(0,0,0,.06) 90px 180px),
+      radial-gradient(ellipse at 50% 28%, var(--green-light) 0%, var(--green-mid) 55%, var(--green-deep) 100%);
+  }
+  .frame{
+    position:absolute; inset:16px;
+    border:2px solid rgba(255,255,255,.85); border-radius:6px;
+    pointer-events:none;
+  }
+  .badge{
+    position:absolute; left:50%; top:30px; transform:translateX(-50%);
+    text-align:center; pointer-events:none; color:#fff;
+    font-family:Georgia, "Times New Roman", serif;
+  }
+  .badge .b1{ font-size:14px; letter-spacing:5px; opacity:.9; }
+  .badge .b2{ font-size:32px; font-weight:700; letter-spacing:8px; color:var(--purple-soft); text-shadow:0 2px 6px rgba(0,0,0,.45); }
+  .badge .b3{ font-size:12.5px; letter-spacing:3px; opacity:.85; margin-top:3px; }
+  input.slot{
+    position:absolute; width:158px; height:26px;
+    background:rgba(255,255,255,.10);
+    border:1.6px solid var(--line); border-radius:3px;
+    color:#fff; font-size:12px; padding:2px 8px; outline:none;
+    font-family:inherit;
+    transition:background .15s, border-color .15s;
+  }
+  input.slot::placeholder{ color:rgba(255,255,255,.4); font-style:italic; }
+  input.slot:focus{ background:rgba(255,255,255,.24); border-color:#fff; }
+  input.champ{
+    width:190px; height:36px; font-size:14.5px; font-weight:700; text-align:center;
+    background:rgba(84,0,139,.55); border:2px solid var(--purple-soft);
+  }
+  .champlbl{
+    position:absolute; width:190px; text-align:center; pointer-events:none;
+    color:var(--purple-soft); font-size:13px; letter-spacing:2.5px;
+    font-family:Georgia, serif;
+  }
+  .finalelbl{
+    position:absolute; width:190px; text-align:center; pointer-events:none;
+    color:rgba(255,255,255,.75); font-size:11px; letter-spacing:1px;
+  }
+  .roundlbl{
+    position:absolute; pointer-events:none; text-align:center; width:158px;
+    color:rgba(255,255,255,.6); font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase;
+  }
+  .matchlbl{
+    position:absolute; pointer-events:none; text-align:center; width:158px;
+    color:rgba(233,217,255,.92); font-size:9.5px; letter-spacing:.3px;
+    text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+  svg.lines{ position:absolute; inset:0; pointer-events:none; }
+  footer{ max-width:1200px; margin:12px auto 0; font-size:11.5px; color:rgba(255,255,255,.5); }
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <button class="tab active" id="tab-men">Heren</button>
+  <button class="tab" id="tab-women">Dames</button>
+  <span class="hint">Alle tijden in Nederlandse tijd (Nijmegen) &middot; dubbelklik op een naam om de winnaar door te schuiven</span>
+</header>
+
+<div class="scroller">
+  <div class="canvas" id="canvas">
+    <svg class="lines" id="lines" width="2000" height="960" aria-hidden="true"></svg>
+    <div class="frame"></div>
+    <div class="badge">
+      <div class="b1">THE CHAMPIONSHIPS</div>
+      <div class="b2">WIMBLEDON</div>
+      <div class="b3" id="badge-sub">2026 &mdash; HERENENKELSPEL</div>
+    </div>
+  </div>
+</div>
+
+<footer>Stand per zaterdag 4 juli 2026, ochtend. Bron: officiële loting wimbledon.com. Linkerhelft speelde de derde ronde op vrijdag 3 juli (uitslagen ingevuld); rechterhelft speelt vandaag. Tijden van 2e/3e partijen op een baan zijn aansluitend en daarom indicatief.</footer>
+
+<script>
+(function(){
+  var W = 2000, H = 960, TOP = 130, BH = H - TOP - 30;
+  var slotW = 158, slotH = 26, colStep = 186, margin = 30;
+  var counts = [16, 8, 4, 2, 1];
+
+  // ---------- Gegevens: derde ronde (laatste 32), stand 4 juli 2026 ----------
+  // L = bovenste helft van de loting, R = onderste helft
+  var mensR32L = ["J. Sinner [1]","J. Brooksby","R. Jodar [23]","S. Mochizuki","H. Hurkacz","T. Paul [21]","J.-L. Struff","D. Medvedev [8]","F. Auger-Aliassime [3]","M. Zheng","A. Davidovich Fokina [22]","M. Fucsovics","R. Safiullin","J. Fonseca [24]","A. Rinderknech [25]","N. Djokovic [7]"];
+  var mensR16L = ["J. Sinner [1]","S. Mochizuki","H. Hurkacz","J.-L. Struff","F. Auger-Aliassime [3]","A. Davidovich Fokina [22]","R. Safiullin","N. Djokovic [7]"];
+  var mensR32R = ["A. de Minaur [5]","Z. Svajda","K. Khachanov [19]","F. Cobolli [9]","G. Dimitrov","M. Berrettini","Z. Bergs","A. Fery","T. Fritz [6]","L. Sonego","F. Tiafoe [17]","A. Bublik [10]","J. Lehecka [13]","J. Munar","M. Giron","A. Zverev [2]"];
+
+  var womenR32L = ["A. Sabalenka [1]","J. Ostapenko","D. Kasatkina","N. Osaka [14]","K. Muchova [10]","M. Sawangkaew","N. Bartunkova","B. Krejcikova","J. Pegula [4]","J. Bouzas Maneiro","E. Alexandrova [18]","I. Jovic [16]","B. Bencic [11]","A. Kalinskaya [19]","C. Liu","C. Gauff [7]"];
+  var womenR16L = ["A. Sabalenka [1]","N. Osaka [14]","K. Muchova [10]","B. Krejcikova","J. Pegula [4]","I. Jovic [16]","B. Bencic [11]","C. Gauff [7]"];
+  var womenR32R = ["D. Snigur","A. Krueger","E. Navarro [23]","M. Kostyuk [12]","J. Paolini [13]","M. Sakkari","A. Eala [29]","I. Swiatek [3]","A. Anisimova [6]","M. Keys [26]","S. Cirstea [17]","L. Noskova [9]","L. Samsonova","M. Bouzkova [21]","E. Mertens [25]","E. Rybakina [2]"];
+
+  // Labels per partij (linkerhelft: uitslag vr 3 jul, rechterhelft: speeltijd vandaag, NL-tijd)
+  var mensLblL = ["vr 3 jul \u00b7 6-4 6-3 6-4","vr 3 jul \u00b7 1-6 7-6 6-4 6-4","vr 3 jul \u00b7 4-6 7-6 7-5 6-2","vr 3 jul \u00b7 7-6 7-6 7-5","vr 3 jul \u00b7 7-6 6-2 6-1","vr 3 jul \u00b7 7-6 6-2 6-3","vr 3 jul \u00b7 6-3 6-3 6-3","vr 3 jul \u00b7 7-5 6-4 1-6 7-6"];
+  var mensLblR = ["vandaag \u00b1 12:00","vandaag \u00b7 Court 2 (2e)","vandaag \u00b7 Centre Court (3e)","vandaag \u00b1 12:00","vandaag \u00b7 Court 2 (3e)","vandaag \u00b7 Court 1 (3e)","vandaag \u00b1 12:00","vandaag \u00b7 Court 1 (2e)"];
+  var womenLblL = ["vr 3 jul \u00b7 6-4 6-4","vr 3 jul \u00b7 6-1 6-3","vr 3 jul \u00b7 6-2 7-6","vr 3 jul \u00b7 6-3 7-5","vr 3 jul \u00b7 6-1 6-3","vr 3 jul \u00b7 6-3 3-6 6-4","vr 3 jul \u00b7 6-4 4-6 7-6","vr 3 jul \u00b7 6-3 6-7 6-2"];
+  var womenLblR = ["vandaag \u00b1 12:00","vandaag 12:00 \u00b7 Court 2","vandaag \u00b1 12:00","vandaag 14:30 \u00b7 Centre Court","vandaag \u00b7 Centre Court (2e)","vandaag \u00b1 12:00","vandaag \u00b1 12:00","vandaag 14:00 \u00b7 Court 1"];
+
+  var roundNamesMen = ["Laatste 32 \u00b7 3\u20134 jul","Laatste 16 \u00b7 5\u20136 jul","Kwartfinale \u00b7 7\u20138 jul","Halve finale \u00b7 10 jul","Finalist"];
+  var roundNamesWomen = ["Laatste 32 \u00b7 3\u20134 jul","Laatste 16 \u00b7 5\u20136 jul","Kwartfinale \u00b7 7\u20138 jul","Halve finale \u00b7 9 jul","Finalist"];
+
+  function buildState(r32L, r16L, r32R){
+    var s = {};
+    r32L.forEach(function(n,i){ s['L-0-'+i] = n; });
+    r16L.forEach(function(n,i){ s['L-1-'+i] = n; });
+    r32R.forEach(function(n,i){ s['R-0-'+i] = n; });
+    return s;
+  }
+  var state = {
+    men: buildState(mensR32L, mensR16L, mensR32R),
+    women: buildState(womenR32L, womenR16L, womenR32R)
+  };
+  var current = 'men';
+
+  function colX(side, r){
+    return side === 'L' ? margin + r * colStep
+                        : W - margin - slotW - r * colStep;
+  }
+  function slotY(r, i){
+    return TOP + (i + 0.5) * (BH / counts[r]) - slotH / 2;
+  }
+  function key(side, r, i){ return side + '-' + r + '-' + i; }
+
+  var canvas = document.getElementById('canvas');
+  var svg = document.getElementById('lines');
+
+  // Verbindingslijnen
+  (function drawLines(){
+    var d = '';
+    ['L','R'].forEach(function(side){
+      for (var r = 0; r < 4; r++){
+        for (var i = 0; i < counts[r]; i++){
+          var x1 = side === 'L' ? colX(side, r) + slotW : colX(side, r);
+          var y1 = slotY(r, i) + slotH/2;
+          var x2 = side === 'L' ? colX(side, r+1) : colX(side, r+1) + slotW;
+          var y2 = slotY(r+1, Math.floor(i/2)) + slotH/2;
+          var mx = (x1 + x2) / 2;
+          d += 'M' + x1 + ' ' + y1 + ' H' + mx + ' V' + y2 + ' H' + x2 + ' ';
+        }
+      }
+      var fx = side === 'L' ? colX(side, 4) + slotW : colX(side, 4);
+      var fy = slotY(4, 0) + slotH/2;
+      var cx = W/2 + (side === 'L' ? -95 : 95);
+      var cy = TOP + BH/2 - 42;
+      d += 'M' + fx + ' ' + fy + ' H' + cx + ' V' + (cy + 18) + ' ';
+    });
+    var p = document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d', d);
+    p.setAttribute('fill','none');
+    p.setAttribute('stroke','rgba(255,255,255,.9)');
+    p.setAttribute('stroke-width','2');
+    svg.appendChild(p);
+  })();
+
+  // Rondelabels
+  var roundLbls = [];
+  ['L','R'].forEach(function(side){
+    for (var r = 0; r < 5; r++){
+      var lbl = document.createElement('div');
+      lbl.className = 'roundlbl';
+      lbl.dataset.r = r;
+      lbl.style.left = colX(side, r) + 'px';
+      lbl.style.top = (TOP - 24) + 'px';
+      canvas.appendChild(lbl);
+      roundLbls.push(lbl);
+    }
+  });
+
+  // Partijlabels (uitslag of speeltijd) tussen elk paar in de eerste kolom
+  var matchLbls = { L: [], R: [] };
+  ['L','R'].forEach(function(side){
+    for (var p = 0; p < 8; p++){
+      var lbl = document.createElement('div');
+      lbl.className = 'matchlbl';
+      lbl.style.left = colX(side, 0) + 'px';
+      lbl.style.top = (TOP + (2*p + 1) * (BH/16) - 6) + 'px';
+      canvas.appendChild(lbl);
+      matchLbls[side].push(lbl);
+    }
+  });
+
+  var inputs = [];
+  function makeInput(side, r, i){
+    var inp = document.createElement('input');
+    inp.className = 'slot';
+    inp.placeholder = '';
+    inp.style.left = colX(side, r) + 'px';
+    inp.style.top = slotY(r, i) + 'px';
+    inp.dataset.k = key(side, r, i);
+    inp.setAttribute('aria-label', 'Ronde ' + (r+1) + ' vak ' + (i+1));
+    inp.addEventListener('input', function(){ state[current][inp.dataset.k] = inp.value; });
+    inp.addEventListener('dblclick', function(){
+      if (!inp.value) return;
+      var target = r < 4 ? key(side, r+1, Math.floor(i/2)) : 'CHAMP';
+      state[current][target] = inp.value;
+      refresh();
+    });
+    canvas.appendChild(inp);
+    inputs.push(inp);
+  }
+
+  ['L','R'].forEach(function(side){
+    for (var r = 0; r < 5; r++){
+      for (var i = 0; i < counts[r]; i++) makeInput(side, r, i);
+    }
+  });
+
+  // Kampioensvak in het midden
+  var champLbl = document.createElement('div');
+  champLbl.className = 'champlbl';
+  champLbl.textContent = '\uD83C\uDFC6 KAMPIOEN';
+  champLbl.style.left = (W/2 - 95) + 'px';
+  champLbl.style.top = (TOP + BH/2 - 68) + 'px';
+  canvas.appendChild(champLbl);
+
+  var champ = document.createElement('input');
+  champ.className = 'slot champ';
+  champ.dataset.k = 'CHAMP';
+  champ.setAttribute('aria-label','Kampioen');
+  champ.style.left = (W/2 - 95) + 'px';
+  champ.style.top = (TOP + BH/2 - 42) + 'px';
+  champ.addEventListener('input', function(){ state[current]['CHAMP'] = champ.value; });
+  canvas.appendChild(champ);
+  inputs.push(champ);
+
+  var finaleLbl = document.createElement('div');
+  finaleLbl.className = 'finalelbl';
+  finaleLbl.style.left = (W/2 - 95) + 'px';
+  finaleLbl.style.top = (TOP + BH/2 + 2) + 'px';
+  canvas.appendChild(finaleLbl);
+
+  function refresh(){
+    inputs.forEach(function(inp){ inp.value = state[current][inp.dataset.k] || ''; });
+    var men = current === 'men';
+    document.getElementById('badge-sub').textContent =
+      men ? '2026 \u2014 HERENENKELSPEL' : '2026 \u2014 DAMESENKELSPEL';
+    document.getElementById('tab-men').classList.toggle('active', men);
+    document.getElementById('tab-women').classList.toggle('active', !men);
+    var names = men ? roundNamesMen : roundNamesWomen;
+    roundLbls.forEach(function(lbl){ lbl.textContent = names[lbl.dataset.r]; });
+    (men ? mensLblL : womenLblL).forEach(function(t,i){ matchLbls.L[i].textContent = t; });
+    (men ? mensLblR : womenLblR).forEach(function(t,i){ matchLbls.R[i].textContent = t; });
+    finaleLbl.textContent = men ? 'Finale: zondag 12 juli' : 'Finale: zaterdag 11 juli';
+  }
+
+  document.getElementById('tab-men').addEventListener('click', function(){ current = 'men'; refresh(); });
+  document.getElementById('tab-women').addEventListener('click', function(){ current = 'women'; refresh(); });
+
+  refresh();
+})();
+</script>
+</body>
+</html>
