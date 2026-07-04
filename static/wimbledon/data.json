@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "4 juli 2026, 17:13",
- "bijgewerkt_iso": "2026-07-04T17:13+02:00",
+ "bijgewerkt": "4 juli 2026, 17:14",
+ "bijgewerkt_iso": "2026-07-04T17:14+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -95,13 +95,13 @@
     "R": [
      [
       "za 4 jul · 6-2 5-7 6-2 6-4",
-      "LIVE · 4e set · 6-0 6-7 7-6 1-0 · HBO Max",
+      "LIVE · 4e set · 6-0 6-7 7-6 1-1 · HBO Max",
       "za 18:30 · Centre Court · Eurosport 1 · HBO Max",
       "LIVE · 3e set · 6-2 5-7 0-1 · HBO Max",
       "za 17:20 · No. 2 Court · HBO Max",
       "za 17:30 · baan volgt · HBO Max",
       "LIVE · 2e set · 6-4 4-3 · HBO Max",
-      "LIVE · 2e set · 2-6 2-1 · Ziggo Sport"
+      "LIVE · 2e set · 2-6 2-2 · Ziggo Sport"
      ],
      [
       "ma 6 jul · tijd volgt · HBO Max",
@@ -135,7 +135,7 @@
      "court": "No. 2 Court",
      "ronde": "Laatste 32",
      "partij": "🇮🇹 Flavio Cobolli – 🇷🇺 Karen Khachanov",
-     "status": "LIVE · 4e set · 0-6 7-6 6-7 0-1",
+     "status": "LIVE · 4e set · 0-6 7-6 6-7 1-1",
      "tv": "HBO Max"
     },
     {
@@ -162,7 +162,7 @@
      "court": "No. 1 Court",
      "ronde": "Laatste 32",
      "partij": "🇩🇪 Alexander Zverev – 🇺🇸 Marcos Giron",
-     "status": "LIVE · 2e set · 6-2 1-2",
+     "status": "LIVE · 2e set · 6-2 2-2",
      "tv": "Ziggo Sport"
     },
     {
@@ -753,7 +753,7 @@
      "tijd": "–",
      "court": "To be arranged 1",
      "ronde": "1e ronde",
-     "partij": "🇨🇴 Camila Osorio / 🇦🇷 Solana Sierra – 🇺🇸 Serena Williams / 🇺🇸 Venus Williams",
+     "partij": "🇨🇴 Camila Osorio / 🇦🇷 Solana Sierra – 🇬🇧 Samantha Murray Sharan / 🇹🇭 Lanlana Tararudee",
      "status": "gepland",
      "tv": "HBO Max"
     }
