@@ -296,6 +296,7 @@ def bouw_singles(code, espn_data, vandaag):
 
             if datum == vandaag:
                 vandaag_lijst.append({
+                    "start": int(dt.timestamp()),
                     "tijd": tijd, "court": court or "baan volgt",
                     "ronde": ev["rondes"][k].split(" ·")[0] if k < len(ev["rondes"]) else "",
                     "partij": " – ".join(toon(n) for n in namen if n),
@@ -378,6 +379,7 @@ def bouw_wim(code, vandaag):
             speelt_vandaag = (datum == vandaag) or (not klaar and court and not epoch)
             if speelt_vandaag and t1 and t2:
                 vandaag_lijst.append({
+                    "start": int(epoch / 1000) if epoch else None,
                     "tijd": tijd or "–",
                     "court": court or "baan volgt",
                     "ronde": {"1": "1e ronde", "2": "2e ronde", "3": "3e ronde",
@@ -403,6 +405,7 @@ def bouw_wim(code, vandaag):
                 t2 = wim_team_naam(m.get("team2"), ev["pair"])
                 if t1 and t2:
                     vandaag_lijst.append({
+                        "start": int(epoch / 1000) if epoch else None,
                         "tijd": tijd or "–", "court": court or "baan volgt", "ronde": "1e ronde",
                         "partij": f"{t1} – {t2}",
                         "status": (f"gespeeld · {score_wim(m)}") if klaar

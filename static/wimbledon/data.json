@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "4 juli 2026, 13:35",
- "bijgewerkt_iso": "2026-07-04T13:35+02:00",
+ "bijgewerkt": "4 juli 2026, 13:42",
+ "bijgewerkt_iso": "2026-07-04T13:42+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -83,13 +83,14 @@
      "za 15:15 · Court 18 · HBO Max",
      "za 15:30 · baan volgt · HBO Max",
      "za 17:30 · baan volgt · HBO Max",
-     "za 13:45 · Court 12 · HBO Max",
+     "za 14:00 · Court 12 · HBO Max",
      "za 15:30 · baan volgt · HBO Max"
     ]
    },
    "champ": "",
    "vandaag": [
     {
+     "start": 1783159500,
      "tijd": "12:05",
      "court": "No. 3 Court",
      "ronde": "Laatste 32",
@@ -98,14 +99,7 @@
      "tv": "HBO Max"
     },
     {
-     "tijd": "13:45",
-     "court": "Court 12",
-     "ronde": "Laatste 32",
-     "partij": "🇪🇸 J. Munar – 🇨🇿 J. Lehecka",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
+     "start": 1783165800,
      "tijd": "13:50",
      "court": "No. 2 Court",
      "ronde": "Laatste 32",
@@ -114,6 +108,16 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783166400,
+     "tijd": "14:00",
+     "court": "Court 12",
+     "ronde": "Laatste 32",
+     "partij": "🇪🇸 J. Munar – 🇨🇿 J. Lehecka",
+     "status": "gepland",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783170900,
      "tijd": "15:15",
      "court": "Court 18",
      "ronde": "Laatste 32",
@@ -122,6 +126,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783171800,
      "tijd": "15:30",
      "court": "baan volgt",
      "ronde": "Laatste 32",
@@ -130,6 +135,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783171800,
      "tijd": "15:30",
      "court": "baan volgt",
      "ronde": "Laatste 32",
@@ -138,6 +144,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783179000,
      "tijd": "17:30",
      "court": "baan volgt",
      "ronde": "Laatste 32",
@@ -146,6 +153,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783179000,
      "tijd": "17:30",
      "court": "baan volgt",
      "ronde": "Laatste 32",
@@ -234,6 +242,7 @@
    "champ": "",
    "vandaag": [
     {
+     "start": 1783159500,
      "tijd": "12:05",
      "court": "No. 2 Court",
      "ronde": "Laatste 32",
@@ -242,6 +251,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783159800,
      "tijd": "12:10",
      "court": "Court 12",
      "ronde": "Laatste 32",
@@ -250,6 +260,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783165500,
      "tijd": "13:45",
      "court": "Court 18",
      "ronde": "Laatste 32",
@@ -258,6 +269,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783166400,
      "tijd": "14:00",
      "court": "No. 3 Court",
      "ronde": "Laatste 32",
@@ -266,6 +278,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783166400,
      "tijd": "14:00",
      "court": "baan volgt",
      "ronde": "Laatste 32",
@@ -274,6 +287,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783168200,
      "tijd": "14:30",
      "court": "baan volgt",
      "ronde": "Laatste 32",
@@ -282,6 +296,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783171800,
      "tijd": "15:30",
      "court": "No. 3 Court",
      "ronde": "Laatste 32",
@@ -290,6 +305,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783173600,
      "tijd": "16:00",
      "court": "Centre Court",
      "ronde": "Laatste 32",
@@ -382,6 +398,7 @@
    "champ": "",
    "vandaag": [
     {
+     "start": 1783163350,
      "tijd": "13:09",
      "court": "Court 14",
      "ronde": "2e ronde",
@@ -390,6 +407,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783164616,
      "tijd": "13:30",
      "court": "Court 17",
      "ronde": "2e ronde",
@@ -398,6 +416,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783164808,
      "tijd": "13:33",
      "court": "Court 5",
      "ronde": "2e ronde",
@@ -406,6 +425,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 5",
      "ronde": "2e ronde",
@@ -414,6 +434,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 15",
      "ronde": "2e ronde",
@@ -422,6 +443,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 17",
      "ronde": "2e ronde",
@@ -430,6 +452,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 6",
      "ronde": "2e ronde",
@@ -510,6 +533,7 @@
    "champ": "",
    "vandaag": [
     {
+     "start": 1783164156,
      "tijd": "13:22",
      "court": "Court 16",
      "ronde": "2e ronde",
@@ -518,6 +542,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 12",
      "ronde": "2e ronde",
@@ -526,6 +551,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 8",
      "ronde": "2e ronde",
@@ -534,6 +560,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 17",
      "ronde": "2e ronde",
@@ -542,6 +569,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 15",
      "ronde": "2e ronde",
@@ -550,6 +578,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 7",
      "ronde": "2e ronde",
@@ -558,6 +587,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 16",
      "ronde": "2e ronde",
@@ -566,6 +596,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 14",
      "ronde": "2e ronde",
@@ -574,6 +605,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 16",
      "ronde": "2e ronde",
@@ -582,6 +614,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "To be arranged 1",
      "ronde": "1e ronde",
@@ -640,7 +673,9 @@
     "L-1-3": "🇺🇸 J. Tracy / 🇰🇿 A. Danilina [8]",
     "L-1-4": "🇺🇸 E. King / 🇨🇦 G. Dabrowski",
     "L-1-6": "🇵🇹 F. Cabral / 🇦🇺 E. Perez",
+    "R-1-0": "🇬🇧 J. Salisbury / 🇨🇦 L. Fernandez",
     "R-1-2": "🇬🇧 M. Willis / 🇬🇧 H. Watson",
+    "R-1-3": "🇺🇸 C. Harrison / 🇨🇳 S. Zhang [3]",
     "R-1-4": "🇬🇧 L. Glasspool / 🇸🇰 T. Mihalikova [7]",
     "R-1-5": "🇫🇷 E. Roger-Vasselin / 🇩🇪 L. Siegemund",
     "R-1-6": "🇦🇷 A. Molteni / 🇭🇷 D. Jurak Schreiber"
@@ -657,10 +692,10 @@
      "vandaag · Court 16 · HBO Max"
     ],
     "R": [
-     "vandaag · Court 18 · HBO Max",
+     "za 4 jul · 6-7 4-6",
      "vandaag · Court 15 · HBO Max",
      "vr 3 jul · 6-3 3-6 4-6",
-     "vandaag · Court 7 · HBO Max",
+     "za 4 jul · 4-6 4-6",
      "vr 3 jul · 6-4 6-4",
      "vr 3 jul · 7-6 4-6 6-7",
      "vr 3 jul · 6-3 6-7 4-6",
@@ -670,6 +705,25 @@
    "champ": "",
    "vandaag": [
     {
+     "start": 1783165257,
+     "tijd": "13:40",
+     "court": "Court 18",
+     "ronde": "1e ronde",
+     "partij": "🇬🇧 J. Cash / 🇳🇱 D. Schuurs [5] – 🇬🇧 J. Salisbury / 🇨🇦 L. Fernandez",
+     "status": "gespeeld · 6-7 4-6",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783165258,
+     "tijd": "13:40",
+     "court": "Court 7",
+     "ronde": "1e ronde",
+     "partij": "🇸🇪 A. Goransson / 🇳🇿 E. Routliffe – 🇺🇸 C. Harrison / 🇨🇳 S. Zhang [3]",
+     "status": "gespeeld · 4-6 4-6",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
      "tijd": "–",
      "court": "Court 14",
      "ronde": "1e ronde",
@@ -678,6 +732,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 14",
      "ronde": "1e ronde",
@@ -686,6 +741,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 15",
      "ronde": "1e ronde",
@@ -694,6 +750,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 16",
      "ronde": "1e ronde",
@@ -702,14 +759,7 @@
      "tv": "HBO Max"
     },
     {
-     "tijd": "–",
-     "court": "Court 18",
-     "ronde": "1e ronde",
-     "partij": "🇬🇧 J. Cash / 🇳🇱 D. Schuurs [5] – 🇬🇧 J. Salisbury / 🇨🇦 L. Fernandez",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
+     "start": null,
      "tijd": "–",
      "court": "Court 15",
      "ronde": "1e ronde",
@@ -718,14 +768,7 @@
      "tv": "HBO Max"
     },
     {
-     "tijd": "–",
-     "court": "Court 7",
-     "ronde": "1e ronde",
-     "partij": "🇸🇪 A. Goransson / 🇳🇿 E. Routliffe – 🇺🇸 C. Harrison / 🇨🇳 S. Zhang [3]",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
+     "start": null,
      "tijd": "–",
      "court": "Court 17",
      "ronde": "1e ronde",
@@ -778,6 +821,7 @@
    "champ": "",
    "vandaag": [
     {
+     "start": 1783163211,
      "tijd": "13:06",
      "court": "Court 11",
      "ronde": "1e ronde",
@@ -786,6 +830,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783163304,
      "tijd": "13:08",
      "court": "Court 10",
      "ronde": "1e ronde",
@@ -794,6 +839,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783163912,
      "tijd": "13:18",
      "court": "Court 8",
      "ronde": "1e ronde",
@@ -802,6 +848,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783164640,
      "tijd": "13:30",
      "court": "Court 4",
      "ronde": "1e ronde",
@@ -810,6 +857,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 4",
      "ronde": "1e ronde",
@@ -818,6 +866,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 9",
      "ronde": "1e ronde",
@@ -826,6 +875,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 9",
      "ronde": "1e ronde",
@@ -834,6 +884,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 8",
      "ronde": "1e ronde",
@@ -842,6 +893,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 9",
      "ronde": "1e ronde",
@@ -850,6 +902,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 7",
      "ronde": "1e ronde",
@@ -858,6 +911,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 5",
      "ronde": "1e ronde",
@@ -866,6 +920,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 10",
      "ronde": "1e ronde",
@@ -913,6 +968,7 @@
    "champ": "",
    "vandaag": [
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 6",
      "ronde": "1e ronde",
@@ -921,6 +977,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 9",
      "ronde": "1e ronde",
@@ -929,6 +986,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 4",
      "ronde": "1e ronde",
@@ -937,6 +995,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 11",
      "ronde": "1e ronde",
@@ -945,6 +1004,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 11",
      "ronde": "1e ronde",
@@ -953,6 +1013,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 4",
      "ronde": "1e ronde",
@@ -961,6 +1022,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 10",
      "ronde": "1e ronde",
@@ -969,6 +1031,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 11",
      "ronde": "1e ronde",
@@ -977,6 +1040,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 6",
      "ronde": "1e ronde",
@@ -985,6 +1049,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 10",
      "ronde": "1e ronde",
@@ -993,6 +1058,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 5",
      "ronde": "1e ronde",
@@ -1001,6 +1067,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 7",
      "ronde": "1e ronde",
@@ -1009,6 +1076,7 @@
      "tv": "HBO Max"
     },
     {
+     "start": null,
      "tijd": "–",
      "court": "Court 6",
      "ronde": "1e ronde",

@@ -40,7 +40,9 @@ Geen aparte build-stap voor de subsite, geen API, geen externe afhankelijkheden.
 
 **marcovanthiel.nl/wimbledon** — interactief wedstrijdschema Wimbledon 2026 met
 7 onderdelen (Heren, Dames, Heren dubbel, Dames dubbel, Mixed, Jongens, Meisjes),
-landvlaggen, live standen, daglijst met Nederlandse tijden en tv-zender per partij.
+landvlaggen, live standen, daglijst met Nederlandse tijden en tv-zender per partij;
+de daglijst accentueert op kijkmoment wat nu wordt uitgezonden (goud) en wat binnen
+1 resp. 2 uur begint (blauw, twee sterktes), client-side herberekend per minuut.
 Gemaakt 2026-07-04. Kale static (geen Hugo-content): `static/wimbledon/`.
 
 ```

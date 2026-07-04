@@ -106,6 +106,16 @@
   .match .status.live{ color:#ffd54d; font-weight:700; }
   .match .ronde, .match .baan{ color:rgba(255,255,255,.65); font-size:12px; }
   .match .tv{ color:#9fd8ff; font-size:12px; }
+  /* Accenten op kijkmoment: nu bezig / begint binnen 1 of 2 uur */
+  .match.nu{ background:rgba(255,213,77,.12); box-shadow:inset 4px 0 0 #ffd54d; }
+  .match.straks1{ background:rgba(159,216,255,.12); box-shadow:inset 4px 0 0 #9fd8ff; }
+  .match.straks2{ background:rgba(159,216,255,.05); box-shadow:inset 4px 0 0 rgba(159,216,255,.45); }
+  .legenda{ font-size:11.5px; color:rgba(255,255,255,.6); margin:0 0 10px; }
+  .legenda .dot{ display:inline-block; width:9px; height:9px; border-radius:50%; margin:0 4px 0 12px; vertical-align:baseline; }
+  .legenda .dot.nu{ background:#ffd54d; margin-left:0; }
+  .legenda .dot.s1{ background:#9fd8ff; }
+  .legenda .dot.s2{ background:rgba(159,216,255,.45); }
+  .matchlbl.live{ color:#ffd54d; font-weight:700; }
   @media (max-width:900px){
     .match{ grid-template-columns:52px 1fr; }
     .match .ronde, .match .baan, .match .status, .match .tv{ grid-column:2; }
@@ -130,6 +140,7 @@
 
 <section class="vandaag" id="vandaag" hidden>
   <h2 id="vandaag-titel">Vandaag &middot; programma en uitslagen</h2>
+  <p class="legenda"><span class="dot nu"></span>wordt nu uitgezonden<span class="dot s1"></span>begint binnen 1 uur<span class="dot s2"></span>begint binnen 2 uur</p>
   <div id="vandaag-lijst"></div>
 </section>
 
@@ -214,8 +225,9 @@
       }
       for (var q = 0; q < 8; q++){
         var ml = document.createElement('div');
-        ml.className = 'matchlbl';
-        ml.textContent = (ev.labels && ev.labels[side] && ev.labels[side][q]) || '';
+        var mltekst = (ev.labels && ev.labels[side] && ev.labels[side][q]) || '';
+        ml.className = 'matchlbl' + (mltekst.indexOf('LIVE') === 0 ? ' live' : '');
+        ml.textContent = mltekst;
         ml.style.width = g.slotW + 'px';
         ml.style.left = colX(g, side, 0) + 'px';
         ml.style.top = (TOP + (2*q + 1) * (BH/16) - 6) + 'px';
@@ -323,9 +335,17 @@
       lijst.appendChild(leeg);
       return;
     }
+    var nu = Date.now() / 1000;
     rows.forEach(function(m){
       var r = document.createElement('div');
-      r.className = 'match';
+      var klaar = String(m.status).indexOf('gespeeld') === 0;
+      var live = String(m.status).indexOf('LIVE') === 0 ||
+                 (!klaar && m.start && m.start <= nu);
+      var accent = '';
+      if (live) accent = ' nu';
+      else if (!klaar && m.start && m.start - nu <= 3600) accent = ' straks1';
+      else if (!klaar && m.start && m.start - nu <= 7200) accent = ' straks2';
+      r.className = 'match' + accent;
       function cel(cls, tekst){
         var s = document.createElement('span');
         s.className = cls; s.textContent = tekst || '';
@@ -391,6 +411,10 @@
 
   laad(true);
   setInterval(function(){ laad(false); }, 10 * 60 * 1000);
+  // accenten (nu/straks) verschuiven ook zonder nieuwe data: elke minuut herberekenen
+  setInterval(function(){
+    if (DATA && current) toonVandaag(DATA.events[current]);
+  }, 60 * 1000);
   document.addEventListener('visibilitychange', function(){
     if (!document.hidden) laad(false);
   });
