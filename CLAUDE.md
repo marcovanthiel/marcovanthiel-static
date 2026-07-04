@@ -53,15 +53,29 @@ scripts/wimbledon/update.py             # generator (Python 3.12, stdlib only)
 .github/workflows/wimbledon-hourly.yml  # cron elk uur (minuut 7), commit bij wijziging
 ```
 
-**Databronnen** (beide gratis, geen key):
+**Databronnen** (beide gratis, geen key, beide CORS-open):
 - **ESPN scoreboard-API** (`site.api.espn.com/.../tennis/atp/scoreboard`): enkelspel
   heren/dames + speeltijden/banen/uitslagen/live standen/vlaggen. De ESPN-volgorde is
   NIET de loting-volgorde; daarom staat de laatste-32-loting van MS/LS als
-  `SEED_R32` in `update.py` en worden uitslagen op genormaliseerde naam gematcht.
+  `SEED_R32` in `update.py` én in `index.html` en worden uitslagen op genormaliseerde
+  naam gematcht.
 - **wimbledon.com draw-feeds** (`/en_GB/scores/feeds/2026/draws/{MD,LD,MX,BS,GS}.json`):
   dubbels + junioren in loting-volgorde (`match_id` oplopend). De MS/LS-feeds zijn
-  door Akamai afgeschermd (302 naar robots.txt) — óók voor echte browsers; niet
-  proberen te scrapen, de seed + ESPN volstaat.
+  door Akamai afgeschermd (302 naar robots.txt); niet proberen te scrapen, de seed +
+  ESPN volstaat. Let op bij testen: Akamai blokkeert óók de headless-shell-TLS en de
+  "HeadlessChrome"-user-agent → test met de volledige Chrome-binary + normale UA.
+
+**Twee verversingslagen**:
+1. **Elk uur server-side**: de GitHub Action regenereert `data.json` (eerste weergave
+   + vangnet; beperkt de Cloudflare Pages-builds).
+2. **Elke 5 minuten client-side**: `index.html` bevat een JS-port van de generator
+   die dezelfde feeds rechtstreeks ophaalt (CORS staat open) en de brackets in de
+   browser herberekent. Wijzig je generatorlogica, wijzig die dan op BEIDE plekken
+   (Python én JS) — bewuste duplicatie voor een 9-daags project.
+
+**Adaptieve kolommen**: lege bracketkolommen zijn smal (110/150 px), gevulde breed
+(200/280 px); is kolom k+1 volledig bekend, dan verdwijnt kolom k uit beeld
+(`geo()` in index.html). Zo past het geheel op een normaal scherm.
 
 **Tv-logica NL** (bron: WBD-persbericht Wimbledon 2026, `tv_kanaal()` in update.py):
 HBO Max streamt alle banen; Eurosport 1/2 lineair (Centre Court); **Court No. 1 is

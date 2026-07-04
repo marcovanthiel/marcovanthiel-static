@@ -256,7 +256,8 @@ def bouw_singles(code, espn_data, vandaag):
         kant, idx = ("L", i) if i < 16 else ("R", i - 16)
         positie[0][norm(naam)] = (kant, idx)
 
-    labels = {"L": [""] * 8, "R": [""] * 8}
+    labels = {"L": [[""] * 8, [""] * 4, [""] * 2, [""] * 1],
+              "R": [[""] * 8, [""] * 4, [""] * 2, [""] * 1]}
     vandaag_lijst = []
     champ = ""
 
@@ -282,18 +283,20 @@ def bouw_singles(code, espn_data, vandaag):
             court = (c.get("venue") or {}).get("court") or ""
             tv = tv_kanaal(court, k)
 
-            # label bij het paar in kolom 0 (score in de volgorde van de bracket-slots)
-            if k == 0:
+            # label bij het paar in deze kolom (score in de volgorde van de bracket-slots)
+            if k <= 3:
                 score = score_espn(c)
-                bovenste = slots.get(f"{kant}-0-{paar*2}", "")
+                bovenste = slots.get(f"{kant}-{k}-{paar*2}", "")
                 if namen and not zelfde_speler(bovenste, norm(namen[0])):
                     score = " ".join("-".join(reversed(p.split("-"))) for p in score.split())
                 if status["completed"]:
-                    labels[kant][paar] = f"{dag} {datum.day} jul · {score}"
+                    labels[kant][k][paar] = f"{dag} {datum.day} jul · {score}"
                 elif status["state"] == "in":
-                    labels[kant][paar] = f"LIVE · {status.get('detail','')} · {tv}"
+                    labels[kant][k][paar] = f"LIVE · {status.get('detail','')} · {tv}"
+                elif c.get("timeValid", True):
+                    labels[kant][k][paar] = f"{dag} {tijd} · {court or 'baan volgt'} · {tv}"
                 else:
-                    labels[kant][paar] = f"{dag} {tijd} · {court or 'baan volgt'} · {tv}"
+                    labels[kant][k][paar] = f"{dag} {datum.day} jul · tijd volgt · {tv}"
 
             # winnaar doorzetten naar volgende kolom
             if status["completed"]:
@@ -348,30 +351,39 @@ def bouw_wim(code, vandaag):
     start = 1 if drawsize >= 64 else 0
     kolommen = ronde_volgorde[start:start + 5]
 
-    slots, labels, champ = {}, {"L": [""] * 8, "R": [""] * 8}, ""
+    slots, champ = {}, ""
+    labels = {"L": [[""] * 8, [""] * 4, [""] * 2, [""] * 1],
+              "R": [[""] * 8, [""] * 4, [""] * 2, [""] * 1]}
     vandaag_lijst = []
 
     for k, rc in enumerate(kolommen):
         rondematches = per_ronde.get(rc, [])
         helft = len(rondematches) // 2
         for i, m in enumerate(rondematches):
-            kant = "L" if i < helft else "R"
-            paar = i if i < helft else i - helft
             t1 = wim_team_naam(m.get("team1"), ev["pair"])
             t2 = wim_team_naam(m.get("team2"), ev["pair"])
-            if t1:
-                slots[f"{kant}-{k}-{paar*2}"] = t1
-            if t2:
-                slots[f"{kant}-{k}-{paar*2+1}"] = t2
-
             klaar = (m.get("status") == "Completed") or m.get("winner") in (1, 2)
-            if klaar and m.get("winner") in (1, 2):
-                winnaar = t1 if m["winner"] == 1 else t2
-                if winnaar:
-                    if k < 4:
+
+            if rc == "F":
+                # finale: team1 = linkerfinalist, team2 = rechterfinalist
+                kant, paar = "L", 0
+                if t1:
+                    slots["L-4-0"] = t1
+                if t2:
+                    slots["R-4-0"] = t2
+                if klaar and m.get("winner") in (1, 2):
+                    champ = t1 if m["winner"] == 1 else t2
+            else:
+                kant = "L" if i < helft else "R"
+                paar = i if i < helft else i - helft
+                if t1:
+                    slots[f"{kant}-{k}-{paar*2}"] = t1
+                if t2:
+                    slots[f"{kant}-{k}-{paar*2+1}"] = t2
+                if klaar and m.get("winner") in (1, 2):
+                    winnaar = t1 if m["winner"] == 1 else t2
+                    if winnaar and k < 4:
                         slots[f"{kant}-{k+1}-{paar}"] = winnaar
-                    elif rc == "F":
-                        champ = winnaar
 
             epoch = m.get("epoch")
             datum = None
@@ -382,14 +394,14 @@ def bouw_wim(code, vandaag):
             court = m.get("courtName") or ""
             tv = tv_kanaal(court, k)
 
-            if k == 0:
+            if k <= 3 and rc != "F":
                 if klaar:
                     wanneer = f"{DAGEN[datum.weekday()]} {datum.day} jul · " if datum else ""
-                    labels[kant][paar] = f"{wanneer}{score_wim(m)}"
+                    labels[kant][k][paar] = f"{wanneer}{score_wim(m)}"
                 elif m.get("status"):
-                    labels[kant][paar] = f"LIVE · {tv}"
+                    labels[kant][k][paar] = f"LIVE · {tv}"
                 elif court:
-                    labels[kant][paar] = f"{tijd or 'vandaag'} · {court} · {tv}"
+                    labels[kant][k][paar] = f"{tijd or 'vandaag'} · {court} · {tv}"
 
             speelt_vandaag = (datum == vandaag) or (not klaar and court and not epoch)
             if speelt_vandaag and t1 and t2:
