@@ -17,11 +17,13 @@
     --line:rgba(255,255,255,.9);
   }
   *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   body{
     margin:0; padding:24px 16px;
     background:#0e2b17;
     font-family:"Helvetica Neue", Arial, sans-serif;
     color:#fff;
+    overflow-x:hidden;
   }
   header{ max-width:1200px; margin:0 auto 14px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .tab{
@@ -37,7 +39,7 @@
     box-shadow:0 10px 40px rgba(0,0,0,.45);
     max-width:2040px; margin:0 auto;
   }
-  .zoomwrap{ position:relative; }
+  .zoomwrap{ position:relative; overflow:hidden; }
   .canvas{
     position:relative; height:960px; transform-origin:top left;
     background:
@@ -100,16 +102,19 @@
   }
   .vandaag .leeg{ color:rgba(255,255,255,.55); font-size:13px; }
   .match{
-    display:grid; grid-template-columns:52px 1fr 110px 130px 170px 190px;
-    gap:6px 14px; align-items:baseline;
-    padding:7px 12px; border-radius:8px; font-size:13px;
+    display:grid; grid-template-columns:52px 1fr;
+    gap:2px 12px; align-items:baseline;
+    padding:8px 12px; border-radius:8px; font-size:13px;
   }
   .match:nth-child(even){ background:rgba(255,255,255,.05); }
   .match .tijd{ font-weight:700; color:var(--purple-soft); }
-  .match .status{ color:rgba(255,255,255,.75); font-size:12px; }
+  .match .info{ min-width:0; }
+  .match .partij{ overflow-wrap:anywhere; }
+  .match .meta{ margin-top:2px; font-size:12px; color:rgba(255,255,255,.65); }
+  .match .meta span+span::before{ content:" · "; color:rgba(255,255,255,.35); font-weight:400; }
+  .match .status{ color:rgba(255,255,255,.8); }
   .match .status.live{ color:#ffd54d; font-weight:700; }
-  .match .ronde, .match .baan{ color:rgba(255,255,255,.65); font-size:12px; }
-  .match .tv{ color:#9fd8ff; font-size:12px; }
+  .match .tv{ color:#9fd8ff; }
   /* Accenten op kijkmoment: nu bezig / begint binnen 1 of 2 uur */
   .match.nu{ background:rgba(255,213,77,.12); box-shadow:inset 4px 0 0 #ffd54d; }
   .match.straks1{ background:rgba(159,216,255,.12); box-shadow:inset 4px 0 0 #9fd8ff; }
@@ -119,9 +124,14 @@
   .legenda .dot.nu{ background:#ffd54d; margin-left:0; }
   .legenda .dot.s1{ background:#9fd8ff; }
   .legenda .dot.s2{ background:rgba(159,216,255,.45); }
-  @media (max-width:900px){
-    .match{ grid-template-columns:52px 1fr; }
-    .match .ronde, .match .baan, .match .status, .match .tv{ grid-column:2; }
+  @media (max-width:640px){
+    body{ padding:14px 10px; }
+    header{ gap:6px; }
+    .tab{ padding:6px 13px; font-size:12px; }
+    .hint{ font-size:11px; flex-basis:100%; margin-left:0; }
+    .match{ grid-template-columns:44px 1fr; font-size:12.5px; padding:7px 9px; }
+    .match .meta{ font-size:11.5px; }
+    .vandaag h2{ font-size:15px; }
   }
   footer{ max-width:1200px; margin:16px auto 0; font-size:11.5px; color:rgba(255,255,255,.5); line-height:1.6; }
   #melding{ max-width:1200px; margin:0 auto 10px; color:#ffd54d; font-size:13px; display:none; }
@@ -377,17 +387,27 @@
       else if (!klaar && m.start && m.start - nu <= 3600) accent = ' straks1';
       else if (!klaar && m.start && m.start - nu <= 7200) accent = ' straks2';
       r.className = 'match' + accent;
-      function cel(cls, tekst){
+      var t = document.createElement('span');
+      t.className = 'tijd'; t.textContent = m.tijd;
+      r.appendChild(t);
+      var info = document.createElement('div');
+      info.className = 'info';
+      var pa = document.createElement('div');
+      pa.className = 'partij'; pa.textContent = m.partij;
+      info.appendChild(pa);
+      var meta = document.createElement('div');
+      meta.className = 'meta';
+      function md(cls, tekst){
         var s = document.createElement('span');
         s.className = cls; s.textContent = tekst || '';
-        r.appendChild(s);
+        meta.appendChild(s);
       }
-      cel('tijd', m.tijd);
-      cel('partij', m.partij);
-      cel('ronde', m.ronde);
-      cel('baan', m.court);
-      cel('status' + (String(m.status).indexOf('LIVE') === 0 ? ' live' : ''), m.status);
-      cel('tv', '📺 ' + m.tv);
+      md('ronde', m.ronde);
+      md('baan', m.court);
+      md('status' + (String(m.status).indexOf('LIVE') === 0 ? ' live' : ''), m.status);
+      md('tv', '📺 ' + m.tv);
+      info.appendChild(meta);
+      r.appendChild(info);
       lijst.appendChild(r);
     });
   }
