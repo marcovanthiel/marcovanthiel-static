@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><!--TITEL--></title>
+<meta name="description" content="Reisplan Italië 2026: met de honden van Nijmegen naar de Arena di Verona en de stille pareltjes van Noord-Italië, <!--PERIODE-->.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="/italie2026/assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/italie2026/assets/icon-180.png">
+<link rel="stylesheet" href="/italie2026/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/italie2026/assets/style.css?v=1">
+</head>
+<body>
+<a href="#route" class="skip-link">Naar de route</a>
+
+<header class="kop">
+  <p class="boventitel">Reisplan · <!--PERIODE--></p>
+  <h1><!--TITEL--></h1>
+  <p class="onder"><!--REIZIGERS--> · Nijmegen → Arena di Verona → Nijmegen · 12 etappes</p>
+</header>
+
+<main id="route">
+  <section class="kaartsectie" aria-label="Routekaart">
+    <div id="kaart" role="img" aria-label="Kaart met de twaalf etappes van Nijmegen via Verona en Portico di Romagna terug naar Nijmegen"></div>
+    <p class="kaarthint">Tik op een genummerde stip voor de etappe; de kaart heeft internet nodig, de rest van deze pagina niet.</p>
+  </section>
+
+  <section class="tijdlijn" aria-label="Etappes">
+    <!--TIJDLIJN-->
+  </section>
+
+  <section class="praktisch" aria-labelledby="praktisch-kop">
+    <h2 id="praktisch-kop">Praktisch</h2>
+    <div class="praktisch-grid">
+      <div class="blok">
+        <h3>Checklist vóór vertrek</h3>
+        <ul class="checklist">
+          <li>EU-dierenpaspoorten mee, rabiësvaccinatie geldig</li>
+          <li>Zwitsers vignet (retour via Gotthard)</li>
+          <li>Oostenrijks digitaal vignet (heenreis)</li>
+          <li>Hondenbeleid Verona-hotel schriftelijk bevestigd</li>
+          <li>Al Vecchio Convento gereserveerd (+39 0543 967053)</li>
+        </ul>
+      </div>
+      <div class="blok">
+        <h3>Hitteprotocol honden</h3>
+        <ul class="checklist">
+          <li>Vroeg rijden, ruime pauzes met water en schaduw</li>
+          <li>Wandelingen vroeg in de ochtend of na zonsondergang</li>
+          <li>Nooit honden in een geparkeerde auto</li>
+        </ul>
+      </div>
+      <div class="blok">
+        <h3>Gotthard-strategie</h3>
+        <p>Overnachten in Airolo, pal aan het zuidportaal, en zaterdag om
+        07:00 de tunnel in — vóór de files van de zwarte zaterdag.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="voet">
+  <p>Route en status worden bijgehouden in <code>route.json</code> · fotoverslag volgt na de reis · <a href="/">marcovanthiel.nl</a></p>
+</footer>
+
+<script type="application/json" id="routedata">/*ROUTEDATA*/</script>
+<script src="/italie2026/vendor/leaflet/leaflet.js" defer></script>
+<script src="/italie2026/assets/app.js?v=1" defer></script>
+</body>
+</html>
