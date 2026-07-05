@@ -95,10 +95,16 @@ Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
 (24 jul t/m 9 aug 2026, Marco + Dandan + honden, opera-ankers Verona 30+31 jul).
 Gemaakt 2026-07-05. Kale static in `static/italie2026/`; `noindex`.
 
+**Tweetalig NL/中文** — schakelaar rechtsboven, keuze onthouden in
+`localStorage` (`it26_lang`); `app.js` zet `body.toon-zh`, CSS toont de taal
+(geen inline scripts). Per etappe: uitgebreide toeristische tekst (`toerisme`),
+reisafstand (`afstand`), praktische info (`info`) en hotel-aanrader met
+werkende link (`hotelsuggestie`).
+
 **Volledige onderhouds-README: `scripts/italie2026/README.md`.** Kern:
-- `route.json` = enige bron van waarheid (etappes, hotels, statuslabels).
-  Wijzigen → push naar main → Action **italie2026-build** regenereert
-  `index.html` → Pages deployt. Onderweg bij te werken via github.com.
+- `route.json` = enige bron van waarheid. **Tekstvelden zijn `{nl,zh}`-objecten**
+  (beide talen invullen). Wijzigen → push naar main → Action **italie2026-build**
+  regenereert `index.html` → Pages deployt. Onderweg bij te werken via github.com.
 - `index.html` is gegenereerd — nooit met de hand bewerken; structuur zit in
   `scripts/italie2026/template.html` + `build.py`, stijl in `assets/style.css`.
 - Leaflet lokaal in `vendor/leaflet/`; OSM-tiles → eigen CSP-blok

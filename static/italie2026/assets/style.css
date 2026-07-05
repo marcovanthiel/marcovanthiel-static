@@ -40,6 +40,51 @@ body{
 a{ color:var(--groen); }
 :focus-visible{ outline:3px solid var(--rood); outline-offset:2px; }
 
+/* ---- taal (NL / 中文) — CSS toont de gekozen taal; app.js zet body.toon-zh ---- */
+.lang-zh{ display:none;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",
+    "Noto Sans CJK SC","Noto Sans SC", -apple-system, sans-serif; }
+body.toon-zh .lang-nl{ display:none; }
+body.toon-zh .lang-zh{ display:inline; }
+
+.taalschakelaar{
+  position:fixed; top:14px; right:14px; z-index:1100;
+  display:inline-flex; align-items:center; gap:2px;
+  background:var(--kaartje); border:1.5px solid var(--groen);
+  border-radius:999px; padding:4px 6px 4px 9px;
+  box-shadow:0 6px 20px rgba(34,48,31,.24);
+}
+.taalicoon{ font-size:14px; margin-right:1px; opacity:.75; }
+.taalknop{
+  appearance:none; -webkit-appearance:none; border:none; cursor:pointer;
+  background:transparent; color:var(--groen);
+  font:inherit; font-weight:700; font-size:13.5px; line-height:1;
+  padding:6px 13px; border-radius:999px;
+  transition:background .15s ease, color .15s ease;
+}
+.taalknop:hover{ background:rgba(66,87,59,.12); }
+.taalknop.is-actief{ background:var(--groen); color:#fff; box-shadow:0 1px 3px rgba(34,48,31,.35); }
+@media (max-width:640px){
+  .taalschakelaar{ top:10px; right:10px; padding:3px 5px 3px 8px; }
+  .taalknop{ padding:6px 11px; font-size:13px; }
+}
+
+/* ---- nieuwe etappe-velden: afstand, toeristische tekst, praktische info, aanrader ---- */
+.afstand{ color:var(--groen-zacht); font-size:13px; margin-left:2px; white-space:nowrap; }
+.toerisme{ margin:2px 0 10px; font-size:14.5px; line-height:1.62; }
+.info{
+  margin:0 0 10px; font-size:13.5px; color:var(--inkt);
+  background:rgba(66,87,59,.08); border-left:3px solid var(--groen-zacht);
+  border-radius:0 7px 7px 0; padding:8px 12px;
+}
+.infolabel{
+  font-size:10.5px; letter-spacing:1.2px; text-transform:uppercase;
+  font-weight:700; color:var(--groen-zacht); margin-right:5px;
+}
+.aanrader{ margin:0 0 8px; font-size:14px; }
+.aanrader a{ font-weight:600; }
+.sugtekst{ display:block; color:var(--groen-zacht); font-size:12.5px; margin-top:1px; }
+
 /* ---- kop ---- */
 .kop{
   max-width:1060px; margin:0 auto; padding:44px 20px 8px;
@@ -194,7 +239,7 @@ a{ color:var(--groen); }
 /* ---- print (A4-reisdocument) ---- */
 @media print{
   body{ background:#fff; color:#000; font-size:11pt; }
-  .skip-link, .kaartsectie, .fotoplek, .voet a{ display:none !important; }
+  .skip-link, .kaartsectie, .fotoplek, .voet a, .taalschakelaar{ display:none !important; }
   .kop{ padding:0 0 6px; }
   .kop h1{ font-size:24pt; }
   .tijdlijn{ max-width:none; margin-top:10px; }

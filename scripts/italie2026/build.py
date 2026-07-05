@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Genereert static/italie2026/index.html uit route.json + template.html.
 
 Gebruik:  python3 scripts/italie2026/build.py
 
 - route.json is de enige bron van waarheid voor de etappes.
-- De tijdlijn wordt als statische HTML gegenereerd (offline leesbaar);
-  dezelfde data gaat als inline JSON mee voor de Leaflet-kaart.
-- De GitHub Action italie2026-build.yml draait dit script automatisch
-  wanneer route.json wijzigt (dus onderweg bijwerken via github.com kan).
+- Alle lopende tekst is TWEETALIG (Nederlands + 中文): tekstvelden zijn
+  objecten {"nl": ..., "zh": ...}. Beide talen worden als <span class="lang
+  lang-nl"> / <span class="lang lang-zh"> in de HTML gezet; app.js + CSS
+  tonen de gekozen taal (schakelaar rechtsboven, keuze onthouden).
+- De tijdlijn is statische HTML (offline leesbaar); dezelfde data gaat als
+  inline JSON mee voor de Leaflet-kaart (popups zijn ook tweetalig).
+- De GitHub Action italie2026-build.yml draait dit script bij wijziging.
 """
 import html
 import json
@@ -26,76 +30,127 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
+def val(field, lang):
+    """Haalt de taalwaarde uit een {nl,zh}-object of een platte string."""
+    if isinstance(field, dict):
+        return field.get(lang, field.get("nl", ""))
+    return field if field is not None else ""
+
+
+def bi(field):
+    """Rendert beide talen als aparte spans; CSS toont de actieve taal.
+    Voor platte strings (zelfde in beide talen) gewoon de geëscapete tekst."""
+    if not isinstance(field, dict):
+        return esc(field)
+    nl = esc(field.get("nl", ""))
+    zh = esc(field.get("zh", ""))
+    return (f'<span class="lang lang-nl" lang="nl">{nl}</span>'
+            f'<span class="lang lang-zh" lang="zh">{zh}</span>')
+
+
 def status_info(hotel):
-    if not hotel:
-        return None
     ruw = hotel.get("status", "")
+    ruw_nl = val(ruw, "nl")
     for sleutel, cls in STATUS_CLASS.items():
-        if ruw.lower().startswith(sleutel):
+        if ruw_nl.lower().startswith(sleutel):
             return cls, ruw
-    return "wait", ruw  # onbekende tekst = behandel als 'te bevestigen'
+    return "wait", ruw
+
+
+def nachten_bi(n):
+    if n == 0:
+        return {"nl": "dagrit, thuis", "zh": "当日返程,到家"}
+    if n == 1:
+        return {"nl": "1 nacht", "zh": "1 晚"}
+    return {"nl": f"{n} nachten", "zh": f"{n} 晚"}
 
 
 def etappe_html(e):
     anker = e["nr"] in ANKERS
-    losse_dag = e["nachten"] == 0
     kop = f'{esc(e["van"])} → {esc(e["naar"])}'
-    nachten = ("dagrit, thuis" if losse_dag
-               else f'{e["nachten"]} nacht{"en" if e["nachten"] > 1 else ""}')
+
+    afstand = ""
+    if e.get("afstand"):
+        afstand = f'<span class="afstand">📍 {bi(e["afstand"])}</span>'
 
     hotelblok = ""
     if e.get("hotel"):
         cls, ruw = status_info(e["hotel"])
         hotelblok = (
-            f'<p class="hotel"><span class="hotellabel">Hotel</span> {esc(e["hotel"]["naam"])} '
-            f'<span class="status {cls}">{esc(ruw)}</span></p>'
+            '<p class="hotel">'
+            '<span class="hotellabel lang lang-nl" lang="nl">Hotel</span>'
+            '<span class="hotellabel lang lang-zh" lang="zh">酒店</span> '
+            f'{esc(val(e["hotel"]["naam"], "nl"))} '
+            f'<span class="status {cls}">{bi(ruw)}</span></p>'
         )
 
-    hl = "".join(f"<li>{esc(h)}</li>" for h in e["highlights"])
+    sug = e.get("hotelsuggestie")
+    sugblok = ""
+    if sug:
+        sugblok = (
+            '<p class="aanrader">'
+            '<span class="hotellabel lang lang-nl" lang="nl">Aanrader</span>'
+            '<span class="hotellabel lang lang-zh" lang="zh">推荐酒店</span> '
+            f'<a href="{esc(sug["url"])}" target="_blank" rel="noopener">{esc(sug["naam"])} ↗</a> '
+            f'<span class="sugtekst">{bi(sug["beschrijving"])}</span></p>'
+        )
+
+    hl = "".join(f"<li>{bi(h)}</li>" for h in e["highlights"])
+
+    toerisme = f'<p class="toerisme">{bi(e["toerisme"])}</p>' if e.get("toerisme") else ""
+    info = ""
+    if e.get("info"):
+        info = ('<p class="info">'
+                '<span class="infolabel lang lang-nl" lang="nl">Goed om te weten</span>'
+                '<span class="infolabel lang lang-zh" lang="zh">实用提示</span> '
+                f'{bi(e["info"])}</p>')
 
     opera = ""
     if e["nr"] == 5:
         opera = """
       <aside class="opera" aria-label="Opera in de Arena di Verona">
-        <h4>Arena di Verona</h4>
+        <h4><span class="lang lang-nl" lang="nl">Arena di Verona</span><span class="lang lang-zh" lang="zh">维罗纳圆形剧场</span></h4>
         <ul>
-          <li><strong>do 30 juli</strong> · Aida (Zeffirelli) · aanvang 21:15</li>
-          <li><strong>vr 31 juli</strong> · La Traviata · aanvang 21:15</li>
+          <li><strong>do 30 juli</strong> · Aida (Zeffirelli) · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:15</li>
+          <li><strong>vr 31 juli</strong> · La Traviata · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:15</li>
         </ul>
-        <p class="waarschuwing">Let op: de honden blijven tijdens de opera in het hotel.
-        Het hondenbeleid van het hotel is dáárom de kritieke reservering van de reis —
-        schriftelijk laten bevestigen.</p>
+        <p class="waarschuwing"><span class="lang lang-nl" lang="nl">Let op: de honden blijven tijdens de opera in het hotel. Het hondenbeleid van het hotel is dáárom de kritieke reservering van de reis — schriftelijk laten bevestigen.</span><span class="lang lang-zh" lang="zh">注意:歌剧期间狗狗留在酒店。因此酒店的宠物政策是全程最关键的预订——务必书面确认。</span></p>
       </aside>"""
 
     return f"""
     <article class="etappe{' anker' if anker else ''}" id="etappe-{e["nr"]}">
       <div class="knoop" aria-hidden="true"><span>{e["nr"]}</span></div>
       <div class="kaartje">
-        <p class="datum">{esc(e["datum"])} · {nachten}</p>
+        <p class="datum">{bi(e["datum"])} · {bi(nachten_bi(e["nachten"]))}</p>
         <h3>{kop}</h3>
-        <p class="rijtijd">🚗 {esc(e["rijtijd"])}</p>
-        {hotelblok}
+        <p class="rijtijd">🚗 {bi(e["rijtijd"])} {afstand}</p>
+        {toerisme}
         <ul class="highlights">{hl}</ul>
-        <p class="honden">🐾 {esc(e["honden"])}</p>{opera}
-        <div class="fotoplek" aria-hidden="true"><span>foto volgt na de reis</span></div>
+        {info}
+        {hotelblok}
+        {sugblok}
+        <p class="honden">🐾 {bi(e["honden"])}</p>{opera}
+        <div class="fotoplek" aria-hidden="true"><span class="lang lang-nl" lang="nl">foto volgt na de reis</span><span class="lang lang-zh" lang="zh">照片将于旅行后补充</span></div>
       </div>
     </article>"""
 
 
 def main():
-    route = json.loads((SITE / "route.json").read_text())
-    template = (HIER / "template.html").read_text()
+    route = json.loads((SITE / "route.json").read_text(encoding="utf-8"))
+    template = (HIER / "template.html").read_text(encoding="utf-8")
 
     tijdlijn = "".join(etappe_html(e) for e in route["etappes"])
     uit = (template
-           .replace("<!--TITEL-->", esc(route["titel"]))
-           .replace("<!--PERIODE-->", esc(route["periode"]))
-           .replace("<!--REIZIGERS-->", esc(route["reizigers"]))
+           .replace("<!--TITEL_PLAIN-->", esc(val(route["titel"], "nl")))
+           .replace("<!--PERIODE_PLAIN-->", esc(val(route["periode"], "nl")))
+           .replace("<!--TITEL-->", bi(route["titel"]))
+           .replace("<!--PERIODE-->", bi(route["periode"]))
+           .replace("<!--REIZIGERS-->", bi(route["reizigers"]))
            .replace("<!--TIJDLIJN-->", tijdlijn)
            .replace("/*ROUTEDATA*/", json.dumps(route, ensure_ascii=False)))
 
-    (SITE / "index.html").write_text(uit)
-    print(f"index.html gegenereerd ({len(route['etappes'])} etappes).")
+    (SITE / "index.html").write_text(uit, encoding="utf-8")
+    print(f"index.html gegenereerd ({len(route['etappes'])} etappes, tweetalig).")
     return 0
 
 

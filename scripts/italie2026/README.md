@@ -1,18 +1,36 @@
 # Italië 2026 — reiswebsite (marcovanthiel.nl/italie2026)
 
-Statische, eentalige reispagina: routekaart (Leaflet, lokaal gebundeld,
-OpenStreetMap-tiles) + tijdlijn van 12 etappes + praktische checklist +
-print-CSS (A4-reisdocument). Mobiel en offline-vriendelijk: alle tekst staat
-statisch in de HTML; alleen de kaarttiles hebben internet nodig.
+Statische, **tweetalige (NL / 中文)** reispagina: routekaart (Leaflet, lokaal
+gebundeld, OpenStreetMap-tiles) + tijdlijn van 12 etappes met per etappe
+uitgebreide toeristische info, reisafstand, praktische tips en een
+hotel-aanrader (met werkende link) + praktische checklist + print-CSS
+(A4-reisdocument). Mobiel en offline-vriendelijk: alle tekst staat statisch
+in de HTML; alleen de kaarttiles hebben internet nodig.
 
-## Route aanpassen (hotelstatus, highlights, tijden)
+**Taalschakelaar** rechtsboven (NL / 中文). Beide talen staan als
+`<span class="lang lang-nl">` / `lang-zh` in de HTML; `app.js` zet
+`body.toon-zh` en CSS toont de gekozen taal. De keuze wordt **onthouden**
+in `localStorage` (`it26_lang`). Geen inline scripts (CSP `script-src 'self'`).
+
+## Route aanpassen (tekst, hotelstatus, highlights, tijden)
 
 `static/italie2026/route.json` is de **enige bron van waarheid**.
 
-1. Pas `route.json` aan. Hotelstatus: laat de tekst beginnen met
+**Tekstvelden zijn tweetalige objecten** `{"nl": "…", "zh": "…"}` — vul
+altijd béíde talen (bv. `datum`, `rijtijd`, `afstand`, `highlights[*]`,
+`honden`, `toerisme`, `info`, `hotel.status`, `hotelsuggestie.beschrijving`,
+en `titel`/`periode`/`reizigers`). Plaatsnamen (`van`/`naar`), `coord`,
+`hotel.naam`, `hotelsuggestie.naam` en `.url` blijven platte strings.
+
+Per etappe extra velden:
+- `afstand` — reisafstand tot de volgende locatie (bv. `{"nl":"≈ 100 km","zh":"≈ 100 公里"}`).
+- `toerisme` — uitgebreide toeristische beschrijving.
+- `info` — praktische/overige relevante info (verschijnt in het groene kader "Goed om te weten").
+- `hotelsuggestie` — `{"naam", "url", "beschrijving":{nl,zh}}`: aanbevolen (hondvriendelijk) hotel met hyperlink. **Verifieer de URL** (moet 200 geven) voor je 'm toevoegt.
+
+1. Pas `route.json` aan. Hotelstatus (`hotel.status.nl`): laat de tekst beginnen met
    `geboekt`, `te bevestigen` of `te boeken` — dat bepaalt de kleur van
-   het statuslabel (extra toelichting erachter mag, bv.
-   `te bevestigen, +39 …`).
+   het statuslabel (extra toelichting erachter mag, bv. `te bevestigen, +39 …`).
 2. Commit + push naar `main`. De GitHub Action **italie2026-build**
    regenereert `index.html` automatisch en Cloudflare Pages deployt.
    Onderweg kan dit dus gewoon via github.com of de GitHub-app.

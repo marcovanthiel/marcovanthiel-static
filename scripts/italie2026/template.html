@@ -3,69 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><!--TITEL--></title>
-<meta name="description" content="Reisplan Italië 2026: met de honden van Nijmegen naar de Arena di Verona en de stille pareltjes van Noord-Italië, <!--PERIODE-->.">
+<title><!--TITEL_PLAIN--></title>
+<meta name="description" content="Reisplan Italië 2026: met de honden van Nijmegen naar de Arena di Verona en de stille pareltjes van Noord-Italië, <!--PERIODE_PLAIN-->.">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" sizes="32x32" href="/italie2026/assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/italie2026/assets/icon-180.png">
 <link rel="stylesheet" href="/italie2026/vendor/leaflet/leaflet.css">
-<link rel="stylesheet" href="/italie2026/assets/style.css?v=1">
+<link rel="stylesheet" href="/italie2026/assets/style.css?v=2">
 </head>
 <body>
-<a href="#route" class="skip-link">Naar de route</a>
+<a href="#route" class="skip-link"><span class="lang lang-nl" lang="nl">Naar de route</span><span class="lang lang-zh" lang="zh">前往路线</span></a>
+
+<div class="taalschakelaar" role="group" aria-label="Taal / 语言">
+  <span class="taalicoon" aria-hidden="true">🌐</span>
+  <button type="button" class="taalknop is-actief" data-lang="nl" aria-pressed="true" lang="nl">NL</button>
+  <button type="button" class="taalknop" data-lang="zh" aria-pressed="false" lang="zh">中文</button>
+</div>
 
 <header class="kop">
-  <p class="boventitel">Reisplan · <!--PERIODE--></p>
+  <p class="boventitel"><span class="lang lang-nl" lang="nl">Reisplan</span><span class="lang lang-zh" lang="zh">行程</span> · <!--PERIODE--></p>
   <h1><!--TITEL--></h1>
-  <p class="onder"><!--REIZIGERS--> · Nijmegen → Arena di Verona → Nijmegen · 12 etappes</p>
+  <p class="onder"><!--REIZIGERS--> · Nijmegen → Arena di Verona → Nijmegen · <span class="lang lang-nl" lang="nl">12 etappes</span><span class="lang lang-zh" lang="zh">12 段行程</span></p>
 </header>
 
 <main id="route">
-  <section class="kaartsectie" aria-label="Routekaart">
+  <section class="kaartsectie" aria-label="Routekaart / 路线图">
     <div id="kaart" role="img" aria-label="Kaart met de twaalf etappes van Nijmegen via Verona en Portico di Romagna terug naar Nijmegen"></div>
-    <p class="kaarthint">Tik op een genummerde stip voor de etappe; de kaart heeft internet nodig, de rest van deze pagina niet.</p>
+    <p class="kaarthint"><span class="lang lang-nl" lang="nl">Tik op een genummerde stip voor de etappe; de kaart heeft internet nodig, de rest van deze pagina niet.</span><span class="lang lang-zh" lang="zh">点击带编号的圆点查看该段行程;地图需联网,本页其余内容无需联网。</span></p>
   </section>
 
-  <section class="tijdlijn" aria-label="Etappes">
+  <section class="tijdlijn" aria-label="Etappes / 各段行程">
     <!--TIJDLIJN-->
   </section>
 
   <section class="praktisch" aria-labelledby="praktisch-kop">
-    <h2 id="praktisch-kop">Praktisch</h2>
+    <h2 id="praktisch-kop"><span class="lang lang-nl" lang="nl">Praktisch</span><span class="lang lang-zh" lang="zh">实用信息</span></h2>
     <div class="praktisch-grid">
       <div class="blok">
-        <h3>Checklist vóór vertrek</h3>
+        <h3><span class="lang lang-nl" lang="nl">Checklist vóór vertrek</span><span class="lang lang-zh" lang="zh">出发前清单</span></h3>
         <ul class="checklist">
-          <li>EU-dierenpaspoorten mee, rabiësvaccinatie geldig</li>
-          <li>Zwitsers vignet (retour via Gotthard)</li>
-          <li>Oostenrijks digitaal vignet (heenreis)</li>
-          <li>Hondenbeleid Verona-hotel schriftelijk bevestigd</li>
-          <li>Al Vecchio Convento gereserveerd (+39 0543 967053)</li>
+          <li><span class="lang lang-nl" lang="nl">EU-dierenpaspoorten mee, rabiësvaccinatie geldig</span><span class="lang lang-zh" lang="zh">携带欧盟宠物护照,狂犬疫苗在有效期内</span></li>
+          <li><span class="lang lang-nl" lang="nl">Zwitsers vignet (retour via Gotthard)</span><span class="lang lang-zh" lang="zh">瑞士高速通行证(经圣哥达返程)</span></li>
+          <li><span class="lang lang-nl" lang="nl">Oostenrijks digitaal vignet (heenreis)</span><span class="lang lang-zh" lang="zh">奥地利电子通行证(去程)</span></li>
+          <li><span class="lang lang-nl" lang="nl">Hondenbeleid Verona-hotel schriftelijk bevestigd</span><span class="lang lang-zh" lang="zh">维罗纳酒店宠物政策已书面确认</span></li>
+          <li><span class="lang lang-nl" lang="nl">Al Vecchio Convento gereserveerd (+39 0543 967053)</span><span class="lang lang-zh" lang="zh">Al Vecchio Convento 已预订(+39 0543 967053)</span></li>
         </ul>
       </div>
       <div class="blok">
-        <h3>Hitteprotocol honden</h3>
+        <h3><span class="lang lang-nl" lang="nl">Hitteprotocol honden</span><span class="lang lang-zh" lang="zh">爱犬防暑须知</span></h3>
         <ul class="checklist">
-          <li>Vroeg rijden, ruime pauzes met water en schaduw</li>
-          <li>Wandelingen vroeg in de ochtend of na zonsondergang</li>
-          <li>Nooit honden in een geparkeerde auto</li>
+          <li><span class="lang lang-nl" lang="nl">Vroeg rijden, ruime pauzes met water en schaduw</span><span class="lang lang-zh" lang="zh">早出发,多停留,备水与阴凉</span></li>
+          <li><span class="lang lang-nl" lang="nl">Wandelingen vroeg in de ochtend of na zonsondergang</span><span class="lang lang-zh" lang="zh">清晨或日落后遛狗</span></li>
+          <li><span class="lang lang-nl" lang="nl">Nooit honden in een geparkeerde auto</span><span class="lang lang-zh" lang="zh">切勿将狗留在停放的车内</span></li>
         </ul>
       </div>
       <div class="blok">
-        <h3>Gotthard-strategie</h3>
-        <p>Overnachten in Airolo, pal aan het zuidportaal, en zaterdag om
-        07:00 de tunnel in — vóór de files van de zwarte zaterdag.</p>
+        <h3><span class="lang lang-nl" lang="nl">Gotthard-strategie</span><span class="lang lang-zh" lang="zh">圣哥达通行策略</span></h3>
+        <p><span class="lang lang-nl" lang="nl">Overnachten in Airolo, pal aan het zuidportaal, en zaterdag om 07:00 de tunnel in — vóór de files van de zwarte zaterdag.</span><span class="lang lang-zh" lang="zh">住在隧道南口的艾罗洛,周六 07:00 进入隧道——赶在'黑色星期六'拥堵之前。</span></p>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="voet">
-  <p>Route en status worden bijgehouden in <code>route.json</code> · fotoverslag volgt na de reis · <a href="/">marcovanthiel.nl</a></p>
+  <p><span class="lang lang-nl" lang="nl">Route en status worden bijgehouden in <code>route.json</code> · fotoverslag volgt na de reis</span><span class="lang lang-zh" lang="zh">路线与状态记录于 <code>route.json</code> · 照片游记将于旅行后补充</span> · <a href="/">marcovanthiel.nl</a></p>
 </footer>
 
 <script type="application/json" id="routedata">/*ROUTEDATA*/</script>
 <script src="/italie2026/vendor/leaflet/leaflet.js" defer></script>
-<script src="/italie2026/assets/app.js?v=1" defer></script>
+<script src="/italie2026/assets/app.js?v=2" defer></script>
 </body>
 </html>
