@@ -1,0 +1,46 @@
+name: Italie2026 build
+
+# Regenereert index.html wanneer route.json wijzigt, zodat de route ook
+# onderweg via github.com (mobiel) is bij te werken zonder lokale build.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'static/italie2026/route.json'
+      - 'scripts/italie2026/**'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: italie2026-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Genereer index.html uit route.json
+        id: gen
+        run: |
+          set -e
+          python scripts/italie2026/build.py
+          echo "changed=$(git diff --quiet static/italie2026/index.html && echo false || echo true)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit
+        if: steps.gen.outputs.changed == 'true'
+        run: |
+          git config user.name  "italie2026-bot"
+          git config user.email "bot@marcovanthiel.nl"
+          git add static/italie2026/index.html
+          git commit -m "italie2026: index.html geregenereerd uit route.json"
+          git pull --rebase origin main
+          git push
