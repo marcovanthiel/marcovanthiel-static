@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "5 juli 2026, 16:48",
- "bijgewerkt_iso": "2026-07-05T16:48+02:00",
+ "bijgewerkt": "5 juli 2026, 18:14",
+ "bijgewerkt_iso": "2026-07-05T18:14+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -71,7 +71,8 @@
     "R-1-7": "🇩🇪 Alexander Zverev [2]",
     "R-1-4": "🇺🇸 Taylor Fritz [6]",
     "R-1-5": "🇰🇿 Alexander Bublik [10]",
-    "R-1-2": "🇧🇬 Grigor Dimitrov"
+    "R-1-2": "🇧🇬 Grigor Dimitrov",
+    "L-2-3": "Novak Djokovic [7]"
    },
    "labels": {
     "L": [
@@ -86,14 +87,14 @@
       "vr 3 jul · 5-7 4-6 6-1 6-7"
      ],
      [
-      "zo 18:00 · baan volgt · HBO Max",
-      "zo 17:15 · No. 2 Court · HBO Max",
-      "zo 16:45 · No. 1 Court · Ziggo Sport",
-      "LIVE · 3e set · 6-7 3-6 1-0 · Eurosport 1 · HBO Max"
+      "zo 19:50 · Centre Court · Eurosport 1 · HBO Max",
+      "LIVE · 1e set · 4-2 · HBO Max",
+      "LIVE · 2e set · 6-7 3-4 · Ziggo Sport",
+      "zo 5 jul · 6-7 3-6 6-3 3-6"
      ],
      [
       "",
-      ""
+      "di 7 jul · tijd volgt · HBO Max"
      ],
      [
       ""
@@ -133,7 +134,7 @@
      "court": "Centre Court",
      "ronde": "Laatste 16",
      "partij": "Novak Djokovic – 🇷🇺 Roman Safiullin",
-     "status": "LIVE · 3e set · 7-6 6-3 0-1",
+     "status": "gespeeld · 7-6 6-3 3-6 6-3",
      "tv": "Eurosport 1 · HBO Max"
     },
     {
@@ -142,26 +143,26 @@
      "court": "No. 1 Court",
      "ronde": "Laatste 16",
      "partij": "🇪🇸 Alejandro Davidovich Fokina – 🇨🇦 Felix Auger-Aliassime",
-     "status": "gepland",
+     "status": "LIVE · 2e set · 7-6 4-3",
      "tv": "Ziggo Sport"
     },
     {
-     "start": 1783264500,
-     "tijd": "17:15",
+     "start": 1783266300,
+     "tijd": "17:45",
      "court": "No. 2 Court",
      "ronde": "Laatste 16",
      "partij": "🇩🇪 Jan-Lennard Struff – 🇵🇱 Hubert Hurkacz",
-     "status": "gepland",
+     "status": "LIVE · 1e set · 2-4",
      "tv": "HBO Max"
     },
     {
-     "start": 1783267200,
-     "tijd": "18:00",
-     "court": "baan volgt",
+     "start": 1783273800,
+     "tijd": "19:50",
+     "court": "Centre Court",
      "ronde": "Laatste 16",
      "partij": "🇯🇵 Shintaro Mochizuki – 🇮🇹 Jannik Sinner",
      "status": "gepland",
-     "tv": "HBO Max"
+     "tv": "Eurosport 1 · HBO Max"
     }
    ]
   },
@@ -226,7 +227,8 @@
     "R-1-2": "🇮🇹 Jasmine Paolini [13]",
     "R-1-5": "🇨🇿 Linda Noskova [9]",
     "R-1-4": "🇺🇸 Madison Keys [26]",
-    "L-2-2": "🇺🇸 Jessica Pegula [4]"
+    "L-2-2": "🇺🇸 Jessica Pegula [4]",
+    "L-2-1": "🇨🇿 Karolina Muchova [10]"
    },
    "labels": {
     "L": [
@@ -241,13 +243,13 @@
       "vr 3 jul · 3-6 7-6 2-6"
      ],
      [
-      "zo 17:00 · Centre Court · Eurosport 1 · HBO Max",
-      "LIVE · 2e set · 7-5 5-6 · HBO Max",
+      "zo 18:20 · Centre Court · Eurosport 1 · HBO Max",
+      "zo 5 jul · 7-5 5-7 6-3",
       "zo 5 jul · 4-6 6-3 6-1",
-      "zo 17:30 · No. 1 Court · Ziggo Sport"
+      "zo 18:30 · No. 1 Court · Ziggo Sport"
      ],
      [
-      "",
+      "di 7 jul · tijd volgt · HBO Max",
       "di 7 jul · tijd volgt · HBO Max"
      ],
      [
@@ -297,12 +299,12 @@
      "court": "No. 2 Court",
      "ronde": "Laatste 16",
      "partij": "🇨🇿 Barbora Krejcikova – 🇨🇿 Karolina Muchova",
-     "status": "LIVE · 2e set · 5-7 6-5",
+     "status": "gespeeld · 5-7 7-5 3-6",
      "tv": "HBO Max"
     },
     {
-     "start": 1783263600,
-     "tijd": "17:00",
+     "start": 1783268400,
+     "tijd": "18:20",
      "court": "Centre Court",
      "ronde": "Laatste 16",
      "partij": "🇯🇵 Naomi Osaka – 🇧🇾 Aryna Sabalenka",
@@ -310,8 +312,8 @@
      "tv": "Eurosport 1 · HBO Max"
     },
     {
-     "start": 1783265400,
-     "tijd": "17:30",
+     "start": 1783269000,
+     "tijd": "18:30",
      "court": "No. 1 Court",
      "ronde": "Laatste 16",
      "partij": "🇺🇸 Coco Gauff – 🇨🇭 Belinda Bencic",
@@ -717,7 +719,10 @@
     "R-1-4": "🇬🇧 Lloyd Glasspool / 🇸🇰 Tereza Mihalikova [7]",
     "R-1-5": "🇫🇷 Edouard Roger-Vasselin / 🇩🇪 Laura Siegemund",
     "R-1-6": "🇦🇷 Andres Molteni / 🇭🇷 Darija Jurak Schreiber",
-    "R-1-7": "🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]"
+    "R-1-7": "🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]",
+    "R-2-1": "🇺🇸 Christian Harrison / 🇨🇳 Shuai Zhang [3]",
+    "R-2-2": "🇫🇷 Edouard Roger-Vasselin / 🇩🇪 Laura Siegemund",
+    "R-2-3": "🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]"
    },
    "labels": {
     "L": [
@@ -758,9 +763,9 @@
      ],
      [
       "vandaag · Court 18 · HBO Max",
-      "vandaag · No.3 Court · HBO Max",
-      "vandaag · Court 12 · HBO Max",
-      "vandaag · Court 18 · HBO Max"
+      "zo 5 jul · 2-6 6-7",
+      "zo 5 jul · 3-6 6-7",
+      "zo 5 jul · 2-6 2-6"
      ],
      [
       "",
@@ -773,6 +778,33 @@
    },
    "champ": "",
    "vandaag": [
+    {
+     "start": 1783263989,
+     "tijd": "17:06",
+     "court": "Court 18",
+     "ronde": "2e ronde",
+     "partij": "🇦🇷 Andres Molteni / 🇭🇷 Darija Jurak Schreiber – 🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]",
+     "status": "gespeeld · 2-6 2-6",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783264826,
+     "tijd": "17:20",
+     "court": "Court 12",
+     "ronde": "2e ronde",
+     "partij": "🇬🇧 Lloyd Glasspool / 🇸🇰 Tereza Mihalikova [7] – 🇫🇷 Edouard Roger-Vasselin / 🇩🇪 Laura Siegemund",
+     "status": "gespeeld · 3-6 6-7",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783266141,
+     "tijd": "17:42",
+     "court": "No.3 Court",
+     "ronde": "2e ronde",
+     "partij": "🇬🇧 Marcus Willis / 🇬🇧 Heather Watson – 🇺🇸 Christian Harrison / 🇨🇳 Shuai Zhang [3]",
+     "status": "gespeeld · 2-6 6-7",
+     "tv": "HBO Max"
+    },
     {
      "start": null,
      "tijd": "–",
@@ -817,33 +849,6 @@
      "partij": "🇬🇧 Joe Salisbury / 🇨🇦 Leylah Fernandez – 🇬🇧 Ben Jones / 🇬🇧 Maia Lumsden",
      "status": "gepland",
      "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
-     "court": "No.3 Court",
-     "ronde": "2e ronde",
-     "partij": "🇬🇧 Marcus Willis / 🇬🇧 Heather Watson – 🇺🇸 Christian Harrison / 🇨🇳 Shuai Zhang [3]",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
-     "court": "Court 12",
-     "ronde": "2e ronde",
-     "partij": "🇬🇧 Lloyd Glasspool / 🇸🇰 Tereza Mihalikova [7] – 🇫🇷 Edouard Roger-Vasselin / 🇩🇪 Laura Siegemund",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
-     "court": "Court 18",
-     "ronde": "2e ronde",
-     "partij": "🇦🇷 Andres Molteni / 🇭🇷 Darija Jurak Schreiber – 🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]",
-     "status": "gepland",
-     "tv": "HBO Max"
     }
    ]
   },
@@ -871,6 +876,7 @@
     "L-0-9": "🇮🇳 Arnav Vijay Paparkar",
     "L-0-11": "🇵🇪 Nicolas Baena [13]",
     "L-0-12": "🇺🇸 Tanishk Konduri",
+    "L-0-13": "🇸🇮 Svit Suljic",
     "L-0-14": "🇪🇸 Tito Chavez",
     "L-0-15": "🇺🇸 Jordan Lee",
     "R-0-0": "🇬🇧 Rhys Lawlor",
@@ -879,8 +885,11 @@
     "R-0-3": "🇳🇱 Thijs Boogaard [11]",
     "R-0-4": "🇹🇼 Kuan-Shou Chen [15]",
     "R-0-5": "🇮🇱 Dan Brand",
+    "R-0-7": "🇸🇮 Ziga Sesko [4]",
     "R-0-9": "🇿🇦 Connor Doig",
+    "R-0-10": "🇬🇧 Liam Channon",
     "R-0-11": "🇧🇬 Dimitar Kisimov [9]",
+    "R-0-12": "🇫🇷 Mathys Domenc [14]",
     "R-0-14": "🇬🇧 Mark Ceban",
     "R-0-15": "🇩🇪 Jamie Mackenzie [2]"
    },
@@ -1038,6 +1047,42 @@
      "tv": "HBO Max"
     },
     {
+     "start": 1783263201,
+     "tijd": "16:53",
+     "court": "Court 9",
+     "ronde": "1e ronde",
+     "partij": "🇺🇸 Vihaan Reddy – 🇸🇮 Ziga Sesko [4]",
+     "status": "gespeeld · 4-6 4-6",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783265453,
+     "tijd": "17:30",
+     "court": "Court 7",
+     "ronde": "1e ronde",
+     "partij": "🇫🇷 Mathys Domenc [14] – 🇪🇨 Emilio Camacho",
+     "status": "gespeeld · 1-6 6-3 6-3",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783266432,
+     "tijd": "17:47",
+     "court": "Court 4",
+     "ronde": "1e ronde",
+     "partij": "🇬🇧 Liam Channon – 🇦🇺 Mustafa Ege Sik",
+     "status": "gespeeld · 6-4 7-6",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783267654,
+     "tijd": "18:07",
+     "court": "Court 8",
+     "ronde": "1e ronde",
+     "partij": "🇸🇮 Svit Suljic – 🇺🇸 Safir Azam",
+     "status": "gespeeld · 6-3 6-2",
+     "tv": "HBO Max"
+    },
+    {
      "start": null,
      "tijd": "–",
      "court": "Court 16",
@@ -1058,15 +1103,6 @@
     {
      "start": null,
      "tijd": "–",
-     "court": "Court 8",
-     "ronde": "1e ronde",
-     "partij": "🇸🇮 Svit Suljic – 🇺🇸 Safir Azam",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
      "court": "Court 6",
      "ronde": "1e ronde",
      "partij": "🇬🇧 Oliver Page – 🇳🇬 Oluwaseun Peter Ogunsakin",
@@ -1076,36 +1112,9 @@
     {
      "start": null,
      "tijd": "–",
-     "court": "Court 9",
-     "ronde": "1e ronde",
-     "partij": "🇺🇸 Vihaan Reddy – 🇸🇮 Ziga Sesko [4]",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
      "court": "Court 4",
      "ronde": "1e ronde",
      "partij": "🇦🇹 Thilo Behrmann [7] – 🇰🇿 Damir Zhalgasbay",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
-     "court": "Court 4",
-     "ronde": "1e ronde",
-     "partij": "🇬🇧 Liam Channon – 🇦🇺 Mustafa Ege Sik",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
-     "court": "Court 7",
-     "ronde": "1e ronde",
-     "partij": "🇫🇷 Mathys Domenc [14] – 🇪🇨 Emilio Camacho",
      "status": "gepland",
      "tv": "HBO Max"
     },
@@ -1141,11 +1150,13 @@
     "L-0-5": "🇦🇹 Anna Pircher",
     "L-0-6": "🇷🇴 Maria Valentina Pop",
     "L-0-7": "🇬🇧 Daniella Britton",
+    "L-0-8": "🇨🇿 Jana Kovackova [3]",
     "L-0-9": "🇨🇳 Ruien Zhang",
     "L-0-10": "🇱🇻 Adelina Lacinova",
     "L-0-11": "🇩🇪 Emily Victoria Eigelsbach",
     "L-0-12": "🇪🇸 Charo Esquiva Banuls [10]",
     "L-0-13": "🇺🇸 Carrie-Anne Hoo",
+    "L-0-14": "🇺🇸 Janae Preston",
     "R-0-0": "Mariia Makarova [7]",
     "R-0-2": "🇨🇳 Yushan Shao",
     "R-0-4": "🇺🇦 Polina Skliar [15]",
@@ -1155,6 +1166,7 @@
     "R-0-8": "🇨🇳 Yihan Qu",
     "R-0-9": "🇨🇿 Tereza Hermanova",
     "R-0-10": "🇨🇦 Nadia Lagaev",
+    "R-0-11": "🇩🇪 Mariella Thamm [9]",
     "R-0-13": "🇦🇺 Renee Alame",
     "R-0-15": "🇫🇷 Ksenia Efremova [2]"
    },
@@ -1321,21 +1333,30 @@
      "tv": "HBO Max"
     },
     {
-     "start": null,
-     "tijd": "–",
-     "court": "Court 5",
+     "start": 1783265333,
+     "tijd": "17:28",
+     "court": "Court 6",
      "ronde": "1e ronde",
-     "partij": "🇨🇿 Jana Kovackova [3] – 🇺🇸 Lani Chang",
-     "status": "gepland",
+     "partij": "🇺🇸 Hannah Ayrault – 🇩🇪 Mariella Thamm [9]",
+     "status": "gespeeld · 2-6 0-6",
      "tv": "HBO Max"
     },
     {
-     "start": null,
-     "tijd": "–",
+     "start": 1783267343,
+     "tijd": "18:02",
      "court": "Court 15",
      "ronde": "1e ronde",
      "partij": "Polina Berezina – 🇺🇸 Janae Preston",
-     "status": "gepland",
+     "status": "gespeeld · 4-6 6-7",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783267926,
+     "tijd": "18:12",
+     "court": "Court 5",
+     "ronde": "1e ronde",
+     "partij": "🇨🇿 Jana Kovackova [3] – 🇺🇸 Lani Chang",
+     "status": "gespeeld · 3-6 6-4 6-3",
      "tv": "HBO Max"
     },
     {
@@ -1362,15 +1383,6 @@
      "court": "Court 9",
      "ronde": "1e ronde",
      "partij": "🇮🇹 Ilary Pistola – 🇪🇸 Paola Pinera Celorio [11]",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
-     "court": "Court 6",
-     "ronde": "1e ronde",
-     "partij": "🇺🇸 Hannah Ayrault – 🇩🇪 Mariella Thamm [9]",
      "status": "gepland",
      "tv": "HBO Max"
     },
