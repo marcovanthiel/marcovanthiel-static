@@ -89,6 +89,24 @@ versie met `'unsafe-inline'`). Niet weghalen, anders doen de tabs niets.
 workflow `wimbledon-hourly.yml` verwijderen (en evt. de hele subsite archiveren).
 Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
 
+## Subsite: /italie2026
+
+**marcovanthiel.nl/italie2026** — reiswebsite "Italië 2026: de pareltjesroute"
+(24 jul t/m 9 aug 2026, Marco + Dandan + honden, opera-ankers Verona 30+31 jul).
+Gemaakt 2026-07-05. Kale static in `static/italie2026/`; `noindex`.
+
+**Volledige onderhouds-README: `scripts/italie2026/README.md`.** Kern:
+- `route.json` = enige bron van waarheid (etappes, hotels, statuslabels).
+  Wijzigen → push naar main → Action **italie2026-build** regenereert
+  `index.html` → Pages deployt. Onderweg bij te werken via github.com.
+- `index.html` is gegenereerd — nooit met de hand bewerken; structuur zit in
+  `scripts/italie2026/template.html` + `build.py`, stijl in `assets/style.css`.
+- Leaflet lokaal in `vendor/leaflet/`; OSM-tiles → eigen CSP-blok
+  `/italie2026/*` in `static/_headers` (img-src met tile.openstreetmap.org,
+  script-src 'self' — géén inline scripts gebruiken op deze pagina).
+- Ankers = etappe 5 en 8 (rood), hardcoded in `build.py` én `app.js`.
+- Na de reis: fotoronde met eigen materiaal (placeholders per etappe staan klaar).
+
 ## Verhuisde projecten
 
 - **OCAI-cultuurmeting Koraal & Via Jeugd** (voorheen onder
