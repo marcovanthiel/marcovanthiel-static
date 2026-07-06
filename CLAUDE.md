@@ -127,7 +127,10 @@ werkende link (`hotelsuggestie`).
 - Ankers = etappe 4 (Portico) en 5 (Verona) (rood), hardcoded in `build.py`
   én `app.js`; het opera-blok (titels/data/tijd) in `build.py` hangt aan het
   Verona-nummer.
-- Na de reis: fotoronde met eigen materiaal (placeholders per etappe staan klaar).
+- Elke etappe heeft een `voorbeeldfoto` (Wikimedia Commons, self-hosted in
+  `static/italie2026/foto/`, credit verplicht in het veld; zie de
+  subsite-README). Na de reis: vervangen door eigen materiaal (zonder het
+  veld valt de "foto volgt"-placeholder terug).
 
 ## Verhuisde projecten
 
