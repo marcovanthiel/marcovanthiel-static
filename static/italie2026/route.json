@@ -41,11 +41,15 @@
         }
       },
       "hotelsuggestie": {
-        "naam": "Hotel Alpenrose",
-        "url": "https://www.hotel-alpenrose.net/",
+        "naam": "Central Hotel Löwen, Feldkirch",
+        "url": "https://www.hotel-loewen.at/",
         "beschrijving": {
-          "nl": "Historisch, centraal en hondvriendelijk hotel op loopafstand van de oude stad.",
-          "zh": "位于老城步行范围内、历史悠久、对狗友好的中心酒店。"
+          "nl": "Klassiek stadshotel aan de rand van de autovrije oude stad, honden welkom. Het eerder getipte Alpenrose zit op 31 juli (Bregenzer Festspiele) al vol.",
+          "zh": "位于无车老城边缘的经典城市酒店,欢迎携犬。原先推荐的 Alpenrose 在 7 月 31 日(布雷根茨音乐节)已满房。"
+        },
+        "prijs": {
+          "nl": "vanaf ca. € 107 per nacht (gecheckt 6-7-2026)",
+          "zh": "每晚约 107 欧元起(2026-07-06 核实)"
         }
       },
       "highlights": [
@@ -120,6 +124,10 @@
         "beschrijving": {
           "nl": "Familiehotel binnen de stadsmuren, met Zuid-Tiroolse keuken en tuin, vaak hondvriendelijk.",
           "zh": "城墙内的家庭旅馆,供应南蒂罗尔美食并带花园,通常对狗友好。"
+        },
+        "prijs": {
+          "nl": "vanaf ca. € 180 per nacht (gecheckt 6-7-2026)",
+          "zh": "每晚约 180 欧元起(2026-07-06 核实)"
         }
       },
       "highlights": [
@@ -193,11 +201,15 @@
         }
       },
       "hotelsuggestie": {
-        "naam": "Relais Villa Cordevigo",
-        "url": "https://www.villacordevigo.com/",
+        "naam": "Hotel Faccioli, Valeggio",
+        "url": "https://www.hotelfaccioli.it/",
         "beschrijving": {
-          "nl": "Landelijk relais in de wijnheuvels bij het Gardameer, met park en zwembad, ruimte zat voor de honden.",
-          "zh": "加尔达湖畔葡萄园中的乡村庄园酒店,带园林与泳池,狗狗有充足活动空间。"
+          "nl": "Gastvrij familiehotel in het hart van Valeggio, op wandelafstand van Borghetto, honden welkom. Luxe alternatief: Relais Villa Cordevigo (ca. € 370 per nacht).",
+          "zh": "瓦莱焦中心热情好客的家庭旅馆,步行可至博尔盖托,欢迎携犬。高端之选:科尔代维戈庄园(每晚约 370 欧元)。"
+        },
+        "prijs": {
+          "nl": "vanaf ca. € 134 per nacht (gecheckt 6-7-2026)",
+          "zh": "每晚约 134 欧元起(2026-07-06 核实)"
         }
       },
       "highlights": [
@@ -280,6 +292,10 @@
         "beschrijving": {
           "nl": "Sfeervol 'albergo diffuso' in een 19e-eeuws huis met een geroemde Romagnaanse keuken, het rustpunt van de reis.",
           "zh": "坐落于 19 世纪老宅的迷人'分散式旅馆',以罗马涅传统美食著称,是此行的休憩之所。"
+        },
+        "prijs": {
+          "nl": "ca. € 90 per nacht voor een tweepersoonskamer (eigen site, 6-7-2026)",
+          "zh": "双人房每晚约 90 欧元(官网,2026-07-06)"
         }
       },
       "highlights": [
@@ -350,29 +366,33 @@
         10.9944
       ],
       "hotel": {
-        "naam": "kandidaat: Opera Relais de Charme of Gabbia d'Oro",
+        "naam": "kandidaat: Hotel Torcolo (luxe: Gabbia d'Oro)",
         "status": {
           "nl": "hondenbeleid tijdens opera-avonden schriftelijk te bevestigen",
           "zh": "歌剧之夜宠物政策需书面确认"
         }
       },
       "hotelsuggestie": {
-        "naam": "Hotel Gabbia d'Oro, Verona",
-        "url": "https://www.hotelgabbiadoro.it/",
+        "naam": "Hotel Torcolo, Verona",
+        "url": "https://www.hoteltorcolo.it/",
         "beschrijving": {
-          "nl": "Romantisch boetiekhotel in een 18e-eeuws palazzo, op een paar passen van de Arena, ideaal voor de opera-avonden. Beschikbaarheid voor za 8 t/m ma 10 aug online gecontroleerd op 6-7-2026: meerdere kamers vrij, vanaf ca. € 625 per nacht.",
-          "zh": "坐落于 18 世纪宫邸中的浪漫精品酒店,距圆形剧场仅数步,是歌剧之夜的理想之选。2026 年 7 月 6 日在线核实:8 月 8 日至 10 日尚有多间空房,每晚约 625 欧元起。"
+          "nl": "Klassiek, gastvrij familiehotel in het steegje pal naast de Arena (100 m), honden welkom; na de opera loop je in twee minuten terug naar de honden. Luxe alternatief: Gabbia d'Oro (ca. € 625 per nacht, beschikbaarheid eveneens bevestigd).",
+          "zh": "紧邻圆形剧场小巷中的经典家庭旅馆(约 100 米),欢迎携犬;歌剧散场后两分钟即可回到狗狗身边。高端之选:金笼酒店(每晚约 625 欧元,同样确认有房)。"
         },
         "foto": {
-          "bestand": "foto/hotel-gabbiadoro.jpg",
+          "bestand": "foto/hotel-torcolo.jpg",
           "breedte": 1000,
-          "hoogte": 562,
+          "hoogte": 666,
           "onderschrift": {
-            "nl": "De entree van Hotel Gabbia d'Oro",
-            "zh": "金笼酒店入口"
+            "nl": "Hotel Torcolo ligt pal naast de Arena",
+            "zh": "托尔科洛酒店紧邻圆形剧场"
           },
-          "credit": "Foto: Hotel Gabbia d'Oro",
-          "creditUrl": "https://www.hotelgabbiadoro.it/"
+          "credit": "Foto: Hotel Torcolo",
+          "creditUrl": "https://www.hoteltorcolo.it/"
+        },
+        "prijs": {
+          "nl": "vanaf ca. € 190 per nacht, € 379 voor beide opera-nachten (gecheckt 6-7-2026)",
+          "zh": "每晚约 190 欧元起,两个歌剧之夜共 379 欧元(2026-07-06 核实)"
         }
       },
       "highlights": [
@@ -451,6 +471,10 @@
         "beschrijving": {
           "nl": "Sfeervol boetiekhotel in een 15e-eeuws klooster-palazzo in het autoluwe centro storico, op een paar passen van de kade; honden op aanvraag.",
           "zh": "坐落于 15 世纪修道院宫邸中的迷人精品酒店,位于几乎无车的老城,距湖畔长堤仅数步;可应要求携犬。"
+        },
+        "prijs": {
+          "nl": "vanaf ca. € 253 per nacht (gecheckt 6-7-2026)",
+          "zh": "每晚约 253 欧元起(2026-07-06 核实)"
         }
       },
       "highlights": [
@@ -529,6 +553,10 @@
         "beschrijving": {
           "nl": "Charmant familiehotel in het buurdorp Ribeauvillé, aan de Elzasser wijnroute, honden welkom.",
           "zh": "位于邻村里博维莱、阿尔萨斯葡萄酒之路旁的迷人家庭酒店,欢迎携犬。"
+        },
+        "prijs": {
+          "nl": "vanaf ca. € 115 per nacht (gecheckt 6-7-2026)",
+          "zh": "每晚约 115 欧元起(2026-07-06 核实)"
         }
       },
       "highlights": [

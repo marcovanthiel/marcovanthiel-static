@@ -27,6 +27,13 @@ Per etappe extra velden:
 - `toerisme` — uitgebreide toeristische beschrijving.
 - `info` — praktische/overige relevante info (verschijnt in het groene kader "Goed om te weten").
 - `hotelsuggestie` — `{"naam", "url", "beschrijving":{nl,zh}}`: aanbevolen (hondvriendelijk) hotel met hyperlink. **Verifieer de URL** (moet 200 geven) voor je 'm toevoegt.
+- `hotelsuggestie.prijs` — `{nl,zh}`: verwachte prijs per nacht voor de
+  betreffende data, mét controledatum (bv. "vanaf ca. € 190 per nacht
+  (gecheckt 6-7-2026)"). Controleren kan via de Booking.com-zoekpagina in
+  headless Chrome (volledige binary + normale UA; prijs op de property-card
+  is het totaal voor het verblijf) of via de boekingsengine van het hotel
+  (Gabbia d'Oro = Octorate). Geen prijs verzinnen: alleen gecontroleerde
+  bedragen met datum.
 - `hotelsuggestie.foto` — zelfde structuur als `voorbeeldfoto` (klein weergegeven,
   max 420 px): foto van het aangeraden hotel. Promobeeld van het hotel zelf mag,
   mét credit + link naar de hotelsite. Vermeld een gecontroleerde beschikbaarheid

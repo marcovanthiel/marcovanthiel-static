@@ -205,6 +205,7 @@ body.toon-zh .lang-zh{ display:inline; }
 }
 .voorbeeldfoto figcaption a{ color:inherit; }
 .hotelfoto{ max-width:420px; }
+.sugprijs{ display:block; margin-top:4px; font-weight:600; }
 
 /* ---- praktisch ---- */
 .praktisch{ max-width:1060px; margin:20px auto 0; padding:0 20px; }

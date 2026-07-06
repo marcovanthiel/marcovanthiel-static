@@ -111,7 +111,9 @@ def etappe_html(e):
             '<span class="hotellabel lang lang-nl" lang="nl">Aanrader</span>'
             '<span class="hotellabel lang lang-zh" lang="zh">推荐酒店</span> '
             f'<a href="{esc(sug["url"])}" target="_blank" rel="noopener">{esc(sug["naam"])} ↗</a> '
-            f'<span class="sugtekst">{bi(sug["beschrijving"])}</span></p>'
+            f'<span class="sugtekst">{bi(sug["beschrijving"])}</span>'
+            + (f'<span class="sugprijs">💶 {bi(sug["prijs"])}</span>' if sug.get("prijs") else "")
+            + '</p>'
         )
         hf = sug.get("foto")
         if hf:
