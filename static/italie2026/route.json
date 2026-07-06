@@ -4,8 +4,8 @@
     "zh": "意大利 2026:珍珠之路"
   },
   "periode": {
-    "nl": "24 juli t/m 9 augustus 2026",
-    "zh": "2026 年 7 月 24 日至 8 月 9 日"
+    "nl": "24 juli t/m 11 augustus 2026",
+    "zh": "2026 年 7 月 24 日至 8 月 11 日"
   },
   "reizigers": {
     "nl": "Marco, Dandan en de honden",
@@ -64,34 +64,34 @@
       ],
       "honden": {
         "nl": "Twee ruime pauzes onderweg; koele start rond 08:00.",
-        "zh": "途中两次充分休息；约 08:00 凉爽出发。"
+        "zh": "途中两次充分休息;约 08:00 凉爽出发。"
       },
       "toerisme": {
         "nl": "Feldkirch is de best bewaarde middeleeuwse stad van Vorarlberg: kronkelige arcades (Laubengänge), de dreigende Katzenturm en hoog boven de daken de Schattenburg, ooit zetel van de graven van Montfort. Vanuit het kasteel kijk je zo Liechtenstein en Zwitserland in. Het ligt strategisch tussen Bodensee, het Rijndal en de Alpen.",
-        "zh": "费尔德基希是福拉尔贝格州保存最完好的中世纪城镇：蜿蜒的拱廊、雄踞的猫塔，以及屋顶之上的沙滕堡——昔日蒙特福特伯爵的府邸。从城堡可远眺列支敦士登与瑞士。它坐落于博登湖、莱茵河谷与阿尔卑斯之间的要冲。"
+        "zh": "费尔德基希是福拉尔贝格州保存最完好的中世纪城镇:蜿蜒的拱廊、雄踞的猫塔,以及屋顶之上的沙滕堡,昔日蒙特福特伯爵的府邸。从城堡可远眺列支敦士登与瑞士。它坐落于博登湖、莱茵河谷与阿尔卑斯之间的要冲。"
       },
       "info": {
-        "nl": "Oostenrijk vereist een (digitaal) vignet voor de snelweg. De oude stad is grotendeels autovrij — parkeer in een van de garages (bv. Marktplatz/Katzenturm). Ideale eerste stop: kort van de weg naar een rustige avond.",
-        "zh": "奥地利高速需购买（电子）通行证。老城基本禁车——请停入停车楼（如 Marktplatz/Katzenturm）。作为第一站十分理想：下高速即可享受宁静的傍晚。"
+        "nl": "Oostenrijk vereist een (digitaal) vignet voor de snelweg. De oude stad is grotendeels autovrij, parkeer in een van de garages (bv. Marktplatz/Katzenturm). Ideale eerste stop: kort van de weg naar een rustige avond.",
+        "zh": "奥地利高速需购买(电子)通行证。老城基本禁车,请停入停车楼(如 Marktplatz/Katzenturm)。作为第一站十分理想:下高速即可享受宁静的傍晚。"
       }
     },
     {
       "nr": 2,
       "datum": {
-        "nl": "za 25 + zo 26 juli",
-        "zh": "7月25–26日 周六·周日"
+        "nl": "za 25 t/m ma 27 juli",
+        "zh": "7月25日至27日 周六至周一"
       },
       "van": "Feldkirch",
       "naar": "Glurns/Glorenza (IT)",
       "rijtijd": {
         "nl": "ca. 2 uur via de Reschenpas",
-        "zh": "约 2 小时，经雷西亚山口"
+        "zh": "约 2 小时,经雷西亚山口"
       },
       "afstand": {
         "nl": "≈ 100 km",
         "zh": "≈ 100 公里"
       },
-      "nachten": 2,
+      "nachten": 3,
       "coord": [
         46.6712,
         10.5566
@@ -107,8 +107,8 @@
         "naam": "Hotel Grüner Baum, Glurns",
         "url": "https://www.gruenerbaum.it/",
         "beschrijving": {
-          "nl": "Familiehotel binnen de stadsmuren, met Zuid-Tiroolse keuken en tuin — vaak hondvriendelijk.",
-          "zh": "城墙内的家庭旅馆，供应南蒂罗尔美食并带花园——通常对狗友好。"
+          "nl": "Familiehotel binnen de stadsmuren, met Zuid-Tiroolse keuken en tuin, vaak hondvriendelijk.",
+          "zh": "城墙内的家庭旅馆,供应南蒂罗尔美食并带花园,通常对狗友好。"
         }
       },
       "highlights": [
@@ -118,7 +118,7 @@
         },
         {
           "nl": "klooster St. Johann in Val Müstair (UNESCO)",
-          "zh": "米施泰尔谷圣约翰修道院（世界遗产）"
+          "zh": "米施泰尔谷圣约翰修道院(世界遗产)"
         },
         {
           "nl": "abdij Marienberg",
@@ -131,95 +131,32 @@
       ],
       "honden": {
         "nl": "Uitstekend wandelgebied, weinig verkeer.",
-        "zh": "绝佳的徒步区域，车流稀少。"
+        "zh": "绝佳的徒步区域,车流稀少。"
       },
       "toerisme": {
-        "nl": "Glurns (Glorenza) is een volledig ommuurd stadje van amper 900 inwoners, met een intacte weergang en houten arcades rond het marktplein — een middeleeuws miniatuur in de Vinschgau. Vlak over de Zwitserse grens ligt het karolingische klooster St. Johann in Müstair met de oudste fresco's van de Alpen (UNESCO). Hoog boven het dal troont Marienberg, de hoogstgelegen benedictijnenabdij van Europa.",
-        "zh": "格洛伦扎是一座仅约 900 人、城墙完整的小镇，环市集广场保留着可通行的城垛与木拱廊——文施高谷中的中世纪缩影。越过瑞士边境不远，便是加洛林时期的米施泰尔圣约翰修道院，藏有阿尔卑斯最古老的壁画（世界遗产）。山谷高处矗立着欧洲海拔最高的本笃会修道院——玛利亚山修道院。"
+        "nl": "Glurns (Glorenza) is een volledig ommuurd stadje van amper 900 inwoners, met een intacte weergang en houten arcades rond het marktplein, een middeleeuws miniatuur in de Vinschgau. Vlak over de Zwitserse grens ligt het karolingische klooster St. Johann in Müstair met de oudste fresco's van de Alpen (UNESCO). Hoog boven het dal troont Marienberg, de hoogstgelegen benedictijnenabdij van Europa.",
+        "zh": "格洛伦扎是一座仅约 900 人、城墙完整的小镇,环市集广场保留着可通行的城垛与木拱廊,是文施高谷中的中世纪缩影。越过瑞士边境不远,便是加洛林时期的米施泰尔圣约翰修道院,藏有阿尔卑斯最古老的壁画(世界遗产)。山谷高处矗立着欧洲海拔最高的本笃会修道院:玛利亚山修道院。"
       },
       "info": {
-        "nl": "De Reschenpas is een rustige, panoramische route; onderweg de half verzonken kerktoren in het Reschensee. Twee nachten geven ruimte voor één rustdag (Müstair of Marienberg) zonder haast. Hoogte ~900 m: 's avonds aangenaam koel voor de honden.",
-        "zh": "雷西亚山口是一条宁静而壮丽的路线；途中可见雷西亚湖中半淹的教堂钟楼。住两晚可从容安排一天休整（米施泰尔或玛利亚山），无需赶路。海拔约 900 米，夜晚凉爽，对狗友好。"
+        "nl": "De Reschenpas is een rustige, panoramische route; onderweg de half verzonken kerktoren in het Reschensee. Drie nachten geven ruimte voor twee echte rustdagen: één voor Müstair of Marienberg, één om niets te doen in de koele berglucht. Hoogte ~900 m: 's avonds aangenaam koel voor de honden.",
+        "zh": "雷西亚山口是一条宁静而壮丽的路线;途中可见雷西亚湖中半淹的教堂钟楼。住三晚可享受两个真正的休整日:一天去米施泰尔或玛利亚山,一天在凉爽的山间空气中无所事事。海拔约 900 米,夜晚凉爽,对狗友好。"
       }
     },
     {
       "nr": 3,
       "datum": {
-        "nl": "ma 27 juli",
-        "zh": "7月27日 周一"
+        "nl": "di 28 + wo 29 juli",
+        "zh": "7月28、29日 周二·周三"
       },
       "van": "Glurns",
-      "naar": "Trento",
-      "rijtijd": {
-        "nl": "ca. 2,5 uur, lunchstop Kalterer wijnroute",
-        "zh": "约 2.5 小时，于卡尔达罗酒乡午餐"
-      },
-      "afstand": {
-        "nl": "≈ 115 km",
-        "zh": "≈ 115 公里"
-      },
-      "nachten": 1,
-      "coord": [
-        46.0714,
-        11.1271
-      ],
-      "hotel": {
-        "naam": "nader te bepalen, hondvriendelijk",
-        "status": {
-          "nl": "te boeken",
-          "zh": "待预订"
-        }
-      },
-      "hotelsuggestie": {
-        "naam": "Hotel America, Trento",
-        "url": "https://www.hotelamerica.it/",
-        "beschrijving": {
-          "nl": "Elegant, sinds 1923 door dezelfde familie gerund, pal aan het centrum — honden op aanvraag welkom.",
-          "zh": "优雅的家族酒店，自 1923 年由同一家族经营，紧邻市中心——可应要求携犬入住。"
-        }
-      },
-      "highlights": [
-        {
-          "nl": "Castello del Buonconsiglio met de fresco's van de Twaalf Maanden",
-          "zh": "布翁孔西利奥城堡与《十二月令》壁画"
-        },
-        {
-          "nl": "Piazza Duomo met de Neptunusfontein",
-          "zh": "主教座堂广场与海神喷泉"
-        },
-        {
-          "nl": "MUSE van Renzo Piano",
-          "zh": "伦佐·皮亚诺设计的 MUSE 科学博物馆"
-        }
-      ],
-      "honden": {
-        "nl": "Trento is in de zomer rustig; avondwandeling langs de Adige.",
-        "zh": "特伦托夏季静谧；傍晚沿阿迪杰河散步。"
-      },
-      "toerisme": {
-        "nl": "Trento is een verrassend verfijnde Alpenstad waar het noorden en Italië elkaar raken. Het Castello del Buonconsiglio herbergt in de Torre Aquila de wereldberoemde 'Cyclus van de Twaalf Maanden', een van de mooiste laatgotische fresco's van Europa. De stad was het toneel van het Concilie van Trente; aan de rand toont het MUSE-museum van Renzo Piano de bergwereld in glas en licht.",
-        "zh": "特伦托是一座出人意料地精致的阿尔卑斯城市,北方与意大利在此交汇。布翁孔西利奥城堡的鹰塔内保存着举世闻名的《十二月令》壁画,是欧洲最美的晚期哥特壁画之一。这里曾是特伦托大公会议的舞台;城郊由伦佐·皮亚诺设计的 MUSE 博物馆以玻璃与光影呈现高山世界。"
-      },
-      "info": {
-        "nl": "Parkeer bij Piazza Fiera of een centrale garage; de kern is compact en te voet te doen. De wijnroute rond Kaltern/Caldaro is een mooie, koele lunchstop onderweg. Eén nacht volstaat voor de highlights.",
-        "zh": "可停在 Piazza Fiera 或中心停车楼;老城紧凑,适合步行。途中卡尔达罗一带的酒乡是清凉的午餐好去处。停留一晚即可饱览精华。"
-      }
-    },
-    {
-      "nr": 4,
-      "datum": {
-        "nl": "di 28 + wo 29 juli",
-        "zh": "7月28–29日 周二·周三"
-      },
-      "van": "Trento",
       "naar": "Valeggio sul Mincio",
       "rijtijd": {
-        "nl": "ca. 1,5 uur",
-        "zh": "约 1.5 小时"
+        "nl": "ca. 4 uur totaal, met stadsstop Trento",
+        "zh": "全程约 4 小时,中途游览特伦托"
       },
       "afstand": {
-        "nl": "≈ 100 km",
-        "zh": "≈ 100 公里"
+        "nl": "≈ 215 km",
+        "zh": "≈ 215 公里"
       },
       "nachten": 2,
       "coord": [
@@ -237,18 +174,22 @@
         "naam": "Relais Villa Cordevigo",
         "url": "https://www.villacordevigo.com/",
         "beschrijving": {
-          "nl": "Landelijk relais in de wijnheuvels bij het Gardameer, met park en zwembad — ruimte zat voor de honden.",
-          "zh": "加尔达湖畔葡萄园中的乡村庄园酒店,带园林与泳池——狗狗有充足活动空间。"
+          "nl": "Landelijk relais in de wijnheuvels bij het Gardameer, met park en zwembad, ruimte zat voor de honden.",
+          "zh": "加尔达湖畔葡萄园中的乡村庄园酒店,带园林与泳池,狗狗有充足活动空间。"
         }
       },
       "highlights": [
+        {
+          "nl": "tussenstop Trento: Piazza Duomo en de fresco's van Buonconsiglio",
+          "zh": "中途游特伦托:主教座堂广场与布翁孔西利奥城堡壁画"
+        },
         {
           "nl": "watermolengehucht Borghetto",
           "zh": "博尔盖托水磨村"
         },
         {
           "nl": "Parco Giardino Sigurtà (honden aangelijnd welkom)",
-          "zh": "西古尔塔花园公园（可牵绳携犬）"
+          "zh": "西古尔塔花园公园(可牵绳携犬)"
         },
         {
           "nl": "Ponte Visconteo",
@@ -264,19 +205,19 @@
         "zh": "西古尔塔可牵绳入内;因高温宜清晨前往。"
       },
       "toerisme": {
-        "nl": "Valeggio ligt aan de Mincio, met aan de voet het sprookjesachtige molengehucht Borghetto en de reusachtige 14e-eeuwse Ponte Visconteo, ooit een dam-brug van de Scaligeri. Vlakbij ligt Parco Giardino Sigurtà, een van de mooiste tuinen van Europa met kilometers lanen, vijvers en rozen. De streek is beroemd om de flinterdunne tortellini, de 'nodo d'amore'.",
-        "zh": "瓦莱焦坐落于明乔河畔,脚下是童话般的博尔盖托水磨村,以及斯卡拉家族当年修建的巨大 14 世纪维斯孔蒂桥。附近的西古尔塔花园公园是欧洲最美的园林之一,林荫道、水塘与玫瑰绵延数公里。这一带以薄如蝉翼的'爱情结'小饺闻名。"
+        "nl": "Onderweg verdient Trento een ruime tussenstop: een verfijnde Alpenstad waar het Castello del Buonconsiglio in de Torre Aquila de wereldberoemde 'Cyclus van de Twaalf Maanden' bewaart, een van de mooiste laatgotische fresco's van Europa, met de Piazza Duomo en de Neptunusfontein als decor voor de lunch. Daarna daal je af naar Valeggio aan de Mincio, met aan de voet het sprookjesachtige molengehucht Borghetto en de reusachtige 14e-eeuwse Ponte Visconteo van de Scaligeri. Vlakbij ligt Parco Giardino Sigurtà, een van de mooiste tuinen van Europa; de streek is beroemd om de flinterdunne tortellini, de 'nodo d'amore'.",
+        "zh": "途中的特伦托值得从容一游:这座精致的阿尔卑斯城市里,布翁孔西利奥城堡鹰塔内保存着举世闻名的《十二月令》壁画,是欧洲最美的晚期哥特壁画之一;主教座堂广场与海神喷泉正是午餐的好背景。随后南下明乔河畔的瓦莱焦,脚下是童话般的博尔盖托水磨村,以及斯卡拉家族修建的巨大 14 世纪维斯孔蒂桥。附近的西古尔塔花园公园是欧洲最美的园林之一;这一带以薄如蝉翼的'爱情结'小饺闻名。"
       },
       "info": {
-        "nl": "Peschiera del Garda (Gardameer) ligt op ~10 km voor een verkoelende namiddag. Bezoek Sigurtà 's ochtends vroeg; het park is groot, neem water mee. Twee nachten maken het een rustige basis vlak voor Verona.",
-        "zh": "加尔达湖畔的佩斯基耶拉约 10 公里,可在午后前往消暑。西古尔塔宜清晨游览,园区很大,请备足饮水。住两晚,是抵达维罗纳前的安静落脚点。"
+        "nl": "Parkeer in Trento bij Piazza Fiera; de compacte kern is in twee uur te zien. Wie liever buiten luncht, kiest de Kalterer wijnroute. In Valeggio: bezoek Sigurtà 's ochtends vroeg (het park is groot, neem water mee); Peschiera del Garda ligt op ~10 km voor een verkoelende namiddag. Twee nachten maken het een rustige basis vlak voor Verona.",
+        "zh": "特伦托可停在 Piazza Fiera;老城紧凑,两小时即可饱览。若想在乡间午餐,可选卡尔达罗酒乡。在瓦莱焦:西古尔塔宜清晨游览(园区很大,请备足饮水);加尔达湖畔的佩斯基耶拉约 10 公里,可在午后前往消暑。住两晚,是抵达维罗纳前的安静落脚点。"
       }
     },
     {
-      "nr": 5,
+      "nr": 4,
       "datum": {
         "nl": "do 30 + vr 31 juli",
-        "zh": "7月30–31日 周四·周五"
+        "zh": "7月30、31日 周四·周五"
       },
       "van": "Valeggio",
       "naar": "Verona",
@@ -304,8 +245,8 @@
         "naam": "Hotel Gabbia d'Oro, Verona",
         "url": "https://www.hotelgabbiadoro.it/",
         "beschrijving": {
-          "nl": "Romantisch boetiekhotel in een 18e-eeuws palazzo, op een paar passen van de Arena — ideaal voor de opera-avonden.",
-          "zh": "坐落于 18 世纪宫邸中的浪漫精品酒店,距圆形剧场仅数步——歌剧之夜的理想之选。"
+          "nl": "Romantisch boetiekhotel in een 18e-eeuws palazzo, op een paar passen van de Arena, ideaal voor de opera-avonden.",
+          "zh": "坐落于 18 世纪宫邸中的浪漫精品酒店,距圆形剧场仅数步,是歌剧之夜的理想之选。"
         }
       },
       "highlights": [
@@ -335,12 +276,12 @@
         "zh": "维罗纳是此行的核心:一座环绕世界上保存最完好的古罗马圆形剧场的世界遗产之城,夏夜里著名的歌剧节在星空下回响。漫步香草广场、朱丽叶阳台传说与阿迪杰河湾;古堡博物馆则展现卡洛·斯卡帕永恒的展陈建筑。城市之上是文艺复兴的朱斯蒂花园与它的柏树林荫道。"
       },
       "info": {
-        "nl": "Reserveer de operatickets en het hondvriendelijke hotel ruim vooraf en laat het hondenbeleid schriftelijk bevestigen — dit is de spil van de planning. De voorstellingen beginnen 21:15 en duren tot na middernacht; neem een kussentje voor de stenen tribunes mee.",
-        "zh": "请尽早预订歌剧票与对狗友好的酒店,并书面确认宠物政策——这是整个行程的关键。演出 21:15 开始,持续至午夜后;石阶看台请自带坐垫。"
+        "nl": "Reserveer de operatickets en het hondvriendelijke hotel ruim vooraf en laat het hondenbeleid schriftelijk bevestigen, dit is de spil van de planning. De voorstellingen beginnen 21:15 en duren tot na middernacht; neem een kussentje voor de stenen tribunes mee.",
+        "zh": "请尽早预订歌剧票与对狗友好的酒店,并书面确认宠物政策,这是整个行程的关键。演出 21:15 开始,持续至午夜后;石阶看台请自带坐垫。"
       }
     },
     {
-      "nr": 6,
+      "nr": 5,
       "datum": {
         "nl": "za 1 aug",
         "zh": "8月1日 周六"
@@ -371,8 +312,8 @@
         "naam": "Hotel Annunziata, Ferrara",
         "url": "https://www.annunziata.it/",
         "beschrijving": {
-          "nl": "Stijlvol designhotel recht tegenover het Castello Estense, met gratis leenfietsen — honden welkom.",
-          "zh": "正对埃斯特城堡的雅致设计酒店,提供免费借用自行车——欢迎携犬。"
+          "nl": "Stijlvol designhotel recht tegenover het Castello Estense, met gratis leenfietsen, honden welkom.",
+          "zh": "正对埃斯特城堡的雅致设计酒店,提供免费借用自行车,欢迎携犬。"
         }
       },
       "highlights": [
@@ -398,94 +339,27 @@
         "zh": "费拉拉是欧洲第一座'现代'规划城市:埃斯特公爵的文艺复兴理想之城(世界遗产)。市中心是环水的埃斯特城堡,钻石宫则因外墙的 8500 块钻石形大理石而得名。城市四周环绕着一道九公里长、绿树成荫的城墙,可步行或骑行其上。"
       },
       "info": {
-        "nl": "Ferrara is vlak en autoluw — leen fietsen (veel hotels bieden ze gratis) om de muren en het joodse getto te verkennen. Eén nacht is genoeg; proef de cappellacci di zucca (pompoenpasta).",
-        "zh": "费拉拉地势平坦、车流稀少——借辆自行车(许多酒店免费提供)去探访城墙与犹太老城区。停留一晚即可;别忘品尝南瓜方饺。"
+        "nl": "Ferrara is vlak en autoluw: leen fietsen (veel hotels bieden ze gratis) om de muren en het joodse getto te verkennen. Eén nacht is genoeg; proef de cappellacci di zucca (pompoenpasta).",
+        "zh": "费拉拉地势平坦、车流稀少:借辆自行车(许多酒店免费提供)去探访城墙与犹太老城区。停留一晚即可;别忘品尝南瓜方饺。"
       }
     },
     {
-      "nr": 7,
+      "nr": 6,
       "datum": {
-        "nl": "zo 2 aug",
-        "zh": "8月2日 周日"
+        "nl": "zo 2 t/m wo 5 aug",
+        "zh": "8月2日至5日 周日至周三"
       },
       "van": "Ferrara",
-      "naar": "Brisighella",
-      "rijtijd": {
-        "nl": "ca. 1,5 uur, lunchstop Dozza",
-        "zh": "约 1.5 小时,于多扎午餐"
-      },
-      "afstand": {
-        "nl": "≈ 85 km",
-        "zh": "≈ 85 公里"
-      },
-      "nachten": 1,
-      "coord": [
-        44.2237,
-        11.7734
-      ],
-      "hotel": {
-        "naam": "nader te bepalen, hondvriendelijk",
-        "status": {
-          "nl": "te boeken",
-          "zh": "待预订"
-        }
-      },
-      "hotelsuggestie": {
-        "naam": "Hondvriendelijk in Brisighella",
-        "url": "https://www.booking.com/searchresults.nl.html?ss=Brisighella&nflt=hotelfacility%3D4",
-        "beschrijving": {
-          "nl": "Aanrader in het centro storico is Hotel Gigiolè; vergelijk hondvriendelijke opties via deze link.",
-          "zh": "推荐老城区的 Hotel Gigiolè;可通过此链接比较对狗友好的住宿。"
-        }
-      },
-      "highlights": [
-        {
-          "nl": "Via degli Asini (overdekte ezelstraat)",
-          "zh": "驴巷(有顶的中世纪街道)"
-        },
-        {
-          "nl": "Rocca Manfrediana",
-          "zh": "曼弗雷迪城堡"
-        },
-        {
-          "nl": "avondstilte na vertrek van de dagjesmensen",
-          "zh": "日游客散去后的静谧夜晚"
-        },
-        {
-          "nl": "beschilderd borgo Dozza onderweg",
-          "zh": "途中的壁画小镇多扎"
-        }
-      ],
-      "honden": {
-        "nl": "Heuvelwandelingen naar de drie rotstoppen, vroeg of laat op de dag.",
-        "zh": "清晨或傍晚登临三座岩顶的丘陵徒步。"
-      },
-      "toerisme": {
-        "nl": "Brisighella is een van de mooiste dorpen van Italië, gebouwd tegen drie gipsrotsen met elk hun kroon: de vestingtoren Rocca Manfrediana, de klokketoren en het bedevaartkerkje Monticino. Beroemd is de Via degli Asini, een verhoogde overdekte straat waar ooit de ezels van de gipsvervoerders stonden. De streek staat bekend om zijn DOP-olijfolie; onderweg ligt het volledig beschilderde borgo Dozza.",
-        "zh": "布里西盖拉是意大利最美村庄之一,依三座石膏岩而建,每座岩顶各有其冠:曼弗雷迪城堡、钟楼与蒙蒂奇诺朝圣小堂。著名的'驴巷'是一条高架有顶的街道,昔日运石膏的驴子曾栖身于此。这一带以 DOP 橄榄油闻名;途中还有满墙壁画的小镇多扎。"
-      },
-      "info": {
-        "nl": "Kom laat in de middag aan: als de dagjesmensen weg zijn, valt de betoverende avondstilte in. Parkeer beneden en klim te voet naar de rotstoppen. Dozza is een korte, mooie lunchstop met een regionale wijn-enoteca in de burcht.",
-        "zh": "宜在午后较晚抵达:日游客离去后,迷人的静谧便降临。把车停在下方,步行登上岩顶。多扎是短暂而美好的午餐停留地,城堡内设有大区级葡萄酒馆。"
-      }
-    },
-    {
-      "nr": 8,
-      "datum": {
-        "nl": "ma 3 t/m wo 5 aug",
-        "zh": "8月3–5日 周一至周三"
-      },
-      "van": "Brisighella",
       "naar": "Portico di Romagna",
       "rijtijd": {
-        "nl": "ca. 45 min",
-        "zh": "约 45 分钟"
+        "nl": "ca. 2 uur, via Dozza en Brisighella",
+        "zh": "约 2 小时,途经多扎与布里西盖拉"
       },
       "afstand": {
-        "nl": "≈ 35 km",
-        "zh": "≈ 35 公里"
+        "nl": "≈ 120 km",
+        "zh": "≈ 120 公里"
       },
-      "nachten": 3,
+      "nachten": 4,
       "coord": [
         44.0254,
         11.7823
@@ -501,8 +375,8 @@
         "naam": "Al Vecchio Convento",
         "url": "https://www.vecchioconvento.it/",
         "beschrijving": {
-          "nl": "Sfeervol 'albergo diffuso' in een 19e-eeuws huis met een geroemde Romagnaanse keuken — het rustpunt van de reis.",
-          "zh": "坐落于 19 世纪老宅的迷人'分散式旅馆',以罗马涅传统美食著称——此行的休憩之所。"
+          "nl": "Sfeervol 'albergo diffuso' in een 19e-eeuws huis met een geroemde Romagnaanse keuken, het rustpunt van de reis.",
+          "zh": "坐落于 19 世纪老宅的迷人'分散式旅馆',以罗马涅传统美食著称,是此行的休憩之所。"
         }
       },
       "highlights": [
@@ -519,6 +393,10 @@
           "zh": "卡森蒂内西森林国家公园"
         },
         {
+          "nl": "dagtocht Brisighella: Via degli Asini en Rocca Manfrediana",
+          "zh": "一日游布里西盖拉:驴巷与曼弗雷迪城堡"
+        },
+        {
           "nl": "de keuken van het huis",
           "zh": "旅馆自家的厨房"
         }
@@ -528,16 +406,16 @@
         "zh": "此行最佳的徒步据点。"
       },
       "toerisme": {
-        "nl": "Portico di Romagna is een middeleeuws bergdorpje in de Apennijnen, met de statige Ponte della Maestà en een band met Dante: de familie van zijn Beatrice Portinari kwam hier vandaan. Boven het dorp stort in het nationaal park Foreste Casentinesi de Acquacheta-waterval naar beneden, door Dante bezongen in de Inferno. Drie nachten in het 'albergo diffuso' Al Vecchio Convento maken dit het wandel- en rusthart van de reis.",
-        "zh": "波尔蒂科·迪·罗马涅是亚平宁山中的中世纪山村,有庄严的威严桥,并与但丁渊源深厚:他笔下贝雅特丽齐·波尔蒂纳里的家族即源出于此。村庄之上、卡森蒂内西森林国家公园内,阿夸凯塔瀑布飞流直下,但丁曾在《地狱篇》中歌咏。在'分散式旅馆'Al Vecchio Convento 住三晚,让这里成为全程徒步与休憩的中心。"
+        "nl": "Portico di Romagna is een middeleeuws bergdorpje in de Apennijnen, met de statige Ponte della Maestà en een band met Dante: de familie van zijn Beatrice Portinari kwam hier vandaan. Boven het dorp stort in het nationaal park Foreste Casentinesi de Acquacheta-waterval naar beneden, door Dante bezongen in de Inferno. Vier nachten in het 'albergo diffuso' Al Vecchio Convento maken dit het wandel- en rusthart van de reis, met Brisighella, een van de mooiste dorpen van Italië op zijn drie gipsrotsen, als dagtocht binnen handbereik.",
+        "zh": "波尔蒂科·迪·罗马涅是亚平宁山中的中世纪山村,有庄严的威严桥,并与但丁渊源深厚:他笔下贝雅特丽齐·波尔蒂纳里的家族即源出于此。村庄之上、卡森蒂内西森林国家公园内,阿夸凯塔瀑布飞流直下,但丁曾在《地狱篇》中歌咏。在'分散式旅馆'Al Vecchio Convento 住四晚,让这里成为全程徒步与休憩的中心;依三座石膏岩而建、名列意大利最美村庄的布里西盖拉,则是触手可及的一日游。"
       },
       "info": {
-        "nl": "De Acquacheta-wandeling (vanaf San Benedetto in Alpe) is heen en terug ~3 uur; begin vroeg vanwege de hitte en neem water mee. Drie nachten geven ruimte om ook de Foreste Casentinesi in te trekken. Reserveer het huis tijdig (+39 0543 967053) en geniet van het vaste keukenmenu.",
-        "zh": "阿夸凯塔徒步(从 San Benedetto in Alpe 出发)往返约 3 小时;因天热宜早出发并带足水。住三晚可深入卡森蒂内西森林。请尽早预订旅馆(+39 0543 967053),并享用固定的家常菜单。"
+        "nl": "De Acquacheta-wandeling (vanaf San Benedetto in Alpe) is heen en terug ~3 uur; begin vroeg vanwege de hitte en neem water mee. Vier nachten geven ruimte voor de Foreste Casentinesi én een dagtocht naar Brisighella (35 km): de overdekte Via degli Asini en de Rocca Manfrediana zijn op hun mooist als de dagjesmensen aan het eind van de middag vertrokken zijn. Onderweg vanuit Ferrara is het beschilderde borgo Dozza een korte lunchstop met wijn-enoteca in de burcht. Reserveer het huis tijdig (+39 0543 967053) en geniet van het vaste keukenmenu.",
+        "zh": "阿夸凯塔徒步(从 San Benedetto in Alpe 出发)往返约 3 小时;因天热宜早出发并带足水。住四晚,既可深入卡森蒂内西森林,也可一日游布里西盖拉(35 公里):有顶的驴巷与曼弗雷迪城堡在日游客傍晚散去后最为动人。从费拉拉出发途中,满墙壁画的小镇多扎是短暂的午餐停留地,城堡内设有葡萄酒馆。请尽早预订旅馆(+39 0543 967053),并享用固定的家常菜单。"
       }
     },
     {
-      "nr": 9,
+      "nr": 7,
       "datum": {
         "nl": "do 6 aug",
         "zh": "8月6日 周四"
@@ -587,7 +465,7 @@
         },
         {
           "nl": "Verdi's geboortegrond als opera-naspel",
-          "zh": "威尔第故乡——歌剧之旅的尾声"
+          "zh": "威尔第故乡,歌剧之旅的尾声"
         }
       ],
       "honden": {
@@ -595,8 +473,8 @@
         "zh": "波河畔庄园,空间充裕。"
       },
       "toerisme": {
-        "nl": "Polesine ligt in de Bassa Parmense, de mistige Po-vlakte van Bertolucci's 'Novecento' en Guareschi's Don Camillo. Hier bewaart de Antica Corte Pallavicina in vochtige kelders aan de rivier de culatello di Zibello, de koning van de Italiaanse hammen. Vlakbij ligt Verdi's geboortegrond Roncole en Busseto — een passend operatoneel naspel na Verona.",
-        "zh": "波莱西内地处帕尔马低地,即贝托鲁奇《一九〇〇》与瓜雷斯基'唐·卡米洛'笔下雾气弥漫的波河平原。安蒂卡宫廷庄园在河畔潮湿的地窖里陈化齐贝洛库拉泰洛火腿——意大利火腿之王。附近便是威尔第的故乡龙科莱与布塞托——继维罗纳之后恰如其分的歌剧余韵。"
+        "nl": "Polesine ligt in de Bassa Parmense, de mistige Po-vlakte van Bertolucci's 'Novecento' en Guareschi's Don Camillo. Hier bewaart de Antica Corte Pallavicina in vochtige kelders aan de rivier de culatello di Zibello, de koning van de Italiaanse hammen. Vlakbij ligt Verdi's geboortegrond Roncole en Busseto, een passend operatoneel naspel na Verona.",
+        "zh": "波莱西内地处帕尔马低地,即贝托鲁奇《一九〇〇》与瓜雷斯基'唐·卡米洛'笔下雾气弥漫的波河平原。安蒂卡宫廷庄园在河畔潮湿的地窖里陈化齐贝洛库拉泰洛火腿,意大利火腿之王。附近便是威尔第的故乡龙科莱与布塞托,是继维罗纳之后恰如其分的歌剧余韵。"
       },
       "info": {
         "nl": "Boek een rondleiding door de culatello-kelders en desgewenst een tafel in het restaurant vooraf. Onderweg zijn Busseto en het geboortehuis in Roncole een korte, sfeervolle stop. Het landgoed aan de Po biedt de honden veel ruimte.",
@@ -604,13 +482,13 @@
       }
     },
     {
-      "nr": 10,
+      "nr": 8,
       "datum": {
-        "nl": "vr 7 aug",
-        "zh": "8月7日 周五"
+        "nl": "vr 7 t/m zo 9 aug",
+        "zh": "8月7日至9日 周五至周日"
       },
       "van": "Polesine",
-      "naar": "Airolo (CH)",
+      "naar": "Cannobio (Lago Maggiore)",
       "rijtijd": {
         "nl": "ca. 3 uur, lunchstop Certosa di Pavia",
         "zh": "约 3 小时,于帕维亚修道院午餐"
@@ -619,64 +497,72 @@
         "nl": "≈ 230 km",
         "zh": "≈ 230 公里"
       },
-      "nachten": 1,
+      "nachten": 3,
       "coord": [
-        46.5279,
-        8.6074
+        46.0611,
+        8.6989
       ],
       "hotel": {
-        "naam": "Hotel Forni",
+        "naam": "nader te bepalen, hondvriendelijk",
         "status": {
-          "nl": "honden op aanvraag, te bevestigen, +41 91 869 12 70",
-          "zh": "可应要求携犬,待确认,+41 91 869 12 70"
+          "nl": "te boeken",
+          "zh": "待预订"
         }
       },
       "hotelsuggestie": {
-        "naam": "Hotel Forni, Airolo",
-        "url": "https://www.forni.ch/",
+        "naam": "Hotel Pironi, Cannobio",
+        "url": "https://www.pironihotel.it/",
         "beschrijving": {
-          "nl": "Klassiek Zwitsers hotel-restaurant pal aan het zuidportaal van de Gotthard — perfect voor een vroege doorsteek.",
-          "zh": "紧邻圣哥达隧道南口的经典瑞士酒店餐厅——清晨穿越的完美落脚点。"
+          "nl": "Sfeervol boetiekhotel in een 15e-eeuws klooster-palazzo in het autoluwe centro storico, op een paar passen van de kade; honden op aanvraag.",
+          "zh": "坐落于 15 世纪修道院宫邸中的迷人精品酒店,位于几乎无车的老城,距湖畔长堤仅数步;可应要求携犬。"
         }
       },
       "highlights": [
         {
-          "nl": "Certosa di Pavia (op vrijdag geopend)",
-          "zh": "帕维亚修道院(周五开放)"
+          "nl": "zondagsmarkt aan de kade (sinds de 16e eeuw)",
+          "zh": "湖畔长堤的周日集市(始于 16 世纪)"
         },
         {
-          "nl": "overnachting pal aan het zuidportaal van de Gotthard",
-          "zh": "住宿紧邻圣哥达隧道南口"
+          "nl": "Orrido di Sant'Anna (kloof in de Val Cannobina)",
+          "zh": "圣安娜峡谷(坎诺比纳谷)"
+        },
+        {
+          "nl": "lidopromenade en zwemplekken aan het meer",
+          "zh": "湖滨浴场步道与游泳点"
+        },
+        {
+          "nl": "drie dagen zonder koffers sjouwen",
+          "zh": "整整三天不必搬运行李"
         }
       ],
       "honden": {
-        "nl": "Avondwandeling door het Leventina-dal.",
-        "zh": "傍晚漫步莱文蒂纳山谷。"
+        "nl": "Verkoeling in het meer en schaduwrijke wandelingen langs de Cannobino; de Orrido in de vroege ochtend.",
+        "zh": "在湖中消暑,沿坎诺比诺河林荫漫步;清晨前往圣安娜峡谷。"
       },
       "toerisme": {
-        "nl": "Onderweg naar de Alpen ligt de Certosa di Pavia, een uitbundig kartuizerklooster met een van de rijkste renaissancegevels van Italië — een verplichte lunchstop. 's Avonds klim je het Leventina-dal in naar Airolo, aan de Zwitserse voet van de Gotthard. Wie tijd heeft, neemt de oude Tremola-serpentines met hun kasseien in plaats van de tunnel.",
-        "zh": "前往阿尔卑斯途中,坐落着帕维亚修道院——一座华丽的加尔都西会修院,拥有意大利最富丽的文艺复兴立面之一,是不可错过的午餐停留地。傍晚沿莱文蒂纳山谷上行至圣哥达山脚的艾罗洛。时间充裕者,可舍隧道而走古老的特雷莫拉石板盘山道。"
+        "nl": "Cannobio is het laatste en misschien wel mooiste stadje aan de Piemontese westoever van het Lago Maggiore, vlak voor de Zwitserse grens: een geplaveide kern die afloopt naar een lange kade met pastelkleurige huizen en platanen. Even landinwaarts, in het groene Val Cannobina, perst de Orrido di Sant'Anna zich als smalle kloof onder een stenen brugje en een kerkje door. Op zondagochtend vult de kade zich met de grote markt, die hier al sinds de 16e eeuw wordt gehouden.",
+        "zh": "坎诺比奥是马焦雷湖皮埃蒙特西岸、瑞士边境前的最后一座小城,也许是最美的一座:石板铺就的老城缓缓延伸至一条长长的湖畔堤岸,粉彩房屋与法国梧桐相映成趣。稍往内陆,在葱郁的坎诺比纳谷中,圣安娜峡谷从石桥与小教堂下方挤过,狭窄而幽深。周日清晨,堤岸上摆满盛大的集市,自 16 世纪延续至今。"
       },
       "info": {
-        "nl": "Certosa di Pavia is 's ochtends/rond het middaguur geopend (op maandag gesloten) — vrijdag komt goed uit. Zwitserland vereist een snelwegvignet. Overnacht bewust vlak bij het tunnelportaal om de volgende ochtend vroeg te kunnen vertrekken.",
-        "zh": "帕维亚修道院上午至正午开放(周一闭馆)——周五正合适。瑞士高速需购通行证。特意住在隧道口附近,以便次日清晨早发。"
+        "nl": "Drie nachten rust vóór de terugreis: zwemmen, luieren en op zondag de markt (ga vroeg, het loopt vol). De Certosa di Pavia onderweg is een verplichte lunchstop, uitbundig kartuizerklooster met een van de rijkste renaissancegevels van Italië; op vrijdag geopend (maandag gesloten). Het Zwitserse vignet is pas voor de rit van maandag nodig.",
+        "zh": "回程前休整三晚:游泳、闲逛,周日赶集(宜早去,人会很多)。途中的帕维亚修道院是不可错过的午餐停留地,这座华丽的加尔都西会修院拥有意大利最富丽的文艺复兴立面之一;周五开放(周一闭馆)。瑞士高速通行证到周一上路时才需要。"
       }
     },
     {
-      "nr": 11,
+      "nr": 9,
       "datum": {
-        "nl": "za 8 aug",
-        "zh": "8月8日 周六"
+        "nl": "ma 10 aug",
+        "zh": "8月10日 周一"
       },
-      "van": "Airolo",
+      "van": "Cannobio",
       "naar": "Bergheim (FR)",
       "rijtijd": {
-        "nl": "ca. 3,5-4 uur, om 07:00 de Gotthardtunnel in",
-        "zh": "约 3.5–4 小时,07:00 前进入圣哥达隧道"
+        "nl": "ca. 4,5-5 uur, maandagochtend door de Gotthard",
+        "zh": "约 4.5-5 小时,周一清晨穿越圣哥达"
       },
       "afstand": {
-        "nl": "≈ 330 km",
-        "zh": "≈ 330 公里"
+        "nl": "≈ 420 km",
+        "zh": "≈ 420 公里"
       },
       "nachten": 1,
       "coord": [
@@ -694,14 +580,14 @@
         "naam": "Hôtel de la Tour, Ribeauvillé (3 km)",
         "url": "https://www.hotel-la-tour.com/",
         "beschrijving": {
-          "nl": "Charmant familiehotel in het buurdorp Ribeauvillé, aan de Elzasser wijnroute — honden welkom.",
-          "zh": "位于邻村里博维莱、阿尔萨斯葡萄酒之路旁的迷人家庭酒店——欢迎携犬。"
+          "nl": "Charmant familiehotel in het buurdorp Ribeauvillé, aan de Elzasser wijnroute, honden welkom.",
+          "zh": "位于邻村里博维莱、阿尔萨斯葡萄酒之路旁的迷人家庭酒店,欢迎携犬。"
         }
       },
       "highlights": [
         {
-          "nl": "Gotthard vóór de file",
-          "zh": "赶在拥堵前穿过圣哥达"
+          "nl": "Gotthard op een rustige maandag, buiten het zwarte weekend",
+          "zh": "避开'黑色周末',在平静的周一穿越圣哥达"
         },
         {
           "nl": "ommuurd wijndorp zonder de drukte van Colmar",
@@ -721,25 +607,25 @@
         "zh": "沿中世纪城墙散步一圈。"
       },
       "toerisme": {
-        "nl": "Bergheim is een van de best bewaarde ommuurde wijndorpen van de Elzas, met een complete middeleeuwse omwalling, torens en bloemrijke vakwerkhuizen — maar zonder de toeristendrukte van Colmar of Riquewihr. Het ligt aan de Route des Vins met vermaarde Grands Crus (Altenberg, Kanzlerberg). Boven het dorp waakt het kasteel Haut-Kœnigsbourg over de vlakte.",
-        "zh": "贝尔甘是阿尔萨斯保存最完好的城墙葡萄酒村之一,拥有完整的中世纪城墙、塔楼与花团锦簇的半木结构房屋——却没有科尔马或里博维莱的游人如织。它坐落于葡萄酒之路旁,以名贵特级园(阿尔滕贝格、坎茨勒贝格)著称。村庄之上,上柯尼斯堡城堡俯瞰着平原。"
+        "nl": "Bergheim is een van de best bewaarde ommuurde wijndorpen van de Elzas, met een complete middeleeuwse omwalling, torens en bloemrijke vakwerkhuizen, maar zonder de toeristendrukte van Colmar of Riquewihr. Het ligt aan de Route des Vins met vermaarde Grands Crus (Altenberg, Kanzlerberg). Boven het dorp waakt het kasteel Haut-Kœnigsbourg over de vlakte.",
+        "zh": "贝尔甘是阿尔萨斯保存最完好的城墙葡萄酒村之一,拥有完整的中世纪城墙、塔楼与花团锦簇的半木结构房屋,却没有科尔马或里克韦尔的游人如织。它坐落于葡萄酒之路旁,以名贵特级园(阿尔滕贝格、坎茨勒贝格)著称。村庄之上,上柯尼斯堡城堡俯瞰着平原。"
       },
       "info": {
-        "nl": "Vertrek om 07:00 door de Gotthardtunnel om de files van de 'zwarte zaterdag' vóór te zijn. In Bergheim proef je Grand Cru rechtstreeks bij de wijnboer; de rondwandeling over de muren duurt een half uur. Laatste avond op het vasteland vóór thuis.",
-        "zh": "07:00 穿过圣哥达隧道,赶在'黑色星期六'拥堵之前。在贝尔甘可直接向酒农品尝特级园佳酿;绕城墙一圈约半小时。这是回家前在欧陆的最后一晚。"
+        "nl": "Vertrek vroeg: op maandagochtend is de Gotthard rustig, heel anders dan in het zwarte weekend. Zwitserland vereist een snelwegvignet. In Bergheim proef je Grand Cru rechtstreeks bij de wijnboer; de rondwandeling over de muren duurt een half uur. Laatste avond onderweg vóór thuis.",
+        "zh": "宜早出发:周一清晨的圣哥达十分通畅,与'黑色周末'截然不同。瑞士高速需购通行证。在贝尔甘可直接向酒农品尝特级园佳酿;绕城墙一圈约半小时。这是到家前在路上的最后一晚。"
       }
     },
     {
-      "nr": 12,
+      "nr": 10,
       "datum": {
-        "nl": "zo 9 aug",
-        "zh": "8月9日 周日"
+        "nl": "di 11 aug",
+        "zh": "8月11日 周二"
       },
       "van": "Bergheim",
       "naar": "Nijmegen",
       "rijtijd": {
         "nl": "ca. 4,5-5 uur, tussenstop bij Luxemburg",
-        "zh": "约 4.5–5 小时,于卢森堡中途停留"
+        "zh": "约 4.5-5 小时,于卢森堡中途停留"
       },
       "afstand": {
         "nl": "≈ 430 km",
@@ -768,11 +654,11 @@
       },
       "toerisme": {
         "nl": "De laatste etappe voert door de Elzas, langs of door Luxemburg terug naar Nijmegen. Een goede tussenstop is Luxemburg-stad met zijn dramatische ravijnen en de Chemin de la Corniche, 'het mooiste balkon van Europa', of een wandeling in de bosrijke Eifel.",
-        "zh": "最后一程穿越阿尔萨斯,经卢森堡返回奈梅亨。理想的中途停留地是卢森堡市——峡谷壮观,还有'欧洲最美阳台'科尼什步道;或在林木葱郁的艾费尔散步。"
+        "zh": "最后一程穿越阿尔萨斯,经卢森堡返回奈梅亨。理想的中途停留地是卢森堡市:峡谷壮观,还有'欧洲最美阳台'科尼什步道;或在林木葱郁的艾费尔散步。"
       },
       "info": {
-        "nl": "Tank goedkoop in Luxemburg. Plan de laatste hondenpauze in de Eifel of bij de stad Luxemburg. Einde van de middag terug thuis — het einde van de pareltjesroute.",
-        "zh": "在卢森堡加油更划算。把最后一次遛狗安排在艾费尔或卢森堡市。傍晚到家——'珍珠之路'就此圆满。"
+        "nl": "Tank goedkoop in Luxemburg. Plan de laatste hondenpauze in de Eifel of bij de stad Luxemburg. Einde van de middag terug thuis, het einde van de pareltjesroute.",
+        "zh": "在卢森堡加油更划算。把最后一次遛狗安排在艾费尔或卢森堡市。傍晚到家,'珍珠之路'就此圆满。"
       }
     }
   ]

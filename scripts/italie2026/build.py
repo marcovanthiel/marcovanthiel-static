@@ -21,8 +21,9 @@ import sys
 HIER = pathlib.Path(__file__).resolve().parent
 SITE = HIER.parents[1] / "static" / "italie2026"
 
-# Etappenummers van de twee ankers (visueel onderscheiden)
-ANKERS = {5, 8}
+# Etappenummers van de twee ankers (visueel onderscheiden):
+# 4 = Verona (opera), 6 = Portico di Romagna (Al Vecchio Convento)
+ANKERS = {4, 6}
 STATUS_CLASS = {"geboekt": "ok", "te bevestigen": "wait", "te boeken": "todo"}
 
 
@@ -106,7 +107,7 @@ def etappe_html(e):
                 f'{bi(e["info"])}</p>')
 
     opera = ""
-    if e["nr"] == 5:
+    if e["nr"] == 4:
         opera = """
       <aside class="opera" aria-label="Opera in de Arena di Verona">
         <h4><span class="lang lang-nl" lang="nl">Arena di Verona</span><span class="lang lang-zh" lang="zh">维罗纳圆形剧场</span></h4>

@@ -1,7 +1,7 @@
 # Italië 2026 — reiswebsite (marcovanthiel.nl/italie2026)
 
 Statische, **tweetalige (NL / 中文)** reispagina: routekaart (Leaflet, lokaal
-gebundeld, OpenStreetMap-tiles) + tijdlijn van 12 etappes met per etappe
+gebundeld, OpenStreetMap-tiles) + tijdlijn van 10 etappes met per etappe
 uitgebreide toeristische info, reisafstand, praktische tips en een
 hotel-aanrader (met werkende link) + praktische checklist + print-CSS
 (A4-reisdocument). Mobiel en offline-vriendelijk: alle tekst staat statisch
@@ -49,8 +49,12 @@ Structuur- of stijlwijzigingen horen in `scripts/italie2026/template.html`,
 
 ## Vaste gegevens
 
-- Ankers (visueel rood): etappe 5 (Verona/opera) en 8 (Al Vecchio Convento);
-  hardcoded als `ANKERS` in `build.py` en `app.js`.
+- Ankers (visueel rood): etappe 4 (Verona/opera) en 6 (Al Vecchio Convento);
+  hardcoded als `ANKERS` in `build.py` en `app.js` (ook het opera-blok in
+  `build.py` hangt aan het Verona-etappenummer). Schuiven de etappes, dan
+  schuiven deze nummers mee.
+- Terugreis bewust op maandag en dinsdag (10 + 11 aug): niet in het zwarte
+  weekend rijden; rustblok vooraf = 3 nachten Cannobio (Lago Maggiore).
 - CSP: `/italie2026/*`-blok in `static/_headers` staat OSM-tiles toe in
   `img-src`. Leaflet staat lokaal in `static/italie2026/vendor/leaflet/`.
 - Deploy = push naar `main` (Cloudflare Pages bouwt Hugo; `static/` gaat
