@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "6 juli 2026, 00:07",
- "bijgewerkt_iso": "2026-07-06T00:07+02:00",
+ "bijgewerkt": "6 juli 2026, 12:51",
+ "bijgewerkt_iso": "2026-07-06T12:51+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -273,7 +273,7 @@
       "za 4 jul · 7-6 6-1"
      ],
      [
-      "ma 12:00 · No. 2 Court · HBO Max",
+      "LIVE · 1e set · 4-6 · HBO Max",
       "ma 14:30 · Centre Court · Eurosport 1 · HBO Max",
       "ma 16:00 · No. 1 Court · Ziggo Sport",
       "ma 13:30 · No. 2 Court · HBO Max"
@@ -290,12 +290,12 @@
    "champ": "",
    "vandaag": [
     {
-     "start": 1783332000,
-     "tijd": "12:00",
+     "start": 1783332300,
+     "tijd": "12:05",
      "court": "No. 2 Court",
      "ronde": "Laatste 16",
      "partij": "🇺🇦 Marta Kostyuk – 🇺🇸 Ashlyn Krueger",
-     "status": "gepland",
+     "status": "LIVE · 1e set · 6-4",
      "tv": "HBO Max"
     },
     {
