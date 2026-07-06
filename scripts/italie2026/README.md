@@ -27,6 +27,14 @@ Per etappe extra velden:
 - `toerisme` — uitgebreide toeristische beschrijving.
 - `info` — praktische/overige relevante info (verschijnt in het groene kader "Goed om te weten").
 - `hotelsuggestie` — `{"naam", "url", "beschrijving":{nl,zh}}`: aanbevolen (hondvriendelijk) hotel met hyperlink. **Verifieer de URL** (moet 200 geven) voor je 'm toevoegt.
+- `voorbeeldfoto` — `{"bestand", "breedte", "hoogte", "onderschrift":{nl,zh}, "credit", "creditUrl"}`:
+  voorbeeldfoto van de bezienswaardigheid, self-hosted in `static/italie2026/foto/`
+  (de CSP staat geen externe afbeeldingen toe). Bron = Wikimedia Commons; de
+  bronvermelding (auteur + licentie, gelinkt naar de Commons-pagina) is bij
+  CC BY(-SA) **verplicht** en staat in `credit`/`creditUrl`. Foto's zijn 1280 px
+  breed, jpegoptim-gecomprimeerd (~250-320 KB), lazy-loaded en verborgen in de
+  print-versie. Ontbreekt het veld, dan verschijnt de oude placeholder
+  "foto volgt na de reis" — na de reis vervangen door eigen foto's.
 
 1. Pas `route.json` aan. Hotelstatus (`hotel.status.nl`): laat de tekst beginnen met
    `geboekt`, `te bevestigen` of `te boeken` — dat bepaalt de kleur van

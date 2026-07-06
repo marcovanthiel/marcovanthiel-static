@@ -66,6 +66,24 @@ def nachten_bi(n):
     return {"nl": f"{n} nachten", "zh": f"{n} 晚"}
 
 
+def fotoblok(e):
+    """Voorbeeldfoto (Wikimedia Commons, mét bronvermelding) of de placeholder
+    voor eigen foto's na de reis."""
+    vf = e.get("voorbeeldfoto")
+    if not vf:
+        return ('<div class="fotoplek" aria-hidden="true">'
+                '<span class="lang lang-nl" lang="nl">foto volgt na de reis</span>'
+                '<span class="lang lang-zh" lang="zh">照片将于旅行后补充</span></div>')
+    return (
+        '<figure class="voorbeeldfoto">'
+        f'<img src="/italie2026/{esc(vf["bestand"])}" '
+        f'width="{int(vf["breedte"])}" height="{int(vf["hoogte"])}" '
+        f'loading="lazy" alt="{esc(val(vf["onderschrift"], "nl"))}">'
+        f'<figcaption>{bi(vf["onderschrift"])} · '
+        f'<a href="{esc(vf["creditUrl"])}" target="_blank" rel="noopener">{esc(vf["credit"])}</a>'
+        '</figcaption></figure>')
+
+
 def etappe_html(e):
     anker = e["nr"] in ANKERS
     kop = f'{esc(e["van"])} → {esc(e["naar"])}'
@@ -131,7 +149,7 @@ def etappe_html(e):
         {hotelblok}
         {sugblok}
         <p class="honden">🐾 {bi(e["honden"])}</p>{opera}
-        <div class="fotoplek" aria-hidden="true"><span class="lang lang-nl" lang="nl">foto volgt na de reis</span><span class="lang lang-zh" lang="zh">照片将于旅行后补充</span></div>
+        {fotoblok(e)}
       </div>
     </article>"""
 
