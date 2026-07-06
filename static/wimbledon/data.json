@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "6 juli 2026, 19:48",
- "bijgewerkt_iso": "2026-07-06T19:48+02:00",
+ "bijgewerkt": "6 juli 2026, 22:06",
+ "bijgewerkt_iso": "2026-07-06T22:06+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -76,7 +76,9 @@
     "L-2-2": "🇨🇦 Felix Auger-Aliassime [3]",
     "L-2-1": "🇩🇪 Jan-Lennard Struff",
     "L-2-0": "🇮🇹 Jannik Sinner [1]",
-    "R-2-0": "🇮🇹 Flavio Cobolli [9]"
+    "R-2-0": "🇮🇹 Flavio Cobolli [9]",
+    "R-2-1": "🇬🇧 Arthur Fery",
+    "R-2-2": "🇺🇸 Taylor Fritz [6]"
    },
    "labels": {
     "L": [
@@ -117,13 +119,13 @@
      ],
      [
       "ma 6 jul · 5-7 6-7 3-6",
-      "LIVE · 4e set · 5-7 6-3 6-4 2-1 · Eurosport 1 · HBO Max",
-      "LIVE · 1e set · 6-5 · Ziggo Sport",
-      "ma 20:00 · Centre Court · Eurosport 1 · HBO Max"
+      "ma 6 jul · 5-7 6-3 6-4 4-6 6-7",
+      "ma 6 jul · 7-6 6-4 6-4",
+      "LIVE · 1e set · 1-1 · Eurosport 1 · HBO Max"
      ],
      [
       "wo 8 jul · tijd volgt · HBO Max",
-      ""
+      "wo 8 jul · tijd volgt · HBO Max"
      ],
      [
       ""
@@ -147,7 +149,7 @@
      "court": "Centre Court",
      "ronde": "Laatste 16",
      "partij": "🇬🇧 Arthur Fery – 🇧🇬 Grigor Dimitrov",
-     "status": "LIVE · 4e set · 7-5 3-6 4-6 1-2",
+     "status": "gespeeld · 7-5 3-6 4-6 6-4 7-6",
      "tv": "Eurosport 1 · HBO Max"
     },
     {
@@ -156,16 +158,16 @@
      "court": "No. 1 Court",
      "ronde": "Laatste 16",
      "partij": "🇰🇿 Alexander Bublik – 🇺🇸 Taylor Fritz",
-     "status": "LIVE · 1e set · 5-6",
+     "status": "gespeeld · 6-7 4-6 4-6",
      "tv": "Ziggo Sport"
     },
     {
-     "start": 1783360800,
-     "tijd": "20:00",
+     "start": 1783367400,
+     "tijd": "21:50",
      "court": "Centre Court",
      "ronde": "Laatste 16",
      "partij": "🇩🇪 Alexander Zverev – 🇨🇿 Jiri Lehecka",
-     "status": "gepland",
+     "status": "LIVE · 1e set · 1-1",
      "tv": "Eurosport 1 · HBO Max"
     }
    ]
@@ -395,6 +397,7 @@
     "R-1-7": "🇧🇪 Sander Gille / 🇳🇱 Sem Verbeek",
     "L-2-0": "🇫🇮 Harri Heliovaara / 🇬🇧 Henry Patten [1]",
     "L-2-1": "🇦🇷 Guido Andreozzi / 🇫🇷 Manuel Guinard [8]",
+    "L-2-2": "🇺🇸 Austin Krajicek / 🇭🇷 Nikola Mektic [14]",
     "L-2-3": "🇦🇺 Thanasi Kokkinakis / 🇺🇸 Aleksandar Kovacevic",
     "R-2-0": "🇸🇻 Marcelo Arevalo / 🇭🇷 Mate Pavic [6]",
     "R-2-1": "🇬🇧 Julian Cash / 🇬🇧 Lloyd Glasspool [3]",
@@ -416,7 +419,7 @@
      [
       "zo 5 jul · 5-7 6-3 7-6",
       "zo 5 jul · 6-7 4-6",
-      "vandaag · Court 12 · HBO Max",
+      "ma 6 jul · 6-7 6-4 4-6",
       "ma 6 jul · 7-6 7-6"
      ],
      [
@@ -483,12 +486,12 @@
      "tv": "HBO Max"
     },
     {
-     "start": null,
-     "tijd": "–",
+     "start": 1783360505,
+     "tijd": "19:55",
      "court": "Court 12",
      "ronde": "3e ronde",
      "partij": "🇮🇹 Simone Bolelli / 🇮🇹 Andrea Vavassori [4] – 🇺🇸 Austin Krajicek / 🇭🇷 Nikola Mektic [14]",
-     "status": "gepland",
+     "status": "gespeeld · 6-7 6-4 4-6",
      "tv": "HBO Max"
     },
     {
@@ -497,6 +500,15 @@
      "court": "No.2 Court",
      "ronde": "Kwartfinale",
      "partij": "🇫🇮 Harri Heliovaara / 🇬🇧 Henry Patten [1] – 🇦🇷 Guido Andreozzi / 🇫🇷 Manuel Guinard [8]",
+     "status": "gepland",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 12",
+     "ronde": "Kwartfinale",
+     "partij": "🇺🇸 Austin Krajicek / 🇭🇷 Nikola Mektic [14] – 🇦🇺 Thanasi Kokkinakis / 🇺🇸 Aleksandar Kovacevic",
      "status": "gepland",
      "tv": "HBO Max"
     }
@@ -766,7 +778,10 @@
     "R-2-1": "🇺🇸 Christian Harrison / 🇨🇳 Shuai Zhang [3]",
     "R-2-2": "🇫🇷 Edouard Roger-Vasselin / 🇩🇪 Laura Siegemund",
     "R-2-3": "🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]",
-    "L-3-0": "🇦🇺 Marc Polmans / 🇦🇺 Storm Hunter"
+    "L-3-0": "🇦🇺 Marc Polmans / 🇦🇺 Storm Hunter",
+    "L-3-1": "🇭🇷 Mate Pavic / 🇭🇺 Fanny Stollar",
+    "R-3-0": "🇺🇸 Christian Harrison / 🇨🇳 Shuai Zhang [3]",
+    "R-3-1": "🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]"
    },
    "labels": {
     "L": [
@@ -788,7 +803,7 @@
      ],
      [
       "ma 6 jul · 7-6 7-5",
-      "vandaag · No.3 Court · HBO Max"
+      "ma 6 jul · 7-6 7-6"
      ],
      [
       "vandaag · Court 12 · Eurosport · HBO Max · Ziggo Sport"
@@ -812,8 +827,8 @@
       "zo 5 jul · 2-6 2-6"
      ],
      [
-      "vandaag · No.2 Court · HBO Max",
-      "vandaag · Court 18 · HBO Max"
+      "ma 6 jul · 7-6 3-6 3-6",
+      "ma 6 jul · 4-6 6-7"
      ],
      [
       "vandaag · No.2 Court · Eurosport · HBO Max · Ziggo Sport"
@@ -832,31 +847,49 @@
      "tv": "HBO Max"
     },
     {
-     "start": null,
-     "tijd": "–",
+     "start": 1783362106,
+     "tijd": "20:21",
      "court": "No.3 Court",
      "ronde": "Kwartfinale",
      "partij": "🇭🇷 Mate Pavic / 🇭🇺 Fanny Stollar – 🇬🇧 Neal Skupski / 🇺🇸 Desirae Krawczyk [6]",
-     "status": "gepland",
+     "status": "gespeeld · 7-6 7-6",
      "tv": "HBO Max"
+    },
+    {
+     "start": 1783362723,
+     "tijd": "20:32",
+     "court": "No.2 Court",
+     "ronde": "Kwartfinale",
+     "partij": "🇬🇧 Joe Salisbury / 🇨🇦 Leylah Fernandez – 🇺🇸 Christian Harrison / 🇨🇳 Shuai Zhang [3]",
+     "status": "gespeeld · 7-6 3-6 3-6",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783364236,
+     "tijd": "20:57",
+     "court": "Court 18",
+     "ronde": "Kwartfinale",
+     "partij": "🇫🇷 Edouard Roger-Vasselin / 🇩🇪 Laura Siegemund – 🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]",
+     "status": "gespeeld · 4-6 6-7",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 12",
+     "ronde": "Halve finale",
+     "partij": "🇦🇺 Marc Polmans / 🇦🇺 Storm Hunter – 🇭🇷 Mate Pavic / 🇭🇺 Fanny Stollar",
+     "status": "gepland",
+     "tv": "Eurosport · HBO Max · Ziggo Sport"
     },
     {
      "start": null,
      "tijd": "–",
      "court": "No.2 Court",
-     "ronde": "Kwartfinale",
-     "partij": "🇬🇧 Joe Salisbury / 🇨🇦 Leylah Fernandez – 🇺🇸 Christian Harrison / 🇨🇳 Shuai Zhang [3]",
+     "ronde": "Halve finale",
+     "partij": "🇺🇸 Christian Harrison / 🇨🇳 Shuai Zhang [3] – 🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]",
      "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
-     "court": "Court 18",
-     "ronde": "Kwartfinale",
-     "partij": "🇫🇷 Edouard Roger-Vasselin / 🇩🇪 Laura Siegemund – 🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]",
-     "status": "gepland",
-     "tv": "HBO Max"
+     "tv": "Eurosport · HBO Max · Ziggo Sport"
     }
    ]
   },
