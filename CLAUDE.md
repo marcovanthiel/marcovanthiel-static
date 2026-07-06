@@ -4,6 +4,13 @@ Hugo-hoofdsite (5 talen, NL/EN/DE/IT/zh-CN) + subsites (Biennale 2026,
 Fundraising, Manifest, Zilvermanagement, Felix-presentatie). Zie `README.md`
 voor stack en build-details.
 
+**Deploy-gotcha (2026-07-06):** Cloudflare Pages kan een push naar `main`
+missen (geen build voor die commit; controleer met
+`npx wrangler pages deployment list --project-name=marcovanthiel` of de
+commit-hash erbij staat). Remedie: een lege commit pushen
+(`git commit --allow-empty`) — nooit handmatig uploaden, GitHub blijft de bron.
+Verifieer een deploy dus altijd op de live URL, niet alleen op de groene Action.
+
 ## Subsite: /felix
 
 **marcovanthiel.nl/felix** — een zelfstandige, schermvullende **fotopresentatie**
