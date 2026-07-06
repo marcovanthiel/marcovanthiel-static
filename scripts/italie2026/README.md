@@ -27,6 +27,10 @@ Per etappe extra velden:
 - `toerisme` — uitgebreide toeristische beschrijving.
 - `info` — praktische/overige relevante info (verschijnt in het groene kader "Goed om te weten").
 - `hotelsuggestie` — `{"naam", "url", "beschrijving":{nl,zh}}`: aanbevolen (hondvriendelijk) hotel met hyperlink. **Verifieer de URL** (moet 200 geven) voor je 'm toevoegt.
+- `hotelsuggestie.foto` — zelfde structuur als `voorbeeldfoto` (klein weergegeven,
+  max 420 px): foto van het aangeraden hotel. Promobeeld van het hotel zelf mag,
+  mét credit + link naar de hotelsite. Vermeld een gecontroleerde beschikbaarheid
+  (datum van de check + vanafprijs) in de `beschrijving`.
 - `voorbeeldfoto` — `{"bestand", "breedte", "hoogte", "onderschrift":{nl,zh}, "credit", "creditUrl"}`:
   voorbeeldfoto van de bezienswaardigheid, self-hosted in `static/italie2026/foto/`
   (de CSP staat geen externe afbeeldingen toe). Bron = Wikimedia Commons; de

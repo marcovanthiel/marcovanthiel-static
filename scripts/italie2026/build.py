@@ -113,6 +113,16 @@ def etappe_html(e):
             f'<a href="{esc(sug["url"])}" target="_blank" rel="noopener">{esc(sug["naam"])} ↗</a> '
             f'<span class="sugtekst">{bi(sug["beschrijving"])}</span></p>'
         )
+        hf = sug.get("foto")
+        if hf:
+            sugblok += (
+                '<figure class="voorbeeldfoto hotelfoto">'
+                f'<img src="/italie2026/{esc(hf["bestand"])}" '
+                f'width="{int(hf["breedte"])}" height="{int(hf["hoogte"])}" '
+                f'loading="lazy" alt="{esc(val(hf["onderschrift"], "nl"))}">'
+                f'<figcaption>{bi(hf["onderschrift"])} · '
+                f'<a href="{esc(hf["creditUrl"])}" target="_blank" rel="noopener">{esc(hf["credit"])}</a>'
+                '</figcaption></figure>')
 
     hl = "".join(f"<li>{bi(h)}</li>" for h in e["highlights"])
 

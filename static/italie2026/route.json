@@ -360,8 +360,19 @@
         "naam": "Hotel Gabbia d'Oro, Verona",
         "url": "https://www.hotelgabbiadoro.it/",
         "beschrijving": {
-          "nl": "Romantisch boetiekhotel in een 18e-eeuws palazzo, op een paar passen van de Arena, ideaal voor de opera-avonden.",
-          "zh": "坐落于 18 世纪宫邸中的浪漫精品酒店,距圆形剧场仅数步,是歌剧之夜的理想之选。"
+          "nl": "Romantisch boetiekhotel in een 18e-eeuws palazzo, op een paar passen van de Arena, ideaal voor de opera-avonden. Beschikbaarheid voor za 8 t/m ma 10 aug online gecontroleerd op 6-7-2026: meerdere kamers vrij, vanaf ca. € 625 per nacht.",
+          "zh": "坐落于 18 世纪宫邸中的浪漫精品酒店,距圆形剧场仅数步,是歌剧之夜的理想之选。2026 年 7 月 6 日在线核实:8 月 8 日至 10 日尚有多间空房,每晚约 625 欧元起。"
+        },
+        "foto": {
+          "bestand": "foto/hotel-gabbiadoro.jpg",
+          "breedte": 1000,
+          "hoogte": 562,
+          "onderschrift": {
+            "nl": "De entree van Hotel Gabbia d'Oro",
+            "zh": "金笼酒店入口"
+          },
+          "credit": "Foto: Hotel Gabbia d'Oro",
+          "creditUrl": "https://www.hotelgabbiadoro.it/"
         }
       },
       "highlights": [
