@@ -1,7 +1,7 @@
 # Italië 2026 — reiswebsite (marcovanthiel.nl/italie2026)
 
 Statische, **tweetalige (NL / 中文)** reispagina: routekaart (Leaflet, lokaal
-gebundeld, OpenStreetMap-tiles) + tijdlijn van 10 etappes met per etappe
+gebundeld, OpenStreetMap-tiles) + tijdlijn van 8 etappes met per etappe
 uitgebreide toeristische info, reisafstand, praktische tips en een
 hotel-aanrader (met werkende link) + praktische checklist + print-CSS
 (A4-reisdocument). Mobiel en offline-vriendelijk: alle tekst staat statisch
@@ -49,12 +49,14 @@ Structuur- of stijlwijzigingen horen in `scripts/italie2026/template.html`,
 
 ## Vaste gegevens
 
-- Ankers (visueel rood): etappe 4 (Verona/opera) en 6 (Al Vecchio Convento);
-  hardcoded als `ANKERS` in `build.py` en `app.js` (ook het opera-blok in
-  `build.py` hangt aan het Verona-etappenummer). Schuiven de etappes, dan
-  schuiven deze nummers mee.
-- Terugreis bewust op maandag en dinsdag (10 + 11 aug): niet in het zwarte
-  weekend rijden; rustblok vooraf = 3 nachten Cannobio (Lago Maggiore).
+- Ankers (visueel rood): etappe 4 (Al Vecchio Convento) en 5 (Verona/opera);
+  hardcoded als `ANKERS` in `build.py` en `app.js` (ook het opera-blok met
+  titels/data/aanvangstijd in `build.py` hangt aan het Verona-etappenummer).
+  Schuiven de etappes of de opera-avonden, dan schuiven die mee.
+- Opera-avonden (bron: officiële Arena-kalender arena.it, geverifieerd
+  6-7-2026): za 8 aug Nabucco en zo 9 aug Aida (Zeffirelli), beide 21:00.
+- Terugreis bewust midweek (wo 12 + do 13 aug): niet in het weekend rijden;
+  rustblok vooraf = 2 nachten Cannobio (Lago Maggiore).
 - CSP: `/italie2026/*`-blok in `static/_headers` staat OSM-tiles toe in
   `img-src`. Leaflet staat lokaal in `static/italie2026/vendor/leaflet/`.
 - Deploy = push naar `main` (Cloudflare Pages bouwt Hugo; `static/` gaat

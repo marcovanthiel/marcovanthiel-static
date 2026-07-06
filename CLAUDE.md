@@ -92,12 +92,15 @@ Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
 ## Subsite: /italie2026
 
 **marcovanthiel.nl/italie2026** — reiswebsite "Italië 2026: de pareltjesroute"
-(24 jul t/m 11 aug 2026, Marco + Dandan + honden, opera-ankers Verona 30+31 jul).
+(31 jul t/m 13 aug 2026, 14 dagen, Marco + Dandan + honden; opera-ankers
+Verona za 8 aug Nabucco + zo 9 aug Aida/Zeffirelli, 21:00, bron arena.it).
 Gemaakt 2026-07-05. Kale static in `static/italie2026/`; `noindex`.
-Herpland 2026-07-06: terugreis op ma 10 + di 11 aug (niet in het zwarte
-weekend), 10 etappes, extra rust (Glurns 3 nachten, Portico 4 nachten met
-Brisighella als dagtocht, 3 nachten Cannobio/Lago Maggiore als slotrust;
-Trento = tussenstop, Airolo vervallen).
+Herpland 2026-07-06 (2×): later vertrek op vr 31 jul, ~14 dagen, 8 etappes;
+route Feldkirch → Glurns (2n) → Valeggio via Trento-stop (2n) → Portico di
+Romagna via Ferrara-lunchstop (3n, Brisighella = dagtocht) → Verona (2n,
+opera) → Cannobio via Bergamo-lunchstop (2n) → Bergheim → thuis; terugreis
+bewust midweek (wo+do, Gotthard buiten het zwarte weekend); Polesine en
+Airolo vervallen.
 
 **Tweetalig NL/中文** — schakelaar rechtsboven, keuze onthouden in
 `localStorage` (`it26_lang`); `app.js` zet `body.toon-zh`, CSS toont de taal
@@ -114,8 +117,9 @@ werkende link (`hotelsuggestie`).
 - Leaflet lokaal in `vendor/leaflet/`; OSM-tiles → eigen CSP-blok
   `/italie2026/*` in `static/_headers` (img-src met tile.openstreetmap.org,
   script-src 'self' — géén inline scripts gebruiken op deze pagina).
-- Ankers = etappe 4 (Verona) en 6 (Portico) (rood), hardcoded in `build.py`
-  én `app.js`; het opera-blok in `build.py` hangt aan het Verona-nummer.
+- Ankers = etappe 4 (Portico) en 5 (Verona) (rood), hardcoded in `build.py`
+  én `app.js`; het opera-blok (titels/data/tijd) in `build.py` hangt aan het
+  Verona-nummer.
 - Na de reis: fotoronde met eigen materiaal (placeholders per etappe staan klaar).
 
 ## Verhuisde projecten

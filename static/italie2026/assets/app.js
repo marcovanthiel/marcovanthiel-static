@@ -42,7 +42,7 @@
   var route;
   try { route = JSON.parse(el.textContent); } catch (e) { return; }
   var etappes = route.etappes || [];
-  var ANKERS = { 4: true, 6: true };
+  var ANKERS = { 4: true, 5: true };
 
   function ontsmet(s){
     return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){

@@ -22,8 +22,8 @@ HIER = pathlib.Path(__file__).resolve().parent
 SITE = HIER.parents[1] / "static" / "italie2026"
 
 # Etappenummers van de twee ankers (visueel onderscheiden):
-# 4 = Verona (opera), 6 = Portico di Romagna (Al Vecchio Convento)
-ANKERS = {4, 6}
+# 4 = Portico di Romagna (Al Vecchio Convento), 5 = Verona (opera)
+ANKERS = {4, 5}
 STATUS_CLASS = {"geboekt": "ok", "te bevestigen": "wait", "te boeken": "todo"}
 
 
@@ -107,13 +107,13 @@ def etappe_html(e):
                 f'{bi(e["info"])}</p>')
 
     opera = ""
-    if e["nr"] == 4:
+    if e["nr"] == 5:
         opera = """
       <aside class="opera" aria-label="Opera in de Arena di Verona">
         <h4><span class="lang lang-nl" lang="nl">Arena di Verona</span><span class="lang lang-zh" lang="zh">维罗纳圆形剧场</span></h4>
         <ul>
-          <li><strong>do 30 juli</strong> · Aida (Zeffirelli) · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:15</li>
-          <li><strong>vr 31 juli</strong> · La Traviata · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:15</li>
+          <li><strong>za 8 aug</strong> · Nabucco · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:00</li>
+          <li><strong>zo 9 aug</strong> · Aida (Zeffirelli) · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:00</li>
         </ul>
         <p class="waarschuwing"><span class="lang lang-nl" lang="nl">Let op: de honden blijven tijdens de opera in het hotel. Het hondenbeleid van het hotel is dáárom de kritieke reservering van de reis — schriftelijk laten bevestigen.</span><span class="lang lang-zh" lang="zh">注意:歌剧期间狗狗留在酒店。因此酒店的宠物政策是全程最关键的预订——务必书面确认。</span></p>
       </aside>"""
