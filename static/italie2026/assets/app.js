@@ -143,7 +143,7 @@
   else if (dagen===1) html = '<span class="lang lang-nl" lang="nl">morgen vertrekken we!</span><span class="lang lang-zh" lang="zh">明天出发!</span>';
   else if (dagen===0) html = '<span class="lang lang-nl" lang="nl">vandaag vertrekken we!</span><span class="lang lang-zh" lang="zh">今天出发!</span>';
   else                html = '<span class="lang lang-nl" lang="nl">de reis is begonnen</span><span class="lang lang-zh" lang="zh">旅程已开始</span>';
-  el.innerHTML = '🗓&nbsp;' + html;
+  el.innerHTML = html;
   el.hidden = false;
 })();
 

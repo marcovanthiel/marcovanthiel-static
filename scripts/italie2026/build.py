@@ -100,7 +100,7 @@ def videoblok(e):
         f'<button type="button" class="video-facade" data-yt="{vid}" aria-label="{alt}">'
         f'<img src="/italie2026/foto/video/{vid}.jpg" width="1280" height="720" loading="lazy" alt="{alt}">'
         '<span class="video-play" aria-hidden="true"></span>'
-        '<span class="video-badge">▶ '
+        '<span class="video-badge">'
         '<span class="lang lang-nl" lang="nl">Sfeervideo</span>'
         '<span class="lang lang-zh" lang="zh">风光短片</span></span>'
         '</button>'
@@ -135,7 +135,7 @@ def etappe_html(e):
 
     afstand = ""
     if e.get("afstand"):
-        afstand = f'<span class="afstand">📍 {bi(e["afstand"])}</span>'
+        afstand = f'<span class="afstand">{bi(e["afstand"])}</span>'
 
     hotelblok = ""
     if e.get("hotel"):
@@ -157,7 +157,7 @@ def etappe_html(e):
             '<span class="hotellabel lang lang-zh" lang="zh">推荐酒店</span> '
             f'<a href="{esc(sug["url"])}" target="_blank" rel="noopener">{esc(sug["naam"])} ↗</a> '
             f'<span class="sugtekst">{bi(sug["beschrijving"])}</span>'
-            + (f'<span class="sugprijs">💶 {bi(sug["prijs"])}</span>' if sug.get("prijs") else "")
+            + (f'<span class="sugprijs">{bi(sug["prijs"])}</span>' if sug.get("prijs") else "")
             + '</p>'
         )
         hf = sug.get("foto")
@@ -199,14 +199,14 @@ def etappe_html(e):
       <div class="kaartje">{lint}
         <p class="datum">{bi(e["datum"])} · {bi(nachten_bi(e["nachten"]))}</p>
         <h3>{kop}</h3>
-        <p class="rijtijd">🚗 {bi(e["rijtijd"])} {afstand}</p>
+        <p class="rijtijd">{bi(e["rijtijd"])} {afstand}</p>
         {toerisme}
         {videoblok(e)}
         <ul class="highlights">{hl}</ul>
         {info}
         {hotelblok}
         {sugblok}
-        <p class="honden">🐾 {bi(e["honden"])}</p>{opera}
+        <p class="honden">{bi(e["honden"])}</p>{opera}
         {fotoblok(e)}
       </div>
     </article>"""

@@ -1,396 +1,272 @@
-/* Italië 2026 — pareltjesroute
-   Palet: gedempt loofgroen + kalksteen, dieprood alleen voor de twee ankers.
-   Display: Fraunces (self-hosted); lopende tekst: systeemletters. */
+/* Italië 2026 — "Diario di viaggio"
+   Redactioneel vintage-Italiaans reismagazine: warm ivoorpapier met korrel,
+   terracotta + pijngroen + oker inkt, Didone-koppen (Playfair) op serif-brood,
+   haarlijnen i.p.v. schaduwen, ticket-/stempelmotieven. */
 
-@font-face{
-  font-family:"Fraunces";
-  src:url("/italie2026/assets/fonts/fraunces.woff2") format("woff2");
-  font-weight:400 700;
-  font-display:swap;
-}
+@font-face{ font-family:"Didone"; src:url("/italie2026/assets/fonts/display-700.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap; }
+@font-face{ font-family:"Didone"; src:url("/italie2026/assets/fonts/display-900.woff2") format("woff2"); font-weight:900; font-style:normal; font-display:swap; }
+@font-face{ font-family:"Didone"; src:url("/italie2026/assets/fonts/italic-700.woff2") format("woff2"); font-weight:700; font-style:italic; font-display:swap; }
 
 :root{
-  --inkt:#22301f;            /* diep loofgroen, bijna zwart */
-  --groen:#42573b;           /* loofgroen */
-  --groen-zacht:#6d7f60;
-  --lijn:#42573b;
-  --papier:#eceada;          /* kalksteen */
-  --kaartje:#f7f5ea;
-  --rood:#7d1f2e;            /* operatoneel, alleen voor de ankers */
-  --rood-zacht:#f3e4e2;
-  --rand:rgba(34,48,31,.16);
+  --papier:#f2e7d0;          /* warm ivoor */
+  --papier-diep:#ece0c5;
+  --inkt:#211a12;            /* sepia-inkt, bijna zwart */
+  --inkt-zacht:#6f6144;      /* gedempt bruin voor bijschriften */
+  --rosso:#9e3324;           /* terracotta / operarood */
+  --verde:#2c5340;           /* diep pijngroen */
+  --ocra:#a97722;            /* oker / goud */
+  --lijn:#211a12;
+  --lijn-zacht:rgba(33,26,18,.26);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --display:"Didone","Playfair Display",Georgia,serif;
 }
 
 *{ box-sizing:border-box; }
 html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; scroll-behavior:smooth; }
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior:auto; }
-  *{ transition:none !important; animation:none !important; }
-}
-body{
-  margin:0; background:var(--papier); color:var(--inkt);
-  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size:16px; line-height:1.55;
-}
-.skip-link{
-  position:absolute; left:-999px; top:8px; background:var(--inkt); color:#fff;
-  padding:8px 14px; border-radius:6px; z-index:1200;
-}
-.skip-link:focus{ left:8px; }
-a{ color:var(--groen); }
-:focus-visible{ outline:3px solid var(--rood); outline-offset:2px; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } *{ transition:none !important; animation:none !important; } }
 
-/* ---- taal (NL / 中文) — CSS toont de gekozen taal; app.js zet body.toon-zh ---- */
-.lang-zh{ display:none;
-  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",
-    "Noto Sans CJK SC","Noto Sans SC", -apple-system, sans-serif; }
+body{
+  margin:0; color:var(--inkt);
+  background-color:var(--papier);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  font-family:var(--serif); font-size:17.5px; line-height:1.64;
+}
+a{ color:var(--rosso); text-underline-offset:2px; text-decoration-thickness:1px; }
+:focus-visible{ outline:2px solid var(--rosso); outline-offset:2px; }
+.skip-link{ position:absolute; left:-999px; top:8px; background:var(--inkt); color:var(--papier); padding:8px 14px; z-index:1200; }
+.skip-link:focus{ left:8px; }
+
+/* ---- taal (NL / 中文) ---- */
+.lang-zh{ display:none; font-family:"Songti SC","STSong","PingFang SC","Hiragino Sans GB","Noto Serif CJK SC","Microsoft YaHei",serif; }
 body.toon-zh .lang-nl{ display:none; }
 body.toon-zh .lang-zh{ display:inline; }
 
+/* Taalschakelaar: vlak, omkaderd — geen zwevende pill */
 .taalschakelaar{
-  position:fixed; top:14px; right:14px; z-index:1100;
-  display:inline-flex; align-items:center; gap:2px;
-  background:var(--kaartje); border:1.5px solid var(--groen);
-  border-radius:999px; padding:4px 6px 4px 9px;
-  box-shadow:0 6px 20px rgba(34,48,31,.24);
+  position:fixed; top:16px; right:16px; z-index:1100;
+  display:inline-flex; background:var(--papier); border:1px solid var(--inkt);
+  box-shadow:3px 3px 0 var(--inkt);
 }
-.taalicoon{ font-size:14px; margin-right:1px; opacity:.75; }
 .taalknop{
-  appearance:none; -webkit-appearance:none; border:none; cursor:pointer;
-  background:transparent; color:var(--groen);
-  font:inherit; font-weight:700; font-size:13.5px; line-height:1;
-  padding:6px 13px; border-radius:999px;
-  transition:background .15s ease, color .15s ease;
+  appearance:none; -webkit-appearance:none; border:none; cursor:pointer; background:transparent;
+  color:var(--inkt); font-family:var(--serif); font-weight:700; font-size:12.5px;
+  letter-spacing:.06em; text-transform:uppercase; padding:6px 13px;
 }
-.taalknop:hover{ background:rgba(66,87,59,.12); }
-.taalknop.is-actief{ background:var(--groen); color:#fff; box-shadow:0 1px 3px rgba(34,48,31,.35); }
-@media (max-width:640px){
-  .taalschakelaar{ top:10px; right:10px; padding:3px 5px 3px 8px; }
-  .taalknop{ padding:6px 11px; font-size:13px; }
-}
+.taalknop + .taalknop{ border-left:1px solid var(--lijn-zacht); }
+.taalknop.is-actief{ background:var(--inkt); color:var(--papier); }
 
-/* ---- nieuwe etappe-velden: afstand, toeristische tekst, praktische info, aanrader ---- */
-.afstand{ color:var(--groen-zacht); font-size:13px; margin-left:2px; white-space:nowrap; }
-.toerisme{ margin:2px 0 10px; font-size:14.5px; line-height:1.62; }
-.info{
-  margin:0 0 10px; font-size:13.5px; color:var(--inkt);
-  background:rgba(66,87,59,.08); border-left:3px solid var(--groen-zacht);
-  border-radius:0 7px 7px 0; padding:8px 12px;
-}
-.infolabel{
-  font-size:10.5px; letter-spacing:1.2px; text-transform:uppercase;
-  font-weight:700; color:var(--groen-zacht); margin-right:5px;
-}
-.aanrader{ margin:0 0 8px; font-size:14px; }
-.aanrader a{ font-weight:600; }
-.sugtekst{ display:block; color:var(--groen-zacht); font-size:12.5px; margin-top:1px; }
-
-/* ---- sfeervideo (klik-om-af-te-spelen-facade) ---- */
-.videoblok{ margin:4px 0 12px; }
-.video-facade{
-  display:block; width:100%; padding:0; border:none; cursor:pointer;
-  position:relative; border-radius:11px; overflow:hidden; background:#0b120a;
-  aspect-ratio:16/9; box-shadow:0 8px 22px rgba(34,48,31,.18);
-}
-.video-facade img{
-  width:100%; height:100%; object-fit:cover; display:block;
-  transition:transform .35s ease, filter .35s ease;
-}
-.video-facade:hover img, .video-facade:focus-visible img{ transform:scale(1.03); filter:brightness(.9); }
-.video-play{
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:66px; height:66px; border-radius:50%;
-  background:rgba(125,31,46,.92); box-shadow:0 4px 14px rgba(0,0,0,.35);
-  display:flex; align-items:center; justify-content:center;
-  transition:transform .2s ease, background .2s ease;
-}
-.video-facade:hover .video-play{ transform:translate(-50%,-50%) scale(1.08); background:var(--rood); }
-.video-play::after{
-  content:""; margin-left:5px;
-  border-style:solid; border-width:13px 0 13px 21px;
-  border-color:transparent transparent transparent #fff;
-}
-.video-badge{
-  position:absolute; left:11px; bottom:11px;
-  background:rgba(34,48,31,.82); color:#fff; font-size:12px; font-weight:600;
-  padding:3px 11px; border-radius:999px; backdrop-filter:blur(2px);
-}
-.video-iframe{
-  width:100%; aspect-ratio:16/9; border:0; border-radius:11px; display:block;
-  box-shadow:0 8px 22px rgba(34,48,31,.18);
-}
-.videobijschrift{ margin:7px 2px 0; font-size:12.5px; color:var(--groen-zacht); }
-.videobron{ opacity:.75; }
-
-/* ---- kop ---- */
-.kop{
-  max-width:1060px; margin:0 auto; padding:44px 20px 8px;
-}
-.boventitel{
-  margin:0; font-size:13px; letter-spacing:2.5px; text-transform:uppercase;
-  color:var(--groen-zacht); font-weight:600;
-}
-.kop h1{
-  margin:6px 0 10px; font-family:"Fraunces", Georgia, serif;
-  font-size:clamp(34px, 6vw, 56px); font-weight:600; line-height:1.05;
-  letter-spacing:-.5px;
-}
-.kop .onder{ margin:0; color:var(--groen); font-size:15px; }
-
-/* ---- kaart ---- */
-.kaartsectie{ max-width:1060px; margin:26px auto 0; padding:0 20px; }
-#kaart{
-  height:440px; border-radius:14px; border:1px solid var(--rand);
-  box-shadow:0 14px 36px rgba(34,48,31,.14);
-  background:#dfe4d6;
-}
-.kaarthint{ font-size:12.5px; color:var(--groen-zacht); margin:8px 2px 0; }
-.knoopicoon{ background:none; border:none; }
-.knoopicoon span{
-  display:flex; align-items:center; justify-content:center;
-  width:30px; height:30px; border-radius:50%;
-  background:var(--groen); color:#fff; font-weight:700; font-size:13.5px;
-  border:2.5px solid var(--papier); box-shadow:0 2px 6px rgba(34,48,31,.4);
-  font-family:"Fraunces", Georgia, serif;
-}
-.knoopicoon.anker span{ background:var(--rood); }
-.leaflet-popup-content{ font-family:inherit; font-size:13.5px; line-height:1.45; }
-.leaflet-popup-content .pdatum{ color:var(--groen-zacht); font-size:12px; margin:0 0 2px; }
-.leaflet-popup-content h4{ margin:0 0 4px; font-family:"Fraunces", Georgia, serif; font-size:16px; }
-.leaflet-popup-content ul{ margin:4px 0 6px; padding-left:16px; }
-.leaflet-popup-content .naar-etappe{ font-weight:600; color:var(--groen); }
-
-/* ---- tijdlijn met doorlopende routelijn (signatuurelement) ---- */
-.tijdlijn{
-  max-width:820px; margin:44px auto 0; padding:0 20px 8px 20px;
-  position:relative;
-}
-.tijdlijn::before{
-  content:""; position:absolute; top:6px; bottom:6px; left:39px;
-  border-left:3px dashed var(--lijn); opacity:.55;
-}
-.etappe{
-  position:relative; padding:0 0 30px 64px;
-}
-.knoop{
-  position:absolute; left:4px; top:2px;
-}
-.knoop span{
-  display:flex; align-items:center; justify-content:center;
-  width:40px; height:40px; border-radius:50%;
-  background:var(--groen); color:#fff;
-  font-family:"Fraunces", Georgia, serif; font-weight:700; font-size:19px;
-  border:3px solid var(--papier); box-shadow:0 0 0 2px var(--lijn);
-}
-.etappe.anker .knoop span{ background:var(--rood); box-shadow:0 0 0 2px var(--rood); }
-.kaartje{
-  background:var(--kaartje); border:1px solid var(--rand); border-radius:12px;
-  padding:18px 20px 16px; box-shadow:0 6px 18px rgba(34,48,31,.08);
-}
-.etappe.anker .kaartje{ border-color:var(--rood); border-width:1.5px; }
-.etappe .datum{
-  margin:0; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase;
-  color:var(--groen-zacht); font-weight:600;
-}
-.etappe.anker .datum{ color:var(--rood); }
-.etappe h3{
-  margin:4px 0 6px; font-family:"Fraunces", Georgia, serif;
-  font-size:clamp(20px, 3vw, 26px); font-weight:600; line-height:1.15;
-}
-.etappe .rijtijd{ margin:0 0 6px; font-size:14px; color:var(--groen); }
-.hotel{ margin:0 0 8px; font-size:14px; }
-.hotellabel{
-  font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
-  color:var(--groen-zacht); font-weight:700; margin-right:4px;
-}
-.status{
-  display:inline-block; margin-left:6px; padding:1px 10px; border-radius:999px;
-  font-size:12px; font-weight:600; vertical-align:1px;
-}
-.status.ok{ background:#dde8d3; color:#2c4a22; }
-.status.wait{ background:#f3ecd2; color:#6b5416; }
-.status.todo{ background:var(--rood-zacht); color:var(--rood); }
-.highlights{ margin:0 0 8px; padding-left:20px; font-size:14.5px; }
-.highlights li{ margin:2px 0; }
-.honden{
-  margin:0; font-size:13.5px; color:var(--groen);
-  border-top:1px solid var(--rand); padding-top:8px;
-}
-.opera{
-  margin:12px 0 0; background:var(--rood-zacht); border:1px solid var(--rood);
-  border-radius:10px; padding:12px 16px;
-}
-.opera h4{
-  margin:0 0 6px; font-family:"Fraunces", Georgia, serif; font-size:17px;
-  color:var(--rood); letter-spacing:.5px;
-}
-.opera ul{ margin:0 0 8px; padding-left:18px; font-size:14px; }
-.opera .waarschuwing{ margin:0; font-size:13px; color:var(--rood); font-weight:600; }
-.fotoplek{
-  margin-top:12px; border:1.5px dashed var(--rand); border-radius:8px;
-  padding:14px; text-align:center; color:var(--groen-zacht); font-size:12px;
-  letter-spacing:1px; text-transform:uppercase;
-}
-
-.voorbeeldfoto{ margin:14px 0 0; }
-.voorbeeldfoto img{
-  display:block; width:100%; height:auto; border-radius:10px;
-  box-shadow:0 2px 10px rgba(0,0,0,.12);
-}
-.voorbeeldfoto figcaption{
-  margin-top:6px; font-size:12px; color:var(--groen-zacht); line-height:1.5;
-}
-.voorbeeldfoto figcaption a{ color:inherit; }
-.hotelfoto{ max-width:420px; }
-.sugprijs{ display:block; margin-top:4px; font-weight:600; }
-
-/* ---- praktisch ---- */
-.praktisch{ max-width:1060px; margin:20px auto 0; padding:0 20px; }
-.praktisch h2{
-  font-family:"Fraunces", Georgia, serif; font-size:clamp(24px,4vw,32px);
-  font-weight:600; margin:0 0 14px;
-}
-.praktisch-grid{
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px;
-}
-.blok{
-  background:var(--kaartje); border:1px solid var(--rand); border-radius:12px;
-  padding:16px 18px;
-}
-.blok h3{ margin:0 0 8px; font-family:"Fraunces", Georgia, serif; font-size:18px; }
-.blok p{ margin:0; font-size:14.5px; }
-.checklist{ margin:0; padding-left:2px; list-style:none; font-size:14.5px; }
-.checklist li{ padding:3px 0 3px 26px; position:relative; }
-.checklist li::before{
-  content:""; position:absolute; left:0; top:7px; width:14px; height:14px;
-  border:2px solid var(--groen); border-radius:4px;
-}
-
-/* ---- voet ---- */
-.voet{
-  max-width:1060px; margin:36px auto 0; padding:18px 20px 40px;
-  border-top:1px solid var(--rand); font-size:13px; color:var(--groen-zacht);
-}
-.voet code{ background:var(--kaartje); padding:1px 6px; border-radius:4px; }
-
-/* ---- mobiel ---- */
-@media (max-width:640px){
-  .kop{ padding-top:30px; }
-  #kaart{ height:320px; }
-  .tijdlijn{ padding-left:12px; }
-  .tijdlijn::before{ left:29px; }
-  .etappe{ padding-left:52px; }
-  .knoop{ left:0; }
-  .knoop span{ width:34px; height:34px; font-size:16px; }
-  .kaartje{ padding:14px 14px 12px; }
-}
-
-/* ================= Verfraaiing: hero, statbalk, badges, reveal, kaart ================= */
-
-/* Hero-banner met sfeerfoto */
+/* ---- hero ---- */
 .kop.hero{
   position:relative; max-width:none; width:100%;
-  min-height:min(64vh,520px); margin:0; padding:0;
+  min-height:min(70vh,560px); margin:0; padding:0;
   display:flex; align-items:flex-end; overflow:hidden;
-  background-size:cover; background-position:center 40%; background-color:var(--inkt);
+  background-size:cover; background-position:center 42%;
+  background-color:#5e2c1c; background-blend-mode:multiply;   /* warme duotone-tint */
 }
 .hero-overlay{ position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(20,28,18,.12) 0%, rgba(20,28,18,.32) 48%, rgba(20,28,18,.80) 100%); }
-.hero-inner{ position:relative; z-index:1; width:100%; max-width:1060px;
-  margin:0 auto; padding:40px 20px 34px; color:#fff; }
-.hero .boventitel{ color:rgba(255,255,255,.85); }
-.hero h1{ color:#fff; margin:6px 0 10px; text-shadow:0 2px 20px rgba(0,0,0,.4); }
-.hero .onder{ color:rgba(255,255,255,.92); }
-.hero-acties{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:18px; }
-.aftel{ display:inline-flex; align-items:center; gap:5px;
-  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff;
-  font-size:13.5px; font-weight:600; padding:6px 14px; border-radius:999px; backdrop-filter:blur(3px); }
-.aftel b{ font-size:15.5px; }
+  background:linear-gradient(180deg, rgba(28,16,8,.10) 0%, rgba(28,16,8,.34) 46%, rgba(28,16,8,.82) 100%); }
+.hero-inner{ position:relative; z-index:1; width:100%; max-width:1080px; margin:0 auto; padding:44px 26px 40px; color:var(--papier); }
+.hero .boventitel{ margin:0 0 6px; font-family:var(--serif); font-size:12.5px; font-weight:700;
+  letter-spacing:.32em; text-transform:uppercase; color:var(--papier); opacity:.85; }
+.hero h1{ margin:0 0 12px; font-family:var(--display); font-weight:900; font-style:normal;
+  font-size:clamp(40px,8vw,86px); line-height:.98; letter-spacing:-.01em;
+  color:var(--papier); text-shadow:0 2px 26px rgba(0,0,0,.4); }
+.hero .onder{ margin:0; font-family:var(--display); font-style:italic; font-weight:700;
+  font-size:clamp(16px,2.4vw,22px); color:var(--papier); opacity:.94; }
+.hero-acties{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top:22px; }
+.aftel{ display:inline-flex; align-items:center; gap:6px; font-family:var(--serif);
+  font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--papier); border:1px solid rgba(242,231,208,.6); padding:7px 15px; }
+.aftel b{ font-family:var(--display); font-size:16px; letter-spacing:0; text-transform:none; }
 .printknop{ display:inline-flex; align-items:center; gap:7px; cursor:pointer;
-  background:#fff; color:var(--inkt); border:none; font:inherit; font-weight:700; font-size:13.5px;
-  padding:8px 16px; border-radius:999px; box-shadow:0 3px 12px rgba(0,0,0,.28);
-  transition:transform .15s ease, box-shadow .15s ease; }
-.printknop:hover{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.32); }
-.hero-credit{ position:absolute; right:10px; bottom:7px; z-index:1; text-align:right;
-  color:rgba(255,255,255,.7); font-size:10.5px; max-width:62%; }
-.hero-credit a{ color:rgba(255,255,255,.82); }
-.hero-credit .lang{ display:none; }
-.hero-credit .lang-nl{ display:inline; }
-body.toon-zh .hero-credit .lang-nl{ display:none; }
-body.toon-zh .hero-credit .lang-zh{ display:inline; }
+  background:var(--papier); color:var(--inkt); border:1px solid var(--inkt);
+  font-family:var(--serif); font-weight:700; font-size:12.5px; letter-spacing:.05em; text-transform:uppercase;
+  padding:8px 16px; box-shadow:3px 3px 0 rgba(0,0,0,.35); transition:transform .12s ease; }
+.printknop::before{ content:""; width:13px; height:11px; border:1.5px solid var(--inkt); border-bottom:none;
+  box-shadow:inset 0 3px 0 var(--papier), inset 0 5px 0 var(--inkt); }
+.printknop:hover{ transform:translate(-1px,-1px); box-shadow:4px 4px 0 rgba(0,0,0,.4); }
+.hero-credit{ position:absolute; right:12px; bottom:8px; z-index:1; text-align:right;
+  color:rgba(242,231,208,.72); font-size:10px; font-style:italic; max-width:64%; }
+.hero-credit a{ color:rgba(242,231,208,.85); }
+.hero-credit .lang{ display:none; } .hero-credit .lang-nl{ display:inline; }
+body.toon-zh .hero-credit .lang-nl{ display:none; } body.toon-zh .hero-credit .lang-zh{ display:inline; }
 
-/* Overzichts-statbalk (reis in cijfers), overlapt subtiel de hero */
-.statbalk{ max-width:1060px; margin:-30px auto 0; position:relative; z-index:5; padding:0 20px;
-  display:grid; grid-template-columns:repeat(6,1fr); gap:12px; }
-.stat{ background:var(--kaartje); border:1px solid var(--rand); border-radius:12px;
-  padding:14px 10px; text-align:center; box-shadow:0 10px 24px rgba(34,48,31,.12); }
-.statwaarde{ display:block; font-family:"Fraunces",Georgia,serif; font-weight:700;
-  font-size:clamp(19px,2.6vw,26px); color:var(--groen); line-height:1.08; }
-.statlabel{ display:block; font-size:11.5px; letter-spacing:.3px; color:var(--groen-zacht); margin-top:3px; }
-@media (max-width:820px){ .statbalk{ grid-template-columns:repeat(3,1fr); margin-top:-18px; } }
-@media (max-width:430px){ .statbalk{ grid-template-columns:repeat(2,1fr); } }
+/* ---- statbalk: redactionele cijferregel met haarlijnen ---- */
+.statbalk{ max-width:1080px; margin:0 auto; padding:0 26px;
+  display:grid; grid-template-columns:repeat(6,1fr);
+  border-bottom:2px solid var(--inkt); }
+.stat{ text-align:center; padding:20px 8px 18px; border-right:1px solid var(--lijn-zacht); }
+.stat:first-child{ border-left:1px solid var(--lijn-zacht); }
+.statwaarde{ display:block; font-family:var(--display); font-weight:900; font-size:clamp(22px,3vw,32px);
+  line-height:1; color:var(--rosso); }
+.statlabel{ display:block; margin-top:6px; font-size:10.5px; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--inkt-zacht); }
+@media (max-width:820px){ .statbalk{ grid-template-columns:repeat(3,1fr); }
+  .stat:nth-child(4){ border-left:1px solid var(--lijn-zacht); } }
+@media (max-width:440px){ .statbalk{ grid-template-columns:repeat(2,1fr); } }
 
-/* Anker-lintje (Opera / Hoogtepunt) */
-.kaartje{ position:relative; }
-.lint{ position:absolute; top:13px; right:-6px; z-index:2;
-  background:var(--rood); color:#fff; font-size:11px; font-weight:700; letter-spacing:.5px;
-  text-transform:uppercase; padding:4px 12px 4px 11px; border-radius:4px 0 0 4px;
-  box-shadow:0 3px 9px rgba(125,31,46,.4); }
-.lint::after{ content:""; position:absolute; right:0; bottom:-6px;
-  border-style:solid; border-width:6px 6px 0 0; border-color:#571420 transparent transparent transparent; }
+/* ---- kaart ---- */
+.kaartsectie{ max-width:1080px; margin:40px auto 0; padding:0 26px; }
+#kaart{ height:460px; border:1px solid var(--inkt); background:#e6dcc4; }
+.leaflet-tile-pane{ filter:sepia(.32) saturate(.82) brightness(1.03) contrast(.96); }  /* warme vintage-toon op de tiles */
+.kaarthint{ margin:9px 2px 0; font-size:12px; font-style:italic; color:var(--inkt-zacht); }
+.knoopicoon{ background:none; border:none; }
+.knoopicoon span{ display:flex; align-items:center; justify-content:center; width:30px; height:30px;
+  border-radius:50%; background:var(--papier); color:var(--inkt); border:1.5px solid var(--inkt);
+  font-family:var(--display); font-weight:900; font-size:14px; box-shadow:2px 2px 0 rgba(33,26,18,.5); }
+.knoopicoon.anker span{ color:var(--rosso); border-color:var(--rosso); box-shadow:2px 2px 0 rgba(158,51,36,.5); }
+.leaflet-popup-content-wrapper{ border-radius:0; border:1px solid var(--inkt); background:var(--papier); box-shadow:5px 5px 0 rgba(33,26,18,.35); }
+.leaflet-popup-tip{ background:var(--papier); border:1px solid var(--inkt); }
+.leaflet-popup-content{ font-family:var(--serif); font-size:13.5px; line-height:1.45; color:var(--inkt); }
+.leaflet-popup-content .pdatum{ margin:0 0 2px; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ocra); font-weight:700; }
+.leaflet-popup-content h4{ margin:0 0 5px; font-family:var(--display); font-weight:700; font-size:17px; }
+.leaflet-popup-content ul{ margin:4px 0 6px; padding-left:16px; }
+.leaflet-popup-content .naar-etappe{ font-weight:700; color:var(--rosso); }
+.kaartlabel.leaflet-tooltip{ background:var(--papier); border:1px solid var(--inkt); border-radius:0;
+  color:var(--inkt); font-family:var(--serif); font-size:11px; font-weight:700; letter-spacing:.04em;
+  padding:1px 7px; box-shadow:2px 2px 0 rgba(33,26,18,.3); }
+.kaartlabel.anker.leaflet-tooltip{ color:var(--rosso); border-color:var(--rosso); }
+.kaartlabel.leaflet-tooltip-right::before{ border-right-color:var(--inkt); }
 
-/* Scroll-reveal (alleen als JS de .wacht-klasse zet -> geen JS = gewoon zichtbaar) */
-.wacht{ opacity:0; transform:translateY(18px); }
+/* ---- tijdlijn (itinerario) ---- */
+.tijdlijn{ max-width:880px; margin:52px auto 0; padding:0 26px 8px; position:relative; }
+.tijdlijn::before{ content:""; position:absolute; top:6px; bottom:20px; left:47px; border-left:1px solid var(--lijn-zacht); }
+.tijdlijn-voortgang{ position:absolute; top:6px; left:46px; width:2px; height:0; background:var(--rosso); z-index:1; pointer-events:none; }
+.etappe{ position:relative; padding:0 0 40px 78px; }
+.knoop{ position:absolute; left:22px; top:2px; z-index:2; }
+.knoop span{ display:flex; align-items:center; justify-content:center; width:52px; height:52px;
+  background:var(--papier); color:var(--inkt); border:1.5px solid var(--inkt); border-radius:50%;
+  font-family:var(--display); font-weight:900; font-size:26px; }
+.etappe.anker .knoop span{ color:var(--rosso); border-color:var(--rosso); border-width:2px; }
+
+.kaartje{ position:relative; background:transparent; border:none; border-top:2px solid var(--inkt);
+  border-radius:0; box-shadow:none; padding:16px 2px 0; }
+.etappe.anker .kaartje{ border-top-color:var(--rosso); }
+.etappe .datum{ margin:0 0 4px; font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--ocra); }
+.etappe.anker .datum{ color:var(--rosso); }
+.etappe h3{ margin:2px 0 10px; font-family:var(--display); font-weight:700; font-size:clamp(24px,3.4vw,34px); line-height:1.08; }
+
+.rijtijd{ margin:0 0 12px; font-size:14px; color:var(--inkt-zacht); padding-left:23px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236f6144' stroke-width='1.8'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E") no-repeat left 2px; background-size:15px; }
+.afstand{ margin-left:14px; padding-left:18px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236f6144' stroke-width='1.8'%3E%3Cpath d='M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z'/%3E%3Ccircle cx='12' cy='10' r='2.4'/%3E%3C/svg%3E") no-repeat left center; background-size:14px; white-space:nowrap; }
+
+.toerisme{ margin:0 0 14px; font-size:17px; line-height:1.7; }
+body:not(.toon-zh) .toerisme::first-letter{ font-family:var(--display); font-weight:900; font-size:3.3em;
+  line-height:.72; float:left; margin:8px 10px 0 0; color:var(--rosso); }
+
+.highlights{ margin:0 0 14px; padding:0; list-style:none; }
+.highlights li{ position:relative; padding:3px 0 3px 20px; font-size:15.5px; }
+.highlights li::before{ content:""; position:absolute; left:0; top:12px; width:6px; height:6px; background:var(--ocra); transform:rotate(45deg); }
+
+.info{ margin:0 0 14px; font-size:14px; color:var(--inkt); background:var(--papier-diep);
+  border-left:3px solid var(--ocra); padding:10px 14px; }
+.infolabel{ display:block; font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ocra); margin-bottom:3px; }
+
+.hotel, .aanrader{ margin:0 0 8px; font-size:14.5px; }
+.hotellabel{ font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--inkt-zacht); margin-right:5px; }
+.status{ display:inline-block; margin-left:6px; padding:1px 9px; font-size:11px; font-weight:700;
+  letter-spacing:.03em; border:1px solid; border-radius:0; }
+.status.ok{ color:var(--verde); border-color:var(--verde); }
+.status.wait{ color:var(--ocra); border-color:var(--ocra); }
+.status.todo{ color:var(--rosso); border-color:var(--rosso); }
+.aanrader a{ font-weight:700; }
+.sugtekst{ display:block; color:var(--inkt-zacht); font-size:13px; font-style:italic; margin-top:2px; }
+.sugprijs{ display:inline-block; margin-top:3px; font-size:13px; font-weight:700; color:var(--verde); }
+
+.honden{ margin:0; font-size:14px; color:var(--verde); border-top:1px solid var(--lijn-zacht); padding:10px 0 0 24px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='%232c5340'%3E%3Cellipse cx='7' cy='9' rx='1.8' ry='2.4'/%3E%3Cellipse cx='12' cy='7' rx='1.8' ry='2.5'/%3E%3Cellipse cx='17' cy='9' rx='1.8' ry='2.4'/%3E%3Cpath d='M12 11c-3 0-5 2.2-5 4.3 0 1.6 1.4 2.2 2.7 1.9 1.5-.4 3.1-.4 4.6 0 1.3.3 2.7-.3 2.7-1.9C17 13.2 15 11 12 11z'/%3E%3C/svg%3E") no-repeat left 10px; background-size:17px; }
+
+/* Anker-lintje als stempel */
+.lint{ position:absolute; top:-14px; right:2px; z-index:3; transform:rotate(3deg);
+  background:var(--papier); color:var(--rosso); border:2px solid var(--rosso);
+  font-family:var(--serif); font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  padding:4px 12px; box-shadow:2px 2px 0 rgba(158,51,36,.3); }
+
+/* Opera als playbill */
+.opera{ margin:16px 0 0; background:var(--papier-diep); border:1px solid var(--rosso); padding:16px 18px; text-align:center; position:relative; }
+.opera::before, .opera::after{ content:""; position:absolute; left:8px; right:8px; height:0; border-top:1px solid var(--rosso); }
+.opera::before{ top:5px; } .opera::after{ bottom:5px; }
+.opera h4{ margin:2px 0 8px; font-family:var(--display); font-weight:900; font-size:19px; letter-spacing:.05em;
+  text-transform:uppercase; color:var(--rosso); }
+.opera ul{ margin:0 0 8px; padding:0; list-style:none; font-size:14.5px; }
+.opera li{ padding:2px 0; }
+.opera .waarschuwing{ margin:6px 0 0; font-size:12.5px; font-style:italic; color:var(--rosso); }
+
+/* Foto's als printplaat */
+.voorbeeldfoto{ margin:16px 0 4px; overflow:hidden; border:1px solid var(--inkt); background:var(--papier); padding:6px; }
+.voorbeeldfoto img{ width:100%; height:auto; display:block; filter:sepia(.12) saturate(.94) contrast(1.02); transition:transform .5s ease; }
+.voorbeeldfoto:hover img{ transform:scale(1.03); }
+.voorbeeldfoto figcaption{ margin-top:6px; font-size:11px; font-style:italic; color:var(--inkt-zacht); letter-spacing:.02em; }
+
+/* Sfeervideo */
+.videoblok{ margin:16px 0 6px; }
+.video-facade{ display:block; width:100%; padding:6px; border:1px solid var(--inkt); background:var(--papier);
+  cursor:pointer; position:relative; }
+.video-facade img{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; filter:sepia(.12) saturate(.94); transition:transform .5s ease; }
+.video-facade:hover img{ transform:scale(1.02); }
+.video-play{ position:absolute; top:calc(50% - 3px); left:50%; transform:translate(-50%,-50%); width:64px; height:64px;
+  border-radius:50%; background:var(--rosso); border:2px solid var(--papier); display:flex; align-items:center; justify-content:center; }
+.video-play::after{ content:""; margin-left:5px; border-style:solid; border-width:11px 0 11px 18px; border-color:transparent transparent transparent var(--papier); }
+.video-badge{ position:absolute; left:12px; bottom:12px; background:var(--inkt); color:var(--papier);
+  font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:3px 11px; }
+.video-badge::before{ content:""; display:inline-block; margin-right:6px; border-style:solid; border-width:4px 0 4px 7px; border-color:transparent transparent transparent var(--papier); vertical-align:1px; }
+.video-iframe{ width:100%; aspect-ratio:16/9; border:1px solid var(--inkt); display:block; }
+.videobijschrift{ margin:7px 2px 0; font-size:12px; font-style:italic; color:var(--inkt-zacht); }
+.videobron{ font-style:normal; letter-spacing:.06em; text-transform:uppercase; font-size:10.5px; }
+
+.fotoplek{ margin-top:14px; border:1px dashed var(--lijn-zacht); padding:16px; text-align:center;
+  color:var(--inkt-zacht); font-size:11px; font-style:italic; letter-spacing:.06em; }
+
+/* ---- praktisch ---- */
+.praktisch{ max-width:1080px; margin:24px auto 0; padding:0 26px; }
+.praktisch h2{ font-family:var(--display); font-weight:900; font-size:clamp(26px,4vw,38px); margin:0 0 4px; padding-bottom:8px; border-bottom:2px solid var(--inkt); }
+.praktisch-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:0; }
+.blok{ background:transparent; border:none; border-top:1px solid var(--lijn-zacht); padding:16px 20px 16px 0; margin-right:20px; }
+.blok h3{ margin:0 0 8px; font-family:var(--display); font-weight:700; font-size:19px; }
+.blok p{ margin:0; font-size:15px; }
+.checklist{ margin:0; padding:0; list-style:none; font-size:15px; }
+.checklist li{ padding:4px 0 4px 26px; position:relative; }
+.checklist li::before{ content:""; position:absolute; left:0; top:8px; width:13px; height:13px; border:1.5px solid var(--verde); }
+
+/* ---- voet ---- */
+.voet{ max-width:1080px; margin:40px auto 0; padding:16px 26px 44px; border-top:2px solid var(--inkt);
+  font-size:12px; font-style:italic; color:var(--inkt-zacht); }
+.voet code{ font-style:normal; font-family:ui-monospace,Menlo,monospace; background:var(--papier-diep); padding:1px 6px; }
+
+/* ---- scroll-reveal (alleen met JS; JS-loos gewoon zichtbaar) ---- */
+.wacht{ opacity:0; transform:translateY(16px); }
 @media (prefers-reduced-motion: no-preference){ .wacht{ transition:opacity .6s ease, transform .6s ease; } }
 .wacht.in-beeld{ opacity:1; transform:none; }
 
-/* Voorbeeldfoto's prominenter + zachte hover-zoom */
-.voorbeeldfoto{ overflow:hidden; border-radius:11px; }
-.voorbeeldfoto img{ width:100%; height:auto; display:block; transition:transform .4s ease; }
-.voorbeeldfoto:hover img{ transform:scale(1.04); }
-
-/* Voortgangslijn: vult de routelijn in de tijdlijn bij het scrollen */
-.tijdlijn-voortgang{ position:absolute; top:6px; left:39px; width:3px; height:0;
-  background:linear-gradient(var(--groen),var(--groen-zacht)); border-radius:2px;
-  z-index:1; pointer-events:none; box-shadow:0 0 6px rgba(66,87,59,.4); }
-.knoop{ z-index:2; }
-@media (max-width:640px){ .tijdlijn-voortgang{ left:29px; } }
-
-/* Dag-label bij de kaart-stippen */
-.kaartlabel.leaflet-tooltip{ background:rgba(247,245,234,.94); border:1px solid var(--rand);
-  color:var(--inkt); font-family:inherit; font-size:11.5px; font-weight:600;
-  padding:1px 7px; border-radius:6px; box-shadow:0 1px 5px rgba(34,48,31,.28); }
-.kaartlabel.anker.leaflet-tooltip{ color:var(--rood); border-color:var(--rood); }
-.kaartlabel.leaflet-tooltip-right::before{ border-right-color:rgba(247,245,234,.94); }
+/* ---- mobiel ---- */
+@media (max-width:640px){
+  body{ font-size:16.5px; }
+  #kaart{ height:340px; }
+  .tijdlijn::before{ left:33px; } .tijdlijn-voortgang{ left:32px; }
+  .etappe{ padding-left:60px; }
+  .knoop{ left:8px; } .knoop span{ width:44px; height:44px; font-size:21px; }
+  .blok{ margin-right:0; }
+}
 
 /* ---- print (A4-reisdocument) ---- */
 @media print{
-  .kop.hero{ min-height:auto; display:block; background:none !important; overflow:visible; }
-  .hero-overlay, .hero-acties, .hero-credit, .tijdlijn-voortgang{ display:none !important; }
-  .hero-inner{ color:#000; padding:0 0 6px; }
-  .hero h1{ color:#000; text-shadow:none; }
+  body{ background:#fff !important; color:#000; font-size:11pt; }
+  .skip-link, .kaartsectie, .fotoplek, .voorbeeldfoto, .videoblok, .voet a, .taalschakelaar, .tijdlijn-voortgang, .hero-overlay, .hero-acties, .hero-credit{ display:none !important; }
+  .kop.hero{ min-height:auto; display:block; background:none !important; overflow:visible; padding:0; }
+  .hero-inner{ color:#000; padding:0 0 6px; max-width:none; }
+  .hero h1{ color:#000; text-shadow:none; font-size:26pt; }
   .hero .boventitel, .hero .onder{ color:#000; }
-  .statbalk{ margin:6px 0; box-shadow:none; }
-  .stat{ box-shadow:none; border:1px solid #999; }
+  .statbalk{ max-width:none; padding:0; border-color:#000; }
+  .stat{ border-color:#999; } .statwaarde{ color:#000; }
+  .tijdlijn{ max-width:none; } .tijdlijn::before{ display:none; }
+  .etappe{ padding:0 0 12px 60px; page-break-inside:avoid; }
+  .kaartje{ border-top-color:#000; } .etappe.anker .kaartje{ border-top:3px double #000; }
+  .knoop span{ background:#fff; color:#000; border-color:#000 !important; box-shadow:none; }
+  .datum, .etappe.anker .datum, .statwaarde, .toerisme::first-letter, a{ color:#000 !important; }
+  .status{ border-color:#666 !important; color:#000 !important; }
+  .lint{ box-shadow:none; color:#000; border-color:#000; }
+  .opera{ background:#fff; border-color:#000; } .opera h4, .opera .waarschuwing{ color:#000; }
+  .honden{ color:#000; } .praktisch h2, .praktisch{ border-color:#000; }
   .wacht{ opacity:1 !important; transform:none !important; }
-  .lint{ display:none !important; }
-  body{ background:#fff; color:#000; font-size:11pt; }
-  .skip-link, .kaartsectie, .fotoplek, .voorbeeldfoto, .voet a, .taalschakelaar, .videoblok{ display:none !important; }
-  .kop{ padding:0 0 6px; }
-  .kop h1{ font-size:24pt; }
-  .tijdlijn{ max-width:none; margin-top:10px; }
-  .tijdlijn::before{ display:none; }
-  .etappe{ padding:0 0 10px 0; page-break-inside:avoid; }
-  .knoop{ position:static; float:left; margin:2px 10px 0 0; }
-  .knoop span{ width:26px; height:26px; font-size:13px; box-shadow:none;
-    border:none; background:#000 !important; color:#fff; }
-  .kaartje{ box-shadow:none; border:1px solid #999; border-radius:6px; padding:10px 12px; }
-  .etappe.anker .kaartje{ border:2px solid #000; }
-  .status{ border:1px solid #666; background:#fff !important; color:#000 !important; }
-  .opera{ background:#fff; border:1.5px solid #000; }
-  .opera h4, .opera .waarschuwing{ color:#000; }
-  .honden{ color:#000; }
-  .praktisch-grid{ display:block; }
-  .blok{ border:1px solid #999; margin-bottom:8px; page-break-inside:avoid; }
-  .voet{ border:none; }
 }
