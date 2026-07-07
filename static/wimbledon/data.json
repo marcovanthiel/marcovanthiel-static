@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "7 juli 2026, 23:37",
- "bijgewerkt_iso": "2026-07-07T23:37+02:00",
+ "bijgewerkt": "8 juli 2026, 01:07",
+ "bijgewerkt_iso": "2026-07-08T01:07+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -80,7 +80,8 @@
     "R-2-1": "🇬🇧 Arthur Fery",
     "R-2-2": "🇺🇸 Taylor Fritz [6]",
     "R-2-3": "🇩🇪 Alexander Zverev [2]",
-    "L-3-0": "🇮🇹 Jannik Sinner [1]"
+    "L-3-0": "🇮🇹 Jannik Sinner [1]",
+    "L-3-1": "Novak Djokovic [7]"
    },
    "labels": {
     "L": [
@@ -102,7 +103,7 @@
      ],
      [
       "di 7 jul · 7-5 7-6 6-3",
-      "LIVE · 5e set · 6-7 6-3 3-6 7-6 5-6 · Eurosport 1 · HBO Max"
+      "di 7 jul · 6-7 6-3 3-6 7-6 6-7"
      ],
      [
       "vr 10 jul · tijd volgt · Eurosport · HBO Max · Ziggo Sport"
@@ -137,30 +138,21 @@
    "champ": "",
    "vandaag": [
     {
-     "start": 1783425900,
-     "tijd": "14:05",
+     "start": 1783517400,
+     "tijd": "15:30",
      "court": "No. 1 Court",
      "ronde": "Kwartfinale",
-     "partij": "🇩🇪 Jan-Lennard Struff – 🇮🇹 Jannik Sinner",
-     "status": "gespeeld · 5-7 6-7 3-6",
+     "partij": "🇩🇪 Alexander Zverev – 🇺🇸 Taylor Fritz",
+     "status": "gepland",
      "tv": "Eurosport · HBO Max"
     },
     {
-     "start": 1783436100,
-     "tijd": "16:55",
-     "court": "Centre Court",
-     "ronde": "Laatste 16",
-     "partij": "🇩🇪 Alexander Zverev – 🇨🇿 Jiri Lehecka",
-     "status": "gespeeld · 6-4 7-5 3-6 7-6",
-     "tv": "Eurosport 1 · HBO Max"
-    },
-    {
-     "start": 1783442100,
-     "tijd": "18:35",
+     "start": 1783519200,
+     "tijd": "16:00",
      "court": "Centre Court",
      "ronde": "Kwartfinale",
-     "partij": "Novak Djokovic – 🇨🇦 Felix Auger-Aliassime",
-     "status": "LIVE · 5e set · 7-6 3-6 6-3 6-7 6-5",
+     "partij": "🇬🇧 Arthur Fery – 🇮🇹 Flavio Cobolli",
+     "status": "gepland",
      "tv": "Eurosport 1 · HBO Max"
     }
    ]
@@ -292,22 +284,22 @@
    "champ": "",
    "vandaag": [
     {
-     "start": 1783427700,
-     "tijd": "14:35",
-     "court": "Centre Court",
-     "ronde": "Kwartfinale",
-     "partij": "🇺🇸 Coco Gauff – 🇺🇸 Jessica Pegula",
-     "status": "gespeeld · 4-6 6-3 6-3",
-     "tv": "Eurosport 1 · HBO Max"
-    },
-    {
-     "start": 1783437000,
-     "tijd": "17:10",
+     "start": 1783512000,
+     "tijd": "14:00",
      "court": "No. 1 Court",
      "ronde": "Kwartfinale",
-     "partij": "🇨🇿 Karolina Muchova – 🇯🇵 Naomi Osaka",
-     "status": "gespeeld · 7-6 6-4",
+     "partij": "🇧🇪 Elise Mertens – 🇨🇿 Linda Noskova",
+     "status": "gepland",
      "tv": "Eurosport · HBO Max"
+    },
+    {
+     "start": 1783513800,
+     "tijd": "14:30",
+     "court": "baan volgt",
+     "ronde": "Kwartfinale",
+     "partij": "🇮🇹 Jasmine Paolini – 🇺🇦 Marta Kostyuk",
+     "status": "gepland",
+     "tv": "HBO Max"
     }
    ]
   },
@@ -437,24 +429,6 @@
    },
    "champ": "",
    "vandaag": [
-    {
-     "start": 1783437110,
-     "tijd": "17:11",
-     "court": "Court 12",
-     "ronde": "Kwartfinale",
-     "partij": "🇺🇸 Austin Krajicek / 🇭🇷 Nikola Mektic [14] – 🇦🇺 Thanasi Kokkinakis / 🇺🇸 Aleksandar Kovacevic",
-     "status": "gespeeld · 6-7 3-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783439547,
-     "tijd": "17:52",
-     "court": "No.2 Court",
-     "ronde": "Kwartfinale",
-     "partij": "🇫🇮 Harri Heliovaara / 🇬🇧 Henry Patten [1] – 🇦🇷 Guido Andreozzi / 🇫🇷 Manuel Guinard [8]",
-     "status": "gespeeld · 2-6 6-4 7-6",
-     "tv": "HBO Max"
-    },
     {
      "start": null,
      "tijd": "–",
@@ -599,33 +573,6 @@
    },
    "champ": "",
    "vandaag": [
-    {
-     "start": 1783430504,
-     "tijd": "15:21",
-     "court": "No.2 Court",
-     "ronde": "3e ronde",
-     "partij": "🇨🇿 Katerina Siniakova / 🇺🇸 Taylor Townsend [1] – 🇺🇸 Asia Muhammad / 🇭🇺 Fanny Stollar [16]",
-     "status": "gespeeld · 6-3 6-3",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783430826,
-     "tijd": "15:27",
-     "court": "Court 12",
-     "ronde": "3e ronde",
-     "partij": "🇦🇺 Storm Hunter / 🇺🇸 Caty McNally [14] – 🇨🇦 Gabriela Dabrowski / 🇧🇷 Luisa Stefani [2]",
-     "status": "gespeeld · 1-6 4-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783431480,
-     "tijd": "15:38",
-     "court": "Court 18",
-     "ronde": "3e ronde",
-     "partij": "🇨🇿 Linda Noskova / 🇸🇰 Rebecca Sramkova – 🇵🇱 Katarzyna Piter / 🇨🇿 Anna Siskova",
-     "status": "gespeeld · 5-7 4-6",
-     "tv": "HBO Max"
-    },
     {
      "start": null,
      "tijd": "–",
@@ -775,26 +722,7 @@
     ]
    },
    "champ": "",
-   "vandaag": [
-    {
-     "start": 1783442846,
-     "tijd": "18:47",
-     "court": "Court 12",
-     "ronde": "Halve finale",
-     "partij": "🇦🇺 Marc Polmans / 🇦🇺 Storm Hunter – 🇭🇷 Mate Pavic / 🇭🇺 Fanny Stollar",
-     "status": "gespeeld · 7-6 6-3",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    },
-    {
-     "start": 1783447895,
-     "tijd": "20:11",
-     "court": "No.2 Court",
-     "ronde": "Halve finale",
-     "partij": "🇺🇸 Christian Harrison / 🇨🇳 Shuai Zhang [3] – 🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]",
-     "status": "gespeeld · 3-6 7-5 4-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   },
   "BS": {
    "tab": "Jongens",
@@ -912,150 +840,6 @@
    },
    "champ": "",
    "vandaag": [
-    {
-     "start": 1783422682,
-     "tijd": "13:11",
-     "court": "Court 6",
-     "ronde": "2e ronde",
-     "partij": "🇺🇸 Keaton Hance [3] – 🇮🇳 Arnav Vijay Paparkar",
-     "status": "gespeeld · 2-6 3-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783422714,
-     "tijd": "13:11",
-     "court": "Court 11",
-     "ronde": "2e ronde",
-     "partij": "🇪🇸 Tito Chavez – 🇺🇸 Jordan Lee",
-     "status": "gespeeld · 3-6 3-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783422999,
-     "tijd": "13:16",
-     "court": "Court 5",
-     "ronde": "2e ronde",
-     "partij": "🇬🇧 Rhys Lawlor – 🇨🇭 Flynn Thomas",
-     "status": "gespeeld · 7-5 6-2",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783424395,
-     "tijd": "13:39",
-     "court": "Court 10",
-     "ronde": "2e ronde",
-     "partij": "🇫🇷 Daniel Jade – 🇳🇱 Thijs Boogaard [11]",
-     "status": "gespeeld · 6-7 2-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783425136,
-     "tijd": "13:52",
-     "court": "Court 9",
-     "ronde": "2e ronde",
-     "partij": "🇺🇸 Tanishk Konduri – 🇸🇮 Svit Suljic",
-     "status": "gespeeld · 6-2 7-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783426112,
-     "tijd": "14:08",
-     "court": "Court 4",
-     "ronde": "2e ronde",
-     "partij": "🇬🇧 Mark Ceban – 🇩🇪 Jamie Mackenzie [2]",
-     "status": "gespeeld · 6-7 6-3 4-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783426664,
-     "tijd": "14:17",
-     "court": "Court 11",
-     "ronde": "2e ronde",
-     "partij": "🇯🇵 Ryo Tabata – 🇵🇪 Nicolas Baena [13]",
-     "status": "gespeeld · 6-3 6-1",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783429249,
-     "tijd": "15:00",
-     "court": "Court 7",
-     "ronde": "2e ronde",
-     "partij": "🇹🇼 Kuan-Shou Chen [15] – 🇮🇱 Dan Brand",
-     "status": "gespeeld · 7-5 3-6 7-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783431487,
-     "tijd": "15:38",
-     "court": "Court 4",
-     "ronde": "2e ronde",
-     "partij": "🇬🇧 Oliver Page – 🇸🇮 Ziga Sesko [4]",
-     "status": "gespeeld · 6-4 6-4",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783432450,
-     "tijd": "15:54",
-     "court": "Court 6",
-     "ronde": "2e ronde",
-     "partij": "🇧🇷 Luis Guto Miguel [1] – 🇺🇸 Jack Secord",
-     "status": "gespeeld · 7-5 1-6 4-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783433948,
-     "tijd": "16:19",
-     "court": "Court 9",
-     "ronde": "2e ronde",
-     "partij": "🇰🇿 Damir Zhalgasbay – 🇿🇦 Connor Doig",
-     "status": "gespeeld · 6-4 6-7 6-7",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783434405,
-     "tijd": "16:26",
-     "court": "Court 5",
-     "ronde": "2e ronde",
-     "partij": "🇺🇸 Andrew Johnson [12] – 🇩🇪 Vincent Reisach",
-     "status": "gespeeld · 6-7 7-6 6-7",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783434816,
-     "tijd": "16:33",
-     "court": "Court 7",
-     "ronde": "2e ronde",
-     "partij": "🇫🇷 Mathys Domenc [14] – 🇦🇺 Cruz Hewitt",
-     "status": "gespeeld · 6-7 2-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783437479,
-     "tijd": "17:17",
-     "court": "Court 4",
-     "ronde": "2e ronde",
-     "partij": "🇬🇧 Liam Channon – 🇧🇬 Dimitar Kisimov [9]",
-     "status": "gespeeld · 6-7 4-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783439431,
-     "tijd": "17:50",
-     "court": "Court 7",
-     "ronde": "2e ronde",
-     "partij": "🇦🇺 Daniel Jovanovski – 🇰🇿 Zangar Nurlanuly [8]",
-     "status": "gespeeld · 1-6 1-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783443621,
-     "tijd": "19:00",
-     "court": "Court 5",
-     "ronde": "2e ronde",
-     "partij": "Savva Rybkin – 🇦🇷 Dante Pagani [16]",
-     "status": "gespeeld · 3-6 6-3 4-6",
-     "tv": "HBO Max"
-    },
     {
      "start": null,
      "tijd": "–",
