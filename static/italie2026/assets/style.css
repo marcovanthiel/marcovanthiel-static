@@ -8,15 +8,15 @@
 @font-face{ font-family:"Didone"; src:url("/italie2026/assets/fonts/italic-700.woff2") format("woff2"); font-weight:700; font-style:italic; font-display:swap; }
 
 :root{
-  --papier:#f2e7d0;          /* warm ivoor */
-  --papier-diep:#ece0c5;
-  --inkt:#211a12;            /* sepia-inkt, bijna zwart */
-  --inkt-zacht:#6f6144;      /* gedempt bruin voor bijschriften */
-  --rosso:#9e3324;           /* terracotta / operarood */
-  --verde:#2c5340;           /* diep pijngroen */
-  --ocra:#a97722;            /* oker / goud */
-  --lijn:#211a12;
-  --lijn-zacht:rgba(33,26,18,.26);
+  --papier:#f5efe1;          /* schoon warm ivoor (bianco) */
+  --papier-diep:#ece3cf;
+  --inkt:#20281e;            /* diep groen-zwart */
+  --inkt-zacht:#5c6b54;      /* gedempt olijfgroen voor bijschriften */
+  --rosso:#c62128;           /* Italiaans rood */
+  --verde:#157a4a;           /* Italiaans groen */
+  --ocra:#b0862b;            /* oker (spaarzaam) */
+  --lijn:#20281e;
+  --lijn-zacht:rgba(32,40,30,.24);
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
   --display:"Didone","Playfair Display",Georgia,serif;
 }
@@ -31,6 +31,9 @@ body{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   font-family:var(--serif); font-size:17.5px; line-height:1.64;
 }
+/* Tricolore-streep bovenaan (groen · wit · rood) */
+body::before{ content:""; position:fixed; top:0; left:0; right:0; height:4px; z-index:1300;
+  background:linear-gradient(90deg, var(--verde) 0 33.34%, #fbf7ee 33.34% 66.66%, var(--rosso) 66.66% 100%); }
 a{ color:var(--rosso); text-underline-offset:2px; text-decoration-thickness:1px; }
 :focus-visible{ outline:2px solid var(--rosso); outline-offset:2px; }
 .skip-link{ position:absolute; left:-999px; top:8px; background:var(--inkt); color:var(--papier); padding:8px 14px; z-index:1200; }
@@ -118,7 +121,7 @@ body.toon-zh .hero-credit .lang-nl{ display:none; } body.toon-zh .hero-credit .l
 .leaflet-popup-content-wrapper{ border-radius:0; border:1px solid var(--inkt); background:var(--papier); box-shadow:5px 5px 0 rgba(33,26,18,.35); }
 .leaflet-popup-tip{ background:var(--papier); border:1px solid var(--inkt); }
 .leaflet-popup-content{ font-family:var(--serif); font-size:13.5px; line-height:1.45; color:var(--inkt); }
-.leaflet-popup-content .pdatum{ margin:0 0 2px; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ocra); font-weight:700; }
+.leaflet-popup-content .pdatum{ margin:0 0 2px; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--verde); font-weight:700; }
 .leaflet-popup-content h4{ margin:0 0 5px; font-family:var(--display); font-weight:700; font-size:17px; }
 .leaflet-popup-content ul{ margin:4px 0 6px; padding-left:16px; }
 .leaflet-popup-content .naar-etappe{ font-weight:700; color:var(--rosso); }
@@ -130,7 +133,7 @@ body.toon-zh .hero-credit .lang-nl{ display:none; } body.toon-zh .hero-credit .l
 
 /* ---- tijdlijn (itinerario) ---- */
 .tijdlijn{ max-width:880px; margin:52px auto 0; padding:0 26px 8px; position:relative; }
-.tijdlijn::before{ content:""; position:absolute; top:6px; bottom:20px; left:47px; border-left:1px solid var(--lijn-zacht); }
+.tijdlijn::before{ content:""; position:absolute; top:6px; bottom:20px; left:47px; border-left:1px solid rgba(21,122,74,.42); }
 .tijdlijn-voortgang{ position:absolute; top:6px; left:46px; width:2px; height:0; background:var(--rosso); z-index:1; pointer-events:none; }
 .etappe{ position:relative; padding:0 0 40px 78px; }
 .knoop{ position:absolute; left:22px; top:2px; z-index:2; }
@@ -142,14 +145,14 @@ body.toon-zh .hero-credit .lang-nl{ display:none; } body.toon-zh .hero-credit .l
 .kaartje{ position:relative; background:transparent; border:none; border-top:2px solid var(--inkt);
   border-radius:0; box-shadow:none; padding:16px 2px 0; }
 .etappe.anker .kaartje{ border-top-color:var(--rosso); }
-.etappe .datum{ margin:0 0 4px; font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--ocra); }
+.etappe .datum{ margin:0 0 4px; font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--verde); }
 .etappe.anker .datum{ color:var(--rosso); }
 .etappe h3{ margin:2px 0 10px; font-family:var(--display); font-weight:700; font-size:clamp(24px,3.4vw,34px); line-height:1.08; }
 
 .rijtijd{ margin:0 0 12px; font-size:14px; color:var(--inkt-zacht); padding-left:23px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236f6144' stroke-width='1.8'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E") no-repeat left 2px; background-size:15px; }
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235c6b54' stroke-width='1.8'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E") no-repeat left 2px; background-size:15px; }
 .afstand{ margin-left:14px; padding-left:18px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236f6144' stroke-width='1.8'%3E%3Cpath d='M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z'/%3E%3Ccircle cx='12' cy='10' r='2.4'/%3E%3C/svg%3E") no-repeat left center; background-size:14px; white-space:nowrap; }
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235c6b54' stroke-width='1.8'%3E%3Cpath d='M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z'/%3E%3Ccircle cx='12' cy='10' r='2.4'/%3E%3C/svg%3E") no-repeat left center; background-size:14px; white-space:nowrap; }
 
 .toerisme{ margin:0 0 14px; font-size:17px; line-height:1.7; }
 body:not(.toon-zh) .toerisme::first-letter{ font-family:var(--display); font-weight:900; font-size:3.3em;
@@ -157,11 +160,11 @@ body:not(.toon-zh) .toerisme::first-letter{ font-family:var(--display); font-wei
 
 .highlights{ margin:0 0 14px; padding:0; list-style:none; }
 .highlights li{ position:relative; padding:3px 0 3px 20px; font-size:15.5px; }
-.highlights li::before{ content:""; position:absolute; left:0; top:12px; width:6px; height:6px; background:var(--ocra); transform:rotate(45deg); }
+.highlights li::before{ content:""; position:absolute; left:0; top:12px; width:6px; height:6px; background:var(--verde); transform:rotate(45deg); }
 
 .info{ margin:0 0 14px; font-size:14px; color:var(--inkt); background:var(--papier-diep);
-  border-left:3px solid var(--ocra); padding:10px 14px; }
-.infolabel{ display:block; font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ocra); margin-bottom:3px; }
+  border-left:3px solid var(--verde); padding:10px 14px; }
+.infolabel{ display:block; font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--verde); margin-bottom:3px; }
 
 .hotel, .aanrader{ margin:0 0 8px; font-size:14.5px; }
 .hotellabel{ font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--inkt-zacht); margin-right:5px; }
@@ -175,7 +178,7 @@ body:not(.toon-zh) .toerisme::first-letter{ font-family:var(--display); font-wei
 .sugprijs{ display:inline-block; margin-top:3px; font-size:13px; font-weight:700; color:var(--verde); }
 
 .honden{ margin:0; font-size:14px; color:var(--verde); border-top:1px solid var(--lijn-zacht); padding:10px 0 0 24px;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='%232c5340'%3E%3Cellipse cx='7' cy='9' rx='1.8' ry='2.4'/%3E%3Cellipse cx='12' cy='7' rx='1.8' ry='2.5'/%3E%3Cellipse cx='17' cy='9' rx='1.8' ry='2.4'/%3E%3Cpath d='M12 11c-3 0-5 2.2-5 4.3 0 1.6 1.4 2.2 2.7 1.9 1.5-.4 3.1-.4 4.6 0 1.3.3 2.7-.3 2.7-1.9C17 13.2 15 11 12 11z'/%3E%3C/svg%3E") no-repeat left 10px; background-size:17px; }
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='%23157a4a'%3E%3Cellipse cx='7' cy='9' rx='1.8' ry='2.4'/%3E%3Cellipse cx='12' cy='7' rx='1.8' ry='2.5'/%3E%3Cellipse cx='17' cy='9' rx='1.8' ry='2.4'/%3E%3Cpath d='M12 11c-3 0-5 2.2-5 4.3 0 1.6 1.4 2.2 2.7 1.9 1.5-.4 3.1-.4 4.6 0 1.3.3 2.7-.3 2.7-1.9C17 13.2 15 11 12 11z'/%3E%3C/svg%3E") no-repeat left 10px; background-size:17px; }
 
 /* Anker-lintje als stempel */
 .lint{ position:absolute; top:-14px; right:2px; z-index:3; transform:rotate(3deg);
@@ -252,6 +255,7 @@ body:not(.toon-zh) .toerisme::first-letter{ font-family:var(--display); font-wei
 /* ---- print (A4-reisdocument) ---- */
 @media print{
   body{ background:#fff !important; color:#000; font-size:11pt; }
+  body::before{ display:none !important; }
   .skip-link, .kaartsectie, .fotoplek, .voorbeeldfoto, .videoblok, .voet a, .taalschakelaar, .tijdlijn-voortgang, .hero-overlay, .hero-acties, .hero-credit{ display:none !important; }
   .kop.hero{ min-height:auto; display:block; background:none !important; overflow:visible; padding:0; }
   .hero-inner{ color:#000; padding:0 0 6px; max-width:none; }
