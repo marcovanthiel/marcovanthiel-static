@@ -32,6 +32,11 @@ Per etappe extra velden:
      `curl -s -o /dev/null -w "%{http_code}" "https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=<ID>"` (401 = embedden uit, 404 = weg/privé → niet gebruiken).
   2. **Host de thumbnail zelf** (geen Google-request bij paginalaad): `curl -f -o static/italie2026/foto/video/<ID>.jpg "https://i.ytimg.com/vi/<ID>/maxresdefault.jpg"` (val terug op `sddefault`/`hqdefault`).
   3. Zet `video` in `route.json`. De CSP (`static/_headers`, `/italie2026/*`-blok) staat `frame-src https://www.youtube-nocookie.com` al toe.
+- `lint` (alleen de ankers) — `{nl,zh}`: het rode hoek-lintje op het kaartje ("Opera"/"Hoogtepunt").
+
+**Top-level velden in `route.json`** (naast `titel`/`periode`/`reizigers`/`etappes`):
+- `hero` — `{"bestand", "credit", "creditUrl", "onderschrift":{nl,zh}}`: de sfeerfoto bovenaan (self-hosted in `foto/`, verklein tot ~1920px). Als je 'm vervangt: nieuwe foto in `foto/`, `hero.bestand` bijwerken, credit invullen.
+- `overzicht` — lijst statbalk-cijfers: `{"waarde":<getal>, "prefix"?, "suffix"?, "label":{nl,zh}}`. `app.js` telt de getallen op bij binnenkomst (count-up). Getallen met de hand bijhouden (bv. totale km = som van de `afstand`-velden).
 - `hotelsuggestie.prijs` — `{nl,zh}`: verwachte prijs per nacht voor de
   betreffende data, mét controledatum (bv. "vanaf ca. € 190 per nacht
   (gecheckt 6-7-2026)"). Controleren kan via de Booking.com-zoekpagina in
