@@ -5,6 +5,8 @@ version: 2
 updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
+    cooldown:
+      default-days: 5
     schedule:
       interval: 'weekly'
       day: 'monday'
@@ -20,6 +22,8 @@ updates:
   # Python-bot voor de dagelijkse Biennale-update (scripts/biennale/requirements.txt)
   - package-ecosystem: 'pip'
     directory: '/scripts/biennale'
+    cooldown:
+      default-days: 5
     schedule:
       interval: 'weekly'
       day: 'monday'
