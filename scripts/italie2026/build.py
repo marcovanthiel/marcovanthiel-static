@@ -84,6 +84,31 @@ def fotoblok(e):
         '</figcaption></figure>')
 
 
+def videoblok(e):
+    """Sfeervideo van de omgeving als 'klik-om-af-te-spelen'-facade: de
+    (zelf-gehoste) YouTube-thumbnail toont eerst; pas bij klik laadt app.js
+    de youtube-nocookie-iframe (snel + privacyvriendelijk). Zie CSP frame-src
+    in static/_headers."""
+    v = e.get("video")
+    if not v:
+        return ""
+    vid = esc(v["id"])
+    titel = v.get("titel", {"nl": "Sfeervideo", "zh": "风光短片"})
+    alt = esc(val(titel, "nl"))
+    return (
+        '<div class="videoblok">'
+        f'<button type="button" class="video-facade" data-yt="{vid}" aria-label="{alt}">'
+        f'<img src="/italie2026/foto/video/{vid}.jpg" width="1280" height="720" loading="lazy" alt="{alt}">'
+        '<span class="video-play" aria-hidden="true"></span>'
+        '<span class="video-badge">▶ '
+        '<span class="lang lang-nl" lang="nl">Sfeervideo</span>'
+        '<span class="lang lang-zh" lang="zh">风光短片</span></span>'
+        '</button>'
+        f'<p class="videobijschrift">{bi(titel)}<span class="videobron"> · YouTube</span></p>'
+        '</div>'
+    )
+
+
 def etappe_html(e):
     anker = e["nr"] in ANKERS
     kop = f'{esc(e["van"])} → {esc(e["naar"])}'
@@ -156,6 +181,7 @@ def etappe_html(e):
         <h3>{kop}</h3>
         <p class="rijtijd">🚗 {bi(e["rijtijd"])} {afstand}</p>
         {toerisme}
+        {videoblok(e)}
         <ul class="highlights">{hl}</ul>
         {info}
         {hotelblok}

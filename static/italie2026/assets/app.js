@@ -32,7 +32,27 @@
   pas_toe(huidig, false);
 })();
 
-/* ---- 2. Routekaart ---- */
+/* ---- 2. Sfeervideo's: klik op de facade -> laad pas dan de YouTube-iframe
+   (youtube-nocookie; CSP frame-src staat dit toe). Snel + privacyvriendelijk. ---- */
+(function(){
+  'use strict';
+  document.addEventListener('click', function(ev){
+    var knop = ev.target && ev.target.closest ? ev.target.closest('.video-facade') : null;
+    if (!knop) return;
+    var id = knop.getAttribute('data-yt');
+    if (!id || !/^[A-Za-z0-9_-]{6,20}$/.test(id)) return;
+    var ifr = document.createElement('iframe');
+    ifr.className = 'video-iframe';
+    ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    ifr.title = knop.getAttribute('aria-label') || 'Video';
+    ifr.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; fullscreen');
+    ifr.setAttribute('allowfullscreen', '');
+    ifr.setAttribute('loading', 'lazy');
+    if (knop.parentNode) knop.parentNode.replaceChild(ifr, knop);
+  });
+})();
+
+/* ---- 3. Routekaart ---- */
 (function(){
   'use strict';
   var el = document.getElementById('routedata');

@@ -27,6 +27,11 @@ Per etappe extra velden:
 - `toerisme` — uitgebreide toeristische beschrijving.
 - `info` — praktische/overige relevante info (verschijnt in het groene kader "Goed om te weten").
 - `hotelsuggestie` — `{"naam", "url", "beschrijving":{nl,zh}}`: aanbevolen (hondvriendelijk) hotel met hyperlink. **Verifieer de URL** (moet 200 geven) voor je 'm toevoegt.
+- `video` — `{"id":"<youtube-id>", "titel":{nl,zh}}`: sfeervideo van de omgeving, als "klik-om-af-te-spelen"-facade (thumbnail eerst, dan pas de youtube-nocookie-iframe). **Nieuwe video toevoegen/vervangen:**
+  1. Kies een YouTube-video en **check dat 'ie embedbaar is** via oEmbed — moet HTTP 200 geven:
+     `curl -s -o /dev/null -w "%{http_code}" "https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=<ID>"` (401 = embedden uit, 404 = weg/privé → niet gebruiken).
+  2. **Host de thumbnail zelf** (geen Google-request bij paginalaad): `curl -f -o static/italie2026/foto/video/<ID>.jpg "https://i.ytimg.com/vi/<ID>/maxresdefault.jpg"` (val terug op `sddefault`/`hqdefault`).
+  3. Zet `video` in `route.json`. De CSP (`static/_headers`, `/italie2026/*`-blok) staat `frame-src https://www.youtube-nocookie.com` al toe.
 - `hotelsuggestie.prijs` — `{nl,zh}`: verwachte prijs per nacht voor de
   betreffende data, mét controledatum (bv. "vanaf ca. € 190 per nacht
   (gecheckt 6-7-2026)"). Controleren kan via de Booking.com-zoekpagina in

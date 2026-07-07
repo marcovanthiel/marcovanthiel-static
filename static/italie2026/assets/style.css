@@ -85,6 +85,43 @@ body.toon-zh .lang-zh{ display:inline; }
 .aanrader a{ font-weight:600; }
 .sugtekst{ display:block; color:var(--groen-zacht); font-size:12.5px; margin-top:1px; }
 
+/* ---- sfeervideo (klik-om-af-te-spelen-facade) ---- */
+.videoblok{ margin:4px 0 12px; }
+.video-facade{
+  display:block; width:100%; padding:0; border:none; cursor:pointer;
+  position:relative; border-radius:11px; overflow:hidden; background:#0b120a;
+  aspect-ratio:16/9; box-shadow:0 8px 22px rgba(34,48,31,.18);
+}
+.video-facade img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .35s ease, filter .35s ease;
+}
+.video-facade:hover img, .video-facade:focus-visible img{ transform:scale(1.03); filter:brightness(.9); }
+.video-play{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:66px; height:66px; border-radius:50%;
+  background:rgba(125,31,46,.92); box-shadow:0 4px 14px rgba(0,0,0,.35);
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .2s ease, background .2s ease;
+}
+.video-facade:hover .video-play{ transform:translate(-50%,-50%) scale(1.08); background:var(--rood); }
+.video-play::after{
+  content:""; margin-left:5px;
+  border-style:solid; border-width:13px 0 13px 21px;
+  border-color:transparent transparent transparent #fff;
+}
+.video-badge{
+  position:absolute; left:11px; bottom:11px;
+  background:rgba(34,48,31,.82); color:#fff; font-size:12px; font-weight:600;
+  padding:3px 11px; border-radius:999px; backdrop-filter:blur(2px);
+}
+.video-iframe{
+  width:100%; aspect-ratio:16/9; border:0; border-radius:11px; display:block;
+  box-shadow:0 8px 22px rgba(34,48,31,.18);
+}
+.videobijschrift{ margin:7px 2px 0; font-size:12.5px; color:var(--groen-zacht); }
+.videobron{ opacity:.75; }
+
 /* ---- kop ---- */
 .kop{
   max-width:1060px; margin:0 auto; padding:44px 20px 8px;
@@ -251,7 +288,7 @@ body.toon-zh .lang-zh{ display:inline; }
 /* ---- print (A4-reisdocument) ---- */
 @media print{
   body{ background:#fff; color:#000; font-size:11pt; }
-  .skip-link, .kaartsectie, .fotoplek, .voorbeeldfoto, .voet a, .taalschakelaar{ display:none !important; }
+  .skip-link, .kaartsectie, .fotoplek, .voorbeeldfoto, .voet a, .taalschakelaar, .videoblok{ display:none !important; }
   .kop{ padding:0 0 6px; }
   .kop h1{ font-size:24pt; }
   .tijdlijn{ max-width:none; margin-top:10px; }

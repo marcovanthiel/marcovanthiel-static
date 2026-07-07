@@ -88,6 +88,13 @@
         },
         "credit": "Foto: Asurnipal, Wikimedia Commons (CC BY-SA 4.0)",
         "creditUrl": "https://commons.wikimedia.org/wiki/File:Feldkirch-Schattenburg-01.jpg"
+      },
+      "video": {
+        "id": "CLldp93fpZA",
+        "titel": {
+          "nl": "Feldkirch vanuit de lucht",
+          "zh": "俯瞰费尔德基希"
+        }
       }
     },
     {
@@ -170,6 +177,13 @@
         },
         "credit": "Foto: Tilman2007, Wikimedia Commons (CC BY-SA 4.0)",
         "creditUrl": "https://commons.wikimedia.org/wiki/File:Glurns_Glorenza_20220903_0007.jpg"
+      },
+      "video": {
+        "id": "8NPSegaizes",
+        "titel": {
+          "nl": "Glurns — kleinste stadje van Zuid-Tirol",
+          "zh": "格洛伦扎 — 南蒂罗尔最小的古镇"
+        }
       }
     },
     {
@@ -256,6 +270,13 @@
         },
         "credit": "Foto: Oursana, Wikimedia Commons (publiek domein)",
         "creditUrl": "https://commons.wikimedia.org/wiki/File:Borghetto_(Valeggio_sul_Mincio),_view_from_the_Visconti_bridge2.JPG"
+      },
+      "video": {
+        "id": "mVG3r_JpYfs",
+        "titel": {
+          "nl": "Borghetto sul Mincio vanuit de lucht",
+          "zh": "俯瞰博尔盖托水磨村"
+        }
       }
     },
     {
@@ -342,6 +363,13 @@
         },
         "credit": "Foto: Carlo Pelagalli, Wikimedia Commons (CC BY-SA 3.0)",
         "creditUrl": "https://commons.wikimedia.org/wiki/File:Brisighella,_Panorama_dalla_Rocca_Manfrediana._A_sinistra_la_Torre_dell%27Orologio_-_panoramio.jpg"
+      },
+      "video": {
+        "id": "2A9exNuq82M",
+        "titel": {
+          "nl": "Brisighella — het borgo en de rotstoppen",
+          "zh": "布里西盖拉 — 古镇与岩顶"
+        }
       }
     },
     {
@@ -435,6 +463,13 @@
         },
         "credit": "Foto: Claconvr, Wikimedia Commons (CC BY-SA 4.0)",
         "creditUrl": "https://commons.wikimedia.org/wiki/File:Arena-XE3F2406a.jpg"
+      },
+      "video": {
+        "id": "RzDnBy8tK9g",
+        "titel": {
+          "nl": "Verona vanuit de lucht",
+          "zh": "俯瞰维罗纳"
+        }
       }
     },
     {
@@ -517,6 +552,13 @@
         },
         "credit": "Foto: markjhandel, Wikimedia Commons (CC BY 2.0)",
         "creditUrl": "https://commons.wikimedia.org/wiki/File:Cannobio_-_Waterfront.jpg"
+      },
+      "video": {
+        "id": "lln5F5uxR1g",
+        "titel": {
+          "nl": "Cannobio aan het Lago Maggiore",
+          "zh": "马焦雷湖畔的坎诺比奥"
+        }
       }
     },
     {
@@ -599,6 +641,13 @@
         },
         "credit": "Foto: Calips, Wikimedia Commons (CC BY-SA 3.0)",
         "creditUrl": "https://commons.wikimedia.org/wiki/File:France_Alsace_Haut-Rhin_Bergheim_10.JPG"
+      },
+      "video": {
+        "id": "Hx6nbnZx4As",
+        "titel": {
+          "nl": "Bergheim — wijndorp in de Elzas",
+          "zh": "贝尔甘 — 阿尔萨斯葡萄酒村"
+        }
       }
     },
     {
