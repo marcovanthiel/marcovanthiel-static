@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/italie2026/assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/italie2026/assets/icon-180.png">
 <link rel="stylesheet" href="/italie2026/vendor/leaflet/leaflet.css">
-<link rel="stylesheet" href="/italie2026/assets/style.css?v=6">
+<link rel="stylesheet" href="/italie2026/assets/style.css?v=7">
 </head>
 <body>
 <a href="#route" class="skip-link"><span class="lang lang-nl" lang="nl">Naar de route</span><span class="lang lang-zh" lang="zh">前往路线</span></a>
@@ -20,11 +20,24 @@
   <button type="button" class="taalknop" data-lang="zh" aria-pressed="false" lang="zh">中文</button>
 </div>
 
-<header class="kop">
-  <p class="boventitel"><span class="lang lang-nl" lang="nl">Reisplan</span><span class="lang lang-zh" lang="zh">行程</span> · <!--PERIODE--></p>
-  <h1><!--TITEL--></h1>
-  <p class="onder"><!--REIZIGERS--> · Nijmegen → Arena di Verona → Nijmegen · <span class="lang lang-nl" lang="nl">8 etappes</span><span class="lang lang-zh" lang="zh">8 段行程</span></p>
+<header class="kop hero" style="/*HERO_STYLE*/">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="boventitel"><span class="lang lang-nl" lang="nl">Reisplan</span><span class="lang lang-zh" lang="zh">行程</span> · <!--PERIODE--></p>
+    <h1><!--TITEL--></h1>
+    <p class="onder"><!--REIZIGERS--> · Nijmegen → Arena di Verona → Nijmegen · <span class="lang lang-nl" lang="nl">8 etappes</span><span class="lang lang-zh" lang="zh">8 段行程</span></p>
+    <div class="hero-acties">
+      <span class="aftel" id="aftel" hidden></span>
+      <button type="button" class="printknop" id="printknop">
+        <span aria-hidden="true">🖨</span>
+        <span class="lang lang-nl" lang="nl">Print als reisdocument</span><span class="lang lang-zh" lang="zh">打印为旅行手册</span>
+      </button>
+    </div>
+  </div>
+  <span class="hero-credit"><!--HERO_CREDIT--></span>
 </header>
+
+<!--STATBALK-->
 
 <main id="route">
   <section class="kaartsectie" aria-label="Routekaart / 路线图">
@@ -33,6 +46,7 @@
   </section>
 
   <section class="tijdlijn" aria-label="Etappes / 各段行程">
+    <div class="tijdlijn-voortgang" aria-hidden="true"></div>
     <!--TIJDLIJN-->
   </section>
 
@@ -71,6 +85,6 @@
 
 <script type="application/json" id="routedata">/*ROUTEDATA*/</script>
 <script src="/italie2026/vendor/leaflet/leaflet.js" defer></script>
-<script src="/italie2026/assets/app.js?v=5" defer></script>
+<script src="/italie2026/assets/app.js?v=6" defer></script>
 </body>
 </html>

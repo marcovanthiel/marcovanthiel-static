@@ -370,6 +370,10 @@
           "nl": "Brisighella — het borgo en de rotstoppen",
           "zh": "布里西盖拉 — 古镇与岩顶"
         }
+      },
+      "lint": {
+        "nl": "Hoogtepunt",
+        "zh": "重头戏"
       }
     },
     {
@@ -470,6 +474,10 @@
           "nl": "Verona vanuit de lucht",
           "zh": "俯瞰维罗纳"
         }
+      },
+      "lint": {
+        "nl": "Opera",
+        "zh": "歌剧之夜"
       }
     },
     {
@@ -705,6 +713,61 @@
         },
         "credit": "Foto: Paul Braun, Wikimedia Commons (CC0)",
         "creditUrl": "https://commons.wikimedia.org/wiki/File:Ville_de_Luxembourg_Grund_et_chemin_de_la_Corniche.jpg"
+      }
+    }
+  ],
+  "hero": {
+    "bestand": "foto/hero-verona.jpg",
+    "credit": "Foto: Luu, Wikimedia Commons (publiek domein)",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:View_of_the_bridge_Ponte_Pietra_from_San_Pietro_Castle.JPG",
+    "onderschrift": {
+      "nl": "Verona — Ponte Pietra over de Adige",
+      "zh": "维罗纳 — 阿迪杰河上的石桥"
+    }
+  },
+  "overzicht": [
+    {
+      "waarde": 2490,
+      "prefix": "± ",
+      "suffix": " km",
+      "label": {
+        "nl": "totale route",
+        "zh": "总行程"
+      }
+    },
+    {
+      "waarde": 14,
+      "label": {
+        "nl": "dagen",
+        "zh": "天"
+      }
+    },
+    {
+      "waarde": 13,
+      "label": {
+        "nl": "nachten",
+        "zh": "晚"
+      }
+    },
+    {
+      "waarde": 5,
+      "label": {
+        "nl": "landen",
+        "zh": "国家"
+      }
+    },
+    {
+      "waarde": 8,
+      "label": {
+        "nl": "etappes",
+        "zh": "段行程"
+      }
+    },
+    {
+      "waarde": 2,
+      "label": {
+        "nl": "opera-avonden",
+        "zh": "歌剧之夜"
       }
     }
   ]

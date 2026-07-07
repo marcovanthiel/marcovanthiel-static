@@ -109,9 +109,29 @@ def videoblok(e):
     )
 
 
+def statbalk_html(overzicht):
+    """Overzichts-statbalk (reis in cijfers). app.js telt de waarden op bij
+    binnenkomst (count-up); de getoonde eindwaarde staat er meteen (JS-loos ok)."""
+    if not overzicht:
+        return ""
+    items = ""
+    for s in overzicht:
+        pre = esc(s.get("prefix", ""))
+        suf = esc(s.get("suffix", ""))
+        w = s["waarde"]
+        toon = f"{w:,}".replace(",", ".") if isinstance(w, int) and w >= 1000 else esc(w)
+        items += (
+            '<div class="stat">'
+            f'<span class="statwaarde" data-telop="{esc(w)}" data-prefix="{pre}" data-suffix="{suf}">{pre}{toon}{suf}</span>'
+            f'<span class="statlabel">{bi(s["label"])}</span></div>'
+        )
+    return f'<section class="statbalk" aria-label="Reis in cijfers / 数字概览">{items}</section>'
+
+
 def etappe_html(e):
     anker = e["nr"] in ANKERS
     kop = f'{esc(e["van"])} → {esc(e["naar"])}'
+    lint = f'<span class="lint">{bi(e["lint"])}</span>' if e.get("lint") else ""
 
     afstand = ""
     if e.get("afstand"):
@@ -176,7 +196,7 @@ def etappe_html(e):
     return f"""
     <article class="etappe{' anker' if anker else ''}" id="etappe-{e["nr"]}">
       <div class="knoop" aria-hidden="true"><span>{e["nr"]}</span></div>
-      <div class="kaartje">
+      <div class="kaartje">{lint}
         <p class="datum">{bi(e["datum"])} · {bi(nachten_bi(e["nachten"]))}</p>
         <h3>{kop}</h3>
         <p class="rijtijd">🚗 {bi(e["rijtijd"])} {afstand}</p>
@@ -197,9 +217,22 @@ def main():
     template = (HIER / "template.html").read_text(encoding="utf-8")
 
     tijdlijn = "".join(etappe_html(e) for e in route["etappes"])
+
+    hero = route.get("hero") or {}
+    hero_style = f"background-image:url('/italie2026/{esc(hero['bestand'])}')" if hero else ""
+    hero_credit = ""
+    if hero:
+        hero_credit = (
+            f'{bi(hero["onderschrift"])} · '
+            f'<a href="{esc(hero["creditUrl"])}" target="_blank" rel="noopener">{esc(hero["credit"])}</a>'
+        )
+
     uit = (template
            .replace("<!--TITEL_PLAIN-->", esc(val(route["titel"], "nl")))
            .replace("<!--PERIODE_PLAIN-->", esc(val(route["periode"], "nl")))
+           .replace("/*HERO_STYLE*/", hero_style)
+           .replace("<!--HERO_CREDIT-->", hero_credit)
+           .replace("<!--STATBALK-->", statbalk_html(route.get("overzicht")))
            .replace("<!--TITEL-->", bi(route["titel"]))
            .replace("<!--PERIODE-->", bi(route["periode"]))
            .replace("<!--REIZIGERS-->", bi(route["reizigers"]))

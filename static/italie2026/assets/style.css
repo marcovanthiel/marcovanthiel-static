@@ -285,8 +285,95 @@ body.toon-zh .lang-zh{ display:inline; }
   .kaartje{ padding:14px 14px 12px; }
 }
 
+/* ================= Verfraaiing: hero, statbalk, badges, reveal, kaart ================= */
+
+/* Hero-banner met sfeerfoto */
+.kop.hero{
+  position:relative; max-width:none; width:100%;
+  min-height:min(64vh,520px); margin:0; padding:0;
+  display:flex; align-items:flex-end; overflow:hidden;
+  background-size:cover; background-position:center 40%; background-color:var(--inkt);
+}
+.hero-overlay{ position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(20,28,18,.12) 0%, rgba(20,28,18,.32) 48%, rgba(20,28,18,.80) 100%); }
+.hero-inner{ position:relative; z-index:1; width:100%; max-width:1060px;
+  margin:0 auto; padding:40px 20px 34px; color:#fff; }
+.hero .boventitel{ color:rgba(255,255,255,.85); }
+.hero h1{ color:#fff; margin:6px 0 10px; text-shadow:0 2px 20px rgba(0,0,0,.4); }
+.hero .onder{ color:rgba(255,255,255,.92); }
+.hero-acties{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:18px; }
+.aftel{ display:inline-flex; align-items:center; gap:5px;
+  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff;
+  font-size:13.5px; font-weight:600; padding:6px 14px; border-radius:999px; backdrop-filter:blur(3px); }
+.aftel b{ font-size:15.5px; }
+.printknop{ display:inline-flex; align-items:center; gap:7px; cursor:pointer;
+  background:#fff; color:var(--inkt); border:none; font:inherit; font-weight:700; font-size:13.5px;
+  padding:8px 16px; border-radius:999px; box-shadow:0 3px 12px rgba(0,0,0,.28);
+  transition:transform .15s ease, box-shadow .15s ease; }
+.printknop:hover{ transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.32); }
+.hero-credit{ position:absolute; right:10px; bottom:7px; z-index:1; text-align:right;
+  color:rgba(255,255,255,.7); font-size:10.5px; max-width:62%; }
+.hero-credit a{ color:rgba(255,255,255,.82); }
+.hero-credit .lang{ display:none; }
+.hero-credit .lang-nl{ display:inline; }
+body.toon-zh .hero-credit .lang-nl{ display:none; }
+body.toon-zh .hero-credit .lang-zh{ display:inline; }
+
+/* Overzichts-statbalk (reis in cijfers), overlapt subtiel de hero */
+.statbalk{ max-width:1060px; margin:-30px auto 0; position:relative; z-index:5; padding:0 20px;
+  display:grid; grid-template-columns:repeat(6,1fr); gap:12px; }
+.stat{ background:var(--kaartje); border:1px solid var(--rand); border-radius:12px;
+  padding:14px 10px; text-align:center; box-shadow:0 10px 24px rgba(34,48,31,.12); }
+.statwaarde{ display:block; font-family:"Fraunces",Georgia,serif; font-weight:700;
+  font-size:clamp(19px,2.6vw,26px); color:var(--groen); line-height:1.08; }
+.statlabel{ display:block; font-size:11.5px; letter-spacing:.3px; color:var(--groen-zacht); margin-top:3px; }
+@media (max-width:820px){ .statbalk{ grid-template-columns:repeat(3,1fr); margin-top:-18px; } }
+@media (max-width:430px){ .statbalk{ grid-template-columns:repeat(2,1fr); } }
+
+/* Anker-lintje (Opera / Hoogtepunt) */
+.kaartje{ position:relative; }
+.lint{ position:absolute; top:13px; right:-6px; z-index:2;
+  background:var(--rood); color:#fff; font-size:11px; font-weight:700; letter-spacing:.5px;
+  text-transform:uppercase; padding:4px 12px 4px 11px; border-radius:4px 0 0 4px;
+  box-shadow:0 3px 9px rgba(125,31,46,.4); }
+.lint::after{ content:""; position:absolute; right:0; bottom:-6px;
+  border-style:solid; border-width:6px 6px 0 0; border-color:#571420 transparent transparent transparent; }
+
+/* Scroll-reveal (alleen als JS de .wacht-klasse zet -> geen JS = gewoon zichtbaar) */
+.wacht{ opacity:0; transform:translateY(18px); }
+@media (prefers-reduced-motion: no-preference){ .wacht{ transition:opacity .6s ease, transform .6s ease; } }
+.wacht.in-beeld{ opacity:1; transform:none; }
+
+/* Voorbeeldfoto's prominenter + zachte hover-zoom */
+.voorbeeldfoto{ overflow:hidden; border-radius:11px; }
+.voorbeeldfoto img{ width:100%; height:auto; display:block; transition:transform .4s ease; }
+.voorbeeldfoto:hover img{ transform:scale(1.04); }
+
+/* Voortgangslijn: vult de routelijn in de tijdlijn bij het scrollen */
+.tijdlijn-voortgang{ position:absolute; top:6px; left:39px; width:3px; height:0;
+  background:linear-gradient(var(--groen),var(--groen-zacht)); border-radius:2px;
+  z-index:1; pointer-events:none; box-shadow:0 0 6px rgba(66,87,59,.4); }
+.knoop{ z-index:2; }
+@media (max-width:640px){ .tijdlijn-voortgang{ left:29px; } }
+
+/* Dag-label bij de kaart-stippen */
+.kaartlabel.leaflet-tooltip{ background:rgba(247,245,234,.94); border:1px solid var(--rand);
+  color:var(--inkt); font-family:inherit; font-size:11.5px; font-weight:600;
+  padding:1px 7px; border-radius:6px; box-shadow:0 1px 5px rgba(34,48,31,.28); }
+.kaartlabel.anker.leaflet-tooltip{ color:var(--rood); border-color:var(--rood); }
+.kaartlabel.leaflet-tooltip-right::before{ border-right-color:rgba(247,245,234,.94); }
+
 /* ---- print (A4-reisdocument) ---- */
 @media print{
+  .kop.hero{ min-height:auto; display:block; background:none !important; overflow:visible; }
+  .hero-overlay, .hero-acties, .hero-credit, .tijdlijn-voortgang{ display:none !important; }
+  .hero-inner{ color:#000; padding:0 0 6px; }
+  .hero h1{ color:#000; text-shadow:none; }
+  .hero .boventitel, .hero .onder{ color:#000; }
+  .statbalk{ margin:6px 0; box-shadow:none; }
+  .stat{ box-shadow:none; border:1px solid #999; }
+  .wacht{ opacity:1 !important; transform:none !important; }
+  .lint{ display:none !important; }
   body{ background:#fff; color:#000; font-size:11pt; }
   .skip-link, .kaartsectie, .fotoplek, .voorbeeldfoto, .voet a, .taalschakelaar, .videoblok{ display:none !important; }
   .kop{ padding:0 0 6px; }
