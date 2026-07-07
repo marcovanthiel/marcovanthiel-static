@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "7 juli 2026, 01:13",
- "bijgewerkt_iso": "2026-07-07T01:13+02:00",
+ "bijgewerkt": "7 juli 2026, 13:15",
+ "bijgewerkt_iso": "2026-07-07T13:15+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -793,7 +793,9 @@
     "R-0-12": "🇫🇷 Mathys Domenc [14]",
     "R-0-13": "🇦🇺 Cruz Hewitt",
     "R-0-14": "🇬🇧 Mark Ceban",
-    "R-0-15": "🇩🇪 Jamie Mackenzie [2]"
+    "R-0-15": "🇩🇪 Jamie Mackenzie [2]",
+    "L-1-4": "🇮🇳 Arnav Vijay Paparkar",
+    "L-1-7": "🇺🇸 Jordan Lee"
    },
    "labels": {
     "L": [
@@ -802,10 +804,10 @@
       "vandaag · Court 5 · HBO Max",
       "vandaag · Court 5 · HBO Max",
       "vandaag · Court 7 · HBO Max",
-      "vandaag · Court 6 · HBO Max",
+      "di 7 jul · 2-6 3-6",
       "vandaag · Court 11 · HBO Max",
       "vandaag · Court 9 · HBO Max",
-      "vandaag · Court 11 · HBO Max"
+      "di 7 jul · 3-6 3-6"
      ],
      [
       "",
@@ -850,6 +852,24 @@
    "champ": "",
    "vandaag": [
     {
+     "start": 1783422682,
+     "tijd": "13:11",
+     "court": "Court 6",
+     "ronde": "2e ronde",
+     "partij": "🇺🇸 Keaton Hance [3] – 🇮🇳 Arnav Vijay Paparkar",
+     "status": "gespeeld · 2-6 3-6",
+     "tv": "HBO Max"
+    },
+    {
+     "start": 1783422714,
+     "tijd": "13:11",
+     "court": "Court 11",
+     "ronde": "2e ronde",
+     "partij": "🇪🇸 Tito Chavez – 🇺🇸 Jordan Lee",
+     "status": "gespeeld · 3-6 3-6",
+     "tv": "HBO Max"
+    },
+    {
      "start": null,
      "tijd": "–",
      "court": "Court 6",
@@ -888,15 +908,6 @@
     {
      "start": null,
      "tijd": "–",
-     "court": "Court 6",
-     "ronde": "2e ronde",
-     "partij": "🇺🇸 Keaton Hance [3] – 🇮🇳 Arnav Vijay Paparkar",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
      "court": "Court 11",
      "ronde": "2e ronde",
      "partij": "🇯🇵 Ryo Tabata – 🇵🇪 Nicolas Baena [13]",
@@ -909,15 +920,6 @@
      "court": "Court 9",
      "ronde": "2e ronde",
      "partij": "🇺🇸 Tanishk Konduri – 🇸🇮 Svit Suljic",
-     "status": "gepland",
-     "tv": "HBO Max"
-    },
-    {
-     "start": null,
-     "tijd": "–",
-     "court": "Court 11",
-     "ronde": "2e ronde",
-     "partij": "🇪🇸 Tito Chavez – 🇺🇸 Jordan Lee",
      "status": "gepland",
      "tv": "HBO Max"
     },
