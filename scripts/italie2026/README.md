@@ -83,9 +83,11 @@ Structuur- of stijlwijzigingen horen in `scripts/italie2026/template.html`,
   titels/data/aanvangstijd in `build.py` hangt aan het Verona-etappenummer).
   Schuiven de etappes of de opera-avonden, dan schuiven die mee.
 - Opera-avonden (bron: officiële Arena-kalender arena.it, geverifieerd
-  6-7-2026): za 8 aug Nabucco en zo 9 aug Aida (Zeffirelli), beide 21:00.
-- Terugreis bewust midweek (wo 12 + do 13 aug): niet in het weekend rijden;
-  rustblok vooraf = 2 nachten Cannobio (Lago Maggiore).
+  6-7-2026): vr 7 aug Turandot en zo 9 aug Aida (Zeffirelli), beide 21:00.
+  Overnachting in de Valpolicella (~25 min van de Arena); honden blijven
+  tijdens de opera met een hondenoppas in het relais (Rover/DogBuddy).
+- Terugreis: vr 14 aug vroeg door de Gotthard (noordwaarts vóór het drukke
+  weekend), za 15 aug thuis; rustblok vooraf = 4 nachten Cannobio.
 - CSP: `/italie2026/*`-blok in `static/_headers` staat OSM-tiles toe in
   `img-src`. Leaflet staat lokaal in `static/italie2026/vendor/leaflet/`.
 - Deploy = push naar `main` (Cloudflare Pages bouwt Hugo; `static/` gaat

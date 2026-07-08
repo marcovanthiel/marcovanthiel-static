@@ -187,10 +187,10 @@ def etappe_html(e):
       <aside class="opera" aria-label="Opera in de Arena di Verona">
         <h4><span class="lang lang-nl" lang="nl">Arena di Verona</span><span class="lang lang-zh" lang="zh">维罗纳圆形剧场</span></h4>
         <ul>
-          <li><strong>za 8 aug</strong> · Nabucco · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:00</li>
+          <li><strong>vr 7 aug</strong> · Turandot · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:00</li>
           <li><strong>zo 9 aug</strong> · Aida (Zeffirelli) · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:00</li>
         </ul>
-        <p class="waarschuwing"><span class="lang lang-nl" lang="nl">Let op: de honden blijven tijdens de opera in het hotel. Het hondenbeleid van het hotel is dáárom de kritieke reservering van de reis — schriftelijk laten bevestigen.</span><span class="lang lang-zh" lang="zh">注意:歌剧期间狗狗留在酒店。因此酒店的宠物政策是全程最关键的预订——务必书面确认。</span></p>
+        <p class="waarschuwing"><span class="lang lang-nl" lang="nl">Let op: tijdens de opera blijven de honden met een hondenoppas in het relais. Tickets en oppas zijn samen de vooraf te regelen spil van de reis.</span><span class="lang lang-zh" lang="zh">注意:歌剧期间狗狗由狗保姆陪伴留在庄园。门票与狗保姆是此行需提前安排的关键。</span></p>
       </aside>"""
 
     return f"""

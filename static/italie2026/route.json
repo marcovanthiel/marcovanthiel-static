@@ -4,8 +4,8 @@
     "zh": "意大利 2026:珍珠之路"
   },
   "periode": {
-    "nl": "31 juli t/m 13 augustus 2026",
-    "zh": "2026 年 7 月 31 日至 8 月 13 日"
+    "nl": "31 juli t/m 15 augustus 2026",
+    "zh": "2026 年 7 月 31 日至 8 月 15 日"
   },
   "reizigers": {
     "nl": "Marco, Dandan en de honden",
@@ -189,8 +189,8 @@
     {
       "nr": 3,
       "datum": {
-        "nl": "ma 3 + di 4 aug",
-        "zh": "8月3、4日 周一·周二"
+        "nl": "ma 3 aug",
+        "zh": "8月3日 周一"
       },
       "van": "Glurns",
       "naar": "Valeggio sul Mincio",
@@ -202,7 +202,7 @@
         "nl": "≈ 215 km",
         "zh": "≈ 215 公里"
       },
-      "nachten": 2,
+      "nachten": 1,
       "coord": [
         45.3537,
         10.7232
@@ -257,8 +257,8 @@
         "zh": "途中的特伦托值得从容一游:这座精致的阿尔卑斯城市里,布翁孔西利奥城堡鹰塔内保存着举世闻名的《十二月令》壁画,是欧洲最美的晚期哥特壁画之一;主教座堂广场与海神喷泉正是午餐的好背景。随后南下明乔河畔的瓦莱焦,脚下是童话般的博尔盖托水磨村,以及斯卡拉家族修建的巨大 14 世纪维斯孔蒂桥。附近的西古尔塔花园公园是欧洲最美的园林之一;这一带以薄如蝉翼的'爱情结'小饺闻名。"
       },
       "info": {
-        "nl": "Parkeer in Trento bij Piazza Fiera; de compacte kern is in twee uur te zien. Wie liever buiten luncht, kiest de Kalterer wijnroute. In Valeggio: bezoek Sigurtà 's ochtends vroeg (het park is groot, neem water mee); Peschiera del Garda ligt op ~10 km voor een verkoelende namiddag. Twee rustige dagen aan de Mincio vóór het zuidelijke deel van de reis.",
-        "zh": "特伦托可停在 Piazza Fiera;老城紧凑,两小时即可饱览。若想在乡间午餐,可选卡尔达罗酒乡。在瓦莱焦:西古尔塔宜清晨游览(园区很大,请备足饮水);加尔达湖畔的佩斯基耶拉约 10 公里,可在午后前往消暑。南下之前,在明乔河畔度过两个悠闲的日子。"
+        "nl": "Parkeer in Trento bij Piazza Fiera; de compacte kern is in twee uur te zien. In Valeggio: avondwandeling naar Borghetto met tortellini als beloning. Bezoek Parco Giardino Sigurtà dinsdagochtend vroeg bij opening (het park is groot, neem water mee) en rijd daarna via Ferrara naar Portico.",
+        "zh": "特伦托可停在 Piazza Fiera;老城紧凑,两小时即可饱览。在瓦莱焦:傍晚漫步至博尔盖托,以'爱情结'小饺犒劳自己。周二清晨开园即游西古尔塔花园(园区很大,请备足饮水),随后经费拉拉前往波尔蒂科。"
       },
       "voorbeeldfoto": {
         "bestand": "foto/etappe-03-borghetto.jpg",
@@ -282,8 +282,8 @@
     {
       "nr": 4,
       "datum": {
-        "nl": "wo 5 t/m vr 7 aug",
-        "zh": "8月5日至7日 周三至周五"
+        "nl": "di 4 t/m do 6 aug",
+        "zh": "8月4日至6日 周二至周四"
       },
       "van": "Valeggio",
       "naar": "Portico di Romagna",
@@ -379,83 +379,83 @@
     {
       "nr": 5,
       "datum": {
-        "nl": "za 8 + zo 9 aug",
-        "zh": "8月8、9日 周六·周日"
+        "nl": "vr 7 t/m zo 9 aug",
+        "zh": "8月7日至9日 周五至周日"
       },
       "van": "Portico",
-      "naar": "Verona",
+      "naar": "Valpolicella (San Pietro in Cariano)",
       "rijtijd": {
         "nl": "ca. 2,5 uur",
         "zh": "约 2.5 小时"
       },
       "afstand": {
-        "nl": "≈ 190 km",
-        "zh": "≈ 190 公里"
+        "nl": "≈ 205 km",
+        "zh": "≈ 205 公里"
       },
-      "nachten": 2,
+      "nachten": 3,
       "coord": [
-        45.439,
-        10.9944
+        45.5203,
+        10.8752
       ],
       "hotel": {
-        "naam": "kandidaat: Hotel Torcolo (luxe: Gabbia d'Oro)",
+        "naam": "kandidaat: Dimora Buglioni Wine Relais",
         "status": {
-          "nl": "hondenbeleid tijdens opera-avonden schriftelijk te bevestigen",
-          "zh": "歌剧之夜宠物政策需书面确认"
+          "nl": "te boeken, plus hondenoppas voor beide opera-avonden",
+          "zh": "待预订,另需为两个歌剧之夜安排狗保姆"
         }
       },
       "hotelsuggestie": {
-        "naam": "Hotel Torcolo, Verona",
-        "url": "https://www.hoteltorcolo.it/",
+        "naam": "Dimora Buglioni Wine Relais",
+        "url": "https://www.dimorabuglioni.it/",
         "beschrijving": {
-          "nl": "Klassiek, gastvrij familiehotel in het steegje pal naast de Arena (100 m), honden welkom; na de opera loop je in twee minuten terug naar de honden. Luxe alternatief: Gabbia d'Oro (ca. € 625 per nacht, beschikbaarheid eveneens bevestigd).",
-          "zh": "紧邻圆形剧场小巷中的经典家庭旅馆(约 100 米),欢迎携犬;歌剧散场后两分钟即可回到狗狗身边。高端之选:金笼酒店(每晚约 625 欧元,同样确认有房)。"
+          "nl": "Stijlvol wijnrelais van het Buglioni-wijnhuis midden in de wijngaarden van de Valpolicella Classica, honden welkom; de Arena is op ~25 minuten rijden. Voordeliger alternatieven: Agriturismo Casa Aurora (ca. € 203 per nacht) of Locanda El Piron (ca. € 80).",
+          "zh": "布利奥尼酒庄旗下的雅致葡萄酒庄园旅馆,坐落于瓦尔波利切拉经典产区的葡萄园之中,欢迎携犬;驱车约 25 分钟即达圆形剧场。更实惠之选:Casa Aurora 农庄(每晚约 203 欧元)或 Locanda El Piron(每晚约 80 欧元)。"
+        },
+        "prijs": {
+          "nl": "vanaf ca. € 252 per nacht, € 756 voor de drie opera-nachten (gecheckt 8-7-2026)",
+          "zh": "每晚约 252 欧元起,三晚共 756 欧元(2026-07-08 核实)"
         },
         "foto": {
-          "bestand": "foto/hotel-torcolo.jpg",
+          "bestand": "foto/hotel-buglioni.jpg",
           "breedte": 1000,
           "hoogte": 666,
           "onderschrift": {
-            "nl": "Hotel Torcolo ligt pal naast de Arena",
-            "zh": "托尔科洛酒店紧邻圆形剧场"
+            "nl": "Dimora Buglioni tussen de wijngaarden van de Valpolicella",
+            "zh": "葡萄园环抱中的布利奥尼庄园旅馆"
           },
-          "credit": "Foto: Hotel Torcolo",
-          "creditUrl": "https://www.hoteltorcolo.it/"
-        },
-        "prijs": {
-          "nl": "vanaf ca. € 190 per nacht, € 379 voor beide opera-nachten (gecheckt 6-7-2026)",
-          "zh": "每晚约 190 欧元起,两个歌剧之夜共 379 欧元(2026-07-06 核实)"
+          "credit": "Foto: Dimora Buglioni Wine Relais",
+          "creditUrl": "https://www.dimorabuglioni.it/"
         }
       },
       "highlights": [
         {
-          "nl": "za 8/8 Nabucco, 21:00",
-          "zh": "8月8日《纳布科》21:00"
+          "nl": "vr 7/8 Turandot, 21:00",
+          "zh": "8月7日《图兰朵》21:00"
         },
         {
           "nl": "zo 9/8 Aida (Zeffirelli), 21:00",
           "zh": "8月9日《阿依达》(泽菲雷利版) 21:00"
         },
         {
-          "nl": "Castelvecchio (museum van Carlo Scarpa)",
-          "zh": "古堡博物馆(卡洛·斯卡帕设计)"
+          "nl": "za: rustdag tussen de wijngaarden, proeverij aan huis",
+          "zh": "周六:葡萄园休整日,庄园品酒"
         },
         {
-          "nl": "Giardino Giusti",
-          "zh": "朱斯蒂花园"
+          "nl": "Verona: Piazza delle Erbe, Castelvecchio, Giardino Giusti",
+          "zh": "维罗纳:香草广场、古堡博物馆、朱斯蒂花园"
         }
       ],
       "honden": {
-        "nl": "Honden blijven tijdens de opera in het hotel (ca. 5 uur); dit is de kritieke reservering van de reis.",
-        "zh": "歌剧期间狗狗留在酒店(约 5 小时);这是全程最关键的预订。"
+        "nl": "Tijdens de opera-avonden blijven de honden met een hondenoppas in het relais (Rover/DogBuddy Verona of via het huis); na afloop ben je in ~25 minuten terug.",
+        "zh": "歌剧之夜,狗狗与狗保姆一起留在庄园(可通过维罗纳的 Rover/DogBuddy 或旅馆安排);散场后约 25 分钟即可返回。"
       },
       "toerisme": {
-        "nl": "Verona is het hart van de reis: een UNESCO-stad rond de best bewaarde Romeinse arena ter wereld, waar 's zomers het beroemde operafestival klinkt onder de sterren. Dwaal langs Piazza delle Erbe, de balkonlegende van Julia en de Adige-bochten; het Castelvecchio toont de tijdloze museumarchitectuur van Carlo Scarpa. Boven de stad hangt de renaissancetuin Giardino Giusti met zijn cipressenlaan.",
-        "zh": "维罗纳是此行的核心:一座环绕世界上保存最完好的古罗马圆形剧场的世界遗产之城,夏夜里著名的歌剧节在星空下回响。漫步香草广场、朱丽叶阳台传说与阿迪杰河湾;古堡博物馆则展现卡洛·斯卡帕永恒的展陈建筑。城市之上是文艺复兴的朱斯蒂花园与它的柏树林荫道。"
+        "nl": "De Valpolicella Classica is het wijnland van Amarone en Ripasso: zachte heuvels vol wijngaarden en kersenboomgaarden, romaanse kerkjes als San Giorgio en San Floriano, en 's avonds koele lucht uit de Lessinia-bergen erboven. Vanuit de wijngaarden sta je in ~25 minuten voor de Arena van Verona, waar het operafestival onder de sterren klinkt; de UNESCO-binnenstad met Piazza delle Erbe, de balkonlegende van Julia en Scarpa's Castelvecchio is een mooie bestemming voor de zaterdagochtend.",
+        "zh": "瓦尔波利切拉经典产区是阿玛罗尼与里帕索葡萄酒之乡:缓丘上遍布葡萄园与樱桃园,点缀着圣乔治、圣弗洛里亚诺等罗曼式小教堂,夜晚有莱西尼亚山间的凉风。从葡萄园驱车约 25 分钟即达维罗纳圆形剧场,歌剧节在星空下回响;拥有香草广场、朱丽叶阳台传说与斯卡帕古堡博物馆的世界遗产老城,适合周六清晨探访。"
       },
       "info": {
-        "nl": "Reserveer de operatickets en het hondvriendelijke hotel ruim vooraf en laat het hondenbeleid schriftelijk bevestigen, dit is de spil van de planning. De voorstellingen beginnen 21:00 en duren tot na middernacht; neem een kussentje voor de stenen tribunes mee. Kom zaterdag rond het middaguur aan, dan blijft er tijd voor een siësta vóór de eerste opera-avond.",
-        "zh": "请尽早预订歌剧票与对狗友好的酒店,并书面确认宠物政策,这是整个行程的关键。演出 21:00 开始,持续至午夜后;石阶看台请自带坐垫。周六宜中午前后抵达,首个歌剧之夜前还能午休片刻。"
+        "nl": "Reserveer de operatickets (Turandot vr, Aida zo, beide 21:00, tot na middernacht; kussentje mee voor de stenen tribunes) én de hondenoppas voor beide avonden ruim vooraf. Parkeren bij de Arena: garage Arena/Cittadella. Overdag is het heet: wijngaardwandelingen 's ochtends, proeverij in de namiddag.",
+        "zh": "请提前预订歌剧票(周五《图兰朵》、周日《阿依达》,均 21:00 开演,持续至午夜后;石阶看台请自带坐垫),并尽早为两晚安排狗保姆。剧场停车:Arena/Cittadella 停车楼。白天炎热:宜清晨漫步葡萄园,午后品酒。"
       },
       "voorbeeldfoto": {
         "bestand": "foto/etappe-05-verona.jpg",
@@ -483,20 +483,20 @@
     {
       "nr": 6,
       "datum": {
-        "nl": "ma 10 + di 11 aug",
-        "zh": "8月10、11日 周一·周二"
+        "nl": "ma 10 t/m do 13 aug",
+        "zh": "8月10日至13日 周一至周四"
       },
-      "van": "Verona",
+      "van": "Valpolicella",
       "naar": "Cannobio (Lago Maggiore)",
       "rijtijd": {
         "nl": "ca. 3,5 uur, lunchstop Bergamo Città Alta",
         "zh": "约 3.5 小时,于贝加莫上城午餐"
       },
       "afstand": {
-        "nl": "≈ 290 km",
-        "zh": "≈ 290 公里"
+        "nl": "≈ 270 km",
+        "zh": "≈ 270 公里"
       },
-      "nachten": 2,
+      "nachten": 4,
       "coord": [
         46.0611,
         8.6989
@@ -516,8 +516,8 @@
           "zh": "坐落于 15 世纪修道院宫邸中的迷人精品酒店,位于几乎无车的老城,距湖畔长堤仅数步;可应要求携犬。"
         },
         "prijs": {
-          "nl": "vanaf ca. € 253 per nacht (gecheckt 6-7-2026)",
-          "zh": "每晚约 253 欧元起(2026-07-06 核实)"
+          "nl": "vanaf ca. € 182 per nacht (gecheckt 8-7-2026)",
+          "zh": "每晚约 182 欧元起(2026-07-08 核实)"
         }
       },
       "highlights": [
@@ -547,8 +547,8 @@
         "zh": "坎诺比奥是马焦雷湖皮埃蒙特西岸、瑞士边境前的最后一座小城,也许是最美的一座:石板铺就的老城缓缓延伸至一条长长的湖畔堤岸,粉彩房屋与法国梧桐相映成趣。稍往内陆,在葱郁的坎诺比纳谷中,圣安娜峡谷从石桥与小教堂下方挤过,狭窄而幽深。邻村坎内罗的近岸处,两座岩岛上矗立着浪漫的坎内罗城堡遗迹。"
       },
       "info": {
-        "nl": "Twee rustdagen na de opera-avonden en vóór de terugreis: zwemmen, luieren en 's avonds de kade. Onderweg is Bergamo Città Alta, de ommuurde renaissance-bovenstad met haar venetiaanse muren (UNESCO), een mooie lunchstop halverwege. Het Zwitserse vignet is pas voor de rit van woensdag nodig.",
-        "zh": "歌剧之夜后、回程之前的两个休整日:游泳、闲逛,傍晚漫步湖堤。途中的贝加莫上城拥有威尼斯时期的城墙(世界遗产),是理想的中途午餐地。瑞士高速通行证到周三上路时才需要。"
+        "nl": "Vier rustdagen na de opera-avonden en vóór de terugreis: zwemmen, luieren en 's avonds de kade. Onderweg is Bergamo Città Alta, de ommuurde renaissance-bovenstad met haar venetiaanse muren (UNESCO), een mooie lunchstop halverwege. Het Zwitserse vignet is pas voor de rit van vrijdag nodig.",
+        "zh": "歌剧之夜后、回程之前的四个休整日:游泳、闲逛,傍晚漫步湖堤。途中的贝加莫上城拥有威尼斯时期的城墙(世界遗产),是理想的中途午餐地。瑞士高速通行证到周五上路时才需要。"
       },
       "voorbeeldfoto": {
         "bestand": "foto/etappe-06-cannobio.jpg",
@@ -572,14 +572,14 @@
     {
       "nr": 7,
       "datum": {
-        "nl": "wo 12 aug",
-        "zh": "8月12日 周三"
+        "nl": "vr 14 aug",
+        "zh": "8月14日 周五"
       },
       "van": "Cannobio",
       "naar": "Bergheim (FR)",
       "rijtijd": {
-        "nl": "ca. 4,5-5 uur, woensdagochtend door de Gotthard",
-        "zh": "约 4.5-5 小时,周三清晨穿越圣哥达"
+        "nl": "ca. 4,5-5 uur, vrijdagochtend door de Gotthard",
+        "zh": "约 4.5-5 小时,周五清晨穿越圣哥达"
       },
       "afstand": {
         "nl": "≈ 420 km",
@@ -605,14 +605,14 @@
           "zh": "位于邻村里博维莱、阿尔萨斯葡萄酒之路旁的迷人家庭酒店,欢迎携犬。"
         },
         "prijs": {
-          "nl": "vanaf ca. € 115 per nacht (gecheckt 6-7-2026)",
-          "zh": "每晚约 115 欧元起(2026-07-06 核实)"
+          "nl": "ca. € 142 voor de nacht van vr op za (gecheckt 8-7-2026)",
+          "zh": "周五至周六一晚约 142 欧元(2026-07-08 核实)"
         }
       },
       "highlights": [
         {
-          "nl": "Gotthard op een rustige doordeweekse ochtend, buiten het zwarte weekend",
-          "zh": "避开'黑色周末',在平静的工作日清晨穿越圣哥达"
+          "nl": "Gotthard op vrijdagochtend vroeg, noordwaarts vóór de drukte",
+          "zh": "周五清晨北向穿越圣哥达,赶在车流之前"
         },
         {
           "nl": "ommuurd wijndorp zonder de drukte van Colmar",
@@ -636,8 +636,8 @@
         "zh": "贝尔甘是阿尔萨斯保存最完好的城墙葡萄酒村之一,拥有完整的中世纪城墙、塔楼与花团锦簇的半木结构房屋,却没有科尔马或里克韦尔的游人如织。它坐落于葡萄酒之路旁,以名贵特级园(阿尔滕贝格、坎茨勒贝格)著称。村庄之上,上柯尼斯堡城堡俯瞰着平原。"
       },
       "info": {
-        "nl": "Vertrek vroeg: op een doordeweekse ochtend is de Gotthard rustig, ver van de drukte van de zwarte zaterdagen. Zwitserland vereist een snelwegvignet. In Bergheim proef je Grand Cru rechtstreeks bij de wijnboer; de rondwandeling over de muren duurt een half uur. Laatste avond onderweg vóór thuis.",
-        "zh": "宜早出发:工作日清晨的圣哥达十分通畅,与'黑色周六'的拥堵相去甚远。瑞士高速需购通行证。在贝尔甘可直接向酒农品尝特级园佳酿;绕城墙一圈约半小时。这是到家前在路上的最后一晚。"
+        "nl": "Vertrek vroeg uit Cannobio: noordwaarts is de Gotthard op vrijdagochtend doorgaans goed te doen, vóór het drukke terugreisweekend. Zwitserland vereist een snelwegvignet. In Bergheim proef je Grand Cru rechtstreeks bij de wijnboer; de rondwandeling over de muren duurt een half uur. Laatste avond onderweg vóór thuis.",
+        "zh": "宜从坎诺比奥早发:周五清晨北向的圣哥达通常畅通,赶在繁忙的回程周末之前。瑞士高速需购通行证。在贝尔甘可直接向酒农品尝特级园佳酿;绕城墙一圈约半小时。这是到家前在路上的最后一晚。"
       },
       "voorbeeldfoto": {
         "bestand": "foto/etappe-07-bergheim.jpg",
@@ -661,8 +661,8 @@
     {
       "nr": 8,
       "datum": {
-        "nl": "do 13 aug",
-        "zh": "8月13日 周四"
+        "nl": "za 15 aug",
+        "zh": "8月15日 周六"
       },
       "van": "Bergheim",
       "naar": "Nijmegen",
@@ -700,8 +700,8 @@
         "zh": "最后一程穿越阿尔萨斯,经卢森堡返回奈梅亨。理想的中途停留地是卢森堡市:峡谷壮观,还有'欧洲最美阳台'科尼什步道;或在林木葱郁的艾费尔散步。"
       },
       "info": {
-        "nl": "Tank goedkoop in Luxemburg. Plan de laatste hondenpauze in de Eifel of bij de stad Luxemburg. Einde van de middag terug thuis, het einde van de pareltjesroute.",
-        "zh": "在卢森堡加油更划算。把最后一次遛狗安排在艾费尔或卢森堡市。傍晚到家,'珍珠之路'就此圆满。"
+        "nl": "Tank goedkoop in Luxemburg. Plan de laatste hondenpauze in de Eifel of bij de stad Luxemburg. Einde van de middag terug thuis. Liever spreiden? Overnacht bij Luxemburg en rijd zondag 16 aug rustig het laatste stuk, het einde van de pareltjesroute.",
+        "zh": "在卢森堡加油更划算。把最后一次遛狗安排在艾费尔或卢森堡市。傍晚到家。想更从容?可在卢森堡过夜,8 月 16 日周日轻松走完最后一程,'珍珠之路'就此圆满。"
       },
       "voorbeeldfoto": {
         "bestand": "foto/etappe-08-luxemburg.jpg",
@@ -727,7 +727,7 @@
   },
   "overzicht": [
     {
-      "waarde": 2490,
+      "waarde": 2485,
       "prefix": "± ",
       "suffix": " km",
       "label": {
@@ -736,14 +736,14 @@
       }
     },
     {
-      "waarde": 14,
+      "waarde": 16,
       "label": {
         "nl": "dagen",
         "zh": "天"
       }
     },
     {
-      "waarde": 13,
+      "waarde": 15,
       "label": {
         "nl": "nachten",
         "zh": "晚"

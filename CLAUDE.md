@@ -99,15 +99,17 @@ Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
 ## Subsite: /italie2026
 
 **marcovanthiel.nl/italie2026** — reiswebsite "Italië 2026: de pareltjesroute"
-(31 jul t/m 13 aug 2026, 14 dagen, Marco + Dandan + honden; opera-ankers
-Verona za 8 aug Nabucco + zo 9 aug Aida/Zeffirelli, 21:00, bron arena.it).
+(31 jul t/m 15 aug 2026, 16 dagen, Marco + Dandan + honden; opera-ankers
+vr 7 aug Turandot + zo 9 aug Aida/Zeffirelli, 21:00, bron arena.it).
 Gemaakt 2026-07-05. Kale static in `static/italie2026/`; `noindex`.
-Herpland 2026-07-06 (2×): later vertrek op vr 31 jul, ~14 dagen, 8 etappes;
-route Feldkirch → Glurns (2n) → Valeggio via Trento-stop (2n) → Portico di
-Romagna via Ferrara-lunchstop (3n, Brisighella = dagtocht) → Verona (2n,
-opera) → Cannobio via Bergamo-lunchstop (2n) → Bergheim → thuis; terugreis
-bewust midweek (wo+do, Gotthard buiten het zwarte weekend); Polesine en
-Airolo vervallen.
+Herpland 2026-07-08: overnachten niet ín Verona maar in de
+Valpolicella-wijnheuvels (San Pietro in Cariano, ~25 min van de Arena);
+honden tijdens de opera-avonden met een hondenoppas in het relais
+(Rover/DogBuddy Verona) — dat plus de tickets is de kritieke voorbereiding.
+Route: Feldkirch → Glurns (2n) → Valeggio via Trento-stop (1n, Sigurtà
+di-ochtend) → Portico via Ferrara-lunchstop (3n, Brisighella = dagtocht) →
+Valpolicella (3n, opera vr+zo, za rustdag) → Cannobio via Bergamo-lunchstop
+(4n) → Bergheim (vr door de Gotthard) → thuis za (evt. gespreid tot zo).
 
 **Tweetalig NL/中文** — schakelaar rechtsboven, keuze onthouden in
 `localStorage` (`it26_lang`); `app.js` zet `body.toon-zh`, CSS toont de taal
