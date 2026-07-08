@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "8 juli 2026, 18:44",
- "bijgewerkt_iso": "2026-07-08T18:44+02:00",
+ "bijgewerkt": "8 juli 2026, 20:22",
+ "bijgewerkt_iso": "2026-07-08T20:22+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -867,8 +867,8 @@
       "wo 8 jul · 4-6 7-6 3-6"
      ],
      [
-      "",
-      ""
+      "vandaag · Court 12 · HBO Max",
+      "vandaag · Court 18 · HBO Max"
      ],
      [
       ""
@@ -892,8 +892,8 @@
       "wo 8 jul · 6-3 6-4"
      ],
      [
-      "",
-      ""
+      "vandaag · Court 12 · HBO Max",
+      "vandaag · Court 12 · HBO Max"
      ],
      [
       ""
@@ -972,6 +972,42 @@
      "ronde": "3e ronde",
      "partij": "🇩🇪 Vincent Reisach – 🇰🇿 Zangar Nurlanuly [8]",
      "status": "gespeeld · 6-3 7-6",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 12",
+     "ronde": "Kwartfinale",
+     "partij": "🇺🇸 Jack Secord – 🇩🇪 Vincent Reisach",
+     "status": "gepland",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 18",
+     "ronde": "Kwartfinale",
+     "partij": "🇮🇳 Arnav Vijay Paparkar – 🇺🇸 Jordan Lee",
+     "status": "gepland",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 12",
+     "ronde": "Kwartfinale",
+     "partij": "🇳🇱 Thijs Boogaard [11] – 🇬🇧 Oliver Page",
+     "status": "gepland",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 12",
+     "ronde": "Kwartfinale",
+     "partij": "🇧🇬 Dimitar Kisimov [9] – 🇦🇺 Cruz Hewitt",
+     "status": "gepland",
      "tv": "HBO Max"
     }
    ]
@@ -1065,8 +1101,8 @@
       "wo 8 jul · 2-6 4-6"
      ],
      [
-      "",
-      ""
+      "vandaag · Court 8 · HBO Max",
+      "vandaag · Court 18 · HBO Max"
      ],
      [
       ""
@@ -1090,8 +1126,8 @@
       "wo 8 jul · 3-6 7-5 6-1"
      ],
      [
-      "",
-      ""
+      "vandaag · Court 7 · HBO Max",
+      "vandaag · Court 7 · HBO Max"
      ],
      [
       ""
@@ -1170,6 +1206,42 @@
      "ronde": "3e ronde",
      "partij": "🇺🇦 Polina Skliar [15] – 🇷🇴 Maia Ilinca Burcescu",
      "status": "gespeeld · 6-7 6-3 6-2",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 8",
+     "ronde": "Kwartfinale",
+     "partij": "🇨🇳 Xinran Sun [1] – 🇦🇹 Anna Pircher",
+     "status": "gepland",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 18",
+     "ronde": "Kwartfinale",
+     "partij": "🇩🇪 Emily Victoria Eigelsbach – 🇺🇸 Janae Preston",
+     "status": "gepland",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 7",
+     "ronde": "Kwartfinale",
+     "partij": "Mariia Makarova [7] – 🇺🇦 Polina Skliar [15]",
+     "status": "gepland",
+     "tv": "HBO Max"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "Court 7",
+     "ronde": "Kwartfinale",
+     "partij": "🇨🇳 Yihan Qu – Anna Pushkareva [14]",
+     "status": "gepland",
      "tv": "HBO Max"
     }
    ]
