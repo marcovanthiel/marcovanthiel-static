@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "9 juli 2026, 21:59",
- "bijgewerkt_iso": "2026-07-09T21:59+02:00",
+ "bijgewerkt": "10 juli 2026, 01:18",
+ "bijgewerkt_iso": "2026-07-10T01:18+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -138,7 +138,26 @@
     ]
    },
    "champ": "",
-   "vandaag": []
+   "vandaag": [
+    {
+     "start": 1783686600,
+     "tijd": "14:30",
+     "court": "Centre Court",
+     "ronde": "Halve finale",
+     "partij": "🇩🇪 Alexander Zverev – 🇬🇧 Arthur Fery",
+     "status": "gepland",
+     "tv": "Eurosport · HBO Max · Ziggo Sport"
+    },
+    {
+     "start": 1783693800,
+     "tijd": "16:30",
+     "court": "Centre Court",
+     "ronde": "Halve finale",
+     "partij": "Novak Djokovic – 🇮🇹 Jannik Sinner",
+     "status": "gepland",
+     "tv": "Eurosport · HBO Max · Ziggo Sport"
+    }
+   ]
   },
   "LS": {
    "tab": "Dames",
@@ -269,26 +288,7 @@
     ]
    },
    "champ": "",
-   "vandaag": [
-    {
-     "start": 1783600500,
-     "tijd": "14:35",
-     "court": "Centre Court",
-     "ronde": "Halve finale",
-     "partij": "🇺🇸 Coco Gauff – 🇨🇿 Karolina Muchova",
-     "status": "gespeeld · 2-6 6-1 6-7",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    },
-    {
-     "start": 1783611900,
-     "tijd": "17:45",
-     "court": "Centre Court",
-     "ronde": "Halve finale",
-     "partij": "🇨🇿 Linda Noskova – 🇺🇦 Marta Kostyuk",
-     "status": "gespeeld · 6-4 6-4",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   },
   "MD": {
    "tab": "Heren dubbel",
@@ -419,26 +419,7 @@
     ]
    },
    "champ": "",
-   "vandaag": [
-    {
-     "start": 1783604786,
-     "tijd": "15:46",
-     "court": "No.1 Court",
-     "ronde": "Halve finale",
-     "partij": "🇸🇻 Marcelo Arevalo / 🇭🇷 Mate Pavic [6] – 🇩🇪 Kevin Krawietz / 🇩🇪 Tim Puetz [7]",
-     "status": "gespeeld · 7-6 6-2",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    },
-    {
-     "start": 1783614278,
-     "tijd": "18:24",
-     "court": "No.1 Court",
-     "ronde": "Halve finale",
-     "partij": "🇫🇮 Harri Heliovaara / 🇬🇧 Henry Patten [1] – 🇦🇺 Thanasi Kokkinakis / 🇺🇸 Aleksandar Kovacevic",
-     "status": "gespeeld · 7-6 7-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   },
   "LD": {
    "tab": "Dames dubbel",
@@ -568,24 +549,6 @@
    },
    "champ": "",
    "vandaag": [
-    {
-     "start": 1783599003,
-     "tijd": "14:10",
-     "court": "No.2 Court",
-     "ronde": "Kwartfinale",
-     "partij": "🇨🇿 Katerina Siniakova / 🇺🇸 Taylor Townsend [1] – 🇨🇳 Hanyu Guo / 🇫🇷 Kristina Mladenovic [10]",
-     "status": "gespeeld · 6-7 5-7",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783607588,
-     "tijd": "16:33",
-     "court": "No.2 Court",
-     "ronde": "Kwartfinale",
-     "partij": "🇪🇪 Ingrid Neel / 🇲🇽 Giuliana Olmos – 🇨🇳 Xinyu Jiang / 🇨🇳 Yifan Xu",
-     "status": "gespeeld · 1-6 6-2 4-6",
-     "tv": "HBO Max"
-    },
     {
      "start": null,
      "tijd": "–",
@@ -735,17 +698,7 @@
     ]
    },
    "champ": "",
-   "vandaag": [
-    {
-     "start": 1783626459,
-     "tijd": "21:47",
-     "court": "Centre Court",
-     "ronde": "Finale",
-     "partij": "🇦🇺 Marc Polmans / 🇦🇺 Storm Hunter – 🇸🇻 Marcelo Arevalo / 🇱🇻 Jelena Ostapenko [2]",
-     "status": "gespeeld · 6-4 5-7 2-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   },
   "BS": {
    "tab": "Jongens",
@@ -875,42 +828,6 @@
    },
    "champ": "",
    "vandaag": [
-    {
-     "start": 1783595348,
-     "tijd": "13:09",
-     "court": "Court 12",
-     "ronde": "Kwartfinale",
-     "partij": "🇳🇱 Thijs Boogaard [11] – 🇬🇧 Oliver Page",
-     "status": "gespeeld · 6-3 6-1",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783600524,
-     "tijd": "14:35",
-     "court": "Court 18",
-     "ronde": "Kwartfinale",
-     "partij": "🇮🇳 Arnav Vijay Paparkar – 🇺🇸 Jordan Lee",
-     "status": "gespeeld · 2-6 5-7",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783600782,
-     "tijd": "14:39",
-     "court": "Court 12",
-     "ronde": "Kwartfinale",
-     "partij": "🇺🇸 Jack Secord – 🇩🇪 Vincent Reisach",
-     "status": "gespeeld · 3-6 3-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783605013,
-     "tijd": "15:50",
-     "court": "Court 12",
-     "ronde": "Kwartfinale",
-     "partij": "🇧🇬 Dimitar Kisimov [9] – 🇦🇺 Cruz Hewitt",
-     "status": "gespeeld · 1-6 2-6",
-     "tv": "HBO Max"
-    },
     {
      "start": null,
      "tijd": "–",
@@ -1059,42 +976,6 @@
    },
    "champ": "",
    "vandaag": [
-    {
-     "start": 1783595223,
-     "tijd": "13:07",
-     "court": "Court 8",
-     "ronde": "Kwartfinale",
-     "partij": "🇨🇳 Xinran Sun [1] – 🇦🇹 Anna Pircher",
-     "status": "gespeeld · 6-0 6-3",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783600416,
-     "tijd": "14:33",
-     "court": "Court 7",
-     "ronde": "Kwartfinale",
-     "partij": "Mariia Makarova [7] – 🇺🇦 Polina Skliar [15]",
-     "status": "gespeeld · 3-6 7-6 4-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783605231,
-     "tijd": "15:53",
-     "court": "Court 18",
-     "ronde": "Kwartfinale",
-     "partij": "🇩🇪 Emily Victoria Eigelsbach – 🇺🇸 Janae Preston",
-     "status": "gespeeld · 3-6 1-6",
-     "tv": "HBO Max"
-    },
-    {
-     "start": 1783608557,
-     "tijd": "16:49",
-     "court": "Court 7",
-     "ronde": "Kwartfinale",
-     "partij": "🇨🇳 Yihan Qu – Anna Pushkareva [14]",
-     "status": "gespeeld · 3-6 6-3 3-6",
-     "tv": "HBO Max"
-    },
     {
      "start": null,
      "tijd": "–",
