@@ -134,6 +134,33 @@ werkende link (`hotelsuggestie`).
   subsite-README). Na de reis: vervangen door eigen materiaal (zonder het
   veld valt de "foto volgt"-placeholder terug).
 
+## Subsite: /weerstatistieken
+
+**marcovanthiel.nl/weerstatistieken** — weerstatistieken van KNMI-meetstation
+Volkel (station 375): vier interactieve daggrafieken (temperatuur, neerslag,
+wind, zon) over de laatste drie jaar met synchroon zoomen/pannen, plus een
+30-jaarsstaafgrafiek "warme dagen" (>27 °C) met trendlijn. Gemaakt 2026-07-10.
+Kale static (geen Hugo-content): `static/weerstatistieken/`.
+
+```
+static/weerstatistieken/
+├── index.html    # alles-in-één: markup, inline <style>, inline <script> met de data
+└── vendor/       # self-hosted: Chart.js 4.4.1, moment 2.29.4, chartjs-adapter-moment,
+                  # hammer.js, chartjs-plugin-zoom (geen CDN — site-CSP is 'self')
+```
+
+**Data**: momentopname t/m 2026-07-08, inline in `index.html`. Verversen =
+nieuwe KNMI-export (`result.txt`) door het buildscript in de OneDrive-map
+`_Projectmanagement/Weer analyse` halen en de nieuwe `index.html` hierheen
+kopiëren (daarbij de vijf CDN-script-tags weer omzetten naar `vendor/…`).
+Let op: het bron-HTML verwijst naar `cdnjs …/hammerjs/2.0.8/…` en dat pad is
+een 404 (juiste cdnjs-pad is `hammer.js/2.0.8`); self-hosted vendor-map lost
+dat blijvend op.
+
+**CSP**: één inline `<script>` (data + grafieken) → eigen
+`/weerstatistieken/*`-blok in `static/_headers` met `'unsafe-inline'` in
+script-src (zelfde patroon als /wimbledon). Vendor-assets cachen 30 dagen.
+
 ## Verhuisde projecten
 
 - **OCAI-cultuurmeting Koraal & Via Jeugd** (voorheen onder
