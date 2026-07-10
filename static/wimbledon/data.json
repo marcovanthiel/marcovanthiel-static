@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "10 juli 2026, 16:42",
- "bijgewerkt_iso": "2026-07-10T16:42+02:00",
+ "bijgewerkt": "10 juli 2026, 19:02",
+ "bijgewerkt_iso": "2026-07-10T19:02+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -83,7 +83,8 @@
     "L-3-0": "🇮🇹 Jannik Sinner [1]",
     "L-3-1": "Novak Djokovic [7]",
     "R-3-0": "🇬🇧 Arthur Fery",
-    "R-3-1": "🇩🇪 Alexander Zverev [2]"
+    "R-3-1": "🇩🇪 Alexander Zverev [2]",
+    "R-4-0": "🇩🇪 Alexander Zverev [2]"
    },
    "labels": {
     "L": [
@@ -108,7 +109,7 @@
       "di 7 jul · 6-7 6-3 3-6 7-6 6-7"
      ],
      [
-      "vr 16:55 · Centre Court · Eurosport · HBO Max · Ziggo Sport"
+      "LIVE · 3e set · 6-4 6-4 1-0 · Eurosport · HBO Max · Ziggo Sport"
      ]
     ],
     "R": [
@@ -133,7 +134,7 @@
       "wo 8 jul · 4-6 4-6 2-6"
      ],
      [
-      "LIVE · 3e set · 6-7 2-6 2-4 · Eurosport · HBO Max · Ziggo Sport"
+      "vr 10 jul · 6-7 2-6 4-6"
      ]
     ]
    },
@@ -145,16 +146,16 @@
      "court": "Centre Court",
      "ronde": "Halve finale",
      "partij": "🇩🇪 Alexander Zverev – 🇬🇧 Arthur Fery",
-     "status": "LIVE · 3e set · 7-6 6-2 4-2",
+     "status": "gespeeld · 7-6 6-2 6-4",
      "tv": "Eurosport · HBO Max · Ziggo Sport"
     },
     {
-     "start": 1783695300,
-     "tijd": "16:55",
+     "start": 1783696800,
+     "tijd": "17:20",
      "court": "Centre Court",
      "ronde": "Halve finale",
      "partij": "Novak Djokovic – 🇮🇹 Jannik Sinner",
-     "status": "gepland",
+     "status": "LIVE · 3e set · 4-6 4-6 0-1",
      "tv": "Eurosport · HBO Max · Ziggo Sport"
     }
    ]
@@ -1007,6 +1008,15 @@
      "ronde": "Halve finale",
      "partij": "🇺🇦 Polina Skliar [15] – Anna Pushkareva [14]",
      "status": "gespeeld · 4-6 6-2 1-6",
+     "tv": "Eurosport · HBO Max · Ziggo Sport"
+    },
+    {
+     "start": null,
+     "tijd": "–",
+     "court": "No.1 Court",
+     "ronde": "Finale",
+     "partij": "🇨🇳 Xinran Sun [1] – Anna Pushkareva [14]",
+     "status": "gepland",
      "tv": "Eurosport · HBO Max · Ziggo Sport"
     }
    ]
