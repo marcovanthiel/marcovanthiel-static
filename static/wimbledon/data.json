@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "10 juli 2026, 01:18",
- "bijgewerkt_iso": "2026-07-10T01:18+02:00",
+ "bijgewerkt": "10 juli 2026, 13:11",
+ "bijgewerkt_iso": "2026-07-10T13:11+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -920,7 +920,8 @@
     "L-3-0": "🇨🇳 Xinran Sun [1]",
     "L-3-1": "🇺🇸 Janae Preston",
     "R-3-0": "🇺🇦 Polina Skliar [15]",
-    "R-3-1": "Anna Pushkareva [14]"
+    "R-3-1": "Anna Pushkareva [14]",
+    "L-4-0": "🇨🇳 Xinran Sun [1]"
    },
    "labels": {
     "L": [
@@ -945,7 +946,7 @@
       "do 9 jul · 3-6 1-6"
      ],
      [
-      "vandaag · Court 12 · Eurosport · HBO Max · Ziggo Sport"
+      "vr 10 jul · 6-1 6-3"
      ]
     ],
     "R": [
@@ -977,12 +978,12 @@
    "champ": "",
    "vandaag": [
     {
-     "start": null,
-     "tijd": "–",
+     "start": 1783681449,
+     "tijd": "13:04",
      "court": "Court 12",
      "ronde": "Halve finale",
      "partij": "🇨🇳 Xinran Sun [1] – 🇺🇸 Janae Preston",
-     "status": "gepland",
+     "status": "gespeeld · 6-1 6-3",
      "tv": "Eurosport · HBO Max · Ziggo Sport"
     },
     {
