@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "10 juli 2026, 20:26",
- "bijgewerkt_iso": "2026-07-10T20:26+02:00",
+ "bijgewerkt": "10 juli 2026, 22:37",
+ "bijgewerkt_iso": "2026-07-10T22:37+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -506,6 +506,7 @@
     "L-3-1": "🇨🇳 Xinyu Jiang / 🇨🇳 Yifan Xu",
     "R-3-0": "🇯🇵 Shuko Aoyama / 🇹🇼 En-Shuo Liang [13]",
     "R-3-1": "🇨🇦 Gabriela Dabrowski / 🇧🇷 Luisa Stefani [2]",
+    "L-4-0": "🇨🇳 Hanyu Guo / 🇫🇷 Kristina Mladenovic [10]",
     "R-4-0": "🇨🇦 Gabriela Dabrowski / 🇧🇷 Luisa Stefani [2]"
    },
    "labels": {
@@ -531,7 +532,7 @@
       "do 9 jul · 1-6 6-2 4-6"
      ],
      [
-      "vandaag · No.1 Court · Eurosport · HBO Max · Ziggo Sport"
+      "vr 10 jul · 7-6 6-4"
      ]
     ],
     "R": [
@@ -572,12 +573,12 @@
      "tv": "Eurosport · HBO Max · Ziggo Sport"
     },
     {
-     "start": null,
-     "tijd": "–",
+     "start": 1783708631,
+     "tijd": "20:37",
      "court": "No.1 Court",
      "ronde": "Halve finale",
      "partij": "🇨🇳 Hanyu Guo / 🇫🇷 Kristina Mladenovic [10] – 🇨🇳 Xinyu Jiang / 🇨🇳 Yifan Xu",
-     "status": "gepland",
+     "status": "gespeeld · 7-6 6-4",
      "tv": "Eurosport · HBO Max · Ziggo Sport"
     }
    ]
