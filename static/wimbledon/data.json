@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "10 juli 2026, 19:02",
- "bijgewerkt_iso": "2026-07-10T19:02+02:00",
+ "bijgewerkt": "10 juli 2026, 20:26",
+ "bijgewerkt_iso": "2026-07-10T20:26+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -84,7 +84,8 @@
     "L-3-1": "Novak Djokovic [7]",
     "R-3-0": "🇬🇧 Arthur Fery",
     "R-3-1": "🇩🇪 Alexander Zverev [2]",
-    "R-4-0": "🇩🇪 Alexander Zverev [2]"
+    "R-4-0": "🇩🇪 Alexander Zverev [2]",
+    "L-4-0": "🇮🇹 Jannik Sinner [1]"
    },
    "labels": {
     "L": [
@@ -109,7 +110,7 @@
       "di 7 jul · 6-7 6-3 3-6 7-6 6-7"
      ],
      [
-      "LIVE · 3e set · 6-4 6-4 1-0 · Eurosport · HBO Max · Ziggo Sport"
+      "vr 10 jul · 6-4 6-4 6-4"
      ]
     ],
     "R": [
@@ -155,7 +156,7 @@
      "court": "Centre Court",
      "ronde": "Halve finale",
      "partij": "Novak Djokovic – 🇮🇹 Jannik Sinner",
-     "status": "LIVE · 3e set · 4-6 4-6 0-1",
+     "status": "gespeeld · 4-6 4-6 4-6",
      "tv": "Eurosport · HBO Max · Ziggo Sport"
     }
    ]
