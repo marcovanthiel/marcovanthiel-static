@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "10 juli 2026, 22:37",
- "bijgewerkt_iso": "2026-07-10T22:37+02:00",
+ "bijgewerkt": "11 juli 2026, 00:10",
+ "bijgewerkt_iso": "2026-07-11T00:10+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -140,26 +140,7 @@
     ]
    },
    "champ": "",
-   "vandaag": [
-    {
-     "start": 1783686900,
-     "tijd": "14:35",
-     "court": "Centre Court",
-     "ronde": "Halve finale",
-     "partij": "🇩🇪 Alexander Zverev – 🇬🇧 Arthur Fery",
-     "status": "gespeeld · 7-6 6-2 6-4",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    },
-    {
-     "start": 1783696800,
-     "tijd": "17:20",
-     "court": "Centre Court",
-     "ronde": "Halve finale",
-     "partij": "Novak Djokovic – 🇮🇹 Jannik Sinner",
-     "status": "gespeeld · 4-6 4-6 4-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   },
   "LS": {
    "tab": "Dames",
@@ -290,7 +271,17 @@
     ]
    },
    "champ": "",
-   "vandaag": []
+   "vandaag": [
+    {
+     "start": 1783782000,
+     "tijd": "17:00",
+     "court": "Centre Court",
+     "ronde": "Finalist",
+     "partij": "🇨🇿 Linda Noskova – 🇨🇿 Karolina Muchova",
+     "status": "gepland",
+     "tv": "Eurosport · HBO Max · Ziggo Sport"
+    }
+   ]
   },
   "MD": {
    "tab": "Heren dubbel",
@@ -562,26 +553,7 @@
     ]
    },
    "champ": "",
-   "vandaag": [
-    {
-     "start": 1783689339,
-     "tijd": "15:15",
-     "court": "No.1 Court",
-     "ronde": "Halve finale",
-     "partij": "🇯🇵 Shuko Aoyama / 🇹🇼 En-Shuo Liang [13] – 🇨🇦 Gabriela Dabrowski / 🇧🇷 Luisa Stefani [2]",
-     "status": "gespeeld · 5-7 3-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    },
-    {
-     "start": 1783708631,
-     "tijd": "20:37",
-     "court": "No.1 Court",
-     "ronde": "Halve finale",
-     "partij": "🇨🇳 Hanyu Guo / 🇫🇷 Kristina Mladenovic [10] – 🇨🇳 Xinyu Jiang / 🇨🇳 Yifan Xu",
-     "status": "gespeeld · 7-6 6-4",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   },
   "MX": {
    "tab": "Mixed",
@@ -843,26 +815,7 @@
     ]
    },
    "champ": "",
-   "vandaag": [
-    {
-     "start": 1783687598,
-     "tijd": "14:46",
-     "court": "Court 18",
-     "ronde": "Halve finale",
-     "partij": "🇳🇱 Thijs Boogaard [11] – 🇦🇺 Cruz Hewitt",
-     "status": "gespeeld · 4-6 4-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    },
-    {
-     "start": 1783692312,
-     "tijd": "16:05",
-     "court": "Court 12",
-     "ronde": "Halve finale",
-     "partij": "🇩🇪 Vincent Reisach – 🇺🇸 Jordan Lee",
-     "status": "gespeeld · 3-6 2-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   },
   "GS": {
    "tab": "Meisjes",
@@ -994,24 +947,6 @@
    },
    "champ": "",
    "vandaag": [
-    {
-     "start": 1783681449,
-     "tijd": "13:04",
-     "court": "Court 12",
-     "ronde": "Halve finale",
-     "partij": "🇨🇳 Xinran Sun [1] – 🇺🇸 Janae Preston",
-     "status": "gespeeld · 6-1 6-3",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    },
-    {
-     "start": 1783687647,
-     "tijd": "14:47",
-     "court": "Court 12",
-     "ronde": "Halve finale",
-     "partij": "🇺🇦 Polina Skliar [15] – Anna Pushkareva [14]",
-     "status": "gespeeld · 4-6 6-2 1-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    },
     {
      "start": null,
      "tijd": "–",
