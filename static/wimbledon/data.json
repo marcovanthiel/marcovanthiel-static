@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "11 juli 2026, 20:00",
- "bijgewerkt_iso": "2026-07-11T20:00+02:00",
+ "bijgewerkt": "12 juli 2026, 00:56",
+ "bijgewerkt_iso": "2026-07-12T00:56+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -140,7 +140,17 @@
     ]
    },
    "champ": "",
-   "vandaag": []
+   "vandaag": [
+    {
+     "start": 1783868400,
+     "tijd": "17:00",
+     "court": "Centre Court",
+     "ronde": "Finalist",
+     "partij": "🇩🇪 Alexander Zverev – 🇮🇹 Jannik Sinner",
+     "status": "gepland",
+     "tv": "Eurosport · HBO Max · Ziggo Sport"
+    }
+   ]
   },
   "LS": {
    "tab": "Dames",
@@ -271,17 +281,7 @@
     ]
    },
    "champ": "🇨🇿 Linda Noskova [9]",
-   "vandaag": [
-    {
-     "start": 1783782300,
-     "tijd": "17:05",
-     "court": "Centre Court",
-     "ronde": "Finalist",
-     "partij": "🇨🇿 Linda Noskova – 🇨🇿 Karolina Muchova",
-     "status": "gespeeld · 6-2 5-7 6-3",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   },
   "MD": {
    "tab": "Heren dubbel",
@@ -412,17 +412,7 @@
     ]
    },
    "champ": "",
-   "vandaag": [
-    {
-     "start": 1783777722,
-     "tijd": "15:48",
-     "court": "Centre Court",
-     "ronde": "Finale",
-     "partij": "🇫🇮 Harri Heliovaara / 🇬🇧 Henry Patten [1] – 🇸🇻 Marcelo Arevalo / 🇭🇷 Mate Pavic [6]",
-     "status": "gespeeld · 7-6 7-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   },
   "LD": {
    "tab": "Dames dubbel",
@@ -966,17 +956,7 @@
     ]
    },
    "champ": "",
-   "vandaag": [
-    {
-     "start": 1783782032,
-     "tijd": "17:00",
-     "court": "No.1 Court",
-     "ronde": "Finale",
-     "partij": "🇨🇳 Xinran Sun [1] – Anna Pushkareva [14]",
-     "status": "gespeeld · 7-5 3-6 4-6",
-     "tv": "Eurosport · HBO Max · Ziggo Sport"
-    }
-   ]
+   "vandaag": []
   }
  }
 }
