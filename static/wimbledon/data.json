@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "12 juli 2026, 15:41",
- "bijgewerkt_iso": "2026-07-12T15:41+02:00",
+ "bijgewerkt": "12 juli 2026, 17:03",
+ "bijgewerkt_iso": "2026-07-12T17:03+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -142,8 +142,8 @@
    "champ": "",
    "vandaag": [
     {
-     "start": 1783868400,
-     "tijd": "17:00",
+     "start": 1783868700,
+     "tijd": "17:05",
      "court": "Centre Court",
      "ronde": "Finalist",
      "partij": "🇩🇪 Alexander Zverev – 🇮🇹 Jannik Sinner",
@@ -817,12 +817,12 @@
    "champ": "",
    "vandaag": [
     {
-     "start": null,
-     "tijd": "–",
+     "start": 1783865433,
+     "tijd": "16:10",
      "court": "No.1 Court",
      "ronde": "Finale",
      "partij": "🇺🇸 Jordan Lee – 🇦🇺 Cruz Hewitt",
-     "status": "gepland",
+     "status": "gespeeld · 4-6 6-4 7-5",
      "tv": "Eurosport · HBO Max · Ziggo Sport"
     }
    ]
