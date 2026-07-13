@@ -1,6 +1,6 @@
 {
- "bijgewerkt": "13 juli 2026, 00:56",
- "bijgewerkt_iso": "2026-07-13T00:56+02:00",
+ "bijgewerkt": "13 juli 2026, 09:28",
+ "bijgewerkt_iso": "2026-07-13T09:28+02:00",
  "volgorde": [
   "MS",
   "LS",
@@ -24,122 +24,92 @@
    "finale": "Finale: zondag 12 juli",
    "pair": false,
    "slots": {
-    "L-0-0": "🇮🇹 Jannik Sinner [1]",
-    "L-0-1": "🇺🇸 Jenson Brooksby",
-    "L-0-2": "🇪🇸 Rafael Jodar [23]",
-    "L-0-3": "🇯🇵 Shintaro Mochizuki",
-    "L-0-4": "🇵🇱 Hubert Hurkacz",
-    "L-0-5": "🇺🇸 Tommy Paul [21]",
-    "L-0-6": "🇩🇪 Jan-Lennard Struff",
-    "L-0-7": "🇷🇺 Daniil Medvedev [8]",
-    "L-0-8": "🇨🇦 Felix Auger-Aliassime [3]",
-    "L-0-9": "🇺🇸 Michael Zheng",
-    "L-0-10": "🇪🇸 Alejandro Davidovich Fokina [22]",
-    "L-0-11": "🇭🇺 Marton Fucsovics",
-    "L-0-12": "🇷🇺 Roman Safiullin",
-    "L-0-13": "🇧🇷 Joao Fonseca [24]",
-    "L-0-14": "🇫🇷 Arthur Rinderknech [25]",
-    "L-0-15": "Novak Djokovic [7]",
-    "R-0-0": "🇦🇺 Alex de Minaur [5]",
-    "R-0-1": "🇺🇸 Zachary Svajda",
-    "R-0-2": "🇷🇺 Karen Khachanov [19]",
-    "R-0-3": "🇮🇹 Flavio Cobolli [9]",
+    "L-0-0": "J. Sinner [1]",
+    "L-0-1": "J. Brooksby",
+    "L-0-2": "R. Jodar [23]",
+    "L-0-3": "S. Mochizuki",
+    "L-0-4": "H. Hurkacz",
+    "L-0-5": "T. Paul [21]",
+    "L-0-6": "J.-L. Struff",
+    "L-0-7": "D. Medvedev [8]",
+    "L-0-8": "F. Auger-Aliassime [3]",
+    "L-0-9": "M. Zheng",
+    "L-0-10": "A. Davidovich Fokina [22]",
+    "L-0-11": "M. Fucsovics",
+    "L-0-12": "R. Safiullin",
+    "L-0-13": "J. Fonseca [24]",
+    "L-0-14": "A. Rinderknech [25]",
+    "L-0-15": "N. Djokovic [7]",
+    "R-0-0": "A. de Minaur [5]",
+    "R-0-1": "Z. Svajda",
+    "R-0-2": "K. Khachanov [19]",
+    "R-0-3": "F. Cobolli [9]",
     "R-0-4": "🇧🇬 Grigor Dimitrov",
-    "R-0-5": "🇮🇹 Matteo Berrettini",
-    "R-0-6": "🇧🇪 Zizou Bergs",
-    "R-0-7": "🇬🇧 Arthur Fery",
-    "R-0-8": "🇺🇸 Taylor Fritz [6]",
-    "R-0-9": "🇮🇹 Lorenzo Sonego",
-    "R-0-10": "🇺🇸 Frances Tiafoe [17]",
-    "R-0-11": "🇰🇿 Alexander Bublik [10]",
-    "R-0-12": "🇨🇿 Jiri Lehecka [13]",
-    "R-0-13": "🇪🇸 Jaume Munar",
-    "R-0-14": "🇺🇸 Marcos Giron",
-    "R-0-15": "🇩🇪 Alexander Zverev [2]",
-    "L-1-6": "🇷🇺 Roman Safiullin",
-    "L-1-7": "Novak Djokovic [7]",
-    "L-1-1": "🇯🇵 Shintaro Mochizuki",
-    "L-1-3": "🇩🇪 Jan-Lennard Struff",
-    "L-1-0": "🇮🇹 Jannik Sinner [1]",
-    "L-1-2": "🇵🇱 Hubert Hurkacz",
-    "L-1-5": "🇪🇸 Alejandro Davidovich Fokina [22]",
-    "L-1-4": "🇨🇦 Felix Auger-Aliassime [3]",
-    "R-1-0": "🇦🇺 Alex de Minaur [5]",
-    "R-1-1": "🇮🇹 Flavio Cobolli [9]",
-    "R-1-3": "🇬🇧 Arthur Fery",
-    "R-1-6": "🇨🇿 Jiri Lehecka [13]",
-    "R-1-7": "🇩🇪 Alexander Zverev [2]",
-    "R-1-4": "🇺🇸 Taylor Fritz [6]",
-    "R-1-5": "🇰🇿 Alexander Bublik [10]",
-    "R-1-2": "🇧🇬 Grigor Dimitrov",
-    "L-2-3": "Novak Djokovic [7]",
-    "L-2-2": "🇨🇦 Felix Auger-Aliassime [3]",
-    "L-2-1": "🇩🇪 Jan-Lennard Struff",
-    "L-2-0": "🇮🇹 Jannik Sinner [1]",
-    "R-2-0": "🇮🇹 Flavio Cobolli [9]",
-    "R-2-1": "🇬🇧 Arthur Fery",
-    "R-2-2": "🇺🇸 Taylor Fritz [6]",
-    "R-2-3": "🇩🇪 Alexander Zverev [2]",
-    "L-3-0": "🇮🇹 Jannik Sinner [1]",
-    "L-3-1": "Novak Djokovic [7]",
-    "R-3-0": "🇬🇧 Arthur Fery",
-    "R-3-1": "🇩🇪 Alexander Zverev [2]",
-    "R-4-0": "🇩🇪 Alexander Zverev [2]",
-    "L-4-0": "🇮🇹 Jannik Sinner [1]"
+    "R-0-5": "M. Berrettini",
+    "R-0-6": "Z. Bergs",
+    "R-0-7": "A. Fery",
+    "R-0-8": "T. Fritz [6]",
+    "R-0-9": "L. Sonego",
+    "R-0-10": "F. Tiafoe [17]",
+    "R-0-11": "A. Bublik [10]",
+    "R-0-12": "J. Lehecka [13]",
+    "R-0-13": "J. Munar",
+    "R-0-14": "M. Giron",
+    "R-0-15": "A. Zverev [2]"
    },
    "labels": {
     "L": [
      [
-      "vr 3 jul · 6-4 6-3 6-4",
-      "vr 3 jul · 6-1 6-7 4-6 4-6",
-      "vr 3 jul · 4-6 7-6 7-5 6-2",
-      "vr 3 jul · 7-6 7-6 7-5",
-      "vr 3 jul · 7-6 6-2 6-1",
-      "vr 3 jul · 7-6 6-2 6-3",
-      "vr 3 jul · 6-3 6-3 6-3",
-      "vr 3 jul · 5-7 4-6 6-1 6-7"
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
      ],
      [
-      "zo 5 jul · 6-3 7-6 6-3",
-      "zo 5 jul · 6-3 7-6 6-7 5-7 2-4",
-      "zo 5 jul · 6-7 7-6 6-3 6-7 6-1",
-      "zo 5 jul · 6-7 3-6 6-3 3-6"
+      "",
+      "",
+      "",
+      ""
      ],
      [
-      "di 7 jul · 7-5 7-6 6-3",
-      "di 7 jul · 6-7 6-3 3-6 7-6 6-7"
+      "",
+      ""
      ],
      [
-      "vr 10 jul · 6-4 6-4 6-4"
+      ""
      ]
     ],
     "R": [
      [
-      "za 4 jul · 6-2 5-7 6-2 6-4",
-      "za 4 jul · 6-0 6-7 7-6 2-6 2-6",
-      "za 4 jul · 6-3 6-4 3-6 5-7 6-3",
-      "za 4 jul · 6-2 5-7 6-2 6-7 6-7",
-      "za 4 jul · 4-6 6-3 6-4 7-6",
-      "za 4 jul · 6-4 6-7 6-7 6-4 3-6",
-      "za 4 jul · 6-4 6-4 4-6 6-4",
-      "za 4 jul · 2-6 6-7 4-6"
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
      ],
      [
-      "ma 6 jul · 5-7 6-7 3-6",
-      "ma 6 jul · 5-7 6-3 6-4 4-6 6-7",
-      "ma 6 jul · 7-6 6-4 6-4",
-      "di 7 jul · 4-6 5-7 6-3 6-7"
+      "",
+      "",
+      "",
+      ""
      ],
      [
-      "wo 8 jul · 4-6 6-7 0-6",
-      "wo 8 jul · 4-6 4-6 2-6"
+      "",
+      ""
      ],
      [
-      "vr 10 jul · 6-7 2-6 4-6"
+      ""
      ]
     ]
    },
-   "champ": "🇮🇹 Jannik Sinner",
+   "champ": "",
    "vandaag": []
   },
   "LS": {
@@ -155,122 +125,92 @@
    "finale": "Finale: zaterdag 11 juli",
    "pair": false,
    "slots": {
-    "L-0-0": "🇧🇾 Aryna Sabalenka [1]",
-    "L-0-1": "🇱🇻 Jelena Ostapenko",
-    "L-0-2": "🇦🇺 Daria Kasatkina",
-    "L-0-3": "🇯🇵 Naomi Osaka [14]",
-    "L-0-4": "🇨🇿 Karolina Muchova [10]",
-    "L-0-5": "🇹🇭 Mananchaya Sawangkaew",
-    "L-0-6": "🇨🇿 Nikola Bartunkova",
-    "L-0-7": "🇨🇿 Barbora Krejcikova",
-    "L-0-8": "🇺🇸 Jessica Pegula [4]",
-    "L-0-9": "🇪🇸 Jessica Bouzas Maneiro",
-    "L-0-10": "🇷🇺 Ekaterina Alexandrova [18]",
-    "L-0-11": "🇺🇸 Iva Jovic [16]",
-    "L-0-12": "🇨🇭 Belinda Bencic [11]",
-    "L-0-13": "🇷🇺 Anna Kalinskaya [19]",
+    "L-0-0": "A. Sabalenka [1]",
+    "L-0-1": "J. Ostapenko",
+    "L-0-2": "D. Kasatkina",
+    "L-0-3": "N. Osaka [14]",
+    "L-0-4": "K. Muchova [10]",
+    "L-0-5": "M. Sawangkaew",
+    "L-0-6": "N. Bartunkova",
+    "L-0-7": "B. Krejcikova",
+    "L-0-8": "J. Pegula [4]",
+    "L-0-9": "J. Bouzas Maneiro",
+    "L-0-10": "E. Alexandrova [18]",
+    "L-0-11": "I. Jovic [16]",
+    "L-0-12": "B. Bencic [11]",
+    "L-0-13": "A. Kalinskaya [19]",
     "L-0-14": "🇺🇸 Claire Liu",
-    "L-0-15": "🇺🇸 Coco Gauff [7]",
-    "R-0-0": "🇺🇦 Daria Snigur",
-    "R-0-1": "🇺🇸 Ashlyn Krueger",
-    "R-0-2": "🇺🇸 Emma Navarro [23]",
-    "R-0-3": "🇺🇦 Marta Kostyuk [12]",
-    "R-0-4": "🇮🇹 Jasmine Paolini [13]",
-    "R-0-5": "🇬🇷 Maria Sakkari",
-    "R-0-6": "🇵🇭 Alexandra Eala [29]",
-    "R-0-7": "🇵🇱 Iga Swiatek [3]",
-    "R-0-8": "🇺🇸 Amanda Anisimova [6]",
-    "R-0-9": "🇺🇸 Madison Keys [26]",
-    "R-0-10": "Sorana Cirstea [17]",
-    "R-0-11": "🇨🇿 Linda Noskova [9]",
-    "R-0-12": "🇷🇺 Liudmila Samsonova",
-    "R-0-13": "🇨🇿 Marie Bouzkova [21]",
-    "R-0-14": "🇧🇪 Elise Mertens [25]",
-    "R-0-15": "🇰🇿 Elena Rybakina [2]",
-    "L-1-6": "🇨🇭 Belinda Bencic [11]",
-    "L-1-1": "🇯🇵 Naomi Osaka [14]",
-    "L-1-5": "🇺🇸 Iva Jovic [16]",
-    "L-1-4": "🇺🇸 Jessica Pegula [4]",
-    "L-1-3": "🇨🇿 Barbora Krejcikova",
-    "L-1-0": "🇧🇾 Aryna Sabalenka [1]",
-    "L-1-7": "🇺🇸 Coco Gauff [7]",
-    "L-1-2": "🇨🇿 Karolina Muchova [10]",
-    "R-1-1": "🇺🇦 Marta Kostyuk [12]",
-    "R-1-6": "🇨🇿 Marie Bouzkova [21]",
-    "R-1-0": "🇺🇸 Ashlyn Krueger",
-    "R-1-7": "🇧🇪 Elise Mertens [25]",
-    "R-1-3": "🇵🇭 Alexandra Eala [29]",
-    "R-1-2": "🇮🇹 Jasmine Paolini [13]",
-    "R-1-5": "🇨🇿 Linda Noskova [9]",
-    "R-1-4": "🇺🇸 Madison Keys [26]",
-    "L-2-2": "🇺🇸 Jessica Pegula [4]",
-    "L-2-1": "🇨🇿 Karolina Muchova [10]",
-    "L-2-0": "🇯🇵 Naomi Osaka [14]",
-    "L-2-3": "🇺🇸 Coco Gauff [7]",
-    "R-2-0": "🇺🇦 Marta Kostyuk [12]",
-    "R-2-3": "🇧🇪 Elise Mertens [25]",
-    "R-2-1": "🇮🇹 Jasmine Paolini [13]",
-    "R-2-2": "🇨🇿 Linda Noskova [9]",
-    "L-3-1": "🇺🇸 Coco Gauff [7]",
-    "L-3-0": "🇨🇿 Karolina Muchova [10]",
-    "R-3-1": "🇨🇿 Linda Noskova [9]",
-    "R-3-0": "🇺🇦 Marta Kostyuk [12]",
-    "L-4-0": "🇨🇿 Karolina Muchova [10]",
-    "R-4-0": "🇨🇿 Linda Noskova [9]"
+    "L-0-15": "C. Gauff [7]",
+    "R-0-0": "D. Snigur",
+    "R-0-1": "A. Krueger",
+    "R-0-2": "E. Navarro [23]",
+    "R-0-3": "M. Kostyuk [12]",
+    "R-0-4": "J. Paolini [13]",
+    "R-0-5": "M. Sakkari",
+    "R-0-6": "A. Eala [29]",
+    "R-0-7": "I. Swiatek [3]",
+    "R-0-8": "A. Anisimova [6]",
+    "R-0-9": "M. Keys [26]",
+    "R-0-10": "S. Cirstea [17]",
+    "R-0-11": "L. Noskova [9]",
+    "R-0-12": "L. Samsonova",
+    "R-0-13": "M. Bouzkova [21]",
+    "R-0-14": "E. Mertens [25]",
+    "R-0-15": "E. Rybakina [2]"
    },
    "labels": {
     "L": [
      [
-      "vr 3 jul · 6-4 6-4",
-      "vr 3 jul · 1-6 3-6",
-      "vr 3 jul · 6-2 7-6",
-      "vr 3 jul · 3-6 5-7",
-      "vr 3 jul · 6-1 6-3",
-      "vr 3 jul · 3-6 6-3 4-6",
-      "vr 3 jul · 6-4 4-6 7-6",
-      "vr 3 jul · 3-6 7-6 2-6"
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
      ],
      [
-      "zo 5 jul · 2-6 6-7",
-      "zo 5 jul · 7-5 5-7 6-3",
-      "zo 5 jul · 4-6 6-3 6-1",
-      "zo 5 jul · 6-4 3-6 4-6"
+      "",
+      "",
+      "",
+      ""
      ],
      [
-      "di 7 jul · 6-7 4-6",
-      "di 7 jul · 6-4 3-6 3-6"
+      "",
+      ""
      ],
      [
-      "do 9 jul · 6-2 1-6 7-6"
+      ""
      ]
     ],
     "R": [
      [
-      "za 4 jul · 3-6 2-6",
-      "za 4 jul · 2-6 6-4 1-6",
-      "za 4 jul · 6-1 6-2",
-      "za 4 jul · 7-6 6-2",
-      "za 4 jul · 6-3 2-6 3-6",
-      "za 4 jul · 6-2 3-6 6-7",
-      "za 4 jul · 6-4 6-7 4-6",
-      "za 4 jul · 7-6 6-1"
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
      ],
      [
-      "ma 6 jul · 4-6 4-6",
-      "ma 6 jul · 6-4 4-6 6-3",
-      "ma 6 jul · 4-6 6-7",
-      "ma 6 jul · 4-6 4-6"
+      "",
+      "",
+      "",
+      ""
      ],
      [
-      "wo 8 jul · 6-3 6-2",
-      "wo 8 jul · 6-3 7-5"
+      "",
+      ""
      ],
      [
-      "do 9 jul · 4-6 4-6"
+      ""
      ]
     ]
    },
-   "champ": "🇨🇿 Linda Noskova [9]",
+   "champ": "",
    "vandaag": []
   },
   "MD": {
