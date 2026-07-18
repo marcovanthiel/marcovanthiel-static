@@ -57,7 +57,6 @@ static/wimbledon/
 ├── index.html            # datagestuurde bracket-pagina (7 tabs), leest data.json
 └── data.json             # gegenereerd — NIET met de hand bewerken
 scripts/wimbledon/update.py             # generator (Python 3.12, stdlib only)
-.github/workflows/wimbledon-hourly.yml  # cron elk uur (minuut 7), commit bij wijziging
 ```
 
 **Databronnen** (beide gratis, geen key, beide CORS-open):
@@ -92,8 +91,12 @@ t/m de achtste finales exclusief bij Ziggo Sport**; vanaf de halve finales alles
 `/wimbledon/*`-blok dat de site-CSP vervangt (`! Content-Security-Policy` +
 versie met `'unsafe-inline'`). Niet weghalen, anders doen de tabs niets.
 
-**Onderhoud**: het script stopt zichzelf na 2026-07-13 (EINDDATUM); daarna de
-workflow `wimbledon-hourly.yml` verwijderen (en evt. de hele subsite archiveren).
+**Onderhoud**: het toernooi 2026 is voorbij; de uurlijkse workflow
+`wimbledon-hourly.yml` is op 2026-07-18 verwijderd (het script stopte zichzelf
+al na 2026-07-13 via EINDDATUM). De subsite blijft staan als archief. Voor een
+nieuwe editie (2027): workflow terugzetten uit de git-historie, jaartallen en
+EINDDATUM in `update.py` en `index.html` bijwerken, en de nieuwe `SEED_R32`
+(laatste-32-loting MS/LS) op beide plekken invoeren.
 Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
 
 ## Subsite: /italie2026
