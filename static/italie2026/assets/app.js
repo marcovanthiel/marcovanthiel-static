@@ -37,12 +37,15 @@
    De iframe (youtube-nocookie; CSP frame-src staat dit toe) wordt pas
    aangemaakt bij eerste zichtbaarheid of klik — snel + privacyvriendelijk.
    Besturing via de YouTube-postMessage-API (enablejsapi, geen extern script).
+   Het geluid start gedempt op VOLUME procent (YouTube begint anders op 100);
+   wie in de speler zelf harder zet, wordt daarna niet meer overschreven.
    Let op: browsers kunnen autoplay-met-geluid blokkeren tot de bezoeker één
    keer geklikt/getikt heeft; daarom een eenmalige hervat-poging bij de
    eerste interactie. ---- */
 (function(){
   'use strict';
   var GELDIG = /^[A-Za-z0-9_-]{6,20}$/;
+  var VOLUME = 25;      // startvolume in %, redelijk zacht
   var actieve = null;   // iframe dat nu hoort te spelen
 
   function maakIframe(knop){
@@ -55,15 +58,22 @@
     ifr.title = knop.getAttribute('aria-label') || 'Video';
     ifr.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; fullscreen');
     ifr.setAttribute('allowfullscreen', '');
+    // Startvolume dempen: de speler is pas even ná het laden aanspreekbaar,
+    // dus het commando een paar keer kort achter elkaar sturen.
+    ifr.addEventListener('load', function(){
+      [0, 400, 1200, 2500].forEach(function(ms){
+        setTimeout(function(){ stuur(ifr, 'setVolume', [VOLUME]); }, ms);
+      });
+    });
     knop.parentNode.replaceChild(ifr, knop);
     return ifr;
   }
 
-  function stuur(ifr, func){
+  function stuur(ifr, func, args){
     if (!ifr || !ifr.contentWindow) return;
     try {
       ifr.contentWindow.postMessage(
-        JSON.stringify({ event: 'command', func: func, args: [] }),
+        JSON.stringify({ event: 'command', func: func, args: args || [] }),
         'https://www.youtube-nocookie.com');
     } catch (e) {}
   }
