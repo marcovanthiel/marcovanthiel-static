@@ -22,8 +22,8 @@ HIER = pathlib.Path(__file__).resolve().parent
 SITE = HIER.parents[1] / "static" / "italie2026"
 
 # Etappenummers van de twee ankers (visueel onderscheiden):
-# 4 = Portico di Romagna (Al Vecchio Convento), 5 = Verona (opera)
-ANKERS = {4, 5}
+# 3 = Portico di Romagna (Al Vecchio Convento), 4 = Verona (opera)
+ANKERS = {3, 4}
 STATUS_CLASS = {"geboekt": "ok", "te bevestigen": "wait", "te boeken": "todo"}
 
 
@@ -183,7 +183,7 @@ def etappe_html(e):
                 f'{bi(e["info"])}</p>')
 
     opera = ""
-    if e["nr"] == 5:
+    if e["nr"] == 4:
         opera = """
       <aside class="opera" aria-label="Opera in de Arena di Verona">
         <h4><span class="lang lang-nl" lang="nl">Arena di Verona</span><span class="lang lang-zh" lang="zh">维罗纳圆形剧场</span></h4>
@@ -213,6 +213,25 @@ def etappe_html(e):
     </article>"""
 
 
+
+def nav_html(route):
+    """Sticky navigatielinks, gegenereerd uit de etappes (laatste = Thuis)."""
+    import re as _re
+    links = []
+    for e in route["etappes"]:
+        kort = str(e.get("naar", "")).split("/")[0]
+        kort = _re.sub(r"\s*\([A-Z]{2}\)\s*$", "", kort).split(" (")[0].strip()
+        if not e.get("nachten"):
+            naam = ('<span class="lang lang-nl" lang="nl">Thuis</span>'
+                    '<span class="lang lang-zh" lang="zh">回家</span>')
+        else:
+            naam = esc(kort)
+        cls = ' class="nav-anker"' if e["nr"] in ANKERS else ""
+        links.append(f'<a{cls} href="#etappe-{e["nr"]}"><b>{e["nr"]}</b>'
+                     f'<span class="navnaam">{naam}</span></a>')
+    return "\n      ".join(links)
+
+
 def main():
     route = json.loads((SITE / "route.json").read_text(encoding="utf-8"))
     template = (HIER / "template.html").read_text(encoding="utf-8")
@@ -238,6 +257,8 @@ def main():
            .replace("<!--PERIODE-->", bi(route["periode"]))
            .replace("<!--REIZIGERS-->", bi(route["reizigers"]))
            .replace("<!--TIJDLIJN-->", tijdlijn)
+           .replace("<!--NAV-->", nav_html(route))
+           .replace("<!--ETAPPETELLER-->", f'<span class="lang lang-nl" lang="nl">{len(route["etappes"])} etappes</span><span class="lang lang-zh" lang="zh">{len(route["etappes"])} 段行程</span>')
            .replace("/*ROUTEDATA*/", json.dumps(route, ensure_ascii=False)))
 
     (SITE / "index.html").write_text(uit, encoding="utf-8")
