@@ -121,8 +121,8 @@
       "hotel": {
         "naam": "Hotel Faccioli",
         "status": {
-          "nl": "geboekt per mail, zo 2 + ma 3 aug (2 nachten, met de honden)",
-          "zh": "已通过邮件预订,8月2日至3日(两晚,携犬)"
+          "nl": "geboekt per mail, zo 2 + ma 3 aug (2 nachten, met de honden; bevestigd 18-7)",
+          "zh": "已通过邮件预订,8月2日至3日(两晚,携犬;7月18日确认)"
         }
       },
       "hotelsuggestie": {
@@ -164,8 +164,8 @@
         }
       ],
       "honden": {
-        "nl": "Sigurtà aangelijnd toegestaan; ochtendbezoek vanwege hitte.",
-        "zh": "西古尔塔可牵绳入内;因高温宜清晨前往。"
+        "nl": "Sigurtà aangelijnd toegestaan; ochtendbezoek vanwege hitte. Bij Faccioli zijn de honden in het hele huis welkom, maar liever niet alleen op de kamer.",
+        "zh": "西古尔塔可牵绳入内;因高温宜清晨前往。Faccioli 全馆欢迎狗狗,但请尽量不要将它们单独留在房间。"
       },
       "toerisme": {
         "nl": "De rit is zelf een pareltjesroute: over de Reschenpas langs de half verzonken kerktoren in het Reschensee, met een koffiestop in het volledig ommuurde stadje Glurns en een lunchstop in Trento, waar het Castello del Buonconsiglio de wereldberoemde 'Cyclus van de Twaalf Maanden' bewaart. Daarna daal je af naar Valeggio aan de Mincio, met aan de voet het sprookjesachtige molengehucht Borghetto en de reusachtige 14e-eeuwse Ponte Visconteo van de Scaligeri. Vlakbij ligt Parco Giardino Sigurtà, een van de mooiste tuinen van Europa; de streek is beroemd om de flinterdunne tortellini, de 'nodo d'amore'.",
@@ -802,8 +802,8 @@
       "id": "faccioli",
       "done": true,
       "tekst": {
-        "nl": "Hotel Faccioli geboekt, zo 2 + ma 3 aug",
-        "zh": "Faccioli 酒店已预订,8月2、3日"
+        "nl": "Hotel Faccioli bevestigd, zo 2 + ma 3 aug (honden welkom, niet alleen op de kamer)",
+        "zh": "Faccioli 酒店已确认,8月2、3日(欢迎携犬,请勿单独留犬在房)"
       }
     },
     {
