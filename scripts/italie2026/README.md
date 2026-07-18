@@ -27,7 +27,7 @@ Per etappe extra velden:
 - `toerisme` — uitgebreide toeristische beschrijving.
 - `info` — praktische/overige relevante info (verschijnt in het groene kader "Goed om te weten").
 - `hotelsuggestie` — `{"naam", "url", "beschrijving":{nl,zh}}`: aanbevolen (hondvriendelijk) hotel met hyperlink. **Verifieer de URL** (moet 200 geven) voor je 'm toevoegt.
-- `video` — `{"id":"<youtube-id>", "titel":{nl,zh}}`: sfeervideo van de omgeving, als "klik-om-af-te-spelen"-facade (thumbnail eerst, dan pas de youtube-nocookie-iframe). **Nieuwe video toevoegen/vervangen:**
+- `video` — `{"id":"<youtube-id>", "titel":{nl,zh}}`: sfeervideo van de omgeving. Sinds 18-7-2026 **autoplay-met-geluid bij scrollen**: de facade (self-hosted thumbnail) wordt vervangen door de youtube-nocookie-iframe zodra het blok ≥60% in beeld is; volledig uit beeld = pauze; nooit twee tegelijk (besturing via de YouTube-postMessage-API, `enablejsapi=1`, geen extern script — CSP blijft `script-src 'self'`). Kanttekening: browsers kunnen geluid-autoplay blokkeren tot de eerste klik/tik op de pagina; `app.js` probeert het spelende filmpje dan opnieuw bij de eerste interactie, en klikken op de facade werkt altijd. **Nieuwe video toevoegen/vervangen:**
   1. Kies een YouTube-video en **check dat 'ie embedbaar is** via oEmbed — moet HTTP 200 geven:
      `curl -s -o /dev/null -w "%{http_code}" "https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=<ID>"` (401 = embedden uit, 404 = weg/privé → niet gebruiken).
   2. **Host de thumbnail zelf** (geen Google-request bij paginalaad): `curl -f -o static/italie2026/foto/video/<ID>.jpg "https://i.ytimg.com/vi/<ID>/maxresdefault.jpg"` (val terug op `sddefault`/`hqdefault`).

@@ -85,9 +85,10 @@ def fotoblok(e):
 
 
 def videoblok(e):
-    """Sfeervideo van de omgeving als 'klik-om-af-te-spelen'-facade: de
-    (zelf-gehoste) YouTube-thumbnail toont eerst; pas bij klik laadt app.js
-    de youtube-nocookie-iframe (snel + privacyvriendelijk). Zie CSP frame-src
+    """Sfeervideo van de omgeving als facade: de (zelf-gehoste) YouTube-
+    thumbnail toont eerst; app.js vervangt die door de youtube-nocookie-
+    iframe zodra het blok in beeld scrolt (autoplay met geluid, pauze bij
+    uit beeld) of bij klik (snel + privacyvriendelijk). Zie CSP frame-src
     in static/_headers."""
     v = e.get("video")
     if not v:
