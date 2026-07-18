@@ -32,96 +32,24 @@
   pas_toe(huidig, false);
 })();
 
-/* ---- 2. Sfeervideo's: spelen automatisch (met geluid) zodra het blok in
-   beeld scrolt en pauzeren zodra het uit beeld is; nooit twee tegelijk.
-   De iframe (youtube-nocookie; CSP frame-src staat dit toe) wordt pas
-   aangemaakt bij eerste zichtbaarheid of klik — snel + privacyvriendelijk.
-   Besturing via de YouTube-postMessage-API (enablejsapi, geen extern script).
-   Let op: browsers kunnen autoplay-met-geluid blokkeren tot de bezoeker één
-   keer geklikt/getikt heeft; daarom een eenmalige hervat-poging bij de
-   eerste interactie. ---- */
+/* ---- 2. Sfeervideo's: klik op de facade -> laad pas dan de YouTube-iframe
+   (youtube-nocookie; CSP frame-src staat dit toe). Snel + privacyvriendelijk. ---- */
 (function(){
   'use strict';
-  var GELDIG = /^[A-Za-z0-9_-]{6,20}$/;
-  var actieve = null;   // iframe dat nu hoort te spelen
-
-  function maakIframe(knop){
-    var id = knop.getAttribute('data-yt');
-    if (!id || !GELDIG.test(id) || !knop.parentNode) return null;
-    var ifr = document.createElement('iframe');
-    ifr.className = 'video-iframe';
-    ifr.src = 'https://www.youtube-nocookie.com/embed/' + id +
-      '?autoplay=1&mute=0&rel=0&playsinline=1&enablejsapi=1';
-    ifr.title = knop.getAttribute('aria-label') || 'Video';
-    ifr.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; fullscreen');
-    ifr.setAttribute('allowfullscreen', '');
-    knop.parentNode.replaceChild(ifr, knop);
-    return ifr;
-  }
-
-  function stuur(ifr, func){
-    if (!ifr || !ifr.contentWindow) return;
-    try {
-      ifr.contentWindow.postMessage(
-        JSON.stringify({ event: 'command', func: func, args: [] }),
-        'https://www.youtube-nocookie.com');
-    } catch (e) {}
-  }
-
-  function speel(blok){
-    var ifr = blok.querySelector('iframe.video-iframe');
-    if (ifr){ stuur(ifr, 'unMute'); stuur(ifr, 'playVideo'); }
-    else {
-      var knop = blok.querySelector('.video-facade');
-      if (knop) ifr = maakIframe(knop);
-    }
-    if (!ifr) return;
-    if (actieve && actieve !== ifr) stuur(actieve, 'pauseVideo');
-    actieve = ifr;
-  }
-
-  function pauzeer(blok){
-    var ifr = blok.querySelector('iframe.video-iframe');
-    if (!ifr) return;
-    stuur(ifr, 'pauseVideo');
-    if (actieve === ifr) actieve = null;
-  }
-
-  // Klik op de facade blijft werken (en geldt meteen als de gebruikers-
-  // interactie waarna de browser geluid toestaat).
   document.addEventListener('click', function(ev){
     var knop = ev.target && ev.target.closest ? ev.target.closest('.video-facade') : null;
     if (!knop) return;
-    var blok = knop.closest('.videoblok');
-    var ifr = maakIframe(knop);
-    if (ifr){
-      if (actieve && actieve !== ifr) stuur(actieve, 'pauseVideo');
-      actieve = ifr;
-    }
-    if (blok) blok.setAttribute('data-handmatig', '1');
+    var id = knop.getAttribute('data-yt');
+    if (!id || !/^[A-Za-z0-9_-]{6,20}$/.test(id)) return;
+    var ifr = document.createElement('iframe');
+    ifr.className = 'video-iframe';
+    ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    ifr.title = knop.getAttribute('aria-label') || 'Video';
+    ifr.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; fullscreen');
+    ifr.setAttribute('allowfullscreen', '');
+    ifr.setAttribute('loading', 'lazy');
+    if (knop.parentNode) knop.parentNode.replaceChild(ifr, knop);
   });
-
-  var blokken = Array.prototype.slice.call(document.querySelectorAll('.videoblok'));
-  if (!blokken.length || !('IntersectionObserver' in window)) return;
-
-  // >= 60% in beeld -> spelen; volledig uit beeld -> pauze (geluid stopt).
-  var io = new IntersectionObserver(function(items){
-    items.forEach(function(it){
-      if (it.intersectionRatio >= 0.6) speel(it.target);
-      else if (!it.isIntersecting) pauzeer(it.target);
-    });
-  }, { threshold: [0, 0.6] });
-  blokken.forEach(function(b){ io.observe(b); });
-
-  // Blokkeerde de browser autoplay-met-geluid, probeer het spelende filmpje
-  // opnieuw zodra de bezoeker voor het eerst klikt/tikt (dan mag geluid wél).
-  function eersteTik(){
-    document.removeEventListener('pointerdown', eersteTik, true);
-    document.removeEventListener('keydown', eersteTik, true);
-    if (actieve){ stuur(actieve, 'unMute'); stuur(actieve, 'playVideo'); }
-  }
-  document.addEventListener('pointerdown', eersteTik, true);
-  document.addEventListener('keydown', eersteTik, true);
 })();
 
 /* ---- 3. Routekaart ---- */
@@ -134,7 +62,7 @@
   var route;
   try { route = JSON.parse(el.textContent); } catch (e) { return; }
   var etappes = route.etappes || [];
-  var ANKERS = { 4: true, 5: true };
+  var ANKERS = { 3: true, 4: true };
 
   function ontsmet(s){
     return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
@@ -206,7 +134,7 @@
   'use strict';
   var el = document.getElementById('aftel');
   if (!el) return;
-  var vertrek = new Date(2026, 6, 31);          // maand 0-index: 6 = juli
+  var vertrek = new Date(2026, 7, 1);           // maand 0-index: 7 = augustus
   var nu = new Date();
   var vandaag = new Date(nu.getFullYear(), nu.getMonth(), nu.getDate());
   var dagen = Math.round((vertrek - vandaag) / 86400000);

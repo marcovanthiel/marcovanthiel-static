@@ -4,8 +4,8 @@
     "zh": "意大利 2026:珍珠之路"
   },
   "periode": {
-    "nl": "31 juli t/m 15 augustus 2026",
-    "zh": "2026 年 7 月 31 日至 8 月 15 日"
+    "nl": "1 t/m 15 augustus 2026",
+    "zh": "2026 年 8 月 1 日至 15 日"
   },
   "reizigers": {
     "nl": "Marco, Dandan en de honden",
@@ -15,8 +15,8 @@
     {
       "nr": 1,
       "datum": {
-        "nl": "vr 31 juli",
-        "zh": "7月31日 周五"
+        "nl": "za 1 aug",
+        "zh": "8月1日 周六"
       },
       "van": "Nijmegen",
       "naar": "Feldkirch (AT)",
@@ -34,22 +34,22 @@
         9.5997
       ],
       "hotel": {
-        "naam": "nader te bepalen, hondvriendelijk",
+        "naam": "kandidaat: Gutwinski Hotel",
         "status": {
-          "nl": "te boeken",
-          "zh": "待预订"
+          "nl": "te boeken; Central Löwen is deze nacht vol",
+          "zh": "待预订;Central Löwen 当晚已满房"
         }
       },
       "hotelsuggestie": {
-        "naam": "Central Hotel Löwen, Feldkirch",
-        "url": "https://www.central-hotel-loewen.at/",
+        "naam": "Gutwinski Hotel, Feldkirch",
+        "url": "https://www.gutwinski.cc/",
         "beschrijving": {
-          "nl": "Klassiek stadshotel aan de rand van de autovrije oude stad, honden welkom (€ 15 per hond per nacht). Het eerder getipte Alpenrose zit op 31 juli (Bregenzer Festspiele) al vol.",
-          "zh": "位于无车老城边缘的经典城市酒店,欢迎携犬(每只犬每晚 15 欧元)。原先推荐的 Alpenrose 在 7 月 31 日(布雷根茨音乐节)已满房。"
+          "nl": "Charmant boetiekhotel met restaurant op 100 m van de autovrije oude stad (score 9,0), honden toegestaan. Alternatieven met plek op 1-8: Hotel Bären (€ 163, flex) of Montfort - das Hotel (€ 206 incl. ontbijt, flex); Gasthaus Löwen in Nofels heeft honden gratis (€ 182 incl. ontbijt). Het Central Hotel Löwen is deze Festspiele-zaterdag vol.",
+          "zh": "距无车老城仅 100 米的迷人精品酒店(9.0 分),附设餐厅,可携犬。8月1日尚有房的备选:Bären 酒店(163 欧元,可免费取消)或 Montfort 酒店(206 欧元含早餐,可免费取消);诺费尔斯的 Gasthaus Löwen 携犬免费(182 欧元含早餐)。Central Hotel Löwen 在这个音乐节周六已满房。"
         },
         "prijs": {
-          "nl": "€ 107 per nacht, gratis annuleren tot de aankomstdag (gecheckt 17-7-2026)",
-          "zh": "每晚 107 欧元,可免费取消至入住当天(2026-07-17 核实)"
+          "nl": "€ 212 incl. ontbijt, laatste kamer (gecheckt 18-7-2026)",
+          "zh": "212 欧元含早餐,仅剩最后一间(2026-07-18 核实)"
         }
       },
       "highlights": [
@@ -100,107 +100,18 @@
     {
       "nr": 2,
       "datum": {
-        "nl": "za 1 aug",
-        "zh": "8月1日 周六"
-      },
-      "van": "Feldkirch",
-      "naar": "Glurns/Glorenza (IT)",
-      "rijtijd": {
-        "nl": "ca. 2 uur via de Reschenpas",
-        "zh": "约 2 小时,经雷西亚山口"
-      },
-      "afstand": {
-        "nl": "≈ 100 km",
-        "zh": "≈ 100 公里"
-      },
-      "nachten": 1,
-      "coord": [
-        46.6712,
-        10.5566
-      ],
-      "hotel": {
-        "naam": "kandidaat: Hotel Tyrol, Mals (2,7 km van Glurns)",
-        "status": {
-          "nl": "te boeken; Grüner Baum is vol",
-          "zh": "待预订;Grüner Baum 已满房"
-        }
-      },
-      "hotelsuggestie": {
-        "naam": "Hotel Tyrol, Mals",
-        "url": "https://www.hotel-tyrol.it/",
-        "beschrijving": {
-          "nl": "Genusshotel in buurdorp Mals, op 5 minuten rijden van de stadspoort van Glurns; honden welkom, halfpension met Zuid-Tiroolse keuken. Alternatieven: FinKa in Mals (ca. € 317 voor 2 nachten) of Saldur Small Active Hotel in Schluderns (ca. € 558). Grüner Baum in Glurns zelf is voor deze data vol.",
-          "zh": "位于邻村马尔斯的美食酒店,距格洛伦扎城门仅 5 分钟车程;欢迎携犬,提供南蒂罗尔风味半食宿。备选:马尔斯的 FinKa(两晚约 317 欧元)或什卢德恩斯的 Saldur 精品活力酒店(约 558 欧元)。格洛伦扎城内的 Grüner Baum 此期间已满房。"
-        },
-        "prijs": {
-          "nl": "ca. € 260 per nacht halfpension (gecheckt 17-7-2026); beschikbaarheid voor 1 nacht te bevestigen",
-          "zh": "半食宿每晚约 260 欧元(2026-07-17 核实);单晚入住待确认"
-        }
-      },
-      "highlights": [
-        {
-          "nl": "kleinste ommuurde stadje van Zuid-Tirol",
-          "zh": "南蒂罗尔最小的城墙古镇"
-        },
-        {
-          "nl": "klooster St. Johann in Val Müstair (UNESCO)",
-          "zh": "米施泰尔谷圣约翰修道院(世界遗产)"
-        },
-        {
-          "nl": "abdij Marienberg",
-          "zh": "玛利亚山修道院"
-        },
-        {
-          "nl": "wandelen door de Vinschgau-boomgaarden",
-          "zh": "漫步文施高苹果园"
-        }
-      ],
-      "honden": {
-        "nl": "Uitstekend wandelgebied, weinig verkeer.",
-        "zh": "绝佳的徒步区域,车流稀少。"
-      },
-      "toerisme": {
-        "nl": "Glurns (Glorenza) is een volledig ommuurd stadje van amper 900 inwoners, met een intacte weergang en houten arcades rond het marktplein, een middeleeuws miniatuur in de Vinschgau. Vlak over de Zwitserse grens ligt het karolingische klooster St. Johann in Müstair met de oudste fresco's van de Alpen (UNESCO). Hoog boven het dal troont Marienberg, de hoogstgelegen benedictijnenabdij van Europa.",
-        "zh": "格洛伦扎是一座仅约 900 人、城墙完整的小镇,环市集广场保留着可通行的城垛与木拱廊,是文施高谷中的中世纪缩影。越过瑞士边境不远,便是加洛林时期的米施泰尔圣约翰修道院,藏有阿尔卑斯最古老的壁画(世界遗产)。山谷高处矗立着欧洲海拔最高的本笃会修道院:玛利亚山修道院。"
-      },
-      "info": {
-        "nl": "De Reschenpas is een rustige, panoramische route; onderweg de half verzonken kerktoren in het Reschensee. Eén nacht: kom op tijd aan voor een avondwandeling door het ommuurde stadje; Müstair of Marienberg past de volgende ochtend onderweg. Hoogte ~900 m: 's avonds aangenaam koel voor de honden.",
-        "zh": "雷西亚山口是一条宁静而壮丽的路线;途中可见雷西亚湖中半淹的教堂钟楼。只住一晚:宜早些抵达,傍晚漫步城墙小镇;次日上午顺路可游米施泰尔或玛利亚山。海拔约 900 米,夜晚凉爽,对狗友好。"
-      },
-      "voorbeeldfoto": {
-        "bestand": "foto/etappe-02-glurns.jpg",
-        "breedte": 1280,
-        "hoogte": 852,
-        "onderschrift": {
-          "nl": "Glurns binnen zijn stadsmuren",
-          "zh": "城墙环绕的格洛伦扎"
-        },
-        "credit": "Foto: Tilman2007, Wikimedia Commons (CC BY-SA 4.0)",
-        "creditUrl": "https://commons.wikimedia.org/wiki/File:Glurns_Glorenza_20220903_0007.jpg"
-      },
-      "video": {
-        "id": "8NPSegaizes",
-        "titel": {
-          "nl": "Glurns — kleinste stadje van Zuid-Tirol",
-          "zh": "格洛伦扎 — 南蒂罗尔最小的古镇"
-        }
-      }
-    },
-    {
-      "nr": 3,
-      "datum": {
         "nl": "zo 2 + ma 3 aug",
         "zh": "8月2、3日 周日·周一"
       },
-      "van": "Mals",
+      "van": "Feldkirch",
       "naar": "Valeggio sul Mincio",
       "rijtijd": {
-        "nl": "ca. 4 uur totaal, met stadsstop Trento",
-        "zh": "全程约 4 小时,中途游览特伦托"
+        "nl": "ca. 4,5 uur via de Reschenpas, met stops in Glurns en Trento",
+        "zh": "约 4.5 小时,经雷西亚山口,途中停留格洛伦扎与特伦托"
       },
       "afstand": {
-        "nl": "≈ 215 km",
-        "zh": "≈ 215 公里"
+        "nl": "≈ 330 km",
+        "zh": "≈ 330 公里"
       },
       "nachten": 2,
       "coord": [
@@ -228,6 +139,10 @@
       },
       "highlights": [
         {
+          "nl": "koffiestop in het ommuurde Glurns",
+          "zh": "在城墙小镇格洛伦扎稍作停留"
+        },
+        {
           "nl": "tussenstop Trento: Piazza Duomo en de fresco's van Buonconsiglio",
           "zh": "中途游特伦托:主教座堂广场与布翁孔西利奥城堡壁画"
         },
@@ -253,8 +168,8 @@
         "zh": "西古尔塔可牵绳入内;因高温宜清晨前往。"
       },
       "toerisme": {
-        "nl": "Onderweg verdient Trento een ruime tussenstop: een verfijnde Alpenstad waar het Castello del Buonconsiglio in de Torre Aquila de wereldberoemde 'Cyclus van de Twaalf Maanden' bewaart, een van de mooiste laatgotische fresco's van Europa, met de Piazza Duomo en de Neptunusfontein als decor voor de lunch. Daarna daal je af naar Valeggio aan de Mincio, met aan de voet het sprookjesachtige molengehucht Borghetto en de reusachtige 14e-eeuwse Ponte Visconteo van de Scaligeri. Vlakbij ligt Parco Giardino Sigurtà, een van de mooiste tuinen van Europa; de streek is beroemd om de flinterdunne tortellini, de 'nodo d'amore'.",
-        "zh": "途中的特伦托值得从容一游:这座精致的阿尔卑斯城市里,布翁孔西利奥城堡鹰塔内保存着举世闻名的《十二月令》壁画,是欧洲最美的晚期哥特壁画之一;主教座堂广场与海神喷泉正是午餐的好背景。随后南下明乔河畔的瓦莱焦,脚下是童话般的博尔盖托水磨村,以及斯卡拉家族修建的巨大 14 世纪维斯孔蒂桥。附近的西古尔塔花园公园是欧洲最美的园林之一;这一带以薄如蝉翼的'爱情结'小饺闻名。"
+        "nl": "De rit is zelf een pareltjesroute: over de Reschenpas langs de half verzonken kerktoren in het Reschensee, met een koffiestop in het volledig ommuurde stadje Glurns en een lunchstop in Trento, waar het Castello del Buonconsiglio de wereldberoemde 'Cyclus van de Twaalf Maanden' bewaart. Daarna daal je af naar Valeggio aan de Mincio, met aan de voet het sprookjesachtige molengehucht Borghetto en de reusachtige 14e-eeuwse Ponte Visconteo van de Scaligeri. Vlakbij ligt Parco Giardino Sigurtà, een van de mooiste tuinen van Europa; de streek is beroemd om de flinterdunne tortellini, de 'nodo d'amore'.",
+        "zh": "这段路本身就是珍珠之路:翻越雷西亚山口,途经湖中半淹的教堂钟楼,在城墙完整的小镇格洛伦扎稍作咖啡停留,再到特伦托午餐——布翁孔西利奥城堡内保存着举世闻名的《十二月令》壁画。随后南下明乔河畔的瓦莱焦,脚下是童话般的博尔盖托水磨村,以及斯卡拉家族修建的巨大 14 世纪维斯孔蒂桥。附近的西古尔塔花园公园是欧洲最美的园林之一;这一带以薄如蝉翼的'爱情结'小饺闻名。"
       },
       "info": {
         "nl": "Parkeer in Trento bij Piazza Fiera; de compacte kern is in twee uur te zien. In Valeggio: avondwandeling naar Borghetto met tortellini als beloning. Met twee nachten heb je de maandag volledig: Parco Giardino Sigurtà 's ochtends vroeg bij opening (het park is groot, neem water mee) en 's avonds nogmaals Borghetto. Rijd dinsdag via Ferrara naar Portico.",
@@ -280,7 +195,7 @@
       }
     },
     {
-      "nr": 4,
+      "nr": 3,
       "datum": {
         "nl": "di 4 t/m do 6 aug",
         "zh": "8月4日至6日 周二至周四"
@@ -377,7 +292,7 @@
       }
     },
     {
-      "nr": 5,
+      "nr": 4,
       "datum": {
         "nl": "vr 7 t/m zo 9 aug",
         "zh": "8月7日至9日 周五至周日"
@@ -470,7 +385,7 @@
       }
     },
     {
-      "nr": 6,
+      "nr": 5,
       "datum": {
         "nl": "ma 10 t/m do 13 aug",
         "zh": "8月10日至13日 周一至周四"
@@ -559,7 +474,7 @@
       }
     },
     {
-      "nr": 7,
+      "nr": 6,
       "datum": {
         "nl": "vr 14 aug",
         "zh": "8月14日 周五"
@@ -648,7 +563,7 @@
       }
     },
     {
-      "nr": 8,
+      "nr": 7,
       "datum": {
         "nl": "za 15 aug",
         "zh": "8月15日 周六"
@@ -725,14 +640,14 @@
       }
     },
     {
-      "waarde": 16,
+      "waarde": 15,
       "label": {
         "nl": "dagen",
         "zh": "天"
       }
     },
     {
-      "waarde": 15,
+      "waarde": 14,
       "label": {
         "nl": "nachten",
         "zh": "晚"
@@ -746,7 +661,7 @@
       }
     },
     {
-      "waarde": 8,
+      "waarde": 7,
       "label": {
         "nl": "etappes",
         "zh": "段行程"
