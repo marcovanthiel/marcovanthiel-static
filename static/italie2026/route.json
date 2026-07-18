@@ -674,5 +674,103 @@
         "zh": "歌剧之夜"
       }
     }
+  ],
+  "checklist": [
+    {
+      "id": "opera",
+      "done": true,
+      "tekst": {
+        "nl": "Operatickets geboekt: Turandot vr 7/8 en Aida zo 9/8, 21:00 (genummerde stoelen)",
+        "zh": "歌剧票已订:8月7日《图兰朵》、8月9日《阿依达》,21:00(座椅票)"
+      }
+    },
+    {
+      "id": "convento",
+      "done": true,
+      "tekst": {
+        "nl": "Al Vecchio Convento geboekt, di 4 t/m vr 7 aug (met cena)",
+        "zh": "Al Vecchio Convento 已预订,8月4日至7日(含晚餐)"
+      }
+    },
+    {
+      "id": "casa-aurora",
+      "done": true,
+      "tekst": {
+        "nl": "Agriturismo Casa Aurora geboekt, vr 7 t/m ma 10 aug (honden gemeld)",
+        "zh": "Casa Aurora 农庄已预订,8月7日至10日(已告知携犬)"
+      }
+    },
+    {
+      "id": "restaurants",
+      "done": true,
+      "tekst": {
+        "nl": "Tafels opera-avonden gereserveerd: Osteria del Bugiardo (vr) en Tre Marchetti (zo), 19:15",
+        "zh": "歌剧之夜餐厅已订:周五 Osteria del Bugiardo、周日 Tre Marchetti(19:15)"
+      }
+    },
+    {
+      "id": "gutwinski",
+      "done": false,
+      "tekst": {
+        "nl": "Hotel Feldkirch boeken: Gutwinski, za 1 aug (laatste kamer)",
+        "zh": "预订费尔德基希酒店:Gutwinski,8月1日(仅剩最后一间)"
+      }
+    },
+    {
+      "id": "faccioli",
+      "done": false,
+      "tekst": {
+        "nl": "Bevestiging Hotel Faccioli afwachten, zo 2 + ma 3 aug (per mail aangevraagd)",
+        "zh": "等待 Faccioli 酒店确认,8月2、3日(已邮件申请)"
+      }
+    },
+    {
+      "id": "arizzoli",
+      "done": false,
+      "tekst": {
+        "nl": "Hotel Casa Arizzoli boeken, ma 10 t/m vr 14 aug (flex-tarief tot 27-7)",
+        "zh": "预订 Casa Arizzoli 酒店,8月10日至14日(7月27日前可免费取消)"
+      }
+    },
+    {
+      "id": "bailli",
+      "done": false,
+      "tekst": {
+        "nl": "La Cour du Bailli boeken, vr 14 aug (Bergheim)",
+        "zh": "预订 La Cour du Bailli,8月14日(贝尔甘)"
+      }
+    },
+    {
+      "id": "oppas",
+      "done": false,
+      "tekst": {
+        "nl": "Hondenoppas voor beide opera-avonden bevestigen bij Casa Aurora",
+        "zh": "与 Casa Aurora 确认两个歌剧之夜的狗保姆"
+      }
+    },
+    {
+      "id": "paspoorten",
+      "done": false,
+      "tekst": {
+        "nl": "EU-dierenpaspoorten mee, rabiësvaccinatie geldig",
+        "zh": "携带欧盟宠物护照,狂犬疫苗在有效期内"
+      }
+    },
+    {
+      "id": "vignet-at",
+      "done": false,
+      "tekst": {
+        "nl": "Oostenrijks digitaal vignet (heenreis)",
+        "zh": "奥地利电子通行证(去程)"
+      }
+    },
+    {
+      "id": "vignet-ch",
+      "done": false,
+      "tekst": {
+        "nl": "Zwitsers vignet (retour via Gotthard)",
+        "zh": "瑞士高速通行证(经圣哥达返程)"
+      }
+    }
   ]
 }

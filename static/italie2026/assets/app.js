@@ -308,3 +308,29 @@
   window.addEventListener('resize', update, { passive: true });
   update();
 })();
+
+/* ---- Reischecklist: vinkjes onthouden op dit apparaat + teller ---- */
+(function(){
+  'use strict';
+  var SLEUTEL = 'it26_check';
+  var lijst = document.getElementById('reischecklist');
+  if (!lijst) return;
+  var boxes = Array.prototype.slice.call(lijst.querySelectorAll('input[type=checkbox][data-check]'));
+  var stand = {};
+  try { stand = JSON.parse(localStorage.getItem(SLEUTEL) || '{}') || {}; } catch (e) {}
+  function teller(){
+    var n = boxes.filter(function(b){ return b.checked; }).length;
+    var el = document.getElementById('checkteller');
+    if (el){ el.textContent = n + '/' + boxes.length; el.hidden = false; }
+  }
+  boxes.forEach(function(b){
+    var id = b.getAttribute('data-check');
+    if (Object.prototype.hasOwnProperty.call(stand, id)) b.checked = !!stand[id];
+    b.addEventListener('change', function(){
+      stand[id] = b.checked;
+      try { localStorage.setItem(SLEUTEL, JSON.stringify(stand)); } catch (e) {}
+      teller();
+    });
+  });
+  teller();
+})();

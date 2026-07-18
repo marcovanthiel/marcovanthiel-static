@@ -214,6 +214,21 @@ def etappe_html(e):
 
 
 
+
+def checklist_html(route):
+    """Interactieve reischecklist: done-items uit route.json staan aangevinkt;
+    vinkjes van de gebruiker bewaart app.js in localStorage (it26_check)."""
+    items = route.get("checklist") or []
+    if not items:
+        return ""
+    lis = ""
+    for it in items:
+        checked = " checked" if it.get("done") else ""
+        lis += (f'<li><label><input type="checkbox" data-check="{esc(it["id"])}"{checked}>'
+                f'<span>{bi(it["tekst"])}</span></label></li>')
+    return f'<ul class="checklist interactief" id="reischecklist">{lis}</ul>'
+
+
 def nav_html(route):
     """Sticky navigatielinks, gegenereerd uit de etappes (laatste = Thuis)."""
     import re as _re
@@ -258,6 +273,7 @@ def main():
            .replace("<!--REIZIGERS-->", bi(route["reizigers"]))
            .replace("<!--TIJDLIJN-->", tijdlijn)
            .replace("<!--NAV-->", nav_html(route))
+           .replace("<!--CHECKLIST-->", checklist_html(route))
            .replace("<!--ETAPPETELLER-->", f'<span class="lang lang-nl" lang="nl">{len(route["etappes"])} etappes</span><span class="lang lang-zh" lang="zh">{len(route["etappes"])} 段行程</span>')
            .replace("/*ROUTEDATA*/", json.dumps(route, ensure_ascii=False)))
 
