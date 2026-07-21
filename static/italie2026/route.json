@@ -15,8 +15,8 @@
     {
       "nr": 1,
       "datum": {
-        "nl": "za 1 aug",
-        "zh": "8月1日 周六"
+        "nl": "inchecken za 1 aug · uitchecken zo 2 aug",
+        "zh": "入住 8月1日(周六)· 退房 8月2日(周日)"
       },
       "van": "Nijmegen",
       "naar": "Feldkirch (AT)",
@@ -100,8 +100,8 @@
     {
       "nr": 2,
       "datum": {
-        "nl": "zo 2 + ma 3 aug",
-        "zh": "8月2、3日 周日·周一"
+        "nl": "inchecken zo 2 aug · uitchecken di 4 aug",
+        "zh": "入住 8月2日(周日)· 退房 8月4日(周二)"
       },
       "van": "Feldkirch",
       "naar": "Valeggio sul Mincio",
@@ -197,8 +197,8 @@
     {
       "nr": 3,
       "datum": {
-        "nl": "di 4 t/m do 6 aug",
-        "zh": "8月4日至6日 周二至周四"
+        "nl": "inchecken di 4 aug · uitchecken vr 7 aug",
+        "zh": "入住 8月4日(周二)· 退房 8月7日(周五)"
       },
       "van": "Valeggio",
       "naar": "Portico di Romagna",
@@ -294,8 +294,8 @@
     {
       "nr": 4,
       "datum": {
-        "nl": "vr 7 t/m zo 9 aug",
-        "zh": "8月7日至9日 周五至周日"
+        "nl": "inchecken vr 7 aug · uitchecken ma 10 aug",
+        "zh": "入住 8月7日(周五)· 退房 8月10日(周一)"
       },
       "van": "Portico",
       "naar": "Valpolicella (Bussolengo)",
@@ -387,8 +387,8 @@
     {
       "nr": 5,
       "datum": {
-        "nl": "ma 10 t/m wo 12 aug",
-        "zh": "8月10日至12日 周一至周三"
+        "nl": "inchecken ma 10 aug · uitchecken do 13 aug",
+        "zh": "入住 8月10日(周一)· 退房 8月13日(周四)"
       },
       "van": "Valpolicella",
       "naar": "Cannobio (Lago Maggiore)",
@@ -476,8 +476,8 @@
     {
       "nr": 6,
       "datum": {
-        "nl": "do 13 aug",
-        "zh": "8月13日 周四"
+        "nl": "inchecken do 13 aug · uitchecken vr 14 aug",
+        "zh": "入住 8月13日(周四)· 退房 8月14日(周五)"
       },
       "van": "Cannobio",
       "naar": "Grindelwald (Berner Oberland)",
@@ -558,8 +558,8 @@
     {
       "nr": 7,
       "datum": {
-        "nl": "vr 14 aug",
-        "zh": "8月14日 周五"
+        "nl": "inchecken vr 14 aug · uitchecken za 15 aug",
+        "zh": "入住 8月14日(周五)· 退房 8月15日(周六)"
       },
       "van": "Grindelwald",
       "naar": "Bergheim (FR)",
