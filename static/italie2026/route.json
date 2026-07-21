@@ -315,8 +315,8 @@
       "hotel": {
         "naam": "Agriturismo Casa Aurora, Bussolengo",
         "status": {
-          "nl": "geboekt, vr 7 t/m ma 10 aug (honden gemeld); hondenoppas nog bevestigen",
-          "zh": "已预订,8月7日至10日(已告知携犬);狗保姆仍待确认"
+          "nl": "geboekt, vr 7 t/m ma 10 aug (honden gemeld, hondenoppas bevestigd)",
+          "zh": "已预订,8月7日至10日(已告知携犬,狗保姆已确认)"
         }
       },
       "hotelsuggestie": {
@@ -350,16 +350,16 @@
         }
       ],
       "honden": {
-        "nl": "Tijdens de opera-avonden blijven de honden met een hondenoppas in het agriturismo (Rover/DogBuddy Verona of via de eigenaren); na afloop ben je in ~20 minuten terug.",
-        "zh": "歌剧之夜,狗狗与狗保姆一起留在农庄(可通过维罗纳的 Rover/DogBuddy 或庄主安排);散场后约 20 分钟即可返回。"
+        "nl": "Tijdens de opera-avonden blijven de honden met de via Casa Aurora geregelde hondenoppas in het agriturismo; na afloop ben je in ~20 minuten terug.",
+        "zh": "歌剧之夜,狗狗与经 Casa Aurora 安排的狗保姆一起留在农庄;散场后约 20 分钟即可返回。"
       },
       "toerisme": {
         "nl": "De Valpolicella Classica is het wijnland van Amarone en Ripasso: zachte heuvels vol wijngaarden en kersenboomgaarden, romaanse kerkjes als San Giorgio en San Floriano, en 's avonds koele lucht uit de Lessinia-bergen erboven. Vanuit de wijngaarden sta je in ~25 minuten voor de Arena van Verona, waar het operafestival onder de sterren klinkt; de UNESCO-binnenstad met Piazza delle Erbe, de balkonlegende van Julia en Scarpa's Castelvecchio is een mooie bestemming voor de zaterdagochtend.",
         "zh": "瓦尔波利切拉经典产区是阿玛罗尼与里帕索葡萄酒之乡:缓丘上遍布葡萄园与樱桃园,点缀着圣乔治、圣弗洛里亚诺等罗曼式小教堂,夜晚有莱西尼亚山间的凉风。从葡萄园驱车约 25 分钟即达维罗纳圆形剧场,歌剧节在星空下回响;拥有香草广场、朱丽叶阳台传说与斯卡帕古堡博物馆的世界遗产老城,适合周六清晨探访。"
       },
       "info": {
-        "nl": "Reserveer de operatickets (Turandot vr, Aida zo, beide 21:00, tot na middernacht; kussentje mee voor de stenen tribunes) én de hondenoppas voor beide avonden ruim vooraf. Parkeren bij de Arena: garage Arena/Cittadella. Overdag is het heet: wijngaardwandelingen 's ochtends, proeverij in de namiddag. Voor de vrije zaterdag: 's ochtends de schaduwrijke watervallenkloof van het Parco delle Cascate di Molina (25 min rijden; honden aangelijnd gratis mee, routes van 30 min tot 2 uur), lunch met uitzicht bij de romaanse pieve van San Giorgio di Valpolicella, en in de namiddag een proeverij aan huis of in het tuin-wijngoed Giardino di Pojega in Negrar (dagelijks geopend).",
-        "zh": "请提前预订歌剧票(周五《图兰朵》、周日《阿依达》,均 21:00 开演,持续至午夜后;石阶看台请自带坐垫),并尽早为两晚安排狗保姆。剧场停车:Arena/Cittadella 停车楼。白天炎热:宜清晨漫步葡萄园,午后品酒。 自由的周六:清晨前往莫利纳瀑布公园的林荫峡谷(车程 25 分钟;牵绳可免费携犬,步道 30 分钟至 2 小时),在圣乔治罗曼式教堂旁享用观景午餐,午后在庄园品酒,或造访内格拉尔每日开放的波耶加园林酒庄。"
+        "nl": "Operatickets en hondenoppas zijn geregeld (Turandot vr, Aida zo, beide 21:00, tot na middernacht; kussentje mee voor de stenen tribunes). Parkeren bij de Arena: garage Arena/Cittadella. Overdag is het heet: wijngaardwandelingen 's ochtends, proeverij in de namiddag. Voor de vrije zaterdag: 's ochtends de schaduwrijke watervallenkloof van het Parco delle Cascate di Molina (25 min rijden; honden aangelijnd gratis mee, routes van 30 min tot 2 uur), lunch met uitzicht bij de romaanse pieve van San Giorgio di Valpolicella, en in de namiddag een proeverij aan huis of in het tuin-wijngoed Giardino di Pojega in Negrar (dagelijks geopend).",
+        "zh": "歌剧票与狗保姆均已安排妥当(周五《图兰朵》、周日《阿依达》,均 21:00 开演,持续至午夜后;石阶看台请自带坐垫)。剧场停车:Arena/Cittadella 停车楼。白天炎热:宜清晨漫步葡萄园,午后品酒。 自由的周六:清晨前往莫利纳瀑布公园的林荫峡谷(车程 25 分钟;牵绳可免费携犬,步道 30 分钟至 2 小时),在圣乔治罗曼式教堂旁享用观景午餐,午后在庄园品酒,或造访内格拉尔每日开放的波耶加园林酒庄。"
       },
       "voorbeeldfoto": {
         "bestand": "foto/etappe-05-verona.jpg",
@@ -832,10 +832,10 @@
     },
     {
       "id": "oppas",
-      "done": false,
+      "done": true,
       "tekst": {
-        "nl": "Hondenoppas voor beide opera-avonden bevestigen bij Casa Aurora",
-        "zh": "与 Casa Aurora 确认两个歌剧之夜的狗保姆"
+        "nl": "Hondenoppas voor beide opera-avonden bevestigd bij Casa Aurora",
+        "zh": "两个歌剧之夜的狗保姆已与 Casa Aurora 确认"
       }
     },
     {
