@@ -218,8 +218,8 @@
       "hotel": {
         "naam": "Al Vecchio Convento (Albergo Diffuso)",
         "status": {
-          "nl": "te reserveren, +39 0543 967053",
-          "zh": "待预订,+39 0543 967053"
+          "nl": "geboekt, di 4 t/m vr 7 aug (met cena)",
+          "zh": "已预订,8月4日至7日(含晚餐)"
         }
       },
       "hotelsuggestie": {
@@ -313,10 +313,10 @@
         10.8447
       ],
       "hotel": {
-        "naam": "kandidaat: Agriturismo Casa Aurora, Bussolengo",
+        "naam": "Agriturismo Casa Aurora, Bussolengo",
         "status": {
-          "nl": "te boeken vóór 24-7, plus hondenoppas voor beide opera-avonden",
-          "zh": "请在 7 月 24 日前预订,另需为两个歌剧之夜安排狗保姆"
+          "nl": "geboekt, vr 7 t/m ma 10 aug (honden gemeld); hondenoppas nog bevestigen",
+          "zh": "已预订,8月7日至10日(已告知携犬);狗保姆仍待确认"
         }
       },
       "hotelsuggestie": {
