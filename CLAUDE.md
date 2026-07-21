@@ -102,17 +102,19 @@ Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
 ## Subsite: /italie2026
 
 **marcovanthiel.nl/italie2026** — reiswebsite "Italië 2026: de pareltjesroute"
-(31 jul t/m 15 aug 2026, 16 dagen, Marco + Dandan + honden; opera-ankers
+(1 t/m 15 aug 2026, 15 dagen, Marco + Dandan + honden; opera-ankers
 vr 7 aug Turandot + zo 9 aug Aida/Zeffirelli, 21:00, bron arena.it).
 Gemaakt 2026-07-05. Kale static in `static/italie2026/`; `noindex`.
-Herpland 2026-07-08: overnachten niet ín Verona maar in de
-Valpolicella-wijnheuvels (San Pietro in Cariano, ~25 min van de Arena);
-honden tijdens de opera-avonden met een hondenoppas in het relais
-(Rover/DogBuddy Verona) — dat plus de tickets is de kritieke voorbereiding.
-Route: Feldkirch → Glurns (2n) → Valeggio via Trento-stop (1n, Sigurtà
-di-ochtend) → Portico via Ferrara-lunchstop (3n, Brisighella = dagtocht) →
-Valpolicella (3n, opera vr+zo, za rustdag) → Cannobio via Bergamo-lunchstop
-(4n) → Bergheim (vr door de Gotthard) → thuis za (evt. gespreid tot zo).
+Overnachten rond de opera in een agriturismo bij Bussolengo (~20 min van de
+Arena); honden tijdens de opera-avonden met een hondenoppas in het
+agriturismo (Rover/DogBuddy Verona). Vormgeving sinds 21-7-2026: "Midnight
+Edition" (midnight #071317, turquoise #02A0A0, pastel-oranje #FFBD65; tokens
+boven in `assets/style.css`).
+Route (stand 21-7-2026): Feldkirch (1n) → Valeggio via Trento-stop (2n,
+Sigurtà) → Portico via Ferrara-lunchstop (3n, Brisighella = dagtocht) →
+Valpolicella/Bussolengo (3n, opera vr+zo, za rustdag) → Cannobio via
+Bergamo-lunchstop (3n) → Grindelwald via Grimsel-/Sustenpas (1n, Eiger) →
+Bergheim via Bern/Basel (1n) → thuis za 15 (evt. gespreid tot zo 16).
 
 **Tweetalig NL/中文** — schakelaar rechtsboven, keuze onthouden in
 `localStorage` (`it26_lang`); `app.js` zet `body.toon-zh`, CSS toont de taal
@@ -129,9 +131,10 @@ werkende link (`hotelsuggestie`).
 - Leaflet lokaal in `vendor/leaflet/`; OSM-tiles → eigen CSP-blok
   `/italie2026/*` in `static/_headers` (img-src met tile.openstreetmap.org,
   script-src 'self' — géén inline scripts gebruiken op deze pagina).
-- Ankers = etappe 4 (Portico) en 5 (Verona) (rood), hardcoded in `build.py`
-  én `app.js`; het opera-blok (titels/data/tijd) in `build.py` hangt aan het
-  Verona-nummer.
+- Ankers = etappe 3 (Portico) en 4 (Valpolicella) (oranje), hardcoded in
+  `build.py` (ANKERS) én `app.js`; het opera-blok (titels/data/tijd) in
+  `build.py` hangt aan het Valpolicella-nummer. Bij hernummeren van etappes
+  beide bijwerken.
 - Elke etappe heeft een `voorbeeldfoto` (Wikimedia Commons, self-hosted in
   `static/italie2026/foto/`, credit verplicht in het veld; zie de
   subsite-README). Na de reis: vervangen door eigen materiaal (zonder het

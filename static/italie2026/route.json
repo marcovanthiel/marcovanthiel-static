@@ -387,8 +387,8 @@
     {
       "nr": 5,
       "datum": {
-        "nl": "ma 10 t/m do 13 aug",
-        "zh": "8月10日至13日 周一至周四"
+        "nl": "ma 10 t/m wo 12 aug",
+        "zh": "8月10日至12日 周一至周三"
       },
       "van": "Valpolicella",
       "naar": "Cannobio (Lago Maggiore)",
@@ -400,28 +400,28 @@
         "nl": "≈ 270 km",
         "zh": "≈ 270 公里"
       },
-      "nachten": 4,
+      "nachten": 3,
       "coord": [
         46.0611,
         8.6989
       ],
       "hotel": {
-        "naam": "kandidaat: Hotel Casa Arizzoli",
+        "naam": "kandidaat: Hotel Antica Stallera",
         "status": {
-          "nl": "te boeken vóór 27-7 (flex-tarief)",
-          "zh": "请在 7 月 27 日前预订(灵活价)"
+          "nl": "te boeken; Casa Arizzoli zat 21-7 vol op Booking.com",
+          "zh": "待预订;Casa Arizzoli 在 Booking 上 7月21日已无房"
         }
       },
       "hotelsuggestie": {
-        "naam": "Hotel Casa Arizzoli, Cannobio",
-        "url": "https://www.hotelcasaarizzoli.com/",
+        "naam": "Hotel Antica Stallera, Cannobio",
+        "url": "https://www.anticastallera.com/",
         "beschrijving": {
-          "nl": "Sfeervol familiehotel (9,3) in het centro storico op 200 m van het meer, met tuin, restaurant en gratis parkeren; honden op aanvraag welkom en in de reviews geroemd als zeer hondvriendelijk. Hotel Pironi bleek geen honden toe te staan en Hotel Campagna is vol.",
-          "zh": "老城中的迷人家庭旅馆(9.3 分),距湖 200 米,带花园、餐厅和免费停车;可应要求携犬,评论盛赞其对狗友好。Pironi 酒店不接待狗,Campagna 酒店已满房。"
+          "nl": "Historisch hotel met restaurant en wijnrijke binnenplaats in het centro storico, op een paar minuten lopen van de kade (score 8,8); honden toegestaan. Alternatief: LVG Il Portico (8,0, € 555 voor 3 nachten). Casa Arizzoli toonde 21-7 geen plek meer op Booking; desgewenst nog direct bij het hotel checken.",
+          "zh": "老城中心的历史悠久旅馆(8.8 分),带餐厅和藤蔓庭院,步行几分钟即达湖畔;可携犬。备选:LVG Il Portico(8.0 分,三晚 555 欧元)。Casa Arizzoli 于 7月21日在 Booking 上已无房,如有意可直接联系酒店确认。"
         },
         "prijs": {
-          "nl": "€ 972 voor 4 nachten incl. ontbijt, gratis annuleren tot 27-7 (of € 791 niet-restitueerbaar; gecheckt 17-7-2026)",
-          "zh": "四晚共 972 欧元含早餐,7 月 27 日前可免费取消(不可退款价 791 欧元;2026-07-17 核实)"
+          "nl": "€ 591 voor 3 nachten (Booking.com, gecheckt 21-7-2026)",
+          "zh": "三晚共 591 欧元(Booking.com,2026-07-21 核实)"
         }
       },
       "highlights": [
@@ -451,8 +451,8 @@
         "zh": "坎诺比奥是马焦雷湖皮埃蒙特西岸、瑞士边境前的最后一座小城,也许是最美的一座:石板铺就的老城缓缓延伸至一条长长的湖畔堤岸,粉彩房屋与法国梧桐相映成趣。稍往内陆,在葱郁的坎诺比纳谷中,圣安娜峡谷从石桥与小教堂下方挤过,狭窄而幽深。邻村坎内罗的近岸处,两座岩岛上矗立着浪漫的坎内罗城堡遗迹。"
       },
       "info": {
-        "nl": "Vier rustdagen na de opera-avonden en vóór de terugreis: zwemmen, luieren en 's avonds de kade. Onderweg is Bergamo Città Alta, de ommuurde renaissance-bovenstad met haar venetiaanse muren (UNESCO), een mooie lunchstop halverwege. Het Zwitserse vignet is pas voor de rit van vrijdag nodig.",
-        "zh": "歌剧之夜后、回程之前的四个休整日:游泳、闲逛,傍晚漫步湖堤。途中的贝加莫上城拥有威尼斯时期的城墙(世界遗产),是理想的中途午餐地。瑞士高速通行证到周五上路时才需要。"
+        "nl": "Drie rustdagen na de opera-avonden: zwemmen, luieren en 's avonds de kade. Onderweg is Bergamo Città Alta, de ommuurde renaissance-bovenstad met haar venetiaanse muren (UNESCO), een mooie lunchstop halverwege. Het Zwitserse vignet is al voor de rit van donderdag nodig.",
+        "zh": "歌剧之夜后的三个休整日:游泳、闲逛,傍晚漫步湖堤。途中的贝加莫上城拥有威尼斯时期的城墙(世界遗产),是理想的中途午餐地。周四上路即需瑞士高速通行证。"
       },
       "voorbeeldfoto": {
         "bestand": "foto/etappe-06-cannobio.jpg",
@@ -476,18 +476,100 @@
     {
       "nr": 6,
       "datum": {
+        "nl": "do 13 aug",
+        "zh": "8月13日 周四"
+      },
+      "van": "Cannobio",
+      "naar": "Grindelwald (Berner Oberland)",
+      "rijtijd": {
+        "nl": "ca. 4 uur, over de Grimsel- of Sustenpas",
+        "zh": "约 4 小时,翻越格里姆瑟尔或苏斯滕山口"
+      },
+      "afstand": {
+        "nl": "≈ 235 km",
+        "zh": "≈ 235 公里"
+      },
+      "nachten": 1,
+      "coord": [
+        46.6244,
+        8.0411
+      ],
+      "hotel": {
+        "naam": "Hotel Cabana",
+        "status": {
+          "nl": "te boeken (beschikbaar, gecheckt 21-7)",
+          "zh": "待预订(2026-07-21 核实有房)"
+        }
+      },
+      "hotelsuggestie": {
+        "naam": "Hotel Cabana, Grindelwald",
+        "url": "https://www.cabana-grindelwald.ch/",
+        "beschrijving": {
+          "nl": "Modern chalet-hotel (score 9,1) met tuin, buitenzwembad en sauna, op loopafstand van het dorpscentrum en met de Eiger recht voor de deur; honden op aanvraag welkom.",
+          "zh": "现代木屋风格酒店(9.1 分),带花园、室外泳池和桑拿,步行即达村中心,艾格峰近在眼前;可应要求携犬。"
+        },
+        "prijs": {
+          "nl": "€ 366 voor de nacht van do 13 aug (Booking.com, gecheckt 21-7-2026)",
+          "zh": "8月13日一晚 366 欧元(Booking.com,2026-07-21 核实)"
+        }
+      },
+      "highlights": [
+        {
+          "nl": "panoramarit: haarspeldbochten en stuwmeren van de Grimsel- of Sustenpas",
+          "zh": "全景山路:格里姆瑟尔或苏斯滕山口的发夹弯与水库"
+        },
+        {
+          "nl": "de Eiger-noordwand recht boven het dorp",
+          "zh": "艾格峰北壁就耸立在村庄上方"
+        },
+        {
+          "nl": "avondwandeling door het dal als de dagtoeristen weg zijn",
+          "zh": "日间游客散去后,在山谷中傍晚漫步"
+        },
+        {
+          "nl": "Gletscherschlucht op een steenworp van het dorp",
+          "zh": "冰川峡谷距村庄咫尺之遥"
+        }
+      ],
+      "honden": {
+        "nl": "Eindelijk bergkoelte: avondrondje door de weiden onder de Eiger.",
+        "zh": "终于迎来山间清凉:傍晚在艾格峰下的草甸间散步。"
+      },
+      "toerisme": {
+        "nl": "Grindelwald is het klassieke gletsjerdorp van het Berner Oberland, in een groen dal onder de loodrechte, 1.800 meter hoge noordwand van de Eiger. De rit ernaartoe is zelf het uitje: vanaf het Lago Maggiore klim je via de Grimsel- of Sustenpas door een hooggebergtelandschap van kale rots, stuwmeren en watervallen. Wie blijft slapen, ziet de wand 's avonds roze kleuren boven de chaletdaken, lang nadat de dagjesmensen naar Interlaken zijn vertrokken.",
+        "zh": "格林德瓦是伯尔尼高地经典的冰川村,坐落在绿色山谷中,头顶是高达 1800 米、近乎垂直的艾格峰北壁。前往的路程本身就是一场盛宴:从马焦雷湖出发,经格里姆瑟尔或苏斯滕山口攀升,穿越裸岩、水库与瀑布交织的高山景观。留宿于此,傍晚可见岩壁在木屋屋顶上方染成粉色,而日间游客早已返回因特拉肯。"
+      },
+      "info": {
+        "nl": "Vertrek na het ontbijt uit Cannobio; boven op de passen is het al gauw vijftien graden koeler, ideaal voor de honden. Check vóór het avondeten in en houd de avond vrij voor het uitzicht. Vrijdag is het nog zo'n drie uur via Bern en Basel naar Bergheim, zonder Gotthard en dus zonder tunnelfile.",
+        "zh": "早餐后从坎诺比奥出发;山口之上气温常低 15 度左右,对狗狗尤为舒适。晚餐前入住,把傍晚留给风景。周五经伯尔尼和巴塞尔前往贝尔甘约三小时,全程避开圣哥达,无隧道拥堵。"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-06b-grindelwald.jpg",
+        "breedte": 1280,
+        "hoogte": 854,
+        "onderschrift": {
+          "nl": "Grindelwald onder de Eiger-noordwand",
+          "zh": "艾格峰北壁下的格林德瓦"
+        },
+        "credit": "Foto: GPSLeo, Wikimedia Commons (CC0)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Eiger_seen_from_Grindelwald_village_2022-10-02_01.jpg"
+      }
+    },
+    {
+      "nr": 7,
+      "datum": {
         "nl": "vr 14 aug",
         "zh": "8月14日 周五"
       },
-      "van": "Cannobio",
+      "van": "Grindelwald",
       "naar": "Bergheim (FR)",
       "rijtijd": {
-        "nl": "ca. 4,5-5 uur, vrijdagochtend door de Gotthard",
-        "zh": "约 4.5-5 小时,周五清晨穿越圣哥达"
+        "nl": "ca. 3 uur via Bern en Basel",
+        "zh": "约 3 小时,经伯尔尼与巴塞尔"
       },
       "afstand": {
-        "nl": "≈ 420 km",
-        "zh": "≈ 420 公里"
+        "nl": "≈ 275 km",
+        "zh": "≈ 275 公里"
       },
       "nachten": 1,
       "coord": [
@@ -515,8 +597,8 @@
       },
       "highlights": [
         {
-          "nl": "Gotthard op vrijdagochtend vroeg, noordwaarts vóór de drukte",
-          "zh": "周五清晨北向穿越圣哥达,赶在车流之前"
+          "nl": "ontspannen ochtendrit via Bern en Basel, zonder Gotthard-file",
+          "zh": "经伯尔尼和巴塞尔的轻松晨间车程,无圣哥达拥堵"
         },
         {
           "nl": "ommuurd wijndorp zonder de drukte van Colmar",
@@ -540,8 +622,8 @@
         "zh": "贝尔甘是阿尔萨斯保存最完好的城墙葡萄酒村之一,拥有完整的中世纪城墙、塔楼与花团锦簇的半木结构房屋,却没有科尔马或里克韦尔的游人如织。它坐落于葡萄酒之路旁,以名贵特级园(阿尔滕贝格、坎茨勒贝格)著称。村庄之上,上柯尼斯堡城堡俯瞰着平原。"
       },
       "info": {
-        "nl": "Vertrek vroeg uit Cannobio: noordwaarts is de Gotthard op vrijdagochtend doorgaans goed te doen, vóór het drukke terugreisweekend. Zwitserland vereist een snelwegvignet. In Bergheim proef je Grand Cru rechtstreeks bij de wijnboer; de rondwandeling over de muren duurt een half uur. Laatste avond onderweg vóór thuis.",
-        "zh": "宜从坎诺比奥早发:周五清晨北向的圣哥达通常畅通,赶在繁忙的回程周末之前。瑞士高速需购通行证。在贝尔甘可直接向酒农品尝特级园佳酿;绕城墙一圈约半小时。这是到家前在路上的最后一晚。"
+        "nl": "Vanuit Grindelwald is het maar zo'n drie uur rijden: via Interlaken, Bern en Basel de Elzas in, helemaal zonder Gotthard. In Bergheim proef je Grand Cru rechtstreeks bij de wijnboer; de rondwandeling over de muren duurt een half uur. Laatste avond onderweg vóór thuis.",
+        "zh": "从格林德瓦出发仅约三小时车程:经因特拉肯、伯尔尼和巴塞尔进入阿尔萨斯,完全避开圣哥达。在贝尔甘可直接向酒农品尝特级园佳酿;绕城墙一圈约半小时。这是到家前在路上的最后一晚。"
       },
       "voorbeeldfoto": {
         "bestand": "foto/etappe-07-bergheim.jpg",
@@ -563,7 +645,7 @@
       }
     },
     {
-      "nr": 7,
+      "nr": 8,
       "datum": {
         "nl": "za 15 aug",
         "zh": "8月15日 周六"
@@ -631,7 +713,7 @@
   },
   "overzicht": [
     {
-      "waarde": 2485,
+      "waarde": 2570,
       "prefix": "± ",
       "suffix": " km",
       "label": {
@@ -661,7 +743,7 @@
       }
     },
     {
-      "waarde": 7,
+      "waarde": 8,
       "label": {
         "nl": "etappes",
         "zh": "段行程"
@@ -725,11 +807,19 @@
       }
     },
     {
-      "id": "arizzoli",
+      "id": "cannobio-hotel",
       "done": false,
       "tekst": {
-        "nl": "Hotel Casa Arizzoli boeken, ma 10 t/m vr 14 aug (flex-tarief tot 27-7)",
-        "zh": "预订 Casa Arizzoli 酒店,8月10日至14日(7月27日前可免费取消)"
+        "nl": "Hotel Cannobio boeken, ma 10 t/m wo 12 aug (Antica Stallera; Arizzoli zat 21-7 vol op Booking)",
+        "zh": "预订坎诺比奥酒店,8月10日至12日(Antica Stallera;Arizzoli 于 7月21日在 Booking 已无房)"
+      }
+    },
+    {
+      "id": "cabana",
+      "done": false,
+      "tekst": {
+        "nl": "Hotel Cabana Grindelwald boeken, do 13 aug",
+        "zh": "预订格林德瓦 Cabana 酒店,8月13日"
       }
     },
     {
@@ -768,8 +858,8 @@
       "id": "vignet-ch",
       "done": false,
       "tekst": {
-        "nl": "Zwitsers vignet (retour via Gotthard)",
-        "zh": "瑞士高速通行证(经圣哥达返程)"
+        "nl": "Zwitsers vignet (vanaf do 13 aug)",
+        "zh": "瑞士高速通行证(8月13日起)"
       }
     }
   ]
