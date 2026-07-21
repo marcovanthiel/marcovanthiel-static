@@ -497,8 +497,8 @@
       "hotel": {
         "naam": "Hotel Cabana",
         "status": {
-          "nl": "te boeken (beschikbaar, gecheckt 21-7)",
-          "zh": "待预订(2026-07-21 核实有房)"
+          "nl": "geboekt, do 13 aug (1 nacht, met de honden)",
+          "zh": "已预订,8月13日(一晚,携犬)"
         }
       },
       "hotelsuggestie": {
@@ -816,10 +816,10 @@
     },
     {
       "id": "cabana",
-      "done": false,
+      "done": true,
       "tekst": {
-        "nl": "Hotel Cabana Grindelwald boeken, do 13 aug",
-        "zh": "预订格林德瓦 Cabana 酒店,8月13日"
+        "nl": "Hotel Cabana Grindelwald geboekt, do 13 aug",
+        "zh": "Cabana 酒店(格林德瓦)已预订,8月13日"
       }
     },
     {
