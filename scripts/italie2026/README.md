@@ -25,7 +25,7 @@ en `titel`/`periode`/`reizigers`). Plaatsnamen (`van`/`naar`), `coord`,
 Per etappe extra velden:
 - `afstand` — reisafstand tot de volgende locatie (bv. `{"nl":"≈ 100 km","zh":"≈ 100 公里"}`).
 - `toerisme` — uitgebreide toeristische beschrijving.
-- `info` — praktische/overige relevante info (verschijnt in het groene kader "Goed om te weten").
+- `info` — praktische/overige relevante info (verschijnt in het kader "Goed om te weten").
 - `hotelsuggestie` — `{"naam", "url", "beschrijving":{nl,zh}}`: aanbevolen (hondvriendelijk) hotel met hyperlink. **Verifieer de URL** (moet 200 geven) voor je 'm toevoegt.
 - `video` — `{"id":"<youtube-id>", "titel":{nl,zh}}`: sfeervideo van de omgeving. Sinds 18-7-2026 **autoplay-met-geluid bij scrollen**: de facade (self-hosted thumbnail) wordt vervangen door de youtube-nocookie-iframe zodra het blok ≥60% in beeld is; volledig uit beeld = pauze; nooit twee tegelijk (besturing via de YouTube-postMessage-API, `enablejsapi=1`, geen extern script — CSP blijft `script-src 'self'`). Kanttekening: browsers kunnen geluid-autoplay blokkeren tot de eerste klik/tik op de pagina; `app.js` probeert het spelende filmpje dan opnieuw bij de eerste interactie, en klikken op de facade werkt altijd. Het geluid start gedempt op 25% (`VOLUME` boven in sectie 2 van `app.js`; YouTube begint anders op 100%) — wie in de speler harder zet wordt niet overschreven. **Nieuwe video toevoegen/vervangen:**
   1. Kies een YouTube-video en **check dat 'ie embedbaar is** via oEmbed — moet HTTP 200 geven:

@@ -206,7 +206,7 @@
   var lijn = [NIJMEGEN].concat(punten.filter(function(p, i){
     return !(i === punten.length - 1 && p[0] === NIJMEGEN[0] && p[1] === NIJMEGEN[1]);
   })).concat([NIJMEGEN]);
-  L.polyline(lijn, { color: '#42573b', weight: 3, dashArray: '7 7', opacity: .85 }).addTo(kaart);
+  L.polyline(lijn, { color: '#02a0a0', weight: 3, dashArray: '7 7', opacity: .85 }).addTo(kaart);
 
   kaart.fitBounds(L.latLngBounds(lijn).pad(0.08));
 })();
