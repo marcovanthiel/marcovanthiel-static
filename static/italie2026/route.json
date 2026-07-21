@@ -406,22 +406,22 @@
         8.6989
       ],
       "hotel": {
-        "naam": "kandidaat: Hotel Antica Stallera",
+        "naam": "Hotel Casa Arizzoli",
         "status": {
-          "nl": "te boeken; Casa Arizzoli zat 21-7 vol op Booking.com",
-          "zh": "待预订;Casa Arizzoli 在 Booking 上 7月21日已无房"
+          "nl": "aangevraagd 21-7, rechtstreeks bij het hotel (3 nachten, met de honden)",
+          "zh": "已于 7月21日直接向酒店申请(三晚,携犬)"
         }
       },
       "hotelsuggestie": {
-        "naam": "Hotel Antica Stallera, Cannobio",
-        "url": "https://www.anticastallera.com/",
+        "naam": "Hotel Casa Arizzoli, Cannobio",
+        "url": "https://www.hotelcasaarizzoli.com/",
         "beschrijving": {
-          "nl": "Historisch hotel met restaurant en wijnrijke binnenplaats in het centro storico, op een paar minuten lopen van de kade (score 8,8); honden toegestaan. Alternatief: LVG Il Portico (8,0, € 555 voor 3 nachten). Casa Arizzoli toonde 21-7 geen plek meer op Booking; desgewenst nog direct bij het hotel checken.",
-          "zh": "老城中心的历史悠久旅馆(8.8 分),带餐厅和藤蔓庭院,步行几分钟即达湖畔;可携犬。备选:LVG Il Portico(8.0 分,三晚 555 欧元)。Casa Arizzoli 于 7月21日在 Booking 上已无房,如有意可直接联系酒店确认。"
+          "nl": "Sfeervol familiehotel (9,3) in het centro storico op 200 m van het meer, met tuin, restaurant en gratis parkeren; honden op aanvraag welkom en in de reviews geroemd als zeer hondvriendelijk. Booking.com toonde 21-7 geen plek meer; rechtstreeks bij het hotel aangevraagd. Vangnet: Hotel Antica Stallera (8,8, € 591 voor 3 nachten) of LVG Il Portico (8,0, € 555).",
+          "zh": "老城中的迷人家庭旅馆(9.3 分),距湖 200 米,带花园、餐厅和免费停车;可应要求携犬,评论盛赞其对狗友好。Booking 于 7月21日已无房;已直接向酒店申请。备选:Antica Stallera 酒店(8.8 分,三晚 591 欧元)或 LVG Il Portico(8.0 分,三晚 555 欧元)。"
         },
         "prijs": {
-          "nl": "€ 591 voor 3 nachten (Booking.com, gecheckt 21-7-2026)",
-          "zh": "三晚共 591 欧元(Booking.com,2026-07-21 核实)"
+          "nl": "prijs volgt bij bevestiging (rechtstreeks aangevraagd 21-7-2026)",
+          "zh": "价格待确认(2026-07-21 直接向酒店申请)"
         }
       },
       "highlights": [
@@ -810,8 +810,8 @@
       "id": "cannobio-hotel",
       "done": false,
       "tekst": {
-        "nl": "Hotel Cannobio boeken, ma 10 t/m wo 12 aug (Antica Stallera; Arizzoli zat 21-7 vol op Booking)",
-        "zh": "预订坎诺比奥酒店,8月10日至12日(Antica Stallera;Arizzoli 于 7月21日在 Booking 已无房)"
+        "nl": "Bevestiging Casa Arizzoli afwachten, ma 10 t/m wo 12 aug (rechtstreeks aangevraagd 21-7; vangnet Antica Stallera)",
+        "zh": "等待 Casa Arizzoli 确认,8月10日至12日(7月21日直接申请;备选 Antica Stallera)"
       }
     },
     {
