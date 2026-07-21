@@ -34,18 +34,18 @@
         9.5997
       ],
       "hotel": {
-        "naam": "kandidaat: Gutwinski Hotel",
+        "naam": "Gutwinski Hotel",
         "status": {
-          "nl": "te boeken; Central Löwen is deze nacht vol",
-          "zh": "待预订;Central Löwen 当晚已满房"
+          "nl": "geboekt, za 1 aug (1 nacht, met de honden)",
+          "zh": "已预订,8月1日(一晚,携犬)"
         }
       },
       "hotelsuggestie": {
         "naam": "Gutwinski Hotel, Feldkirch",
         "url": "https://www.gutwinski.cc/",
         "beschrijving": {
-          "nl": "Charmant boetiekhotel met restaurant op 100 m van de autovrije oude stad (score 9,0), honden toegestaan. Alternatieven met plek op 1-8: Hotel Bären (€ 163, flex) of Montfort - das Hotel (€ 206 incl. ontbijt, flex); Gasthaus Löwen in Nofels heeft honden gratis (€ 182 incl. ontbijt). Het Central Hotel Löwen is deze Festspiele-zaterdag vol.",
-          "zh": "距无车老城仅 100 米的迷人精品酒店(9.0 分),附设餐厅,可携犬。8月1日尚有房的备选:Bären 酒店(163 欧元,可免费取消)或 Montfort 酒店(206 欧元含早餐,可免费取消);诺费尔斯的 Gasthaus Löwen 携犬免费(182 欧元含早餐)。Central Hotel Löwen 在这个音乐节周六已满房。"
+          "nl": "Charmant boetiekhotel met restaurant op 100 m van de autovrije oude stad (score 9,0), honden toegestaan.",
+          "zh": "距无车老城仅 100 米的迷人精品酒店(9.0 分),附设餐厅,可携犬。"
         },
         "prijs": {
           "nl": "€ 212 incl. ontbijt, laatste kamer (gecheckt 18-7-2026)",
@@ -121,8 +121,8 @@
       "hotel": {
         "naam": "Hotel Faccioli",
         "status": {
-          "nl": "aangevraagd per mail 17-7 (2 nachten, met de honden)",
-          "zh": "已于 7 月 17 日邮件申请(两晚,携犬)"
+          "nl": "geboekt per mail, zo 2 + ma 3 aug (2 nachten, met de honden)",
+          "zh": "已通过邮件预订,8月2日至3日(两晚,携犬)"
         }
       },
       "hotelsuggestie": {
@@ -133,8 +133,8 @@
           "zh": "瓦莱焦中心热情好客的家庭旅馆,步行可至博尔盖托,欢迎携犬。高端之选:科尔代维戈庄园(每晚约 370 欧元)。"
         },
         "prijs": {
-          "nl": "€ 134 per nacht incl. ontbijt (nacht 3-4/8 gecheckt 17-7-2026; nacht 2-3/8 per mail aangevraagd)",
-          "zh": "每晚 134 欧元含早餐(8月3-4日晚 2026-07-17 核实;8月2-3日晚已邮件申请)"
+          "nl": "€ 134 per nacht incl. ontbijt (gecheckt 17-7-2026)",
+          "zh": "每晚 134 欧元含早餐(2026-07-17 核实)"
         }
       },
       "highlights": [
@@ -710,18 +710,18 @@
     },
     {
       "id": "gutwinski",
-      "done": false,
+      "done": true,
       "tekst": {
-        "nl": "Hotel Feldkirch boeken: Gutwinski, za 1 aug (laatste kamer)",
-        "zh": "预订费尔德基希酒店:Gutwinski,8月1日(仅剩最后一间)"
+        "nl": "Hotel Gutwinski Feldkirch geboekt, za 1 aug",
+        "zh": "Gutwinski 酒店(费尔德基希)已预订,8月1日"
       }
     },
     {
       "id": "faccioli",
-      "done": false,
+      "done": true,
       "tekst": {
-        "nl": "Bevestiging Hotel Faccioli afwachten, zo 2 + ma 3 aug (per mail aangevraagd)",
-        "zh": "等待 Faccioli 酒店确认,8月2、3日(已邮件申请)"
+        "nl": "Hotel Faccioli geboekt, zo 2 + ma 3 aug",
+        "zh": "Faccioli 酒店已预订,8月2、3日"
       }
     },
     {
