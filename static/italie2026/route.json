@@ -577,10 +577,10 @@
         7.3618
       ],
       "hotel": {
-        "naam": "nader te bepalen, hondvriendelijk",
+        "naam": "La Cour du Bailli Suites & Spa",
         "status": {
-          "nl": "te boeken",
-          "zh": "待预订"
+          "nl": "aangevraagd 21-7 (1 nacht, met de honden)",
+          "zh": "已于 7月21日申请(一晚,携犬)"
         }
       },
       "hotelsuggestie": {
@@ -826,8 +826,8 @@
       "id": "bailli",
       "done": false,
       "tekst": {
-        "nl": "La Cour du Bailli boeken, vr 14 aug (Bergheim)",
-        "zh": "预订 La Cour du Bailli,8月14日(贝尔甘)"
+        "nl": "Bevestiging La Cour du Bailli afwachten, vr 14 aug (aangevraagd 21-7)",
+        "zh": "等待 La Cour du Bailli 确认,8月14日(7月21日已申请)"
       }
     },
     {
