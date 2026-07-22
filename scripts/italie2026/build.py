@@ -119,7 +119,25 @@ def statbalk_html(overzicht):
     return f'<section class="statbalk" aria-label="Reis in cijfers / 数字概览">{items}</section>'
 
 
-def etappe_html(e):
+def weerregel(e, weer):
+    """Verwachte gemiddelde temperatuur voor de verblijfsdagen (uit weer.json,
+    dagelijks ververst door weer.py via de Action italie2026-weer). Bron
+    "klimaat" = nog buiten de voorspellingshorizon → klimaatgemiddelde."""
+    w = ((weer or {}).get("etappes") or {}).get(str(e["nr"]))
+    if not w:
+        return ""
+    gem, maxgem = w["gem"], w["maxgem"]
+    klimaat = w.get("bron") == "klimaat"
+    bron_nl = " (klimaatgemiddelde, voorspelling volgt)" if klimaat else ""
+    bron_zh = "(气候平均值,临近时更新为预报)" if klimaat else ""
+    return ('<p class="rijtijd weer">'
+            f'<span class="lang lang-nl" lang="nl">verwacht gemiddeld {gem} °C, '
+            f'overdag tot {maxgem} °C{bron_nl}</span>'
+            f'<span class="lang lang-zh" lang="zh">预计平均 {gem} °C,白天最高约 '
+            f'{maxgem} °C{bron_zh}</span></p>')
+
+
+def etappe_html(e, weer=None):
     anker = e["nr"] in ANKERS
     kop = f'{esc(e["van"])} → {esc(e["naar"])}'
     lint = f'<span class="lint">{bi(e["lint"])}</span>' if e.get("lint") else ""
@@ -180,6 +198,7 @@ def etappe_html(e):
         <p class="datum">{bi(e["datum"])} · {bi(nachten_bi(e["nachten"]))}</p>
         <h3>{kop}</h3>
         <p class="rijtijd">{bi(e["rijtijd"])} {afstand}</p>
+        {weerregel(e, weer)}
         {toerisme}
         {videoblok(e)}
         <ul class="highlights">{hl}</ul>
@@ -228,8 +247,11 @@ def nav_html(route):
 def main():
     route = json.loads((SITE / "route.json").read_text(encoding="utf-8"))
     template = (HIER / "template.html").read_text(encoding="utf-8")
+    weerpad = SITE / "weer.json"
+    weer = (json.loads(weerpad.read_text(encoding="utf-8"))
+            if weerpad.exists() else None)
 
-    tijdlijn = "".join(etappe_html(e) for e in route["etappes"])
+    tijdlijn = "".join(etappe_html(e, weer) for e in route["etappes"])
 
     hero = route.get("hero") or {}
     hero_style = f"background-image:url('/italie2026/{esc(hero['bestand'])}')" if hero else ""

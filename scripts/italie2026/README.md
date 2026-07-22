@@ -56,6 +56,19 @@ Per etappe extra velden:
   print-versie. Ontbreekt het veld, dan verschijnt de oude placeholder
   "foto volgt na de reis" — na de reis vervangen door eigen foto's.
 
+**Temperatuur per etappe (sinds 22-7-2026):** `static/italie2026/weer.json`
+bevat per etappe de verwachte gemiddelde temperatuur + het gemiddelde
+dagmaximum voor de verblijfsdagen (afgeleid uit START + `nachten` in
+`scripts/italie2026/weer.py` — schuiven de etappes, dan schuift het weer
+mee). Bron: Open-Meteo (gratis, geen key; server-side, dus geen
+CSP-wijziging). Binnen de voorspellingshorizon van 16 dagen de echte
+voorspelling, daarbuiten het klimaatgemiddelde 2016-2025 (label
+"klimaatgemiddelde, voorspelling volgt"). De Action **italie2026-weer**
+draait `weer.py` + `build.py` dagelijks 06:37 CEST en commit alleen bij
+wijziging; `build.py` rendert de regel (`weerregel()`, klasse
+`rijtijd weer`). `weer.json` niet met de hand bewerken; na de reis de
+workflow `italie2026-weer.yml` verwijderen.
+
 1. Pas `route.json` aan (beide talen!).
 2. Commit + push naar `main`. De GitHub Action **italie2026-build**
    regenereert `index.html` automatisch en Cloudflare Pages deployt.

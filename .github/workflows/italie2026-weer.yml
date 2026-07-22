@@ -1,0 +1,45 @@
+name: Italie2026 weer
+
+# Ververst dagelijks de verwachte temperatuur per etappeplaats (weer.json,
+# Open-Meteo) en regenereert index.html. Na de reis (15-8-2026) doet weer.py
+# niets meer; deze workflow daarna verwijderen.
+on:
+  schedule:
+    - cron: '37 4 * * *'   # dagelijks 06:37 CEST
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: italie2026-build
+  cancel-in-progress: false
+
+jobs:
+  weer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+
+      - name: Ververs weer.json en index.html
+        id: gen
+        run: |
+          set -e
+          python scripts/italie2026/weer.py
+          python scripts/italie2026/build.py
+          echo "changed=$(git diff --quiet static/italie2026 && echo false || echo true)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit
+        if: steps.gen.outputs.changed == 'true'
+        run: |
+          git config user.name  "italie2026-bot"
+          git config user.email "bot@marcovanthiel.nl"
+          git add static/italie2026/weer.json static/italie2026/index.html
+          git commit -m "italie2026: dagelijkse temperatuurupdate (Open-Meteo)"
+          git pull --rebase origin main
+          git push

@@ -235,6 +235,9 @@ body.toon-zh .dag.vandaag .dagdatum::after{ content:" · 现在"; }
 .afstand{ margin-left:14px; padding-left:18px;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238ba5a6' stroke-width='1.8'%3E%3Cpath d='M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z'/%3E%3Ccircle cx='12' cy='10' r='2.4'/%3E%3C/svg%3E") no-repeat left center; background-size:14px; white-space:nowrap; }
 
+.weer{ margin-top:-8px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238ba5a6' stroke-width='1.8'%3E%3Cpath d='M10 4a2 2 0 0 1 4 0v9.3a4.5 4.5 0 1 1-4 0z'/%3E%3Ccircle cx='12' cy='17' r='1.6' fill='%238ba5a6' stroke='none'/%3E%3C/svg%3E"); }
+
 .toerisme{ margin:0 0 16px; font-size:16.5px; line-height:1.75; }
 
 .highlights{ margin:0 0 16px; padding:0; list-style:none;

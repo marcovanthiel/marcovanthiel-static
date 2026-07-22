@@ -111,7 +111,9 @@ met link; nieuw "Dag tot dag"-overzicht (`dagen` in route.json) waarvan
 app.js de rij van vandaag markeert, met "dag X van 15"-badge in de hero.
 Overnachten rond de opera in een agriturismo bij Bussolengo (~20 min van de
 Arena); honden tijdens de opera-avonden met een hondenoppas in het
-agriturismo. Vormgeving sinds 21-7-2026: "Midnight Edition" (midnight
+agriturismo. Sinds 22-7-2026 toont elke etappe de verwachte gemiddelde
+temperatuur (weer.json, Open-Meteo; dagelijkse Action **italie2026-weer**,
+na de reis verwijderen; details in scripts/italie2026/README.md). Vormgeving sinds 21-7-2026: "Midnight Edition" (midnight
 #071317, turquoise #02A0A0, pastel-oranje #FFBD65; tokens boven in
 `assets/style.css`).
 Route (stand 21-7-2026): Feldkirch (1n) → Valeggio via Trento-stop (2n,
