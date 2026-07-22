@@ -211,22 +211,50 @@
   kaart.fitBounds(L.latLngBounds(lijn).pad(0.08));
 })();
 
-/* ---- 4. Aftelteller tot vertrek (31 juli 2026) ---- */
+/* ---- 4. Reisdag-badge in de hero + vandaag-markering in "Dag tot dag" ----
+   Vóór vertrek: aftelteller. Tijdens de reis (1 t/m 15 aug 2026): "dag X van
+   15" en de rij van vandaag in de daglijst krijgt de oranje markering; klik
+   op de badge springt ernaartoe. Ná de reis: "we zijn weer thuis". ---- */
 (function(){
   'use strict';
   var el = document.getElementById('aftel');
   if (!el) return;
   var vertrek = new Date(2026, 7, 1);           // maand 0-index: 7 = augustus
+  var TOTAAL = 15;                               // reisdagen (1 t/m 15 aug)
   var nu = new Date();
   var vandaag = new Date(nu.getFullYear(), nu.getMonth(), nu.getDate());
   var dagen = Math.round((vertrek - vandaag) / 86400000);
-  var html;
-  if (dagen > 1)      html = '<span class="lang lang-nl" lang="nl">nog <b>'+dagen+'</b> dagen tot vertrek</span><span class="lang lang-zh" lang="zh">距出发还有 <b>'+dagen+'</b> 天</span>';
-  else if (dagen===1) html = '<span class="lang lang-nl" lang="nl">morgen vertrekken we!</span><span class="lang lang-zh" lang="zh">明天出发!</span>';
-  else if (dagen===0) html = '<span class="lang lang-nl" lang="nl">vandaag vertrekken we!</span><span class="lang lang-zh" lang="zh">今天出发!</span>';
-  else                html = '<span class="lang lang-nl" lang="nl">de reis is begonnen</span><span class="lang lang-zh" lang="zh">旅程已开始</span>';
+  var dagnr = 1 - dagen;                         // 1 op vertrekdag
+  var html, doelrij = null;
+
+  if (dagnr >= 1 && dagnr <= TOTAAL) {
+    // Onderweg: markeer de rij van vandaag in de daglijst.
+    var iso = vandaag.getFullYear() + '-' +
+      String(vandaag.getMonth() + 1).padStart(2, '0') + '-' +
+      String(vandaag.getDate()).padStart(2, '0');
+    doelrij = document.querySelector('.dag[data-datum="' + iso + '"]');
+    if (doelrij) doelrij.classList.add('vandaag');
+    html = '<span class="lang lang-nl" lang="nl">dag <b>' + dagnr + '</b> van ' + TOTAAL + ' · waar zijn we? ↓</span>' +
+           '<span class="lang lang-zh" lang="zh">第 <b>' + dagnr + '</b> 天,共 ' + TOTAAL + ' 天 · 我们在哪?↓</span>';
+  } else if (dagen > 1) {
+    html = '<span class="lang lang-nl" lang="nl">nog <b>' + dagen + '</b> dagen tot vertrek</span><span class="lang lang-zh" lang="zh">距出发还有 <b>' + dagen + '</b> 天</span>';
+  } else if (dagen === 1) {
+    html = '<span class="lang lang-nl" lang="nl">morgen vertrekken we!</span><span class="lang lang-zh" lang="zh">明天出发!</span>';
+  } else if (dagen === 0) {
+    html = '<span class="lang lang-nl" lang="nl">vandaag vertrekken we!</span><span class="lang lang-zh" lang="zh">今天出发!</span>';
+  } else {
+    html = '<span class="lang lang-nl" lang="nl">we zijn weer thuis</span><span class="lang lang-zh" lang="zh">我们已平安到家</span>';
+  }
   el.innerHTML = html;
   el.hidden = false;
+  if (doelrij) {
+    el.style.cursor = 'pointer';
+    el.setAttribute('role', 'link');
+    el.setAttribute('tabindex', '0');
+    var spring = function(){ doelrij.scrollIntoView({ block: 'center' }); };
+    el.addEventListener('click', spring);
+    el.addEventListener('keydown', function(ev){ if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); spring(); } });
+  }
 })();
 
 /* ---- 5. Printknop (het print-CSS maakt er een A4-reisdocument van) ---- */
@@ -309,28 +337,5 @@
   update();
 })();
 
-/* ---- Reischecklist: vinkjes onthouden op dit apparaat + teller ---- */
-(function(){
-  'use strict';
-  var SLEUTEL = 'it26_check';
-  var lijst = document.getElementById('reischecklist');
-  if (!lijst) return;
-  var boxes = Array.prototype.slice.call(lijst.querySelectorAll('input[type=checkbox][data-check]'));
-  var stand = {};
-  try { stand = JSON.parse(localStorage.getItem(SLEUTEL) || '{}') || {}; } catch (e) {}
-  function teller(){
-    var n = boxes.filter(function(b){ return b.checked; }).length;
-    var el = document.getElementById('checkteller');
-    if (el){ el.textContent = n + '/' + boxes.length; el.hidden = false; }
-  }
-  boxes.forEach(function(b){
-    var id = b.getAttribute('data-check');
-    if (Object.prototype.hasOwnProperty.call(stand, id)) b.checked = !!stand[id];
-    b.addEventListener('change', function(){
-      stand[id] = b.checked;
-      try { localStorage.setItem(SLEUTEL, JSON.stringify(stand)); } catch (e) {}
-      teller();
-    });
-  });
-  teller();
-})();
+/* De vroegere reischecklist is vervallen: de site is sinds 22-7-2026 een
+   reisgids voor onderweg en het thuisfront, zonder planning/boekingslaag. */

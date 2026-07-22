@@ -105,11 +105,15 @@ Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
 (1 t/m 15 aug 2026, 15 dagen, Marco + Dandan + honden; opera-ankers
 vr 7 aug Turandot + zo 9 aug Aida/Zeffirelli, 21:00, bron arena.it).
 Gemaakt 2026-07-05. Kale static in `static/italie2026/`; `noindex`.
+**Sinds 22-7-2026 ingericht als REISGIDS** (ook voor het thuisfront): geen
+prijzen, scores of boekingsstatussen meer; hotels alleen als "We slapen in"
+met link; nieuw "Dag tot dag"-overzicht (`dagen` in route.json) waarvan
+app.js de rij van vandaag markeert, met "dag X van 15"-badge in de hero.
 Overnachten rond de opera in een agriturismo bij Bussolengo (~20 min van de
 Arena); honden tijdens de opera-avonden met een hondenoppas in het
-agriturismo (Rover/DogBuddy Verona). Vormgeving sinds 21-7-2026: "Midnight
-Edition" (midnight #071317, turquoise #02A0A0, pastel-oranje #FFBD65; tokens
-boven in `assets/style.css`).
+agriturismo. Vormgeving sinds 21-7-2026: "Midnight Edition" (midnight
+#071317, turquoise #02A0A0, pastel-oranje #FFBD65; tokens boven in
+`assets/style.css`).
 Route (stand 21-7-2026): Feldkirch (1n) → Valeggio via Trento-stop (2n,
 Sigurtà) → Portico via Ferrara-lunchstop (3n, Brisighella = dagtocht) →
 Valpolicella/Bussolengo (3n, opera vr+zo, za rustdag) → Cannobio via

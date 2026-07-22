@@ -189,6 +189,28 @@ body.toon-zh .hero-credit .lang-nl{ display:none; } body.toon-zh .hero-credit .l
 .kaartlabel.anker.leaflet-tooltip{ color:var(--oranje); font-weight:700; }
 .kaartlabel.leaflet-tooltip-right::before{ border-right-color:var(--hair); }
 
+/* ---- dag tot dag (reisgids voor het thuisfront) ---- */
+.dagen{ max-width:1100px; margin:44px auto 0; padding:0 20px; scroll-margin-top:calc(var(--navhoogte) + 14px); }
+.dagen h2{ font-family:var(--display); font-weight:900; font-size:clamp(28px,4vw,40px);
+  margin:0 0 6px; letter-spacing:-.005em; }
+.dagenhint{ margin:0 0 14px; font-size:13px; color:var(--muted); }
+.daglijst{ list-style:none; margin:0; padding:0; background:var(--card); border:1px solid var(--hair);
+  border-radius:var(--radius); box-shadow:var(--schaduw); overflow:hidden; }
+.dag{ display:flex; gap:16px; align-items:baseline; padding:10px 18px; font-size:14px; line-height:1.55; }
+.dag + .dag{ border-top:1px solid var(--hair); }
+.dagdatum{ flex:none; width:96px; font-size:11.5px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--tur-tekst); text-decoration:none; }
+.dagdatum:hover{ text-decoration:underline; }
+.dag.vandaag{ background:var(--oranje-soft); box-shadow:inset 3px 0 0 var(--oranje); }
+.dag.vandaag .dagdatum{ color:var(--oranje); }
+.dag.vandaag .dagtekst{ color:var(--ink); }
+.dag.vandaag .dagdatum::after{ content:" · nu"; letter-spacing:.02em; }
+body.toon-zh .dag.vandaag .dagdatum::after{ content:" · 现在"; }
+@media (max-width:640px){
+  .dag{ flex-direction:column; gap:2px; }
+  .dagdatum{ width:auto; }
+}
+
 /* ---- tijdlijn ---- */
 .tijdlijn{ max-width:960px; margin:56px auto 0; padding:0 20px 8px; position:relative; }
 .tijdlijn::before{ content:""; position:absolute; top:8px; bottom:24px; left:41px; border-left:1.5px solid var(--hair); }
@@ -358,6 +380,10 @@ body.toon-zh .hero-credit .lang-nl{ display:none; } body.toon-zh .hero-credit .l
   .hero-inner{ color:#000; padding:0 0 6px; max-width:none; }
   .hero h1{ color:#000; text-shadow:none; font-size:26pt; }
   .hero .boventitel, .hero .onder{ color:#000; }
+  .dagenhint{ display:none; }
+  .daglijst{ border:none; border-radius:0; box-shadow:none; }
+  .dag.vandaag{ background:none; box-shadow:none; }
+  .dagdatum{ color:#000 !important; }
   .statbalk{ max-width:none; margin:0; padding:0; border:none; border-bottom:2px solid #000; border-radius:0; box-shadow:none; }
   .stat{ border-color:#999; } .statwaarde{ color:#000; }
   .tijdlijn{ max-width:none; } .tijdlijn::before{ display:none; }

@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><!--TITEL_PLAIN--></title>
-<meta name="description" content="Reisplan Italië 2026: met de honden van Nijmegen naar de Arena di Verona en de stille pareltjes van Noord-Italië, <!--PERIODE_PLAIN-->.">
+<meta name="description" content="Reisgids Italië 2026: volg Marco, Dandan en de honden dag voor dag van Nijmegen naar de Arena di Verona en terug, <!--PERIODE_PLAIN-->.">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" sizes="32x32" href="/italie2026/assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/italie2026/assets/icon-180.png">
 <link rel="stylesheet" href="/italie2026/vendor/leaflet/leaflet.css">
-<link rel="stylesheet" href="/italie2026/assets/style.css?v=12">
+<link rel="stylesheet" href="/italie2026/assets/style.css?v=13">
 </head>
 <body>
 <a href="#route" class="skip-link"><span class="lang lang-nl" lang="nl">Naar de route</span><span class="lang lang-zh" lang="zh">前往路线</span></a>
@@ -30,7 +30,7 @@
 <header id="top" class="kop hero" style="/*HERO_STYLE*/">
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-inner">
-    <p class="boventitel"><span class="lang lang-nl" lang="nl">Reisplan</span><span class="lang lang-zh" lang="zh">行程</span> · <!--PERIODE--></p>
+    <p class="boventitel"><span class="lang lang-nl" lang="nl">Reisgids</span><span class="lang lang-zh" lang="zh">旅行指南</span> · <!--PERIODE--></p>
     <h1><!--TITEL--></h1>
     <p class="onder"><!--REIZIGERS--> · Nijmegen → Arena di Verona → Nijmegen · <!--ETAPPETELLER--></p>
     <div class="hero-acties">
@@ -51,6 +51,12 @@
     <p class="kaarthint"><span class="lang lang-nl" lang="nl">Tik op een genummerde stip voor de etappe; de kaart heeft internet nodig, de rest van deze pagina niet.</span><span class="lang lang-zh" lang="zh">点击带编号的圆点查看该段行程;地图需联网,本页其余内容无需联网。</span></p>
   </section>
 
+  <section class="dagen" aria-labelledby="dagen-kop">
+    <h2 id="dagen-kop"><span class="lang lang-nl" lang="nl">Dag tot dag</span><span class="lang lang-zh" lang="zh">每日行程</span></h2>
+    <p class="dagenhint"><span class="lang lang-nl" lang="nl">Zo reis je thuis mee: de gemarkeerde regel is vandaag; tik op een datum voor de bijbehorende etappe.</span><span class="lang lang-zh" lang="zh">在家同游:高亮的一行是今天;点击日期可跳转到对应行程段。</span></p>
+    <!--DAGEN-->
+  </section>
+
   <section class="tijdlijn" aria-label="Etappes / 各段行程">
     <div class="tijdlijn-voortgang" aria-hidden="true"></div>
     <!--TIJDLIJN-->
@@ -60,9 +66,8 @@
     <h2 id="praktisch-kop"><span class="lang lang-nl" lang="nl">Praktisch</span><span class="lang lang-zh" lang="zh">实用信息</span></h2>
     <div class="praktisch-grid">
       <div class="blok">
-        <h3><span class="lang lang-nl" lang="nl">Reischecklist</span><span class="lang lang-zh" lang="zh">行前清单</span> <span class="checkteller" id="checkteller" hidden></span></h3>
-        <!--CHECKLIST-->
-        <p class="checkhint"><span class="lang lang-nl" lang="nl">Vinkjes worden op dit apparaat onthouden; geboekte zaken staan al aangevinkt.</span><span class="lang lang-zh" lang="zh">勾选状态保存在本设备;已预订项目已预先勾选。</span></p>
+        <h3><span class="lang lang-nl" lang="nl">Volg de reis</span><span class="lang lang-zh" lang="zh">一路同行</span></h3>
+        <p><span class="lang lang-nl" lang="nl">Deze pagina is de reisgids én het meekijkvenster voor het thuisfront: bovenaan zie je in welke reisdag we zitten, bij "Dag tot dag" staat wat we die dag vermoedelijk doen, en elke etappe vertelt waar we slapen. Onderweg werken we de gids bij; foto's volgen na thuiskomst.</span><span class="lang lang-zh" lang="zh">本页既是旅行指南,也是家人"云同行"的窗口:页面顶部显示我们正处于旅程第几天,"每日行程"写着我们当天大概在做什么,每段行程注明我们的住处。旅途中我们会随时更新;照片将在回家后补充。</span></p>
       </div>
       <div class="blok">
         <h3><span class="lang lang-nl" lang="nl">Hitteprotocol honden</span><span class="lang lang-zh" lang="zh">爱犬防暑须知</span></h3>
@@ -81,11 +86,11 @@
 </main>
 
 <footer class="voet">
-  <p><span class="lang lang-nl" lang="nl">Route en status worden bijgehouden in <code>route.json</code> · fotoverslag volgt na de reis</span><span class="lang lang-zh" lang="zh">路线与状态记录于 <code>route.json</code> · 照片游记将于旅行后补充</span> · <a href="/">marcovanthiel.nl</a></p>
+  <p><span class="lang lang-nl" lang="nl">Deze reisgids wordt onderweg bijgewerkt · fotoverslag volgt na de reis</span><span class="lang lang-zh" lang="zh">旅行指南沿途更新 · 照片游记将于旅行后补充</span> · <a href="/">marcovanthiel.nl</a></p>
 </footer>
 
 <script type="application/json" id="routedata">/*ROUTEDATA*/</script>
 <script src="/italie2026/vendor/leaflet/leaflet.js" defer></script>
-<script src="/italie2026/assets/app.js?v=11" defer></script>
+<script src="/italie2026/assets/app.js?v=12" defer></script>
 </body>
 </html>

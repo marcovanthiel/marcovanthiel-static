@@ -24,7 +24,6 @@ SITE = HIER.parents[1] / "static" / "italie2026"
 # Etappenummers van de twee ankers (visueel onderscheiden):
 # 3 = Portico di Romagna (Al Vecchio Convento), 4 = Verona (opera)
 ANKERS = {3, 4}
-STATUS_CLASS = {"geboekt": "ok", "te bevestigen": "wait", "te boeken": "todo"}
 
 
 def esc(s):
@@ -47,15 +46,6 @@ def bi(field):
     zh = esc(field.get("zh", ""))
     return (f'<span class="lang lang-nl" lang="nl">{nl}</span>'
             f'<span class="lang lang-zh" lang="zh">{zh}</span>')
-
-
-def status_info(hotel):
-    ruw = hotel.get("status", "")
-    ruw_nl = val(ruw, "nl")
-    for sleutel, cls in STATUS_CLASS.items():
-        if ruw_nl.lower().startswith(sleutel):
-            return cls, ruw
-    return "wait", ruw
 
 
 def nachten_bi(n):
@@ -138,28 +128,17 @@ def etappe_html(e):
     if e.get("afstand"):
         afstand = f'<span class="afstand">{bi(e["afstand"])}</span>'
 
-    hotelblok = ""
-    if e.get("hotel"):
-        cls, ruw = status_info(e["hotel"])
-        hotelblok = (
-            '<p class="hotel">'
-            '<span class="hotellabel lang lang-nl" lang="nl">Hotel</span>'
-            '<span class="hotellabel lang lang-zh" lang="zh">酒店</span> '
-            f'{esc(val(e["hotel"]["naam"], "nl"))} '
-            f'<span class="status {cls}">{bi(ruw)}</span></p>'
-        )
-
+    # Reisgids-weergave: één rustige hotelregel (naam + link + korte typering),
+    # zonder prijzen of boekingsstatussen.
     sug = e.get("hotelsuggestie")
     sugblok = ""
     if sug:
         sugblok = (
-            '<p class="aanrader">'
-            '<span class="hotellabel lang lang-nl" lang="nl">Aanrader</span>'
-            '<span class="hotellabel lang lang-zh" lang="zh">推荐酒店</span> '
+            '<p class="hotel">'
+            '<span class="hotellabel lang lang-nl" lang="nl">We slapen in</span>'
+            '<span class="hotellabel lang lang-zh" lang="zh">我们的住处</span> '
             f'<a href="{esc(sug["url"])}" target="_blank" rel="noopener">{esc(sug["naam"])} ↗</a> '
-            f'<span class="sugtekst">{bi(sug["beschrijving"])}</span>'
-            + (f'<span class="sugprijs">{bi(sug["prijs"])}</span>' if sug.get("prijs") else "")
-            + '</p>'
+            f'<span class="sugtekst">{bi(sug["beschrijving"])}</span></p>'
         )
         hf = sug.get("foto")
         if hf:
@@ -191,7 +170,7 @@ def etappe_html(e):
           <li><strong>vr 7 aug</strong> · Turandot · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:00</li>
           <li><strong>zo 9 aug</strong> · Aida (Zeffirelli) · <span class="lang lang-nl" lang="nl">aanvang</span><span class="lang lang-zh" lang="zh">开演</span> 21:00</li>
         </ul>
-        <p class="waarschuwing"><span class="lang lang-nl" lang="nl">Let op: tijdens de opera blijven de honden met een hondenoppas in het relais. Tickets en oppas zijn samen de vooraf te regelen spil van de reis.</span><span class="lang lang-zh" lang="zh">注意:歌剧期间狗狗由狗保姆陪伴留在庄园。门票与狗保姆是此行需提前安排的关键。</span></p>
+        <p class="waarschuwing"><span class="lang lang-nl" lang="nl">Tijdens de opera-avonden blijven de honden met de hondenoppas in het agriturismo; na afloop zijn we in twintig minuten terug bij ze.</span><span class="lang lang-zh" lang="zh">歌剧之夜,狗狗由狗保姆陪伴留在农庄;散场后约二十分钟我们就回到它们身边。</span></p>
       </aside>"""
 
     return f"""
@@ -205,7 +184,6 @@ def etappe_html(e):
         {videoblok(e)}
         <ul class="highlights">{hl}</ul>
         {info}
-        {hotelblok}
         {sugblok}
         <p class="honden">{bi(e["honden"])}</p>{opera}
         {fotoblok(e)}
@@ -215,18 +193,18 @@ def etappe_html(e):
 
 
 
-def checklist_html(route):
-    """Interactieve reischecklist: done-items uit route.json staan aangevinkt;
-    vinkjes van de gebruiker bewaart app.js in localStorage (it26_check)."""
-    items = route.get("checklist") or []
-    if not items:
+def dagen_html(route):
+    """Dag-tot-dag-overzicht voor het thuisfront: per reisdag waar we zijn en
+    wat we vermoedelijk doen. app.js markeert de rij van vandaag (data-datum)."""
+    dagen = route.get("dagen") or []
+    if not dagen:
         return ""
     lis = ""
-    for it in items:
-        checked = " checked" if it.get("done") else ""
-        lis += (f'<li><label><input type="checkbox" data-check="{esc(it["id"])}"{checked}>'
-                f'<span>{bi(it["tekst"])}</span></label></li>')
-    return f'<ul class="checklist interactief" id="reischecklist">{lis}</ul>'
+    for d in dagen:
+        lis += (f'<li class="dag" data-datum="{esc(d["datum"])}">'
+                f'<a class="dagdatum" href="#etappe-{int(d["etappe"])}">{bi(d["label"])}</a>'
+                f'<span class="dagtekst">{bi(d["tekst"])}</span></li>')
+    return f'<ol class="daglijst" id="daglijst">{lis}</ol>'
 
 
 def nav_html(route):
@@ -273,7 +251,7 @@ def main():
            .replace("<!--REIZIGERS-->", bi(route["reizigers"]))
            .replace("<!--TIJDLIJN-->", tijdlijn)
            .replace("<!--NAV-->", nav_html(route))
-           .replace("<!--CHECKLIST-->", checklist_html(route))
+           .replace("<!--DAGEN-->", dagen_html(route))
            .replace("<!--ETAPPETELLER-->", f'<span class="lang lang-nl" lang="nl">{len(route["etappes"])} etappes</span><span class="lang lang-zh" lang="zh">{len(route["etappes"])} 段行程</span>')
            .replace("/*ROUTEDATA*/", json.dumps(route, ensure_ascii=False)))
 
