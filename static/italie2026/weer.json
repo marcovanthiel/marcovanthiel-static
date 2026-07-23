@@ -15,16 +15,18 @@
    "dagen_totaal": 2
   },
   "3": {
-   "gem": 33,
-   "maxgem": 38,
+   "gem": 32,
+   "maxgem": 37,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "4": {
-   "gem": 25,
-   "maxgem": 30,
-   "bron": "klimaat"
+   "gem": 34,
+   "maxgem": 40,
+   "bron": "voorspelling",
+   "dagen_gedekt": 1,
+   "dagen_totaal": 3
   },
   "5": {
    "gem": 24,
@@ -42,5 +44,5 @@
    "bron": "klimaat"
   }
  },
- "bijgewerkt": "2026-07-22"
+ "bijgewerkt": "2026-07-23"
 }
