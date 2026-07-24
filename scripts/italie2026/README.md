@@ -44,6 +44,9 @@ Per etappe extra velden:
   De `datum` (ISO) stuurt de vandaag-markering in app.js; `etappe` maakt de
   datum klikbaar naar het bijbehorende kaartje. Wijzigt het programma
   onderweg, werk dan de betreffende dagtekst bij (kan via github.com).
+  Op de eerste dag van elke etappe (de rijdag) zet `build.py` automatisch de
+  kilometers + verwachte reisduur uit `afstand`/`rijtijd` van die etappe
+  eronder (klasse `dagreis`) — niet ook in de dagtekst zetten.
 - `hotelsuggestie.foto` — zelfde structuur als `voorbeeldfoto` (klein weergegeven,
   max 420 px): foto van het aangeraden hotel. Promobeeld van het hotel zelf mag,
   mét credit + link naar de hotelsite.
