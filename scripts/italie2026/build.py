@@ -214,15 +214,27 @@ def etappe_html(e, weer=None):
 
 def dagen_html(route):
     """Dag-tot-dag-overzicht voor het thuisfront: per reisdag waar we zijn en
-    wat we vermoedelijk doen. app.js markeert de rij van vandaag (data-datum)."""
+    wat we vermoedelijk doen. app.js markeert de rij van vandaag (data-datum).
+    Op elke rijdag (de eerste dag van een etappe) komen automatisch de
+    kilometers en de verwachte reisduur uit de etappedata bij te staan."""
     dagen = route.get("dagen") or []
     if not dagen:
         return ""
+    per_nr = {e["nr"]: e for e in route["etappes"]}
+    gezien = set()
     lis = ""
     for d in dagen:
+        nr = int(d["etappe"])
+        reis = ""
+        if nr not in gezien:
+            gezien.add(nr)
+            e = per_nr.get(nr)
+            if e and e.get("afstand") and e.get("rijtijd"):
+                reis = (f'<span class="dagreis">{bi(e["afstand"])} · '
+                        f'{bi(e["rijtijd"])}</span>')
         lis += (f'<li class="dag" data-datum="{esc(d["datum"])}">'
-                f'<a class="dagdatum" href="#etappe-{int(d["etappe"])}">{bi(d["label"])}</a>'
-                f'<span class="dagtekst">{bi(d["tekst"])}</span></li>')
+                f'<a class="dagdatum" href="#etappe-{nr}">{bi(d["label"])}</a>'
+                f'<span class="dagtekst">{bi(d["tekst"])}{reis}</span></li>')
     return f'<ol class="daglijst" id="daglijst">{lis}</ol>'
 
 
