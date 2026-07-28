@@ -1,15 +1,15 @@
 {
  "etappes": {
   "1": {
-   "gem": 24,
-   "maxgem": 28,
+   "gem": 25,
+   "maxgem": 31,
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
   },
   "2": {
-   "gem": 31,
-   "maxgem": 39,
+   "gem": 33,
+   "maxgem": 40,
    "bron": "voorspelling",
    "dagen_gedekt": 2,
    "dagen_totaal": 2
@@ -22,17 +22,17 @@
    "dagen_totaal": 3
   },
   "4": {
-   "gem": 33,
-   "maxgem": 38,
+   "gem": 31,
+   "maxgem": 35,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "5": {
-   "gem": 24,
-   "maxgem": 29,
+   "gem": 27,
+   "maxgem": 32,
    "bron": "voorspelling",
-   "dagen_gedekt": 2,
+   "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "6": {
@@ -46,5 +46,5 @@
    "bron": "klimaat"
   }
  },
- "bijgewerkt": "2026-07-27"
+ "bijgewerkt": "2026-07-28"
 }
