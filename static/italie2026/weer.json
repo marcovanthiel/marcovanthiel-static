@@ -1,44 +1,46 @@
 {
  "etappes": {
   "1": {
-   "gem": 25,
-   "maxgem": 31,
+   "gem": 22,
+   "maxgem": 26,
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
   },
   "2": {
-   "gem": 33,
-   "maxgem": 40,
+   "gem": 31,
+   "maxgem": 38,
    "bron": "voorspelling",
    "dagen_gedekt": 2,
    "dagen_totaal": 2
   },
   "3": {
-   "gem": 32,
-   "maxgem": 38,
+   "gem": 31,
+   "maxgem": 37,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "4": {
-   "gem": 31,
-   "maxgem": 35,
+   "gem": 27,
+   "maxgem": 31,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "5": {
-   "gem": 27,
-   "maxgem": 32,
+   "gem": 25,
+   "maxgem": 30,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "6": {
-   "gem": 18,
-   "maxgem": 23,
-   "bron": "klimaat"
+   "gem": 16,
+   "maxgem": 20,
+   "bron": "voorspelling",
+   "dagen_gedekt": 1,
+   "dagen_totaal": 1
   },
   "7": {
    "gem": 22,
@@ -46,5 +48,5 @@
    "bron": "klimaat"
   }
  },
- "bijgewerkt": "2026-07-28"
+ "bijgewerkt": "2026-07-29"
 }
