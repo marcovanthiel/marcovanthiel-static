@@ -146,6 +146,19 @@ werkende link (`hotelsuggestie`).
   subsite-README). Na de reis: vervangen door eigen materiaal (zonder het
   veld valt de "foto volgt"-placeholder terug).
 
+## Subsite: /italiecamper2026
+
+**marcovanthiel.nl/italiecamper2026** — campervariant van de pareltjesroute
+(voor een vriendin van Marco; gemaakt 30-7-2026). Zelfde route, data en
+dagindeling als `/italie2026`, maar per etappe een **camping met goede
+faciliteiten** (veld `camping`; bewust geen camperplaatsen/sosta's), zonder
+honden-/oppasteksten, en etappe 4 = **Verona zelf** (stadscamping Castel San
+Pietro, kwartier lopen naar de Arena). Deelt stijl, foto's, vendor-assets en
+`weer.json` met `/italie2026` (absolute paden; geen eigen weer-pipeline) en
+wordt gebouwd door dezelfde Actions **italie2026-build** en
+**italie2026-weer**. Eigen CSP-blok `/italiecamper2026/*` in
+`static/_headers`. Volledige details: `scripts/italiecamper2026/README.md`.
+
 ## Subsite: /weerstatistieken
 
 **marcovanthiel.nl/weerstatistieken** — weerstatistieken van KNMI-meetstation

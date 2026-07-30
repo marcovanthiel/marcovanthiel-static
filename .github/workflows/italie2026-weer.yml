@@ -32,14 +32,15 @@ jobs:
           set -e
           python scripts/italie2026/weer.py
           python scripts/italie2026/build.py
-          echo "changed=$(git diff --quiet static/italie2026 && echo false || echo true)" >> "$GITHUB_OUTPUT"
+          python scripts/italiecamper2026/build.py
+          echo "changed=$(git diff --quiet static/italie2026 static/italiecamper2026 && echo false || echo true)" >> "$GITHUB_OUTPUT"
 
       - name: Commit
         if: steps.gen.outputs.changed == 'true'
         run: |
           git config user.name  "italie2026-bot"
           git config user.email "bot@marcovanthiel.nl"
-          git add static/italie2026/weer.json static/italie2026/index.html
+          git add static/italie2026/weer.json static/italie2026/index.html static/italiecamper2026/index.html
           git commit -m "italie2026: dagelijkse temperatuurupdate (Open-Meteo)"
           git pull --rebase origin main
           git push

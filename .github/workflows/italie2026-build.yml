@@ -8,6 +8,8 @@ on:
     paths:
       - 'static/italie2026/route.json'
       - 'scripts/italie2026/**'
+      - 'static/italiecamper2026/route.json'
+      - 'scripts/italiecamper2026/**'
   workflow_dispatch: {}
 
 permissions:
@@ -33,14 +35,15 @@ jobs:
         run: |
           set -e
           python scripts/italie2026/build.py
-          echo "changed=$(git diff --quiet static/italie2026/index.html && echo false || echo true)" >> "$GITHUB_OUTPUT"
+          python scripts/italiecamper2026/build.py
+          echo "changed=$(git diff --quiet static/italie2026/index.html static/italiecamper2026/index.html && echo false || echo true)" >> "$GITHUB_OUTPUT"
 
       - name: Commit
         if: steps.gen.outputs.changed == 'true'
         run: |
           git config user.name  "italie2026-bot"
           git config user.email "bot@marcovanthiel.nl"
-          git add static/italie2026/index.html
+          git add static/italie2026/index.html static/italiecamper2026/index.html
           git commit -m "italie2026: index.html geregenereerd uit route.json"
           git pull --rebase origin main
           git push

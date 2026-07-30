@@ -1,0 +1,831 @@
+{
+  "titel": {
+    "nl": "Italië 2026: de pareltjesroute per camper",
+    "zh": "意大利 2026:珍珠之路房车之旅"
+  },
+  "periode": {
+    "nl": "1 t/m 15 augustus 2026",
+    "zh": "2026 年 8 月 1 日至 15 日"
+  },
+  "reizigers": {
+    "nl": "Per camper",
+    "zh": "房车之旅"
+  },
+  "etappes": [
+    {
+      "nr": 1,
+      "datum": {
+        "nl": "inchecken za 1 aug · uitchecken zo 2 aug",
+        "zh": "入住 8月1日(周六)· 退房 8月2日(周日)"
+      },
+      "van": "Nijmegen",
+      "naar": "Feldkirch (AT)",
+      "rijtijd": {
+        "nl": "ca. 6,5 uur",
+        "zh": "约 6.5 小时"
+      },
+      "afstand": {
+        "nl": "≈ 625 km",
+        "zh": "≈ 625 公里"
+      },
+      "nachten": 1,
+      "coord": [
+        47.2364,
+        9.5997
+      ],
+      "highlights": [
+        {
+          "nl": "Schattenburg",
+          "zh": "沙滕堡城堡"
+        },
+        {
+          "nl": "middeleeuwse binnenstad met arcades",
+          "zh": "带拱廊的中世纪老城"
+        },
+        {
+          "nl": "avondrust terwijl Bregenz volloopt voor de Festspiele",
+          "zh": "布雷根茨音乐节人潮之外的宁静夜晚"
+        }
+      ],
+      "toerisme": {
+        "nl": "Feldkirch is de best bewaarde middeleeuwse stad van Vorarlberg: kronkelige arcades (Laubengänge), de dreigende Katzenturm en hoog boven de daken de Schattenburg, ooit zetel van de graven van Montfort. Vanuit het kasteel kijk je zo Liechtenstein en Zwitserland in. Het ligt strategisch tussen Bodensee, het Rijndal en de Alpen.",
+        "zh": "费尔德基希是福拉尔贝格州保存最完好的中世纪城镇:蜿蜒的拱廊、雄踞的猫塔,以及屋顶之上的沙滕堡,昔日蒙特福特伯爵的府邸。从城堡可远眺列支敦士登与瑞士。它坐落于博登湖、莱茵河谷与阿尔卑斯之间的要冲。"
+      },
+      "info": {
+        "nl": "Oostenrijk vereist een (digitaal) vignet voor de snelweg. De oude stad is grotendeels autovrij, parkeer in een van de garages (bv. Marktplatz/Katzenturm). Ideale eerste stop: kort van de weg naar een rustige avond.",
+        "zh": "奥地利高速需购买(电子)通行证。老城基本禁车,请停入停车楼(如 Marktplatz/Katzenturm)。作为第一站十分理想:下高速即可享受宁静的傍晚。"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-01-feldkirch.jpg",
+        "breedte": 1280,
+        "hoogte": 718,
+        "onderschrift": {
+          "nl": "De Schattenburg boven Feldkirch",
+          "zh": "费尔德基希的沙滕堡"
+        },
+        "credit": "Foto: Asurnipal, Wikimedia Commons (CC BY-SA 4.0)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Feldkirch-Schattenburg-01.jpg"
+      },
+      "video": {
+        "id": "A9yww3EhnDA",
+        "titel": {
+          "nl": "Feldkirch vanuit de lucht",
+          "zh": "俯瞰费尔德基希"
+        }
+      },
+      "camping": {
+        "naam": "Alpencamping Nenzing",
+        "url": "https://www.alpencamping.at/nl/camping/",
+        "beschrijving": {
+          "nl": "Vijfsterren-wellnesscamping aan de voet van het Rätikon, 20 minuten voorbij Feldkirch: royale plaatsen, panoramasauna's, binnen- en buitenbad en een goed restaurant.",
+          "zh": "拉蒂孔山脚下的五星康养营地,过费尔德基希约 20 分钟车程:营位宽敞,有全景桑拿、室内外泳池和出色的餐厅。"
+        }
+      }
+    },
+    {
+      "nr": 2,
+      "datum": {
+        "nl": "inchecken zo 2 aug · uitchecken di 4 aug",
+        "zh": "入住 8月2日(周日)· 退房 8月4日(周二)"
+      },
+      "van": "Feldkirch",
+      "naar": "Valeggio sul Mincio",
+      "rijtijd": {
+        "nl": "ca. 4,5 uur via de Reschenpas, met stops in Glurns en Trento",
+        "zh": "约 4.5 小时,经雷西亚山口,途中停留格洛伦扎与特伦托"
+      },
+      "afstand": {
+        "nl": "≈ 330 km",
+        "zh": "≈ 330 公里"
+      },
+      "nachten": 2,
+      "coord": [
+        45.3537,
+        10.7232
+      ],
+      "highlights": [
+        {
+          "nl": "koffiestop in het ommuurde Glurns",
+          "zh": "在城墙小镇格洛伦扎稍作停留"
+        },
+        {
+          "nl": "tussenstop Trento: Piazza Duomo en de fresco's van Buonconsiglio",
+          "zh": "中途游特伦托:主教座堂广场与布翁孔西利奥城堡壁画"
+        },
+        {
+          "nl": "watermolengehucht Borghetto",
+          "zh": "博尔盖托水磨村"
+        },
+        {
+          "nl": "Parco Giardino Sigurtà",
+          "zh": "西古尔塔花园公园"
+        },
+        {
+          "nl": "Ponte Visconteo",
+          "zh": "维斯孔蒂桥"
+        },
+        {
+          "nl": "tortellini di Valeggio ('nodo d'amore')",
+          "zh": "瓦莱焦'爱情结'小饺"
+        }
+      ],
+      "toerisme": {
+        "nl": "De rit is zelf een pareltjesroute: over de Reschenpas langs de half verzonken kerktoren in het Reschensee, met een koffiestop in het volledig ommuurde stadje Glurns en een lunchstop in Trento, waar het Castello del Buonconsiglio de wereldberoemde 'Cyclus van de Twaalf Maanden' bewaart. Daarna daal je af naar Valeggio aan de Mincio, met aan de voet het sprookjesachtige molengehucht Borghetto en de reusachtige 14e-eeuwse Ponte Visconteo van de Scaligeri. Vlakbij ligt Parco Giardino Sigurtà, een van de mooiste tuinen van Europa; de streek is beroemd om de flinterdunne tortellini, de 'nodo d'amore'.",
+        "zh": "这段路本身就是珍珠之路:翻越雷西亚山口,途经湖中半淹的教堂钟楼,在城墙完整的小镇格洛伦扎稍作咖啡停留,再到特伦托午餐——布翁孔西利奥城堡内保存着举世闻名的《十二月令》壁画。随后南下明乔河畔的瓦莱焦,脚下是童话般的博尔盖托水磨村,以及斯卡拉家族修建的巨大 14 世纪维斯孔蒂桥。附近的西古尔塔花园公园是欧洲最美的园林之一;这一带以薄如蝉翼的'爱情结'小饺闻名。"
+      },
+      "info": {
+        "nl": "Parkeer in Trento bij Piazza Fiera; de compacte kern is in twee uur te zien. In Valeggio: avondwandeling naar Borghetto met tortellini als beloning. Met twee nachten heb je de maandag volledig: Parco Giardino Sigurtà 's ochtends vroeg bij opening (het park is groot, neem water mee) en 's avonds nogmaals Borghetto. Rijd dinsdag via Ferrara naar Portico.",
+        "zh": "特伦托可停在 Piazza Fiera;老城紧凑,两小时即可饱览。在瓦莱焦:傍晚漫步至博尔盖托,以'爱情结'小饺犒劳自己。住两晚可将周一整日留给瓦莱焦:清晨开园即游西古尔塔花园(园区很大,请备足饮水),傍晚再访博尔盖托。周二经费拉拉前往波尔蒂科。"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-03-borghetto.jpg",
+        "breedte": 1280,
+        "hoogte": 853,
+        "onderschrift": {
+          "nl": "Borghetto aan de Mincio",
+          "zh": "明乔河畔的博尔盖托"
+        },
+        "credit": "Foto: Oursana, Wikimedia Commons (publiek domein)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Borghetto_(Valeggio_sul_Mincio),_view_from_the_Visconti_bridge2.JPG"
+      },
+      "video": {
+        "id": "mVG3r_JpYfs",
+        "titel": {
+          "nl": "Borghetto sul Mincio vanuit de lucht",
+          "zh": "俯瞰博尔盖托水磨村"
+        }
+      },
+      "camping": {
+        "naam": "hu Altomincio village",
+        "url": "https://altomincio.huopenair.com/",
+        "beschrijving": {
+          "nl": "Groen vakantiepark in een bocht van de Mincio met drie zwembaden, spraypark, restaurant en winkel; Borghetto en Valeggio liggen op een paar minuten rijden.",
+          "zh": "明乔河湾的绿色度假营地,有三座泳池、喷水乐园、餐厅和商店;距博尔盖托与瓦莱焦仅数分钟车程。"
+        }
+      }
+    },
+    {
+      "nr": 3,
+      "datum": {
+        "nl": "inchecken di 4 aug · uitchecken vr 7 aug",
+        "zh": "入住 8月4日(周二)· 退房 8月7日(周五)"
+      },
+      "van": "Valeggio",
+      "naar": "Portico di Romagna",
+      "rijtijd": {
+        "nl": "ca. 3 uur, met lunchstop Ferrara",
+        "zh": "约 3 小时,于费拉拉午餐"
+      },
+      "afstand": {
+        "nl": "≈ 220 km",
+        "zh": "≈ 220 公里"
+      },
+      "nachten": 3,
+      "coord": [
+        44.0254,
+        11.7823
+      ],
+      "highlights": [
+        {
+          "nl": "lunchstop Ferrara: Castello Estense en cappellacci di zucca",
+          "zh": "午餐停留费拉拉:埃斯特城堡与南瓜方饺"
+        },
+        {
+          "nl": "Acquacheta-waterval (Dante, Divina Commedia)",
+          "zh": "阿夸凯塔瀑布(但丁《神曲》)"
+        },
+        {
+          "nl": "Foreste Casentinesi (nationaal park)",
+          "zh": "卡森蒂内西森林国家公园"
+        },
+        {
+          "nl": "dagtocht Brisighella: Via degli Asini en Rocca Manfrediana",
+          "zh": "一日游布里西盖拉:驴巷与曼弗雷迪城堡"
+        },
+        {
+          "nl": "dineren bij Al Vecchio Convento in Portico",
+          "zh": "在波尔蒂科的老修道院餐厅晚餐"
+        }
+      ],
+      "toerisme": {
+        "nl": "Portico di Romagna is een middeleeuws bergdorpje in de Apennijnen, met de statige Ponte della Maestà en een band met Dante: de familie van zijn Beatrice Portinari kwam hier vandaan. Boven het dorp stort in het nationaal park Foreste Casentinesi de Acquacheta-waterval naar beneden, door Dante bezongen in de Inferno. Drie nachten op de camping in het nationaal park maken dit het wandel- en rusthart van de reis, met Brisighella, een van de mooiste dorpen van Italië op zijn drie gipsrotsen, als dagtocht binnen handbereik.",
+        "zh": "波尔蒂科·迪·罗马涅是亚平宁山中的中世纪山村,有庄严的威严桥,并与但丁渊源深厚:他笔下贝雅特丽齐·波尔蒂纳里的家族即源出于此。村庄之上、卡森蒂内西森林国家公园内,阿夸凯塔瀑布飞流直下,但丁曾在《地狱篇》中歌咏。在国家公园内的营地住三晚,让这里成为全程徒步与休憩的中心;依三座石膏岩而建、名列意大利最美村庄的布里西盖拉,则是触手可及的一日游。"
+      },
+      "info": {
+        "nl": "Onderweg is Ferrara, de renaissance-ideaalstad van de Este-hertogen (UNESCO), een royale lunchstop: het door water omgeven Castello Estense ligt in het autoluwe hart, en de cappellacci di zucca (pompoenpasta) zijn de lunch. De Acquacheta-wandeling (vanaf San Benedetto in Alpe) is heen en terug ~3 uur; begin vroeg vanwege de hitte. De dagtocht Brisighella (35 km) is op zijn mooist als de dagjesmensen aan het eind van de middag vertrokken zijn. Wil je één avond bijzonder eten, reserveer dan tafel bij Al Vecchio Convento in Portico (+39 0543 967053).",
+        "zh": "途中的费拉拉是埃斯特公爵的文艺复兴理想之城(世界遗产),值得从容午餐:环水的埃斯特城堡就在几乎无车的市中心,午餐当选南瓜方饺。阿夸凯塔徒步(从 San Benedetto in Alpe 出发)往返约 3 小时,因天热宜早出发。一日游布里西盖拉(35 公里)在日游客傍晚散去后最为动人。想吃一顿讲究的晚餐,可预订波尔蒂科老修道院餐厅的座位(+39 0543 967053)。"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-04-brisighella.jpg",
+        "breedte": 1280,
+        "hoogte": 960,
+        "onderschrift": {
+          "nl": "Brisighella met de Torre dell'Orologio (dagtocht)",
+          "zh": "布里西盖拉与钟楼(一日游)"
+        },
+        "credit": "Foto: Carlo Pelagalli, Wikimedia Commons (CC BY-SA 3.0)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Brisighella,_Panorama_dalla_Rocca_Manfrediana._A_sinistra_la_Torre_dell%27Orologio_-_panoramio.jpg"
+      },
+      "video": {
+        "id": "2yKI7BXY0wE",
+        "titel": {
+          "nl": "Al Vecchio Convento — ons albergo diffuso in Portico",
+          "zh": "老修道院旅馆 — 我们在波尔蒂科的分散式酒店"
+        }
+      },
+      "lint": {
+        "nl": "Hoogtepunt",
+        "zh": "重头戏"
+      },
+      "camping": {
+        "naam": "Camping Acquacheta, San Benedetto in Alpe",
+        "url": "http://www.campingacquacheta.it/",
+        "beschrijving": {
+          "nl": "Terrassencamping op 600 m in het nationaal park, met bar, restaurant en pizzeria; de Acquacheta-wandeling begint praktisch bij de slagboom en Portico ligt op vijf minuten rijden.",
+          "zh": "国家公园内海拔 600 米的梯田式营地,设酒吧、餐厅和比萨店;阿夸凯塔瀑布步道几乎从营地门口出发,车行五分钟即到波尔蒂科。"
+        }
+      }
+    },
+    {
+      "nr": 4,
+      "datum": {
+        "nl": "inchecken vr 7 aug · uitchecken ma 10 aug",
+        "zh": "入住 8月7日(周五)· 退房 8月10日(周一)"
+      },
+      "van": "Portico",
+      "naar": "Verona",
+      "rijtijd": {
+        "nl": "ca. 2,5 uur",
+        "zh": "约 2.5 小时"
+      },
+      "afstand": {
+        "nl": "≈ 205 km",
+        "zh": "≈ 205 公里"
+      },
+      "nachten": 3,
+      "coord": [
+        45.4477,
+        10.9995
+      ],
+      "highlights": [
+        {
+          "nl": "vr 7/8 Turandot, 21:00",
+          "zh": "8月7日《图兰朵》21:00"
+        },
+        {
+          "nl": "zo 9/8 Aida (Zeffirelli), 21:00",
+          "zh": "8月9日《阿依达》(泽菲雷利版) 21:00"
+        },
+        {
+          "nl": "za: watervallenkloof van Molina + proeverij in de Valpolicella",
+          "zh": "周六:莫利纳瀑布峡谷 + 瓦尔波利切拉品酒"
+        },
+        {
+          "nl": "Verona: Piazza delle Erbe, Castelvecchio, Giardino Giusti",
+          "zh": "维罗纳:香草广场、古堡博物馆、朱斯蒂花园"
+        }
+      ],
+      "toerisme": {
+        "nl": "De camper staat op de San Pietro-heuvel, met heel Verona aan je voeten: in een kwartier wandel je naar de Arena, waar het operafestival onder de sterren klinkt, en de UNESCO-binnenstad met Piazza delle Erbe, de balkonlegende van Julia en Scarpa's Castelvecchio ligt onderaan de trap. De Valpolicella Classica, het wijnland van Amarone en Ripasso met zachte heuvels vol wijngaarden, kersenboomgaarden en romaanse kerkjes als San Giorgio en San Floriano, is een dagtocht van nog geen half uur.",
+        "zh": "房车驻扎在圣彼得山上,维罗纳全城尽收眼底:步行一刻钟即到圆形剧场,聆听星空下的歌剧节;世界遗产老城——香草广场、朱丽叶阳台传说和斯卡帕改建的老城堡——就在石阶之下。瓦尔波利切拉经典产区是阿玛罗尼与里帕索之乡,葡萄园与樱桃园铺满丘陵,点缀着圣乔治等罗曼式小教堂,车程不到半小时,正好一日游。"
+      },
+      "info": {
+        "nl": "Operatickets boek je via arena.it (Turandot vr, Aida zo, beide 21:00, tot na middernacht; kussentje mee voor de stenen tribunes). Vanaf de camping wandel je in een kwartier naar de Arena, dus de camper blijft gewoon staan. Overdag is het heet: wijngaardwandelingen 's ochtends, proeverij in de namiddag. Voor de vrije zaterdag: 's ochtends de schaduwrijke watervallenkloof van het Parco delle Cascate di Molina (25 min rijden, routes van 30 min tot 2 uur), lunch met uitzicht bij de romaanse pieve van San Giorgio di Valpolicella, en in de namiddag een proeverij in het tuin-wijngoed Giardino di Pojega in Negrar (dagelijks geopend).",
+        "zh": "歌剧票请在 arena.it 预订(周五《图兰朵》、周日《阿依达》,均 21:00 开演,持续至午夜后;石阶看台请自带坐垫)。从营地步行一刻钟即到剧场,房车无需挪动。白天炎热:宜清晨漫步葡萄园,午后品酒。自由的周六:清晨前往莫利纳瀑布公园的林荫峡谷(车程 25 分钟,步道 30 分钟至 2 小时),在圣乔治罗曼式教堂旁享用观景午餐,午后造访内格拉尔每日开放的波耶加园林酒庄。"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-05-verona.jpg",
+        "breedte": 1280,
+        "hoogte": 720,
+        "onderschrift": {
+          "nl": "De Arena aan Piazza Bra",
+          "zh": "布拉广场旁的圆形剧场"
+        },
+        "credit": "Foto: Claconvr, Wikimedia Commons (CC BY-SA 4.0)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Arena-XE3F2406a.jpg"
+      },
+      "video": {
+        "id": "RzDnBy8tK9g",
+        "titel": {
+          "nl": "Verona vanuit de lucht",
+          "zh": "俯瞰维罗纳"
+        }
+      },
+      "lint": {
+        "nl": "Opera",
+        "zh": "歌剧之夜"
+      },
+      "camping": {
+        "naam": "Verona City Camping – Castel San Pietro",
+        "url": "https://www.campingcastelsanpietro.com/",
+        "beschrijving": {
+          "nl": "Stadscamping in het groen op de San Pietro-heuvel, met modern sanitair en uitzicht over de daken; in een kwartier wandel je naar de Arena — ideaal voor de opera-avonden.",
+          "zh": "圣彼得山上的绿荫城市营地,卫浴现代,可俯瞰维罗纳屋顶;步行一刻钟即到圆形剧场——歌剧之夜的理想之选。"
+        }
+      }
+    },
+    {
+      "nr": 5,
+      "datum": {
+        "nl": "inchecken ma 10 aug · uitchecken do 13 aug",
+        "zh": "入住 8月10日(周一)· 退房 8月13日(周四)"
+      },
+      "van": "Verona",
+      "naar": "Cannobio (Lago Maggiore)",
+      "rijtijd": {
+        "nl": "ca. 3,5 uur, lunchstop Bergamo Città Alta",
+        "zh": "约 3.5 小时,于贝加莫上城午餐"
+      },
+      "afstand": {
+        "nl": "≈ 270 km",
+        "zh": "≈ 270 公里"
+      },
+      "nachten": 3,
+      "coord": [
+        46.0611,
+        8.6989
+      ],
+      "highlights": [
+        {
+          "nl": "lunchstop Bergamo Città Alta (ommuurde bovenstad, UNESCO)",
+          "zh": "午餐停留贝加莫上城(城墙环绕,世界遗产)"
+        },
+        {
+          "nl": "Orrido di Sant'Anna (kloof in de Val Cannobina)",
+          "zh": "圣安娜峡谷(坎诺比纳谷)"
+        },
+        {
+          "nl": "Castelli di Cannero, ruïnes op rotseilandjes in het meer",
+          "zh": "坎内罗城堡,湖中岩岛上的古堡遗迹"
+        },
+        {
+          "nl": "lidopromenade en zwemplekken aan het meer",
+          "zh": "湖滨浴场步道与游泳点"
+        }
+      ],
+      "toerisme": {
+        "nl": "Cannobio is het laatste en misschien wel mooiste stadje aan de Piemontese westoever van het Lago Maggiore, vlak voor de Zwitserse grens: een geplaveide kern die afloopt naar een lange kade met pastelkleurige huizen en platanen. Even landinwaarts, in het groene Val Cannobina, perst de Orrido di Sant'Anna zich als smalle kloof onder een stenen brugje en een kerkje door. Voor de kust van buurdorp Cannero liggen de romantische ruïnes van de Castelli di Cannero op twee rotseilandjes in het meer.",
+        "zh": "坎诺比奥是马焦雷湖皮埃蒙特西岸、瑞士边境前的最后一座小城,也许是最美的一座:石板铺就的老城缓缓延伸至一条长长的湖畔堤岸,粉彩房屋与法国梧桐相映成趣。稍往内陆,在葱郁的坎诺比纳谷中,圣安娜峡谷从石桥与小教堂下方挤过,狭窄而幽深。邻村坎内罗的近岸处,两座岩岛上矗立着浪漫的坎内罗城堡遗迹。"
+      },
+      "info": {
+        "nl": "Drie rustdagen na de opera-avonden: zwemmen, luieren en 's avonds de kade. Onderweg is Bergamo Città Alta, de ommuurde renaissance-bovenstad met haar venetiaanse muren (UNESCO), een mooie lunchstop halverwege. Het Zwitserse vignet is al voor de rit van donderdag nodig.",
+        "zh": "歌剧之夜后的三个休整日:游泳、闲逛,傍晚漫步湖堤。途中的贝加莫上城拥有威尼斯时期的城墙(世界遗产),是理想的中途午餐地。周四上路即需瑞士高速通行证。"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-06-cannobio.jpg",
+        "breedte": 1280,
+        "hoogte": 853,
+        "onderschrift": {
+          "nl": "De kade van Cannobio",
+          "zh": "坎诺比奥湖畔长堤"
+        },
+        "credit": "Foto: markjhandel, Wikimedia Commons (CC BY 2.0)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Cannobio_-_Waterfront.jpg"
+      },
+      "video": {
+        "id": "lln5F5uxR1g",
+        "titel": {
+          "nl": "Cannobio aan het Lago Maggiore",
+          "zh": "马焦雷湖畔的坎诺比奥"
+        }
+      },
+      "camping": {
+        "naam": "Camping Riviera, Cannobio",
+        "url": "https://www.riviera-valleromantica.com/",
+        "beschrijving": {
+          "nl": "Bloemrijke camping direct aan het Lago Maggiore met eigen kiezelstrand, vijf verzorgde sanitairblokken, twee restaurants en een winkel; het centrum van Cannobio ligt op loopafstand.",
+          "zh": "紧邻马焦雷湖的花园式营地,自有卵石湖滩、五栋整洁卫浴楼、两家餐厅和商店;步行即到坎诺比奥镇中心。"
+        }
+      }
+    },
+    {
+      "nr": 6,
+      "datum": {
+        "nl": "inchecken do 13 aug · uitchecken vr 14 aug",
+        "zh": "入住 8月13日(周四)· 退房 8月14日(周五)"
+      },
+      "van": "Cannobio",
+      "naar": "Grindelwald (Berner Oberland)",
+      "rijtijd": {
+        "nl": "ca. 4 uur, over de Grimsel- of Sustenpas",
+        "zh": "约 4 小时,翻越格里姆瑟尔或苏斯滕山口"
+      },
+      "afstand": {
+        "nl": "≈ 235 km",
+        "zh": "≈ 235 公里"
+      },
+      "nachten": 1,
+      "coord": [
+        46.6244,
+        8.0411
+      ],
+      "highlights": [
+        {
+          "nl": "panoramarit: haarspeldbochten en stuwmeren van de Grimsel- of Sustenpas",
+          "zh": "全景山路:格里姆瑟尔或苏斯滕山口的发夹弯与水库"
+        },
+        {
+          "nl": "de Eiger-noordwand recht boven het dorp",
+          "zh": "艾格峰北壁就耸立在村庄上方"
+        },
+        {
+          "nl": "avondwandeling door het dal als de dagtoeristen weg zijn",
+          "zh": "日间游客散去后,在山谷中傍晚漫步"
+        },
+        {
+          "nl": "Gletscherschlucht op een steenworp van het dorp",
+          "zh": "冰川峡谷距村庄咫尺之遥"
+        }
+      ],
+      "toerisme": {
+        "nl": "Grindelwald is het klassieke gletsjerdorp van het Berner Oberland, in een groen dal onder de loodrechte, 1.800 meter hoge noordwand van de Eiger. De rit ernaartoe is zelf het uitje: vanaf het Lago Maggiore klim je via de Grimsel- of Sustenpas door een hooggebergtelandschap van kale rots, stuwmeren en watervallen. Wie blijft slapen, ziet de wand 's avonds roze kleuren boven de chaletdaken, lang nadat de dagjesmensen naar Interlaken zijn vertrokken.",
+        "zh": "格林德瓦是伯尔尼高地经典的冰川村,坐落在绿色山谷中,头顶是高达 1800 米、近乎垂直的艾格峰北壁。前往的路程本身就是一场盛宴:从马焦雷湖出发,经格里姆瑟尔或苏斯滕山口攀升,穿越裸岩、水库与瀑布交织的高山景观。留宿于此,傍晚可见岩壁在木屋屋顶上方染成粉色,而日间游客早已返回因特拉肯。"
+      },
+      "info": {
+        "nl": "Vertrek na het ontbijt uit Cannobio; boven op de passen is het al gauw vijftien graden koeler, een verademing na de Italiaanse hitte. Zet de camper vóór het avondeten neer en houd de avond vrij voor het uitzicht. Vrijdag is het nog zo'n drie uur via Bern en Basel naar Bergheim, zonder Gotthard en dus zonder tunnelfile.",
+        "zh": "早餐后从坎诺比奥出发;山口之上气温常低 15 度左右,在意大利的酷热之后格外清爽。晚餐前把房车安顿好,把傍晚留给风景。周五经伯尔尼和巴塞尔前往贝尔甘约三小时,全程避开圣哥达,无隧道拥堵。"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-06b-grindelwald.jpg",
+        "breedte": 1280,
+        "hoogte": 854,
+        "onderschrift": {
+          "nl": "Grindelwald onder de Eiger-noordwand",
+          "zh": "艾格峰北壁下的格林德瓦"
+        },
+        "credit": "Foto: GPSLeo, Wikimedia Commons (CC0)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Eiger_seen_from_Grindelwald_village_2022-10-02_01.jpg"
+      },
+      "camping": {
+        "naam": "Camping Eigernordwand, Grindelwald",
+        "url": "https://camping-eigernordwand.ch/",
+        "beschrijving": {
+          "nl": "Camping in de weiden recht onder de Eigernordwand, met restaurant, verzorgd sanitair en het dorp op tien minuten lopen; 's avonds kleurt de wand boven je staanplaats rood.",
+          "zh": "正对艾格峰北壁的草甸营地,设餐厅、整洁卫浴,步行十分钟进村;傍晚北壁在营位上方染成红色。"
+        }
+      }
+    },
+    {
+      "nr": 7,
+      "datum": {
+        "nl": "inchecken vr 14 aug · uitchecken za 15 aug",
+        "zh": "入住 8月14日(周五)· 退房 8月15日(周六)"
+      },
+      "van": "Grindelwald",
+      "naar": "Bergheim (FR)",
+      "rijtijd": {
+        "nl": "ca. 3 uur via Bern en Basel",
+        "zh": "约 3 小时,经伯尔尼与巴塞尔"
+      },
+      "afstand": {
+        "nl": "≈ 275 km",
+        "zh": "≈ 275 公里"
+      },
+      "nachten": 1,
+      "coord": [
+        48.2056,
+        7.3618
+      ],
+      "highlights": [
+        {
+          "nl": "ontspannen ochtendrit via Bern en Basel, zonder Gotthard-file",
+          "zh": "经伯尔尼和巴塞尔的轻松晨间车程,无圣哥达拥堵"
+        },
+        {
+          "nl": "ommuurd wijndorp zonder de drukte van Colmar",
+          "zh": "无科尔马喧嚣的城墙葡萄酒村"
+        },
+        {
+          "nl": "wijnproeverijen aan huis",
+          "zh": "酒庄品酒"
+        },
+        {
+          "nl": "muurwandeling",
+          "zh": "城墙漫步"
+        }
+      ],
+      "toerisme": {
+        "nl": "Bergheim is een van de best bewaarde ommuurde wijndorpen van de Elzas, met een complete middeleeuwse omwalling, torens en bloemrijke vakwerkhuizen, maar zonder de toeristendrukte van Colmar of Riquewihr. Het ligt aan de Route des Vins met vermaarde Grands Crus (Altenberg, Kanzlerberg). Boven het dorp waakt het kasteel Haut-Kœnigsbourg over de vlakte.",
+        "zh": "贝尔甘是阿尔萨斯保存最完好的城墙葡萄酒村之一,拥有完整的中世纪城墙、塔楼与花团锦簇的半木结构房屋,却没有科尔马或里克韦尔的游人如织。它坐落于葡萄酒之路旁,以名贵特级园(阿尔滕贝格、坎茨勒贝格)著称。村庄之上,上柯尼斯堡城堡俯瞰着平原。"
+      },
+      "info": {
+        "nl": "Vanuit Grindelwald is het maar zo'n drie uur rijden: via Interlaken, Bern en Basel de Elzas in, helemaal zonder Gotthard. In Bergheim proef je Grand Cru rechtstreeks bij de wijnboer; de rondwandeling over de muren duurt een half uur. Laatste avond onderweg vóór thuis.",
+        "zh": "从格林德瓦出发仅约三小时车程:经因特拉肯、伯尔尼和巴塞尔进入阿尔萨斯,完全避开圣哥达。在贝尔甘可直接向酒农品尝特级园佳酿;绕城墙一圈约半小时。这是到家前在路上的最后一晚。"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-07-bergheim.jpg",
+        "breedte": 1280,
+        "hoogte": 851,
+        "onderschrift": {
+          "nl": "Bloemrijk Bergheim",
+          "zh": "花团锦簇的贝尔甘"
+        },
+        "credit": "Foto: Calips, Wikimedia Commons (CC BY-SA 3.0)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:France_Alsace_Haut-Rhin_Bergheim_10.JPG"
+      },
+      "video": {
+        "id": "Hx6nbnZx4As",
+        "titel": {
+          "nl": "Bergheim — wijndorp in de Elzas",
+          "zh": "贝尔甘 — 阿尔萨斯葡萄酒村"
+        }
+      },
+      "camping": {
+        "naam": "Camping Pierre de Coubertin, Ribeauvillé",
+        "url": "https://www.camping-alsace.com/nl-nl/pierre-coubertin-1",
+        "beschrijving": {
+          "nl": "Ruime camping met verwarmd viersterrensanitair, een bakkertje en zwembaden op vijf minuten lopen; wijnstadje Ribeauvillé ligt om de hoek en Bergheim op vijf minuten rijden.",
+          "zh": "宽敞营地,四星级恒温卫浴,设小面包房,步行五分钟有泳池;里博维莱酒乡小镇近在咫尺,车行五分钟到贝尔甘。"
+        }
+      }
+    },
+    {
+      "nr": 8,
+      "datum": {
+        "nl": "za 15 aug",
+        "zh": "8月15日 周六"
+      },
+      "van": "Bergheim",
+      "naar": "Nijmegen",
+      "rijtijd": {
+        "nl": "ca. 4,5-5 uur, tussenstop bij Luxemburg",
+        "zh": "约 4.5-5 小时,于卢森堡中途停留"
+      },
+      "afstand": {
+        "nl": "≈ 430 km",
+        "zh": "≈ 430 公里"
+      },
+      "nachten": 0,
+      "coord": [
+        51.8126,
+        5.8372
+      ],
+      "highlights": [
+        {
+          "nl": "rustig ontbijt tussen de wijngaarden",
+          "zh": "葡萄园间的悠闲早餐"
+        },
+        {
+          "nl": "eind van de middag thuis",
+          "zh": "傍晚时分到家"
+        }
+      ],
+      "toerisme": {
+        "nl": "De laatste etappe voert door de Elzas, langs of door Luxemburg terug naar Nijmegen. Een goede tussenstop is Luxemburg-stad met zijn dramatische ravijnen en de Chemin de la Corniche, 'het mooiste balkon van Europa', of een wandeling in de bosrijke Eifel.",
+        "zh": "最后一程穿越阿尔萨斯,经卢森堡返回奈梅亨。理想的中途停留地是卢森堡市:峡谷壮观,还有'欧洲最美阳台'科尼什步道;或在林木葱郁的艾费尔散步。"
+      },
+      "info": {
+        "nl": "Tank goedkoop in Luxemburg. Plan een laatste pauze in de Eifel of bij de stad Luxemburg. Einde van de middag terug thuis. Liever spreiden? Overnacht bij Luxemburg en rijd zondag 16 aug rustig het laatste stuk, het einde van de pareltjesroute.",
+        "zh": "在卢森堡加油更划算。把最后一次休息安排在艾费尔或卢森堡市。傍晚到家。想更从容?可在卢森堡过夜,8 月 16 日周日轻松走完最后一程,'珍珠之路'就此圆满。"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-08-luxemburg.jpg",
+        "breedte": 1280,
+        "hoogte": 960,
+        "onderschrift": {
+          "nl": "Luxemburg: Grund en de Corniche (tussenstop)",
+          "zh": "卢森堡:格伦德区与科尼什步道(中途停留)"
+        },
+        "credit": "Foto: Paul Braun, Wikimedia Commons (CC0)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Ville_de_Luxembourg_Grund_et_chemin_de_la_Corniche.jpg"
+      }
+    }
+  ],
+  "hero": {
+    "bestand": "foto/hero-verona.jpg",
+    "credit": "Foto: Luu, Wikimedia Commons (publiek domein)",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:View_of_the_bridge_Ponte_Pietra_from_San_Pietro_Castle.JPG",
+    "onderschrift": {
+      "nl": "Verona — Ponte Pietra over de Adige",
+      "zh": "维罗纳 — 阿迪杰河上的石桥"
+    }
+  },
+  "overzicht": [
+    {
+      "waarde": 2570,
+      "prefix": "± ",
+      "suffix": " km",
+      "label": {
+        "nl": "totale route",
+        "zh": "总行程"
+      }
+    },
+    {
+      "waarde": 15,
+      "label": {
+        "nl": "dagen",
+        "zh": "天"
+      }
+    },
+    {
+      "waarde": 14,
+      "label": {
+        "nl": "nachten",
+        "zh": "晚"
+      }
+    },
+    {
+      "waarde": 5,
+      "label": {
+        "nl": "landen",
+        "zh": "国家"
+      }
+    },
+    {
+      "waarde": 8,
+      "label": {
+        "nl": "etappes",
+        "zh": "段行程"
+      }
+    },
+    {
+      "waarde": 2,
+      "label": {
+        "nl": "opera-avonden",
+        "zh": "歌剧之夜"
+      }
+    }
+  ],
+  "dagen": [
+    {
+      "datum": "2026-08-01",
+      "etappe": 1,
+      "label": {
+        "nl": "za 1 aug",
+        "zh": "8月1日 周六"
+      },
+      "tekst": {
+        "nl": "Rijdag: van Nijmegen naar Feldkirch (±625 km). 's Avonds wandelen we door de middeleeuwse arcadenstad en eten we in de oude stad.",
+        "zh": "驾车日:从奈梅亨到费尔德基希(约 625 公里)。傍晚漫步中世纪拱廊老城,并在老城用餐。"
+      }
+    },
+    {
+      "datum": "2026-08-02",
+      "etappe": 2,
+      "label": {
+        "nl": "zo 2 aug",
+        "zh": "8月2日 周日"
+      },
+      "tekst": {
+        "nl": "Over de Reschenpas Italië in: koffie in het ommuurde Glurns, lunch in Trento, aankomst in Valeggio; avondwandeling naar molengehucht Borghetto.",
+        "zh": "翻越雷西亚山口进入意大利:在城墙小镇格洛伦扎喝咖啡,特伦托午餐,抵达瓦莱焦;傍晚漫步至博尔盖托水磨村。"
+      }
+    },
+    {
+      "datum": "2026-08-03",
+      "etappe": 2,
+      "label": {
+        "nl": "ma 3 aug",
+        "zh": "8月3日 周一"
+      },
+      "tekst": {
+        "nl": "'s Ochtends vroeg Parco Giardino Sigurtà; 's avonds nogmaals Borghetto, met tortellini di Valeggio als beloning.",
+        "zh": "清晨游西古尔塔花园;傍晚再访博尔盖托,以瓦莱焦\"爱情结\"小饺犒劳自己。"
+      }
+    },
+    {
+      "datum": "2026-08-04",
+      "etappe": 3,
+      "label": {
+        "nl": "di 4 aug",
+        "zh": "8月4日 周二"
+      },
+      "tekst": {
+        "nl": "Via een royale lunchstop in renaissancestad Ferrara (UNESCO) de Apennijnen in, naar San Benedetto in Alpe bij Portico di Romagna; 's avonds pizza in het campingrestaurant.",
+        "zh": "途经文艺复兴之城费拉拉(世界遗产)悠闲午餐,进入亚平宁山区,抵达波尔蒂科旁的圣贝内代托;晚上在营地餐厅吃比萨。"
+      }
+    },
+    {
+      "datum": "2026-08-05",
+      "etappe": 3,
+      "label": {
+        "nl": "wo 5 aug",
+        "zh": "8月5日 周三"
+      },
+      "tekst": {
+        "nl": "Wandeldag: naar de Acquacheta-waterval uit Dantes Inferno (heen en terug zo'n drie uur); 's middags luieren in het dorp.",
+        "zh": "徒步日:前往但丁《地狱篇》中的阿夸凯塔瀑布(往返约三小时);下午在村中休憩。"
+      }
+    },
+    {
+      "datum": "2026-08-06",
+      "etappe": 3,
+      "label": {
+        "nl": "do 6 aug",
+        "zh": "8月6日 周四"
+      },
+      "tekst": {
+        "nl": "Dagtocht naar Brisighella op zijn drie gipsrotsen, een van de mooiste dorpen van Italië; aan het eind van de middag op zijn stilst.",
+        "zh": "一日游布里西盖拉,依三座石膏岩而建,是意大利最美村庄之一;傍晚时分最为宁静。"
+      }
+    },
+    {
+      "datum": "2026-08-07",
+      "etappe": 4,
+      "label": {
+        "nl": "vr 7 aug",
+        "zh": "8月7日 周五"
+      },
+      "tekst": {
+        "nl": "Naar Verona: de camper staat op de San Pietro-heuvel boven de stad. 's Avonds de eerste opera: Turandot in de Arena (21:00, tot na middernacht); na afloop wandel je zo terug naar de camping.",
+        "zh": "前往维罗纳:房车驻扎在城堡山营地,俯瞰全城。晚上第一场歌剧:圆形剧场《图兰朵》(21:00,持续至午夜后);散场后步行即可返回营地。"
+      }
+    },
+    {
+      "datum": "2026-08-08",
+      "etappe": 4,
+      "label": {
+        "nl": "za 8 aug",
+        "zh": "8月8日 周六"
+      },
+      "tekst": {
+        "nl": "Rustige dag: 's ochtends de schaduwrijke watervallenkloof van Molina, lunch bij de romaanse pieve van San Giorgio, 's middags een proeverij in de Valpolicella.",
+        "zh": "休整日:清晨游莫利纳瀑布峡谷的林荫步道,在圣乔治罗曼式教堂旁午餐,下午在瓦尔波利切拉品酒。"
+      }
+    },
+    {
+      "datum": "2026-08-09",
+      "etappe": 4,
+      "label": {
+        "nl": "zo 9 aug",
+        "zh": "8月9日 周日"
+      },
+      "tekst": {
+        "nl": "'s Ochtends Verona: Piazza delle Erbe, Castelvecchio en het balkon van Julia. 's Avonds de tweede opera: Aida van Zeffirelli (21:00).",
+        "zh": "上午游维罗纳:香草广场、古堡博物馆与朱丽叶阳台。晚上第二场歌剧:泽菲雷利版《阿依达》(21:00)。"
+      }
+    },
+    {
+      "datum": "2026-08-10",
+      "etappe": 5,
+      "label": {
+        "nl": "ma 10 aug",
+        "zh": "8月10日 周一"
+      },
+      "tekst": {
+        "nl": "Via een lunchstop in het ommuurde Bergamo Città Alta (UNESCO) naar Cannobio aan het Lago Maggiore.",
+        "zh": "途经城墙环绕的贝加莫上城(世界遗产)午餐,前往马焦雷湖畔的坎诺比奥。"
+      }
+    },
+    {
+      "datum": "2026-08-11",
+      "etappe": 5,
+      "label": {
+        "nl": "di 11 aug",
+        "zh": "8月11日 周二"
+      },
+      "tekst": {
+        "nl": "Meerdag: zwemmen, de kade, een ijsje en niksen; 's avonds de lange lidopromenade langs het water.",
+        "zh": "湖畔日:游泳、堤岸漫步、冰淇淋与闲适;傍晚沿水边走长长的湖滨步道。"
+      }
+    },
+    {
+      "datum": "2026-08-12",
+      "etappe": 5,
+      "label": {
+        "nl": "wo 12 aug",
+        "zh": "8月12日 周三"
+      },
+      "tekst": {
+        "nl": "'s Ochtends vroeg de kloof Orrido di Sant'Anna in het Val Cannobina; daarna de kasteelruïnes van Cannero op hun rotseilandjes.",
+        "zh": "清晨游坎诺比纳谷的圣安娜峡谷;随后观赏岩岛上的坎内罗城堡遗迹。"
+      }
+    },
+    {
+      "datum": "2026-08-13",
+      "etappe": 6,
+      "label": {
+        "nl": "do 13 aug",
+        "zh": "8月13日 周四"
+      },
+      "tekst": {
+        "nl": "Bergdag: over de Grimsel- of Sustenpas (kale rots, stuwmeren, watervallen) naar Grindelwald; 's avonds kleurt de Eiger-noordwand boven de chaletdaken.",
+        "zh": "高山日:翻越格里姆瑟尔或苏斯滕山口(裸岩、水库、瀑布)前往格林德瓦;傍晚艾格峰北壁在木屋上方染上晚霞。"
+      }
+    },
+    {
+      "datum": "2026-08-14",
+      "etappe": 7,
+      "label": {
+        "nl": "vr 14 aug",
+        "zh": "8月14日 周五"
+      },
+      "tekst": {
+        "nl": "Via Bern en Basel naar het ommuurde wijndorp Bergheim in de Elzas; muurwandeling en een proeverij bij de wijnboer.",
+        "zh": "经伯尔尼和巴塞尔前往阿尔萨斯的城墙酒村贝尔甘;城墙漫步,并在酒农处品酒。"
+      }
+    },
+    {
+      "datum": "2026-08-15",
+      "etappe": 8,
+      "label": {
+        "nl": "za 15 aug",
+        "zh": "8月15日 周六"
+      },
+      "tekst": {
+        "nl": "De laatste etappe naar huis, met een tussenstop bij Luxemburg-stad; aan het eind van de middag terug in Nijmegen.",
+        "zh": "最后一程回家,途中在卢森堡市停留;傍晚回到奈梅亨。"
+      }
+    }
+  ]
+}
