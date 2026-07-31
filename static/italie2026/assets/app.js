@@ -201,11 +201,13 @@
     });
   });
 
-  // Routelijn: thuisbasis -> alle etappes in volgorde (start = Nijmegen).
-  var NIJMEGEN = [51.8126, 5.8372];
-  var lijn = [NIJMEGEN].concat(punten.filter(function(p, i){
-    return !(i === punten.length - 1 && p[0] === NIJMEGEN[0] && p[1] === NIJMEGEN[1]);
-  })).concat([NIJMEGEN]);
+  // Routelijn: thuisbasis -> alle etappes in volgorde. De thuisbasis komt
+  // uit route.json (veld thuisbasis; campersite = Groesbeek), met Nijmegen
+  // als fallback voor de oorspronkelijke reisgids.
+  var THUIS = route.thuisbasis || [51.8126, 5.8372];
+  var lijn = [THUIS].concat(punten.filter(function(p, i){
+    return !(i === punten.length - 1 && p[0] === THUIS[0] && p[1] === THUIS[1]);
+  })).concat([THUIS]);
   L.polyline(lijn, { color: '#02a0a0', weight: 3, dashArray: '7 7', opacity: .85 }).addTo(kaart);
 
   kaart.fitBounds(L.latLngBounds(lijn).pad(0.08));

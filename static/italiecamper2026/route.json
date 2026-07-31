@@ -18,7 +18,7 @@
         "nl": "inchecken za 1 aug · uitchecken zo 2 aug",
         "zh": "入住 8月1日(周六)· 退房 8月2日(周日)"
       },
-      "van": "Nijmegen",
+      "van": "Groesbeek",
       "naar": "Feldkirch (AT)",
       "rijtijd": {
         "nl": "ca. 6,5 uur",
@@ -574,7 +574,7 @@
         "zh": "8月15日 周六"
       },
       "van": "Bergheim",
-      "naar": "Nijmegen",
+      "naar": "Groesbeek",
       "rijtijd": {
         "nl": "ca. 4,5-5 uur, tussenstop bij Luxemburg",
         "zh": "约 4.5-5 小时,于卢森堡中途停留"
@@ -585,8 +585,8 @@
       },
       "nachten": 0,
       "coord": [
-        51.8126,
-        5.8372
+        51.7758,
+        5.9391
       ],
       "highlights": [
         {
@@ -599,8 +599,8 @@
         }
       ],
       "toerisme": {
-        "nl": "De laatste etappe voert door de Elzas, langs of door Luxemburg terug naar Nijmegen. Een goede tussenstop is Luxemburg-stad met zijn dramatische ravijnen en de Chemin de la Corniche, 'het mooiste balkon van Europa', of een wandeling in de bosrijke Eifel.",
-        "zh": "最后一程穿越阿尔萨斯,经卢森堡返回奈梅亨。理想的中途停留地是卢森堡市:峡谷壮观,还有'欧洲最美阳台'科尼什步道;或在林木葱郁的艾费尔散步。"
+        "nl": "De laatste etappe voert door de Elzas, langs of door Luxemburg terug naar Groesbeek. Een goede tussenstop is Luxemburg-stad met zijn dramatische ravijnen en de Chemin de la Corniche, 'het mooiste balkon van Europa', of een wandeling in de bosrijke Eifel.",
+        "zh": "最后一程穿越阿尔萨斯,经卢森堡返回赫鲁斯贝克。理想的中途停留地是卢森堡市:峡谷壮观,还有'欧洲最美阳台'科尼什步道;或在林木葱郁的艾费尔散步。"
       },
       "info": {
         "nl": "Tank goedkoop in Luxemburg. Plan een laatste pauze in de Eifel of bij de stad Luxemburg. Einde van de middag terug thuis. Liever spreiden? Overnacht bij Luxemburg en rijd zondag 16 aug rustig het laatste stuk, het einde van de pareltjesroute.",
@@ -683,8 +683,8 @@
         "zh": "8月1日 周六"
       },
       "tekst": {
-        "nl": "Rijdag: van Nijmegen naar Feldkirch (±625 km). Idee voor de avond: een wandeling door de middeleeuwse arcadenstad en eten in de oude binnenstad.",
-        "zh": "行车日:从奈梅亨到费尔德基希(约 625 公里)。晚间提议:漫步中世纪拱廊老城,并在老城区用晚餐。"
+        "nl": "Rijdag: van Groesbeek naar Feldkirch (±625 km). Idee voor de avond: een wandeling door de middeleeuwse arcadenstad en eten in de oude binnenstad.",
+        "zh": "行车日:从赫鲁斯贝克到费尔德基希(约 625 公里)。晚间提议:漫步中世纪拱廊老城,并在老城区用晚餐。"
       }
     },
     {
@@ -851,9 +851,13 @@
         "zh": "8月15日 周六"
       },
       "tekst": {
-        "nl": "De laatste etappe naar huis, met een tussenstop bij Luxemburg-stad; aan het eind van de middag terug in Nijmegen.",
-        "zh": "最后一程回家,途中在卢森堡市停留;傍晚回到奈梅亨。"
+        "nl": "De laatste etappe naar huis, met een tussenstop bij Luxemburg-stad; aan het eind van de middag terug in Groesbeek.",
+        "zh": "最后一程回家,途中在卢森堡市停留;傍晚回到赫鲁斯贝克。"
       }
     }
+  ],
+  "thuisbasis": [
+    51.7758,
+    5.9391
   ]
 }
