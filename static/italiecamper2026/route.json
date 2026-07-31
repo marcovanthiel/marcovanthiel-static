@@ -8,8 +8,8 @@
     "zh": "2026 年 8 月 1 日至 15 日"
   },
   "reizigers": {
-    "nl": "Per camper",
-    "zh": "房车之旅"
+    "nl": "Een reisvoorstel voor Nel",
+    "zh": "给 Nel 的行程提案"
   },
   "etappes": [
     {
@@ -79,6 +79,10 @@
         "beschrijving": {
           "nl": "Vijfsterren-wellnesscamping aan de voet van het Rätikon, 20 minuten voorbij Feldkirch: royale plaatsen, panoramasauna's, binnen- en buitenbad en een goed restaurant.",
           "zh": "拉蒂孔山脚下的五星康养营地,过费尔德基希约 20 分钟车程:营位宽敞,有全景桑拿、室内外泳池和出色的餐厅。"
+        },
+        "prijs": {
+          "nl": "±€ 110-115 per nacht (Comfort-plaats + 2 pers., incl. toeslagen); online te boeken (gecheckt 31-7-2026)",
+          "zh": "每晚约 110-115 欧元(舒适营位+2人,含附加费);可在线预订(2026-07-31 核实)"
         }
       }
     },
@@ -156,11 +160,15 @@
         }
       },
       "camping": {
-        "naam": "hu Altomincio village",
-        "url": "https://altomincio.huopenair.com/",
+        "naam": "Camping Bella Italia, Peschiera del Garda",
+        "url": "https://www.camping-bellaitalia.it/",
         "beschrijving": {
-          "nl": "Groen vakantiepark in een bocht van de Mincio met drie zwembaden, spraypark, restaurant en winkel; Borghetto en Valeggio liggen op een paar minuten rijden.",
-          "zh": "明乔河湾的绿色度假营地,有三座泳池、喷水乐园、餐厅和商店;距博尔盖托与瓦莱焦仅数分钟车程。"
+          "nl": "Vijfsterrencamping aan het Gardameer, op wandelafstand van Peschiera: zes zwembaden, restaurants en ruime staanplaatsen (tot 90 m²) vlak bij het strand; Borghetto en Valeggio liggen op een kwartier rijden.",
+          "zh": "加尔达湖畔的五星营地,步行可至佩斯基耶拉:六座泳池、多家餐厅,近湖滩的宽敞营位(最大 90 平方米);车行一刻钟到博尔盖托与瓦莱焦。"
+        },
+        "prijs": {
+          "nl": "prijs via de online boekingsmodule; staanplaatsen tot 90 m² boekbaar (gecheckt 31-7-2026)",
+          "zh": "价格见在线预订系统;最大 90 平方米营位可预订(2026-07-31 核实)"
         }
       }
     },
@@ -243,6 +251,10 @@
         "beschrijving": {
           "nl": "Terrassencamping op 600 m in het nationaal park, met bar, restaurant en pizzeria; de Acquacheta-wandeling begint praktisch bij de slagboom en Portico ligt op vijf minuten rijden.",
           "zh": "国家公园内海拔 600 米的梯田式营地,设酒吧、餐厅和比萨店;阿夸凯塔瀑布步道几乎从营地门口出发,车行五分钟即到波尔蒂科。"
+        },
+        "prijs": {
+          "nl": "prijs op aanvraag, telefonisch reserveren: +39 342 948 2909; open apr-nov (gecheckt 31-7-2026)",
+          "zh": "价格电询,电话预订:+39 342 948 2909;4-11 月开放(2026-07-31 核实)"
         }
       }
     },
@@ -321,6 +333,10 @@
         "beschrijving": {
           "nl": "Stadscamping in het groen op de San Pietro-heuvel, met modern sanitair en uitzicht over de daken; in een kwartier wandel je naar de Arena — ideaal voor de opera-avonden.",
           "zh": "圣彼得山上的绿荫城市营地,卫浴现代,可俯瞰维罗纳屋顶;步行一刻钟即到圆形剧场——歌剧之夜的理想之选。"
+        },
+        "prijs": {
+          "nl": "prijs op aanvraag; reserveer voor de operaweek vooraf, online of via +39 045 592037 (gecheckt 31-7-2026)",
+          "zh": "价格电询;歌剧周请提前在线或致电 +39 045 592037 预订(2026-07-31 核实)"
         }
       }
     },
@@ -395,6 +411,10 @@
         "beschrijving": {
           "nl": "Bloemrijke camping direct aan het Lago Maggiore met eigen kiezelstrand, vijf verzorgde sanitairblokken, twee restaurants en een winkel; het centrum van Cannobio ligt op loopafstand.",
           "zh": "紧邻马焦雷湖的花园式营地,自有卵石湖滩、五栋整洁卫浴楼、两家餐厅和商店;步行即到坎诺比奥镇中心。"
+        },
+        "prijs": {
+          "nl": "±€ 56 per nacht (plaats + 2 pers., warm water incl.); reserveren kan pas vanaf 10 nachten — kom vóór 12 uur aan (gecheckt 31-7-2026)",
+          "zh": "每晚约 56 欧元(营位+2人,含热水);10 晚以上才可预订——请中午前抵达(2026-07-31 核实)"
         }
       }
     },
@@ -462,6 +482,10 @@
         "beschrijving": {
           "nl": "Camping in de weiden recht onder de Eigernordwand, met restaurant, verzorgd sanitair en het dorp op tien minuten lopen; 's avonds kleurt de wand boven je staanplaats rood.",
           "zh": "正对艾格峰北壁的草甸营地,设餐厅、整洁卫浴,步行十分钟进村;傍晚北壁在营位上方染成红色。"
+        },
+        "prijs": {
+          "nl": "±€ 53 per nacht all-in (2 pers. + camper + stroom + belasting); zomer zonder reservering — kom rond de middag aan (gecheckt 31-7-2026)",
+          "zh": "每晚约 53 欧元全包(2人+房车+电+税);夏季不接受预订——请中午前后抵达(2026-07-31 核实)"
         }
       }
     },
@@ -536,6 +560,10 @@
         "beschrijving": {
           "nl": "Ruime camping met verwarmd viersterrensanitair, een bakkertje en zwembaden op vijf minuten lopen; wijnstadje Ribeauvillé ligt om de hoek en Bergheim op vijf minuten rijden.",
           "zh": "宽敞营地,四星级恒温卫浴,设小面包房,步行五分钟有泳池;里博维莱酒乡小镇近在咫尺,车行五分钟到贝尔甘。"
+        },
+        "prijs": {
+          "nl": "€ 23 per nacht (2 pers. + camper + 16A stroom); online te boeken via camping.ribeauville.fr (gecheckt 31-7-2026)",
+          "zh": "每晚 23 欧元(2人+房车+16A 电);可在 camping.ribeauville.fr 在线预订(2026-07-31 核实)"
         }
       }
     },
@@ -655,8 +683,8 @@
         "zh": "8月1日 周六"
       },
       "tekst": {
-        "nl": "Rijdag: van Nijmegen naar Feldkirch (±625 km). 's Avonds wandelen we door de middeleeuwse arcadenstad en eten we in de oude stad.",
-        "zh": "驾车日:从奈梅亨到费尔德基希(约 625 公里)。傍晚漫步中世纪拱廊老城,并在老城用餐。"
+        "nl": "Rijdag: van Nijmegen naar Feldkirch (±625 km). Idee voor de avond: een wandeling door de middeleeuwse arcadenstad en eten in de oude binnenstad.",
+        "zh": "行车日:从奈梅亨到费尔德基希(约 625 公里)。晚间提议:漫步中世纪拱廊老城,并在老城区用晚餐。"
       }
     },
     {

@@ -158,10 +158,12 @@ def etappe_html(e, weer=None):
     if sug:
         sugblok = (
             '<p class="hotel">'
-            '<span class="hotellabel lang lang-nl" lang="nl">We kamperen op</span>'
-            '<span class="hotellabel lang lang-zh" lang="zh">我们的营地</span> '
+            '<span class="hotellabel lang lang-nl" lang="nl">Voorgestelde camping</span>'
+            '<span class="hotellabel lang lang-zh" lang="zh">推荐营地</span> '
             f'<a href="{esc(sug["url"])}" target="_blank" rel="noopener">{esc(sug["naam"])} ↗</a> '
-            f'<span class="sugtekst">{bi(sug["beschrijving"])}</span></p>'
+            f'<span class="sugtekst">{bi(sug["beschrijving"])}</span>'
+            + (f'<span class="sugprijs">{bi(sug["prijs"])}</span>' if sug.get("prijs") else "")
+            + '</p>'
         )
 
     hl = "".join(f"<li>{bi(h)}</li>" for h in e["highlights"])

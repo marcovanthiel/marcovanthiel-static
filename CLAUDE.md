@@ -148,12 +148,16 @@ werkende link (`hotelsuggestie`).
 
 ## Subsite: /italiecamper2026
 
-**marcovanthiel.nl/italiecamper2026** — campervariant van de pareltjesroute
-(voor een vriendin van Marco; gemaakt 30-7-2026). Zelfde route, data en
-dagindeling als `/italie2026`, maar per etappe een **camping met goede
-faciliteiten** (veld `camping`; bewust geen camperplaatsen/sosta's), zonder
-honden-/oppasteksten, en etappe 4 = **Verona zelf** (stadscamping Castel San
-Pietro, kwartier lopen naar de Arena). Deelt stijl, foto's, vendor-assets en
+**marcovanthiel.nl/italiecamper2026** — campervariant van de pareltjesroute,
+sinds 31-7-2026 ingericht als **reisvoorstel voor Nel** (zij boekt zelf nog).
+Zelfde route, data en dagindeling als `/italie2026`, maar per etappe een
+**voorgestelde camping met goede faciliteiten** (veld `camping`, incl.
+`prijs` met boekingsinfo en controledatum; bewust geen camperplaatsen),
+zonder honden-/oppasteksten, en etappe 4 = **Verona zelf** (stadscamping
+Castel San Pietro, kwartier lopen naar de Arena). Let op: hu Altomincio
+heeft geen staanplaatsen meer → vervangen door Camping Bella Italia
+(Peschiera); Riviera reserveert pas vanaf 10 nachten; Eigernordwand neemt
+'s zomers geen reserveringen aan. Deelt stijl, foto's, vendor-assets en
 `weer.json` met `/italie2026` (absolute paden; geen eigen weer-pipeline) en
 wordt gebouwd door dezelfde Actions **italie2026-build** en
 **italie2026-weer**. Eigen CSP-blok `/italiecamper2026/*` in

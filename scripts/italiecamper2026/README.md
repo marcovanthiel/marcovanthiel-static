@@ -1,10 +1,16 @@
 # Italië camper 2026 — reiswebsite (marcovanthiel.nl/italiecamper2026)
 
-Campervariant van de pareltjesroute (voor een vriendin van Marco): zelfde
-route, data en dagindeling als `/italie2026`, maar de hotels zijn vervangen
-door **campings met goede en mooie faciliteiten** (bewust géén
+**Reisvoorstel voor Nel** (vriendin van Marco; zij moet de reis nog boeken):
+zelfde route, data en dagindeling als `/italie2026`, maar de hotels zijn
+vervangen door **campings met goede en mooie faciliteiten** (bewust géén
 camperplaatsen/sosta's — die zijn vaak achteraf met alleen een stekker).
-Gemaakt 30-7-2026; alle campinglinks die dag geverifieerd (HTTP 200).
+Toon = voorstel (label "Voorgestelde camping", blok "Voor Nel", geen
+aftelbadge). Elke camping heeft een `camping.prijs`-veld {nl,zh} met prijs-
+en boekingsinformatie **mét controledatum** (31-7-2026). Bijzonderheden:
+Riviera Cannobio reserveert pas vanaf 10 nachten en Eigernordwand neemt in
+de zomer geen reserveringen aan (vroeg aankomen); hu Altomincio bleek geen
+staanplaatsen meer te hebben en is 31-7-2026 vervangen door Camping Bella
+Italia (Peschiera). Gemaakt 30-7-2026; links geverifieerd (HTTP 200).
 
 ## Verschillen met /italie2026
 
