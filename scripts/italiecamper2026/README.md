@@ -15,9 +15,9 @@ Italia (Peschiera). Gemaakt 30-7-2026; links geverifieerd (HTTP 200).
 ## Verschillen met /italie2026
 
 - `route.json` heeft per etappe een veld **`camping`** `{naam, url,
-  beschrijving:{nl,zh}}` in plaats van `hotel`/`hotelsuggestie`; het label op
-  de pagina is "We kamperen op". Honden-/oppasteksten zijn verwijderd
-  (de reiziger reist zonder honden).
+  beschrijving:{nl,zh}, prijs:{nl,zh}}` in plaats van `hotel`/`hotelsuggestie`;
+  het label op de pagina is "Voorgestelde camping". Honden-/oppasteksten zijn
+  verwijderd (de reiziger reist zonder honden).
 - **Etappe 4 is Verona zelf** (niet Valpolicella): Verona City Camping –
   Castel San Pietro ligt op de heuvel boven de stad, een kwartier lopen van
   de Arena, dus de camper blijft op de opera-avonden gewoon staan.
