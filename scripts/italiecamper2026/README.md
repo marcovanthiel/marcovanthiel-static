@@ -14,6 +14,10 @@ Italia (Peschiera). Gemaakt 30-7-2026; links geverifieerd (HTTP 200).
 
 ## Verschillen met /italie2026
 
+- **Vertrek en aankomst in Groesbeek** (niet Nijmegen): teksten, hero en
+  kaart. De routelijn start via het top-level veld `thuisbasis` (coord) in
+  `route.json`; de gedeelde `app.js` valt zonder dat veld terug op Nijmegen.
+
 - `route.json` heeft per etappe een veld **`camping`** `{naam, url,
   beschrijving:{nl,zh}, prijs:{nl,zh}}` in plaats van `hotel`/`hotelsuggestie`;
   het label op de pagina is "Voorgestelde camping". Honden-/oppasteksten zijn
