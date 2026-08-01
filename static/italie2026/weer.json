@@ -1,8 +1,8 @@
 {
  "etappes": {
   "1": {
-   "gem": 23,
-   "maxgem": 27,
+   "gem": 22,
+   "maxgem": 26,
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
@@ -16,39 +16,39 @@
   },
   "3": {
    "gem": 29,
-   "maxgem": 35,
+   "maxgem": 36,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "4": {
-   "gem": 33,
-   "maxgem": 38,
+   "gem": 32,
+   "maxgem": 37,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "5": {
    "gem": 26,
-   "maxgem": 29,
+   "maxgem": 30,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "6": {
-   "gem": 21,
+   "gem": 23,
    "maxgem": 28,
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
   },
   "7": {
-   "gem": 26,
-   "maxgem": 32,
+   "gem": 23,
+   "maxgem": 26,
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
   }
  },
- "bijgewerkt": "2026-07-31"
+ "bijgewerkt": "2026-08-01"
 }
