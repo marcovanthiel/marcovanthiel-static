@@ -22,33 +22,33 @@
    "dagen_totaal": 3
   },
   "4": {
-   "gem": 26,
-   "maxgem": 30,
+   "gem": 28,
+   "maxgem": 33,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "5": {
    "gem": 28,
-   "maxgem": 31,
+   "maxgem": 32,
    "bron": "voorspelling",
    "dagen_gedekt": 3,
    "dagen_totaal": 3
   },
   "6": {
-   "gem": 21,
-   "maxgem": 26,
+   "gem": 22,
+   "maxgem": 29,
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
   },
   "7": {
-   "gem": 25,
-   "maxgem": 31,
+   "gem": 26,
+   "maxgem": 33,
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
   }
  },
- "bijgewerkt": "2026-08-03"
+ "bijgewerkt": "2026-08-04"
 }
