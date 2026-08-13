@@ -36,19 +36,19 @@
    "dagen_totaal": 3
   },
   "6": {
-   "gem": 22,
-   "maxgem": 29,
+   "gem": 24,
+   "maxgem": 30,
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
   },
   "7": {
    "gem": 28,
-   "maxgem": 36,
+   "maxgem": 37,
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
   }
  },
- "bijgewerkt": "2026-08-12"
+ "bijgewerkt": "2026-08-13"
 }
