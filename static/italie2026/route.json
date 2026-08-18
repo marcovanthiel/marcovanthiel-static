@@ -4,8 +4,8 @@
     "zh": "意大利 2026:珍珠之路"
   },
   "periode": {
-    "nl": "1 t/m 15 augustus 2026",
-    "zh": "2026 年 8 月 1 日至 15 日"
+    "nl": "1 t/m 20 augustus 2026",
+    "zh": "2026 年 8 月 1 日至 20 日"
   },
   "reizigers": {
     "nl": "Marco, Dandan en de honden",
@@ -644,6 +644,364 @@
         "credit": "Foto: Paul Braun, Wikimedia Commons (CC0)",
         "creditUrl": "https://commons.wikimedia.org/wiki/File:Ville_de_Luxembourg_Grund_et_chemin_de_la_Corniche.jpg"
       }
+    },
+    {
+      "nr": 9,
+      "datum": {
+        "nl": "inchecken di 18 aug · uitchecken do 20 aug",
+        "zh": "入住 8月18日(周二)· 退房 8月20日(周四)"
+      },
+      "van": "Nijmegen",
+      "naar": "Mechelen (BE)",
+      "rijtijd": {
+        "nl": "ca. 1,5 uur",
+        "zh": "约 1.5 小时"
+      },
+      "afstand": {
+        "nl": "≈ 140 km",
+        "zh": "≈ 140 公里"
+      },
+      "nachten": 2,
+      "checkin": "2026-08-18",
+      "coord": [
+        51.0281,
+        4.4776
+      ],
+      "hotel": {
+        "naam": "Hotel Vé"
+      },
+      "hotelsuggestie": {
+        "naam": "Hotel Vé, Mechelen",
+        "url": "https://www.hotelve.com/",
+        "beschrijving": {
+          "nl": "Designhotel in een voormalige visrokerij aan de autoluwe Vismarkt, met wellness en huisrestaurant Bistro Fuego.",
+          "zh": "位于全天限行的鱼市广场,由旧熏鱼厂改建的设计酒店,设水疗与自家餐厅 Bistro Fuego。"
+        }
+      },
+      "highlights": [
+        {
+          "nl": "Museum Hof van Busleyden (renaissancestadspaleis, met lift)",
+          "zh": "布斯莱登宫博物馆(文艺复兴城市宫殿,配电梯)"
+        },
+        {
+          "nl": "Sint-Romboutskathedraal aan de Grote Markt",
+          "zh": "大广场旁的圣龙勃主教座堂"
+        },
+        {
+          "nl": "drie kwartier varen over de Dijle, volledig zittend",
+          "zh": "迪耶勒河上四十五分钟游船,全程坐着"
+        },
+        {
+          "nl": "stoofvlees bij Carlton en Bistro Fuego",
+          "zh": "Carlton 与 Bistro Fuego 的啤酒炖牛肉"
+        }
+      ],
+      "toerisme": {
+        "nl": "Mechelen, tussen Antwerpen en Brussel aan de Dijle, is een stad die je zittend kunt zien: compact, vlak en grotendeels autoluw. Boven alles uit torent de Sint-Romboutskathedraal, waarachter de Maneblussers ooit de maan probeerden te blussen; aan het water liggen de Vismarkt en de Haverwerf met hun terrassen, en het renaissancestadspaleis Hof van Busleyden vertelt de Bourgondische eeuw van de stad.",
+        "zh": "梅赫伦位于安特卫普与布鲁塞尔之间、迪耶勒河畔,是一座可以坐着看完的城市:紧凑、平坦、大部分街区限行。圣龙勃主教座堂高耸于全城之上——传说梅赫伦人曾提水去扑灭塔楼后的月亮,从此得名\"灭月人\";河边是带露台的鱼市广场与 Haverwerf 码头,文艺复兴宫殿布斯莱登宫则讲述着这座城市的勃艮第世纪。"
+      },
+      "info": {
+        "nl": "De binnenstad is van 11 tot 18 uur autoluw en de Vismarkt is dat helemaal; kasseien op de pleinen zijn nat ongelijk en glad. De regel van deze etappe: geen enkel stuk te voet langer dan 300 meter, alles daarboven met de auto.",
+        "zh": "市中心 11 至 18 时限行,鱼市广场全天限行;广场石板路潮湿时高低不平又打滑。本段的规则:任何一段步行不超过 300 米,超出的路程一律开车。"
+      },
+      "lint": {
+        "nl": "Tweede deel",
+        "zh": "第二程"
+      },
+      "voorbeeldfoto": {
+        "bestand": "foto/etappe-09-mechelen.jpg",
+        "breedte": 1280,
+        "hoogte": 851,
+        "onderschrift": {
+          "nl": "De Vismarkt in Mechelen",
+          "zh": "梅赫伦的鱼市广场"
+        },
+        "credit": "Foto: DimiTalen, Wikimedia Commons (CC0)",
+        "creditUrl": "https://commons.wikimedia.org/wiki/File:Vismarkt,_Mechelen,_2014.jpg"
+      },
+      "programma": {
+        "kop": {
+          "nl": "Woensdag 19 augustus · dagprogramma",
+          "zh": "8月19日 星期三 · 当日行程"
+        },
+        "sub": {
+          "nl": "Een stad die je zittend kunt zien",
+          "zh": "一座可以坐着看完的城市"
+        },
+        "regel": {
+          "nl": "De regel van de dag: geen enkel stuk te voet is langer dan 300 meter, alles daarboven gaat met de auto. De rode streep aan het eind van elke balk is die grens — geen enkele balk raakt hem.",
+          "zh": "今天的规则:任何一段步行都不超过 300 米,超出的路程一律开车。每条进度条末端的红线就是这个上限——没有一条会碰到它。"
+        },
+        "punten": [
+          {
+            "tijd": "09:30",
+            "titel": { "nl": "Ontbijt in het hotel", "zh": "酒店早餐" },
+            "detail": { "nl": "Hotel Vé · Vismarkt 14", "zh": "Hotel Vé · Vismarkt 14" },
+            "maps": "https://maps.google.com/?q=Hotel+V%C3%A9,+Vismarkt+14,+Mechelen",
+            "tekst": {
+              "nl": "Rustig beginnen. Vertrek om kwart voor tien: dan sta je vóór elf uur bij het museum en mag je nog tot vlak bij de ingang rijden.",
+              "zh": "从容开始。九点四十五出发:这样能在十一点前到达博物馆,还可以把车停到入口附近。"
+            },
+            "loop": {
+              "m": 150,
+              "tekst": {
+                "nl": "naar de auto in Q-Park Lamot (Guldenstraat 18) · ±150 m te voet — het langste stuk van de dag",
+                "zh": "步行至 Q-Park Lamot 停车场(Guldenstraat 18)· 约 150 米——今天最长的一段步行"
+              }
+            }
+          },
+          {
+            "tijd": "10:00",
+            "titel": { "nl": "Museum Hof van Busleyden", "zh": "布斯莱登宫博物馆" },
+            "detail": { "nl": "Frederik de Merodestraat 65 · open 10–17 u · tickets vooraf online", "zh": "Frederik de Merodestraat 65 · 10–17 时 · 建议提前网上购票" },
+            "maps": "https://maps.google.com/?q=Museum+Hof+van+Busleyden,+Frederik+de+Merodestraat+65,+Mechelen",
+            "tekst": {
+              "nl": "Renaissancestadspaleis, volledig toegankelijk, met lift. Parkeer op de mindervalidenparking Frederik de Merodestraat ter hoogte van nummer 30 — níet aan de Sint-Janstraat, die ligt na elf uur in de autoluwe zone. De tuinen zijn gratis en hebben een terras.",
+              "zh": "文艺复兴时期的城市宫殿,全程无障碍,配电梯。请停在 Frederik de Merodestraat 30 号附近的无障碍车位——不要停 Sint-Janstraat,那一带十一点后属于限行区。花园免费开放,设有露台。"
+            },
+            "loop": {
+              "m": 80,
+              "tekst": {
+                "nl": "met de auto naar de Grote Markt · ±80 m te voet",
+                "zh": "开车前往大广场 Grote Markt · 约 80 米"
+              }
+            }
+          },
+          {
+            "tijd": "11:45",
+            "titel": { "nl": "Sint-Romboutskathedraal", "zh": "圣龙勃主教座堂" },
+            "detail": { "nl": "Grote Markt · gratis toegang", "zh": "Grote Markt · 免费入内" },
+            "maps": "https://maps.google.com/?q=Sint-Romboutskathedraal,+Mechelen",
+            "tekst": {
+              "nl": "Gelijkvloers, ruim en koel. Een half uur is genoeg. De toren laten we staan — ruim vijfhonderd treden.",
+              "zh": "平地、宽敞、凉爽,半小时足够。塔楼就不上了——五百多级台阶。"
+            },
+            "loop": {
+              "m": 60,
+              "tekst": {
+                "nl": "overkant van het plein · ±60 m te voet",
+                "zh": "走到广场对面 · 约 60 米"
+              }
+            }
+          },
+          {
+            "tijd": "12:15",
+            "titel": { "nl": "Lunch bij Carlton", "zh": "Carlton 午餐" },
+            "detail": { "nl": "Grote Markt 34 · gereserveerd · +32 15 20 18 80", "zh": "Grote Markt 34 · 已订位 · +32 15 20 18 80" },
+            "maps": "https://maps.google.com/?q=Carlton,+Grote+Markt+34,+Mechelen",
+            "tekst": {
+              "nl": "Klassieke Belgische brasserie, geen toeristenval; het stoofvlees is waar ze om geroemd worden. Ruim de tijd nemen — dit is de lange rustpauze vóór de boot. Beslis hier over de boottocht: je kijkt vanaf het plein zo naar de lucht.",
+              "zh": "广场边的经典比利时小酒馆,不是游客陷阱;招牌是啤酒炖牛肉。慢慢吃——这是上船前的长休息。在这里决定要不要坐船:从广场上抬头就能看天色。"
+            },
+            "loop": {
+              "m": 100,
+              "tekst": {
+                "nl": "auto of taxi naar de Haverwerf · ±100 m te voet (lopen zou 350 m zijn — dus niet lopen)",
+                "zh": "开车或打车到 Haverwerf 码头 · 约 100 米(走过去要 350 米——所以不走)"
+              }
+            }
+          },
+          {
+            "tijd": "14:00",
+            "titel": { "nl": "Bootjes in Mechelen", "zh": "迪耶勒河游船" },
+            "detail": { "nl": "opstap Haverwerf · vaart vanaf 13 u · +32 478 08 51 14", "zh": "Haverwerf 上船 · 13 时起发船 · +32 478 08 51 14" },
+            "maps": "https://maps.google.com/?q=Bootjes+in+Mechelen,+Haverwerf,+Mechelen",
+            "tekst": {
+              "nl": "Drie kwartier over de Dijle, volledig zittend. Hoogtepunt van de dag, minste inspanning. Bel 's ochtends: vaart hij bij dit weer, is de boot overdekt, en kunnen ze helpen bij het instappen.",
+              "zh": "在河上四十五分钟,全程坐着。当天的亮点,也是最省力的一项。上午先打电话:这样的天气是否照常发船、船有没有顶棚、上船时能否协助。"
+            },
+            "loop": {
+              "m": 120,
+              "tekst": {
+                "nl": "terug naar het hotel · ±120 m te voet",
+                "zh": "返回酒店 · 约 120 米"
+              }
+            }
+          },
+          {
+            "tijd": "15:00",
+            "titel": { "nl": "Vrije middag", "zh": "空出的下午" },
+            "detail": { "nl": "keuze uit de opties hieronder — of niets", "zh": "从下方备选中挑一项——或者什么都不做" },
+            "tekst": {
+              "nl": "Na museum, kathedraal, lunch en boot is een lege middag geen luxe maar de reden dat de avond nog leuk is. Kies er hooguit één ding bij.",
+              "zh": "上午已有博物馆和教堂,午餐丰盛,后面还加了游船。空一个下午不是奢侈,而是晚上还玩得动的前提。最多再加一项。"
+            }
+          },
+          {
+            "tijd": "18:30",
+            "titel": { "nl": "Diner bij Bistro Fuego", "zh": "Bistro Fuego 晚餐" },
+            "detail": { "nl": "Vismarkt 16 · in het hotel · vanaf 17:30 u · +32 15 14 18 18", "zh": "Vismarkt 16 · 酒店内 · 17:30 起 · +32 15 14 18 18" },
+            "maps": "https://maps.google.com/?q=Bistro+Fuego,+Vismarkt+16,+Mechelen",
+            "tekst": {
+              "nl": "Nul meter lopen. Ook hier staat het stoofvlees goed aangeschreven.",
+              "zh": "零步行。这里的炖牛肉同样口碑不错。"
+            }
+          }
+        ],
+        "kaart": {
+          "bestand": "assets/mechelen-kaart.svg",
+          "onderschrift": {
+            "nl": "Posities op schaal; de rivierloop is schematisch en straten zijn niet ingetekend — gebruik de kaart om afstanden in te schatten, niet om te navigeren. Plaatsnamen in het Nederlands, handig bij het vragen van de weg.",
+            "zh": "各点位置按比例标注;河道为示意画法,街道未绘制——用它估算距离,不要用来导航。地名保留荷兰语原文,方便现场问路。"
+          }
+        },
+        "afstanden": {
+          "kop": { "nl": "Hemelsbreed vanaf het hotel", "zh": "距酒店直线距离" },
+          "items": [
+            { "label": { "nl": "5 · Haverwerf, de bootjes", "zh": "5 · Haverwerf 码头" }, "m": 80, "maps": "https://maps.google.com/?q=Haverwerf,+Mechelen" },
+            { "label": { "nl": "3 · 4 · Grote Markt", "zh": "3 · 4 · Grote Markt 大广场" }, "m": 250, "maps": "https://maps.google.com/?q=Grote+Markt,+Mechelen" },
+            { "label": { "nl": "A · Sint-Janskerk", "zh": "A · Sint-Janskerk 圣约翰教堂" }, "m": 520, "maps": "https://maps.google.com/?q=Sint-Janskerk,+Mechelen" },
+            { "label": { "nl": "2 · Hof van Busleyden", "zh": "2 · Hof van Busleyden" }, "m": 590, "maps": "https://maps.google.com/?q=Museum+Hof+van+Busleyden,+Mechelen" },
+            { "label": { "nl": "C · Brouwerij Het Anker", "zh": "C · Het Anker 酒厂" }, "m": 620, "maps": "https://maps.google.com/?q=Brouwerij+Het+Anker,+Mechelen" },
+            { "label": { "nl": "D · Kruidtuin", "zh": "D · Kruidtuin 药草园" }, "m": 710, "maps": "https://maps.google.com/?q=Kruidtuin,+Mechelen" },
+            { "label": { "nl": "B · Het Predikheren", "zh": "B · Het Predikheren" }, "m": 760, "maps": "https://maps.google.com/?q=Het+Predikheren,+Mechelen" }
+          ],
+          "voetnoot": {
+            "nl": "Alle loop- en hemelsbrede afstanden zijn schattingen; over straat is het telkens meer. Alles boven de 300 m gaat met de auto.",
+            "zh": "所有步行及直线距离均为估算;沿街走都比这更远。超过 300 米一律开车。"
+          }
+        },
+        "alternatieven": {
+          "kop": { "nl": "Opties voor de middag", "zh": "下午的备选" },
+          "items": [
+            {
+              "letter": "A",
+              "titel": { "nl": "Sint-Janskerk", "zh": "圣约翰教堂 Sint-Janskerk" },
+              "detail": { "nl": "Sint-Janskerkhof 10 · wo 13–17 u", "zh": "Sint-Janskerkhof 10 · 周三 13–17 时" },
+              "maps": "https://maps.google.com/?q=Sint-Janskerk,+Sint-Janskerkhof+10,+Mechelen",
+              "tekst": {
+                "nl": "Het Rubens-drieluik De aanbidding der wijzen, in de kerk waarvoor het geschilderd is. Gelijkvloers en stil. Bij grijs weer eerder een pluspunt: deze kerk hangt niet van zonlicht af.",
+                "zh": "鲁本斯的三联画《三王来朝》,就挂在当年为它而画的这座教堂里。平地、安静。阴天反倒是优点:这里不靠自然光。"
+              }
+            },
+            {
+              "letter": "B",
+              "titel": { "nl": "Het Predikheren", "zh": "修道院图书馆 Het Predikheren" },
+              "detail": { "nl": "Goswin de Stassartstraat 88 · wo tot 17 u · +32 15 40 44 70", "zh": "Goswin de Stassartstraat 88 · 周三至 17 时 · +32 15 40 44 70" },
+              "maps": "https://maps.google.com/?q=Het+Predikheren,+Goswin+de+Stassartstraat+88,+Mechelen",
+              "tekst": {
+                "nl": "Dominicanenklooster, nu stadsbibliotheek, met café en overdekte binnenplaats. Twee liften geschikt voor rolstoel en scootmobiel; aangepast toilet op de begane grond en op twee verdiepingen.",
+                "zh": "多明我会修道院改建的市立图书馆,设咖啡馆和有顶的内院。两部电梯可容轮椅与代步车;一层及另外两层设无障碍卫生间。"
+              }
+            },
+            {
+              "letter": "C",
+              "titel": { "nl": "Brouwerij Het Anker", "zh": "Het Anker 酒厂" },
+              "detail": { "nl": "Guido Gezellelaan 49 · +32 15 28 71 41", "zh": "Guido Gezellelaan 49 · +32 15 28 71 41" },
+              "maps": "https://maps.google.com/?q=Brouwerij+Het+Anker,+Guido+Gezellelaan+49,+Mechelen",
+              "tekst": {
+                "nl": "Gouden Carolus aan de bron. De rondleiding valt af — trappen — maar de brasserie en de winkel zijn gewoon toegankelijk. Bel voor de openingstijden.",
+                "zh": "Gouden Carolus 的产地。参观导览要走楼梯,就免了;餐厅和商店可无障碍进入。开放时间请先电话确认。"
+              }
+            },
+            {
+              "letter": "D",
+              "titel": { "nl": "Kruidtuin", "zh": "药草园 Kruidtuin" },
+              "detail": { "nl": "Lange Schipstraat · dagelijks 9–21 u", "zh": "Lange Schipstraat · 每天 9–21 时" },
+              "maps": "https://maps.google.com/?q=Kruidtuin,+Lange+Schipstraat,+Mechelen",
+              "tekst": {
+                "nl": "Vlak stadspark met vijver en veel banken. De enige optie die ná het diner nog kan: met augustuslicht om een uur of acht een goede laatste indruk van de dag.",
+                "zh": "平坦的城市公园,有池塘和很多长椅。唯一一处晚饭后还能去的地方:八月傍晚八点的光线正好。"
+              }
+            },
+            {
+              "letter": "·",
+              "titel": { "nl": "De nuloptie", "zh": "什么都不安排" },
+              "detail": { "nl": "Vismarkt of de wellness van het hotel", "zh": "鱼市广场的露台,或酒店的水疗" },
+              "tekst": {
+                "nl": "Terras op het plein, of even liggen. Nul meter, nul planning. Serieus bedoeld.",
+                "zh": "坐在广场上,或者回房间躺一会儿。零步行,零计划。这是认真的建议。"
+              }
+            }
+          ],
+          "advies": [
+            {
+              "kop": { "nl": "Als de boot afvalt", "zh": "如果游船取消" },
+              "tekst": {
+                "nl": "Schuif A in dat gat: de Sint-Janskerk is woensdag van 13 tot 17 uur open, dus 14 uur past precies. Kies er dan verder niets meer bij.",
+                "zh": "把 A 补进这个时段:圣约翰教堂周三 13 至 17 时开放,14 点正合适。之后就别再加别的了。"
+              }
+            },
+            {
+              "kop": { "nl": "Kies er één, niet twee", "zh": "只选一项,不要两项" },
+              "tekst": {
+                "nl": "De ochtend heeft al een museum en een kathedraal, de lunch is uitgebreid en daar komt de boot nog achteraan. A is de rijkste keuze en kost de minste energie. D bewaar je voor na het eten — de enige optie die 's avonds nog open is.",
+                "zh": "上午已有博物馆和教堂,午餐丰盛,后面还有游船。A 内容最丰富、最省力。D 留到晚饭后——那是唯一一处傍晚还开着的地方。"
+              }
+            }
+          ]
+        },
+        "praktisch": [
+          {
+            "kop": { "nl": "Vooraf regelen", "zh": "需提前安排" },
+            "items": [
+              { "nl": "Bootjes bellen: vaart hij, is hij overdekt, hulp bij het instappen", "zh": "致电游船:是否发船、有无顶棚、能否协助上船" },
+              { "nl": "Museumtickets online kopen", "zh": "在线购买博物馆门票" },
+              { "nl": "Vismarkt oprijden afstemmen met het hotel", "zh": "与酒店确认能否驶入鱼市广场" }
+            ]
+          },
+          {
+            "kop": { "nl": "Telefoon", "zh": "电话" },
+            "items": [
+              { "nl": "Hotel Vé · +32 15 700 700", "zh": "Hotel Vé · +32 15 700 700" },
+              { "nl": "Carlton · +32 15 20 18 80", "zh": "Carlton · +32 15 20 18 80" },
+              { "nl": "Bootjes · +32 478 08 51 14", "zh": "Bootjes · +32 478 08 51 14" },
+              { "nl": "Museum · +32 15 29 40 30", "zh": "Museum · +32 15 29 40 30" }
+            ]
+          },
+          {
+            "kop": { "nl": "Let op", "zh": "注意" },
+            "items": [
+              { "nl": "Autoluwe zone van 11 tot 18 uur; de Vismarkt is volledig autoluw", "zh": "限行区 11 至 18 时;鱼市广场全天限行" },
+              { "nl": "Busleyden is ma én di gesloten; Het Kunstuur dicht tot 18 september", "zh": "布斯莱登宫周一、周二闭馆;Het Kunstuur 闭馆至 9 月 18 日" },
+              { "nl": "Natte kasseien op de pleinen zijn ongelijk en glad: neem de tijd, hou een arm vrij", "zh": "广场石板潮湿时高低不平又打滑:多留些时间,空出一只手扶人" },
+              { "nl": "Museum, kathedraal, lunch en diner zijn binnen; alleen de boot en de museumtuin hangen van de lucht af", "zh": "博物馆、教堂、午餐和晚餐都在室内;只有游船和博物馆花园要看天" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "nr": 10,
+      "datum": {
+        "nl": "do 20 aug",
+        "zh": "8月20日 周四"
+      },
+      "van": "Mechelen",
+      "naar": "Nijmegen",
+      "rijtijd": {
+        "nl": "ca. 2 uur, via Brussels Airport",
+        "zh": "约 2 小时,经布鲁塞尔机场"
+      },
+      "afstand": {
+        "nl": "≈ 180 km",
+        "zh": "≈ 180 公里"
+      },
+      "nachten": 0,
+      "coord": [
+        51.8126,
+        5.8372
+      ],
+      "hotel": null,
+      "hotelsuggestie": null,
+      "highlights": [
+        {
+          "nl": "08:20 Eric ophalen op Brussels Airport",
+          "zh": "08:20 在布鲁塞尔机场接 Eric"
+        },
+        {
+          "nl": "samen het laatste stuk naar Nijmegen",
+          "zh": "随后一同驶向奈梅亨"
+        }
+      ],
+      "toerisme": {
+        "nl": "De vroegste start van de reis: Brussels Airport ligt op nog geen half uur van Mechelen, en om 08:20 halen we Eric op in de aankomsthal. Daarna is het nog zo'n anderhalf uur naar huis — het slot van een zomer die bij de Arena di Verona begon en aan de Dijle eindigde.",
+        "zh": "全程最早的一次出发:布鲁塞尔机场距梅赫伦不到半小时车程,08:20 我们在到达大厅接 Eric。随后约一个半小时到家——这个从维罗纳圆形剧场开始、在迪耶勒河畔收尾的夏天就此圆满。"
+      },
+      "info": {
+        "nl": "Vertrek rond kwart voor acht uit Mechelen; kort parkeren kan vlak bij de terminal (P1, tegenover de aankomsthal).",
+        "zh": "约七点四十五从梅赫伦出发;短时停车可用航站楼对面的 P1 停车场,紧邻到达大厅。"
+      }
     }
   ],
   "hero": {
@@ -657,7 +1015,7 @@
   },
   "overzicht": [
     {
-      "waarde": 2570,
+      "waarde": 2890,
       "prefix": "± ",
       "suffix": " km",
       "label": {
@@ -666,28 +1024,28 @@
       }
     },
     {
-      "waarde": 15,
+      "waarde": 20,
       "label": {
         "nl": "dagen",
         "zh": "天"
       }
     },
     {
-      "waarde": 14,
+      "waarde": 16,
       "label": {
-        "nl": "nachten",
-        "zh": "晚"
+        "nl": "hotelnachten",
+        "zh": "酒店住宿晚数"
       }
     },
     {
-      "waarde": 5,
+      "waarde": 6,
       "label": {
         "nl": "landen",
         "zh": "国家"
       }
     },
     {
-      "waarde": 8,
+      "waarde": 10,
       "label": {
         "nl": "etappes",
         "zh": "段行程"
@@ -878,8 +1236,68 @@
         "zh": "8月15日 周六"
       },
       "tekst": {
-        "nl": "De laatste etappe naar huis, met een tussenstop bij Luxemburg-stad; aan het eind van de middag terug in Nijmegen.",
-        "zh": "最后一程回家,途中在卢森堡市停留;傍晚回到奈梅亨。"
+        "nl": "De laatste Italië-etappe naar huis, met een tussenstop bij Luxemburg-stad; aan het eind van de middag terug in Nijmegen.",
+        "zh": "意大利之行的最后一程,途中在卢森堡市停留;傍晚回到奈梅亨。"
+      }
+    },
+    {
+      "datum": "2026-08-16",
+      "etappe": 8,
+      "label": {
+        "nl": "zo 16 aug",
+        "zh": "8月16日 周日"
+      },
+      "tekst": {
+        "nl": "Thuisdag: uitrusten, de was en bijkomen van de pareltjesroute.",
+        "zh": "在家休整:休息、洗衣,从珍珠之路缓过神来。"
+      }
+    },
+    {
+      "datum": "2026-08-17",
+      "etappe": 8,
+      "label": {
+        "nl": "ma 17 aug",
+        "zh": "8月17日 周一"
+      },
+      "tekst": {
+        "nl": "Thuisdag: koffers opnieuw pakken voor het tweede deel van de zomer, Mechelen.",
+        "zh": "在家休整:为夏天的第二程梅赫伦重新收拾行李。"
+      }
+    },
+    {
+      "datum": "2026-08-18",
+      "etappe": 9,
+      "label": {
+        "nl": "di 18 aug",
+        "zh": "8月18日 周二"
+      },
+      "tekst": {
+        "nl": "Rijdag: van Nijmegen naar Mechelen; inchecken bij Hotel Vé aan de Vismarkt en 's avonds rustig eten in de stad.",
+        "zh": "驾车日:从奈梅亨到梅赫伦;入住鱼市广场的 Hotel Vé,晚上在城里从容用餐。"
+      }
+    },
+    {
+      "datum": "2026-08-19",
+      "etappe": 9,
+      "label": {
+        "nl": "wo 19 aug",
+        "zh": "8月19日 周三"
+      },
+      "tekst": {
+        "nl": "Mechelen zittend gezien: Hof van Busleyden, Sint-Rombouts, lunch bij Carlton en de boot over de Dijle — geen stuk lopen langer dan 300 meter (dagprogramma bij etappe 9).",
+        "zh": "坐着看梅赫伦:布斯莱登宫、圣龙勃主教座堂、Carlton 午餐、迪耶勒河游船——任何一段步行不超过 300 米(详见第 9 段的当日行程)。"
+      }
+    },
+    {
+      "datum": "2026-08-20",
+      "etappe": 10,
+      "label": {
+        "nl": "do 20 aug",
+        "zh": "8月20日 周四"
+      },
+      "tekst": {
+        "nl": "Vroeg op: om 08:20 halen we Eric op op Brussels Airport; daarna samen terug naar Nijmegen.",
+        "zh": "早起:08:20 在布鲁塞尔机场接 Eric,随后一同返回奈梅亨。"
       }
     }
   ]

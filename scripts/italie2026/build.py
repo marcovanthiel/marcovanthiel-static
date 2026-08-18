@@ -204,12 +204,109 @@ def etappe_html(e, weer=None):
         <ul class="highlights">{hl}</ul>
         {info}
         {sugblok}
-        <p class="honden">{bi(e["honden"])}</p>{opera}
+        {f'<p class="honden">{bi(e["honden"])}</p>' if e.get("honden") else ''}{opera}{programma_html(e)}
         {fotoblok(e)}
       </div>
     </article>"""
 
 
+
+
+def programma_html(e):
+    """Dagprogramma-aside (Mechelen, etappe 9): tijdlijn met loopafstanden en
+    de 300 m-grens in beeld, schematische kaart (inline SVG, tweetalige
+    labels via de taalschakelaar-CSS), hemelsbrede afstanden met Google
+    Maps-link per locatie, middagalternatieven en praktisch blok. Volledig
+    gestuurd door het optionele veld `programma` in route.json."""
+    p = e.get("programma")
+    if not p:
+        return ""
+
+    def adres(detail, maps):
+        binnen = bi(detail) if detail else ""
+        if maps:
+            return (f'<a class="prog-adres" href="{esc(maps)}" target="_blank" '
+                    f'rel="noopener">{binnen} ↗</a>')
+        return f'<span class="prog-adres">{binnen}</span>'
+
+    punten = ""
+    for pt in p["punten"]:
+        loop = ""
+        if pt.get("loop"):
+            m = int(pt["loop"]["m"])
+            pct = round(m / 300 * 100)
+            loop = (
+                '<div class="prog-loop">'
+                f'<p class="prog-looptekst">{bi(pt["loop"]["tekst"])}</p>'
+                f'<div class="loopbalk" role="img" aria-label="{m} m te voet, '
+                'grens 300 m">'
+                f'<span class="loopvul" style="width:{pct}%"></span></div>'
+                '</div>')
+        punten += (
+            '<li class="prog-punt">'
+            f'<span class="prog-tijd">{esc(pt["tijd"])}</span>'
+            '<div class="prog-body">'
+            f'<h5>{bi(pt["titel"])}</h5>'
+            f'{adres(pt.get("detail"), pt.get("maps"))}'
+            f'<p class="prog-tekst">{bi(pt["tekst"])}</p>'
+            f'{loop}</div></li>')
+
+    kaart = ""
+    k = p.get("kaart")
+    if k:
+        svg = (SITE / k["bestand"]).read_text(encoding="utf-8")
+        kaart = (f'<figure class="prog-kaart">{svg}'
+                 f'<figcaption>{bi(k["onderschrift"])}</figcaption></figure>')
+
+    afst = ""
+    a = p.get("afstanden")
+    if a:
+        rijen = ""
+        for it in a["items"]:
+            label = bi(it["label"])
+            if it.get("maps"):
+                label = (f'<a href="{esc(it["maps"])}" target="_blank" '
+                         f'rel="noopener">{label} ↗</a>')
+            rijen += f'<tr><td>{label}</td><td>{int(it["m"])} m</td></tr>'
+        afst = (f'<div class="afstanden"><h5 class="prog-kop">{bi(a["kop"])}</h5>'
+                f'<table>{rijen}</table>'
+                f'<p class="prog-voetnoot">{bi(a["voetnoot"])}</p></div>')
+
+    alt = ""
+    al = p.get("alternatieven")
+    if al:
+        items = ""
+        for it in al["items"]:
+            items += (
+                '<div class="alt-item">'
+                f'<span class="alt-letter">{esc(it["letter"])}</span>'
+                '<div class="alt-body">'
+                f'<h6>{bi(it["titel"])}</h6>'
+                f'{adres(it.get("detail"), it.get("maps"))}'
+                f'<p class="prog-tekst">{bi(it["tekst"])}</p>'
+                '</div></div>')
+        advies = "".join(
+            f'<div class="alt-advies"><b>{bi(ad["kop"])}</b> {bi(ad["tekst"])}</div>'
+            for ad in al.get("advies", []))
+        alt = (f'<div class="alternatieven"><h5 class="prog-kop">{bi(al["kop"])}</h5>'
+               f'{items}{advies}</div>')
+
+    prak = ""
+    if p.get("praktisch"):
+        kolommen = ""
+        for kol in p["praktisch"]:
+            lis = "".join(f"<li>{bi(i)}</li>" for i in kol["items"])
+            kolommen += (f'<div><h5 class="prog-kop">{bi(kol["kop"])}</h5>'
+                         f'<ul>{lis}</ul></div>')
+        prak = f'<div class="prog-praktisch">{kolommen}</div>'
+
+    return (
+        f'<aside class="programma" aria-label="{esc(val(p["kop"], "nl"))}">'
+        f'<h4>{bi(p["kop"])}</h4>'
+        f'<p class="prog-sub">{bi(p["sub"])}</p>'
+        f'<p class="prog-regel">{bi(p["regel"])}</p>'
+        f'<ol class="prog-lijst">{punten}</ol>'
+        f'{kaart}{afst}{alt}{prak}</aside>')
 
 
 def dagen_html(route):

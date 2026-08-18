@@ -214,36 +214,42 @@
 })();
 
 /* ---- 4. Reisdag-badge in de hero + vandaag-markering in "Dag tot dag" ----
-   Vóór vertrek: aftelteller. Tijdens de reis (1 t/m 15 aug 2026): "dag X van
-   15" en de rij van vandaag in de daglijst krijgt de oranje markering; klik
-   op de badge springt ernaartoe. Ná de reis: "we zijn weer thuis". ---- */
+   Data-gestuurd door de daglijst (data-datum), dus verlengen of verplaatsen
+   van de reis = alleen route.json aanpassen. Vóór de eerste reisdag een
+   aftelteller; op een reisdag "dag X van N" plus de oranje markering van de
+   rij van vandaag (klik op de badge springt ernaartoe); na de laatste
+   reisdag "we zijn weer thuis". ---- */
 (function(){
   'use strict';
   var el = document.getElementById('aftel');
   if (!el) return;
-  var vertrek = new Date(2026, 7, 1);           // maand 0-index: 7 = augustus
-  var TOTAAL = 15;                               // reisdagen (1 t/m 15 aug)
+  var rijen = Array.prototype.slice.call(document.querySelectorAll('.dag[data-datum]'));
+  if (!rijen.length) return;
   var nu = new Date();
-  var vandaag = new Date(nu.getFullYear(), nu.getMonth(), nu.getDate());
-  var dagen = Math.round((vertrek - vandaag) / 86400000);
-  var dagnr = 1 - dagen;                         // 1 op vertrekdag
+  var iso = nu.getFullYear() + '-' +
+    String(nu.getMonth() + 1).padStart(2, '0') + '-' +
+    String(nu.getDate()).padStart(2, '0');
+  var eerste = rijen[0].getAttribute('data-datum');
+  var laatste = rijen[rijen.length - 1].getAttribute('data-datum');
+  var idx = -1;
+  rijen.forEach(function(r, i){ if (r.getAttribute('data-datum') === iso) idx = i; });
   var html, doelrij = null;
 
-  if (dagnr >= 1 && dagnr <= TOTAAL) {
-    // Onderweg: markeer de rij van vandaag in de daglijst.
-    var iso = vandaag.getFullYear() + '-' +
-      String(vandaag.getMonth() + 1).padStart(2, '0') + '-' +
-      String(vandaag.getDate()).padStart(2, '0');
-    doelrij = document.querySelector('.dag[data-datum="' + iso + '"]');
-    if (doelrij) doelrij.classList.add('vandaag');
-    html = '<span class="lang lang-nl" lang="nl">dag <b>' + dagnr + '</b> van ' + TOTAAL + ' · waar zijn we? ↓</span>' +
-           '<span class="lang lang-zh" lang="zh">第 <b>' + dagnr + '</b> 天,共 ' + TOTAAL + ' 天 · 我们在哪?↓</span>';
-  } else if (dagen > 1) {
-    html = '<span class="lang lang-nl" lang="nl">nog <b>' + dagen + '</b> dagen tot vertrek</span><span class="lang lang-zh" lang="zh">距出发还有 <b>' + dagen + '</b> 天</span>';
-  } else if (dagen === 1) {
-    html = '<span class="lang lang-nl" lang="nl">morgen vertrekken we!</span><span class="lang lang-zh" lang="zh">明天出发!</span>';
-  } else if (dagen === 0) {
-    html = '<span class="lang lang-nl" lang="nl">vandaag vertrekken we!</span><span class="lang lang-zh" lang="zh">今天出发!</span>';
+  if (idx >= 0) {
+    // Onderweg (of thuisdag binnen de reisperiode): markeer de rij van vandaag.
+    doelrij = rijen[idx];
+    doelrij.classList.add('vandaag');
+    html = '<span class="lang lang-nl" lang="nl">dag <b>' + (idx + 1) + '</b> van ' + rijen.length + ' · waar zijn we? ↓</span>' +
+           '<span class="lang lang-zh" lang="zh">第 <b>' + (idx + 1) + '</b> 天,共 ' + rijen.length + ' 天 · 我们在哪?↓</span>';
+  } else if (iso < eerste) {
+    var dagen = Math.round((new Date(eerste) - new Date(iso)) / 86400000);
+    if (dagen === 1) {
+      html = '<span class="lang lang-nl" lang="nl">morgen vertrekken we!</span><span class="lang lang-zh" lang="zh">明天出发!</span>';
+    } else {
+      html = '<span class="lang lang-nl" lang="nl">nog <b>' + dagen + '</b> dagen tot vertrek</span><span class="lang lang-zh" lang="zh">距出发还有 <b>' + dagen + '</b> 天</span>';
+    }
+  } else if (iso <= laatste) {
+    html = '<span class="lang lang-nl" lang="nl">onderweg ↓</span><span class="lang lang-zh" lang="zh">旅途中 ↓</span>';
   } else {
     html = '<span class="lang lang-nl" lang="nl">we zijn weer thuis</span><span class="lang lang-zh" lang="zh">我们已平安到家</span>';
   }

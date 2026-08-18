@@ -376,6 +376,63 @@ body.toon-zh .dag.vandaag .dagdatum::after{ content:" · 现在"; }
   color:var(--tur-tekst); background:var(--tur-soft); border-radius:999px; padding:2px 10px; vertical-align:3px; }
 .checkhint{ margin:8px 0 0; font-size:11.5px; color:var(--muted); }
 
+/* ---- dagprogramma-aside (Mechelen, etappe 9) ---- */
+.programma{ margin-top:22px; border:1px solid var(--hair); border-radius:16px;
+  background:var(--bg-diep); padding:20px 22px 18px; }
+.programma h4{ margin:0 0 2px; font-family:var(--display); font-size:22px; color:var(--oranje); }
+.prog-sub{ margin:0 0 14px; color:var(--muted); font-style:italic; }
+.prog-regel{ margin:0 0 16px; padding:11px 14px; background:var(--rood-soft);
+  border-left:3px solid var(--rood); border-radius:0 10px 10px 0; font-size:14.5px; }
+.prog-lijst{ list-style:none; margin:0; padding:0; }
+.prog-punt{ display:flex; gap:14px; padding:11px 0; border-top:1px solid var(--hair); }
+.prog-punt:first-child{ border-top:none; padding-top:0; }
+.prog-tijd{ flex:0 0 46px; font-variant-numeric:tabular-nums; font-weight:700;
+  color:var(--tur-tekst); font-size:14.5px; padding-top:2px; }
+.prog-body{ min-width:0; flex:1; }
+.prog-body h5{ margin:0; font-size:16.5px; }
+.prog-adres{ display:block; font-size:13px; color:var(--muted); margin:1px 0 4px; }
+a.prog-adres{ color:var(--tur-tekst); }
+.prog-tekst{ margin:0; font-size:14.5px; }
+.prog-loop{ margin-top:8px; }
+.prog-looptekst{ margin:0 0 5px; font-size:13px; color:var(--muted); }
+.loopbalk{ position:relative; height:8px; max-width:340px;
+  background:rgba(233,242,241,.10); border-radius:4px; }
+.loopbalk::after{ content:""; position:absolute; right:0; top:-4px; bottom:-4px;
+  width:2px; background:var(--rood); }
+.loopvul{ position:absolute; left:0; top:0; bottom:0; background:var(--tur);
+  border-radius:4px 0 0 4px; }
+.prog-kop{ margin:22px 0 6px; font-size:12.5px; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--tur-tekst); font-weight:700; }
+.prog-kaart{ margin:20px 0 4px; }
+.prog-kaart svg{ width:100%; height:auto; display:block; background:var(--card);
+  border:1px solid var(--hair); border-radius:14px; }
+.prog-kaart figcaption{ font-size:11.5px; color:var(--muted); padding:8px 4px 0; }
+.afstanden table{ width:100%; border-collapse:collapse; font-size:14px; }
+.afstanden td{ padding:6px 4px; border-top:1px solid var(--hair); }
+.afstanden tr:first-child td{ border-top:none; }
+.afstanden td:last-child{ text-align:right; font-variant-numeric:tabular-nums;
+  color:var(--tur-tekst); white-space:nowrap; }
+.prog-voetnoot{ margin:8px 0 0; font-size:11.5px; color:var(--muted); }
+.alt-item{ display:flex; gap:12px; padding:10px 0; border-top:1px solid var(--hair); }
+.alt-item:first-of-type{ border-top:none; padding-top:2px; }
+.alt-letter{ flex:none; width:26px; height:26px; border-radius:50%; background:var(--oranje);
+  color:var(--opdonker); font-weight:700; font-size:14px; display:inline-flex;
+  align-items:center; justify-content:center; margin-top:2px; }
+.alt-body{ min-width:0; flex:1; }
+.alt-body h6{ margin:0; font-size:15.5px; }
+.alt-advies{ background:var(--tur-soft); border-left:3px solid var(--tur);
+  padding:10px 13px; margin-top:12px; border-radius:0 10px 10px 0; font-size:14px; }
+.alt-advies b{ display:block; margin-bottom:2px; }
+.prog-praktisch{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:4px 18px; margin-top:8px; border-top:2px solid var(--hair); padding-top:2px; }
+.prog-praktisch ul{ margin:0; padding-left:17px; font-size:13.5px; line-height:1.6; }
+.prog-praktisch li{ margin-bottom:3px; }
+@media (max-width:560px){
+  .programma{ padding:16px 14px 14px; margin-left:-4px; margin-right:-4px; }
+  .prog-punt{ gap:10px; }
+  .prog-tijd{ flex-basis:40px; font-size:13.5px; }
+}
+
 /* ---- print (A4-reisdocument) ---- */
 @media print{
   body{ background:#fff !important; color:#000; font-size:11pt; }
@@ -401,6 +458,12 @@ body.toon-zh .dag.vandaag .dagdatum::after{ content:" · 现在"; }
   .lint{ box-shadow:none; color:#000; background:#fff; border:1px solid #000; }
   .opera{ background:#fff; border:1px solid #000; color:#000; } .opera h4, .opera .waarschuwing{ color:#000; }
   .honden{ color:#000; background:none; border-top:1px solid #999; border-radius:0; }
+  .programma{ background:#fff; border:1px solid #000; page-break-inside:avoid; }
+  .programma h4, .prog-tijd, .prog-kop, .afstanden td:last-child, a.prog-adres{ color:#000 !important; }
+  .prog-regel, .alt-advies{ background:none; border-left:2px solid #000; }
+  .prog-kaart{ display:none; }
+  .loopbalk{ background:#ddd; } .loopvul{ background:#666; } .loopbalk::after{ background:#000; }
+  .alt-letter{ background:#fff; border:1.5px solid #000; color:#000; }
   .sugprijs{ background:none; color:#000; padding:0; }
   .info{ background:none; border:1px solid #999; }
   .wacht{ opacity:1 !important; transform:none !important; }

@@ -102,9 +102,26 @@ Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
 ## Subsite: /italie2026
 
 **marcovanthiel.nl/italie2026** — reiswebsite "Italië 2026: de pareltjesroute"
-(1 t/m 15 aug 2026, 15 dagen, Marco + Dandan + honden; opera-ankers
+(1 t/m 15 aug 2026, Marco + Dandan + honden; opera-ankers
 vr 7 aug Turandot + zo 9 aug Aida/Zeffirelli, 21:00, bron arena.it).
 Gemaakt 2026-07-05. Kale static in `static/italie2026/`; `noindex`.
+**Sinds 18-8-2026 verlengd met het tweede deel: Mechelen** (op verzoek Marco
+géén aparte subsite): etappe 9 = Nijmegen → Mechelen (di 18 + wo 19 aug,
+Hotel Vé aan de Vismarkt) met een volledig dagprogramma voor wo 19 aug
+(tijdlijn met loopafstanden en de 300 m-grens, schematische SVG-plattegrond,
+hemelsbrede afstanden met Google Maps-links, middagalternatieven A-D,
+praktisch blok — bron: de tweetalige PDF's "mechelen-19-augustus"), en
+etappe 10 = do 20 aug om 08:20 Eric ophalen op Brussels Airport en samen
+terug naar Nijmegen. Het dagprogramma zit als veld `programma` in
+route.json (generieke renderer in build.py); de kaart is
+`assets/mechelen-kaart.svg` en wordt inline meegebouwd zodat de
+taalschakelaar ook de kaartlabels omzet. De reisdag-badge en de
+vandaag-markering zijn sinds die verlenging **data-gestuurd** door de
+daglijst (geen hardcoded totalen meer in app.js); de thuisdagen 16/17 aug
+staan als gewone dagen in `dagen`. Statbalk: 20 dagen, 16 hotelnachten,
+6 landen, 10 etappes, ±2890 km. **Na thuiskomst (20-8-2026): workflow
+italie2026-weer.yml verwijderen en de site naar afgeronde staat brengen
+(verleden tijd, fotosectie).**
 **Sinds 22-7-2026 ingericht als REISGIDS** (ook voor het thuisfront): geen
 prijzen, scores of boekingsstatussen meer; hotels alleen als "We slapen in"
 met link; nieuw "Dag tot dag"-overzicht (`dagen` in route.json) waarvan

@@ -48,7 +48,14 @@
    "bron": "voorspelling",
    "dagen_gedekt": 1,
    "dagen_totaal": 1
+  },
+  "9": {
+   "gem": 19,
+   "maxgem": 20,
+   "bron": "voorspelling",
+   "dagen_gedekt": 2,
+   "dagen_totaal": 2
   }
  },
- "bijgewerkt": "2026-08-15"
+ "bijgewerkt": "2026-08-18"
 }

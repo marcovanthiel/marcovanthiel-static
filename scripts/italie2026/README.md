@@ -34,7 +34,24 @@ Per etappe extra velden:
      `curl -s -o /dev/null -w "%{http_code}" "https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=<ID>"` (401 = embedden uit, 404 = weg/privé → niet gebruiken).
   2. **Host de thumbnail zelf** (geen Google-request bij paginalaad): `curl -f -o static/italie2026/foto/video/<ID>.jpg "https://i.ytimg.com/vi/<ID>/maxresdefault.jpg"` (val terug op `sddefault`/`hqdefault`).
   3. Zet `video` in `route.json`. De CSP (`static/_headers`, `/italie2026/*`-blok) staat `frame-src https://www.youtube-nocookie.com` al toe.
-- `lint` (alleen de ankers) — `{nl,zh}`: het rode hoek-lintje op het kaartje ("Opera"/"Hoogtepunt").
+- `lint` — `{nl,zh}`: het hoek-lintje op het kaartje ("Opera"/"Hoogtepunt"/"Tweede deel").
+- `honden` is sinds 18-8-2026 **optioneel** (de Mechelen-etappes hebben er geen).
+- `checkin` (optioneel, ISO-datum) — expliciete incheckdatum voor `weer.py`
+  wanneer de reis een onderbreking heeft (bv. de thuisdagen 16/17 aug vóór
+  Mechelen) en de datum dus niet uit START + som(nachten) volgt.
+- `programma` (optioneel; nu alleen etappe 9 Mechelen) — volledig dagprogramma
+  als aside op het etappe-kaartje, gerenderd door `programma_html()` in
+  build.py: `kop`/`sub`/`regel` ({nl,zh}), `punten` (lijst met `tijd`,
+  `titel`, `detail`, `maps` (Google Maps-URL), `tekst` en optioneel `loop`
+  = {m, tekst} → loopafstand-balkje met de 300 m-grens als rode streep),
+  `kaart` ({bestand, onderschrift}: SVG uit `static/italie2026/assets/`,
+  wordt **inline** meegebouwd zodat tweetalige labels met de taalschakelaar
+  meedoen), `afstanden` (tabel hemelsbreed, per rij `label`/`m`/`maps`,
+  plus `voetnoot` met de schattingen-kanttekening), `alternatieven`
+  (items met `letter`/`titel`/`detail`/`maps`/`tekst` + `advies`-blokken)
+  en `praktisch` (kolommen met `kop` + `items`). Bron van de
+  Mechelen-inhoud: de tweetalige PDF's "mechelen-19-augustus" (de Chinese
+  tekst daaruit is de definitieve vertaling — niet opnieuw vertalen).
 
 **Top-level velden in `route.json`** (naast `titel`/`periode`/`reizigers`/`etappes`):
 - `hero` — `{"bestand", "credit", "creditUrl", "onderschrift":{nl,zh}}`: de sfeerfoto bovenaan (self-hosted in `foto/`, verklein tot ~1920px). Als je 'm vervangt: nieuwe foto in `foto/`, `hero.bestand` bijwerken, credit invullen.
@@ -69,8 +86,10 @@ voorspelling, daarbuiten het klimaatgemiddelde 2016-2025 (label
 "klimaatgemiddelde, voorspelling volgt"). De Action **italie2026-weer**
 draait `weer.py` + `build.py` dagelijks 06:37 CEST en commit alleen bij
 wijziging; `build.py` rendert de regel (`weerregel()`, klasse
-`rijtijd weer`). `weer.json` niet met de hand bewerken; na de reis de
-workflow `italie2026-weer.yml` verwijderen.
+`rijtijd weer`). `weer.json` niet met de hand bewerken; ná thuiskomst van
+het tweede deel (EINDE = 20-8-2026 in `weer.py`) de workflow
+`italie2026-weer.yml` verwijderen. Etappes met een onderbreking ervoor
+hebben het veld `checkin` (zie hierboven) zodat de verblijfsdata kloppen.
 
 1. Pas `route.json` aan (beide talen!).
 2. Commit + push naar `main`. De GitHub Action **italie2026-build**

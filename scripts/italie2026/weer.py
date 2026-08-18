@@ -26,7 +26,7 @@ HIER = pathlib.Path(__file__).resolve().parent
 SITE = HIER.parents[1] / "static" / "italie2026"
 
 START = date(2026, 8, 1)      # inchecken etappe 1 (za 1 aug)
-EINDE = date(2026, 8, 15)     # thuiskomst
+EINDE = date(2026, 8, 20)     # thuiskomst na het tweede deel (Mechelen)
 KLIMAATJAREN = range(2016, 2026)
 
 
@@ -89,6 +89,11 @@ def main():
 
     cursor = START
     for e in route["etappes"]:
+        # Optionele expliciete incheckdatum (veld `checkin`, ISO): nodig als
+        # de reis een onderbreking heeft (bv. de thuisdagen vóór Mechelen)
+        # en de datum dus niet uit START + som(nachten) volgt.
+        if e.get("checkin"):
+            cursor = date.fromisoformat(e["checkin"])
         nachten = e.get("nachten") or 0
         checkin, checkout = cursor, cursor + timedelta(days=nachten)
         cursor = checkout
