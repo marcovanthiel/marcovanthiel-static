@@ -180,6 +180,41 @@ wordt gebouwd door dezelfde Actions **italie2026-build** en
 **italie2026-weer**. Eigen CSP-blok `/italiecamper2026/*` in
 `static/_headers`. Volledige details: `scripts/italiecamper2026/README.md`.
 
+## Subsite: /china2027
+
+**marcovanthiel.nl/china2027** — reiswebsite "China 2027" (24 april t/m 9 mei
+2027, 8 personen, Chongqing → Anshun → Mile → Shenzhen → Guangzhou). Live gezet
+28-8-2026. Kale static in `static/china2027/`; aangeleverd als zip, werkinstructie
+staat in `static/china2027/AGENTS.md` (uitgangspunten: statisch zonder build,
+tweetalig NL/中文 via `data-nl`/`data-zh`, mobiel eerst, geen browseropslag,
+namen Chen Zanxi/Wu Hengxia/Austin/Brenna niet in karakters verzinnen).
+
+```
+static/china2027/
+├── index.html            # alle inhoud, tweetalig via data-attributen (?v=-cachebust op assets)
+├── AGENTS.md             # werkinstructie en backlog van de subsite
+├── assets/styles.css     # tokens bovenaan in :root
+├── assets/app.js         # taalschakelaar + inlezen media/manifest.json
+├── assets/fonts.css      # self-hosted Google-Fonts-CSS (unicode-range-subsets)
+├── assets/fonts/         # 108 woff2-subsets Noto Serif SC + Source Sans 3 (~6 MB)
+├── assets/route.png      # routekaart
+└── media/manifest.json   # welke foto's/filmpjes waar horen (+ LEESMIJ.md)
+```
+
+**Fonts self-hosted** (28-8-2026): fonts.googleapis.com/gstatic zijn in China
+geblokkeerd en de site is juist ook voor familie daar; de css2-output is
+gedownload met alle subsets en herschreven naar `assets/fonts/`. Door de
+unicode-range-subsets laadt een bezoeker maar enkele tientallen kB.
+
+**CSP**: eigen `/china2027/*`-blok in `static/_headers` (alles 'self';
+frame-src alvast open voor YouTube/Vimeo-insluitingen die `media/manifest.json`
+ondersteunt) + immutable-cache op `assets/fonts/`.
+
+**Beeld toevoegen**: zie `static/china2027/media/LEESMIJ.md` (foto's max 1600 px,
+alt verplicht; video's <10 MB of insluiten). Backlog (Chinese check door Dandan,
+hotelprijzen, vluchttijden, foto's Chongqing/Anshun uit eigen archief) staat in
+de AGENTS.md van de subsite.
+
 ## Subsite: /weerstatistieken
 
 **marcovanthiel.nl/weerstatistieken** — weerstatistieken van KNMI-meetstation
