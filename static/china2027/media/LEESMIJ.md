@@ -11,12 +11,16 @@ vandaag te tonen en groeit hij mee.
 
 ```json
 { "slot": "1", "file": "chongqing-liziba.jpg",
-  "alt": "De metro rijdt het flatgebouw binnen bij Liziba",
-  "caption": "Liziba, 28 april" }
+  "alt": { "nl": "De metro rijdt het flatgebouw binnen bij Liziba", "zh": "李子坝站，轻轨驶入楼中" },
+  "caption": { "nl": "Liziba, 28 april", "zh": "李子坝，4月28日" },
+  "credit": { "tekst": "Foto: naam, licentie", "url": "https://commons.wikimedia.org/wiki/File:..." } }
 ```
 
 `alt` is voor wie de foto niet kan zien en is niet optioneel. `caption` verschijnt
-onderaan de foto en mag weg.
+onderaan de foto en mag weg. Beide velden zijn een `{nl, zh}`-object (vul altijd
+beide talen in); een gewone string mag ook nog en geldt dan voor beide talen.
+`credit` is verplicht bij beeld van anderen (Wikimedia Commons enz.): auteur en
+licentie in `tekst`, de bronpagina in `url`. Bij eigen foto's laat je `credit` weg.
 
 ## Een filmpje toevoegen
 

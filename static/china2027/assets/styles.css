@@ -143,6 +143,11 @@ img, video { max-width: 100%; display: block; }
 .video .frame { position: relative; aspect-ratio: 16 / 9; background: var(--paper-deep); border: 1px solid var(--line); display: grid; place-content: center; text-align: center; padding: 1rem; }
 .video iframe, .video video { width: 100%; height: 100%; border: 0; }
 
+.tile figcaption .credit, .vcaption .credit { color: inherit; opacity: .78; font-size: .92em; text-decoration: underline; text-underline-offset: 2px; }
+.video .frame.filled { padding: 0; display: block; aspect-ratio: auto; }
+.video .frame.filled video { display: block; width: 100%; height: auto; }
+.vcaption { padding: .5rem .75rem; font-size: .78rem; color: var(--muted); border-top: 1px solid var(--line); }
+
 /* ---------- hotels ---------- */
 .hotels { border-top: 1px solid var(--line); padding-top: var(--step); }
 .hotel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.4rem; }

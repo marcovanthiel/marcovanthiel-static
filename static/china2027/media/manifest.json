@@ -1,15 +1,85 @@
 {
   "chongqing": {
     "photos": [
-      { "slot": "1", "file": "", "alt": "", "caption": "" },
+      { "slot": "1", "file": "chongqing-liziba.jpg",
+        "alt": { "nl": "De monorail rijdt bij station Liziba dwars door het flatgebouw", "zh": "李子坝站，单轨列车穿楼而过" },
+        "caption": { "nl": "Liziba: de trein door het gebouw", "zh": "李子坝：轻轨穿楼" },
+        "credit": { "tekst": "Foto: David290, CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:%E6%9D%8E%E5%AD%90%E5%9D%9D%E7%AB%99%E8%BD%BB%E8%BD%A8%E7%A9%BF%E6%A5%BC_0023.png" } },
       { "slot": "2", "file": "", "alt": "", "caption": "" },
-      { "slot": "3", "file": "", "alt": "", "caption": "" },
-      { "slot": "4", "file": "", "alt": "", "caption": "" }
+      { "slot": "3", "file": "chongqing-hotpot.jpg",
+        "alt": { "nl": "Chongqing-hotpot met rode bouillon, klaar op tafel", "zh": "摆上桌的重庆红汤火锅" },
+        "caption": { "nl": "Chongqing-hotpot", "zh": "重庆火锅" },
+        "credit": { "tekst": "Foto: N509FZ, CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Concentric_hot_pot_in_Chongqing_(20180217165607).jpg" } },
+      { "slot": "4", "file": "chongqing-chaotianmen.jpg",
+        "alt": { "nl": "Nachtelijk zicht op Chaotianmen, waar Yangtze en Jialing samenvloeien", "zh": "朝天门夜景，长江与嘉陵江在此交汇" },
+        "caption": { "nl": "Chaotianmen bij nacht", "zh": "朝天门夜景" },
+        "credit": { "tekst": "Foto: HoweyYuan, CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Chaotianmen_nightview_20240721.jpg" } }
+    ],
+    "video": {
+      "file": "chongqing-liziba.mp4",
+      "poster": "chongqing-liziba-poster.jpg",
+      "title": { "nl": "De metro komt aan en verdwijnt in het gebouw bij Liziba", "zh": "李子坝轻轨驶来，钻进楼里" },
+      "caption": { "nl": "Liziba, dertien seconden", "zh": "李子坝，十三秒" },
+      "credit": { "tekst": "Fragment: 中国新闻网 via Wikimedia Commons, CC BY 4.0", "url": "https://commons.wikimedia.org/wiki/File:2019%E5%B9%B48%E6%9C%884%E6%97%A5_%E8%BD%BB%E8%BD%A8_%E5%90%83%E4%B8%8D%E5%AE%8C_%E6%89%93%E5%8C%85_%E6%B8%B8%E5%AE%A2%E7%8E%A9%E8%BD%AC%E9%87%8D%E5%BA%86_%E8%BD%BB%E8%BD%A8%E7%A9%BF%E6%A5%BC.webm" }
+    }
+  },
+  "anshun": {
+    "photos": [
+      { "slot": "1", "file": "anshun-shuiliandong.jpg",
+        "alt": { "nl": "De Huangguoshu-waterval, gezien vanaf het pad door de Shuilian-grot", "zh": "从水帘洞栈道看黄果树瀑布" },
+        "caption": { "nl": "Huangguoshu vanuit de doorgang", "zh": "水帘洞里看黄果树" },
+        "credit": { "tekst": "Foto: WaitinZ, CC BY-SA 3.0", "url": "https://commons.wikimedia.org/wiki/File:Shuiliandong_HuangguoshuFall.jpg" } },
+      { "slot": "2", "file": "" },
+      { "slot": "3", "file": "anshun-nuomasker.jpg",
+        "alt": { "nl": "Beschilderd houten nuo-masker, opgehangen aan een houten wand", "zh": "挂在木墙上的彩绘傩面具" },
+        "caption": { "nl": "Nuo-masker, familie van de dixi-maskers (sfeerbeeld)", "zh": "傩面具，与地戏面具同源（氛围图）" },
+        "credit": { "tekst": "Foto: 摇曳的文墨, CC BY 2.5", "url": "https://commons.wikimedia.org/wiki/File:%E5%82%A9%E9%9D%A2%E5%85%B7.jpg" } },
+      { "slot": "4", "file": "" }
     ],
     "video": null
   },
-  "anshun":    { "photos": [{ "slot": "1", "file": "" }, { "slot": "2", "file": "" }, { "slot": "3", "file": "" }, { "slot": "4", "file": "" }], "video": null },
-  "mile":      { "photos": [{ "slot": "1", "file": "" }, { "slot": "2", "file": "" }, { "slot": "3", "file": "" }, { "slot": "4", "file": "" }], "video": null },
-  "shenzhen":  { "photos": [{ "slot": "1", "file": "" }, { "slot": "2", "file": "" }, { "slot": "3", "file": "" }, { "slot": "4", "file": "" }], "video": null },
-  "guangzhou": { "photos": [{ "slot": "1", "file": "" }, { "slot": "2", "file": "" }, { "slot": "3", "file": "" }], "video": null }
+  "mile": {
+    "photos": [
+      { "slot": "1", "file": "mile-dongfengyun.jpg",
+        "alt": { "nl": "Het rode bakstenen kunstcomplex Dongfengyun in Mile", "zh": "弥勒东风韵的红砖建筑群" },
+        "caption": { "nl": "Dongfengyun, Mile", "zh": "弥勒东风韵" },
+        "credit": { "tekst": "Foto: Ping an Chang, CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E6%96%B9%E9%9F%BB%E7%89%B9%E8%89%B2%E5%B0%8F%E9%8E%AE20191224160419_03.jpg" } },
+      { "slot": "2", "file": "" },
+      { "slot": "3", "file": "" },
+      { "slot": "4", "file": "mile-dongfengyun-ovens.jpg",
+        "alt": { "nl": "Rij flesvormige bakstenen torens van Dongfengyun tegen de avondlucht", "zh": "东风韵瓶形红砖塔群" },
+        "caption": { "nl": "De bakstenen torens van Dongfengyun", "zh": "东风韵的红砖塔" },
+        "credit": { "tekst": "Foto: Ping an Chang, CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:%E6%9D%B1%E6%96%B9%E9%9F%BB%E7%89%B9%E8%89%B2%E5%B0%8F%E9%8E%AE_20191224155438_01.jpg" } }
+    ],
+    "video": null
+  },
+  "shenzhen": {
+    "photos": [
+      { "slot": "1", "file": "shenzhen-dafen.jpg",
+        "alt": { "nl": "Schilders aan het werk tussen grote doeken in Dafen", "zh": "大芬村里对着画布作画的画师" },
+        "caption": { "nl": "Dafen, 2006 (archiefbeeld)", "zh": "大芬村，2006（存档）" },
+        "credit": { "tekst": "Foto: Swoolverton, CC BY 3.0", "url": "https://commons.wikimedia.org/wiki/File:Dafen,_oil_painters_villiage_2006.jpg" } },
+      { "slot": "2", "file": "" },
+      { "slot": "3", "file": "shenzhen-baai.jpg",
+        "alt": { "nl": "De verlichte skyline van de Baai van Shenzhen in het blauwe uur", "zh": "蓝调时分的深圳湾天际线" },
+        "caption": { "nl": "De Baai van Shenzhen", "zh": "深圳湾" },
+        "credit": { "tekst": "Foto: Sparktour, CC BY-SA 4.0", "url": "https://commons.wikimedia.org/wiki/File:Night_View_of_Office_Buildings_in_Shenzhen_Bay.jpg" } },
+      { "slot": "4", "file": "" }
+    ],
+    "video": null
+  },
+  "guangzhou": {
+    "photos": [
+      { "slot": "1", "file": "guangzhou-dimsum.jpg",
+        "alt": { "nl": "Tafel vol dim sum in bamboemandjes bij restaurant Panxi in Guangzhou", "zh": "广州泮溪酒家摆满点心的餐桌" },
+        "caption": { "nl": "Dim sum bij Panxi", "zh": "泮溪酒家的点心" },
+        "credit": { "tekst": "Foto: MeiOLA 2290 WMENSZ, CC0", "url": "https://commons.wikimedia.org/wiki/File:GD_%E5%BB%A3%E6%9D%B1_Guangdong_%E5%BB%A3%E5%B7%9E_Guangzhou_%E8%8D%94%E7%81%A3%E5%8D%80_Liwan_%E9%BE%8D%E6%B4%A5%E8%A5%BF%E8%B7%AF_Longjin_West_Road_shop_%E6%B3%AE%E6%BA%AA%E9%85%92%E5%AE%B6_Pan_Xi_Restaurant_%E9%BB%9E%E5%BF%83_dim_sum_June_2025_R12S_30.jpg" } },
+      { "slot": "2", "file": "guangzhou-shamian.jpg",
+        "alt": { "nl": "Koloniale kapel tussen de bomen op het eiland Shamian", "zh": "沙面岛树影中的殖民时期教堂" },
+        "caption": { "nl": "Shamian", "zh": "沙面" },
+        "credit": { "tekst": "Foto: Eduardo M. C., CC BY 2.0", "url": "https://commons.wikimedia.org/wiki/File:Shamian_Island,_Guangzhou_(5929144006).jpg" } },
+      { "slot": "3", "file": "" }
+    ],
+    "video": null
+  }
 }
