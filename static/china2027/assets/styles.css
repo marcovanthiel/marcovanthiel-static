@@ -148,6 +148,12 @@ img, video { max-width: 100%; display: block; }
 .video .frame.filled video { display: block; width: 100%; height: auto; }
 .vcaption { padding: .5rem .75rem; font-size: .78rem; color: var(--muted); border-top: 1px solid var(--line); }
 
+.mapcredit { margin: .5rem 0 0; font-size: .72rem; }
+.mapcredit a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.stay { margin-top: 1.8rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+.stay h3 { font-family: "Noto Serif SC", serif; font-weight: 500; font-size: 1.15rem; margin: 0 0 .2rem; }
+.stay .body { font-size: .85rem; }
+
 /* ---------- hotels ---------- */
 .hotels { border-top: 1px solid var(--line); padding-top: var(--step); }
 .hotel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.4rem; }
