@@ -16,3 +16,6 @@ Thumbs.db
 
 # Wrangler-cache (CLI runtime)
 .wrangler/
+
+# npm (buildscript subsites)
+node_modules/

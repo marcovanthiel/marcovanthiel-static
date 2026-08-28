@@ -8,15 +8,50 @@ Gemaakt 28-08-2026. Kale static, geen Hugo-content, geen build.
 
 ```
 static/kunstlocaties/
-├── index.html          # markup; laadt fonts.css, styles.css, data.js, app.js
+├── index.html          # markup; laadt fonts.css, styles.css, data.js, mapdata.js, app.js
 ├── AGENTS.md           # dit bestand
 └── assets/
     ├── data.js         # window.KUNSTLOCATIES = [...] — de 217 locaties
-    ├── app.js          # filteren, zoeken, renderen; geen afhankelijkheden
+    ├── mapdata.js      # window.KAARTDATA = {...} — gegenereerd, niet met de hand bewerken
+    ├── app.js          # kaart, filters, zoeken, catalogus; geen afhankelijkheden
     ├── styles.css      # palet en typografie, licht én donker
     ├── fonts.css       # @font-face voor de drie self-hosted families
-    └── fonts/          # Bricolage Grotesque, Newsreader, IBM Plex Mono
+    └── fonts/          # Bodoni Moda, Newsreader, IBM Plex Mono
                         # (Fontsource, latin + latin-ext; SIL OFL)
+
+scripts/kunstlocaties/  # buildscript voor mapdata.js (npm, draait lokaal)
+├── build-map.js
+└── package.json
+```
+
+## De kaart
+
+Geen kaartdienst, geen tiles, geen Leaflet: de kaart is één SVG die uit Natural
+Earth (`world-atlas`, 1:50 m) wordt gegenereerd en met de pagina meekomt.
+Dat houdt de CSP op `'self'`, scheelt externe verzoeken en levert een plaat op
+die in de huisstijl van de pagina staat in plaats van in die van een tegelserver.
+
+- **Projectie** Mercator, venster −11,5 tot 19,5 lengte en 34,8 tot 54,2 breedte,
+  uitgerekend naar een tekenvlak van 1000 × 890 eenheden. Zoomen en schuiven zijn
+  een affiene transformatie op die eenheden; er wordt niet herprojecteerd.
+- **Vereenvoudiging** Douglas-Peucker in schermruimte: tolerantie 0,45 voor de elf
+  landen zelf, 0,9 voor de buren, en ringen onder een minimumoppervlak vallen weg.
+  Zo blijft `mapdata.js` rond de 150 kB in plaats van een megabyte.
+- **Stippen** staan buiten de schaal: elke stip krijgt `scale(1/k)`, zodat ze bij
+  elk zoomniveau even groot blijven. Hetzelfde geldt voor de arcering
+  (`patternTransform`) en voor het richtkruis van de gekozen locatie.
+- **Labels** verschijnen vanaf 3,2× en worden gefilterd op botsing: wie eerst komt
+  (de kern voorop) houdt zijn label. Zonder die filter is het Ruhrgebied onleesbaar.
+- **Coördinaten** staan per record in `data.js` als `ll: [lengte, breedte]`, op
+  plaatsniveau. Ze zijn gecontroleerd met een point-in-polygon-test tegen de
+  landsgrenzen: elke stip ligt in het juiste land. Acht locaties aan de kust
+  (Venetië, Ancona, Porquerolles, Cap-Ferrat, Cascais) vallen in de vereenvoudigde
+  kustlijn net in zee — dat klopt, de grens is grof, de coördinaat niet.
+
+Kaartdata opnieuw bouwen na een wijziging in `ll`:
+
+```
+cd scripts/kunstlocaties && npm install && node build-map.js
 ```
 
 ## Uitgangspunten
@@ -26,7 +61,7 @@ static/kunstlocaties/
   géén eigen CSP-blok nodig — alleen een cache-regel voor de fonts.
 - **Self-hosted fonts.** Google Fonts is voor de rest van de site wel toegestaan
   in de CSP, maar hier bewust lokaal, net als bij /china2027. Vervangen gaat via
-  `npm i @fontsource-variable/bricolage-grotesque @fontsource-variable/newsreader
+  `npm i @fontsource-variable/bodoni-moda @fontsource-variable/newsreader
   @fontsource/ibm-plex-mono` en de woff2's uit `files/` kopiëren.
 - **Deelbare URL.** Filters staan in de querystring, bijvoorbeeld
   `/kunstlocaties/?land=Italië&kern=1`. `app.js` leest die bij het laden.
@@ -48,6 +83,8 @@ Elk record in `data.js` heeft:
 | `h` | honden: `ja`, `nee` of `?` (onbekend, níét nee) |
 | `s` | seizoen: `jaarrond`, `seizoen`, `afspraak` of `let op` |
 | `kern` | `true` voor de vijfentwintig die eruit springen |
+| `ll` | `[lengte, breedte]` in graden, voor de kaart |
+| `id` | catalogusnummer, `IT-01` tot `CZ-09`; wordt ook het anker in de URL |
 
 Na een wijziging de `?v=` in `index.html` ophogen, zodat de 5-minutencache van
 Cloudflare geen oude `data.js` blijft serveren.
@@ -63,5 +100,6 @@ publieke weergave ervan.
 
 - [ ] Hondenbeleid van de 89 onbekende plekken navragen waar het ertoe doet
 - [ ] Openingstijden van de 27 "let op"-adressen bevestigen voor een reis
-- [ ] Overwegen: kaartweergave (Leaflet + OSM-tiles vraagt dan wél een eigen
-      CSP-blok voor `img-src`, zie het patroon bij /italie2026)
+- [ ] Coördinaten van een handvol gehuchten nalopen; ze zijn op plaatsniveau
+      gezet en alleen op land gecontroleerd, niet op adres
+- [ ] Overwegen: reisroutes over de kaart, zodat clusters een volgorde krijgen
