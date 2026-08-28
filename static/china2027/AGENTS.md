@@ -22,6 +22,10 @@ marcovanthiel.nl/biennalevenetie2026.
 5. **Namen.** Chen Zanxi, Wu Hengxia, Austin en Brenna staan in Latijns schrift
    omdat de juiste karakters nog niet bekend zijn. Verzin ze niet. Zodra Marco of
    Dandan ze aanlevert, vervangen in beide talen.
+6. **Geen gevoelige familieverwijzingen.** Het graf van Dandans vader en
+   vergelijkbaar persoonlijke onderwerpen komen niet op de site (besluit Marco,
+   28-8-2026; toen zijn ook de houten-tulp-tegel en de grafzin in de
+   Anshun-tekst vervallen). Bij twijfel: weglaten.
 
 ## Structuur
 
