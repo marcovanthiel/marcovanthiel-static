@@ -1,11 +1,12 @@
-/* Kunstlocaties — kaart en catalogus.
-   Data: assets/data.js (window.KUNSTLOCATIES), assets/mapdata.js (window.KAARTDATA).
-   Geen afhankelijkheden; alles staat in dit bestand. */
+/* Kunstlocaties — kaart, foto's en catalogus.
+   Data: assets/data.js (window.KUNSTLOCATIES), assets/mapdata.js (window.KAARTDATA),
+   assets/fotos.js (window.KUNSTFOTOS). Geen afhankelijkheden. */
 (function () {
   "use strict";
 
   var DATA = window.KUNSTLOCATIES || [];
   var KAART = window.KAARTDATA || null;
+  var FOTOS = window.KUNSTFOTOS || {};
   var SVGNS = "http://www.w3.org/2000/svg";
   var rustig = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -17,8 +18,11 @@
   var SEIZOEN = { "jaarrond": ["jaarrond", "m-jaarrond"], "seizoen": ["seizoen", "m-seizoen"],
                   "afspraak": ["op afspraak", "m-afspraak"], "let op": ["let op", "m-letop"] };
   var HOND = { "ja": ["honden welkom", "ja"], "nee": ["geen honden", "nee"], "?": ["honden onbekend", "onbekend"] };
+  var NE = { "Italië": "Italy", "Frankrijk": "France", "Spanje": "Spain", "Portugal": "Portugal",
+             "Zwitserland": "Switzerland", "Liechtenstein": "Liechtenstein", "Oostenrijk": "Austria",
+             "Duitsland": "Germany", "België": "Belgium", "Luxemburg": "Luxembourg", "Tsjechië": "Czechia" };
 
-  var state = { land: null, type: null, kern: false, hond: false, jaarrond: false, q: "", sel: -1 };
+  var state = { land: null, type: null, kern: false, hond: false, jaarrond: false, foto: false, q: "", sel: -1 };
 
   var $ = function (id) { return document.getElementById(id); };
   function esc(s) {
@@ -38,14 +42,14 @@
     var p = new URLSearchParams(location.search);
     if (p.get("land") && LANDEN.indexOf(p.get("land")) > -1) state.land = p.get("land");
     if (p.get("soort") && TYPES.indexOf(p.get("soort")) > -1) state.type = p.get("soort");
-    ["kern", "hond", "jaarrond"].forEach(function (f) { if (p.get(f) === "1") state[f] = true; });
+    ["kern", "hond", "jaarrond", "foto"].forEach(function (f) { if (p.get(f) === "1") state[f] = true; });
     if (p.get("q")) state.q = p.get("q").toLowerCase();
   }
   function schrijfUrl() {
     var p = new URLSearchParams();
     if (state.land) p.set("land", state.land);
     if (state.type) p.set("soort", state.type);
-    ["kern", "hond", "jaarrond"].forEach(function (f) { if (state[f]) p.set(f, "1"); });
+    ["kern", "hond", "jaarrond", "foto"].forEach(function (f) { if (state[f]) p.set(f, "1"); });
     if (state.q) p.set("q", state.q);
     var qs = p.toString();
     history.replaceState(null, "", qs ? location.pathname + "?" + qs : location.pathname);
@@ -58,6 +62,7 @@
     if (state.kern && !e.kern) return false;
     if (state.hond && e.h !== "ja") return false;
     if (state.jaarrond && e.s !== "jaarrond") return false;
+    if (state.foto && !FOTOS[e.id]) return false;
     if (state.q) {
       var hooi = (e.id + " " + e.n + " " + e.p + " " + e.reg + " " + e.land + " " +
                   e.w + " " + e.x + " " + e.t).toLowerCase();
@@ -97,9 +102,7 @@
         });
       });
     }
-    groep("[data-land]", "land", function () {
-      if (kaart) kaart.naarLand(state.land);
-    });
+    groep("[data-land]", "land", function () { if (kaart) kaart.naarLand(state.land); });
     groep("[data-type]", "type", null);
 
     Array.prototype.forEach.call(document.querySelectorAll("[data-flag]"), function (b) {
@@ -116,7 +119,40 @@
     q.addEventListener("input", function (ev) { state.q = ev.target.value.toLowerCase(); teken(); });
   }
 
+  function bouwPillen() {
+    var metFoto = DATA.filter(function (e) { return FOTOS[e.id]; }).length;
+    var rijen = [
+      [DATA.length + " locaties", "a"],
+      ["25 in de kern", "b"],
+      [LANDEN.length + " landen", "c"],
+      [metFoto + " met foto", "d"]
+    ];
+    $("pillen").innerHTML = rijen.map(function (r) {
+      return '<span class="pil ' + r[1] + '">' + r[0] + "</span>";
+    }).join("");
+    $("eyebrow-n").textContent = DATA.length + " locaties · " + LANDEN.length + " landen";
+    $("foto-stand").textContent = metFoto === 0
+      ? "De foto's staan er nog niet op: het ophaalscript moet nog draaien."
+      : metFoto + " van de " + DATA.length + " locaties heeft een foto.";
+  }
+
   /* ------------------------------------------------------- catalogus ---- */
+  function beeldVoor(e) {
+    var f = FOTOS[e.id];
+    if (f && f.f) {
+      var credit = f.licentie === "eigen foto"
+        ? "Foto: Marco van Thiel"
+        : "Foto: " + esc(f.maker || "onbekend") + " · " +
+          (f.bron ? '<a href="' + esc(f.bron) + '" target="_blank" rel="noopener">' + esc(f.licentie) + "</a>"
+                  : esc(f.licentie));
+      return '<div><div class="beeld"><img src="foto/' + esc(f.f) + '" alt="' + esc(e.n) +
+             '" loading="lazy" decoding="async" width="760" height="570"></div>' +
+             '<p class="credit">' + credit + "</p></div>";
+    }
+    var v = "v" + (e.nr % 4);
+    return '<div><div class="beeld leeg ' + v + '"><div class="geen"><span>nog geen vrije foto</span></div></div></div>';
+  }
+
   function tekenLijst(zichtbaar) {
     var wortel = $("lijst");
     if (!zichtbaar.length) {
@@ -133,13 +169,8 @@
       }
       if (e.reg !== reg) { reg = e.reg; html += '<p class="regiokop">' + esc(reg) + "</p>"; }
       var se = SEIZOEN[e.s] || SEIZOEN.jaarrond, ho = HOND[e.h] || HOND["?"];
-      html += '<article class="plek' + (e.kern ? " kern" : "") + '" id="plek-' + e.id + '" data-i="' + e.nr + '">' +
-        '<div class="nr">' + e.id + (e.kern ? '<span class="ruit">◆ kern</span>' : "") + "</div>" +
-        '<div class="meta">' +
-          '<span class="plaats">' + esc(e.p) + "</span>" +
-          '<span class="merk ' + se[1] + '">' + se[0] + "</span>" +
-          '<span class="hond ' + ho[1] + '">' + ho[0] + "</span>" +
-        "</div>" +
+      html += '<article class="plek' + (e.kern ? " kern" : "") + '" id="plek-' + e.id + '">' +
+        beeldVoor(e) +
         '<div class="plek-body">' +
           "<h3>" + esc(e.n) + "</h3>" +
           '<p class="wie">' + esc(e.w) + "</p>" +
@@ -149,6 +180,12 @@
             '<a href="' + esc(e.u) + '" target="_blank" rel="noopener">' + esc(host(e.u)) + " ↗</a>" +
             '<button type="button" data-toon="' + e.nr + '">toon op de kaart</button>' +
           "</p>" +
+        "</div>" +
+        '<div class="meta">' +
+          '<span class="nr">' + e.id + (e.kern ? " ◆" : "") + "</span>" +
+          '<span class="plaats">' + esc(e.p) + "</span>" +
+          '<span class="merk ' + se[1] + '">' + se[0] + "</span>" +
+          '<span class="hond ' + ho[1] + '">' + ho[0] + "</span>" +
         "</div></article>";
     });
     wortel.innerHTML = html;
@@ -195,24 +232,30 @@
   function bouwKaart() {
     if (!KAART) return null;
     var svg = $("kaart"), houder = $("kaart-houder");
-    var scene, stipEls = [], landEls = {}, labelEls = [];
+    var stipEls = [], landEls = {}, labelEls = [];
     var k = 1, tx = 0, ty = 0, k0 = 1, cw = 0, ch = 0;
     var dataBox = (function () {
       var xs = KAART.pts.map(function (p) { return p[0]; }), ys = KAART.pts.map(function (p) { return p[1]; });
       return [Math.min.apply(null, xs), Math.min.apply(null, ys), Math.max.apply(null, xs), Math.max.apply(null, ys)];
     })();
 
+    /* Het mozaïek: één patroon van zestien steentjes dat over de landen ligt en
+       bij zoomen wordt tegengeschaald, zodat de steentjes altijd even groot zijn. */
     var defs = svgEl("defs");
-    var pat = svgEl("pattern", { id: "hatch", width: 7, height: 7, patternUnits: "userSpaceOnUse",
-                                 patternTransform: "rotate(45)" });
-    var lijn = svgEl("line", { class: "hatchlijn", x1: 0, y1: 0, x2: 0, y2: 7 });
-    pat.appendChild(lijn); defs.appendChild(pat); svg.appendChild(defs);
+    var pat = svgEl("pattern", { id: "mos", width: 56, height: 56, patternUnits: "userSpaceOnUse" });
+    var kleuren = ["#E8402A", "#F2B705", "#00A6A6", "#FDF3E3", "#7B2D8E", "#F2B705", "#E8402A", "#00A6A6",
+                   "#FDF3E3", "#E8402A", "#7B2D8E", "#F2B705", "#00A6A6", "#FDF3E3", "#F2B705", "#E8402A"];
+    for (var yy = 0, n = 0; yy < 56; yy += 14) {
+      for (var xx = 0; xx < 56; xx += 14, n++) {
+        pat.appendChild(svgEl("rect", { x: xx + 1, y: yy + 1, width: 12, height: 12, rx: 2.6,
+                                        fill: kleuren[n % 16], "fill-opacity": 0.82 }));
+      }
+    }
+    defs.appendChild(pat); svg.appendChild(defs);
 
-    scene = svgEl("g", { id: "scene" });
+    var scene = svgEl("g", { id: "scene" });
     svg.appendChild(scene);
-
-    var gGrat = svgEl("path", { class: "graticule", d: KAART.graticule });
-    scene.appendChild(gGrat);
+    scene.appendChild(svgEl("path", { class: "graticule", d: KAART.graticule }));
 
     var gLand = svgEl("g");
     scene.appendChild(gLand);
@@ -221,7 +264,7 @@
       gLand.appendChild(p);
       if (c.s) {
         landEls[c.n] = p;
-        gLand.appendChild(svgEl("path", { class: "arcering", d: c.d }));
+        gLand.appendChild(svgEl("path", { class: "mozaiek", d: c.d, fill: "url(#mos)" }));
       }
     });
 
@@ -235,33 +278,27 @@
 
     var gStip = svgEl("g");
     scene.appendChild(gStip);
-
-    // richtkruis voor de gekozen locatie: buiten de scene, dus altijd even groot
-    var overlay = svgEl("g", { id: "overlay" });
+    var overlay = svgEl("g");
     var kruis = svgEl("g", { class: "kruis-groep" });
-    kruis.appendChild(svgEl("circle", { class: "kruis", r: 11, fill: "none" }));
-    [[0,-19,0,-14],[0,14,0,19],[-19,0,-14,0],[14,0,19,0]].forEach(function (c) {
+    kruis.appendChild(svgEl("circle", { class: "kruis", r: 12 }));
+    [[0, -21, 0, -15], [0, 15, 0, 21], [-21, 0, -15, 0], [15, 0, 21, 0]].forEach(function (c) {
       kruis.appendChild(svgEl("line", { class: "kruis", x1: c[0], y1: c[1], x2: c[2], y2: c[3] }));
     });
     kruis.style.display = "none";
-    overlay.appendChild(kruis);
-    svg.appendChild(overlay);
+    overlay.appendChild(kruis); svg.appendChild(overlay);
+
     DATA.forEach(function (e, i) {
       var p = KAART.pts[i];
       var g = svgEl("g", { class: "stip" + (e.kern ? " kern" : ""), "data-i": i,
                            transform: "translate(" + p[0] + "," + p[1] + ")" });
       var binnen = svgEl("g");
-      if (e.kern) {
-        binnen.appendChild(svgEl("path", { class: "ruit", d: "M0,-5.4L5.4,0L0,5.4L-5.4,0Z" }));
-      } else {
-        binnen.appendChild(svgEl("circle", { class: "kop", r: 3.4 }));
-        binnen.appendChild(svgEl("circle", { class: "ring", r: 3.4 }));
-      }
-      var tx2 = svgEl("text", { class: "naam", x: 8.5, y: 3.4 });
-      tx2.textContent = e.n.length > 34 ? e.n.slice(0, 33) + "…" : e.n;
-      binnen.appendChild(tx2);
+      if (e.kern) binnen.appendChild(svgEl("path", { class: "ruit", d: "M0,-6L6,0L0,6L-6,0Z" }));
+      else binnen.appendChild(svgEl("circle", { class: "ring", r: 3.2 }));
+      var t = svgEl("text", { class: "naam", x: 9, y: 3.4 });
+      t.textContent = e.n.length > 34 ? e.n.slice(0, 33) + "…" : e.n;
+      binnen.appendChild(t);
       g.appendChild(binnen);
-      if (!rustig) { g.classList.add("inkten"); binnen.style.animationDelay = (i * 3.6).toFixed(0) + "ms"; }
+      if (!rustig) { g.classList.add("inkten"); binnen.style.animationDelay = (i * 3.4).toFixed(0) + "ms"; }
       gStip.appendChild(g); stipEls.push(g);
       g.addEventListener("click", function (ev) { ev.stopPropagation(); selecteer(i); });
     });
@@ -273,7 +310,7 @@
         var p = KAART.pts[i];
         stipEls[i].setAttribute("transform", "translate(" + p[0] + "," + p[1] + ") scale(" + inv.toFixed(4) + ")");
       }
-      pat.setAttribute("patternTransform", "rotate(45) scale(" + inv.toFixed(3) + ")");
+      pat.setAttribute("patternTransform", "scale(" + inv.toFixed(3) + ")");
       var ver = k / k0;
       labelEls.forEach(function (t) { t.style.opacity = ver > 2.4 ? 0 : (ver > 1.6 ? 0.35 : 1); });
       svg.classList.toggle("detail", ver >= 3.2);
@@ -286,20 +323,12 @@
       plan();
     }
 
-    /* Labels bij hoge zoom, met een simpele botsingstest: wie eerst komt (de
-       kern voorop) houdt zijn label, de rest zwijgt. Zo blijft een dicht
-       cluster als het Ruhrgebied leesbaar. */
     var planTimer;
-    function plan() {
-      clearTimeout(planTimer);
-      planTimer = setTimeout(labelsBij, 110);
-    }
+    function plan() { clearTimeout(planTimer); planTimer = setTimeout(labelsBij, 110); }
     var volgorde = null;
     function labelsBij() {
-      if (!volgorde) {
-        volgorde = DATA.map(function (e, i) { return i; })
-          .sort(function (a, b) { return (DATA[b].kern ? 1 : 0) - (DATA[a].kern ? 1 : 0); });
-      }
+      if (!volgorde) volgorde = DATA.map(function (e, i) { return i; })
+        .sort(function (a, b) { return (DATA[b].kern ? 1 : 0) - (DATA[a].kern ? 1 : 0); });
       if (!svg.classList.contains("detail")) {
         for (var i = 0; i < stipEls.length; i++) stipEls[i].classList.remove("toon");
         return;
@@ -310,10 +339,8 @@
         if (el.classList.contains("uit")) { el.classList.remove("toon"); continue; }
         var p = KAART.pts[i2], sx = p[0] * k + tx, sy = p[1] * k + ty;
         if (sx < -40 || sx > cw + 40 || sy < -20 || sy > ch + 20) { el.classList.remove("toon"); continue; }
-        var naam = DATA[i2].n;
-        var breed = Math.min(naam.length, 34) * 5.4 + 12;
-        var vak = [sx + 6, sy - 7, sx + 6 + breed, sy + 7];
-        var vrij = true;
+        var breed = Math.min(DATA[i2].n.length, 34) * 5.4 + 14;
+        var vak = [sx + 7, sy - 7, sx + 7 + breed, sy + 7], vrij = true;
         for (var v = 0; v < vakken.length; v++) {
           var q = vakken[v];
           if (vak[0] < q[2] && vak[2] > q[0] && vak[1] < q[3] && vak[3] > q[1]) { vrij = false; break; }
@@ -338,22 +365,11 @@
 
     function klem() {
       var bx = dataBox[0] * k + tx, by = dataBox[1] * k + ty;
-      var bw = (dataBox[2] - dataBox[0]) * k, bh = (dataBox[3] - dataBox[1]) * k;
-      var marge = 0.35;
-      if (bx > cw * (1 - marge)) tx -= bx - cw * (1 - marge);
-      if (bx + bw < cw * marge) tx += cw * marge - (bx + bw);
-      if (by > ch * (1 - marge)) ty -= by - ch * (1 - marge);
-      if (by + bh < ch * marge) ty += ch * marge - (by + bh);
-    }
-
-    function naarBox(box, padding, direct) {
-      var p = padding == null ? 28 : padding;
-      var bw = Math.max(box[2] - box[0], 8), bh = Math.max(box[3] - box[1], 8);
-      var doelK = Math.min((cw - 2 * p) / bw, (ch - 2 * p) / bh);
-      doelK = Math.max(k0 * 0.9, Math.min(doelK, k0 * 18));
-      var doelX = cw / 2 - doelK * (box[0] + bw / 2), doelY = ch / 2 - doelK * (box[1] + bh / 2);
-      if (direct || rustig) { k = doelK; tx = doelX; ty = doelY; klem(); pasToe(); return; }
-      animeer(doelK, doelX, doelY);
+      var bw = (dataBox[2] - dataBox[0]) * k, bh = (dataBox[3] - dataBox[1]) * k, m = 0.35;
+      if (bx > cw * (1 - m)) tx -= bx - cw * (1 - m);
+      if (bx + bw < cw * m) tx += cw * m - (bx + bw);
+      if (by > ch * (1 - m)) ty -= by - ch * (1 - m);
+      if (by + bh < ch * m) ty += ch * m - (by + bh);
     }
 
     var bezig = null;
@@ -368,14 +384,20 @@
         if (t < 1) bezig = requestAnimationFrame(stap); else { bezig = null; klem(); pasToe(); }
       })(t0);
     }
-
+    function naarBox(box, padding, direct) {
+      var p = padding == null ? 28 : padding;
+      var bw = Math.max(box[2] - box[0], 8), bh = Math.max(box[3] - box[1], 8);
+      var doelK = Math.min((cw - 2 * p) / bw, (ch - 2 * p) / bh);
+      doelK = Math.max(k0 * 0.9, Math.min(doelK, k0 * 18));
+      var dx = cw / 2 - doelK * (box[0] + bw / 2), dy = ch / 2 - doelK * (box[1] + bh / 2);
+      if (direct || rustig) { k = doelK; tx = dx; ty = dy; klem(); pasToe(); return; }
+      animeer(doelK, dx, dy);
+    }
     function meet() {
       cw = houder.clientWidth; ch = houder.clientHeight;
       svg.setAttribute("viewBox", "0 0 " + cw + " " + ch);
-      var bw = dataBox[2] - dataBox[0], bh = dataBox[3] - dataBox[1];
-      k0 = Math.min((cw - 56) / bw, (ch - 56) / bh);
+      k0 = Math.min((cw - 56) / (dataBox[2] - dataBox[0]), (ch - 56) / (dataBox[3] - dataBox[1]));
     }
-
     function zoomOm(sx, sy, factor) {
       var nk = Math.max(k0 * 0.85, Math.min(k * factor, k0 * 18));
       if (nk === k) return;
@@ -383,15 +405,6 @@
       k = nk; tx = sx - mx * k; ty = sy - my * k;
       klem(); pasToe();
     }
-
-    /* muis en aanraking */
-    var pointers = {}, laatsteAfstand = 0, sleep = null, verplaatst = 0;
-    houder.addEventListener("wheel", function (ev) {
-      ev.preventDefault();
-      var r = houder.getBoundingClientRect();
-      var f = Math.pow(0.9988, ev.deltaY * (ev.deltaMode === 1 ? 16 : 1));
-      zoomOm(ev.clientX - r.left, ev.clientY - r.top, Math.max(0.55, Math.min(f, 1.8)));
-    }, { passive: false });
 
     function opBediening(el) {
       while (el && el !== houder) {
@@ -401,8 +414,15 @@
       }
       return false;
     }
+    var pointers = {}, laatsteAfstand = 0, sleep = null, verplaatst = 0;
+    houder.addEventListener("wheel", function (ev) {
+      ev.preventDefault();
+      var r = houder.getBoundingClientRect();
+      var f = Math.pow(0.9988, ev.deltaY * (ev.deltaMode === 1 ? 16 : 1));
+      zoomOm(ev.clientX - r.left, ev.clientY - r.top, Math.max(0.55, Math.min(f, 1.8)));
+    }, { passive: false });
     houder.addEventListener("pointerdown", function (ev) {
-      if (opBediening(ev.target)) return;   // knoppen hun eigen klik laten houden
+      if (opBediening(ev.target)) return;
       houder.setPointerCapture(ev.pointerId);
       pointers[ev.pointerId] = { x: ev.clientX, y: ev.clientY };
       if (Object.keys(pointers).length === 1) {
@@ -442,7 +462,6 @@
       var r = houder.getBoundingClientRect();
       zoomOm(ev.clientX - r.left, ev.clientY - r.top, 1.9);
     });
-
     $("zoom-in").addEventListener("click", function () { zoomOm(cw / 2, ch / 2, 1.6); });
     $("zoom-uit").addEventListener("click", function () { zoomOm(cw / 2, ch / 2, 1 / 1.6); });
     $("zoom-reset").addEventListener("click", function () { naarBox(dataBox, 28); selecteer(-1); });
@@ -452,7 +471,6 @@
       clearTimeout(hertekenTimer);
       hertekenTimer = setTimeout(function () { meet(); naarBox(dataBox, 28, true); }, 150);
     });
-
     meet(); naarBox(dataBox, 28, true);
 
     return {
@@ -460,10 +478,10 @@
         var aan = {};
         zicht.forEach(function (e) { aan[e.nr] = 1; });
         for (var i = 0; i < stipEls.length; i++) stipEls[i].classList.toggle("uit", !aan[i]);
-        plan();
         Object.keys(landEls).forEach(function (n) {
           landEls[n].classList.toggle("aan", state.land ? NE[state.land] === n : false);
         });
+        plan();
       },
       markeer: function (i) {
         for (var j = 0; j < stipEls.length; j++) stipEls[j].classList.toggle("actief", j === i);
@@ -481,15 +499,11 @@
     };
   }
 
-  var NE = { "Italië": "Italy", "Frankrijk": "France", "Spanje": "Spain", "Portugal": "Portugal",
-             "Zwitserland": "Switzerland", "Liechtenstein": "Liechtenstein", "Oostenrijk": "Austria",
-             "Duitsland": "Germany", "België": "Belgium", "Luxemburg": "Luxembourg", "Tsjechië": "Czechia" };
-
   /* ------------------------------------------------------------ start -- */
   DATA.forEach(function (e, i) { e.nr = i; });
   leesUrl();
   bouwFilters();
+  bouwPillen();
   kaart = bouwKaart();
-  $("eyebrow-n").textContent = DATA.length + " locaties · " + LANDEN.length + " landen";
   teken();
 })();

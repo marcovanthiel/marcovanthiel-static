@@ -1,289 +1,236 @@
 /* Kunstlocaties — marcovanthiel.nl/kunstlocaties
-   Beeldtaal: een gegraveerde atlasplaat. Kalksteenpapier met drukkorrel,
-   haarlijnen, arcering, gradenstreepjes langs het kader en een cartouche.
-   Kleur: kopergroen als accent, koperoxide voor de kern en de waarschuwingen.
-   Type: Bodoni Moda (plaat- en landtitels), Newsreader (lezen),
-   IBM Plex Mono (alles wat meting, nummer of label is). */
+   Richting A: mozaïek. De wereld van Niki de Saint Phalle — kobalt als grond,
+   vermiljoen, goud en turquoise als scherven. Elk land op de kaart is een
+   mozaïek, elke locatie een steentje.
+   Type: Syne (koppen), Karla (lezen), IBM Plex Mono (labels, nummers, meta).
 
-/* ---------------------------------------------------------- tokens ---- */
+   Deze pagina kiest bewust één wereld en volgt de licht/donker-voorkeur van de
+   bezoeker niet: het kobalt ís het ontwerp. Alle kleuren staan daarom expliciet. */
+
 :root{
-  --papier:#D9D8CF; --plaat:#E9E8E0; --zee:#C6C5B8;
-  --inkt:#12140F; --inkt2:#393E35; --mat:#6B7167; --vaag:#979C90;
-  --lijn:#BEBDB1; --haar:#CDCCC1;
-  --groen:#0E5A4F; --groen-zacht:#0E5A4F14;
-  --oxide:#A34426; --oxide-zacht:#A3442612;
-  --lei:#3E5570; --lei-zacht:#3E557012;
-  --korrel:.055; --korrel-mix:multiply;
-  --land:#E7E6DD; --land-uit:#D3D2C6;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --papier:#101210; --plaat:#1B1F19; --zee:#080A07;
-    --inkt:#EAEBE1; --inkt2:#C6CABD; --mat:#8F958A; --vaag:#666C61;
-    --lijn:#2B2F28; --haar:#232720;
-    --groen:#63C3B0; --groen-zacht:#63C3B01C;
-    --oxide:#E08A63; --oxide-zacht:#E08A631A;
-    --lei:#8FAAC6; --lei-zacht:#8FAAC618;
-    --korrel:.09; --korrel-mix:screen;
-    --land:#22271F; --land-uit:#131611;
-  }
-}
-:root[data-theme="dark"]{
-  --papier:#101210; --plaat:#1B1F19; --zee:#080A07;
-  --inkt:#EAEBE1; --inkt2:#C6CABD; --mat:#8F958A; --vaag:#666C61;
-  --lijn:#2B2F28; --haar:#232720;
-  --groen:#63C3B0; --groen-zacht:#63C3B01C;
-  --oxide:#E08A63; --oxide-zacht:#E08A631A;
-  --lei:#8FAAC6; --lei-zacht:#8FAAC618;
-  --korrel:.09; --korrel-mix:screen;
-  --land:#22271F; --land-uit:#131611;
+  --kobalt:#16249B; --diep:#0E1873; --dieper:#0A1157; --nacht:#070C3E;
+  --room:#FDF3E3; --room-zacht:#DDE0FF; --room-mat:#9FA9F0; --room-vaag:#6E79C9;
+  --rood:#E8402A; --goud:#F2B705; --turkoois:#00A6A6; --paars:#7B2D8E;
+  --rand:#2434B8;
 }
 
-/* ------------------------------------------------------------ basis ---- */
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
-  margin:0; background:var(--papier); color:var(--inkt2);
-  font-family:"Newsreader",Georgia,"Times New Roman",serif;
-  font-size:18px; line-height:1.62; -webkit-font-smoothing:antialiased;
+  margin:0;background:var(--kobalt);color:var(--room-zacht);
+  font-family:Karla,"Trebuchet MS",Helvetica,sans-serif;
+  font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
-a{color:var(--groen)}
-:focus-visible{outline:2px solid var(--groen);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+a{color:var(--goud)}
+a:hover{color:var(--rood)}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.disp{font-family:Syne,"Arial Black",Helvetica,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:.92}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
 
-/* drukkorrel over de hele pagina */
-.korrel{
-  position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99;
-  opacity:var(--korrel);mix-blend-mode:var(--korrel-mix);
-}
+/* achtergrondvormen: de ronde vlakken van Niki, heel rustig gehouden */
+.vlakken{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55}
+.vlakken circle{fill:#1B2FC4}
+.vlakken path{stroke:#F2B705;stroke-width:3;fill:none;opacity:.35}
+.wrap,.plaat,.topbar,.register{position:relative;z-index:1}
 
 /* --------------------------------------------------------- topbalk ---- */
-.topbar{border-bottom:1px solid var(--lijn);background:var(--plaat);position:relative;z-index:2}
-.topbar .wrap{display:flex;align-items:baseline;gap:12px;padding-top:11px;padding-bottom:11px}
-.topbar .mark{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;
-  letter-spacing:.06em;color:var(--inkt);text-decoration:none}
-.topbar .mark:hover{color:var(--groen)}
-.topbar .crumb{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--mat)}
-.topbar .crumb::before{content:"/ ";color:var(--vaag)}
+.topbar{border-bottom:2px solid var(--rand);background:var(--diep)}
+.topbar .wrap{display:flex;align-items:center;gap:12px;padding-top:12px;padding-bottom:12px}
+.topbar .mark{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;
+  color:var(--room);text-decoration:none}
+.topbar .mark:hover{color:var(--goud)}
+.topbar .crumb{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--room-mat)}
+.topbar .crumb::before{content:"/ ";color:var(--room-vaag)}
 
 /* -------------------------------------------------------- titelblok ---- */
-.titelblok{padding:clamp(44px,8vw,96px) 0 clamp(28px,4vw,44px)}
-.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--mat);display:flex;gap:16px;flex-wrap:wrap;margin:0}
-.eyebrow b{color:var(--groen);font-weight:500}
-h1{
-  font-family:"Bodoni Moda",Didot,"Playfair Display",Georgia,serif;
-  font-weight:500;font-size:clamp(44px,9.5vw,112px);line-height:.94;
-  letter-spacing:-.015em;color:var(--inkt);margin:.28em 0 0;text-wrap:balance;
-}
-h1 em{font-style:italic;font-weight:400;color:var(--groen);margin-right:.14em}
-.inleiding{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
-  gap:clamp(20px,4vw,54px);margin-top:clamp(26px,4vw,46px);align-items:start}
-.lede{margin:0;font-size:clamp(18px,1.9vw,21px);color:var(--inkt2)}
-.sub{margin:0;font-size:16.5px;color:var(--mat)}
-.inleiding .sub{border-left:1px solid var(--lijn);padding-left:clamp(14px,2vw,24px)}
+.titelblok{padding:clamp(44px,8vw,96px) 0 clamp(26px,4vw,44px)}
+.eyebrow{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:0;color:var(--room-mat)}
+.eyebrow b{color:var(--goud);font-weight:500}
+h1{font-size:clamp(40px,8.6vw,116px);margin:.26em 0 0;color:var(--room);max-width:15ch;text-wrap:balance;overflow-wrap:anywhere}
+h1 .goud{color:var(--goud)}
+h1 .rood{color:var(--rood)}
+.inleiding{display:flex;gap:clamp(20px,4vw,52px);flex-wrap:wrap;align-items:flex-start;margin-top:clamp(24px,4vw,44px)}
+.lede{margin:0;font-size:clamp(18px,2vw,21px);max-width:46ch;color:var(--room-zacht)}
+.sub{margin:0;font-size:16.5px;max-width:38ch;color:var(--room-mat)}
+.pillen{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(22px,3vw,34px)}
+.pil{border-radius:999px;padding:11px 19px;font-weight:600;font-size:15px;color:var(--kobalt)}
+.pil.a{background:var(--rood)} .pil.b{background:var(--goud)} .pil.c{background:var(--turkoois)}
+.pil.d{background:var(--room)}
 
 /* ------------------------------------------------------------ plaat ---- */
-.plaat{padding:clamp(8px,2vw,20px) 0 clamp(30px,5vw,56px)}
-.plaat-binnen{max-width:1400px;margin:0 auto;padding:0 clamp(12px,3vw,40px)}
-.kaart-frame{
-  border:1px solid var(--inkt);padding:5px;background:var(--plaat);position:relative;
-}
-.kaart-frame::after{
-  content:"";position:absolute;inset:-6px;border:1px solid var(--lijn);pointer-events:none;
-}
-.kaart-houder{
-  position:relative;border:1px solid var(--lijn);background:var(--zee);
-  height:clamp(380px,72vh,780px);overflow:hidden;touch-action:none;cursor:grab;
-}
+.plaat{padding:clamp(10px,2vw,20px) 0 clamp(28px,4vw,48px)}
+.plaat-binnen{max-width:1320px;margin:0 auto;padding:0 clamp(12px,3vw,40px)}
+.kaart-frame{background:var(--diep);border-radius:30px;padding:14px;position:relative}
+.kaart-houder{position:relative;border-radius:20px;overflow:hidden;background:var(--nacht);
+  height:clamp(380px,70vh,760px);touch-action:none;cursor:grab}
 .kaart-houder.sleept{cursor:grabbing}
-#kaart{display:block;width:100%;height:100%}
+#kaart{display:block;width:100%;height:100%;overflow:hidden}
 
-/* kaartlagen */
-.graticule{fill:none;stroke:var(--inkt);stroke-width:.4;vector-effect:non-scaling-stroke;opacity:.16}
-.land{fill:var(--land-uit);stroke:var(--mat);stroke-width:.5;vector-effect:non-scaling-stroke;opacity:.85}
-.land.scope{fill:var(--land);stroke:var(--inkt);stroke-width:.9;opacity:1}
-.land.scope.aan{fill:var(--groen-zacht)}
-.arcering{fill:url(#hatch);pointer-events:none}
-.landlabel{
-  font-family:"Bodoni Moda",Didot,Georgia,serif;font-size:13.5px;font-weight:500;
-  fill:var(--inkt2);letter-spacing:.26em;opacity:.85;text-transform:uppercase;text-anchor:middle;
-  pointer-events:none;transition:opacity .25s;
-  paint-order:stroke;stroke:var(--land);stroke-width:3.5px;stroke-linejoin:round;
-}
-.landlabel.buiten{fill:var(--vaag);stroke:var(--land-uit);font-size:11px;letter-spacing:.2em;opacity:.55}
+.land{fill:#0C1360;stroke:#1B2792;stroke-width:.6;vector-effect:non-scaling-stroke}
+.land.scope{fill:var(--kobalt);stroke:var(--nacht);stroke-width:1.4}
+.mozaiek{pointer-events:none}
+.land.scope.aan{fill:var(--goud)}
+.graticule{fill:none;stroke:#2434B8;stroke-width:.5;vector-effect:non-scaling-stroke;opacity:.5}
+.landlabel{font-family:Syne,sans-serif;font-weight:800;font-size:13px;fill:var(--room);
+  letter-spacing:.24em;text-transform:uppercase;text-anchor:middle;pointer-events:none;
+  paint-order:stroke;stroke:var(--nacht);stroke-width:4px;stroke-linejoin:round;opacity:.9;
+  transition:opacity .25s}
+.landlabel.buiten{fill:var(--room-vaag);stroke:#0C1360;font-size:11px;opacity:.5}
 .stip{cursor:pointer}
-.stip .ring{fill:none;stroke:var(--inkt);stroke-width:1.1}
-.stip .kop{fill:var(--papier)}
-.stip.kern .ruit{fill:var(--oxide);stroke:var(--papier);stroke-width:.8}
-.stip:hover .ring,.stip.actief .ring{stroke:var(--groen);stroke-width:1.8}
-.stip.uit{opacity:.16;pointer-events:none}
-.stip .naam{
-  font-family:"IBM Plex Mono",monospace;font-size:9.5px;fill:var(--inkt);
-  paint-order:stroke;stroke:var(--papier);stroke-width:3px;stroke-linejoin:round;
-  opacity:0;transition:opacity .2s;pointer-events:none;
-}
-.stip.toon .naam{opacity:1}
-.hatchlijn{stroke:var(--lijn);stroke-width:.55}
-.stip:hover .naam,.stip.actief .naam{opacity:1}
-.kruis{stroke:var(--groen);stroke-width:1.1;fill:none;opacity:.95}
+.stip .ring{fill:var(--room);stroke:var(--nacht);stroke-width:1.8}
+.stip.kern .ruit{fill:var(--room);stroke:var(--nacht);stroke-width:2}
+.stip:hover .ring,.stip:hover .ruit,.stip.actief .ring,.stip.actief .ruit{fill:var(--goud)}
+.stip.uit{opacity:.18;pointer-events:none}
+.stip .naam{font-family:"IBM Plex Mono",monospace;font-size:9.5px;fill:var(--room);
+  paint-order:stroke;stroke:var(--nacht);stroke-width:3.5px;stroke-linejoin:round;
+  opacity:0;transition:opacity .2s;pointer-events:none}
+.stip.toon .naam,.stip:hover .naam,.stip.actief .naam{opacity:1}
+.kruis{stroke:var(--goud);stroke-width:1.6;fill:none}
 .kruis-groep{pointer-events:none}
+@keyframes inkt{from{opacity:0;transform:scale(2.8)}to{opacity:1;transform:scale(1)}}
+.stip.inkten > g{animation:inkt .55s cubic-bezier(.2,.85,.3,1) backwards}
 
-/* inkten bij het laden */
-@keyframes inkt{from{opacity:0;transform:scale(2.6)}to{opacity:1;transform:scale(1)}}
-.stip.inkten > g{animation:inkt .5s cubic-bezier(.2,.8,.3,1) backwards}
-
-/* knoppen en cartouche */
-.kaart-knoppen{position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:5px}
-.kaart-knoppen button{
-  width:31px;height:31px;border:1px solid var(--lijn);background:var(--plaat);
-  color:var(--inkt);font-family:"IBM Plex Mono",monospace;font-size:15px;line-height:1;
-  cursor:pointer;border-radius:0;padding:0;
-}
-.kaart-knoppen button:hover{border-color:var(--inkt);color:var(--groen)}
-.cartouche{
-  position:absolute;left:12px;top:12px;background:var(--plaat);
-  border:1px solid var(--lijn);padding:9px 12px 10px;max-width:min(280px,52vw);
-}
-.cartouche::after{content:"";position:absolute;inset:3px;border:1px solid var(--haar);pointer-events:none}
-.cart-titel{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--vaag);margin:0 0 6px}
-.cart-regel{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--mat);margin:0 0 3px;line-height:1.5}
-.cart-regel .sym{display:inline-block;width:14px;color:var(--inkt)}
-.cart-regel .sym.kern{color:var(--oxide)}
-.schaal{display:flex;align-items:center;gap:8px;margin-top:8px}
-.schaalbalk{height:5px;border:1px solid var(--inkt);border-top:0;width:70px}
-.schaal span{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--mat)}
-.kaartkaart{
-  position:absolute;right:12px;bottom:12px;background:var(--plaat);border:1px solid var(--inkt);
-  padding:12px 14px;max-width:min(340px,66vw);
-}
+.kaart-knoppen{position:absolute;top:14px;right:14px;display:flex;flex-direction:column;gap:7px}
+.kaart-knoppen button{width:36px;height:36px;border-radius:12px;border:0;background:var(--diep);
+  color:var(--room);font-family:"IBM Plex Mono",monospace;font-size:16px;cursor:pointer;padding:0}
+.kaart-knoppen button:hover{background:var(--goud);color:var(--kobalt)}
+.cartouche{position:absolute;left:14px;top:14px;background:#0E1873E6;border-radius:18px;
+  padding:13px 16px;max-width:min(290px,54vw)}
+.cart-titel{margin:0 0 7px;color:var(--goud)}
+.cart-regel{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--room-mat);
+  margin:0 0 4px;display:flex;gap:10px;align-items:center}
+.cart-regel .sym{color:var(--room);width:14px;display:inline-block}
+.schaal{display:flex;align-items:center;gap:9px;margin-top:9px}
+.schaalbalk{height:4px;border-radius:2px;background:var(--goud);width:70px}
+.schaal span{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--room-mat)}
+.kaartkaart{position:absolute;right:14px;bottom:14px;background:var(--room);color:var(--kobalt);
+  border-radius:20px;padding:16px 18px;max-width:min(340px,66vw)}
 .kaartkaart .kk-nr{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.16em;
-  color:var(--groen);text-transform:uppercase}
-.kaartkaart h4{font-family:"Newsreader",serif;font-weight:600;font-size:17px;color:var(--inkt);
-  margin:3px 0 2px;line-height:1.25}
-.kaartkaart p{margin:0;font-size:13.5px;color:var(--mat);line-height:1.5}
-.kaartkaart .kk-link{font-family:"IBM Plex Mono",monospace;font-size:10.5px;display:inline-block;margin-top:7px}
-.plaat-onderschrift{
-  display:flex;flex-wrap:wrap;gap:6px 22px;margin:9px 0 0;
-  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;color:var(--vaag);
-}
-.plaat-onderschrift span:first-child{color:var(--inkt);letter-spacing:.2em;text-transform:uppercase}
-.plaat-onderschrift .hint{margin-left:auto;color:var(--groen)}
+  text-transform:uppercase;color:#8A2A18}
+.kaartkaart h4{font-family:Syne,sans-serif;font-weight:800;font-size:20px;margin:4px 0 3px;line-height:1.15}
+.kaartkaart p{margin:0;font-size:14px;line-height:1.5;color:#3B3F86}
+.kaartkaart .kk-link{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#B3300E;
+  display:inline-block;margin-top:8px}
+.plaat-onderschrift{display:flex;flex-wrap:wrap;gap:6px 22px;margin:12px 6px 0;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--room-vaag)}
+.plaat-onderschrift b{color:var(--goud);font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+.plaat-onderschrift .hint{margin-left:auto;color:var(--turkoois)}
 
 /* --------------------------------------------------------- register ---- */
-.register{
-  position:sticky;top:0;z-index:20;background:var(--papier);
-  border-top:1px solid var(--inkt);border-bottom:1px solid var(--inkt);
-  padding:13px 0 12px;margin-top:clamp(12px,2vw,20px);
-}
-.reg-rij{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
-.reg-rij + .reg-rij{margin-top:8px}
+.register{position:sticky;top:0;z-index:20;background:var(--kobalt);
+  border-bottom:2px solid var(--rand);padding:14px 0 13px;margin-top:8px}
+.reg-rij{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.reg-rij + .reg-rij{margin-top:9px}
 .reg-label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--vaag);width:56px;flex:none}
-button.chip{
-  font-family:"IBM Plex Mono",monospace;font-size:11.5px;background:transparent;
-  color:var(--mat);border:1px solid var(--lijn);padding:4px 9px;cursor:pointer;
-  border-radius:0;line-height:1.45;transition:background .12s,color .12s,border-color .12s;
-}
-button.chip:hover{color:var(--inkt);border-color:var(--mat)}
-button.chip[aria-pressed="true"]{background:var(--inkt);color:var(--papier);border-color:var(--inkt)}
-input.zoek{
-  font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--plaat);
-  border:1px solid var(--lijn);color:var(--inkt);padding:5px 9px;min-width:200px;
-  flex:1 1 200px;border-radius:0;
-}
-input.zoek::placeholder{color:var(--vaag)}
-.telling{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--mat);
+  text-transform:uppercase;color:var(--room-vaag);width:56px;flex:none}
+button.chip{font-family:"IBM Plex Mono",monospace;font-size:11.5px;background:transparent;
+  color:var(--room-mat);border:1.5px solid var(--rand);padding:5px 11px;cursor:pointer;
+  border-radius:999px;line-height:1.45;transition:background .12s,color .12s,border-color .12s}
+button.chip:hover{color:var(--room);border-color:var(--room-mat)}
+button.chip[aria-pressed="true"]{background:var(--goud);color:var(--kobalt);border-color:var(--goud)}
+input.zoek{font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--diep);
+  border:1.5px solid var(--rand);color:var(--room);padding:6px 13px;min-width:200px;
+  flex:1 1 200px;border-radius:999px}
+input.zoek::placeholder{color:var(--room-vaag)}
+.telling{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--room-mat);
   margin-left:auto;white-space:nowrap;font-variant-numeric:tabular-nums}
 
 /* -------------------------------------------------------- catalogus ---- */
 main{padding-bottom:clamp(50px,8vw,96px)}
-.landkop{
-  display:flex;align-items:baseline;gap:16px;margin:clamp(40px,6vw,72px) 0 0;
-  padding-bottom:6px;border-bottom:1px solid var(--inkt);scroll-margin-top:160px;
-}
-.landkop h2{
-  font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:500;
-  font-size:clamp(26px,4vw,42px);letter-spacing:-.01em;color:var(--inkt);margin:0;line-height:1;
-}
-.landkop .telling-land{font-family:"IBM Plex Mono",monospace;font-size:10.5px;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--mat);margin-left:auto}
-.regiokop{
-  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--groen);margin:26px 0 0;padding-bottom:5px;
-  border-bottom:1px solid var(--haar);
-}
-article.plek{
-  display:grid;grid-template-columns:96px 150px minmax(0,1fr);gap:0 22px;
-  padding:19px 0 21px;border-bottom:1px solid var(--haar);scroll-margin-top:170px;
-  position:relative;
-}
-.nr{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--vaag);
-  padding-top:5px;letter-spacing:.08em;font-variant-numeric:tabular-nums}
-.nr .ruit{color:var(--oxide);display:block;font-size:12px;margin-top:3px}
-/* De kern krijgt geen gekleurd blok maar een gearceerde kantlijn — dezelfde
-   arcering als de landen op de kaart. */
-article.plek.kern .nr{
-  color:var(--oxide);
-  background:repeating-linear-gradient(45deg,var(--oxide-zacht) 0 3px,transparent 3px 8px);
-  box-shadow:inset 2px 0 0 var(--oxide);padding-left:9px;margin-left:-9px;
-}
-article.plek.gemarkeerd{background:var(--groen-zacht);box-shadow:-14px 0 0 var(--groen-zacht),14px 0 0 var(--groen-zacht)}
-.meta{font-family:"IBM Plex Mono",monospace;font-size:10.5px;line-height:1.6;color:var(--mat);
-  display:flex;flex-direction:column;gap:5px;padding-top:5px}
-.meta .plaats{color:var(--inkt);font-size:11.5px}
-.merk{display:inline-block;padding:2px 6px;font-size:9.5px;letter-spacing:.1em;
-  text-transform:uppercase;border:1px solid currentColor;width:fit-content}
-.m-jaarrond{color:var(--mat)}
-.m-seizoen{color:var(--oxide);background:var(--oxide-zacht)}
-.m-afspraak{color:var(--lei);background:var(--lei-zacht)}
-.m-letop{color:var(--oxide);background:var(--oxide-zacht);border-style:dashed}
-.hond{font-size:10px;letter-spacing:.05em}
-.hond.ja{color:var(--groen)}
-.hond.nee,.hond.onbekend{color:var(--vaag)}
-.plek-body h3{font-family:"Newsreader",serif;font-weight:600;font-size:21px;line-height:1.24;
-  color:var(--inkt);margin:0 0 3px;text-wrap:balance}
-.wie{font-size:15.5px;color:var(--mat);font-style:italic;margin:0 0 8px}
-.waarom{margin:0;max-width:58ch}
-.praktisch{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.6;
-  color:var(--mat);margin:9px 0 0;max-width:70ch}
-.plek-acties{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
-.plek-acties a,.plek-acties button{
-  font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--groen);
-  text-decoration:none;border:0;background:none;padding:0;cursor:pointer;
-  border-bottom:1px solid transparent;letter-spacing:.04em;
-}
-.plek-acties a:hover,.plek-acties button:hover{border-bottom-color:var(--groen)}
-.leeg{padding:60px 0;color:var(--mat);font-size:17px}
+.landkop{display:flex;align-items:baseline;gap:16px;margin:clamp(40px,6vw,70px) 0 0;
+  padding-bottom:8px;border-bottom:2px solid var(--goud);scroll-margin-top:170px}
+.landkop h2{font-family:Syne,sans-serif;font-weight:800;font-size:clamp(28px,4.2vw,46px);
+  letter-spacing:-.03em;color:var(--room);margin:0;line-height:1;overflow-wrap:anywhere}
+.landkop .telling-land{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--room-mat);margin-left:auto}
+.regiokop{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--turkoois);margin:26px 0 12px}
 
-footer{border-top:1px solid var(--inkt);padding:28px 0 64px;
-  font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.85;color:var(--mat)}
-footer p{margin:0 0 10px;max-width:78ch}
-footer b{color:var(--inkt);font-weight:500}
-footer .colofon{margin-top:20px;color:var(--vaag)}
+article.plek{display:grid;grid-template-columns:210px minmax(0,1fr) 148px;gap:0 24px;
+  background:var(--diep);border-radius:24px;padding:18px;margin-bottom:14px;
+  scroll-margin-top:180px;align-items:start}
+article.plek.kern{background:var(--dieper);box-shadow:inset 0 0 0 2px var(--goud)}
+article.plek.gemarkeerd{box-shadow:inset 0 0 0 3px var(--turkoois)}
+
+.beeld{border-radius:16px;overflow:hidden;background:var(--nacht);aspect-ratio:4/3;position:relative}
+.beeld img{width:100%;height:100%;object-fit:cover;display:block}
+.beeld .geen{position:absolute;inset:0;display:flex;align-items:flex-end;padding:9px;
+  background:linear-gradient(to top,#070C3EDD 0,#070C3E00 45%)}
+.beeld .geen span{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:#FDF3E3}
+.credit{font-family:"IBM Plex Mono",monospace;font-size:9.5px;line-height:1.5;color:var(--room-vaag);
+  margin:6px 2px 0;word-break:break-word}
+.credit a{color:var(--room-vaag);text-decoration:underline}
+.credit a:hover{color:var(--goud)}
+
+.plek-body{display:flex;flex-direction:column;gap:5px;min-width:0}
+.plek-body h3{font-family:Syne,sans-serif;font-weight:800;font-size:24px;line-height:1.15;
+  letter-spacing:-.02em;color:var(--room);margin:0;text-wrap:balance;overflow-wrap:anywhere}
+.wie{font-size:15.5px;color:var(--room-mat);font-style:italic;margin:0 0 4px}
+.waarom{margin:0;max-width:56ch;color:var(--room-zacht);overflow-wrap:anywhere}
+.praktisch{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.65;
+  color:var(--room-mat);margin:8px 0 0;max-width:66ch;overflow-wrap:anywhere}
+.plek-acties{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 0}
+.plek-acties a,.plek-acties button{font-family:"IBM Plex Mono",monospace;font-size:10.5px;overflow-wrap:anywhere;
+  color:var(--goud);text-decoration:none;border:0;background:none;padding:0;cursor:pointer;
+  letter-spacing:.04em;border-bottom:1px solid transparent}
+.plek-acties a:hover,.plek-acties button:hover{border-bottom-color:var(--goud)}
+
+.meta{display:flex;flex-direction:column;gap:7px;align-items:flex-end;text-align:right}
+.nr{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--room-vaag)}
+article.plek.kern .nr{color:var(--goud)}
+.plaats{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--room)}
+.merk{display:inline-block;padding:3px 10px;border-radius:999px;font-family:"IBM Plex Mono",monospace;
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--kobalt)}
+.m-jaarrond{background:var(--room-mat)} .m-seizoen{background:var(--goud)}
+.m-afspraak{background:var(--turkoois)} .m-letop{background:var(--rood);color:var(--room)}
+.hond{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.06em;color:var(--room-vaag)}
+.hond.ja{color:var(--turkoois)}
+.leeg{padding:60px 0;color:var(--room-mat);font-size:17px}
+
+footer{border-top:2px solid var(--rand);padding:30px 0 66px;font-size:14.5px;
+  line-height:1.75;color:var(--room-mat)}
+footer p{margin:0 0 12px;max-width:76ch}
+footer b{color:var(--room);font-weight:600}
+footer .colofon{margin-top:22px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--room-vaag)}
 
 /* ---------------------------------------------------------- klein ---- */
 @media (max-width:900px){
-  .inleiding{grid-template-columns:1fr}
-  .inleiding .sub{border-left:0;padding-left:0;border-top:1px solid var(--lijn);padding-top:14px}
-  article.plek{grid-template-columns:70px minmax(0,1fr);gap:4px 16px}
-  .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px;padding-top:0}
-  .plek-body{grid-column:2}
+  article.plek{grid-template-columns:150px minmax(0,1fr)}
+  .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;
+    justify-content:flex-start;text-align:left;margin-top:8px}
 }
 @media (max-width:640px){
   body{font-size:17px}
-  .kaart-houder{height:clamp(320px,58vh,520px)}
+  .kaart-houder{height:clamp(320px,56vh,520px)}
   .cartouche{display:none}
-  .plaat-onderschrift .hint{margin-left:0;width:100%}
   .reg-label{width:100%;margin-bottom:-2px}
   .telling{margin-left:0;width:100%}
-  article.plek{grid-template-columns:1fr}
-  .nr{padding-top:0}
-  .nr .ruit{display:inline;margin-left:8px}
-  .meta,.plek-body{grid-column:1}
+  article.plek{grid-template-columns:1fr;gap:12px}
+  .beeld{aspect-ratio:16/9}
+  .meta{grid-column:1}
+  .plaat-onderschrift .hint{margin-left:0;width:100%}
 }
-@media (prefers-reduced-motion:reduce){
-  *{transition:none!important;animation:none!important}
-}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Vak zonder foto: geen leeg gat maar een mozaïekvlak in de vier kleuren.
+   Vier varianten, per locatie vast gekozen, zodat de catalogus niet dreunt. */
+.beeld.leeg{background-size:26px 26px;background-position:0 0,13px 13px,0 0}
+.beeld.leeg.v0{background-image:
+  linear-gradient(45deg,#E8402A 25%,transparent 25% 75%,#E8402A 75%),
+  linear-gradient(45deg,#F2B705 25%,transparent 25% 75%,#F2B705 75%),
+  linear-gradient(150deg,#0A1157,#16249B)}
+.beeld.leeg.v1{background-image:
+  linear-gradient(45deg,#00A6A6 25%,transparent 25% 75%,#00A6A6 75%),
+  linear-gradient(45deg,#E8402A 25%,transparent 25% 75%,#E8402A 75%),
+  linear-gradient(150deg,#070C3E,#1B2FC4)}
+.beeld.leeg.v2{background-image:
+  linear-gradient(45deg,#F2B705 25%,transparent 25% 75%,#F2B705 75%),
+  linear-gradient(45deg,#7B2D8E 25%,transparent 25% 75%,#7B2D8E 75%),
+  linear-gradient(150deg,#0E1873,#16249B)}
+.beeld.leeg.v3{background-image:
+  linear-gradient(45deg,#FDF3E3 25%,transparent 25% 75%,#FDF3E3 75%),
+  linear-gradient(45deg,#00A6A6 25%,transparent 25% 75%,#00A6A6 75%),
+  linear-gradient(150deg,#0A1157,#2434B8)}

@@ -6,6 +6,7 @@
 <title>Kunstlocaties in Midden- en Zuid-Europa — waar de plek zelf het werk is</title>
 <meta name="description" content="Kaart en catalogus van 217 kunstparken, land-artplekken, kunstenaarstuinen en bijzondere kunstlocaties in elf Europese landen. Te filteren op land, soort, seizoen en hondenbeleid.">
 <meta name="author" content="Marco van Thiel">
+<meta name="theme-color" content="#16249B">
 <link rel="canonical" href="https://marcovanthiel.nl/kunstlocaties/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kunstlocaties in Midden- en Zuid-Europa">
@@ -14,17 +15,15 @@
 <meta property="og:locale" content="nl_NL">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon.png">
-<link rel="stylesheet" href="assets/fonts.css?v=20260828b">
-<link rel="stylesheet" href="assets/styles.css?v=20260828b">
+<link rel="stylesheet" href="assets/fonts.css?v=20260828c">
+<link rel="stylesheet" href="assets/styles.css?v=20260828c">
 </head>
 <body>
 
-<svg class="korrel" aria-hidden="true" focusable="false">
-  <filter id="grain">
-    <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch"/>
-    <feColorMatrix type="saturate" values="0"/>
-  </filter>
-  <rect width="100%" height="100%" filter="url(#grain)"/>
+<svg class="vlakken" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 900">
+  <circle cx="1290" cy="150" r="260"/>
+  <circle cx="90" cy="820" r="300"/>
+  <path d="M0,520 Q360,400 720,520 T1440,520"/>
 </svg>
 
 <div class="topbar">
@@ -35,17 +34,16 @@
 </div>
 
 <div class="wrap">
-
 <header class="titelblok">
-  <p class="eyebrow"><span>Verlanglijst</span><span>Augustus 2026</span><b id="eyebrow-n">217 locaties · 11 landen</b></p>
-  <h1>Waar de plek<br><em>zelf</em> het werk is</h1>
+  <p class="eyebrow mono"><span>Verlanglijst</span><span>Augustus 2026</span><b id="eyebrow-n">217 locaties · 11 landen</b></p>
+  <h1 class="disp">Waar de plek <span class="goud">zelf</span><br>het werk <span class="rood">is</span></h1>
   <div class="inleiding">
-    <p class="lede">Kunstparken, land art, kunstenaarstuinen en Gesamtkunstwerken. Het vertrekpunt was Le Cyclop in het bos van Milly-la-Forêt — de stalen kop van Tinguely en Niki de Saint Phalle — en de Giardino dei Tarocchi in Capalbio. Van daaruit loopt een lijn naar alles wat hieronder staat.</p>
+    <p class="lede">Kunstparken, land art, kunstenaarstuinen en Gesamtkunstwerken in Midden- en Zuid-Europa. Het vertrekpunt was Le Cyclop in het bos van Milly-la-Forêt — de stalen kop van Tinguely en Niki de Saint Phalle — en de Giardino dei Tarocchi in Capalbio. Van daaruit loopt een lijn naar alles wat hieronder staat.</p>
     <p class="sub">Gewone stadsmusea staan er niet in, tenzij het gebouw of het landschap zelf de reden is om te gaan. Openingstijden zijn die van 2026; bij de kleine, familiegerunde adressen is bellen verstandiger dan hopen.</p>
   </div>
+  <div class="pillen" id="pillen"></div>
 </header>
-
-</div><!-- /wrap -->
+</div>
 
 <section class="plaat" aria-label="Kaart van de locaties">
   <div class="plaat-binnen">
@@ -58,25 +56,24 @@
           <button type="button" id="zoom-reset" aria-label="Kaart terugzetten">⤾</button>
         </div>
         <div class="cartouche" id="cartouche">
-          <p class="cart-titel">Legenda</p>
-          <p class="cart-regel"><span class="sym kern">◆</span> een van de vijfentwintig uit de kern</p>
-          <p class="cart-regel"><span class="sym">○</span> overige locatie</p>
+          <p class="cart-titel mono">Legenda</p>
+          <p class="cart-regel"><span class="sym">◆</span> een van de vijfentwintig uit de kern</p>
+          <p class="cart-regel"><span class="sym">●</span> overige locatie</p>
           <div class="schaal"><div class="schaalbalk" id="schaalbalk"></div><span id="schaaltekst">— km</span></div>
         </div>
         <div class="kaartkaart" id="kaartkaart" hidden></div>
       </div>
     </div>
     <p class="plaat-onderschrift">
-      <span>Plaat I</span>
-      <span>Mercator, 5°-net</span>
-      <span>Stippen op plaatsniveau — voor de blik, niet voor de navigatie</span>
+      <b>De kaart</b>
+      <span>elk land een mozaïek, elke locatie een steentje</span>
+      <span>stippen op plaatsniveau — voor de blik, niet voor de navigatie</span>
       <span class="hint">Scrollen om te zoomen, slepen om te schuiven, klikken voor de beschrijving</span>
     </p>
   </div>
 </section>
 
 <div class="wrap">
-
 <div class="register" id="register">
   <div class="reg-rij">
     <span class="reg-label" id="lbl-land">Land</span>
@@ -91,6 +88,7 @@
     <button class="chip" type="button" data-flag="kern" aria-pressed="false">alleen de kern</button>
     <button class="chip" type="button" data-flag="hond" aria-pressed="false">honden welkom</button>
     <button class="chip" type="button" data-flag="jaarrond" aria-pressed="false">jaarrond open</button>
+    <button class="chip" type="button" data-flag="foto" aria-pressed="false">met foto</button>
     <input class="zoek" id="q" type="search" placeholder="zoek op naam, kunstenaar, plaats…" aria-label="Zoeken in de catalogus">
     <span class="telling" id="count" role="status" aria-live="polite"></span>
   </div>
@@ -99,16 +97,16 @@
 <main id="lijst"></main>
 
 <footer>
-  <p><b>Over de betrouwbaarheid.</b> Samengesteld uit officiële sites, waar mogelijk geverifieerd in augustus 2026. Drie dingen zijn structureel onzeker: openingstijden van kleine adressen, het hondenbeleid — dat vrijwel nergens gepubliceerd wordt, dus <i>onbekend</i> betekent onbekend en niet nee — en de status van plekken die restaureren of tussen tentoonstellingen zitten. Waar iets niet te bevestigen was, staat dat er in plaats van een gok.</p>
-  <p><b>Al gecorrigeerd.</b> Het Museu Coleção Berardo in Lissabon heet sinds 2023 MAC/CCB. Het Essl Museum bij Wenen bestaat niet meer onder die naam. De Sammlung Goetz in München is als museumgebouw permanent gesloten. Schaulager in Basel opent pas in 2027 weer.</p>
+  <p><b>Over de foto's.</b> <span id="foto-stand">De foto's worden nog opgehaald.</span> Ze komen van Wikimedia Commons en Wikipedia en zijn uitsluitend vrij gelicentieerd; maker en licentie staan onder elke foto. Waar geen vrije foto bestaat blijft het vak leeg — een verkeerde foto is erger dan geen.</p>
+  <p><b>Over de betrouwbaarheid.</b> Samengesteld uit officiële sites, waar mogelijk geverifieerd in augustus 2026. Drie dingen zijn structureel onzeker: openingstijden van kleine adressen, het hondenbeleid — dat vrijwel nergens gepubliceerd wordt, dus <i>onbekend</i> betekent onbekend en niet nee — en de status van plekken die restaureren of tussen tentoonstellingen zitten.</p>
   <p><b>Voor 2027.</b> documenta 16 in Kassel, de tienjaarlijkse Skulptur Projekte in Münster en de triënnale Bad RagARTz vallen alle drie in hetzelfde seizoen.</p>
   <p class="colofon">Marco van Thiel · <a href="/">marcovanthiel.nl</a> · Kaart naar Natural Earth · Suggesties en correcties zijn welkom.</p>
 </footer>
+</div>
 
-</div><!-- /wrap -->
-
-<script src="assets/data.js?v=20260828b"></script>
-<script src="assets/mapdata.js?v=20260828b"></script>
-<script src="assets/app.js?v=20260828b"></script>
+<script src="assets/data.js?v=20260828c"></script>
+<script src="assets/mapdata.js?v=20260828c"></script>
+<script src="assets/fotos.js?v=20260828c"></script>
+<script src="assets/app.js?v=20260828c"></script>
 </body>
 </html>

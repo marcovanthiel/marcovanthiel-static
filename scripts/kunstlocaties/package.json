@@ -2,10 +2,14 @@
   "name": "kunstlocaties-map",
   "private": true,
   "description": "Bouwt de kaartdata voor de subsite /kunstlocaties",
-  "scripts": { "build": "node build-map.js" },
+  "scripts": {
+    "build": "node build-map.js",
+    "fotos": "node fetch-fotos.js"
+  },
   "dependencies": {
     "d3-geo": "^3.1.1",
     "topojson-client": "^3.1.0",
-    "world-atlas": "^2.0.2"
+    "world-atlas": "^2.0.2",
+    "sharp": "^0.33.0"
   }
 }

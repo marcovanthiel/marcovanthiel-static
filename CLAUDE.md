@@ -290,43 +290,55 @@ script-src (zelfde patroon als /wimbledon). Vendor-assets cachen 30 dagen.
 
 ## Subsite: /kunstlocaties
 
-**marcovanthiel.nl/kunstlocaties** — kaart en catalogus van 217 kunstparken,
-land art-plekken, kunstenaarstuinen, Gesamtkunstwerken en andere locaties waar de
-plek zelf het werk is, in elf Europese landen. Filterbaar op land, soort, seizoen
-en hondenbeleid, met zoekveld en deelbare querystring. Gemaakt 2026-08-28,
-kaartlaag toegevoegd 2026-08-28. Kale static (geen Hugo-content).
+**marcovanthiel.nl/kunstlocaties** — kaart, foto's en catalogus van 217
+kunstparken, land art-plekken, kunstenaarstuinen, Gesamtkunstwerken en andere
+locaties waar de plek zelf het werk is, in elf Europese landen. Filterbaar op
+land, soort, seizoen, hondenbeleid en of er een foto is, met zoekveld en deelbare
+querystring. Gemaakt 2026-08-28; kaartlaag en beeldtaal dezelfde dag.
 
 ```
 static/kunstlocaties/
 ├── index.html          # markup, verder niets
-├── AGENTS.md           # werkinstructie, datamodel en de kaartlogica
+├── AGENTS.md           # werkinstructie, datamodel, kaartlogica en fotobeleid
+├── foto/               # <catalogusnummer>.webp, 760 px breed
 └── assets/
     ├── data.js         # window.KUNSTLOCATIES (217 records, incl. ll-coördinaten)
     ├── mapdata.js      # window.KAARTDATA — gegenereerd, ~150 kB
+    ├── fotos.js        # window.KUNSTFOTOS — gegenereerd, credits per foto
     ├── app.js          # kaart, zoom/pan, filters, catalogus; geen afhankelijkheden
-    ├── styles.css      # licht + donker via tokens
+    ├── styles.css      # één vaste wereld (kobalt), geen licht/donker-schakelaar
     ├── fonts.css       # @font-face
-    └── fonts/          # Bodoni Moda, Newsreader, IBM Plex Mono (Fontsource)
-scripts/kunstlocaties/  # buildscript voor mapdata.js (world-atlas, d3-geo)
+    └── fonts/          # Syne, Karla, IBM Plex Mono (Fontsource)
+scripts/kunstlocaties/  # build-map.js (kaartdata) en fetch-fotos.js (foto's)
 ```
 
-**Kaart zonder kaartdienst**: één SVG uit Natural Earth 1:50 m, Mercator,
-tekenvlak 1000×890, vereenvoudigd met Douglas-Peucker. Zoomen en schuiven zijn
-een affiene transformatie; stippen, arcering en richtkruis worden tegengeschaald
-zodat ze op elk niveau even groot blijven. Labels verschijnen vanaf 3,2× en
-worden op botsing gefilterd. Geen tiles betekent: geen extra CSP-blok nodig.
+**Beeldtaal**: richting "mozaïek" — Niki de Saint Phalle. Kobalt #16249B als
+grond, vermiljoen/goud/turquoise als scherven, room als tekst. De landen op de
+kaart zijn met een SVG-patroon van steentjes gevuld dat bij zoomen wordt
+tegengeschaald. Bewust géén licht/donker-varianten: het kobalt ís het ontwerp.
 
-**CSP**: bewust géén eigen blok. Alle CSS en JS staan in externe bestanden en de
-fonts zijn self-hosted, dus de site-brede CSP (`script-src 'self'`) volstaat.
-In `static/_headers` alleen `/kunstlocaties/assets/fonts/*` agressief cachen.
-Wie hier ooit tóch een tegelkaart inbouwt heeft wél een blok nodig (zie /italie2026).
+**Kaart zonder kaartdienst**: één SVG uit Natural Earth 1:50 m, Mercator,
+tekenvlak 1000×890, vereenvoudigd met Douglas-Peucker. Stippen, mozaïek en
+richtkruis worden tegengeschaald. Labels vanaf 3,2× en gefilterd op botsing.
+
+**Foto's**: één per locatie, `foto/<nummer>.webp`. Opgehaald met
+`scripts/kunstlocaties/fetch-fotos.js` — dat draait op een machine met gewoon
+internet, want de agent-sandbox komt niet bij Wikimedia. Alleen vrije licenties;
+maker, licentie en bronpagina staan onder elke foto. Ontbreekt er een foto, dan
+toont de pagina een mozaïekvlak, geen leeg gat. Eigen foto's gaan voor: zet ze in
+`scripts/kunstlocaties/foto-bron/<nummer>.jpg`.
+
+**CSP**: bewust géén eigen blok. Alle CSS en JS staan in externe bestanden, de
+fonts zijn self-hosted en de foto's staan op het eigen domein, dus de site-brede
+CSP (`script-src 'self'`, `img-src 'self' data:`) volstaat. In `static/_headers`
+alleen cacheregels voor `/kunstlocaties/assets/fonts/*` en `/kunstlocaties/foto/*`.
 
 **Indexeerbaar** (geen `noindex`), en gelinkt vanaf de homepage in alle vijf
 talen — de laatste cursieve regel van `content/<taal>/_index.md`.
 
 **Data bijwerken**: bron is het Claude-project *Reizen*, bestand
 `reizen/kunstlocaties-midden-en-zuid-europa.md`. Wijzig daar, genereer `data.js`
-opnieuw, draai `scripts/kunstlocaties/build-map.js` en hoog de `?v=` in
+opnieuw, draai `build-map.js` en `fetch-fotos.js`, en hoog de `?v=` in
 `index.html` op.
 
 ## Verhuisde projecten

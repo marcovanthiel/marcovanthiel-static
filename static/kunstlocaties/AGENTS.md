@@ -8,21 +8,58 @@ Gemaakt 28-08-2026. Kale static, geen Hugo-content, geen build.
 
 ```
 static/kunstlocaties/
-├── index.html          # markup; laadt fonts.css, styles.css, data.js, mapdata.js, app.js
+├── index.html          # markup; laadt fonts.css, styles.css, data.js, mapdata.js, fotos.js, app.js
 ├── AGENTS.md           # dit bestand
+├── foto/               # één foto per locatie, <catalogusnummer>.webp, 760 px breed
 └── assets/
     ├── data.js         # window.KUNSTLOCATIES = [...] — de 217 locaties
     ├── mapdata.js      # window.KAARTDATA = {...} — gegenereerd, niet met de hand bewerken
+    ├── fotos.js        # window.KUNSTFOTOS = {...} — gegenereerd, credits per foto
     ├── app.js          # kaart, filters, zoeken, catalogus; geen afhankelijkheden
-    ├── styles.css      # palet en typografie, licht én donker
+    ├── styles.css      # palet en typografie
     ├── fonts.css       # @font-face voor de drie self-hosted families
-    └── fonts/          # Bodoni Moda, Newsreader, IBM Plex Mono
-                        # (Fontsource, latin + latin-ext; SIL OFL)
+    └── fonts/          # Syne, Karla, IBM Plex Mono (Fontsource, SIL OFL)
 
-scripts/kunstlocaties/  # buildscript voor mapdata.js (npm, draait lokaal)
-├── build-map.js
+scripts/kunstlocaties/  # buildscripts (npm, draaien lokaal)
+├── build-map.js        # maakt assets/mapdata.js
+├── fetch-fotos.js      # haalt de foto's op en maakt assets/fotos.js
+├── foto-bron/          # eigen foto's: <catalogusnummer>.jpg gaat vóór Commons
 └── package.json
 ```
+
+## Beeldtaal
+
+Richting "mozaïek", gekozen 28-08-2026. De wereld van Niki de Saint Phalle:
+kobalt als grond (`--kobalt #16249B`), vermiljoen, goud en turquoise als
+scherven, room als tekstkleur. Syne voor de koppen, Karla voor het lezen,
+IBM Plex Mono voor alles wat label, nummer of meting is.
+
+De pagina volgt de licht/donker-voorkeur van de bezoeker **niet**: het kobalt is
+het ontwerp, en alle kleuren staan daarom expliciet in `:root`. Wie hier ooit een
+lichte variant bij wil maken, moet het hele palet omzetten, niet een paar tokens.
+
+## Foto's
+
+Elke locatie heeft een fotovak. Staat er geen foto, dan komt er geen leeg gat maar
+een mozaïekvlak in de vier kleuren, met het label "nog geen vrije foto" — vier
+varianten, per locatie vast, zodat de catalogus niet dreunt.
+
+Foto's worden opgehaald met `scripts/kunstlocaties/fetch-fotos.js`. Dat script:
+
+- draait **op een machine met gewoon internet**; de sandbox waarin de agent werkt
+  komt niet bij Wikimedia (proxy 403), dus dit is handwerk van Marco:
+  `cd scripts/kunstlocaties && npm install && node fetch-fotos.js`
+- zoekt eerst in `foto-bron/<nummer>.jpg` — eigen foto's gaan altijd voor
+- zoekt daarna op Wikipedia in de taal van het land, dan Nederlands, dan Engels,
+  en tot slot rechtstreeks op Wikimedia Commons
+- aanvaardt **alleen vrije licenties** (CC0, PD, CC BY, CC BY-SA, GFDL, FAL) en
+  alleen treffers waarvan de naam van de locatie ook echt in de titel voorkomt.
+  Liever geen foto dan de verkeerde
+- verkleint naar 760 px webp en schrijft maker, licentie en bronpagina naar
+  `assets/fotos.js`; die credits staan onder elke foto op de pagina
+- laat `scripts/kunstlocaties/foto-rapport.md` achter met wat gevonden is en wat niet
+
+Opties: `--only=IT-34,FR-01`, `--force`, `--dry`.
 
 ## De kaart
 
@@ -61,8 +98,8 @@ cd scripts/kunstlocaties && npm install && node build-map.js
   géén eigen CSP-blok nodig — alleen een cache-regel voor de fonts.
 - **Self-hosted fonts.** Google Fonts is voor de rest van de site wel toegestaan
   in de CSP, maar hier bewust lokaal, net als bij /china2027. Vervangen gaat via
-  `npm i @fontsource-variable/bodoni-moda @fontsource-variable/newsreader
-  @fontsource/ibm-plex-mono` en de woff2's uit `files/` kopiëren.
+  `npm i @fontsource-variable/syne @fontsource/karla @fontsource/ibm-plex-mono`
+  en de woff2's uit `files/` kopiëren.
 - **Deelbare URL.** Filters staan in de querystring, bijvoorbeeld
   `/kunstlocaties/?land=Italië&kern=1`. `app.js` leest die bij het laden.
 
@@ -98,6 +135,10 @@ publieke weergave ervan.
 
 ## Backlog
 
+- [ ] `fetch-fotos.js` draaien en het rapport nalopen: elke foto moet echt bij
+      de locatie horen, en de credits moeten kloppen
+- [ ] Eigen foto's uit het Polarsteps-archief toevoegen voor de plekken waar
+      geen vrije foto van bestaat
 - [ ] Hondenbeleid van de 89 onbekende plekken navragen waar het ertoe doet
 - [ ] Openingstijden van de 27 "let op"-adressen bevestigen voor een reis
 - [ ] Coördinaten van een handvol gehuchten nalopen; ze zijn op plaatsniveau
