@@ -239,6 +239,18 @@ Dongfengyun-kunstpark, Shenzhen-skyline; oembed-geverifieerd). (4) **Hotels verp
 sectie naar een `.stay`-blok per etappe** (intro + sterrenbronregel staat bij
 Chongqing). Nog 1 lege tegel: de groepsfoto.
 
+**Chinese grafische laag 28-8-2026** (verzoek Marco): vermiljoen zegelstempel
+(token `--zegel` #B3352B, klasse `.zegel`, karakter 旅) bij de titel en in de
+topbalk; per etappe een hoofdstuknummer in Chinese cijfers via CSS-counter
+`counter(etappe, cjk-decimal)` als `h2::before` (pseudo-element, overleeft de
+taalwissel die textContent vervangt); dubbele boeklijn (dik+dun) onder de
+topbalk en boven de footer; verticale jaarregel 二〇二七年春·中国 rechts in de
+hero (verdwijnt <820px). **Favicon** = het zegel (assets/favicon-32/180.png),
+gegenereerd via Playwright-screenshot van een div met de echte Noto Serif SC
+(SVG-favicons laden geen webfonts); regenereren = zegel.html-patroon in de
+scratchpad. Let op: kinderen van elementen mét data-nl/data-zh worden bij de
+taalwissel weggegooid; decoratie dus als sibling of pseudo-element toevoegen.
+
 **Hotelsterren 28-8-2026**: per hotelkaart de Trip.com-klasse (geen
 overheidssterren; bronregel + controledatum in de sectie-intro). Bij het checken
 bleken drie hotels op Trip.com hernoemd: Golden View Chongqing → Botton Meijin,
