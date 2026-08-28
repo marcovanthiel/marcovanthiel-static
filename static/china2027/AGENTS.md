@@ -57,11 +57,17 @@ meer dan tien megabyte horen op YouTube of Vimeo en worden ingesloten.
 
 ## Wat er nog te doen is
 
-- [ ] Chinese teksten laten nakijken door Dandan.
-- [ ] Foto's uit het eigen archief toevoegen voor Chongqing en Anshun, zodat de
-      pagina niet leeg oogt voordat de reis begint.
+- [ ] Chinese teksten laten nakijken door Dandan (ook de bijschriften en
+      notities die er 28-8-2026 bij zijn gekomen).
+- [x] Voorlopig beeld toegevoegd (28-8-2026): 11 Commons-foto's + Liziba-video
+      met credits; de 8 overgebleven tegels vragen persoonlijke opnames.
+- [ ] Eigen archieffoto's (Polarsteps 2023/2025, Facebook) in de tegels
+      "archief 2025" zetten en waar gewenst de Commons-beelden vervangen.
 - [ ] Hotelprijzen opvragen en per hotel een regel toevoegen; nu staan er bewust
-      geen bedragen.
+      geen bedragen. (Sterren staan er sinds 28-8-2026 wel: Trip.com-klasse.)
+- [ ] Rebrands narekenen bij het boeken: Golden View heet op Trip.com nu Botton
+      Meijin, Ramada Plaza Anshun staat er als Xixiu Hotel (Wyndham-merk
+      onzeker), Kapok Luohu heet nu Mumian · JdV by Hyatt.
 - [ ] Zodra de vluchten geboekt zijn: aankomst- en vertrektijden in de tijdlijn.
 - [ ] Overwegen of er een aftelteller bij hoort. Alleen doen als hij rustig blijft;
       geen bewegende cijfers.

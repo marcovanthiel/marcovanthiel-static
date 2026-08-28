@@ -211,9 +211,28 @@ frame-src alvast open voor YouTube/Vimeo-insluitingen die `media/manifest.json`
 ondersteunt) + immutable-cache op `assets/fonts/`.
 
 **Beeld toevoegen**: zie `static/china2027/media/LEESMIJ.md` (foto's max 1600 px,
-alt verplicht; video's <10 MB of insluiten). Backlog (Chinese check door Dandan,
-hotelprijzen, vluchttijden, foto's Chongqing/Anshun uit eigen archief) staat in
-de AGENTS.md van de subsite.
+alt verplicht; video's <10 MB of insluiten). Sinds 28-8-2026 zijn `alt`,
+`caption` en video-`title` in het manifest `{nl, zh}`-objecten (string mag ook,
+geldt dan voor beide talen) en is er een verplicht `credit`-veld (auteur +
+licentie + bronpagina) bij beeld van anderen; app.js rendert de credits als
+link en vertaalt bijschriften mee bij de taalwissel.
+
+**Media gevuld 28-8-2026**: 11 foto's + 1 video (Liziba-fragment, 13 s H.264
+uit een CC BY 4.0-nieuwsvideo van 中国新闻网, geknipt met ffmpeg) van Wikimedia
+Commons, alle met credit en licentie in het manifest; 8 tegels blijven bewust
+leeg (persoonlijke opnames: familie, ateliers Chen Zanxi, groepsfoto,
+archief-2025-beelden uit Polarsteps/Facebook). Beelden self-hosted in `media/`,
+max 1600 px, ≤300 kB (ffmpeg-compressie).
+
+**Hotelsterren 28-8-2026**: per hotelkaart de Trip.com-klasse (geen
+overheidssterren; bronregel + controledatum in de sectie-intro). Bij het checken
+bleken drie hotels op Trip.com hernoemd: Golden View Chongqing → Botton Meijin,
+Ramada Plaza Anshun → Xixiu Hotel (Wyndham-merk onzeker), Hotel Kapok Luohu →
+Mumian · JdV by Hyatt; op de kaarten staat een notitie.
+
+**Backlog** (in `static/china2027/AGENTS.md`): Chinese teksten laten nakijken
+door Dandan (incl. de nieuwe bijschriften), hotelprijzen, vluchttijden, eigen
+foto's voor de 8 lege tegels.
 
 ## Subsite: /weerstatistieken
 
