@@ -152,6 +152,9 @@ img, video { max-width: 100%; display: block; }
 .hotels { border-top: 1px solid var(--line); padding-top: var(--step); }
 .hotel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.4rem; }
 .hotel { border: 1px solid var(--line); padding: 1.1rem 1.2rem; background: color-mix(in srgb, #fff 45%, transparent); }
+.hotel .stars { margin: .3rem 0 .1rem; font-size: .85rem; color: var(--brick); letter-spacing: .18em; }
+.hotel .stars .src { letter-spacing: 0; color: var(--muted); font-size: .76rem; }
+.hotel .note { font-size: .78rem; color: var(--muted); margin: .5rem 0 0; }
 .hotel h4 { font-family: "Noto Serif SC", serif; font-weight: 500; font-size: 1.02rem; margin: 0; }
 .hotel .city { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--brick); margin-bottom: .4rem; }
 .hotel p { font-size: .88rem; color: var(--ink-soft); margin: .55rem 0 0; }
