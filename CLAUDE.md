@@ -224,6 +224,20 @@ leeg (persoonlijke opnames: familie, ateliers Chen Zanxi, groepsfoto,
 archief-2025-beelden uit Polarsteps/Facebook). Beelden self-hosted in `media/`,
 max 1600 px, ≤300 kB (ffmpeg-compressie).
 
+**Rondgang 28-8-2026** (verzoek Marco): (1) routekaart vervangen door een
+**satellietkaart**: gegenereerd met Playwright + Leaflet op EOX Sentinel-2
+cloudless 2018-tiles (CC BY 4.0, bronvermelding onder de legenda; herbouwen =
+`satkaart.html`-patroon: tiles + polylines + divIcon-labels, screenshot 2200px);
+`assets/route.png` is vervangen door `assets/route-satelliet.jpg`. (2) 9 extra
+Commons-foto's (Luohan-tempel als interim voor de ateliertegel, familietafel,
+Miao-klederdracht i.p.v. de vervallen houten-tulp-tegel, wijngaard Mile,
+roséglas, OCT-LOFT, 2x Dafen 2025, Canton Tower in een nieuwe 4e
+Guangzhou-tegel). (3) 3 YouTube-nocookie-embeds (Huangguoshu-drone,
+Dongfengyun-kunstpark, Shenzhen-skyline; oembed-geverifieerd; bijschrift meldt
+dat YouTube in China niet zichtbaar is). (4) **Hotels verplaatst van een eigen
+sectie naar een `.stay`-blok per etappe** (intro + sterrenbronregel staat bij
+Chongqing). Nog 1 lege tegel: de groepsfoto.
+
 **Hotelsterren 28-8-2026**: per hotelkaart de Trip.com-klasse (geen
 overheidssterren; bronregel + controledatum in de sectie-intro). Bij het checken
 bleken drie hotels op Trip.com hernoemd: Golden View Chongqing → Botton Meijin,

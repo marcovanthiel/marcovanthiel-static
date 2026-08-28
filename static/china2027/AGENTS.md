@@ -61,6 +61,11 @@ meer dan tien megabyte horen op YouTube of Vimeo en worden ingesloten.
       notities die er 28-8-2026 bij zijn gekomen).
 - [x] Voorlopig beeld toegevoegd (28-8-2026): 11 Commons-foto's + Liziba-video
       met credits; de 8 overgebleven tegels vragen persoonlijke opnames.
+- [x] Rondgang 28-8-2026: satellietkaart (Sentinel-2, credit onder legenda),
+      9 extra Commons-foto's, 3 YouTube-embeds, houten-tulp-tegel vervangen
+      door Miao-klederdracht, hotels per etappe. Luohan-tempel staat als
+      interim in de ateliertegel van Chongqing; tijdens de reis vervangen door
+      de echte atelierfoto. Alleen de groepsfoto-tegel is nog leeg.
 - [ ] Eigen archieffoto's (Polarsteps 2023/2025, Facebook) in de tegels
       "archief 2025" zetten en waar gewenst de Commons-beelden vervangen.
 - [ ] Hotelprijzen opvragen en per hotel een regel toevoegen; nu staan er bewust
