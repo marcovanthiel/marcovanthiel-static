@@ -51,6 +51,12 @@
 /weerstatistieken/vendor/*
   Cache-Control: public, max-age=2592000
 
+# /kunstlocaties: kale static met externe styles.css/app.js/data.js en
+# self-hosted webfonts — past binnen de site-brede CSP van /* hierboven,
+# dus bewust GEEN eigen CSP-blok. Alleen de fonts agressief cachen.
+/kunstlocaties/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Statische assets met fingerprint in de filename — agressief cachen
 /css/*
   Cache-Control: public, max-age=31536000, immutable

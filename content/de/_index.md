@@ -51,3 +51,5 @@ Mit der Ausbildung zum Aufsichtsrat an der Universität Maastricht, einem laufen
 Sofort einsetzbar für Interimsaufträge als Senior-Programmmanager, Interim-Vorstand, strategischer Berater, CIO oder Veränderungsmanager in Organisationen, die an Fusionen, Restrukturierungen und breiteren Organisationstransitionen arbeiten. Ebenfalls verfügbar für Aufsichtsrollen im Gesundheitswesen, Bildungswesen, in Wohnungsbaugesellschaften und Kultureinrichtungen.
 
 *Neben der Arbeit: In den kommenden Wochen erstelle ich ein täglich aktualisiertes Magazin zur [Biennale Venedig 2026](/biennalevenetie2026/).*
+
+*Und eine Wunschliste von [Kunstparks und außergewöhnlichen Kunstorten in Europa](/kunstlocaties/): 217 Orte, an denen der Ort selbst das Werk ist (Seite auf Niederländisch).*

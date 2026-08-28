@@ -51,3 +51,5 @@ With the supervisory board program at Maastricht University, an ongoing MBA Lead
 Immediately available for interim assignments as senior program manager, interim executive, strategic advisor, CIO or change manager within organizations working on mergers, restructurings and broader organizational transitions. Also available for supervisory roles in healthcare, education, housing corporations and cultural institutions.
 
 *Outside of work: in the coming weeks I am producing a daily-updated magazine on the [Venice Biennale 2026](/biennalevenetie2026/).*
+
+*And a wish list of [art parks and extraordinary art locations in Europe](/kunstlocaties/): 217 places where the site itself is the work (page in Dutch).*

@@ -288,6 +288,38 @@ dat blijvend op.
 `/weerstatistieken/*`-blok in `static/_headers` met `'unsafe-inline'` in
 script-src (zelfde patroon als /wimbledon). Vendor-assets cachen 30 dagen.
 
+## Subsite: /kunstlocaties
+
+**marcovanthiel.nl/kunstlocaties** — verlanglijst van 217 kunstparken, land
+art-plekken, kunstenaarstuinen, Gesamtkunstwerken en andere locaties waar de
+plek zelf het werk is, in elf Europese landen. Filterbaar op land, soort,
+seizoen en hondenbeleid, met zoekveld en deelbare querystring. Gemaakt
+2026-08-28. Kale static (geen Hugo-content): `static/kunstlocaties/`.
+
+```
+static/kunstlocaties/
+├── index.html          # markup, verder niets
+├── AGENTS.md           # werkinstructie + datamodel van data.js
+└── assets/
+    ├── data.js         # window.KUNSTLOCATIES = [...] (217 records)
+    ├── app.js          # filteren/zoeken/renderen, geen afhankelijkheden
+    ├── styles.css      # licht + donker via tokens
+    ├── fonts.css       # @font-face
+    └── fonts/          # Bricolage Grotesque, Newsreader, IBM Plex Mono (Fontsource)
+```
+
+**CSP**: bewust géén eigen blok. Alle CSS en JS staan in externe bestanden en de
+fonts zijn self-hosted, dus de site-brede CSP (`script-src 'self'`) volstaat.
+In `static/_headers` alleen `/kunstlocaties/assets/fonts/*` agressief cachen.
+Wie hier ooit een kaart inbouwt heeft wél een blok nodig (zie /italie2026).
+
+**Indexeerbaar** (geen `noindex`), en gelinkt vanaf de homepage in alle vijf
+talen — de laatste cursieve regel van `content/<taal>/_index.md`.
+
+**Data bijwerken**: bron is het Claude-project *Reizen*, bestand
+`reizen/kunstlocaties-midden-en-zuid-europa.md`. Wijzig daar, genereer `data.js`
+opnieuw en hoog de `?v=` in `index.html` op.
+
 ## Verhuisde projecten
 
 - **OCAI-cultuurmeting Koraal & Via Jeugd** (voorheen onder
