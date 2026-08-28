@@ -14,8 +14,9 @@ marcovanthiel.nl/biennalevenetie2026.
 2. **Tweetalig Nederlands en Chinees.** Elk tekstelement heeft `data-nl` en
    `data-zh`. Voeg je tekst toe, dan altijd in beide talen. Laat Dandan de
    Chinese tekst nakijken voordat er iets live gaat.
-3. **Mobiel eerst.** De site wordt vooral op een telefoon gelezen, ook door
-   familie in China. Test op een smalle viewport voordat je iets oplevert.
+3. **Mobiel eerst.** De site wordt vooral op een telefoon gelezen. Doelgroep
+   zijn de Nederlandse reisgenoten (vastgesteld 28-8-2026); of iets in China
+   werkt is geen argument. Test op een smalle viewport voordat je iets oplevert.
 4. **Geen browseropslag.** Geen localStorage of cookies. De taalkeuze geldt voor
    de sessie.
 5. **Namen.** Chen Zanxi, Wu Hengxia, Austin en Brenna staan in Latijns schrift

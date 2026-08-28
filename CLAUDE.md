@@ -201,10 +201,12 @@ static/china2027/
 └── media/manifest.json   # welke foto's/filmpjes waar horen (+ LEESMIJ.md)
 ```
 
-**Fonts self-hosted** (28-8-2026): fonts.googleapis.com/gstatic zijn in China
-geblokkeerd en de site is juist ook voor familie daar; de css2-output is
-gedownload met alle subsets en herschreven naar `assets/fonts/`. Door de
-unicode-range-subsets laadt een bezoeker maar enkele tientallen kB.
+**Fonts self-hosted** (28-8-2026): conform de site-standaard (CSP 'self', geen
+CDN's); de Google-css2-output is gedownload met alle subsets en herschreven
+naar `assets/fonts/`. Door de unicode-range-subsets laadt een bezoeker maar
+enkele tientallen kB. **Doelgroep (vastgesteld 28-8-2026): de Nederlandse
+reisgenoten**; "werkt het in China" is voor deze site geen argument
+(YouTube-embeds zijn dus prima).
 
 **CSP**: eigen `/china2027/*`-blok in `static/_headers` (alles 'self';
 frame-src alvast open voor YouTube/Vimeo-insluitingen die `media/manifest.json`
@@ -233,8 +235,7 @@ Commons-foto's (Luohan-tempel als interim voor de ateliertegel, familietafel,
 Miao-klederdracht i.p.v. de vervallen houten-tulp-tegel, wijngaard Mile,
 roséglas, OCT-LOFT, 2x Dafen 2025, Canton Tower in een nieuwe 4e
 Guangzhou-tegel). (3) 3 YouTube-nocookie-embeds (Huangguoshu-drone,
-Dongfengyun-kunstpark, Shenzhen-skyline; oembed-geverifieerd; bijschrift meldt
-dat YouTube in China niet zichtbaar is). (4) **Hotels verplaatst van een eigen
+Dongfengyun-kunstpark, Shenzhen-skyline; oembed-geverifieerd). (4) **Hotels verplaatst van een eigen
 sectie naar een `.stay`-blok per etappe** (intro + sterrenbronregel staat bij
 Chongqing). Nog 1 lege tegel: de groepsfoto.
 
