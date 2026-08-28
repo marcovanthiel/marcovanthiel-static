@@ -1,0 +1,167 @@
+/* China 2027: reiswebsite
+   Palet en typografie zijn afgeleid van de reis zelf:
+   het rode baksteen van Dongfengyun, het groen van de Guizhou-terrassen,
+   en één schriftfamilie (Noto Serif) die zowel Nederlands als Chinees zet. */
+
+:root {
+  --ink:        #17181A;
+  --ink-soft:   #4A4B47;
+  --muted:      #8B8C86;
+  --paper:      #EDEEEA;   /* koele off-white, geen crème */
+  --paper-deep: #E3E5DF;
+  --brick:      #A8442A;   /* Dongfengyun */
+  --pine:       #1E6152;   /* trein, terrassen */
+  --line:       #CFD1CA;
+  --rail:       2px;
+  --measure:    68ch;
+  --step: clamp(1.6rem, 4vw, 3.2rem);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .display {
+  font-family: "Noto Serif SC", "Noto Serif", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+a { color: var(--pine); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--brick); outline-offset: 3px; border-radius: 2px;
+}
+
+img, video { max-width: 100%; display: block; }
+
+.wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+/* ---------- taalschakelaar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; padding: .7rem 0; gap: 1rem; }
+.mark { font-family: "Noto Serif SC", serif; font-size: .95rem; letter-spacing: .02em; }
+.mark span { color: var(--muted); }
+.langs { display: flex; gap: .25rem; }
+.langs button {
+  font: inherit; font-size: .82rem; padding: .3rem .8rem; cursor: pointer;
+  background: none; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft);
+}
+.langs button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+/* ---------- hero ---------- */
+.hero { padding: clamp(3rem, 9vw, 6.5rem) 0 clamp(2rem, 5vw, 3.5rem); }
+.hero h1 { font-size: clamp(2.6rem, 8vw, 5.2rem); }
+.hero .dates { font-size: clamp(1rem, 2.4vw, 1.35rem); color: var(--ink-soft); margin-top: .6rem; }
+.hero .lede { max-width: var(--measure); margin-top: 1.6rem; color: var(--ink-soft); }
+
+.facts { display: flex; flex-wrap: wrap; gap: 2.4rem; margin-top: 2.4rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.facts div { min-width: 5rem; }
+.facts .n { font-family: "Noto Serif SC", serif; font-size: 2.1rem; line-height: 1; }
+.facts .l { font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-top: .35rem; }
+
+/* ---------- kaart ---------- */
+.map { padding: 1rem 0 var(--step); }
+.map figure { margin: 0; }
+.map img { width: 100%; }
+.legend { display: flex; flex-wrap: wrap; gap: 1.4rem; font-size: .84rem; color: var(--ink-soft); margin-top: .8rem; }
+.legend i { display: inline-block; width: 26px; height: 0; vertical-align: middle; margin-right: .5rem; }
+.legend .train { border-top: 3px solid var(--pine); }
+.legend .fly   { border-top: 3px dashed var(--brick); }
+.legend .day   { border-top: 2px dotted var(--pine); }
+
+/* ---------- waarschuwing ---------- */
+.notice {
+  border-left: 3px solid var(--brick);
+  background: color-mix(in srgb, var(--brick) 7%, transparent);
+  padding: 1.1rem 1.3rem; margin: 0 0 var(--step);
+}
+.notice h3 { font-size: 1.05rem; color: var(--brick); }
+.notice p { margin: .5rem 0 0; font-size: .93rem; color: var(--ink-soft); max-width: var(--measure); }
+
+/* ---------- de rail: het routelint dat de etappes verbindt ---------- */
+.route { position: relative; padding-left: 2.6rem; }
+.route::before {
+  content: ""; position: absolute; left: 6px; top: .8rem; bottom: 4rem;
+  border-left: var(--rail) solid var(--pine);
+}
+.stop { position: relative; padding: 0 0 var(--step); }
+.stop::before {
+  content: ""; position: absolute; left: -2.6rem; top: .55rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--paper); border: 3px solid var(--pine);
+}
+/* een etappe die per vliegtuig gaat, breekt het lint */
+.stop.by-air::after {
+  content: ""; position: absolute; left: calc(-2.6rem + 6px); top: -2.6rem; height: 2.4rem;
+  border-left: var(--rail) dashed var(--brick);
+  background: var(--paper); width: 0;
+}
+
+.stop .eyebrow { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.stop h2 { font-size: clamp(1.7rem, 4.2vw, 2.5rem); margin-top: .2rem; }
+.stop h2 .zh { font-size: .55em; color: var(--muted); margin-left: .5rem; letter-spacing: 0; }
+.stop .when { color: var(--pine); font-size: .95rem; margin-top: .35rem; }
+.stop .body { max-width: var(--measure); margin-top: 1rem; color: var(--ink-soft); }
+
+.hl { list-style: none; margin: 1.2rem 0 0; padding: 0; }
+.hl li { position: relative; padding-left: 1.1rem; margin-bottom: .45rem; max-width: var(--measure); }
+.hl li::before { content: ""; position: absolute; left: 0; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
+
+/* ---------- media ---------- */
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .8rem; margin-top: 1.6rem; }
+.tile { position: relative; aspect-ratio: 4 / 3; background: var(--paper-deep); border: 1px solid var(--line); overflow: hidden; }
+.tile img { width: 100%; height: 100%; object-fit: cover; }
+.tile.empty { display: grid; place-content: center; text-align: center; padding: 1rem; }
+.tile.empty .want { font-size: .82rem; color: var(--muted); line-height: 1.45; }
+.tile.empty .badge { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--brick); display: block; margin-bottom: .5rem; }
+.tile figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: .5rem .7rem;
+  font-size: .78rem; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.68));
+}
+.video { margin-top: 1.2rem; }
+.video .frame { position: relative; aspect-ratio: 16 / 9; background: var(--paper-deep); border: 1px solid var(--line); display: grid; place-content: center; text-align: center; padding: 1rem; }
+.video iframe, .video video { width: 100%; height: 100%; border: 0; }
+
+/* ---------- hotels ---------- */
+.hotels { border-top: 1px solid var(--line); padding-top: var(--step); }
+.hotel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.hotel { border: 1px solid var(--line); padding: 1.1rem 1.2rem; background: color-mix(in srgb, #fff 45%, transparent); }
+.hotel h4 { font-family: "Noto Serif SC", serif; font-weight: 500; font-size: 1.02rem; margin: 0; }
+.hotel .city { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--brick); margin-bottom: .4rem; }
+.hotel p { font-size: .88rem; color: var(--ink-soft); margin: .55rem 0 0; }
+.hotel .tag { display: inline-block; font-size: .74rem; color: var(--pine); border: 1px solid var(--line); border-radius: 999px; padding: .1rem .6rem; margin-top: .7rem; }
+
+/* ---------- praktisch ---------- */
+.practical { border-top: 1px solid var(--line); padding-top: var(--step); }
+.todo { list-style: none; margin: 1.4rem 0 0; padding: 0; }
+.todo li { display: grid; grid-template-columns: 12rem 1fr; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.todo .w { font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; color: var(--brick); }
+.todo .t { color: var(--ink-soft); }
+@media (max-width: 620px) { .todo li { grid-template-columns: 1fr; gap: .1rem; } }
+
+footer { margin-top: var(--step); padding: 2rem 0 3rem; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); }
+footer p { margin: .3rem 0; }
+
+section { scroll-margin-top: 4rem; }
+[data-lang-hide] { display: none !important; }

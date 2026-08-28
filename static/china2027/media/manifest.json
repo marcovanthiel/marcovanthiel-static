@@ -1,0 +1,15 @@
+{
+  "chongqing": {
+    "photos": [
+      { "slot": "1", "file": "", "alt": "", "caption": "" },
+      { "slot": "2", "file": "", "alt": "", "caption": "" },
+      { "slot": "3", "file": "", "alt": "", "caption": "" },
+      { "slot": "4", "file": "", "alt": "", "caption": "" }
+    ],
+    "video": null
+  },
+  "anshun":    { "photos": [{ "slot": "1", "file": "" }, { "slot": "2", "file": "" }, { "slot": "3", "file": "" }, { "slot": "4", "file": "" }], "video": null },
+  "mile":      { "photos": [{ "slot": "1", "file": "" }, { "slot": "2", "file": "" }, { "slot": "3", "file": "" }, { "slot": "4", "file": "" }], "video": null },
+  "shenzhen":  { "photos": [{ "slot": "1", "file": "" }, { "slot": "2", "file": "" }, { "slot": "3", "file": "" }, { "slot": "4", "file": "" }], "video": null },
+  "guangzhou": { "photos": [{ "slot": "1", "file": "" }, { "slot": "2", "file": "" }, { "slot": "3", "file": "" }], "video": null }
+}
