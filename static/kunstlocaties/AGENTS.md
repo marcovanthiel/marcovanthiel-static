@@ -44,22 +44,23 @@ Elke locatie heeft een fotovak. Staat er geen foto, dan komt er geen leeg gat ma
 een mozaïekvlak in de vier kleuren, met het label "nog geen vrije foto" — vier
 varianten, per locatie vast, zodat de catalogus niet dreunt.
 
-Foto's worden opgehaald met `scripts/kunstlocaties/fetch-fotos.js`. Dat script:
+Foto's komen sinds 28-8-2026 **van de eigen website van elke locatie**
+(promobeeld, conform de beeldregel: promobeeld van een aanbevolen partij mag,
+met credit en link; de credits staan in `assets/fotos.js` en onder elke foto).
+Het script daarvoor is `scripts/kunstlocaties/fetch-webfotos.js` (og:image →
+twitter:image → grootste echte afbeelding; eigen foto's in `foto-bron/` gaan
+vóór; opties `--only`, `--force`, `--dry`). Het oudere Commons-script
+`fetch-fotos.js` bestaat nog maar is niet meer de standaardroute.
 
-- draait **op een machine met gewoon internet**; de sandbox waarin de agent werkt
-  komt niet bij Wikimedia (proxy 403), dus dit is handwerk van Marco:
-  `cd scripts/kunstlocaties && npm install && node fetch-fotos.js`
-- zoekt eerst in `foto-bron/<nummer>.jpg` — eigen foto's gaan altijd voor
-- zoekt daarna op Wikipedia in de taal van het land, dan Nederlands, dan Engels,
-  en tot slot rechtstreeks op Wikimedia Commons
-- aanvaardt **alleen vrije licenties** (CC0, PD, CC BY, CC BY-SA, GFDL, FAL) en
-  alleen treffers waarvan de naam van de locatie ook echt in de titel voorkomt.
-  Liever geen foto dan de verkeerde
-- verkleint naar 760 px webp en schrijft maker, licentie en bronpagina naar
-  `assets/fotos.js`; die credits staan onder elke foto op de pagina
-- laat `scripts/kunstlocaties/foto-rapport.md` achter met wat gevonden is en wat niet
-
-Opties: `--only=IT-34,FR-01`, `--force`, `--dry`.
+Stand na de vulronde van 28-8-2026: **211 van de 217 met foto**. Zes kunnen
+niet van de eigen site: ES-06 Museo Vostell (site weigert verkeer per regio),
+IT-64 Castello Incantato en IT-44 Casa Dipinta (geen betrouwbare eigen site),
+IT-19 Dalle Nogare (server hangt structureel), IT-26 Bonotto
+(Cloudflare-challenge), IT-27 La Marrana (site heeft alleen minifoto's).
+Die tonen het mozaïekvlak; een eigen foto in `foto-bron/<id>.jpg` lost ze op.
+IT-01 komt bij uitzondering van PromoTurismoFVG (eigen bron ligt plat).
+Bij de vulronde zijn ook dode site-URL's in `data.js` gerepareerd
+(o.a. Middelheim, Scarzuola, Glaskasten Marl, Demeure du Chaos, Villa Müller).
 
 ## De kaart
 
