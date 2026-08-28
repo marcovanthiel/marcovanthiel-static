@@ -336,6 +336,17 @@ alleen cacheregels voor `/kunstlocaties/assets/fonts/*` en `/kunstlocaties/foto/
 **Indexeerbaar** (geen `noindex`), en gelinkt vanaf de homepage in alle vijf
 talen — de laatste cursieve regel van `content/<taal>/_index.md`.
 
+**Foto's 28-8-2026** (verzoek Marco): elke locatie een foto **van de eigen
+website** (promobeeld met credit + link; credits in `assets/fotos.js`, zichtbaar
+onder elke foto). Standaardroute = `scripts/kunstlocaties/fetch-webfotos.js`
+(og:image-strategie); aanvullend een Playwright-browser-ronde voor botmuren,
+handmatige keuze uit DOM-kandidaten voor logo/poster-gevallen, en zoekagents
+voor dode domeinen. Dekking: **211 van de 217**; de 6 uitzonderingen met reden
+staan in `static/kunstlocaties/AGENTS.md` en `scripts/kunstlocaties/
+foto-web-rapport.md`. Daarbij ook dode site-URL's in `data.js` gerepareerd.
+Les: og:image is vaak een logo of campagnebeeld; altijd visueel schouwen
+(contactvellen) vóór livegang.
+
 **Data bijwerken**: bron is het Claude-project *Reizen*, bestand
 `reizen/kunstlocaties-midden-en-zuid-europa.md`. Wijzig daar, genereer `data.js`
 opnieuw, draai `build-map.js` en `fetch-fotos.js`, en hoog de `?v=` in
