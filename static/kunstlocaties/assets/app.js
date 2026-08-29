@@ -122,13 +122,13 @@
   function bouwPillen() {
     var metFoto = DATA.filter(function (e) { return FOTOS[e.id]; }).length;
     var rijen = [
-      [DATA.length + " locaties", "a"],
-      ["25 in de kern", "b"],
-      [LANDEN.length + " landen", "c"],
-      [metFoto + " met foto", "d"]
+      [DATA.length, "locaties", false],
+      [DATA.filter(function (e) { return e.kern; }).length, "in de kern", false],
+      [LANDEN.length, "landen", false],
+      [metFoto, "met foto", metFoto > 0]
     ];
     $("pillen").innerHTML = rijen.map(function (r) {
-      return '<span class="pil ' + r[1] + '">' + r[0] + "</span>";
+      return '<div class="pil' + (r[2] ? " aan" : "") + '"><b>' + r[0] + "</b><span>" + r[1] + "</span></div>";
     }).join("");
     $("eyebrow-n").textContent = DATA.length + " locaties · " + LANDEN.length + " landen";
     $("foto-stand").textContent = metFoto === 0
@@ -239,20 +239,8 @@
       return [Math.min.apply(null, xs), Math.min.apply(null, ys), Math.max.apply(null, xs), Math.max.apply(null, ys)];
     })();
 
-    /* Het mozaïek: één patroon van zestien steentjes dat over de landen ligt en
-       bij zoomen wordt tegengeschaald, zodat de steentjes altijd even groot zijn. */
-    var defs = svgEl("defs");
-    var pat = svgEl("pattern", { id: "mos", width: 56, height: 56, patternUnits: "userSpaceOnUse" });
-    var kleuren = ["#E8402A", "#F2B705", "#00A6A6", "#FDF3E3", "#7B2D8E", "#F2B705", "#E8402A", "#00A6A6",
-                   "#FDF3E3", "#E8402A", "#7B2D8E", "#F2B705", "#00A6A6", "#FDF3E3", "#F2B705", "#E8402A"];
-    for (var yy = 0, n = 0; yy < 56; yy += 14) {
-      for (var xx = 0; xx < 56; xx += 14, n++) {
-        pat.appendChild(svgEl("rect", { x: xx + 1, y: yy + 1, width: 12, height: 12, rx: 2.6,
-                                        fill: kleuren[n % 16], "fill-opacity": 0.82 }));
-      }
-    }
-    defs.appendChild(pat); svg.appendChild(defs);
-
+    /* Geen vulpatroon: de landen zijn vlak, de tekening zit in de lijn.
+       De liniaal langs het kader staat buiten de scene en blijft dus staan. */
     var scene = svgEl("g", { id: "scene" });
     svg.appendChild(scene);
     scene.appendChild(svgEl("path", { class: "graticule", d: KAART.graticule }));
@@ -262,10 +250,7 @@
     KAART.countries.slice().sort(function (a, b) { return a.s - b.s; }).forEach(function (c) {
       var p = svgEl("path", { class: "land" + (c.s ? " scope" : ""), d: c.d });
       gLand.appendChild(p);
-      if (c.s) {
-        landEls[c.n] = p;
-        gLand.appendChild(svgEl("path", { class: "mozaiek", d: c.d, fill: "url(#mos)" }));
-      }
+      if (c.s) landEls[c.n] = p;
     });
 
     var gLabels = svgEl("g");
@@ -279,9 +264,18 @@
     var gStip = svgEl("g");
     scene.appendChild(gStip);
     var overlay = svgEl("g");
+    var liniaal = svgEl("g");
+    overlay.appendChild(liniaal);
+    function liniaalBij() {
+      while (liniaal.firstChild) liniaal.removeChild(liniaal.firstChild);
+      for (var x = 0; x <= cw; x += 40)
+        liniaal.appendChild(svgEl("line", { class: "liniaal", x1: x, y1: 0, x2: x, y2: (x % 200 ? 5 : 10) }));
+      for (var y = 0; y <= ch; y += 40)
+        liniaal.appendChild(svgEl("line", { class: "liniaal", x1: 0, y1: y, x2: (y % 200 ? 5 : 10), y2: y }));
+    }
     var kruis = svgEl("g", { class: "kruis-groep" });
-    kruis.appendChild(svgEl("circle", { class: "kruis", r: 12 }));
-    [[0, -21, 0, -15], [0, 15, 0, 21], [-21, 0, -15, 0], [15, 0, 21, 0]].forEach(function (c) {
+    kruis.appendChild(svgEl("rect", { class: "kruis", x: -11, y: -11, width: 22, height: 22 }));
+    [[0, -22, 0, -14], [0, 14, 0, 22], [-22, 0, -14, 0], [14, 0, 22, 0]].forEach(function (c) {
       kruis.appendChild(svgEl("line", { class: "kruis", x1: c[0], y1: c[1], x2: c[2], y2: c[3] }));
     });
     kruis.style.display = "none";
@@ -292,8 +286,8 @@
       var g = svgEl("g", { class: "stip" + (e.kern ? " kern" : ""), "data-i": i,
                            transform: "translate(" + p[0] + "," + p[1] + ")" });
       var binnen = svgEl("g");
-      if (e.kern) binnen.appendChild(svgEl("path", { class: "ruit", d: "M0,-6L6,0L0,6L-6,0Z" }));
-      else binnen.appendChild(svgEl("circle", { class: "ring", r: 3.2 }));
+      if (e.kern) binnen.appendChild(svgEl("rect", { class: "blok", x: -3.6, y: -3.6, width: 7.2, height: 7.2 }));
+      else binnen.appendChild(svgEl("rect", { class: "blok", x: -2.6, y: -2.6, width: 5.2, height: 5.2 }));
       var t = svgEl("text", { class: "naam", x: 9, y: 3.4 });
       t.textContent = e.n.length > 34 ? e.n.slice(0, 33) + "…" : e.n;
       binnen.appendChild(t);
@@ -310,7 +304,6 @@
         var p = KAART.pts[i];
         stipEls[i].setAttribute("transform", "translate(" + p[0] + "," + p[1] + ") scale(" + inv.toFixed(4) + ")");
       }
-      pat.setAttribute("patternTransform", "scale(" + inv.toFixed(3) + ")");
       var ver = k / k0;
       labelEls.forEach(function (t) { t.style.opacity = ver > 2.4 ? 0 : (ver > 1.6 ? 0.35 : 1); });
       svg.classList.toggle("detail", ver >= 3.2);
@@ -396,6 +389,7 @@
     function meet() {
       cw = houder.clientWidth; ch = houder.clientHeight;
       svg.setAttribute("viewBox", "0 0 " + cw + " " + ch);
+      liniaalBij();
       k0 = Math.min((cw - 56) / (dataBox[2] - dataBox[0]), (ch - 56) / (dataBox[3] - dataBox[1]));
     }
     function zoomOm(sx, sy, factor) {
@@ -499,9 +493,18 @@
     };
   }
 
+  /* Het millimeterpapier achter de pagina — één keer tekenen, verder niets. */
+  function bouwRaster() {
+    var g = document.getElementById("raster");
+    if (!g) return;
+    for (var x = 0; x <= 1280; x += 40) g.appendChild(svgEl("line", { x1: x, y1: 0, x2: x, y2: 800 }));
+    for (var y = 0; y <= 800; y += 40) g.appendChild(svgEl("line", { x1: 0, y1: y, x2: 1280, y2: y }));
+  }
+
   /* ------------------------------------------------------------ start -- */
   DATA.forEach(function (e, i) { e.nr = i; });
   leesUrl();
+  bouwRaster();
   bouwFilters();
   bouwPillen();
   kaart = bouwKaart();

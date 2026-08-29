@@ -18,7 +18,7 @@ static/kunstlocaties/
     ├── app.js          # kaart, filters, zoeken, catalogus; geen afhankelijkheden
     ├── styles.css      # palet en typografie
     ├── fonts.css       # @font-face voor de drie self-hosted families
-    └── fonts/          # Syne, Karla, IBM Plex Mono (Fontsource, SIL OFL)
+    └── fonts/          # Anton, IBM Plex Mono (Fontsource, SIL OFL)
 
 scripts/kunstlocaties/  # buildscripts (npm, draaien lokaal)
 ├── build-map.js        # maakt assets/mapdata.js
@@ -29,20 +29,25 @@ scripts/kunstlocaties/  # buildscripts (npm, draaien lokaal)
 
 ## Beeldtaal
 
-Richting "mozaïek", gekozen 28-08-2026. De wereld van Niki de Saint Phalle:
-kobalt als grond (`--kobalt #16249B`), vermiljoen, goud en turquoise als
-scherven, room als tekstkleur. Syne voor de koppen, Karla voor het lezen,
-IBM Plex Mono voor alles wat label, nummer of meting is.
+Richting "machine", gekozen 29-08-2026 (na een eerdere ronde in de mozaïekstijl
+van Niki de Saint Phalle, die te druk uitpakte). De wereld van Tinguely: zwart
+staal (`--zwart #0E0E0D`), één vermiljoen (`--rood #D63B12`), gebroken wit voor
+de tekst, en verder alleen grijstinten. Niets is rond, overal ligt een raster,
+en het mechaniek is zichtbaar: millimeterpapier achter de pagina, een liniaal
+langs de kaartrand, een draaiend tandwiel naast de titel.
 
-De pagina volgt de licht/donker-voorkeur van de bezoeker **niet**: het kobalt is
-het ontwerp, en alle kleuren staan daarom expliciet in `:root`. Wie hier ooit een
-lichte variant bij wil maken, moet het hele palet omzetten, niet een paar tokens.
+Anton voor de koppen — smal, industrieel, in kapitalen. IBM Plex Mono voor al het
+andere, ook voor de lopende tekst. Dat leest zwaarder dan een gewone broodletter,
+en dat is de prijs van deze richting; wie dat wil verzachten vervangt de body-font
+en laat Plex staan voor labels, nummers en de praktische regels.
+
+De pagina volgt de licht/donker-voorkeur van de bezoeker **niet**: het zwart is
+het ontwerp, en alle kleuren staan expliciet in `:root`.
 
 ## Foto's
 
 Elke locatie heeft een fotovak. Staat er geen foto, dan komt er geen leeg gat maar
-een mozaïekvlak in de vier kleuren, met het label "nog geen vrije foto" — vier
-varianten, per locatie vast, zodat de catalogus niet dreunt.
+een gearceerd vlak met het label "nog geen vrije foto".
 
 Foto's komen sinds 28-8-2026 **van de eigen website van elke locatie**
 (promobeeld, conform de beeldregel: promobeeld van een aanbevolen partij mag,
@@ -99,8 +104,8 @@ cd scripts/kunstlocaties && npm install && node build-map.js
   géén eigen CSP-blok nodig — alleen een cache-regel voor de fonts.
 - **Self-hosted fonts.** Google Fonts is voor de rest van de site wel toegestaan
   in de CSP, maar hier bewust lokaal, net als bij /china2027. Vervangen gaat via
-  `npm i @fontsource-variable/syne @fontsource/karla @fontsource/ibm-plex-mono`
-  en de woff2's uit `files/` kopiëren.
+  `npm i @fontsource/anton @fontsource/ibm-plex-mono` en de woff2's uit
+  `files/` kopiëren.
 - **Deelbare URL.** Filters staan in de querystring, bijvoorbeeld
   `/kunstlocaties/?land=Italië&kern=1`. `app.js` leest die bij het laden.
 

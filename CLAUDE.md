@@ -306,26 +306,29 @@ static/kunstlocaties/
     ├── mapdata.js      # window.KAARTDATA — gegenereerd, ~150 kB
     ├── fotos.js        # window.KUNSTFOTOS — gegenereerd, credits per foto
     ├── app.js          # kaart, zoom/pan, filters, catalogus; geen afhankelijkheden
-    ├── styles.css      # één vaste wereld (kobalt), geen licht/donker-schakelaar
+    ├── styles.css      # één vaste wereld (zwart staal), geen licht/donker-schakelaar
     ├── fonts.css       # @font-face
-    └── fonts/          # Syne, Karla, IBM Plex Mono (Fontsource)
+    └── fonts/          # Anton, IBM Plex Mono (Fontsource)
 scripts/kunstlocaties/  # build-map.js (kaartdata) en fetch-fotos.js (foto's)
 ```
 
-**Beeldtaal**: richting "mozaïek" — Niki de Saint Phalle. Kobalt #16249B als
-grond, vermiljoen/goud/turquoise als scherven, room als tekst. De landen op de
-kaart zijn met een SVG-patroon van steentjes gevuld dat bij zoomen wordt
-tegengeschaald. Bewust géén licht/donker-varianten: het kobalt ís het ontwerp.
+**Beeldtaal**: richting "machine" — Tinguely. Zwart staal #0E0E0D, één vermiljoen
+#D63B12, gebroken wit. Millimeterpapier achter de pagina, een liniaal langs de
+kaartrand, een draaiend tandwiel naast de titel; niets rond. Anton voor de koppen,
+IBM Plex Mono voor al het andere. Bewust géén licht/donker-varianten. (Er is
+29-08-2026 een ronde in de mozaïekstijl van Niki de Saint Phalle geweest — kobalt
+met scherven — die te druk uitpakte; die zit in de historie van deze map.)
 
 **Kaart zonder kaartdienst**: één SVG uit Natural Earth 1:50 m, Mercator,
-tekenvlak 1000×890, vereenvoudigd met Douglas-Peucker. Stippen, mozaïek en
-richtkruis worden tegengeschaald. Labels vanaf 3,2× en gefilterd op botsing.
+tekenvlak 1000×890, vereenvoudigd met Douglas-Peucker. Stippen (vierkanten) en
+richtkruis worden tegengeschaald zodat ze even groot blijven; de liniaal langs de
+rand staat in schermruimte. Labels vanaf 3,2× en gefilterd op botsing.
 
 **Foto's**: één per locatie, `foto/<nummer>.webp`. Opgehaald met
 `scripts/kunstlocaties/fetch-fotos.js` — dat draait op een machine met gewoon
 internet, want de agent-sandbox komt niet bij Wikimedia. Alleen vrije licenties;
 maker, licentie en bronpagina staan onder elke foto. Ontbreekt er een foto, dan
-toont de pagina een mozaïekvlak, geen leeg gat. Eigen foto's gaan voor: zet ze in
+toont de pagina een gearceerd vlak, geen leeg gat. Eigen foto's gaan voor: zet ze in
 `scripts/kunstlocaties/foto-bron/<nummer>.jpg`.
 
 **CSP**: bewust géén eigen blok. Alle CSS en JS staan in externe bestanden, de

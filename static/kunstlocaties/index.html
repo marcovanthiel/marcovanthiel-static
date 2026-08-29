@@ -6,7 +6,7 @@
 <title>Kunstlocaties in Midden- en Zuid-Europa — waar de plek zelf het werk is</title>
 <meta name="description" content="Kaart en catalogus van 217 kunstparken, land-artplekken, kunstenaarstuinen en bijzondere kunstlocaties in elf Europese landen. Te filteren op land, soort, seizoen en hondenbeleid.">
 <meta name="author" content="Marco van Thiel">
-<meta name="theme-color" content="#16249B">
+<meta name="theme-color" content="#0E0E0D">
 <link rel="canonical" href="https://marcovanthiel.nl/kunstlocaties/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kunstlocaties in Midden- en Zuid-Europa">
@@ -15,15 +15,13 @@
 <meta property="og:locale" content="nl_NL">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon.png">
-<link rel="stylesheet" href="assets/fonts.css?v=20260828c">
-<link rel="stylesheet" href="assets/styles.css?v=20260828c">
+<link rel="stylesheet" href="assets/fonts.css?v=20260828d">
+<link rel="stylesheet" href="assets/styles.css?v=20260828d">
 </head>
 <body>
 
-<svg class="vlakken" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 900">
-  <circle cx="1290" cy="150" r="260"/>
-  <circle cx="90" cy="820" r="300"/>
-  <path d="M0,520 Q360,400 720,520 T1440,520"/>
+<svg class="vlakken" aria-hidden="true" focusable="false" preserveAspectRatio="none" viewBox="0 0 1280 800">
+  <g id="raster"></g>
 </svg>
 
 <div class="topbar">
@@ -35,8 +33,26 @@
 
 <div class="wrap">
 <header class="titelblok">
-  <p class="eyebrow mono"><span>Verlanglijst</span><span>Augustus 2026</span><b id="eyebrow-n">217 locaties · 11 landen</b></p>
-  <h1 class="disp">Waar de plek <span class="goud">zelf</span><br>het werk <span class="rood">is</span></h1>
+  <p class="eyebrow lbl"><span>Verlanglijst</span><span>Augustus 2026</span><b id="eyebrow-n">217 locaties · 11 landen</b></p>
+  <div class="kop-rij">
+    <h1 class="disp">Waar de plek <span class="rood">zelf</span> het werk is</h1>
+    <svg class="tandwiel" width="132" height="132" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <g>
+        <circle class="ring" cx="50" cy="50" r="34"/>
+        <circle class="as" cx="50" cy="50" r="9"/>
+        <line class="tand" x1="50" y1="16" x2="50" y2="7"/>
+        <line class="tand" x1="50" y1="84" x2="50" y2="93"/>
+        <line class="tand" x1="16" y1="50" x2="7" y2="50"/>
+        <line class="tand" x1="84" y1="50" x2="93" y2="50"/>
+        <line class="tand" x1="26" y1="26" x2="19.6" y2="19.6"/>
+        <line class="tand" x1="74" y1="74" x2="80.4" y2="80.4"/>
+        <line class="tand" x1="26" y1="74" x2="19.6" y2="80.4"/>
+        <line class="tand" x1="74" y1="26" x2="80.4" y2="19.6"/>
+        <line class="spaak" x1="50" y1="16" x2="50" y2="84"/>
+        <line class="spaak" x1="16" y1="50" x2="84" y2="50"/>
+      </g>
+    </svg>
+  </div>
   <div class="inleiding">
     <p class="lede">Kunstparken, land art, kunstenaarstuinen en Gesamtkunstwerken in Midden- en Zuid-Europa. Het vertrekpunt was Le Cyclop in het bos van Milly-la-Forêt — de stalen kop van Tinguely en Niki de Saint Phalle — en de Giardino dei Tarocchi in Capalbio. Van daaruit loopt een lijn naar alles wat hieronder staat.</p>
     <p class="sub">Gewone stadsmusea staan er niet in, tenzij het gebouw of het landschap zelf de reden is om te gaan. Openingstijden zijn die van 2026; bij de kleine, familiegerunde adressen is bellen verstandiger dan hopen.</p>
@@ -56,17 +72,17 @@
           <button type="button" id="zoom-reset" aria-label="Kaart terugzetten">⤾</button>
         </div>
         <div class="cartouche" id="cartouche">
-          <p class="cart-titel mono">Legenda</p>
-          <p class="cart-regel"><span class="sym">◆</span> een van de vijfentwintig uit de kern</p>
-          <p class="cart-regel"><span class="sym">●</span> overige locatie</p>
+          <p class="cart-titel lbl">Legenda</p>
+          <p class="cart-regel"><span class="sym">■</span> een van de vijfentwintig uit de kern</p>
+          <p class="cart-regel"><span class="sym">□</span> overige locatie</p>
           <div class="schaal"><div class="schaalbalk" id="schaalbalk"></div><span id="schaaltekst">— km</span></div>
         </div>
         <div class="kaartkaart" id="kaartkaart" hidden></div>
       </div>
     </div>
     <p class="plaat-onderschrift">
-      <b>De kaart</b>
-      <span>elk land een mozaïek, elke locatie een steentje</span>
+      <b>Fig. 1 — het meetwerk</b>
+      <span>Mercator, 5°-net</span>
       <span>stippen op plaatsniveau — voor de blik, niet voor de navigatie</span>
       <span class="hint">Scrollen om te zoomen, slepen om te schuiven, klikken voor de beschrijving</span>
     </p>
@@ -105,8 +121,8 @@
 </div>
 
 <script src="assets/data.js?v=20260901b"></script>
-<script src="assets/mapdata.js?v=20260828c"></script>
+<script src="assets/mapdata.js?v=20260828d"></script>
 <script src="assets/fotos.js?v=20260901b"></script>
-<script src="assets/app.js?v=20260828c"></script>
+<script src="assets/app.js?v=20260828d"></script>
 </body>
 </html>
