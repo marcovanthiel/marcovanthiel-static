@@ -62,7 +62,7 @@ niet van de eigen site: ES-06 Museo Vostell (site weigert verkeer per regio),
 IT-64 Castello Incantato en IT-44 Casa Dipinta (geen betrouwbare eigen site),
 IT-19 Dalle Nogare (server hangt structureel), IT-26 Bonotto
 (Cloudflare-challenge), IT-27 La Marrana (site heeft alleen minifoto's).
-Die tonen het mozaïekvlak; een eigen foto in `foto-bron/<id>.jpg` lost ze op.
+Die tonen het gearceerde vlak; een eigen foto in `foto-bron/<id>.jpg` lost ze op.
 IT-01 komt bij uitzondering van PromoTurismoFVG (eigen bron ligt plat).
 Bij de vulronde zijn ook dode site-URL's in `data.js` gerepareerd
 (o.a. Middelheim, Scarzuola, Glaskasten Marl, Demeure du Chaos, Villa Müller).
