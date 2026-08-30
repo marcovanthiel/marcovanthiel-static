@@ -1,10 +1,12 @@
 {
   "name": "kunstlocaties-map",
   "private": true,
-  "description": "Bouwt de kaartdata voor de subsite /kunstlocaties",
+  "description": "Buildscripts voor de subsite /kunstlocaties: kaartdata, foto's en contactvel",
   "scripts": {
-    "build": "node build-map.js",
-    "fotos": "node fetch-fotos.js"
+    "kaart": "node build-map.js",
+    "fotos": "node fetch-webfotos.js",
+    "fotos-commons": "node fetch-fotos.js",
+    "contactvel": "node contactvel.js"
   },
   "dependencies": {
     "d3-geo": "^3.1.1",

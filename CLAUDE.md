@@ -11,6 +11,25 @@ commit-hash erbij staat). Remedie: een lege commit pushen
 (`git commit --allow-empty`) — nooit handmatig uploaden, GitHub blijft de bron.
 Verifieer een deploy dus altijd op de live URL, niet alleen op de groene Action.
 
+## Werken in deze repo met Claude Code
+
+`.claude/commands/` bevat de slash-commando's voor het terugkerende werk:
+
+| Commando | Doet |
+|---|---|
+| `/deploy-check` | pushen en op de live URL controleren (met de Cloudflare-gotcha hierboven) |
+| `/kunstlocaties-fotoronde` | ontbrekende foto's aanvullen en schouwen |
+| `/kunstlocaties-schouwen` | contactvel bouwen en de foto's visueel nalopen |
+| `/kunstlocaties-locatie` | een locatie toevoegen, inclusief kaart en foto |
+| `/kunstlocaties-kaart` | kaartdata opnieuw genereren |
+
+`.claude/settings.json` staat de veilige commando's toe zonder te vragen;
+`git push --force` en `rm -rf` staan expliciet op de weigerlijst.
+
+Verder: `docs/kunstlocaties-draaiboek.md` (de subsite van niets tot live, plus
+wat een Cowork-sandbox níét kan) en `docs/webstijl-machine.md` (de huisstijl).
+Openstaand werk staat in `static/kunstlocaties/TAKEN.md`.
+
 ## Subsite: /felix
 
 **marcovanthiel.nl/felix** — een zelfstandige, schermvullende **fotopresentatie**

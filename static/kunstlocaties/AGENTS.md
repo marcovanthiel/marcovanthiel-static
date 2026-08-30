@@ -139,6 +139,13 @@ Claude-project **Reizen**, onder `reizen/kunstlocaties-midden-en-zuid-europa.md`
 Dat is de plek om inhoudelijke wijzigingen eerst te maken; deze pagina is de
 publieke weergave ervan.
 
+## Waar wat staat
+
+- Openstaand werk: `TAKEN.md` in deze map
+- Volgorde van bouwen en wat een sandbox niet kan: `docs/kunstlocaties-draaiboek.md`
+- De huisstijl los van deze subsite: `docs/webstijl-machine.md`
+- Slash-commando's voor het terugkerende werk: `.claude/commands/`
+
 ## Backlog
 
 - [ ] `fetch-fotos.js` draaien en het rapport nalopen: elke foto moet echt bij

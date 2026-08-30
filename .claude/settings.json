@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git show:*)",
+      "Bash(hugo:*)",
+      "Bash(npm install)",
+      "Bash(npm run:*)",
+      "Bash(node scripts/kunstlocaties/*)",
+      "Bash(node build-map.js)",
+      "Bash(node fetch-webfotos.js:*)",
+      "Bash(node contactvel.js)",
+      "Bash(npx wrangler pages deployment list:*)",
+      "Bash(curl -sI https://marcovanthiel.nl/*)",
+      "Bash(curl -s -o /dev/null -w:*)"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(rm -rf:*)"
+    ]
+  }
+}
