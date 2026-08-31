@@ -3,8 +3,10 @@
    voor de gevallen waarin de og:image-strategie het verkeerde beeld kiest en je
    na visuele schouw zelf een beeld van de eigen website hebt aangewezen.
 
-   Draaien:  node haal-url.js <id> <beeld-url> <bronpagina>
+   Draaien:  node haal-url.js <id> <beeld-url-of-lokaal-pad> <bronpagina>
    Voorbeeld: node haal-url.js FR-29 https://…/gebouw.jpg https://fondationblachere.org/le-lieu
+   Een lokaal pad in plaats van een URL mag ook (bv. een schermafdruk van een
+   site die hotlinks blokkeert); de bronpagina bepaalt dan nog steeds de credit.
 
    Zelfde uitvoerregels als fetch-webfotos.js: 760 px webp in
    static/kunstlocaties/foto/, credit (maker = domein van de bronpagina,
@@ -40,9 +42,14 @@ function lees(bestand) {
   if (!data.some(e => e.id === id)) throw new Error('onbekend catalogusnummer: ' + id);
   const fotos = lees(FOTOS_JS).KUNSTFOTOS || {};
 
-  const r = await fetch(beeldUrl, { headers: { 'User-Agent': UA, 'Accept': 'image/*', 'Referer': bronPagina } });
-  if (!r.ok) throw new Error('HTTP ' + r.status);
-  const buf = Buffer.from(await r.arrayBuffer());
+  let buf;
+  if (/^https?:\/\//.test(beeldUrl)) {
+    const r = await fetch(beeldUrl, { headers: { 'User-Agent': UA, 'Accept': 'image/*', 'Referer': bronPagina } });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    buf = Buffer.from(await r.arrayBuffer());
+  } else {
+    buf = fs.readFileSync(beeldUrl);
+  }
   const meta = await sharp(buf).metadata();
   if (!meta.width || meta.width < 480) throw new Error('te klein (' + meta.width + 'px)');
 

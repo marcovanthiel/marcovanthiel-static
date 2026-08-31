@@ -3,17 +3,9 @@
 Gedraaid: 28-8-2026 (meerdere rondes: script, browser-ronde, handmatige keuze,
 zoekagents); herkansing + volledige visuele schouw 31-8-2026.
 
-**216 van de 217 locaties heeft een foto.**
+**Alle 217 locaties hebben een foto.**
 
-## Zonder foto (1, met reden)
-
-- IT-26 Fondazione Bonotto: Cloudflare-challenge blokkeert ook hotlinks
-
-Oplossing: eigen foto als `foto-bron/IT-26.jpg` neerzetten en
-`node fetch-webfotos.js --only=IT-26` draaien, of een aangewezen beeld via
-`haal-url.js`.
-
-## Aanvulling 31-8-2026 (aanwijzing Marco): vier via officiële partijen
+## Aanvulling 31-8-2026 (aanwijzing Marco): vijf laatste gevuld
 
 - IT-27 La Marrana → panorama van luoghidelcontemporaneo.cultura.gov.it
   (Ministero della Cultura; eigen site heeft alleen minifoto's)
@@ -23,6 +15,9 @@ Oplossing: eigen foto als `foto-bron/IT-26.jpg` neerzetten en
   die FAI-pagina is nu ook de site-URL in data.js (beheerders-site gekaapt)
 - ES-06 Museo Vostell → museumcomplex met waterval (foto Eugenio Pedrera
   Pedrazo) van gemeente malpartidadecaceres.es (museumsite weigert per regio)
+- IT-26 Fondazione Bonotto → cortenstalen BONOTTO-entree, schermafdruk van
+  fondazionebonotto.org door Marco (de site blokkeert hotlinks met een
+  Cloudflare-challenge; haal-url.js accepteert daarom ook een lokaal bestand)
 
 ## Schouw 31-8-2026 (alle 212 foto's op het contactvel nagelopen)
 
