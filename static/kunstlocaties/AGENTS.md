@@ -56,6 +56,10 @@ Het script daarvoor is `scripts/kunstlocaties/fetch-webfotos.js` (og:image →
 twitter:image → grootste echte afbeelding; eigen foto's in `foto-bron/` gaan
 vóór; opties `--only`, `--force`, `--dry`). Het oudere Commons-script
 `fetch-fotos.js` bestaat nog maar is niet meer de standaardroute.
+Kiest og:image het verkeerde beeld (logo, affiche, portret, andere plek — dat
+bleek bij de schouw van 31-8-2026 bij 16 locaties zo), zoek dan zelf een beeld
+op de eigen site en haal het binnen met
+`node haal-url.js <id> <beeld-url> <bronpagina>` (zelfde maat- en creditregels).
 
 Stand na de vulronde van 28-8-2026 en de herkansing van 31-8-2026: **212 van de
 217 met foto** (IT-19 Dalle Nogare lukte op 31-8 alsnog; de server was weer
@@ -64,6 +68,8 @@ weigert verkeer per regio), IT-64 Castello Incantato en IT-44 Casa Dipinta
 (geen betrouwbare eigen site), IT-26 Bonotto (Cloudflare-challenge),
 IT-27 La Marrana (site heeft alleen minifoto's).
 Die tonen het gearceerde vlak; een eigen foto in `foto-bron/<id>.jpg` lost ze op.
+Alle 212 foto's zijn 31-8-2026 visueel geschouwd; de 16 vervangingen en de
+bewust gehandhaafde grensgevallen staan in `scripts/kunstlocaties/foto-web-rapport.md`.
 IT-01 komt bij uitzondering van PromoTurismoFVG (eigen bron ligt plat).
 Bij de vulronde zijn ook dode site-URL's in `data.js` gerepareerd
 (o.a. Middelheim, Scarzuola, Glaskasten Marl, Demeure du Chaos, Villa Müller).

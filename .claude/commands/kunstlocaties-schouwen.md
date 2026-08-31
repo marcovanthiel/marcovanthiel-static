@@ -18,10 +18,12 @@ Controleer of elke foto op `/kunstlocaties` werkelijk bij zijn locatie hoort.
    - **een logo** in plaats van een foto (og:image van de homepage),
    - **een campagnebeeld** van een tentoonstelling die niets met de plek te maken heeft,
    - **een foto van een heel andere locatie** bij koepelsites en stichtingen.
-4. Wat niet deugt: verwijder de entry uit `assets/fotos.js` en het bestand uit
-   `static/kunstlocaties/foto/`, en noteer de reden in
-   `scripts/kunstlocaties/foto-web-rapport.md`. Of los het op met een eigen foto
-   in `foto-bron/<id>.jpg` en draai `fetch-webfotos.js --only=<id> --force`.
+4. Wat niet deugt: zoek eerst zelf een beter beeld op de eigen site van de
+   locatie en haal het binnen met `node haal-url.js <id> <beeld-url> <bronpagina>`
+   (of leg een eigen foto in `foto-bron/<id>.jpg` en draai
+   `fetch-webfotos.js --only=<id> --force`). Lukt dat niet, verwijder dan de
+   entry uit `assets/fotos.js` en het bestand uit `static/kunstlocaties/foto/`.
+   Noteer in beide gevallen de reden in `scripts/kunstlocaties/foto-web-rapport.md`.
 5. Rapporteer in gewone taal wat je hebt weggegooid en waarom.
 
 Doe dit vóór elke livegang waarin foto's zijn veranderd. Een verkeerde foto bij

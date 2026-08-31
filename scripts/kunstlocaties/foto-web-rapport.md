@@ -1,7 +1,7 @@
 # Foto-web-rapport
 
 Gedraaid: 28-8-2026 (meerdere rondes: script, browser-ronde, handmatige keuze,
-zoekagents); herkansing 31-8-2026 (IT-19 opgelost, server was weer bereikbaar).
+zoekagents); herkansing + volledige visuele schouw 31-8-2026.
 
 **212 van de 217 locaties heeft een foto van de eigen website.**
 
@@ -15,6 +15,36 @@ zoekagents); herkansing 31-8-2026 (IT-19 opgelost, server was weer bereikbaar).
 
 Oplossing voor deze vijf: eigen foto als `foto-bron/<id>.jpg` neerzetten en
 `node fetch-webfotos.js --only=<id>` draaien.
+
+## Schouw 31-8-2026 (alle 212 foto's op het contactvel nagelopen)
+
+16 og:image-keuzes bleken fout en zijn vervangen door een handgekozen beeld van
+de eigen site (via `haal-url.js`):
+
+- FR-02 expositieposter dorpsvereniging → kapel + kruidentuin (bron nu de eigen
+  kapelsite chapelle-saint-blaise.org; ook `u` in data.js daarheen omgezet)
+- FR-23 leeg wit bestand → kasteel vanaf zee
+- FR-29 Champs-Élysées-kerstverlichting (bedrijfs-og) → entree kunstcentrum Bonnieux
+- IT-24 portret Emilio Vedova → Magazzino del Sale-interieur (Renzo Piano)
+- IT-53 tentoonstellingsaffiche → gevel Palazzo Caracciolo d'Avellino
+- ES-02 straatje in Hondarribia (naamsverwarring) → Isla de Santa Clara met vuurtoren
+- CH-12 generiek bergweide-toerismebeeld → luchtfoto Zumthor-kapel
+- CH-17 tentoonstellingsaffiche → paviljoen in avondlicht
+- AT-05 abstract campagnebeeld → de glazen Zumthor-hal
+- LI-01 campagnefoto fototentoonstelling → beide museumkubussen aan het plein
+- DE-07 foto met "Willkommen"-tekstoverlay → schoon beeld Corbusier-dubbelhuis
+- DE-20 foto uit fototentoonstelling (LA) → Gehry-daklandschap
+- DE-29 luchtfoto kanaal → Halde Rheinelbe met Himmelstreppe
+- DE-37 portret Niki de Saint Phalle → Grotte-interieur (spiegelmozaïek)
+- DE-38 plaatsnaambord "documenta-Stadt" → Fridericianum met Beuys-eiken
+- PT-01 beeld met logo-overlay → Casa de Serralves; PT-02 idem → CIAJG-gebouw
+
+Bewust laten staan (grensgevallen, wel van de eigen site en wel de locatie):
+IT-36 (getekende parkkaart van Celle), IT-37 (duotoon-parkfoto), IT-50
+(kapelkunstwerk), CH-14 (Segantini-schilderij), DE-24 (kapel klein in beeld),
+DE-30 (halde op achtergrond), DE-31 (luchtfoto route), CH-11 (Bregaglia-dal),
+IT-45 (Tuoro vanuit de lucht), IT-62 (Presti bij eigen werk), IT-65
+(palazzo met campagnebanier), LU-02, DE-13, DE-14, BE-06, CZ-03.
 
 Dit rapport wordt met de hand bijgehouden; `fetch-webfotos.js` schrijft zijn
 runverslag sinds 31-8-2026 naar `foto-web-rapport.laatste-run.md` (genegeerd

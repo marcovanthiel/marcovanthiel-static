@@ -57,8 +57,10 @@
 /kunstlocaties/assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Foto's worden bij vervanging onder dezelfde bestandsnaam overschreven
+# (<id>.webp), dus geen maand cachen maar een dag.
 /kunstlocaties/foto/*
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=86400
 
 # Statische assets met fingerprint in de filename — agressief cachen
 /css/*

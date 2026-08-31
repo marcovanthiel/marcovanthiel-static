@@ -368,7 +368,10 @@ voor dode domeinen. Dekking: **212 van de 217** (IT-19 alsnog opgehaald
 staan in `static/kunstlocaties/AGENTS.md` en `scripts/kunstlocaties/
 foto-web-rapport.md`. Daarbij ook dode site-URL's in `data.js` gerepareerd.
 Les: og:image is vaak een logo of campagnebeeld; altijd visueel schouwen
-(contactvellen) vóór livegang.
+(contactvellen) vóór livegang. Bij de volledige schouw van 31-8-2026 zijn 16
+foute og-keuzes handmatig vervangen (`scripts/kunstlocaties/haal-url.js`
+<id> <beeld-url> <bronpagina> haalt één aangewezen beeld binnen met dezelfde
+maat- en creditregels).
 
 **Data bijwerken**: bron is het Claude-project *Reizen*, bestand
 `reizen/kunstlocaties-midden-en-zuid-europa.md`. Wijzig daar, genereer `data.js`
