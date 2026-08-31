@@ -63,13 +63,14 @@ bleek bij de schouw van 31-8-2026 bij 16 locaties zo), zoek dan zelf een beeld
 op de eigen site en haal het binnen met
 `node haal-url.js <id> <beeld-url> <bronpagina>` (zelfde maat- en creditregels).
 
-Stand na de vulronde van 28-8-2026 en de herkansing van 31-8-2026: **212 van de
-217 met foto** (IT-19 Dalle Nogare lukte op 31-8 alsnog; de server was weer
-bereikbaar). Vijf kunnen niet van de eigen site: ES-06 Museo Vostell (site
-weigert verkeer per regio), IT-64 Castello Incantato en IT-44 Casa Dipinta
-(geen betrouwbare eigen site), IT-26 Bonotto (Cloudflare-challenge),
-IT-27 La Marrana (site heeft alleen minifoto's).
-Die tonen het gearceerde vlak; een eigen foto in `foto-bron/<id>.jpg` lost ze op.
+Stand 31-8-2026: **216 van de 217 met foto**. Na de vulronde van 28-8 zijn op
+31-8 opgelost: IT-19 (server weer bereikbaar), en op aanwijzing van Marco vier
+via promobeelden van officiële/aanbevolen partijen: IT-27 La Marrana
+(luoghidelcontemporaneo.cultura.gov.it), IT-44 Casa Dipinta (umbriatourism.it,
+tevens nieuwe site-URL in data.js), IT-64 Castello Incantato (fondoambiente.it,
+tevens nieuwe site-URL) en ES-06 Museo Vostell (gemeente malpartidadecaceres.es).
+Alleen IT-26 Bonotto resteert (Cloudflare-challenge blokkeert ook hotlinks);
+die toont het gearceerde vlak; een eigen foto in `foto-bron/<id>.jpg` lost het op.
 Alle 212 foto's zijn 31-8-2026 visueel geschouwd; de 16 vervangingen en de
 bewust gehandhaafde grensgevallen staan in `scripts/kunstlocaties/foto-web-rapport.md`.
 IT-01 komt bij uitzondering van PromoTurismoFVG (eigen bron ligt plat).

@@ -3,18 +3,26 @@
 Gedraaid: 28-8-2026 (meerdere rondes: script, browser-ronde, handmatige keuze,
 zoekagents); herkansing + volledige visuele schouw 31-8-2026.
 
-**212 van de 217 locaties heeft een foto van de eigen website.**
+**216 van de 217 locaties heeft een foto.**
 
-## Zonder foto (5, met reden)
+## Zonder foto (1, met reden)
 
-- ES-06 Museo Vostell Malpartida: site weigert verkeer per regio (403)
 - IT-26 Fondazione Bonotto: Cloudflare-challenge blokkeert ook hotlinks
-- IT-27 La Marrana: eigen site heeft alleen afbeeldingen tot ~300 px
-- IT-44 Casa Dipinta: geen eigen website
-- IT-64 Castello Incantato: geen betrouwbare eigen website (beheerders-site gekaapt)
 
-Oplossing voor deze vijf: eigen foto als `foto-bron/<id>.jpg` neerzetten en
-`node fetch-webfotos.js --only=<id>` draaien.
+Oplossing: eigen foto als `foto-bron/IT-26.jpg` neerzetten en
+`node fetch-webfotos.js --only=IT-26` draaien, of een aangewezen beeld via
+`haal-url.js`.
+
+## Aanvulling 31-8-2026 (aanwijzing Marco): vier via officiële partijen
+
+- IT-27 La Marrana → panorama van luoghidelcontemporaneo.cultura.gov.it
+  (Ministero della Cultura; eigen site heeft alleen minifoto's)
+- IT-44 Casa Dipinta → regenboogkamer van umbriatourism.it; die pagina is nu
+  ook de site-URL in data.js (er is geen eigen site)
+- IT-64 Castello Incantato → koppenwand (foto Igor Petyx) van fondoambiente.it;
+  die FAI-pagina is nu ook de site-URL in data.js (beheerders-site gekaapt)
+- ES-06 Museo Vostell → museumcomplex met waterval (foto Eugenio Pedrera
+  Pedrazo) van gemeente malpartidadecaceres.es (museumsite weigert per regio)
 
 ## Schouw 31-8-2026 (alle 212 foto's op het contactvel nagelopen)
 

@@ -3,20 +3,17 @@
 Stand 30 augustus 2026. Afgeronde punten weghalen, niet afvinken; dit is een
 werklijst, geen logboek. Het besluitenspoor staat in `AGENTS.md` en `CLAUDE.md`.
 
-## 1. Vijf locaties zonder foto
+## 1. Eén locatie zonder foto
 
 | Nr. | Locatie | Waarom het niet lukte |
 |---|---|---|
-| IT-26 | Fondazione Bonotto, Molvena | Cloudflare-challenge |
-| IT-27 | La Marrana arteambientale, Ameglia | site heeft alleen minifoto's |
-| IT-44 | Casa Dipinta, Todi | geen betrouwbare eigen site |
-| IT-64 | Castello Incantato, Sciacca | geen betrouwbare eigen site |
-| ES-06 | Museo Vostell Malpartida | site weigert verkeer per regio |
+| IT-26 | Fondazione Bonotto, Molvena | Cloudflare-challenge blokkeert ook hotlinks |
 
-Oplossing per geval: een eigen foto in `scripts/kunstlocaties/foto-bron/<nr>.jpg`
-en dan `npm run fotos -- --only=<nr> --force`. Marco heeft van een deel van deze
-plekken zelf beeld in het Polarsteps-archief. Tot die tijd tonen ze het
-gearceerde vlak, en dat is een nette uitkomst — geen leeg gat, geen verzinsel.
+Oplossing: een eigen foto in `scripts/kunstlocaties/foto-bron/IT-26.jpg` en dan
+`npm run fotos -- --only=IT-26 --force`, of een aangewezen beeld via
+`haal-url.js`. Tot die tijd toont hij het gearceerde vlak, en dat is een nette
+uitkomst — geen leeg gat, geen verzinsel. (De andere vier van 30-8 zijn 31-8
+gevuld met promobeelden van officiële partijen die Marco aanwees.)
 
 ## 2. Hondenbeleid
 
