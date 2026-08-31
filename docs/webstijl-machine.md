@@ -32,15 +32,17 @@ verschil zit in lijnstijl (doorgetrokken, gestreept) en in vulling.
 
 - **Anton** voor koppen, in kapitalen, `letter-spacing: .012em`,
   `line-height: .88`. Smal en industrieel. Alleen op formaat 20 px en groter.
-- **IBM Plex Mono** voor al het andere: lopende tekst, labels, nummers, meta.
-  400 voor tekst, 500 voor nadruk.
+- **IBM Plex Sans Condensed** voor beschrijvende lopende tekst (leden en
+  waarom-alinea's), 400.
+- **IBM Plex Mono** voor al het andere: labels, nummers, praktische regels,
+  meta. 400 voor tekst, 500 voor nadruk.
 - Self-hosted uit Fontsource, latin + latin-ext (Tsjechische en Poolse namen).
   Geen Google Fonts: de site-CSP staat op `'self'`.
 
-Let op: mono als broodletter leest zwaarder dan een gewone letter. Dat is een
-bewuste prijs van deze richting. Voor een subsite met veel lange tekst is de
-afspraak: lopende tekst mag naar een smalle grotesk, Plex blijft voor labels,
-nummers en praktische regels.
+Mono als broodletter leest zwaarder dan een gewone letter; daarom is op
+31-8-2026 besloten (kunstlocaties): beschrijvende tekst in de smalle grotesk
+IBM Plex Sans Condensed (zelfde familie als Plex Mono), al het overige blijft
+Plex. Kies bij een nieuwe subsite in deze stijl meteen dezelfde verdeling.
 
 ## Vorm
 

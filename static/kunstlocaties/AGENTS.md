@@ -36,10 +36,12 @@ de tekst, en verder alleen grijstinten. Niets is rond, overal ligt een raster,
 en het mechaniek is zichtbaar: millimeterpapier achter de pagina, een liniaal
 langs de kaartrand, een draaiend tandwiel naast de titel.
 
-Anton voor de koppen — smal, industrieel, in kapitalen. IBM Plex Mono voor al het
-andere, ook voor de lopende tekst. Dat leest zwaarder dan een gewone broodletter,
-en dat is de prijs van deze richting; wie dat wil verzachten vervangt de body-font
-en laat Plex staan voor labels, nummers en de praktische regels.
+Anton voor de koppen — smal, industrieel, in kapitalen. Sinds 31-8-2026
+(besluit Marco): de beschrijvende tekst (`.lede`, `.waarom`) in **IBM Plex Sans
+Condensed** (smalle grotesk uit dezelfde familie, self-hosted), al het andere —
+labels, nummers, `.praktisch`, de meta-kolom, zoek en filters — in IBM Plex
+Mono. Zo blijft het mechanische karakter staan zonder dat 217 beschrijvingen in
+monospace gelezen hoeven te worden.
 
 De pagina volgt de licht/donker-voorkeur van de bezoeker **niet**: het zwart is
 het ontwerp, en alle kleuren staan expliciet in `:root`.

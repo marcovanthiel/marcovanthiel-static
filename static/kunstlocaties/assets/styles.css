@@ -58,7 +58,8 @@ h1 .rood{color:var(--rood)}
 .tandwiel .spaak{stroke:var(--lijn);stroke-width:1.5}
 .inleiding{display:flex;gap:clamp(20px,4vw,52px);flex-wrap:wrap;align-items:flex-start;
   margin-top:clamp(22px,3.5vw,38px)}
-.lede{margin:0;font-size:15.5px;max-width:58ch;color:var(--mat)}
+.lede{margin:0;font-size:16.5px;max-width:58ch;color:var(--mat);
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;line-height:1.55}
 .sub{margin:0;font-size:14px;max-width:44ch;color:var(--vaag);
   border-left:1px solid var(--lijn);padding-left:20px}
 .pillen{display:flex;flex-wrap:wrap;margin-top:clamp(20px,3vw,32px);
@@ -182,7 +183,8 @@ article.plek.gemarkeerd{outline:1px solid var(--rood);outline-offset:6px}
   font-size:25px;line-height:1.02;letter-spacing:.012em;color:var(--wit);margin:0 0 3px;
   overflow-wrap:anywhere}
 .wie{font-size:13px;color:var(--vaag);margin:0 0 7px}
-.waarom{margin:0;max-width:62ch;font-size:14.5px;color:var(--tekst);overflow-wrap:anywhere}
+.waarom{margin:0;max-width:62ch;font-size:15.5px;color:var(--tekst);overflow-wrap:anywhere;
+  font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;line-height:1.55}
 .praktisch{font-size:12px;line-height:1.7;color:var(--mat);margin:9px 0 0;max-width:70ch;
   padding-left:12px;border-left:1px solid var(--lijn);overflow-wrap:anywhere}
 .plek-acties{display:flex;flex-wrap:wrap;gap:18px;margin:10px 0 0}

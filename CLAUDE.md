@@ -333,8 +333,9 @@ scripts/kunstlocaties/  # build-map.js (kaartdata) en fetch-fotos.js (foto's)
 
 **Beeldtaal**: richting "machine" — Tinguely. Zwart staal #0E0E0D, één vermiljoen
 #D63B12, gebroken wit. Millimeterpapier achter de pagina, een liniaal langs de
-kaartrand, een draaiend tandwiel naast de titel; niets rond. Anton voor de koppen,
-IBM Plex Mono voor al het andere. Bewust géén licht/donker-varianten. (Er is
+kaartrand, een draaiend tandwiel naast de titel; niets rond. Anton voor de koppen;
+sinds 31-8-2026 de beschrijvende tekst (`.lede`/`.waarom`) in IBM Plex Sans
+Condensed, al het andere IBM Plex Mono. Bewust géén licht/donker-varianten. (Er is
 29-08-2026 een ronde in de mozaïekstijl van Niki de Saint Phalle geweest — kobalt
 met scherven — die te druk uitpakte; die zit in de historie van deze map.)
 
