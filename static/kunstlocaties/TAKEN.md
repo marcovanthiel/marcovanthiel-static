@@ -3,11 +3,10 @@
 Stand 30 augustus 2026. Afgeronde punten weghalen, niet afvinken; dit is een
 werklijst, geen logboek. Het besluitenspoor staat in `AGENTS.md` en `CLAUDE.md`.
 
-## 1. Zes locaties zonder foto
+## 1. Vijf locaties zonder foto
 
 | Nr. | Locatie | Waarom het niet lukte |
 |---|---|---|
-| IT-19 | Fondazione Antonio Dalle Nogare, Bolzano | server hangt structureel |
 | IT-26 | Fondazione Bonotto, Molvena | Cloudflare-challenge |
 | IT-27 | La Marrana arteambientale, Ameglia | site heeft alleen minifoto's |
 | IT-44 | Casa Dipinta, Todi | geen betrouwbare eigen site |
@@ -19,7 +18,7 @@ en dan `npm run fotos -- --only=<nr> --force`. Marco heeft van een deel van deze
 plekken zelf beeld in het Polarsteps-archief. Tot die tijd tonen ze het
 gearceerde vlak, en dat is een nette uitkomst — geen leeg gat, geen verzinsel.
 
-## 2. Alle 211 foto's schouwen
+## 2. Alle 212 foto's schouwen
 
 Nog niet systematisch nagelopen. Draai `/kunstlocaties-schouwen` en let op de
 drie fouten die de og:image-strategie structureel maakt: een logo in plaats van

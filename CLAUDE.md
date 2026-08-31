@@ -363,7 +363,8 @@ website** (promobeeld met credit + link; credits in `assets/fotos.js`, zichtbaar
 onder elke foto). Standaardroute = `scripts/kunstlocaties/fetch-webfotos.js`
 (og:image-strategie); aanvullend een Playwright-browser-ronde voor botmuren,
 handmatige keuze uit DOM-kandidaten voor logo/poster-gevallen, en zoekagents
-voor dode domeinen. Dekking: **211 van de 217**; de 6 uitzonderingen met reden
+voor dode domeinen. Dekking: **212 van de 217** (IT-19 alsnog opgehaald
+31-8-2026); de 5 uitzonderingen met reden
 staan in `static/kunstlocaties/AGENTS.md` en `scripts/kunstlocaties/
 foto-web-rapport.md`. Daarbij ook dode site-URL's in `data.js` gerepareerd.
 Les: og:image is vaak een logo of campagnebeeld; altijd visueel schouwen

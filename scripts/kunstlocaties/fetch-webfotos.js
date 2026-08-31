@@ -6,7 +6,9 @@
    Uitvoer (zelfde structuur als fetch-fotos.js):
      static/kunstlocaties/foto/<id>.webp        760 px breed
      static/kunstlocaties/assets/fotos.js       window.KUNSTFOTOS met credits
-     scripts/kunstlocaties/foto-web-rapport.md  wat gevonden is en wat niet
+     scripts/kunstlocaties/foto-web-rapport.laatste-run.md  wat deze run vond
+   (het gecureerde foto-web-rapport.md wordt met de hand bijgehouden en door
+   dit script met rust gelaten)
 
    Credits: maker = domein van de site, licentie = "website van de locatie",
    bron = de pagina waar het beeld vandaan komt (conform de beeldregel:
@@ -27,7 +29,7 @@ const FOTO_DIR = path.join(SITE, 'foto');
 const FOTOS_JS = path.join(SITE, 'assets', 'fotos.js');
 const DATA_JS = path.join(SITE, 'assets', 'data.js');
 const BRON_DIR = path.join(HIER, 'foto-bron');
-const RAPPORT = path.join(HIER, 'foto-web-rapport.md');
+const RAPPORT = path.join(HIER, 'foto-web-rapport.laatste-run.md');
 const BREEDTE = 760;
 const KWALITEIT = 78;
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36';
@@ -186,10 +188,10 @@ async function verwerk(e, uit, log) {
   }
   const stamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
   fs.writeFileSync(RAPPORT,
-    `# Foto-web-rapport\n\nGedraaid: ${stamp}\n\n`
+    `# Foto-web-rapport — laatste run\n\nGedraaid: ${stamp}\n\n`
     + `**${Object.keys(uit).length} van de ${leesData().length} locaties heeft een foto.**\n\n`
     + (log.eigen.length ? `## Eigen foto's (${log.eigen.length})\n\n${log.eigen.map(s => '- ' + s).join('\n')}\n\n` : '')
     + `## Deze ronde van de eigen website (${log.ok.length})\n\n${log.ok.map(s => '- ' + s).join('\n') || '- geen'}\n\n`
     + `## Nog zonder foto (${log.mis.length})\n\n${log.mis.map(s => '- ' + s).join('\n') || '- geen'}\n`);
-  console.log(`Klaar: ${log.ok.length} opgehaald, ${log.al.length} stonden er al, ${log.mis.length} mislukt. Zie foto-web-rapport.md`);
+  console.log(`Klaar: ${log.ok.length} opgehaald, ${log.al.length} stonden er al, ${log.mis.length} mislukt. Zie foto-web-rapport.laatste-run.md`);
 })();
