@@ -154,6 +154,7 @@
                 <div class="footer-links">
                     <h3>{{ i18n "footerLinksTitle" | default "Meer" }}</h3>
                     <p><a href="/privacy/">{{ i18n "privacyTitle" | default "Privacyverklaring" }}</a></p>
+                    {{ with .Site.GetPage "/toegankelijkheid" }}<p><a href="{{ .RelPermalink }}">{{ i18n "accessibilityTitle" | default "Toegankelijkheidsverklaring" }}</a></p>{{ end }}
                     <p><a href="{{ "/sitemap.xml" | absURL }}">Sitemap</a></p>
                 </div>
 

@@ -8,6 +8,12 @@ voor stack en build-details. (/zilvermanagement is 20-6-2026 verwijderd.)
 Functions (functions/toegankelijkscan/ + lib/toegankelijkscan/); docs in
 `docs/TOEGANKELIJKSCAN.md`. De oude Worker-repo is alleen nog een redirect.
 
+**Toegankelijkheidsverklaring (10-9-2026):** per taal live op /toegankelijkheid,
+/en/accessibility, /de/barrierefreiheit, /it/accessibilita en /cn/accessibility
+(`content/<taal>/toegankelijkheid.md`, zelfde bestandsnaam = gekoppelde
+vertalingen, slug per taal); footerlink op elke pagina via `baseof.html` +
+i18n-key `accessibilityTitle`.
+
 **Deploy-gotcha (2026-07-06):** Cloudflare Pages kan een push naar `main`
 missen (geen build voor die commit; controleer met
 `npx wrangler pages deployment list --project-name=marcovanthiel` of de
