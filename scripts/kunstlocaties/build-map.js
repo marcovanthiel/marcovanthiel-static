@@ -111,6 +111,7 @@ const labels = LABELS.map(function (l) {
 // strakker in op waar het om gaat.
 const boxes = {};
 data.forEach((e, i) => {
+  if (e.buiten) return; // valt buiten het kaartkader (Canarische Eilanden, Madeira)
   const b = boxes[e.land] || (boxes[e.land] = [1e9, 1e9, -1e9, -1e9]);
   b[0] = Math.min(b[0], pts[i][0]); b[1] = Math.min(b[1], pts[i][1]);
   b[2] = Math.max(b[2], pts[i][0]); b[3] = Math.max(b[3], pts[i][1]);

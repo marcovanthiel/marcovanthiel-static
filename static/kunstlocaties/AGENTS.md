@@ -12,7 +12,7 @@ static/kunstlocaties/
 ├── AGENTS.md           # dit bestand
 ├── foto/               # één foto per locatie, <catalogusnummer>.webp, 760 px breed
 └── assets/
-    ├── data.js         # window.KUNSTLOCATIES = [...] — de 217 locaties
+    ├── data.js         # window.KUNSTLOCATIES = [...] — de 303 locaties
     ├── mapdata.js      # window.KAARTDATA = {...} — gegenereerd, niet met de hand bewerken
     ├── fotos.js        # window.KUNSTFOTOS = {...} — gegenereerd, credits per foto
     ├── app.js          # kaart, filters, zoeken, catalogus; geen afhankelijkheden
@@ -40,7 +40,7 @@ Anton voor de koppen — smal, industrieel, in kapitalen. Sinds 31-8-2026
 (besluit Marco): de beschrijvende tekst (`.lede`, `.waarom`) in **IBM Plex Sans
 Condensed** (smalle grotesk uit dezelfde familie, self-hosted), al het andere —
 labels, nummers, `.praktisch`, de meta-kolom, zoek en filters — in IBM Plex
-Mono. Zo blijft het mechanische karakter staan zonder dat 217 beschrijvingen in
+Mono. Zo blijft het mechanische karakter staan zonder dat 303 beschrijvingen in
 monospace gelezen hoeven te worden.
 
 De pagina volgt de licht/donker-voorkeur van de bezoeker **niet**: het zwart is
@@ -63,7 +63,9 @@ bleek bij de schouw van 31-8-2026 bij 16 locaties zo), zoek dan zelf een beeld
 op de eigen site en haal het binnen met
 `node haal-url.js <id> <beeld-url> <bronpagina>` (zelfde maat- en creditregels).
 
-Stand 31-8-2026: **alle 217 met foto**. Na de vulronde van 28-8 zijn op 31-8
+Stand 10-9-2026: **217 van de 303 met foto** — de 86 logeeradressen die er op
+10-9 bij kwamen wachten nog op een fotoronde op een machine met netwerk.
+Stand 31-8-2026: alle toen bestaande 217 met foto. Na de vulronde van 28-8 zijn op 31-8
 opgelost: IT-19 (server weer bereikbaar), vier op aanwijzing van Marco via
 promobeelden van officiële/aanbevolen partijen — IT-27 La Marrana
 (luoghidelcontemporaneo.cultura.gov.it), IT-44 Casa Dipinta (umbriatourism.it,
@@ -118,7 +120,9 @@ cd scripts/kunstlocaties && npm install && node build-map.js
   `npm i @fontsource/anton @fontsource/ibm-plex-mono` en de woff2's uit
   `files/` kopiëren.
 - **Deelbare URL.** Filters staan in de querystring, bijvoorbeeld
-  `/kunstlocaties/?land=Italië&kern=1`. `app.js` leest die bij het laden.
+  `/kunstlocaties/?land=Italië&kern=1`. `app.js` leest die bij het laden. Voor
+  logeren: `?logeren=*` (alles waar je kunt slapen) of `?logeren=kunsthotel`;
+  voor architectuur `?arch=1`.
 
 ## Data bijwerken
 
@@ -129,26 +133,35 @@ Elk record in `data.js` heeft:
 | `n` | naam van de plek |
 | `p` | plaats |
 | `land`, `reg` | land en regio; de volgorde in het bestand bepaalt de volgorde op de pagina |
-| `t` | soort: Beeldenpark, Land art, Gesamtkunstwerk, Kunstenaarshuis, Privécollectie, Industrieel erfgoed, Architectuur, Kunst in de openbare ruimte |
+| `t` | soort: Beeldenpark, Land art, Gesamtkunstwerk, Kunstenaarshuis, Kunsthotel, Privécollectie, Industrieel erfgoed, Architectuur, Kunst in de openbare ruimte |
+| `arch` | `true` als het gebouw zelf spraakmakende architectuur is. Staat los van `t`: ook een privécollectie of een beeldenpark kan de vlag hebben. Aparte filterknop |
 | `w` | wie of wat: kunstenaar, architect, oprichter, jaar |
 | `x` | waarom het bijzonder is (één of twee zinnen) |
+| `lo` | logeren: `werk` (slapen ín het kunstwerk of een door een kunstenaar ingerichte kamer), `kunsthotel`, `terrein` (gastenverblijf op het terrein zelf), `architectuur` (slapen in het gebouw dat de reden is om te komen). Veld ontbreekt als er niets is |
+| `low` | één zin over die overnachting; verschijnt achter het merkje op de kaart |
 | `pr` | praktisch: openingstijden, reservering, prijs |
 | `u` | officiële URL |
 | `h` | honden: `ja`, `nee` of `?` (onbekend, níét nee) |
 | `s` | seizoen: `jaarrond`, `seizoen`, `afspraak` of `let op` |
-| `kern` | `true` voor de vijfentwintig die eruit springen |
+| `kern` | `true` voor de plekken die eruit springen |
+| `buiten` | `true` als de locatie buiten het kaartkader valt (Canarische Eilanden, Madeira). Krijgt geen stip en geen kaartknop; `build-map.js` laat hem uit het zoomkader van het land |
 | `ll` | `[lengte, breedte]` in graden, voor de kaart |
-| `id` | catalogusnummer, `IT-01` tot `CZ-09`; wordt ook het anker in de URL |
+| `id` | catalogusnummer; wordt ook het anker in de URL. **Nooit hernummeren** — de nummers staan in URL's, fotobestandsnamen en het reisdossier |
 
 Na een wijziging de `?v=` in `index.html` ophogen, zodat de 5-minutencache van
 Cloudflare geen oude `data.js` blijft serveren.
 
 ## Bron
 
-Het volledige dossier met dezelfde inhoud in tekstvorm staat in het
-Claude-project **Reizen**, onder `reizen/kunstlocaties-midden-en-zuid-europa.md`.
-Dat is de plek om inhoudelijke wijzigingen eerst te maken; deze pagina is de
-publieke weergave ervan.
+`data.js` is sinds 10-9-2026 de bron; het reisdossier wordt eruit gegenereerd, en
+niet meer andersom. `scripts/kunstlocaties/build-dossier.js` schrijft
+`docs/kunstlocaties-dossier.md`; die inhoud gaat naar het Claude-project
+**Reizen** als `reizen/kunstlocaties-midden-en-zuid-europa.md`. Daarnaast staat
+`docs/kunstlocaties-logeren.md` (in het project als
+`reizen/kunstlocaties-logeren.md`) met de 116 logeeradressen uitgeschreven.
+
+Inhoudelijke wijzigingen dus in `data.js`, daarna beide documenten opnieuw
+genereren en in het project zetten.
 
 ## Waar wat staat
 
