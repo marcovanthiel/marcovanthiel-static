@@ -1,0 +1,4 @@
+Contact: mailto:marco@marcovanthiel.nl
+Expires: 2027-06-25T00:00:00.000Z
+Preferred-Languages: nl, en
+Canonical: https://marcovanthiel.nl/.well-known/security.txt
