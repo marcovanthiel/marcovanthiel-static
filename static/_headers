@@ -9,7 +9,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=()
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: https://api.kunstcollectie.marcovanthiel.nl https://kunstcollectie.marcovanthiel.nl; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.kunstcollectie.marcovanthiel.nl; form-action 'self'
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: https://api.kunstcollectie.marcovanthiel.nl https://kunstcollectie.marcovanthiel.nl https://pub-2faae649022848c08e9eb5b3dde0a0da.r2.dev; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.kunstcollectie.marcovanthiel.nl; form-action 'self'
   Cache-Control: public, max-age=300, stale-while-revalidate=86400
 
 # /wimbledon: zelfstandige pagina met één inline <script> (tabs + dblclick);
