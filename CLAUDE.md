@@ -1,8 +1,12 @@
 # CLAUDE.md — marcovanthiel-static
 
 Hugo-hoofdsite (5 talen, NL/EN/DE/IT/zh-CN) + subsites (Biennale 2026,
-Fundraising, Manifest, Felix-presentatie). Zie `README.md`
+Fundraising, Manifest, Felix-presentatie, ToegankelijkScan). Zie `README.md`
 voor stack en build-details. (/zilvermanagement is 20-6-2026 verwijderd.)
+
+**ToegankelijkScan (sinds 10-9-2026):** /toegankelijkscan draait als Pages
+Functions (functions/toegankelijkscan/ + lib/toegankelijkscan/); docs in
+`docs/TOEGANKELIJKSCAN.md`. De oude Worker-repo is alleen nog een redirect.
 
 **Deploy-gotcha (2026-07-06):** Cloudflare Pages kan een push naar `main`
 missen (geen build voor die commit; controleer met
