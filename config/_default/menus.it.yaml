@@ -11,10 +11,6 @@ main:
     name: Casi
     pageRef: /cases
     weight: 3
-  - identifier: biennale
-    name: Biennale
-    url: /biennalevenetie2026/
-    weight: 4
   - identifier: contact
     name: Contatto
     pageRef: /contact

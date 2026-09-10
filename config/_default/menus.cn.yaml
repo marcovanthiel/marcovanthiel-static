@@ -11,10 +11,6 @@ main:
     name: 案例
     pageRef: /cases
     weight: 3
-  - identifier: biennale
-    name: 双年展
-    url: /biennalevenetie2026/
-    weight: 4
   - identifier: contact
     name: 联系方式
     pageRef: /contact

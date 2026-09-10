@@ -8,15 +8,12 @@ datamodel. Dit draaiboek is de volgorde, dat bestand is de inhoud.
 
 ## 0. Waar het vandaan komt
 
-De inhoudelijke bron is `static/kunstlocaties/assets/data.js`: 303 locaties met
-naam, plaats, regio, soort, wie/wat, waarom bijzonder, praktische informatie,
-officiële URL, hondenbeleid, seizoen, logeercategorie en architectuurvlag.
+De inhoudelijke bron is **niet** deze repo maar het Claude-project *Reizen*,
+bestand `reizen/kunstlocaties-midden-en-zuid-europa.md`: 217 locaties met naam,
+plaats, regio, soort, wie/wat, waarom bijzonder, praktische informatie, officiële
+URL, hondenbeleid en seizoen. Wijzigingen in de inhoud gaan daar eerst.
 
-Tot 10-9-2026 was het andersom: het Claude-project *Reizen* hield het dossier bij
-en de dataset was de afgeleide. Dat liep uit de pas zodra de dataset velden kreeg
-die het dossier niet had. Nu genereert `scripts/kunstlocaties/build-dossier.js`
-het dossier uit de dataset, en gaat die tekst naar het project als
-`reizen/kunstlocaties-midden-en-zuid-europa.md`.
+De site is de weergave. Raakt `data.js` kwijt, dan is dat dossier het origineel.
 
 ## 1. Data
 

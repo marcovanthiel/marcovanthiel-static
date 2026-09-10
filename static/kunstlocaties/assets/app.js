@@ -13,11 +13,8 @@
   var LANDEN = [];
   DATA.forEach(function (e) { if (LANDEN.indexOf(e.land) === -1) LANDEN.push(e.land); });
   var TYPES = ["Beeldenpark", "Land art", "Gesamtkunstwerk", "Kunstenaarshuis",
-               "Kunsthotel", "Privécollectie", "Industrieel erfgoed", "Architectuur",
+               "Privécollectie", "Industrieel erfgoed", "Architectuur",
                "Kunst in de openbare ruimte"];
-  var LOGEREN = { "werk": "slapen ín het werk", "kunsthotel": "kunsthotel",
-                  "terrein": "verblijf op het terrein", "architectuur": "slapen in de architectuur" };
-  var LOVOLG = ["werk", "kunsthotel", "terrein", "architectuur"];
   var SEIZOEN = { "jaarrond": ["jaarrond", "m-jaarrond"], "seizoen": ["seizoen", "m-seizoen"],
                   "afspraak": ["op afspraak", "m-afspraak"], "let op": ["let op", "m-letop"] };
   var HOND = { "ja": ["honden welkom", "ja"], "nee": ["geen honden", "nee"], "?": ["honden onbekend", "onbekend"] };
@@ -25,8 +22,7 @@
              "Zwitserland": "Switzerland", "Liechtenstein": "Liechtenstein", "Oostenrijk": "Austria",
              "Duitsland": "Germany", "België": "Belgium", "Luxemburg": "Luxembourg", "Tsjechië": "Czechia" };
 
-  var state = { land: null, type: null, lo: null, arch: false, kern: false, hond: false,
-                jaarrond: false, foto: false, q: "", sel: -1 };
+  var state = { land: null, type: null, kern: false, hond: false, jaarrond: false, foto: false, q: "", sel: -1 };
 
   var $ = function (id) { return document.getElementById(id); };
   function esc(s) {
@@ -46,16 +42,14 @@
     var p = new URLSearchParams(location.search);
     if (p.get("land") && LANDEN.indexOf(p.get("land")) > -1) state.land = p.get("land");
     if (p.get("soort") && TYPES.indexOf(p.get("soort")) > -1) state.type = p.get("soort");
-    if (p.get("logeren") === "*" || LOVOLG.indexOf(p.get("logeren")) > -1) state.lo = p.get("logeren");
-    ["arch", "kern", "hond", "jaarrond", "foto"].forEach(function (f) { if (p.get(f) === "1") state[f] = true; });
+    ["kern", "hond", "jaarrond", "foto"].forEach(function (f) { if (p.get(f) === "1") state[f] = true; });
     if (p.get("q")) state.q = p.get("q").toLowerCase();
   }
   function schrijfUrl() {
     var p = new URLSearchParams();
     if (state.land) p.set("land", state.land);
     if (state.type) p.set("soort", state.type);
-    if (state.lo) p.set("logeren", state.lo);
-    ["arch", "kern", "hond", "jaarrond", "foto"].forEach(function (f) { if (state[f]) p.set(f, "1"); });
+    ["kern", "hond", "jaarrond", "foto"].forEach(function (f) { if (state[f]) p.set(f, "1"); });
     if (state.q) p.set("q", state.q);
     var qs = p.toString();
     history.replaceState(null, "", qs ? location.pathname + "?" + qs : location.pathname);
@@ -65,16 +59,13 @@
   function past(e) {
     if (state.land && e.land !== state.land) return false;
     if (state.type && e.t !== state.type) return false;
-    if (state.lo === "*" && !e.lo) return false;
-    if (state.lo && state.lo !== "*" && e.lo !== state.lo) return false;
-    if (state.arch && !e.arch) return false;
     if (state.kern && !e.kern) return false;
     if (state.hond && e.h !== "ja") return false;
     if (state.jaarrond && e.s !== "jaarrond") return false;
     if (state.foto && !FOTOS[e.id]) return false;
     if (state.q) {
       var hooi = (e.id + " " + e.n + " " + e.p + " " + e.reg + " " + e.land + " " +
-                  e.w + " " + e.x + " " + e.t + " " + (e.low || "")).toLowerCase();
+                  e.w + " " + e.x + " " + e.t).toLowerCase();
       if (hooi.indexOf(state.q) === -1) return false;
     }
     return true;
@@ -111,17 +102,8 @@
         });
       });
     }
-    var flo = $("f-logeren");
-    flo.appendChild(chip("alles", !state.lo, "lo", ""));
-    flo.appendChild(chip("je kunt er logeren", state.lo === "*", "lo", "*"));
-    LOVOLG.forEach(function (v) {
-      if (DATA.some(function (e) { return e.lo === v; }))
-        flo.appendChild(chip(LOGEREN[v], state.lo === v, "lo", v));
-    });
-
     groep("[data-land]", "land", function () { if (kaart) kaart.naarLand(state.land); });
     groep("[data-type]", "type", null);
-    groep("[data-lo]", "lo", null);
 
     Array.prototype.forEach.call(document.querySelectorAll("[data-flag]"), function (b) {
       var f = b.dataset.flag;
@@ -139,12 +121,9 @@
 
   function bouwPillen() {
     var metFoto = DATA.filter(function (e) { return FOTOS[e.id]; }).length;
-    var metLogies = DATA.filter(function (e) { return e.lo; }).length;
-    var metArch = DATA.filter(function (e) { return e.arch; }).length;
     var rijen = [
       [DATA.length, "locaties", false],
-      [metLogies, "waar je kunt logeren", false],
-      [metArch, "spraakmakende architectuur", false],
+      [DATA.filter(function (e) { return e.kern; }).length, "in de kern", false],
       [LANDEN.length, "landen", false],
       [metFoto, "met foto", metFoto > 0]
     ];
@@ -196,13 +175,10 @@
           "<h3>" + esc(e.n) + "</h3>" +
           '<p class="wie">' + esc(e.w) + "</p>" +
           '<p class="waarom">' + esc(e.x) + "</p>" +
-          (e.lo ? '<p class="logeren"><span class="lo-merk">' + esc(LOGEREN[e.lo]) + "</span>" +
-                  esc(e.low || "") + "</p>" : "") +
           (e.pr ? '<p class="praktisch">' + esc(e.pr) + "</p>" : "") +
           '<p class="plek-acties">' +
             '<a href="' + esc(e.u) + '" target="_blank" rel="noopener">' + esc(host(e.u)) + " ↗</a>" +
-            (e.buiten ? '<span class="buiten-kaart">valt buiten de kaart</span>'
-                      : '<button type="button" data-toon="' + e.nr + '">toon op de kaart</button>') +
+            '<button type="button" data-toon="' + e.nr + '">toon op de kaart</button>' +
           "</p>" +
         "</div>" +
         '<div class="meta">' +
@@ -210,7 +186,6 @@
           '<span class="plaats">' + esc(e.p) + "</span>" +
           '<span class="merk ' + se[1] + '">' + se[0] + "</span>" +
           '<span class="hond ' + ho[1] + '">' + ho[0] + "</span>" +
-          (e.arch ? '<span class="merk m-arch">architectuur</span>' : "") +
         "</div></article>";
     });
     wortel.innerHTML = html;
@@ -244,7 +219,6 @@
     kk.hidden = false;
     kk.innerHTML = '<span class="kk-nr">' + e.id + " · " + esc(e.p) + "</span>" +
       "<h4>" + esc(e.n) + "</h4><p>" + esc(e.w) + "</p>" +
-      (e.lo ? '<p class="kk-lo">' + esc(LOGEREN[e.lo]) + "</p>" : "") +
       '<a class="kk-link" href="' + esc(e.u) + '" target="_blank" rel="noopener">' + esc(host(e.u)) + " ↗</a>";
     var rij = $("plek-" + e.id);
     if (rij) {
@@ -261,8 +235,7 @@
     var stipEls = [], landEls = {}, labelEls = [];
     var k = 1, tx = 0, ty = 0, k0 = 1, cw = 0, ch = 0;
     var dataBox = (function () {
-      var op = KAART.pts.filter(function (p, i) { return !DATA[i].buiten; });
-      var xs = op.map(function (p) { return p[0]; }), ys = op.map(function (p) { return p[1]; });
+      var xs = KAART.pts.map(function (p) { return p[0]; }), ys = KAART.pts.map(function (p) { return p[1]; });
       return [Math.min.apply(null, xs), Math.min.apply(null, ys), Math.max.apply(null, xs), Math.max.apply(null, ys)];
     })();
 
@@ -310,7 +283,7 @@
 
     DATA.forEach(function (e, i) {
       var p = KAART.pts[i];
-      var g = svgEl("g", { class: "stip" + (e.kern ? " kern" : "") + (e.buiten ? " buiten" : ""), "data-i": i,
+      var g = svgEl("g", { class: "stip" + (e.kern ? " kern" : ""), "data-i": i,
                            transform: "translate(" + p[0] + "," + p[1] + ")" });
       var binnen = svgEl("g");
       if (e.kern) binnen.appendChild(svgEl("rect", { class: "blok", x: -3.6, y: -3.6, width: 7.2, height: 7.2 }));
