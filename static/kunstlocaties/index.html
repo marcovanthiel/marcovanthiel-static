@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kunstlocaties in Midden- en Zuid-Europa — waar de plek zelf het werk is</title>
+<title>Kunstlocaties in Midden- en Zuid-Europa: waar de plek zelf het werk is</title>
 <meta name="description" content="Kaart en catalogus van 303 kunstparken, land-artplekken, kunstenaarstuinen, gebouwen en kunsthotels in elf Europese landen. Te filteren op land, soort, logeren, architectuur, seizoen en hondenbeleid.">
 <meta name="author" content="Marco van Thiel">
 <meta name="theme-color" content="#0E0E0D">
 <link rel="canonical" href="https://marcovanthiel.nl/kunstlocaties/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kunstlocaties in Midden- en Zuid-Europa">
-<meta property="og:description" content="303 kunstparken, land-artplekken, gebouwen en kunsthotels in elf landen — waar de plek zelf het werk is, en waar je soms kunt blijven slapen.">
+<meta property="og:description" content="303 kunstparken, land-artplekken, gebouwen en kunsthotels in elf landen. Waar de plek zelf het werk is, en waar je soms kunt blijven slapen.">
 <meta property="og:url" content="https://marcovanthiel.nl/kunstlocaties/">
 <meta property="og:locale" content="nl_NL">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="stylesheet" href="assets/fonts.css?v=20260901c">
-<link rel="stylesheet" href="assets/styles.css?v=20260910a">
+<link rel="stylesheet" href="assets/styles.css?v=20260910c">
 </head>
 <body>
 
@@ -54,7 +54,7 @@
     </svg>
   </div>
   <div class="inleiding">
-    <p class="lede">Kunstparken, land art, kunstenaarstuinen en Gesamtkunstwerken in Midden- en Zuid-Europa. Het vertrekpunt was Le Cyclop in het bos van Milly-la-Forêt — de stalen kop van Tinguely en Niki de Saint Phalle — en de Giardino dei Tarocchi in Capalbio. Van daaruit loopt een lijn naar alles wat hieronder staat.</p>
+    <p class="lede">Kunstparken, land art, kunstenaarstuinen en Gesamtkunstwerken in Midden- en Zuid-Europa. Het vertrekpunt was Le Cyclop in het bos van Milly-la-Forêt, de stalen kop van Tinguely en Niki de Saint Phalle, en de Giardino dei Tarocchi in Capalbio. Van daaruit loopt een lijn naar alles wat hieronder staat, sinds september 2026 ook naar de adressen waar je kunt blijven slapen en de gebouwen die zelf de reis waard zijn.</p>
     <p class="sub">Gewone stadsmusea staan er niet in, tenzij het gebouw of het landschap zelf de reden is om te gaan. Openingstijden zijn die van 2026; bij de kleine, familiegerunde adressen is bellen verstandiger dan hopen.</p>
   </div>
   <div class="pillen" id="pillen"></div>
@@ -73,7 +73,7 @@
         </div>
         <div class="cartouche" id="cartouche">
           <p class="cart-titel lbl">Legenda</p>
-          <p class="cart-regel"><span class="sym">■</span> een van de vijfentwintig uit de kern</p>
+          <p class="cart-regel"><span class="sym">■</span> de kern van de lijst</p>
           <p class="cart-regel"><span class="sym">□</span> overige locatie</p>
           <div class="schaal"><div class="schaalbalk" id="schaalbalk"></div><span id="schaaltekst">— km</span></div>
         </div>
@@ -81,9 +81,9 @@
       </div>
     </div>
     <p class="plaat-onderschrift">
-      <b>Fig. 1 — het meetwerk</b>
+      <b>Fig. 1 · het meetwerk</b>
       <span>Mercator, 5°-net</span>
-      <span>stippen op plaatsniveau — voor de blik, niet voor de navigatie</span>
+      <span>stippen op plaatsniveau, voor de blik, niet voor de navigatie</span>
       <span class="hint">Scrollen om te zoomen, slepen om te schuiven, klikken voor de beschrijving</span>
     </p>
   </div>
@@ -91,6 +91,11 @@
 
 <div class="wrap">
 <div class="register" id="register">
+  <div class="reg-kop">
+    <button class="reg-toggle" id="reg-toggle" type="button" aria-expanded="false" aria-controls="reg-inhoud">filters en zoeken</button>
+    <span class="telling telling-kop" id="count-m" aria-hidden="true"></span>
+  </div>
+  <div class="reg-inhoud" id="reg-inhoud">
   <div class="reg-rij">
     <span class="reg-label" id="lbl-land">Land</span>
     <span id="f-land" role="group" aria-labelledby="lbl-land"></span>
@@ -113,13 +118,14 @@
     <input class="zoek" id="q" type="search" placeholder="zoek op naam, kunstenaar, plaats…" aria-label="Zoeken in de catalogus">
     <span class="telling" id="count" role="status" aria-live="polite"></span>
   </div>
+  </div>
 </div>
 
 <main id="lijst"></main>
 
 <footer>
-  <p><b>Over de foto's.</b> <span id="foto-stand">De foto's worden nog opgehaald.</span> Elk beeld is het promobeeld van de locatie zelf, overgenomen van de eigen website, met de bron en een link eronder. Waar dat niet kon staat een gearceerd vlak — een verkeerde foto is erger dan geen.</p>
-  <p><b>Over de betrouwbaarheid.</b> Samengesteld uit officiële sites, waar mogelijk geverifieerd in augustus 2026. Drie dingen zijn structureel onzeker: openingstijden van kleine adressen, het hondenbeleid — dat vrijwel nergens gepubliceerd wordt, dus <i>onbekend</i> betekent onbekend en niet nee — en de status van plekken die restaureren of tussen tentoonstellingen zitten.</p>
+  <p><b>Over de foto's.</b> <span id="foto-stand">De foto's worden nog opgehaald.</span> Elk beeld is het promobeeld van de locatie zelf, overgenomen van de eigen website, met de bron en een link eronder. Waar dat niet kon staat een gearceerd vlak; een verkeerde foto is erger dan geen.</p>
+  <p><b>Over de betrouwbaarheid.</b> Samengesteld uit officiële sites, waar mogelijk geverifieerd in augustus 2026. Drie dingen zijn structureel onzeker: openingstijden van kleine adressen, het hondenbeleid (dat vrijwel nergens gepubliceerd wordt, dus <i>onbekend</i> betekent onbekend en niet nee) en de status van plekken die restaureren of tussen tentoonstellingen zitten.</p>
   <p><b>Voor 2027.</b> documenta 16 in Kassel, de tienjaarlijkse Skulptur Projekte in Münster en de triënnale Bad RagARTz vallen alle drie in hetzelfde seizoen.</p>
   <p class="colofon">Marco van Thiel · <a href="/">marcovanthiel.nl</a> · Kaart naar Natural Earth · Suggesties en correcties zijn welkom.</p>
 </footer>
@@ -128,6 +134,6 @@
 <script src="assets/data.js?v=20260910b"></script>
 <script src="assets/mapdata.js?v=20260910a"></script>
 <script src="assets/fotos.js?v=20260910b"></script>
-<script src="assets/app.js?v=20260910a"></script>
+<script src="assets/app.js?v=20260910c"></script>
 </body>
 </html>

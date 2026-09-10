@@ -141,16 +141,28 @@
     var metFoto = DATA.filter(function (e) { return FOTOS[e.id]; }).length;
     var metLogies = DATA.filter(function (e) { return e.lo; }).length;
     var metArch = DATA.filter(function (e) { return e.arch; }).length;
+    // [aantal, label, filtersleutel of null] — met een sleutel wordt de pil een knop
     var rijen = [
-      [DATA.length, "locaties", false],
-      [metLogies, "waar je kunt logeren", false],
-      [metArch, "spraakmakende architectuur", false],
-      [LANDEN.length, "landen", false],
-      [metFoto, "met foto", metFoto > 0]
+      [DATA.length, "locaties", null],
+      [metLogies, "waar je kunt logeren", "logies"],
+      [metArch, "spraakmakende architectuur", "arch"],
+      [LANDEN.length, "landen", null],
+      [metFoto, "met foto", "foto"]
     ];
     $("pillen").innerHTML = rijen.map(function (r) {
-      return '<div class="pil' + (r[2] ? " aan" : "") + '"><b>' + r[0] + "</b><span>" + r[1] + "</span></div>";
+      return r[2]
+        ? '<button type="button" class="pil" data-pilf="' + r[2] + '" aria-pressed="false"><b>' +
+          r[0] + "</b><span>" + r[1] + "</span></button>"
+        : '<div class="pil"><b>' + r[0] + "</b><span>" + r[1] + "</span></div>";
     }).join("");
+    Array.prototype.forEach.call(document.querySelectorAll("[data-pilf]"), function (b) {
+      b.addEventListener("click", function () {
+        var f = b.dataset.pilf;
+        if (f === "logies") state.lo = state.lo === "*" ? null : "*";
+        else state[f] = !state[f];
+        teken();
+      });
+    });
     $("eyebrow-n").textContent = DATA.length + " locaties · " + LANDEN.length + " landen";
     $("foto-stand").textContent = metFoto === 0
       ? "De foto's staan er nog niet op: het ophaalscript moet nog draaien."
@@ -223,11 +235,44 @@
     });
   }
 
+  /* houdt chips, pillen en de mobiele registertitel gelijk met state,
+     ook als een filter niet via de eigen knop is gezet */
+  function syncFilters() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-land]"), function (b) {
+      b.setAttribute("aria-pressed", (b.dataset.land || null) === state.land ? "true" : "false");
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-type]"), function (b) {
+      b.setAttribute("aria-pressed", (b.dataset.type || null) === state.type ? "true" : "false");
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-lo]"), function (b) {
+      b.setAttribute("aria-pressed", (b.dataset.lo || null) === state.lo ? "true" : "false");
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-flag]"), function (b) {
+      b.setAttribute("aria-pressed", state[b.dataset.flag] ? "true" : "false");
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-pilf]"), function (b) {
+      var f = b.dataset.pilf;
+      var aan = f === "logies" ? state.lo === "*" : !!state[f];
+      b.setAttribute("aria-pressed", aan ? "true" : "false");
+    });
+    var t = $("reg-toggle");
+    if (t) {
+      var n = (state.land ? 1 : 0) + (state.type ? 1 : 0) + (state.lo ? 1 : 0) +
+              (state.arch ? 1 : 0) + (state.kern ? 1 : 0) + (state.hond ? 1 : 0) +
+              (state.jaarrond ? 1 : 0) + (state.foto ? 1 : 0) + (state.q ? 1 : 0);
+      t.textContent = n ? "filters · " + n + " actief" : "filters en zoeken";
+    }
+  }
+
   function teken() {
     schrijfUrl();
     var zicht = DATA.filter(past);
-    $("count").textContent = zicht.length === DATA.length
+    var telling = zicht.length === DATA.length
       ? DATA.length + " locaties" : zicht.length + " van " + DATA.length;
+    $("count").textContent = telling;
+    var cm = $("count-m");
+    if (cm) cm.textContent = telling;
+    syncFilters();
     tekenLijst(zicht);
     if (kaart) kaart.zetZichtbaar(zicht);
     if (state.sel > -1 && !past(DATA[state.sel])) selecteer(-1);
@@ -534,6 +579,19 @@
   bouwRaster();
   bouwFilters();
   bouwPillen();
+  var regToggle = $("reg-toggle");
+  if (regToggle) {
+    regToggle.addEventListener("click", function () {
+      var open = $("register").classList.toggle("open");
+      regToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    // met een filter in de URL het register meteen open tonen
+    if (state.land || state.type || state.lo || state.arch || state.kern ||
+        state.hond || state.jaarrond || state.foto || state.q) {
+      $("register").classList.add("open");
+      regToggle.setAttribute("aria-expanded", "true");
+    }
+  }
   kaart = bouwKaart();
   teken();
 })();

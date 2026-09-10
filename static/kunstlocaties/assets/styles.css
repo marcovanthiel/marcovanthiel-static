@@ -8,8 +8,8 @@
 
 :root{
   --zwart:#0E0E0D; --paneel:#131311; --plaat:#1A1A17; --diep:#080807;
-  --wit:#F0F0EA; --tekst:#D8D5CC; --mat:#A8A49A; --vaag:#7A776E;
-  --rood:#D63B12; --rood-diep:#8E2A0F;
+  --wit:#F0F0EA; --tekst:#D8D5CC; --mat:#A8A49A; --vaag:#807D73;
+  --rood:#D63B12; --rood-fel:#E8511F; --rood-diep:#8E2A0F;
   --lijn:#3A3730; --raster:#23221E;
 }
 
@@ -21,7 +21,7 @@ body{
   font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
-a{color:var(--rood)}
+a{color:var(--rood-fel)}
 a:hover{color:var(--wit)}
 :focus-visible{outline:2px solid var(--rood);outline-offset:2px}
 .disp{font-family:Anton,"Arial Narrow",Impact,sans-serif;font-weight:400;
@@ -37,14 +37,14 @@ a:hover{color:var(--wit)}
 .topbar{border-bottom:1px solid var(--lijn);background:var(--paneel)}
 .topbar .wrap{display:flex;align-items:center;gap:12px;padding-top:11px;padding-bottom:11px}
 .topbar .mark{font-size:12px;letter-spacing:.06em;color:var(--wit);text-decoration:none}
-.topbar .mark:hover{color:var(--rood)}
+.topbar .mark:hover{color:var(--rood-fel)}
 .topbar .crumb{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mat)}
 .topbar .crumb::before{content:"/ ";color:var(--vaag)}
 
 /* -------------------------------------------------------- titelblok ---- */
 .titelblok{padding:clamp(40px,7vw,88px) 0 clamp(24px,4vw,40px)}
 .eyebrow{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:0;color:var(--vaag)}
-.eyebrow b{color:var(--rood);font-weight:500}
+.eyebrow b{color:var(--rood-fel);font-weight:500}
 .kop-rij{display:flex;align-items:flex-start;gap:clamp(20px,4vw,44px);margin-top:.5em}
 h1{font-size:clamp(40px,8.4vw,116px);margin:0;color:var(--wit);max-width:15ch;
   overflow-wrap:anywhere;flex-grow:1}
@@ -70,7 +70,13 @@ h1 .rood{color:var(--rood)}
 .pil b{font-family:Anton,sans-serif;font-size:30px;color:var(--wit);line-height:1;
   font-variant-numeric:tabular-nums;font-weight:400}
 .pil span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--vaag)}
-.pil.aan b{color:var(--rood)}
+.pil.aan b{color:var(--rood-fel)}
+button.pil{background:none;font:inherit;text-align:left;cursor:pointer;border:0;
+  border-right:1px solid var(--raster)}
+button.pil span{text-decoration:underline dotted var(--lijn);text-underline-offset:3px}
+button.pil:hover span{color:var(--wit);text-decoration-color:var(--mat)}
+button.pil[aria-pressed="true"] b{color:var(--rood-fel)}
+button.pil[aria-pressed="true"] span{color:var(--wit)}
 
 /* ------------------------------------------------------------ plaat ---- */
 .plaat{padding:clamp(8px,2vw,18px) 0 clamp(26px,4vw,44px)}
@@ -111,7 +117,7 @@ h1 .rood{color:var(--rood)}
 .kaart-knoppen button:hover{border-color:var(--rood);color:var(--rood)}
 .cartouche{position:absolute;left:12px;top:12px;background:#131311EE;border:1px solid var(--lijn);
   padding:10px 13px;max-width:min(290px,54vw)}
-.cart-titel{margin:0 0 7px;color:var(--rood)}
+.cart-titel{margin:0 0 7px;color:var(--rood-fel)}
 .cart-regel{font-size:10.5px;color:var(--mat);margin:0 0 4px;display:flex;gap:11px;align-items:center}
 .cart-regel .sym{color:var(--rood);width:14px;display:inline-block}
 .schaal{display:flex;align-items:center;gap:9px;margin-top:9px}
@@ -119,7 +125,7 @@ h1 .rood{color:var(--rood)}
 .schaal span{font-size:10px;color:var(--mat)}
 .kaartkaart{position:absolute;right:12px;bottom:12px;background:var(--paneel);
   border:1px solid var(--rood);padding:13px 16px;max-width:min(340px,66vw)}
-.kaartkaart .kk-nr{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rood)}
+.kaartkaart .kk-nr{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rood-fel)}
 .kaartkaart h4{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;
   font-size:20px;color:var(--wit);margin:5px 0 4px;line-height:1.05;letter-spacing:.01em}
 .kaartkaart p{margin:0;font-size:12.5px;line-height:1.6;color:var(--mat)}
@@ -127,12 +133,19 @@ h1 .rood{color:var(--rood)}
 .plaat-onderschrift{display:flex;flex-wrap:wrap;gap:6px 22px;margin:9px 2px 0;
   font-size:10.5px;letter-spacing:.06em;color:var(--vaag)}
 .plaat-onderschrift b{color:var(--wit);font-weight:500;letter-spacing:.24em;text-transform:uppercase}
-.plaat-onderschrift .hint{margin-left:auto;color:var(--rood)}
+.plaat-onderschrift .hint{margin-left:auto;color:var(--rood-fel)}
 
 /* --------------------------------------------------------- register ---- */
 .register{position:sticky;top:0;z-index:20;background:var(--zwart);
   border-top:1px solid var(--lijn);border-bottom:1px solid var(--lijn);
   padding:12px 0 11px;margin-top:6px}
+.reg-kop{display:none}
+.reg-toggle{font-family:"IBM Plex Mono",monospace;font-size:11.5px;background:transparent;
+  color:var(--wit);border:1px solid var(--lijn);padding:6px 12px;cursor:pointer;
+  border-radius:0;letter-spacing:.06em;white-space:nowrap;flex:none}
+.reg-toggle::before{content:"+ ";color:var(--rood-fel)}
+.reg-toggle[aria-expanded="true"]::before{content:"\2212 "}
+.telling-kop{margin-left:auto}
 .reg-rij{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .reg-rij + .reg-rij{margin-top:7px}
 .reg-label{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--vaag);
@@ -141,7 +154,7 @@ button.chip{font-family:"IBM Plex Mono",monospace;font-size:11.5px;background:tr
   color:var(--mat);border:1px solid var(--lijn);padding:4px 9px;cursor:pointer;
   border-radius:0;line-height:1.45;transition:background .1s,color .1s,border-color .1s}
 button.chip:hover{color:var(--wit);border-color:var(--mat)}
-button.chip[aria-pressed="true"]{background:var(--rood);color:var(--wit);border-color:var(--rood)}
+button.chip[aria-pressed="true"]{background:var(--rood-fel);color:var(--zwart);border-color:var(--rood-fel)}
 input.zoek{font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--paneel);
   border:1px solid var(--lijn);color:var(--wit);padding:5px 10px;min-width:200px;
   flex:1 1 200px;border-radius:0}
@@ -158,7 +171,7 @@ main{padding-bottom:clamp(50px,8vw,96px)}
   line-height:1;overflow-wrap:anywhere}
 .landkop .telling-land{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--vaag);margin-left:auto}
-.regiokop{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--rood);
+.regiokop{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--rood-fel);
   margin:24px 0 0;padding-bottom:5px;border-bottom:1px dashed var(--raster)}
 
 article.plek{display:grid;grid-template-columns:172px minmax(0,1fr) 150px;gap:0 24px;
@@ -176,7 +189,7 @@ article.plek.gemarkeerd{outline:1px solid var(--rood);outline-offset:6px}
   repeating-linear-gradient(-45deg,var(--raster) 0 1px,transparent 1px 9px)}
 .credit{font-size:9px;line-height:1.6;color:var(--vaag);margin:5px 1px 0;overflow-wrap:anywhere}
 .credit a{color:var(--vaag);text-decoration:underline}
-.credit a:hover{color:var(--rood)}
+.credit a:hover{color:var(--rood-fel)}
 
 .plek-body{display:flex;flex-direction:column;gap:4px;min-width:0}
 .plek-body h3{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;
@@ -193,28 +206,28 @@ article.plek.gemarkeerd{outline:1px solid var(--rood);outline-offset:6px}
   font-family:"IBM Plex Sans Condensed","Helvetica Neue",Arial,sans-serif;overflow-wrap:anywhere}
 .lo-merk{display:inline-block;margin-right:9px;padding:2px 7px;font-family:"IBM Plex Mono",monospace;
   font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--zwart);
-  background:var(--rood);vertical-align:1px}
+  background:var(--rood-fel);vertical-align:1px}
 .buiten-kaart{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;
   text-transform:uppercase;color:var(--vaag)}
-.m-arch{color:var(--rood);border-style:dotted}
+.m-arch{color:var(--rood-fel);border-style:dotted}
 .kk-lo{margin:4px 0 0;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--rood)}
+  letter-spacing:.14em;text-transform:uppercase;color:var(--rood-fel)}
 .stip.buiten{display:none}
 .plek-acties{display:flex;flex-wrap:wrap;gap:18px;margin:10px 0 0}
 .plek-acties a,.plek-acties button{font-family:"IBM Plex Mono",monospace;font-size:10.5px;
-  color:var(--rood);text-decoration:none;border:0;background:none;padding:0;cursor:pointer;
+  color:var(--rood-fel);text-decoration:none;border:0;background:none;padding:0;cursor:pointer;
   letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid transparent;
   overflow-wrap:anywhere}
 .plek-acties a:hover,.plek-acties button:hover{border-bottom-color:var(--rood)}
 
 .meta{display:flex;flex-direction:column;gap:7px;align-items:flex-end;text-align:right}
 .nr{font-size:11px;letter-spacing:.14em;color:var(--vaag)}
-article.plek.kern .nr{color:var(--rood)}
+article.plek.kern .nr{color:var(--rood-fel)}
 .plaats{font-size:11.5px;color:var(--wit)}
 .merk{display:inline-block;padding:3px 8px;font-size:9px;letter-spacing:.14em;
   text-transform:uppercase;border:1px solid currentColor}
 .m-jaarrond{color:var(--mat)} .m-seizoen{color:var(--wit);border-style:dashed}
-.m-afspraak{color:var(--rood)} .m-letop{color:var(--wit);background:var(--rood-diep);border-color:var(--rood)}
+.m-afspraak{color:var(--rood-fel)} .m-letop{color:var(--wit);background:var(--rood-diep);border-color:var(--rood)}
 .hond{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--vaag)}
 .hond.ja{color:var(--tekst)}
 .leeg{padding:60px 0;color:var(--mat);font-size:15px}
@@ -231,6 +244,11 @@ footer .colofon{margin-top:20px;color:var(--vaag);font-size:11px}
   .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;
     justify-content:flex-start;text-align:left;margin-top:9px}
   .sub{border-left:0;padding-left:0;border-top:1px solid var(--lijn);padding-top:13px}
+}
+@media (max-width:760px){
+  .reg-kop{display:flex;align-items:center;gap:12px}
+  .register .reg-inhoud{display:none;margin-top:10px}
+  .register.open .reg-inhoud{display:block}
 }
 @media (max-width:640px){
   body{font-size:14.5px}
