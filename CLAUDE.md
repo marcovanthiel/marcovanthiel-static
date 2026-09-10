@@ -319,11 +319,16 @@ script-src (zelfde patroon als /wimbledon). Vendor-assets cachen 30 dagen.
 
 ## Subsite: /kunstlocaties
 
-**marcovanthiel.nl/kunstlocaties** — kaart, foto's en catalogus van 217
-kunstparken, land art-plekken, kunstenaarstuinen, Gesamtkunstwerken en andere
-locaties waar de plek zelf het werk is, in elf Europese landen. Filterbaar op
-land, soort, seizoen, hondenbeleid en of er een foto is, met zoekveld en deelbare
-querystring. Gemaakt 2026-08-28; kaartlaag en beeldtaal dezelfde dag.
+**marcovanthiel.nl/kunstlocaties** — kaart, foto's en catalogus van 303
+kunstparken, land art-plekken, kunstenaarstuinen, Gesamtkunstwerken, gebouwen en
+logeeradressen waar de plek zelf het werk is, in elf Europese landen. Filterbaar
+op land, soort, logeren, spraakmakende architectuur, seizoen, hondenbeleid en of
+er een foto is, met zoekveld en deelbare querystring. Gemaakt 2026-08-28;
+kaartlaag en beeldtaal dezelfde dag. Op 2026-09-10 uitgebreid van 217 naar 303:
+een logeerfilter met vier categorieën (`werk`, `kunsthotel`, `terrein`,
+`architectuur`) over 116 locaties, en een aparte architectuurvlag `arch` over 149
+locaties die losstaat van het soort-filter — spraakmakende architectuur valt
+binnen de opzet van de lijst, maar is een eigen ingang.
 
 ```
 static/kunstlocaties/
@@ -331,14 +336,15 @@ static/kunstlocaties/
 ├── AGENTS.md           # werkinstructie, datamodel, kaartlogica en fotobeleid
 ├── foto/               # <catalogusnummer>.webp, 760 px breed
 └── assets/
-    ├── data.js         # window.KUNSTLOCATIES (217 records, incl. ll-coördinaten)
+    ├── data.js         # window.KUNSTLOCATIES (303 records, incl. ll-coördinaten)
     ├── mapdata.js      # window.KAARTDATA — gegenereerd, ~150 kB
     ├── fotos.js        # window.KUNSTFOTOS — gegenereerd, credits per foto
     ├── app.js          # kaart, zoom/pan, filters, catalogus; geen afhankelijkheden
     ├── styles.css      # één vaste wereld (zwart staal), geen licht/donker-schakelaar
     ├── fonts.css       # @font-face
     └── fonts/          # Anton, IBM Plex Mono (Fontsource)
-scripts/kunstlocaties/  # build-map.js (kaartdata) en fetch-fotos.js (foto's)
+scripts/kunstlocaties/  # build-map.js (kaartdata), fetch-webfotos.js (foto's),
+                        # build-dossier.js (reisdossier uit data.js)
 ```
 
 **Beeldtaal**: richting "machine" — Tinguely. Zwart staal #0E0E0D, één vermiljoen
@@ -374,7 +380,7 @@ website** (promobeeld met credit + link; credits in `assets/fotos.js`, zichtbaar
 onder elke foto). Standaardroute = `scripts/kunstlocaties/fetch-webfotos.js`
 (og:image-strategie); aanvullend een Playwright-browser-ronde voor botmuren,
 handmatige keuze uit DOM-kandidaten voor logo/poster-gevallen, en zoekagents
-voor dode domeinen. Dekking: **alle 217** (31-8-2026: IT-19 alsnog van de
+voor dode domeinen. Dekking: **217 van de 303** (31-8-2026: IT-19 alsnog van de
 eigen site; IT-27/IT-44/IT-64/ES-06 via officiële partijen en IT-26 via een
 schermafdruk van de eigen site, alle op aanwijzing van Marco); details
 staan in `static/kunstlocaties/AGENTS.md` en `scripts/kunstlocaties/
@@ -385,10 +391,14 @@ foute og-keuzes handmatig vervangen (`scripts/kunstlocaties/haal-url.js`
 <id> <beeld-url> <bronpagina> haalt één aangewezen beeld binnen met dezelfde
 maat- en creditregels).
 
-**Data bijwerken**: bron is het Claude-project *Reizen*, bestand
-`reizen/kunstlocaties-midden-en-zuid-europa.md`. Wijzig daar, genereer `data.js`
-opnieuw, draai `build-map.js` en `fetch-fotos.js`, en hoog de `?v=` in
-`index.html` op.
+**Data bijwerken**: sinds 10-9-2026 is `static/kunstlocaties/assets/data.js` de
+bron. Wijzig daar, draai `build-map.js`, `fetch-webfotos.js` en
+`build-dossier.js`, hoog de `?v=` in `index.html` op, en zet
+`docs/kunstlocaties-dossier.md` en `docs/kunstlocaties-logeren.md` in het
+Claude-project *Reizen* onder `reizen/kunstlocaties-midden-en-zuid-europa.md`
+respectievelijk `reizen/kunstlocaties-logeren.md`. Andersom werken — eerst het
+dossier, dan de dataset — liep uit de pas zodra de dataset velden kreeg die het
+dossier niet had.
 
 ## Verhuisde projecten
 
