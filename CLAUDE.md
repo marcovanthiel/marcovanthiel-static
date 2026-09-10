@@ -1,8 +1,8 @@
 # CLAUDE.md — marcovanthiel-static
 
 Hugo-hoofdsite (5 talen, NL/EN/DE/IT/zh-CN) + subsites (Biennale 2026,
-Fundraising, Manifest, Zilvermanagement, Felix-presentatie). Zie `README.md`
-voor stack en build-details.
+Fundraising, Manifest, Felix-presentatie). Zie `README.md`
+voor stack en build-details. (/zilvermanagement is 20-6-2026 verwijderd.)
 
 **Deploy-gotcha (2026-07-06):** Cloudflare Pages kan een push naar `main`
 missen (geen build voor die commit; controleer met
