@@ -1,39 +1,33 @@
 # Openstaande punten — /kunstlocaties
 
-Stand 10 september 2026. Afgeronde punten weghalen, niet afvinken; dit is een
-werklijst, geen logboek. Het besluitenspoor staat in `AGENTS.md` en `CLAUDE.md`.
+Stand 10 september 2026, na de fotoronde en de schouw van de 86 nieuwe
+logeeradressen. Afgeronde punten weghalen, niet afvinken; dit is een werklijst,
+geen logboek. Het besluitenspoor staat in `AGENTS.md` en `CLAUDE.md`.
 
-## 1. Foto's voor de 86 nieuwe locaties
+## 1. FR-51 Villa Le Rêve: foto en boekbaarheid
 
-De uitbreiding met logeeradressen bracht 86 nieuwe records (IT-70…IT-90,
-FR-31…FR-53, ES-15…ES-25, PT-09…PT-17, CH-22…CH-27, AT-11…AT-17, DE-43…DE-45,
-BE-12, BE-13, LU-03, CZ-10…CZ-12). Die hebben nog geen beeld: de sandbox heeft
-geen netwerk naar buiten, dus dit moet op de eigen Mac:
+De enige officiële bron (gemeentepagina van Vence) heeft geen bruikbaar beeld;
+de locatie staat als enige van de 303 met arcering. Bovendien is de villa
+formeel kunstenaarsresidentie en loopt verblijf vooral via schilderstages.
+Per mail navragen wat los te boeken is, en bij die gelegenheid om beeld vragen
+of een eigen foto maken.
 
-    cd scripts/kunstlocaties && node fetch-webfotos.js
-
-Daarna `contactvel.js` draaien en het contactvel doorkijken — hotelsites zetten
-vaker dan musea een gelikte suite of een bord eten als og:image, en dat is niet
-waar het om gaat. Waar het beeld niets zegt: eigen foto in `foto-bron/<id>.jpg`,
-of de entry uit `fotos.js` halen en de arcering laten staan.
-
-## 2. Schouwen van alle foto's
-
-Nog niet gedaan voor de bestaande 217. `node contactvel.js` bouwt het overzicht.
-
-## 3. Hondenbeleid
+## 2. Hondenbeleid
 
 Bij ruim de helft van de 303 is het hondenbeleid onbekend, bij de nieuwe
 logeeradressen bijna overal — hotelsites vermelden het zelden op de eigen site.
 `onbekend` betekent onbekend, niet nee. Navragen loont alleen bij de plekken die
 op een reisroute staan; niet als bulkklus doen.
 
-## 4. Openingstijden van de "let op"-adressen
+## 3. Openingstijden en status van de "let op"-adressen
 
 Die staan als onzeker in `data.js`. Voor vertrek naar een streek de betreffende
 adressen bellen en `pr` bijwerken. Ook hier: per reis, niet in bulk.
+Nieuw sinds 10-9: **CH-24 Hotel Castell (Zuoz)** is volgens de eigen site
+gesloten voor een omvangrijke renovatie, zonder heropeningsdatum — af en toe
+castellzuoz.com nakijken.
 
-## 5. Te controleren bij de logeeradressen
+## 4. Te controleren bij de logeeradressen
 
 - **IT-40 ArtHotel PortaValdera** — het hotel staat in Peccioli en toont werk uit
   de kring van de Fondazione Peccioliper, maar wordt niet door de stichting zelf
@@ -41,8 +35,6 @@ adressen bellen en `pr` bijwerken. Ook hier: per reis, niet in bulk.
 - **IT-58 MuSaBa** — de foresteria heeft geen boekingspagina meer. Bellen.
 - **FR-05 Ronchamp** — het klooster van Piano neemt gasten aan voor bezinning,
   niet als hotel. Zo ook opgeschreven.
-- **FR-51 Villa Le Rêve** — formeel kunstenaarsresidentie; verblijf loopt vooral
-  via schilderstages. Per mail navragen wat los te boeken is.
 - **BE-04 Woning Van Wassenhove** — was jarenlang als verblijf te boeken via het
   MDD, nu staan er alleen bezoekdagen en residenties op de site. Navragen bij
   wvw@museumdd.be; als het weer kan, is dit het beste Belgische adres van de
@@ -51,8 +43,10 @@ adressen bellen en `pr` bijwerken. Ook hier: per reis, niet in bulk.
   de tekst richt zich op kunstenaars. Onduidelijk of een gewone bezoeker kan
   boeken.
 - **ES-20 Parador Santiago** — de eigen site meldt een sluitingsperiode in 2028.
+- **DE-45 Arte Luise** — sinds de overname door homaris self-check-in; bij een
+  volgende controle nagaan of de kunstenaarskamers als zodanig boekbaar blijven.
 
-## 6. Leads zonder eigen site of niet te verifiëren
+## 5. Leads zonder eigen site of niet te verifiëren
 
 Niet opgenomen, wel de moeite waard:
 

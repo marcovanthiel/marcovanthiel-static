@@ -11,7 +11,7 @@ Vier categorieën:
 
 Streng gehanteerd: een gewoon hotel in hetzelfde dorp telt niet, en een residentie waar alleen uitgenodigde kunstenaars terechtkunnen ook niet. Het moet door een gewone bezoeker te boeken zijn — bellen mag.
 
-De 86 records met een nummer boven het oude maximum (IT-70 en hoger, FR-31 en hoger, ES-15, PT-09, CH-22, AT-11, DE-43, BE-12, LU-03, CZ-10 en hoger) zijn nieuw op 10 september 2026 en hebben nog geen foto op de site.
+De 86 records met een nummer boven het oude maximum (IT-70 en hoger, FR-31 en hoger, ES-15, PT-09, CH-22, AT-11, DE-43, BE-12, LU-03, CZ-10 en hoger) zijn nieuw op 10 september 2026. Sinds de fotoronde van diezelfde dag hebben ze allemaal een foto op de site, behalve FR-51 Villa Le Rêve (geen bruikbaar beeld op de gemeentepagina van Vence).
 
 ---
 
@@ -587,12 +587,12 @@ Romaanse architectuur, wijnbouw en hedendaagse kunst op één landgoed met een e
 
 ### Madrid
 
-**Hotel Silken Puerta América** — Madrid · spraakmakende architectuur  
+**Hotel Puerta América** — Madrid · spraakmakende architectuur  
 *Slapen in de architectuur* — Elke verdieping is door een andere architect of ontwerper ingericht; je kiest je etage.  
 Zaha Hadid, Jean Nouvel, Norman Foster, Ron Arad, David Chipperfield, Arata Isozaki en Toyo Ito.  
 Elk van hen ontwierp één verdieping; de gevel is van Nouvel met teksten van Paul Éluard. Als tijdsdocument van de architectuurcultuur rond 2005 is er in Europa niets vergelijkbaars dat je kunt boeken. Het gebouw is inmiddels gedateerd en het onderhoud wisselt per etage.  
-*Jaarrond · honden onbekend* — Kies bij het boeken bewust een verdieping; horeca is beperkt, direct navragen.  
-<https://www.hotelpuertamerica.com/>
+*Jaarrond · honden onbekend* — Kies bij het boeken bewust een verdieping; horeca is beperkt, direct navragen. Het hotel voert de naam Silken niet meer (controle 10-9-2026).  
+<https://www.puertamericahotel.com/>
 
 ### Balearen
 
@@ -743,8 +743,8 @@ Zumthor bouwde deze huizen voor eigen gebruik in het gehucht Leis boven Vals. Je
 *Kunsthotel* — Berghotel uit 1913 met houtgestookte hamam en zicht over de Engadin.  
 Verzamelaar Ruedi Bechtler; werk van James Turrell en Tadashi Kawamata.  
 Het hotel functioneert als permanente kunstplek: een Skyspace van Turrell op de helling, de Rode Toren van Kawamata, en werk verspreid door het huis. De verbouwing combineert het historische casco met hedendaagse ingrepen. Zuoz zelf is een van de best bewaarde Engadiner dorpen.  
-*Jaarrond · honden onbekend* — De Skyspace is vrij toegankelijk, maar het lichtprogramma loopt rond zonsop- en zonsondergang — vraag het bij de receptie.  
-<https://www.hotelcastell.ch/>
+*Let op · honden onbekend* — De site meldt dat het hotel voor een omvangrijke renovatie gesloten is, zonder heropeningsdatum (controle 10-9-2026). De Skyspace van Turrell staat op de helling bij het hotel.  
+<https://castellzuoz.com/>
 
 **Kurhaus Bergün** — Bergün/Bravuogn · spraakmakende architectuur  
 *Slapen in de architectuur* — Jugendstilkamers, appartementen en eenvoudiger logies in een hotel uit 1906.  
@@ -896,9 +896,9 @@ Een van de belangrijkste woonhuizen van het klassieke modernisme, in de volksmon
 **Arte Luise Kunsthotel** — Berlijn  
 *Slapen ín het werk* — Vijftig kamers en suites in een stadspaleis uit 1825, vlak bij de Reichstag.  
 Ruim vijftig kunstenaars, elk één kamer als totaalconcept.  
-Geen twee kamers zijn gelijk en de kunstenaars ontvangen een deel van de kameropbrengst. Het is de oudste nog werkende variant van het idee dat een hotelkamer zelf het werk is. Je kiest bij het boeken letterlijk een kunstenaar.  
-*Jaarrond · honden onbekend* — Kamers aan de spoorzijde zijn goedkoper maar luidruchtiger; bekijk de kamerpagina's vooraf.  
-<https://www.luise-berlin.com/>
+Geen twee kamers zijn gelijk: sinds 1995 richtte steeds één kunstenaar één kamer in als totaalconcept. Een van de oudste varianten van het idee dat een hotelkamer zelf het werk is. Je kiest bij het boeken letterlijk een kunstenaar.  
+*Jaarrond · honden onbekend* — Wordt inmiddels uitgebaat door appartementenverhuurder homaris, met self-check-in; de oude site luise-berlin.com verwijst door naar hun boekingspagina (controle 10-9-2026).  
+<https://www.homaris.com/locations/berlin/>
 
 ## België
 
@@ -993,7 +993,7 @@ Een aparte ingang, los van de soortindeling: bij 149 van de 303 locaties is het 
 
 **Frankrijk** (23) — Chapelle Notre-Dame-du-Haut (Ronchamp), Hôtel de la Saline Royale (Arc-et-Senans), Fontevraud L'Hôtel (Fontevraud-l'Abbaye), Villa Cheminée (Cordemais), Hôtel Radio (Chamalières), Palais Idéal du Facteur Cheval (Hauterives), Couvent Sainte-Marie de La Tourette (Éveux), Le Balcon de Belledonne (Sainte-Marie-du-Mont), Terminal Neige Totem (Flaine), Musée Soulages en de glasramen van Conques (Rodez en Conques), Hôtel Belvédère du Rayon Vert (Cerbère), Hôtel de l'Abbaye-École de Sorèze (Sorèze), Château La Coste (Le Puy-Sainte-Réparade), Fondation Vasarely (Aix-en-Provence), Fondation Carmignac, Villa Carmignac (Île de Porquerolles), LUMA Arles (Arles), Villa Noailles (Hyères), Hôtel Le Corbusier (Marseille), Espace de l'Art Concret (Mouans-Sartoux), Fondation Maeght (Saint-Paul-de-Vence), Chapelle du Rosaire (Chapelle Matisse) (Vence), Hôtel Negresco (Nice), Les Refuges périurbains (Bordeaux Métropole).
 
-**Spanje** (16) — Guggenheim Bilbao (Bilbao), Museo Oteiza (Alzuza), Atrio (Cáceres), Hotel Casa Morisca (Granada), Cripta de la Colònia Güell (Santa Coloma de Cervelló), Museu Can Mario en Can Framis (Palafrugell en Barcelona), Hotel España (Barcelona), Hotel Casa Fuster (Barcelona), Museo de Arte Abstracto Español, Casas Colgadas (Cuenca), Wijnhuizen met kunst: Otazu, Marqués de Riscal, Ysios (Navarra en Rioja Alavesa), Hotel Viura (Villabuena de Álava), Parador Hostal dos Reis Católicos (Santiago de Compostela), Abadía Retuerta LeDomaine (Sardón de Duero), Hotel Silken Puerta América (Madrid), Cap Rocat (Cala Blava, Llucmajor), Paradisus Salinas Lanzarote (Costa Teguise, Lanzarote).
+**Spanje** (16) — Guggenheim Bilbao (Bilbao), Museo Oteiza (Alzuza), Atrio (Cáceres), Hotel Casa Morisca (Granada), Cripta de la Colònia Güell (Santa Coloma de Cervelló), Museu Can Mario en Can Framis (Palafrugell en Barcelona), Hotel España (Barcelona), Hotel Casa Fuster (Barcelona), Museo de Arte Abstracto Español, Casas Colgadas (Cuenca), Wijnhuizen met kunst: Otazu, Marqués de Riscal, Ysios (Navarra en Rioja Alavesa), Hotel Viura (Villabuena de Álava), Parador Hostal dos Reis Católicos (Santiago de Compostela), Abadía Retuerta LeDomaine (Sardón de Duero), Hotel Puerta América (Madrid), Cap Rocat (Cala Blava, Llucmajor), Paradisus Salinas Lanzarote (Costa Teguise, Lanzarote).
 
 **Portugal** (15) — Fundação de Serralves (Porto), Pousada Mosteiro de Amares (Amares), Monverde Wine Experience Hotel (Telões, Amarante), Casa das Histórias Paula Rego (Cascais), Quinta da Regaleira (Sintra), Centro de Arte Moderna Gulbenkian (Lissabon), Museu do Côa (Vila Nova de Foz Côa), Quinta do Vallado Wine Hotel (Peso da Régua), Casa de São Lourenço – Burel Panorama Hotel (Manteigas), Adega Mayor (Campo Maior), São Lourenço do Barrocal (Monsaraz), Casa no Tempo (Sabugueiro, Arraiolos), L'AND Vineyards (Montemor-o-Novo), Casa Modesta (Quatrim do Sul, Olhão), Estalagem da Ponta do Sol (Ponta do Sol, Madeira).
 

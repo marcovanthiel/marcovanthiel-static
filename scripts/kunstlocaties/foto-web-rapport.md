@@ -49,6 +49,29 @@ DE-30 (halde op achtergrond), DE-31 (luchtfoto route), CH-11 (Bregaglia-dal),
 IT-45 (Tuoro vanuit de lucht), IT-62 (Presti bij eigen werk), IT-65
 (palazzo met campagnebanier), LU-02, DE-13, DE-14, BE-06, CZ-03.
 
+## Fotoronde 10-9-2026: de 86 nieuwe logeeradressen
+
+**302 van de 303 locaties hebben een foto.** Werkwijze als op 28/31-8:
+eerst `fetch-webfotos.js` (65 in één run), daarna een Playwright-browserronde
+voor botmuren en JS-sites (12), en na de schouw van het contactvel 20
+handgekozen vervangingen via `haal-url.js` — hotelsites kiezen als og:image
+opvallend vaak een logo, een suite of een bord eten. Bijzonderheden:
+
+- Schermafdruk-patroon (precedent IT-26) gebruikt voor IT-90 Su Gologone,
+  FR-38 Fontevraud, ES-20 Parador Santiago, ES-21 Abadía Retuerta en ES-24
+  Paradisus Salinas: cookiebanner wegklikken, hero uitsnijden, `haal-url.js`
+  met lokaal pad.
+- Dode of verhuisde site-URL's gerepareerd in data.js: CH-24 Hotel Castell →
+  castellzuoz.com (site meldt: gesloten voor renovatie, s = "let op"), DE-45
+  Arte Luise → homaris.com (oude domein verwijst naar hun boekingssite),
+  ES-22 → puertamericahotel.com (naam Silken vervallen, record hernoemd).
+- **FR-51 Villa Le Rêve heeft geen foto**: de gemeentepagina van Vence (de
+  enige officiële bron) bevat geen bruikbaar beeld. Arcering blijft staan.
+- Grensgevallen bewust laten staan: FR-35 (aquarel van het hotel, hun eigen
+  promobeeld), FR-45 (zwart-witfoto Collioure van de hotelsite), CH-24
+  (zwart-wit-archiefbeeld, het enige beeld op de renovatiepagina), IT-90
+  (hero met welkomstknop in beeld), AT-15 (enige grote beeld op de site).
+
 Dit rapport wordt met de hand bijgehouden; `fetch-webfotos.js` schrijft zijn
 runverslag sinds 31-8-2026 naar `foto-web-rapport.laatste-run.md` (genegeerd
 in git) en laat dit bestand met rust. De uitzonderingenlijst staat ook in

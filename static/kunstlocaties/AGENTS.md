@@ -63,8 +63,13 @@ bleek bij de schouw van 31-8-2026 bij 16 locaties zo), zoek dan zelf een beeld
 op de eigen site en haal het binnen met
 `node haal-url.js <id> <beeld-url> <bronpagina>` (zelfde maat- en creditregels).
 
-Stand 10-9-2026: **217 van de 303 met foto** — de 86 logeeradressen die er op
-10-9 bij kwamen wachten nog op een fotoronde op een machine met netwerk.
+Stand 10-9-2026 (na de fotoronde van die avond): **302 van de 303 met foto**.
+Alleen FR-51 Villa Le Rêve heeft er geen — de gemeentepagina van Vence, de
+enige officiële bron, bevat geen bruikbaar beeld; de arcering blijft staan.
+De 86 nieuwe logeeradressen zijn dezelfde avond geschouwd; 20 og:image-keuzes
+zijn handmatig vervangen en vijf lastige sites zijn via het
+schermafdruk-patroon binnengehaald (details en grensgevallen in
+`scripts/kunstlocaties/foto-web-rapport.md`).
 Stand 31-8-2026: alle toen bestaande 217 met foto. Na de vulronde van 28-8 zijn op 31-8
 opgelost: IT-19 (server weer bereikbaar), vier op aanwijzing van Marco via
 promobeelden van officiële/aanbevolen partijen — IT-27 La Marrana

@@ -1232,12 +1232,12 @@ Romaanse architectuur, wijnbouw en hedendaagse kunst op één landgoed met een e
 
 ### Madrid
 
-**Hotel Silken Puerta América** — Madrid · spraakmakende architectuur · slapen in de architectuur  
+**Hotel Puerta América** — Madrid · spraakmakende architectuur · slapen in de architectuur  
 Zaha Hadid, Jean Nouvel, Norman Foster, Ron Arad, David Chipperfield, Arata Isozaki en Toyo Ito.  
 Elk van hen ontwierp één verdieping; de gevel is van Nouvel met teksten van Paul Éluard. Als tijdsdocument van de architectuurcultuur rond 2005 is er in Europa niets vergelijkbaars dat je kunt boeken. Het gebouw is inmiddels gedateerd en het onderhoud wisselt per etage.  
 *Logeren* — Elke verdieping is door een andere architect of ontwerper ingericht; je kiest je etage.  
-*Jaarrond · honden onbekend* — Kies bij het boeken bewust een verdieping; horeca is beperkt, direct navragen.  
-<https://www.hotelpuertamerica.com/>
+*Jaarrond · honden onbekend* — Kies bij het boeken bewust een verdieping; horeca is beperkt, direct navragen. Het hotel voert de naam Silken niet meer (controle 10-9-2026).  
+<https://www.puertamericahotel.com/>
 
 ### Balearen
 
@@ -1516,8 +1516,8 @@ Zumthor bouwde deze huizen voor eigen gebruik in het gehucht Leis boven Vals. Je
 Verzamelaar Ruedi Bechtler; werk van James Turrell en Tadashi Kawamata.  
 Het hotel functioneert als permanente kunstplek: een Skyspace van Turrell op de helling, de Rode Toren van Kawamata, en werk verspreid door het huis. De verbouwing combineert het historische casco met hedendaagse ingrepen. Zuoz zelf is een van de best bewaarde Engadiner dorpen.  
 *Logeren* — Berghotel uit 1913 met houtgestookte hamam en zicht over de Engadin.  
-*Jaarrond · honden onbekend* — De Skyspace is vrij toegankelijk, maar het lichtprogramma loopt rond zonsop- en zonsondergang — vraag het bij de receptie.  
-<https://www.hotelcastell.ch/>
+*Let op · honden onbekend* — Let op: de site meldt dat het hotel voor een omvangrijke renovatie gesloten is, zonder heropeningsdatum (controle 10-9-2026). De Skyspace van Turrell staat op de helling bij het hotel.  
+<https://castellzuoz.com/>
 
 **Kurhaus Bergün** — Bergün/Bravuogn · spraakmakende architectuur · slapen in de architectuur  
 Belle-Époque-kuurhotel, in oude staat teruggebracht.  
@@ -2026,10 +2026,10 @@ Een privéwoning waarin de collectie hangt en die elk jaar opnieuw wordt gehange
 
 **Arte Luise Kunsthotel** — Berlijn · slapen ín het werk  
 Ruim vijftig kunstenaars, elk één kamer als totaalconcept.  
-Geen twee kamers zijn gelijk en de kunstenaars ontvangen een deel van de kameropbrengst. Het is de oudste nog werkende variant van het idee dat een hotelkamer zelf het werk is. Je kiest bij het boeken letterlijk een kunstenaar.  
+Geen twee kamers zijn gelijk: sinds 1995 richtte steeds één kunstenaar één kamer in als totaalconcept. Een van de oudste varianten van het idee dat een hotelkamer zelf het werk is. Je kiest bij het boeken letterlijk een kunstenaar.  
 *Logeren* — Vijftig kamers en suites in een stadspaleis uit 1825, vlak bij de Reichstag.  
-*Jaarrond · honden onbekend* — Kamers aan de spoorzijde zijn goedkoper maar luidruchtiger; bekijk de kamerpagina's vooraf.  
-<https://www.luise-berlin.com/>
+*Jaarrond · honden onbekend* — Wordt inmiddels uitgebaat door appartementenverhuurder homaris, met self-check-in; de oude site luise-berlin.com verwijst door naar hun boekingspagina (controle 10-9-2026).  
+<https://www.homaris.com/locations/berlin/>
 
 ## België
 
@@ -2300,6 +2300,7 @@ RespirArt (Alpe di Pampeago, Tesero), Fondazione Sandretto Re Rebaudengo (Turijn
 - **Parador Hostal dos Reis Católicos** (Santiago de Compostela) — De parador meldt een sluitingsperiode in 2028 — controleer dat bij het plannen.
 - **Schaulager** (Münchenstein) — Niet inplannen voor 2026.
 - **Muzeum Susch** (Susch) — Beperkte dagen (do–zo) en sluitingsperiodes tussen tentoonstellingen — bel of reserveer.
+- **Hotel Castell** (Zuoz) — Let op: de site meldt dat het hotel voor een omvangrijke renovatie gesloten is, zonder heropeningsdatum (controle 10-9-2026). De Skyspace van Turrell staat op de helling bij het hotel.
 - **Kesselhaus Josephsohn / Sitterwerk** (St. Gallen) — Beperkte openingsdagen.
 - **Bad RagARTz** (Bad Ragaz en Vaduz) — In 2026 niet te zien.
 - **Looshaus am Kreuzberg** (Payerbach) — Buiten de zomer drie dagen per week gesloten; reserveren aangeraden.
