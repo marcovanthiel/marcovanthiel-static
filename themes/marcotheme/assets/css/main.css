@@ -1,5 +1,5 @@
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+/* Fonts: self-hosted (zie css/fonts.css, geladen vóór dit bestand in
+   baseof.html) — geen externe Google-Fonts-import meer. */
 
 /* Main styles for Marco van Thiel website */
 
@@ -94,7 +94,9 @@ a {
 }
 
 a:hover {
-  color: var(--secondary-color);
+  /* Donkerder blauw i.p.v. lichtblauw: #90e0ef haalde op wit maar 1,5:1
+     (WCAG-eis 4,5:1). #005f8a is de bestaande knop-hoverkleur (7,0:1). */
+  color: #005f8a;
 }
 
 /* Header */
@@ -283,6 +285,19 @@ a:hover {
   font-style: italic;
 }
 
+/* Links in de hero: heel licht blauw + onderlijn. De standaard linkkleur
+   (#0077b6) valt weg tegen de blauwe waas; #ecfbfd haalt 4,6:1 op #0077b6. */
+.home-hero a:not(.btn), .hero-section a:not(.btn) {
+  color: #ecfbfd;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.home-hero a:not(.btn):hover, .hero-section a:not(.btn):hover {
+  color: #ffffff;
+}
+
 /* Home content */
 .home-content {
   padding: 3rem 0;
@@ -413,8 +428,11 @@ a:hover {
 }
 
 /* Footer-links: wit met dunne onderlijn voor voldoende contrast (WCAG AA);
-   vol-witte onderlijn bij hover voor visuele feedback */
-.contact-info a {
+   vol-witte onderlijn bij hover voor visuele feedback. Geldt ook voor het
+   "Meer"-blok (.footer-links): die links erfden de blauwe standaardkleur
+   en vielen weg tegen de blauwe footer (1,0:1). */
+.contact-info a,
+.footer-links a {
   color: var(--footer-text);
   text-decoration: underline;
   text-decoration-color: rgba(255, 255, 255, 0.45);
@@ -423,7 +441,9 @@ a:hover {
   transition: text-decoration-color 0.2s ease;
 }
 
-.contact-info a:hover {
+.contact-info a:hover,
+.footer-links a:hover {
+  color: var(--footer-text);
   text-decoration-color: var(--footer-text);
 }
 
@@ -465,11 +485,27 @@ a:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
+  /* De header is een grid (zie boven); op mobiel stapelt alles in één
+     kolom. (Hier stond flex-direction: column uit de oude flex-layout —
+     dat deed op een grid niets, waardoor nav + taalknop rechts buiten
+     het scherm vielen en de pagina horizontaal scrolde.) */
   .site-header .container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    justify-items: center;
     text-align: center;
   }
-  
+
+  /* De gestapelde header is op mobiel te hoog om vast te plakken
+     (ruim 40% van het scherm); laat hem gewoon meescrollen. */
+  .site-header {
+    position: static;
+  }
+
+  .main-nav,
+  .language-dropdown {
+    grid-column: 1;
+  }
+
   .logo {
     align-items: center;
   }

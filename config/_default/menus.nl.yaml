@@ -1,21 +1,21 @@
 main:
   - identifier: home
     name: Home
-    url: /
+    pageRef: /
     weight: 1
-  - identifier: kunst
-    name: Kunst
-    url: /kunst/
-    weight: 3
   - identifier: cases
     name: Cases
-    url: /cases/
+    pageRef: /cases
     weight: 2
+  - identifier: kunst
+    name: Kunst
+    pageRef: /kunst
+    weight: 3
   - identifier: biennale
     name: Biennale
     url: /biennalevenetie2026/
     weight: 4
   - identifier: contact
     name: Contact
-    url: /contact/
+    pageRef: /contact
     weight: 5

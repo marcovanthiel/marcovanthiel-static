@@ -77,7 +77,7 @@
   <h2>{{ i18n "contact" }}</h2>
   <div class="contact-info">
     <p><a href="mailto:{{ .Site.Params.contact.email }}">{{ .Site.Params.contact.email }}</a></p>
-    <p><a href="tel:{{ replace .Site.Params.contact.phone " " "" }}">{{ .Site.Params.contact.phone }}</a></p>
+    <p><a href="tel:{{ replace (replace .Site.Params.contact.phone " " "") "(0)" "" }}">{{ .Site.Params.contact.phone }}</a></p>
     <p><a href="{{ .Site.Params.contact.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
   </div>
 </div>

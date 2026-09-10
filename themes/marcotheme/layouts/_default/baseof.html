@@ -40,7 +40,10 @@
     {{ end }}
     <link rel="alternate" hreflang="x-default" href="{{ .Site.BaseURL }}">
 
-    <!-- Stylesheets (Google Fonts worden via @import binnen main.css geladen) -->
+    <!-- Stylesheets (fonts self-hosted via css/fonts.css; geen Google-Fonts-import) -->
+    {{ $fonts := resources.Get "css/fonts.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $fonts.RelPermalink }}" integrity="{{ $fonts.Data.Integrity }}">
+
     {{ $main := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $main.RelPermalink }}" integrity="{{ $main.Data.Integrity }}">
 
@@ -108,7 +111,7 @@
         <div class="container">
             <div class="logo">
                 <a href="{{ .Site.Home.RelPermalink }}" aria-label="Marco van Thiel — home">
-                    <img src="/images/logo/logo.svg" alt="Van Thiel Management &amp; Consultancy">
+                    <img src="/images/logo/logo.svg" alt="Van Thiel Management &amp; Consultancy" width="932" height="267">
                 </a>
                 <p>Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager</p>
             </div>
@@ -146,7 +149,9 @@
                 <div class="contact-info">
                     <h3>{{ i18n "contactTitle" }}</h3>
                     <p><a href="mailto:{{ .Site.Params.contact.email }}">{{ .Site.Params.contact.email }}</a></p>
-                    <p><a href="tel:{{ replace .Site.Params.contact.phone " " "" }}">{{ .Site.Params.contact.phone }}</a></p>
+                    {{/* In de tel:-link ook "(0)" strippen: +31(0)6... belt in het
+     buitenland verkeerd; +316... werkt overal. */}}
+                    <p><a href="tel:{{ replace (replace .Site.Params.contact.phone " " "") "(0)" "" }}">{{ .Site.Params.contact.phone }}</a></p>
                     <p><a href="{{ .Site.Params.contact.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                     <p>{{ .Site.Params.contact.address }}</p>
                 </div>

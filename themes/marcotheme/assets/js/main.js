@@ -23,11 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('.main-nav a');
 
+  // Taalhomes alleen bij exacte match markeren; anders is "Home" op elke
+  // pagina actief (elke /de/...-URL bevat immers /de/). Secties zoals
+  // /cases/ blijven actief op hun detailpagina's via startsWith.
+  const langRoots = ['/', '/en/', '/de/', '/it/', '/cn/'];
   navLinks.forEach(link => {
     const linkPath = link.getAttribute('href');
     if (linkPath === currentPath ||
-        (currentPath === '/' && linkPath === '/') ||
-        (currentPath !== '/' && linkPath !== '/' && currentPath.includes(linkPath))) {
+        (!langRoots.includes(linkPath) && currentPath.startsWith(linkPath))) {
       link.classList.add('active');
     }
   });

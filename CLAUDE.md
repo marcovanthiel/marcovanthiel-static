@@ -14,6 +14,22 @@ Functions (functions/toegankelijkscan/ + lib/toegankelijkscan/); docs in
 vertalingen, slug per taal); footerlink op elke pagina via `baseof.html` +
 i18n-key `accessibilityTitle`.
 
+**Hoofdsite-verbeteringen (10-9-2026, v1.18.0):** (1) mobiele overflow gefixt:
+de header-media-query (<=768px) stuurde nog flex-direction op wat inmiddels een
+grid is, waardoor nav + taalknop rechts buiten beeld vielen (scrollWidth 496 op
+390); nu stapelt de header in 1 kolom en is hij op mobiel niet meer sticky (te
+hoog). (2) Fonts self-hosted: Montserrat/Open Sans als 15 woff2-bestanden in
+`static/fonts/` + `themes/marcotheme/assets/css/fonts.css` (1-op-1 uit de
+Google-css2-output); de site-CSP houdt fonts.googleapis/gstatic zolang
+felix/manifest/fundraising/biennale nog wel Google Fonts laden. (3) Contrast:
+footer-"Meer"-links waren blauw op blauw (1,0:1), nu wit met onderlijn;
+hero-links #ecfbfd (4,6:1) met onderlijn; a:hover #005f8a i.p.v. #90e0ef
+(1,5:1 op wit). (4) Navigatie per taal via pageRef: menu-items wezen naar de
+NL-paden of naar niet-bestaande pagina's (/art/, /arte/, /艺术/ gaven de
+NL-homepage); kunstpagina nu als gekoppelde vertaling in 5 talen
+(content/<taal>/kunst.md, slug per taal), DE-menu kreeg zijn Home-item.
+(5) tel:-link zonder "(0)". Logo-img kreeg width/height.
+
 **Deploy-gotcha (2026-07-06):** Cloudflare Pages kan een push naar `main`
 missen (geen build voor die commit; controleer met
 `npx wrangler pages deployment list --project-name=marcovanthiel` of de
