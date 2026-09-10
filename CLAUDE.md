@@ -396,7 +396,11 @@ website** (promobeeld met credit + link; credits in `assets/fotos.js`, zichtbaar
 onder elke foto). Standaardroute = `scripts/kunstlocaties/fetch-webfotos.js`
 (og:image-strategie); aanvullend een Playwright-browser-ronde voor botmuren,
 handmatige keuze uit DOM-kandidaten voor logo/poster-gevallen, en zoekagents
-voor dode domeinen. Dekking: **217 van de 303** (31-8-2026: IT-19 alsnog van de
+voor dode domeinen. Dekking: **302 van de 303** sinds de fotoronde van
+10-9-2026 (86 nieuwe logeeradressen: 65 via het script, 12 via de browserronde,
+20 og-keuzes na schouw handmatig vervangen, 5 lastige sites via het
+schermafdruk-patroon; alleen FR-51 Villa Le Rêve bleef zonder beeld). Eerdere
+mijlpalen (31-8-2026: IT-19 alsnog van de
 eigen site; IT-27/IT-44/IT-64/ES-06 via officiële partijen en IT-26 via een
 schermafdruk van de eigen site, alle op aanwijzing van Marco); details
 staan in `static/kunstlocaties/AGENTS.md` en `scripts/kunstlocaties/
@@ -415,6 +419,16 @@ Claude-project *Reizen* onder `reizen/kunstlocaties-midden-en-zuid-europa.md`
 respectievelijk `reizen/kunstlocaties-logeren.md`. Andersom werken — eerst het
 dossier, dan de dataset — liep uit de pas zodra de dataset velden kreeg die het
 dossier niet had.
+
+**Verbeterronde 10-9-2026** (kwaliteitsloop, drie iteraties op 1180 en 390):
+contrast overal minimaal 4,5:1 via nieuw token `--rood-fel #E8511F` voor rode
+tekst en gevulde merkjes (het grafische vermiljoen `--rood` bleef), `--vaag`
+naar `#807D73`; het filterregister op mobiel ingeklapt achter een
+"filters en zoeken"-knop met actieve-filterteller; de statpillen logeren/
+architectuur/met-foto zijn nu filterknoppen; legenda en lede bijgewerkt.
+Kliktest en scrollbreedte-eindcheck groen, steekproef van 10 externe links
+10 maal 200. Diezelfde dag hersteld: commit da612fe had de volledige
+303-uitbreiding (1831ce9) onbedoeld teruggedraaid; herstelcommit 27aa4e1.
 
 ## Verhuisde projecten
 

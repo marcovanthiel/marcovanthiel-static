@@ -46,6 +46,20 @@ monospace gelezen hoeven te worden.
 De pagina volgt de licht/donker-voorkeur van de bezoeker **niet**: het zwart is
 het ontwerp, en alle kleuren staan expliciet in `:root`.
 
+Sinds de verbeterronde van 10-9-2026 (contrast minimaal 4,5:1):
+
+- `--rood-fel #E8511F` is het vermiljoen voor **tekst** op donker (links,
+  regiokoppen, nummers, hints) en voor gevulde merkjes met zwart opschrift
+  (actieve filterchips, het logeermerkje). Het oorspronkelijke
+  `--rood #D63B12` blijft voor al het grafische werk: stippen, tandwiel,
+  kaders, richtkruis, de grote kop. Niet omwisselen.
+- Het filterregister is op schermen tot 760 px ingeklapt achter de knop
+  "filters en zoeken" (`#reg-toggle`, teller van actieve filters ernaast);
+  met een filter in de querystring opent het vanzelf.
+- De statpillen voor logeren, architectuur en met-foto zijn knoppen die het
+  bijbehorende filter aan- en uitzetten; `syncFilters()` in `app.js` houdt
+  chips, pillen en tellers gelijk.
+
 ## Foto's
 
 Elke locatie heeft een fotovak. Staat er geen foto, dan komt er geen leeg gat maar

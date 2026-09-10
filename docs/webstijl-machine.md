@@ -18,8 +18,9 @@ Niets rond, overal een raster, het meetwerk zichtbaar.
 | `--wit` | `#F0F0EA` | koppen en nadruk |
 | `--tekst` | `#D8D5CC` | lopende tekst |
 | `--mat` | `#A8A49A` | tweede laag |
-| `--vaag` | `#7A776E` | labels, credits |
-| `--rood` | `#D63B12` | het enige accent |
+| `--vaag` | `#807D73` | labels, credits (tot 10-9-2026 `#7A776E`; opgehoogd voor contrast 4,5:1) |
+| `--rood` | `#D63B12` | het accent, voor al het grafische werk (stippen, tandwiel, kaders) |
+| `--rood-fel` | `#E8511F` | hetzelfde vermiljoen, iets lichter, voor rode tekst op donker en voor gevulde merkjes met zwart opschrift; nodig voor contrast 4,5:1 (sinds 10-9-2026) |
 | `--rood-diep` | `#8E2A0F` | achtergrond van een waarschuwing |
 | `--lijn` | `#3A3730` | kaders |
 | `--raster` | `#23221E` | millimeterpapier, scheidingslijnen |
