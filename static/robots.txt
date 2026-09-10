@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /toegankelijkscan/scan
 
 # Sitemap (multi-language)
 Sitemap: https://marcovanthiel.nl/sitemap.xml
