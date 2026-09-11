@@ -51,4 +51,4 @@ Met de opleiding tot toezichthouder aan Maastricht University, een lopende MBA L
 Direct inzetbaar voor interim opdrachten als senior programmamanager, interim bestuurder, strategisch adviseur, CIO of verandermanager binnen organisaties die werken aan fusies, herstructureringen en bredere organisatietransities. Tevens beschikbaar voor toezichthoudende rollen in zorg, onderwijs, woningcorporaties en culturele instellingen.
 
 
-*En een verlanglijst van [kunstparken en bijzondere kunstlocaties in Europa](/kunstlocaties/): 217 plekken waar de plek zelf het werk is.*
+*En een verlanglijst van [kunstparken en bijzondere kunstlocaties in Europa](https://artlocations.art/): 303 plekken waar de plek zelf het werk is.*

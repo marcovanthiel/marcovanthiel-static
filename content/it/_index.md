@@ -51,4 +51,4 @@ Con il corso di vigilanza presso l'Università di Maastricht, un MBA Leading Inn
 Immediatamente disponibile per incarichi ad interim come senior program manager, dirigente interim, consulente strategico, CIO o change manager all'interno di organizzazioni impegnate in fusioni, ristrutturazioni e più ampie transizioni organizzative. Anche disponibile per ruoli di vigilanza nella sanità, istruzione, società di edilizia abitativa e istituzioni culturali.
 
 
-*E una lista dei desideri di [parchi d'arte e luoghi d'arte straordinari in Europa](/kunstlocaties/): 217 luoghi in cui il luogo stesso è l'opera (pagina in olandese).*
+*E una lista dei desideri di [parchi d'arte e luoghi d'arte straordinari in Europa](https://artlocations.art/): 303 luoghi in cui il luogo stesso è l'opera (pagina in olandese).*

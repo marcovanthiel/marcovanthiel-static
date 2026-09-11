@@ -4,3 +4,6 @@
 /toegankelijkscan       https://toegankelijkscan.nl/  301
 /toegankelijkscan/      https://toegankelijkscan.nl/  301
 /toegankelijkscan/*     https://toegankelijkscan.nl/:splat  301
+/kunstlocaties       https://artlocations.art/  301
+/kunstlocaties/      https://artlocations.art/  301
+/kunstlocaties/*     https://artlocations.art/  301

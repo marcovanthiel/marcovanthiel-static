@@ -51,4 +51,4 @@ Mit der Ausbildung zum Aufsichtsrat an der Universität Maastricht, einem laufen
 Sofort einsetzbar für Interimsaufträge als Senior-Programmmanager, Interim-Vorstand, strategischer Berater, CIO oder Veränderungsmanager in Organisationen, die an Fusionen, Restrukturierungen und breiteren Organisationstransitionen arbeiten. Ebenfalls verfügbar für Aufsichtsrollen im Gesundheitswesen, Bildungswesen, in Wohnungsbaugesellschaften und Kultureinrichtungen.
 
 
-*Und eine Wunschliste von [Kunstparks und außergewöhnlichen Kunstorten in Europa](/kunstlocaties/): 217 Orte, an denen der Ort selbst das Werk ist (Seite auf Niederländisch).*
+*Und eine Wunschliste von [Kunstparks und außergewöhnlichen Kunstorten in Europa](https://artlocations.art/): 303 Orte, an denen der Ort selbst das Werk ist (Seite auf Niederländisch).*

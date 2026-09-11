@@ -45,17 +45,11 @@ Verifieer een deploy dus altijd op de live URL, niet alleen op de groene Action.
 | Commando | Doet |
 |---|---|
 | `/deploy-check` | pushen en op de live URL controleren (met de Cloudflare-gotcha hierboven) |
-| `/kunstlocaties-fotoronde` | ontbrekende foto's aanvullen en schouwen |
-| `/kunstlocaties-schouwen` | contactvel bouwen en de foto's visueel nalopen |
-| `/kunstlocaties-locatie` | een locatie toevoegen, inclusief kaart en foto |
-| `/kunstlocaties-kaart` | kaartdata opnieuw genereren |
 
 `.claude/settings.json` staat de veilige commando's toe zonder te vragen;
 `git push --force` en `rm -rf` staan expliciet op de weigerlijst.
 
-Verder: `docs/kunstlocaties-draaiboek.md` (de subsite van niets tot live, plus
-wat een Cowork-sandbox níét kan) en `docs/webstijl-machine.md` (de huisstijl).
-Openstaand werk staat in `static/kunstlocaties/TAKEN.md`.
+Verder: `docs/webstijl-machine.md` (de huisstijl).
 
 ## Subsite: /felix
 
@@ -390,137 +384,15 @@ dat blijvend op.
 `/weerstatistieken/*`-blok in `static/_headers` met `'unsafe-inline'` in
 script-src (zelfde patroon als /wimbledon). Vendor-assets cachen 30 dagen.
 
-## Subsite: /kunstlocaties
-
-**marcovanthiel.nl/kunstlocaties** — kaart, foto's en catalogus van 303
-kunstparken, land art-plekken, kunstenaarstuinen, Gesamtkunstwerken, gebouwen en
-logeeradressen waar de plek zelf het werk is, in elf Europese landen. Filterbaar
-op land, soort, logeren, spraakmakende architectuur, seizoen, hondenbeleid en of
-er een foto is, met zoekveld en deelbare querystring. Gemaakt 2026-08-28;
-kaartlaag en beeldtaal dezelfde dag. Op 2026-09-10 uitgebreid van 217 naar 303:
-een logeerfilter met vier categorieën (`werk`, `kunsthotel`, `terrein`,
-`architectuur`) over 116 locaties, en een aparte architectuurvlag `arch` over 149
-locaties die losstaat van het soort-filter — spraakmakende architectuur valt
-binnen de opzet van de lijst, maar is een eigen ingang.
-
-```
-static/kunstlocaties/
-├── index.html          # markup, verder niets
-├── AGENTS.md           # werkinstructie, datamodel, kaartlogica en fotobeleid
-├── foto/               # <catalogusnummer>.webp, 760 px breed
-└── assets/
-    ├── data.js         # window.KUNSTLOCATIES (303 records, incl. ll-coördinaten)
-    ├── mapdata.js      # window.KAARTDATA — gegenereerd, ~150 kB
-    ├── fotos.js        # window.KUNSTFOTOS — gegenereerd, credits per foto
-    ├── app.js          # kaart, zoom/pan, filters, catalogus; geen afhankelijkheden
-    ├── styles.css      # één vaste wereld (zwart staal), geen licht/donker-schakelaar
-    ├── fonts.css       # @font-face
-    └── fonts/          # Anton, IBM Plex Mono (Fontsource)
-scripts/kunstlocaties/  # build-map.js (kaartdata), fetch-webfotos.js (foto's),
-                        # build-dossier.js (reisdossier uit data.js)
-```
-
-**Locatie van de dag (11-9-2026):** boven aan de homepage staat nu een
-redactionele cover (`#locatie-van-de-dag`) die één gefeaturede locatie groot
-toont met haar foto als openingsbeeld; de hele bestaande pagina (hero,
-statpillen, kaart, register, catalogus) blijft ongewijzigd eronder. De keuze is
-**puur client-side en deterministisch op de kalenderdatum** (geen server, geen
-cron): `dagnr = floor(Date.UTC(y,m,d)/86400000)`, `i = (dagnr*173) % 302`
-(alleen de 302 gefotografeerde locaties; 173 is priem en coprime, dus hij
-springt dagelijks over landen). Iedereen ziet dezelfde dag dezelfde plek en hij
-rouleert elke dag — nadrukkelijk niet `Math.random`. De statische HTML toont Le
-Cyclop (FR-01) als no-JS/crawler-default; `bouwDagcover()` in `app.js` wisselt
-hem naar vandaag. De willekeurige locatiefoto krijgt de petrol/pruim-duotoon via
-SVG-filter `#duotoon-petrol` (feColorMatrix + feComponentTransfer). De
-cover-acties haken op de bestaande "toon op de kaart"/`selecteer`-functies en op
-het anker `#plek-<id>`. Contrast gelijk aan de rest (laagste paar 5,27:1);
-scrollWidth == viewport op 1180 en 390; drie datums gaven drie verschillende
-locaties (LU-03, ES-15, IT-28) en dezelfde datum steeds dezelfde. Details in
-`static/kunstlocaties/AGENTS.md`.
-
-**Beeldtaal (sinds 11-9-2026): Editorial reismagazine, petrol + pruim.** Door
-Marco gekozen uit 8 ontwerp- + 8 kleurvoorstellen; dit **verving** voor deze
-subsite de oude machine-stijl (Anton/millimeterpapier/vermiljoen — die was niet
-langer heilig, hij wilde er juist van af). Donkere petrol-grond `--papier
-#072A31` / `--papier2 #0D3B44`, gebroken wit `--inkt #EAF0F0`, lichte pruim/
-orchidee `--accent #D89AD0` als tekst- en (met donkere opdruk) vulaccent;
-hairlines `rgba(234,240,240,.26/.64)`. Type: **Newsreader** (serif, variabel,
-normaal + cursief — koppen, standfirsts, body, catalogustekst) + **Schibsted
-Grotesk** (sans, variabel — kickers, meta, labels, cijfers, chips, nav,
-kaartlabels), self-hosted woff2 in `assets/fonts/` (variabel is nodig voor de
-fractionele gewichten; valt onder de site-brede CSP `font-src 'self'`). Idioom:
-kickers, genummerde rubrieken, standfirsts, folio's, register-/cataloguscodes.
-Contrast overal >= 4,5:1 (laagste paar 5,27:1). Geen licht/donker-schakelaar.
-Markup herzien (masthead/cover/nummer-index/kaartsectie/register/catalogus/
-colofon), millimeterpapier-SVG en tandwiel weg; alle door `app.js` gebruikte
-id's/klassen behouden, `app.js`/`mapdata.js` ongewijzigd. Kwaliteitsloop met 3
-screenshot-iteraties (o.a. gevonden: dubbel `id="kaart"` op sectie én SVG brak de
-kaart — sectie is nu `#de-kaart`) en een volledige kliktest (filters/zoek/kaart/
-mobiel + 10 externe links 200), live geverifieerd op 1180 en 390. De oude
-huisstijl staat als naslag in `docs/webstijl-machine.md` (met superseded-notitie);
-de machine-ronde en de mozaïekronde van 29-8-2026 zitten in de git-historie.
-
-**Kaart zonder kaartdienst**: één SVG uit Natural Earth 1:50 m, Mercator,
-tekenvlak 1000×890, vereenvoudigd met Douglas-Peucker. Stippen (vierkanten) en
-richtkruis worden tegengeschaald zodat ze even groot blijven; de liniaal langs de
-rand staat in schermruimte. Labels vanaf 3,2× en gefilterd op botsing.
-
-**Foto's**: één per locatie, `foto/<nummer>.webp`. Opgehaald met
-`scripts/kunstlocaties/fetch-fotos.js` — dat draait op een machine met gewoon
-internet, want de agent-sandbox komt niet bij Wikimedia. Alleen vrije licenties;
-maker, licentie en bronpagina staan onder elke foto. Ontbreekt er een foto, dan
-toont de pagina een gearceerd vlak, geen leeg gat. Eigen foto's gaan voor: zet ze in
-`scripts/kunstlocaties/foto-bron/<nummer>.jpg`.
-
-**CSP**: bewust géén eigen blok. Alle CSS en JS staan in externe bestanden, de
-fonts zijn self-hosted en de foto's staan op het eigen domein, dus de site-brede
-CSP (`script-src 'self'`, `img-src 'self' data:`) volstaat. In `static/_headers`
-alleen cacheregels voor `/kunstlocaties/assets/fonts/*` en `/kunstlocaties/foto/*`.
-
-**Indexeerbaar** (geen `noindex`), en gelinkt vanaf de homepage in alle vijf
-talen — de laatste cursieve regel van `content/<taal>/_index.md`.
-
-**Foto's 28-8-2026** (verzoek Marco): elke locatie een foto **van de eigen
-website** (promobeeld met credit + link; credits in `assets/fotos.js`, zichtbaar
-onder elke foto). Standaardroute = `scripts/kunstlocaties/fetch-webfotos.js`
-(og:image-strategie); aanvullend een Playwright-browser-ronde voor botmuren,
-handmatige keuze uit DOM-kandidaten voor logo/poster-gevallen, en zoekagents
-voor dode domeinen. Dekking: **302 van de 303** sinds de fotoronde van
-10-9-2026 (86 nieuwe logeeradressen: 65 via het script, 12 via de browserronde,
-20 og-keuzes na schouw handmatig vervangen, 5 lastige sites via het
-schermafdruk-patroon; alleen FR-51 Villa Le Rêve bleef zonder beeld). Eerdere
-mijlpalen (31-8-2026: IT-19 alsnog van de
-eigen site; IT-27/IT-44/IT-64/ES-06 via officiële partijen en IT-26 via een
-schermafdruk van de eigen site, alle op aanwijzing van Marco); details
-staan in `static/kunstlocaties/AGENTS.md` en `scripts/kunstlocaties/
-foto-web-rapport.md`. Daarbij ook dode site-URL's in `data.js` gerepareerd.
-Les: og:image is vaak een logo of campagnebeeld; altijd visueel schouwen
-(contactvellen) vóór livegang. Bij de volledige schouw van 31-8-2026 zijn 16
-foute og-keuzes handmatig vervangen (`scripts/kunstlocaties/haal-url.js`
-<id> <beeld-url> <bronpagina> haalt één aangewezen beeld binnen met dezelfde
-maat- en creditregels).
-
-**Data bijwerken**: sinds 10-9-2026 is `static/kunstlocaties/assets/data.js` de
-bron. Wijzig daar, draai `build-map.js`, `fetch-webfotos.js` en
-`build-dossier.js`, hoog de `?v=` in `index.html` op, en zet
-`docs/kunstlocaties-dossier.md` en `docs/kunstlocaties-logeren.md` in het
-Claude-project *Reizen* onder `reizen/kunstlocaties-midden-en-zuid-europa.md`
-respectievelijk `reizen/kunstlocaties-logeren.md`. Andersom werken — eerst het
-dossier, dan de dataset — liep uit de pas zodra de dataset velden kreeg die het
-dossier niet had.
-
-**Verbeterronde 10-9-2026** (kwaliteitsloop, drie iteraties op 1180 en 390):
-contrast overal minimaal 4,5:1 via nieuw token `--rood-fel #E8511F` voor rode
-tekst en gevulde merkjes (het grafische vermiljoen `--rood` bleef), `--vaag`
-naar `#807D73`; het filterregister op mobiel ingeklapt achter een
-"filters en zoeken"-knop met actieve-filterteller; de statpillen logeren/
-architectuur/met-foto zijn nu filterknoppen; legenda en lede bijgewerkt.
-Kliktest en scrollbreedte-eindcheck groen, steekproef van 10 externe links
-10 maal 200. Diezelfde dag hersteld: commit da612fe had de volledige
-303-uitbreiding (1831ce9) onbedoeld teruggedraaid; herstelcommit 27aa4e1.
-
 ## Verhuisde projecten
 
+- **Kunstlocaties** (voorheen `/kunstlocaties`) is per **2026-09-11** verhuisd naar het
+  eigen domein **artlocations.art** en de repo **`marcovanthiel/artlocations`** (eigen
+  Cloudflare Pages-project, Node-generator; draaiboek in die repo `docs/migratie.md`).
+  `static/kunstlocaties/`, `scripts/kunstlocaties/`, de vier `/kunstlocaties-*`-commando's
+  en de kunstlocaties-docs zijn verwijderd; `/kunstlocaties(/**)` 301't via `static/_redirects`.
+  De homepage linkt in alle vijf talen naar artlocations.art. Verdere uitbouw (multi-page
+  SEO-generator, EN, verdienmodel) gebeurt in de nieuwe repo.
 - **OCAI-cultuurmeting Koraal & Via Jeugd** (voorheen onder
   `/koraalenviajeugd/`) is per **2026-06-12** verhuisd naar het eigen
   domein **koraalenviajeugd.nl** en repo
