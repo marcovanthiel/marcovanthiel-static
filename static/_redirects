@@ -1,6 +1,3 @@
-/koraalenviajeugd       https://koraalenviajeugd.nl/  301
-/koraalenviajeugd/      https://koraalenviajeugd.nl/  301
-/koraalenviajeugd/*     https://koraalenviajeugd.nl/:splat  301
 /toegankelijkscan       https://toegankelijkscan.nl/  301
 /toegankelijkscan/      https://toegankelijkscan.nl/  301
 /toegankelijkscan/*     https://toegankelijkscan.nl/:splat  301
