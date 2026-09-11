@@ -13,7 +13,7 @@ The website marcovanthiel.nl aims to be usable for everyone. This site therefore
 ## Measures
 
 - Accessibility is part of the design of this site.
-- The site is checked periodically with an automated scan, including the in-house service [ToegankelijkScan](/toegankelijkscan/) at marcovanthiel.nl/toegankelijkscan.
+- The site is checked periodically with an automated scan, including the in-house service [ToegankelijkScan](https://toegankelijkscan.nl) at toegankelijkscan.nl.
 
 ## Status
 

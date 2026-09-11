@@ -1,12 +1,13 @@
 # CLAUDE.md — marcovanthiel-static
 
 Hugo-hoofdsite (5 talen, NL/EN/DE/IT/zh-CN) + subsites (Biennale 2026,
-Fundraising, Manifest, Felix-presentatie, ToegankelijkScan). Zie `README.md`
+Fundraising, Manifest, Felix-presentatie). Zie `README.md`
 voor stack en build-details. (/zilvermanagement is 20-6-2026 verwijderd.)
 
-**ToegankelijkScan (sinds 10-9-2026):** /toegankelijkscan draait als Pages
-Functions (functions/toegankelijkscan/ + lib/toegankelijkscan/); docs in
-`docs/TOEGANKELIJKSCAN.md`. De oude Worker-repo is alleen nog een redirect.
+**ToegankelijkScan is 11-9-2026 verhuisd** naar het eigen domein
+**toegankelijkscan.nl** (zelfstandige Worker, repo `marcovanthiel/toegankelijkscan`).
+De subsite hier (Pages Functions, 10-9-2026) is verwijderd; `/toegankelijkscan(/**)`
+301't via `static/_redirects` naar het nieuwe domein. Zie "Verhuisde projecten".
 
 **Toegankelijkheidsverklaring (10-9-2026):** per taal live op /toegankelijkheid,
 /en/accessibility, /de/barrierefreiheit, /it/accessibilita en /cn/accessibility
@@ -526,3 +527,10 @@ Kliktest en scrollbreedte-eindcheck groen, steekproef van 10 externe links
   **`marcovanthiel/koraalenviajeugd`**. Oude URLs worden 301-geredirect
   via `static/_redirects`. Volledige project-CLAUDE.md staat in de
   nieuwe repo.
+- **ToegankelijkScan** (voorheen `/toegankelijkscan`, Pages Functions sinds
+  10-9-2026) is per **2026-09-11** verhuisd naar het eigen domein
+  **toegankelijkscan.nl** en de repo **`marcovanthiel/toegankelijkscan`**
+  (zelfstandige Worker op de root, prijs € 49). `functions/toegankelijkscan/`
+  en `lib/toegankelijkscan/` zijn verwijderd; `/toegankelijkscan(/**)` 301't
+  via `static/_redirects`. De projectdocs (voorheen
+  `docs/TOEGANKELIJKSCAN.md`) staan nu als CLAUDE.md in de nieuwe repo.

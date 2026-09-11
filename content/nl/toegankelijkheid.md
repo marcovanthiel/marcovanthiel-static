@@ -13,7 +13,7 @@ De site marcovanthiel.nl wil voor iedereen bruikbaar zijn. Daarom streeft deze s
 ## Maatregelen
 
 - Toegankelijkheid is onderdeel van het ontwerp van deze site.
-- De site wordt periodiek gecontroleerd met een automatische scan, onder andere met de eigen dienst [ToegankelijkScan](/toegankelijkscan/) op marcovanthiel.nl/toegankelijkscan.
+- De site wordt periodiek gecontroleerd met een automatische scan, onder andere met de eigen dienst [ToegankelijkScan](https://toegankelijkscan.nl) op toegankelijkscan.nl.
 
 ## Status
 

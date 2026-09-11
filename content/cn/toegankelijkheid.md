@@ -13,7 +13,7 @@ marcovanthiel.nl 希望让每个人都能顺利使用本网站。因此本站以
 ## 措施
 
 - 无障碍是本站设计的组成部分。
-- 本站定期通过自动扫描进行检查，其中包括自有服务 [ToegankelijkScan](/toegankelijkscan/)（marcovanthiel.nl/toegankelijkscan）。
+- 本站定期通过自动扫描进行检查，其中包括自有服务 [ToegankelijkScan](https://toegankelijkscan.nl)（toegankelijkscan.nl）。
 
 ## 现状
 

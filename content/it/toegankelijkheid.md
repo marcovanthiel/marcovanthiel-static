@@ -13,7 +13,7 @@ Il sito marcovanthiel.nl vuole essere utilizzabile da tutti. Questo sito punta q
 ## Misure
 
 - L'accessibilità fa parte del progetto di questo sito.
-- Il sito viene controllato periodicamente con una scansione automatica, tra cui il servizio proprio [ToegankelijkScan](/toegankelijkscan/) su marcovanthiel.nl/toegankelijkscan.
+- Il sito viene controllato periodicamente con una scansione automatica, tra cui il servizio proprio [ToegankelijkScan](https://toegankelijkscan.nl) su toegankelijkscan.nl.
 
 ## Stato
 

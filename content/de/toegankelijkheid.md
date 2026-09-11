@@ -13,7 +13,7 @@ Die Website marcovanthiel.nl soll für alle nutzbar sein. Diese Website strebt d
 ## Maßnahmen
 
 - Barrierefreiheit ist Teil des Designs dieser Website.
-- Die Website wird regelmäßig mit einem automatischen Scan geprüft, unter anderem mit dem eigenen Dienst [ToegankelijkScan](/toegankelijkscan/) auf marcovanthiel.nl/toegankelijkscan.
+- Die Website wird regelmäßig mit einem automatischen Scan geprüft, unter anderem mit dem eigenen Dienst [ToegankelijkScan](https://toegankelijkscan.nl) auf toegankelijkscan.nl.
 
 ## Status
 
