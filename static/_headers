@@ -78,7 +78,5 @@
   Content-Type: application/manifest+json
 
 # Grote galerij-assets (wijzigen niet) — agressief cachen
-/felix/*
-  Cache-Control: public, max-age=2592000
 /biennalevenetie2026/assets/*
   Cache-Control: public, max-age=2592000

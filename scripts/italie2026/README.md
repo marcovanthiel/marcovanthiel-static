@@ -124,4 +124,4 @@ Structuur- of stijlwijzigingen horen in `scripts/italie2026/template.html`,
 - CSP: `/italie2026/*`-blok in `static/_headers` staat OSM-tiles toe in
   `img-src`. Leaflet staat lokaal in `static/italie2026/vendor/leaflet/`.
 - Deploy = push naar `main` (Cloudflare Pages bouwt Hugo; `static/` gaat
-  1-op-1 mee). Zelfde patroon als `/wimbledon` en `/felix`.
+  1-op-1 mee). Zelfde patroon als `/wimbledon`.
