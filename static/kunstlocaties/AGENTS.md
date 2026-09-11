@@ -16,9 +16,10 @@ static/kunstlocaties/
     ├── mapdata.js      # window.KAARTDATA = {...} — gegenereerd, niet met de hand bewerken
     ├── fotos.js        # window.KUNSTFOTOS = {...} — gegenereerd, credits per foto
     ├── app.js          # kaart, filters, zoeken, catalogus; geen afhankelijkheden
-    ├── styles.css      # palet en typografie
-    ├── fonts.css       # @font-face voor de drie self-hosted families
-    └── fonts/          # Anton, IBM Plex Mono (Fontsource, SIL OFL)
+    ├── styles.css      # palet en typografie (reismagazine, petrol + pruim)
+    ├── fonts.css       # @font-face voor de self-hosted families
+    └── fonts/          # Newsreader + Schibsted Grotesk (variabel, woff2);
+                        #   Anton + IBM Plex (oude machine-stijl) staan hier nog
 
 scripts/kunstlocaties/  # buildscripts (npm, draaien lokaal)
 ├── build-map.js        # maakt assets/mapdata.js
@@ -29,30 +30,45 @@ scripts/kunstlocaties/  # buildscripts (npm, draaien lokaal)
 
 ## Beeldtaal
 
-Richting "machine", gekozen 29-08-2026 (na een eerdere ronde in de mozaïekstijl
-van Niki de Saint Phalle, die te druk uitpakte). De wereld van Tinguely: zwart
-staal (`--zwart #0E0E0D`), één vermiljoen (`--rood #D63B12`), gebroken wit voor
-de tekst, en verder alleen grijstinten. Niets is rond, overal ligt een raster,
-en het mechaniek is zichtbaar: millimeterpapier achter de pagina, een liniaal
-langs de kaartrand, een draaiend tandwiel naast de titel.
+**Editorial reismagazine, kleurstelling petrol + pruim** — door Marco gekozen op
+11-9-2026 uit acht ontwerp- en acht kleurvoorstellen. Dit **verving** voor deze
+subsite de oude machine-stijl (Anton / millimeterpapier / vermiljoen); die was
+niet langer heilig, Marco wilde er juist van af. De pagina leest als een tijdschrift:
+kickers, genummerde rubrieken, standfirsts, folio's, hairlines en register-/
+cataloguscodes, gegoten over de functionele catalogus met kaart en filters.
 
-Anton voor de koppen — smal, industrieel, in kapitalen. Sinds 31-8-2026
-(besluit Marco): de beschrijvende tekst (`.lede`, `.waarom`) in **IBM Plex Sans
-Condensed** (smalle grotesk uit dezelfde familie, self-hosted), al het andere —
-labels, nummers, `.praktisch`, de meta-kolom, zoek en filters — in IBM Plex
-Mono. Zo blijft het mechanische karakter staan zonder dat 303 beschrijvingen in
-monospace gelezen hoeven te worden.
+Kleurtokens (`:root` in `styles.css`), één vaste donkere wereld:
 
-De pagina volgt de licht/donker-voorkeur van de bezoeker **niet**: het zwart is
+| Token | Waarde | Waarvoor |
+|---|---|---|
+| `--papier` | `#072A31` | petrol-grond |
+| `--papier2` | `#0D3B44` | panelen, secties naar voren |
+| `--diep` | `#04191E` | kaartvlak |
+| `--inkt` | `#EAF0F0` | gebroken wit, hoofdtekst |
+| `--gedempt` | `#98AFB1` | meta, secundair |
+| `--accent` | `#D89AD0` | lichte pruim / orchidee |
+| `--lijn` / `--lijn-zwaar` | `rgba(234,240,240,.26)` / `.64` | hairlines |
+
+Contrast overal minimaal 4,5:1 (laagste paar `--gedempt`/`--papier2` = 5,27:1).
+De orchidee is accenttekst op de donkere grond en fungeert als vulkleur **alleen**
+met donkere (`--papier`) opdruk: nooit lichte tekst op orchidee (dat haalt 4,5:1
+niet). Actieve filterchips en het logeermerkje = orchidee met `--papier`-opdruk.
+
+Type, twee variabele families (self-hosted woff2, geen Google Fonts):
+
+- **Newsreader** (serif, `200 800`, normaal + cursief) voor koppen, standfirsts,
+  body en de catalogustekst (`.waarom`, `.logeren`); de cursief draagt de
+  accenten, citaten en de N&deg;-folio.
+- **Schibsted Grotesk** (sans, `400 900`) voor kickers, meta, labels, cijfers
+  (`.nummer-index`, de statpillen), chips, nav en de kaartlabels.
+- Let op: de fractionele gewichten (420, 440, 520 ...) uit het ontwerp renderen
+  alleen met de variabele fonts juist; geen statische instanties gebruiken.
+
+De pagina volgt de licht/donker-voorkeur van de bezoeker **niet**: de petrol is
 het ontwerp, en alle kleuren staan expliciet in `:root`.
 
-Sinds de verbeterronde van 10-9-2026 (contrast minimaal 4,5:1):
+Nog steeds geldig (functioneel):
 
-- `--rood-fel #E8511F` is het vermiljoen voor **tekst** op donker (links,
-  regiokoppen, nummers, hints) en voor gevulde merkjes met zwart opschrift
-  (actieve filterchips, het logeermerkje). Het oorspronkelijke
-  `--rood #D63B12` blijft voor al het grafische werk: stippen, tandwiel,
-  kaders, richtkruis, de grote kop. Niet omwisselen.
 - Het filterregister is op schermen tot 760 px ingeklapt achter de knop
   "filters en zoeken" (`#reg-toggle`, teller van actieve filters ernaast);
   met een filter in de querystring opent het vanzelf.

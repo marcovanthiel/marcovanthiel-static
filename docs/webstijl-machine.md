@@ -1,8 +1,16 @@
 # Webstijl "machine" — marcovanthiel.nl
 
-De huisstijl van `/kunstlocaties`, vastgelegd zodat een volgende subsite er niet
-opnieuw over hoeft te onderhandelen. Gekozen 29 augustus 2026, na een ronde in
-een uitbundige mozaïekstijl die in de uitvoering te druk uitpakte.
+> **Let op (11-9-2026): voor `/kunstlocaties` is deze stijl vervangen.** Die
+> subsite draait sinds 11-9-2026 op de reismagazine-identiteit in de kleurstelling
+> petrol + pruim (Newsreader + Schibsted Grotesk; zie
+> `static/kunstlocaties/AGENTS.md`). De machine-stijl was daar niet langer heilig,
+> Marco wilde er juist van af. Dit document blijft staan als naslag en referentie
+> voor een eventuele volgende subsite die wél deze richting kiest; op de live
+> kunstlocaties-site is niets hiervan meer van kracht.
+
+De oorspronkelijke huisstijl van `/kunstlocaties`, vastgelegd zodat een volgende
+subsite er niet opnieuw over hoeft te onderhandelen. Gekozen 29 augustus 2026, na
+een ronde in een uitbundige mozaïekstijl die in de uitvoering te druk uitpakte.
 
 De richting is Tinguely: zwart staal, één vermiljoen, blootliggend mechaniek.
 Niets rond, overal een raster, het meetwerk zichtbaar.

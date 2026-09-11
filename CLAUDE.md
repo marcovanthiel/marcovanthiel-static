@@ -363,13 +363,27 @@ scripts/kunstlocaties/  # build-map.js (kaartdata), fetch-webfotos.js (foto's),
                         # build-dossier.js (reisdossier uit data.js)
 ```
 
-**Beeldtaal**: richting "machine" — Tinguely. Zwart staal #0E0E0D, één vermiljoen
-#D63B12, gebroken wit. Millimeterpapier achter de pagina, een liniaal langs de
-kaartrand, een draaiend tandwiel naast de titel; niets rond. Anton voor de koppen;
-sinds 31-8-2026 de beschrijvende tekst (`.lede`/`.waarom`) in IBM Plex Sans
-Condensed, al het andere IBM Plex Mono. Bewust géén licht/donker-varianten. (Er is
-29-08-2026 een ronde in de mozaïekstijl van Niki de Saint Phalle geweest — kobalt
-met scherven — die te druk uitpakte; die zit in de historie van deze map.)
+**Beeldtaal (sinds 11-9-2026): Editorial reismagazine, petrol + pruim.** Door
+Marco gekozen uit 8 ontwerp- + 8 kleurvoorstellen; dit **verving** voor deze
+subsite de oude machine-stijl (Anton/millimeterpapier/vermiljoen — die was niet
+langer heilig, hij wilde er juist van af). Donkere petrol-grond `--papier
+#072A31` / `--papier2 #0D3B44`, gebroken wit `--inkt #EAF0F0`, lichte pruim/
+orchidee `--accent #D89AD0` als tekst- en (met donkere opdruk) vulaccent;
+hairlines `rgba(234,240,240,.26/.64)`. Type: **Newsreader** (serif, variabel,
+normaal + cursief — koppen, standfirsts, body, catalogustekst) + **Schibsted
+Grotesk** (sans, variabel — kickers, meta, labels, cijfers, chips, nav,
+kaartlabels), self-hosted woff2 in `assets/fonts/` (variabel is nodig voor de
+fractionele gewichten; valt onder de site-brede CSP `font-src 'self'`). Idioom:
+kickers, genummerde rubrieken, standfirsts, folio's, register-/cataloguscodes.
+Contrast overal >= 4,5:1 (laagste paar 5,27:1). Geen licht/donker-schakelaar.
+Markup herzien (masthead/cover/nummer-index/kaartsectie/register/catalogus/
+colofon), millimeterpapier-SVG en tandwiel weg; alle door `app.js` gebruikte
+id's/klassen behouden, `app.js`/`mapdata.js` ongewijzigd. Kwaliteitsloop met 3
+screenshot-iteraties (o.a. gevonden: dubbel `id="kaart"` op sectie én SVG brak de
+kaart — sectie is nu `#de-kaart`) en een volledige kliktest (filters/zoek/kaart/
+mobiel + 10 externe links 200), live geverifieerd op 1180 en 390. De oude
+huisstijl staat als naslag in `docs/webstijl-machine.md` (met superseded-notitie);
+de machine-ronde en de mozaïekronde van 29-8-2026 zitten in de git-historie.
 
 **Kaart zonder kaartdienst**: één SVG uit Natural Earth 1:50 m, Mercator,
 tekenvlak 1000×890, vereenvoudigd met Douglas-Peucker. Stippen (vierkanten) en
