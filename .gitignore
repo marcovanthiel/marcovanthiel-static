@@ -19,3 +19,6 @@ Thumbs.db
 
 # npm (buildscript subsites)
 node_modules/
+
+# Scratch-output van agents (nooit committen)
+Claude outputs/
