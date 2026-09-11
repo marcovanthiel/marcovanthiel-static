@@ -6,7 +6,7 @@
 <title>Kunstlocaties in Midden- en Zuid-Europa: waar de plek zelf het werk is</title>
 <meta name="description" content="Kaart en catalogus van 303 kunstparken, land-artplekken, kunstenaarstuinen, gebouwen en kunsthotels in elf Europese landen. Te filteren op land, soort, logeren, architectuur, seizoen en hondenbeleid.">
 <meta name="author" content="Marco van Thiel">
-<meta name="theme-color" content="#0E0E0D">
+<meta name="theme-color" content="#072A31">
 <link rel="canonical" href="https://marcovanthiel.nl/kunstlocaties/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kunstlocaties in Midden- en Zuid-Europa">
@@ -15,74 +15,73 @@
 <meta property="og:locale" content="nl_NL">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon.png">
-<link rel="stylesheet" href="assets/fonts.css?v=20260901c">
-<link rel="stylesheet" href="assets/styles.css?v=20260910c">
+<link rel="stylesheet" href="assets/fonts.css?v=20260911a">
+<link rel="stylesheet" href="assets/styles.css?v=20260911a">
 </head>
 <body>
 
-<svg class="vlakken" aria-hidden="true" focusable="false" preserveAspectRatio="none" viewBox="0 0 1280 800">
-  <g id="raster"></g>
-</svg>
+<a class="skip" href="#lijst">Direct naar het register</a>
 
-<div class="topbar">
-  <div class="wrap">
-    <a class="mark" href="/">marcovanthiel.nl</a>
-    <span class="crumb">Kunstlocaties</span>
+<header class="masthead">
+  <div class="wrap masthead-in">
+    <a class="merk" href="/">Kunst<em>locaties</em></a>
+    <nav class="rubrieken-nav" aria-label="Op deze pagina">
+      <a href="#de-kaart">De kaart</a>
+      <a href="#register">Register</a>
+      <a href="#lijst">De lijst</a>
+    </nav>
+    <a class="folio" href="/">marcovanthiel.nl</a>
   </div>
-</div>
+</header>
+
+<div id="inhoud">
 
 <div class="wrap">
-<header class="titelblok">
-  <p class="eyebrow lbl"><span>Verlanglijst</span><span>September 2026</span><b id="eyebrow-n">303 locaties · 11 landen</b></p>
-  <div class="kop-rij">
-    <h1 class="disp">Waar de plek <span class="rood">zelf</span> het werk is</h1>
-    <svg class="tandwiel" width="132" height="132" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-      <g>
-        <circle class="ring" cx="50" cy="50" r="34"/>
-        <circle class="as" cx="50" cy="50" r="9"/>
-        <line class="tand" x1="50" y1="16" x2="50" y2="7"/>
-        <line class="tand" x1="50" y1="84" x2="50" y2="93"/>
-        <line class="tand" x1="16" y1="50" x2="7" y2="50"/>
-        <line class="tand" x1="84" y1="50" x2="93" y2="50"/>
-        <line class="tand" x1="26" y1="26" x2="19.6" y2="19.6"/>
-        <line class="tand" x1="74" y1="74" x2="80.4" y2="80.4"/>
-        <line class="tand" x1="26" y1="74" x2="19.6" y2="80.4"/>
-        <line class="tand" x1="74" y1="26" x2="80.4" y2="19.6"/>
-        <line class="spaak" x1="50" y1="16" x2="50" y2="84"/>
-        <line class="spaak" x1="16" y1="50" x2="84" y2="50"/>
-      </g>
-    </svg>
+<section class="cover">
+  <div class="cover-kop">
+    <div class="cover-kop-tekst">
+      <p class="kicker">Kunstparken en land art in Midden- en Zuid-Europa</p>
+      <h1>Waar de plek <span class="accent">zelf</span> het werk is</h1>
+    </div>
+    <div class="cover-nr">
+      <span class="nr-label">Verlanglijst</span>
+      <span class="nr-getal">N&deg;&#8202;1</span>
+      <span class="seizoen" id="eyebrow-n">303 locaties &middot; 11 landen</span>
+    </div>
   </div>
-  <div class="inleiding">
-    <p class="lede">Kunstparken, land art, kunstenaarstuinen en Gesamtkunstwerken in Midden- en Zuid-Europa. Het vertrekpunt was Le Cyclop in het bos van Milly-la-Forêt, de stalen kop van Tinguely en Niki de Saint Phalle, en de Giardino dei Tarocchi in Capalbio. Van daaruit loopt een lijn naar alles wat hieronder staat, sinds september 2026 ook naar de adressen waar je kunt blijven slapen en de gebouwen die zelf de reis waard zijn.</p>
-    <p class="sub">Gewone stadsmusea staan er niet in, tenzij het gebouw of het landschap zelf de reden is om te gaan. Openingstijden zijn die van 2026; bij de kleine, familiegerunde adressen is bellen verstandiger dan hopen.</p>
-  </div>
-  <div class="pillen" id="pillen"></div>
-</header>
+  <p class="standfirst">Kunstparken, land art, kunstenaarstuinen en Gesamtkunstwerken in Midden- en Zuid-Europa. Het vertrekpunt was Le Cyclop in het bos van Milly-la-For&ecirc;t, de stalen kop van Tinguely en Niki de Saint Phalle, en de Giardino dei Tarocchi in Capalbio. Van daaruit loopt een lijn naar alles wat hieronder staat, sinds september 2026 ook naar de adressen waar je kunt blijven slapen en de gebouwen die zelf de reis waard zijn.</p>
+  <p class="onderschrift-cover">Gewone stadsmusea staan er niet in, tenzij het gebouw of het landschap zelf de reden is om te gaan. Openingstijden zijn die van 2026; bij de kleine, familiegerunde adressen is bellen verstandiger dan hopen.</p>
+  <div class="nummer-index" id="pillen"></div>
+</section>
 </div>
 
-<section class="plaat" aria-label="Kaart van de locaties">
+<section class="plaat-sectie" id="de-kaart" aria-label="Kaart van de locaties">
+  <div class="wrap">
+    <div class="sectiekop">
+      <p class="kicker">01 &middot; De kaart</p>
+      <span class="code">Mercator &middot; 5&deg;-net</span>
+    </div>
+  </div>
   <div class="plaat-binnen">
     <div class="kaart-frame">
       <div class="kaart-houder" id="kaart-houder">
         <svg id="kaart" role="img" aria-label="Kaart van Midden- en Zuid-Europa met de locaties als stippen"></svg>
         <div class="kaart-knoppen">
           <button type="button" id="zoom-in" aria-label="Inzoomen">+</button>
-          <button type="button" id="zoom-uit" aria-label="Uitzoomen">−</button>
-          <button type="button" id="zoom-reset" aria-label="Kaart terugzetten">⤾</button>
+          <button type="button" id="zoom-uit" aria-label="Uitzoomen">&#8722;</button>
+          <button type="button" id="zoom-reset" aria-label="Kaart terugzetten">&#10558;</button>
         </div>
         <div class="cartouche" id="cartouche">
-          <p class="cart-titel lbl">Legenda</p>
-          <p class="cart-regel"><span class="sym">■</span> de kern van de lijst</p>
-          <p class="cart-regel"><span class="sym">□</span> overige locatie</p>
-          <div class="schaal"><div class="schaalbalk" id="schaalbalk"></div><span id="schaaltekst">— km</span></div>
+          <p class="cart-titel">Legenda</p>
+          <p class="cart-regel"><span class="sym kern"></span> de kern van de lijst</p>
+          <p class="cart-regel"><span class="sym"></span> overige locatie</p>
+          <div class="schaal"><div class="schaalbalk" id="schaalbalk"></div><span id="schaaltekst">km</span></div>
         </div>
         <div class="kaartkaart" id="kaartkaart" hidden></div>
       </div>
     </div>
     <p class="plaat-onderschrift">
-      <b>Fig. 1 · het meetwerk</b>
-      <span>Mercator, 5°-net</span>
+      <b>Fig. 1 &middot; alle 303 locaties</b>
       <span>stippen op plaatsniveau, voor de blik, niet voor de navigatie</span>
       <span class="hint">Scrollen om te zoomen, slepen om te schuiven, klikken voor de beschrijving</span>
     </p>
@@ -90,7 +89,7 @@
 </section>
 
 <div class="wrap">
-<div class="register" id="register">
+<section class="register" id="register" aria-label="Filters en zoeken">
   <div class="reg-kop">
     <button class="reg-toggle" id="reg-toggle" type="button" aria-expanded="false" aria-controls="reg-inhoud">filters en zoeken</button>
     <span class="telling telling-kop" id="count-m" aria-hidden="true"></span>
@@ -115,25 +114,36 @@
     <button class="chip" type="button" data-flag="hond" aria-pressed="false">honden welkom</button>
     <button class="chip" type="button" data-flag="jaarrond" aria-pressed="false">jaarrond open</button>
     <button class="chip" type="button" data-flag="foto" aria-pressed="false">met foto</button>
-    <input class="zoek" id="q" type="search" placeholder="zoek op naam, kunstenaar, plaats…" aria-label="Zoeken in de catalogus">
+    <input class="zoek" id="q" type="search" placeholder="zoek op naam, kunstenaar, plaats&#8230;" aria-label="Zoeken in de catalogus">
     <span class="telling" id="count" role="status" aria-live="polite"></span>
   </div>
   </div>
-</div>
+</section>
 
 <main id="lijst"></main>
 
-<footer>
-  <p><b>Over de foto's.</b> <span id="foto-stand">De foto's worden nog opgehaald.</span> Elk beeld is het promobeeld van de locatie zelf, overgenomen van de eigen website, met de bron en een link eronder. Waar dat niet kon staat een gearceerd vlak; een verkeerde foto is erger dan geen.</p>
-  <p><b>Over de betrouwbaarheid.</b> Samengesteld uit officiële sites, waar mogelijk geverifieerd in augustus 2026. Drie dingen zijn structureel onzeker: openingstijden van kleine adressen, het hondenbeleid (dat vrijwel nergens gepubliceerd wordt, dus <i>onbekend</i> betekent onbekend en niet nee) en de status van plekken die restaureren of tussen tentoonstellingen zitten.</p>
-  <p><b>Voor 2027.</b> documenta 16 in Kassel, de tienjaarlijkse Skulptur Projekte in Münster en de triënnale Bad RagARTz vallen alle drie in hetzelfde seizoen.</p>
-  <p class="colofon">Marco van Thiel · <a href="/">marcovanthiel.nl</a> · Kaart naar Natural Earth · Suggesties en correcties zijn welkom.</p>
+<footer class="colofon">
+  <div class="colofon-in">
+    <div class="colofon-tekst">
+      <p><b>Over de foto's.</b> <span id="foto-stand">De foto's worden nog opgehaald.</span> Elk beeld is het promobeeld van de locatie zelf, overgenomen van de eigen website, met de bron en een link eronder. Waar dat niet kon staat een gearceerd vlak; een verkeerde foto is erger dan geen.</p>
+      <p><b>Over de betrouwbaarheid.</b> Samengesteld uit offici&euml;le sites, waar mogelijk geverifieerd in augustus 2026. Drie dingen zijn structureel onzeker: openingstijden van kleine adressen, het hondenbeleid (dat vrijwel nergens gepubliceerd wordt, dus <i>onbekend</i> betekent onbekend en niet nee) en de status van plekken die restaureren of tussen tentoonstellingen zitten.</p>
+      <p><b>Voor 2027.</b> documenta 16 in Kassel, de tienjaarlijkse Skulptur Projekte in M&uuml;nster en de tri&euml;nnale Bad RagARTz vallen alle drie in hetzelfde seizoen.</p>
+    </div>
+    <div class="colofon-zij">
+      <p class="meta">Marco van Thiel &middot; Kaart naar Natural Earth. Suggesties en correcties zijn welkom.</p>
+      <div class="colofon-links">
+        <a href="/">marcovanthiel.nl</a>
+      </div>
+    </div>
+  </div>
 </footer>
+</div>
+
 </div>
 
 <script src="assets/data.js?v=20260910b"></script>
 <script src="assets/mapdata.js?v=20260910a"></script>
 <script src="assets/fotos.js?v=20260910b"></script>
-<script src="assets/app.js?v=20260910c"></script>
+<script src="assets/app.js?v=20260911a"></script>
 </body>
 </html>
