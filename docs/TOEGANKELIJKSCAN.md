@@ -8,7 +8,7 @@ alleen nog een 301-redirect voor oude links (workers.dev-URL).
 
 Commerciële dienst: **gratis automatische toegankelijkheidsscan** (WCAG 2.1 / European
 Accessibility Act) voor Nederlandse websites en webshops, met als verdienmodel het
-**expertrapport (€ 195 excl. btw)** en **herstel-/begeleidingstrajecten op offerte**.
+**expertrapport (€ 49 excl. btw)** en **herstel-/begeleidingstrajecten op offerte**.
 Een dienst van Van Thiel Management & Consultancy. Gestart 3 juli 2026.
 
 Lees dit eerst; `git pull` voordat je begint (MacBook ⇄ Mac mini).
@@ -17,7 +17,7 @@ Lees dit eerst; `git pull` voordat je begint (MacBook ⇄ Mac mini).
 - EAA van kracht sinds 28 juni 2025; ACM handhaaft en publiceert sinds oktober 2025
   overtreders; formele boetes (tot € 900.000 of 1% jaaromzet) worden in 2026 verwacht.
 - Concurrenten vragen € 299 tot € 1.250 voor een quickscan van circa 5 pagina's.
-- Funnel: gratis directe scan (leadmagneet) → expertrapport € 195 → herstel op offerte.
+- Funnel: gratis directe scan (leadmagneet) → expertrapport € 49 → herstel op offerte.
 - Bestellen gaat in deze versie via mailto naar marco@marcovanthiel.nl (bewuste keuze,
   zelfde conventie als de fundraising-sites). Mollie-betaling is een latere stap.
 
@@ -61,7 +61,7 @@ Lees dit eerst; `git pull` voordat je begint (MacBook ⇄ Mac mini).
 ## Openstaand (besluiten Marco)
 1. Domein toegankelijkscan.nl registreren (± € 10/jaar) en aan de Worker koppelen
    (custom domain via het dashboard, niet via config; workers_dev aan laten).
-2. Prijs bevestigen of aanpassen (nu € 195 excl. btw; concurrentie € 299 tot € 1.250).
+2. Prijs vastgesteld op € 49 excl. btw (11-9-2026; bewust ruim onder de concurrentie € 299 tot € 1.250, volumestrategie).
 3. Acquisitie starten (zie ROADMAP in dit bestand hieronder).
 4. Later: Mollie-betaling voor het rapport, meertaligheid (EN), meerdere pagina's per
    scan, PDF-rapport, opvolg-e-mails (vereist opslag → privacybelofte aanpassen).
