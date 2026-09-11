@@ -144,6 +144,62 @@ EINDDATUM in `update.py` en `index.html` bijwerken, en de nieuwe `SEED_R32`
 (laatste-32-loting MS/LS) op beide plekken invoeren.
 Bracket-fout in het enkelspel = `SEED_R32` in `update.py` corrigeren.
 
+## Subsite: /europeanopen
+
+**marcovanthiel.nl/europeanopen** — interactief wedstrijdschema van het **BNP
+Paribas Fortis European Open 2026** (ATP 250, indoor hardcourt, Brussels Expo /
+ING Arena, **17 t/m 25 oktober 2026**). Twee onderdelen: herenenkelspel
+(28-draw met vier byes) en herendubbelspel (16 teams). Afgeleid van
+`/wimbledon` (2026-09-11); zelfde bracket-engine, blauw/goud in plaats van
+paars/groen. Kale static (geen Hugo-content): `static/europeanopen/`.
+
+```
+static/europeanopen/
+├── index.html            # datagestuurde bracket-pagina (2 tabs), leest data.json
+└── data.json             # gegenereerd — NIET met de hand bewerken
+scripts/europeanopen/update.py          # generator (Python 3.12, stdlib only)
+```
+
+**Databron**: alleen de **ESPN scoreboard-API**
+(`site.api.espn.com/.../tennis/atp/scoreboard?dates=<jjjjmmdd>`), open en
+CORS-vrij. De dated query geeft de volledige toernooiboom van de events die die
+dag actief zijn (betrouwbaarder dan het kale scorebord). Het toernooi zit in de
+feed met naam "BNP Paribas Fortis European Open"; het script/JS zoekt op de
+substring "european open". Er is **geen** wimbledon.com-achtige tweede feed —
+ATP 250's hebben er geen, dus enkel- én dubbelspel komen beide uit ESPN.
+
+**Twee verversingslagen** (net als /wimbledon): (1) elk uur server-side via
+`.github/workflows/europeanopen-hourly.yml` → `data.json`; (2) elke 5 minuten
+client-side een JS-port van de generator in `index.html`. Wijzig generatorlogica
+op BEIDE plekken (Python én JS).
+
+**Loting invoeren (eenmalige stap, ± vrijdag 16 oktober)**: ESPN levert wél de
+uitslagen en de daglijst automatisch, maar **niet** de bracket-positie. Vul
+daarom de loting-volgorde in `SEEDS` in — in `scripts/europeanopen/update.py`
+ÉN in de JS-port in `index.html` (variabele `SEEDS`). MS = 32 regels
+(linkerhelft boven→onder, dan rechterhelft; byes letterlijk als `"bye"`
+tegenover de vier hoogste reekshoofden), MD = 16 regels
+(`"A. Naam / B. Naam [seed]"`). Tot dat moment toont de pagina het
+voorfase-kader (lege bracket + mededeling) en werkt de **daglijst** al wel
+volledig automatisch. Bron voor de loting: europeanopen.be of de ESPN-app.
+
+**Onderdeel-config** staat in `EVENTS`/`EVMETA`: `basis` = eerste bracketkolom
+(MS 0, MD 1 want 16-draw), `kolom` = ESPN-rondenaam → kolomindex (bevestigd
+11-9-2026: `Round 1`, `Round 2`, `Quarterfinal`, `Semifinal`, `Final`).
+
+**Tv-logica NL**: alle ATP-partijen bij **Ziggo Sport** (exclusieve ATP-rechten
+2026, bron ziggosport.nl). Eén regel `tv = "Ziggo Sport"`; geen banen-/
+ronde-uitzonderingen zoals bij Wimbledon.
+
+**CSP**: één inline `<script>` → eigen `/europeanopen/*`-blok in
+`static/_headers` (`'unsafe-inline'` + `connect-src` alleen
+`https://site.api.espn.com`). Niet weghalen, anders doen de tabs niets.
+
+**Onderhoud**: het script stopt zichzelf na `EINDDATUM` (2026-10-26). Voor de
+editie 2027: `EINDDATUM`, de datumteksten (`finale`, toernooibanner in
+`index.html`) en de nieuwe `SEEDS` bijwerken; de uurlijkse workflow weer
+aanzetten als hij na afloop is verwijderd.
+
 ## Subsite: /italie2026
 
 **marcovanthiel.nl/italie2026** — reiswebsite "Italië 2026: de pareltjesroute"

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>European Open 2026 · Wedstrijdschema</title>
+<meta name="description" content="Interactief wedstrijdschema van het BNP Paribas Fortis European Open 2026 (ATP 250, Brussel, 17 t/m 25 oktober): brackets, daglijst met Nederlandse tijden en tv-informatie.">
+<link rel="icon" type="image/png" sizes="32x32" href="/europeanopen/favicon-32.png?v=1">
+<link rel="icon" type="image/png" sizes="64x64" href="/europeanopen/favicon-64.png?v=1">
+<link rel="apple-touch-icon" sizes="180x180" href="/europeanopen/icon-180.png?v=1">
+<style>
+  :root{
+    --goud:#f2b632;
+    --goud-zacht:#ffe9b8;
+    --blauw-deep:#081a33;
+    --blauw-mid:#11315e;
+    --blauw-licht:#1c4a8a;
+    --line:rgba(255,255,255,.9);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  body{
+    margin:0; padding:24px 16px;
+    background:#050f1f;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    color:#fff;
+    overflow-x:hidden;
+  }
+  header{ max-width:1200px; margin:0 auto 14px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .tab{
+    padding:8px 20px; border-radius:999px; border:2px solid var(--goud-zacht);
+    background:transparent; color:var(--goud-zacht); font-weight:700; font-size:13.5px;
+    cursor:pointer; letter-spacing:.4px; font-family:inherit;
+  }
+  .tab.active{ background:var(--goud); border-color:var(--goud); color:#081a33; }
+  .tab:focus-visible{ outline:3px solid #fff; outline-offset:2px; }
+  .hint{ font-size:12px; color:rgba(255,255,255,.65); margin-left:auto; }
+  .toernooi{
+    max-width:1200px; margin:0 auto 14px; padding:12px 16px;
+    background:rgba(255,255,255,.06); border-radius:12px;
+    font-size:13px; line-height:1.65; color:rgba(255,255,255,.85);
+  }
+  .toernooi strong{ color:var(--goud-zacht); }
+  .scroller{
+    overflow-x:auto; border-radius:16px;
+    box-shadow:0 10px 40px rgba(0,0,0,.45);
+    max-width:2040px; margin:0 auto;
+  }
+  .zoomwrap{ position:relative; overflow:hidden; }
+  .canvas{
+    position:relative; height:960px; transform-origin:top left;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 90px, rgba(0,0,0,.06) 90px 180px),
+      radial-gradient(ellipse at 50% 28%, var(--blauw-licht) 0%, var(--blauw-mid) 55%, var(--blauw-deep) 100%);
+  }
+  .frame{
+    position:absolute; inset:16px;
+    border:2px solid rgba(255,255,255,.85); border-radius:6px;
+    pointer-events:none;
+  }
+  .badge{
+    position:absolute; left:50%; top:30px; transform:translateX(-50%);
+    text-align:center; pointer-events:none; color:#fff; white-space:nowrap;
+    font-family:Georgia, "Times New Roman", serif;
+  }
+  .badge .b1{ font-size:14px; letter-spacing:5px; opacity:.9; }
+  .badge .b2{ font-size:32px; font-weight:700; letter-spacing:8px; color:var(--goud); text-shadow:0 2px 6px rgba(0,0,0,.45); }
+  .badge .b3{ font-size:12.5px; letter-spacing:3px; opacity:.85; margin-top:3px; }
+  input.slot{
+    position:absolute; height:26px;
+    background:rgba(255,255,255,.10);
+    border:1.6px solid var(--line); border-radius:3px;
+    color:#fff; font-size:12px; padding:2px 8px; outline:none;
+    font-family:inherit;
+    transition:background .15s, border-color .15s;
+  }
+  input.slot.pair{ font-size:10.5px; padding:2px 6px; }
+  input.slot::placeholder{ color:rgba(255,255,255,.4); font-style:italic; }
+  input.slot:focus{ background:rgba(255,255,255,.24); border-color:#fff; }
+  input.champ{
+    height:36px; font-size:14.5px; font-weight:700; text-align:center;
+    background:rgba(242,182,50,.28); border:2px solid var(--goud);
+  }
+  .champlbl{
+    position:absolute; text-align:center; pointer-events:none;
+    color:var(--goud-zacht); font-size:13px; letter-spacing:2.5px;
+    font-family:Georgia, serif;
+  }
+  .finalelbl{
+    position:absolute; text-align:center; pointer-events:none;
+    color:rgba(255,255,255,.75); font-size:11px; letter-spacing:1px;
+  }
+  .roundlbl{
+    position:absolute; pointer-events:none; text-align:center;
+    color:rgba(255,255,255,.6); font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase;
+  }
+  .matchlbl{
+    position:absolute; pointer-events:none; text-align:center;
+    color:rgba(255,233,184,.92); font-size:9.5px; letter-spacing:.3px;
+    text-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+  .matchlbl.live{ color:#ffd54d; font-weight:700; }
+  svg.lines{ position:absolute; inset:0; pointer-events:none; }
+
+  .vandaag{ max-width:1200px; margin:22px auto 0; }
+  .vandaag h2{
+    font-family:Georgia, serif; font-weight:700; font-size:17px; letter-spacing:2px;
+    color:var(--goud-zacht); margin:0 0 10px; text-transform:uppercase;
+  }
+  .vandaag .leeg{ color:rgba(255,255,255,.55); font-size:13px; }
+  .match{
+    display:grid; grid-template-columns:52px 1fr;
+    gap:2px 12px; align-items:baseline;
+    padding:8px 12px; border-radius:8px; font-size:13px;
+  }
+  .match:nth-child(even){ background:rgba(255,255,255,.05); }
+  .match .tijd{ font-weight:700; color:var(--goud-zacht); }
+  .match .info{ min-width:0; }
+  .match .partij{ overflow-wrap:anywhere; }
+  .match .meta{ margin-top:2px; font-size:12px; color:rgba(255,255,255,.65); }
+  .match .meta span+span::before{ content:" · "; color:rgba(255,255,255,.35); font-weight:400; }
+  .match .status{ color:rgba(255,255,255,.8); }
+  .match .status.live{ color:#ffd54d; font-weight:700; }
+  .match .tv{ color:#9fd8ff; }
+  .match.nu{ background:rgba(255,213,77,.12); box-shadow:inset 4px 0 0 #ffd54d; }
+  .match.straks1{ background:rgba(159,216,255,.12); box-shadow:inset 4px 0 0 #9fd8ff; }
+  .match.straks2{ background:rgba(159,216,255,.05); box-shadow:inset 4px 0 0 rgba(159,216,255,.45); }
+  .legenda{ font-size:11.5px; color:rgba(255,255,255,.6); margin:0 0 10px; }
+  .legenda .dot{ display:inline-block; width:9px; height:9px; border-radius:50%; margin:0 4px 0 12px; vertical-align:baseline; }
+  .legenda .dot.nu{ background:#ffd54d; margin-left:0; }
+  .legenda .dot.s1{ background:#9fd8ff; }
+  .legenda .dot.s2{ background:rgba(159,216,255,.45); }
+  @media (max-width:640px){
+    body{ padding:14px 10px; }
+    header{ gap:6px; }
+    .tab{ padding:6px 13px; font-size:12px; }
+    .hint{ font-size:11px; flex-basis:100%; margin-left:0; }
+    .match{ grid-template-columns:44px 1fr; font-size:12.5px; padding:7px 9px; }
+    .match .meta{ font-size:11.5px; }
+    .vandaag h2{ font-size:15px; }
+  }
+  footer{ max-width:1200px; margin:16px auto 0; font-size:11.5px; color:rgba(255,255,255,.5); line-height:1.6; }
+  #melding{ max-width:1200px; margin:0 auto 10px; color:#ffd54d; font-size:13px; display:none; }
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+</style>
+</head>
+<body>
+
+<header id="tabs">
+  <span class="hint">Alle tijden in Nederlandse tijd &middot; dubbelklik op een naam om de winnaar door te schuiven &middot; scores en schema verversen elke 5 minuten</span>
+</header>
+<div id="melding" role="status"></div>
+
+<div class="toernooi">
+  <strong>BNP Paribas Fortis European Open 2026</strong> &middot; ATP 250 &middot; indoor hardcourt &middot;
+  Brussels Expo (ING Arena), Brussel &middot; <strong>17 t/m 25 oktober 2026</strong> (finales zondag 25 oktober).
+  Titelverdedigers: enkel F.&nbsp;Auger-Aliassime, dubbel C.&nbsp;Harrison / E.&nbsp;King (editie 2025, toen 28 spelers enkel en 16 dubbelteams).
+  De loting wordt rond vrijdag 16 oktober verwacht; dit schema vult zich daarna automatisch met de actuele stand.
+  Tv in Nederland: <strong>Ziggo Sport</strong> (exclusieve ATP-rechten 2026). Gegevens gecheckt 11-9-2026.
+</div>
+
+<div class="scroller">
+  <div class="zoomwrap" id="zoomwrap">
+    <div class="canvas" id="canvas"></div>
+  </div>
+</div>
+
+<section class="vandaag" id="vandaag" hidden>
+  <h2 id="vandaag-titel">Vandaag &middot; programma en uitslagen</h2>
+  <p class="legenda"><span class="dot nu"></span>wordt nu uitgezonden<span class="dot s1"></span>begint binnen 1 uur<span class="dot s2"></span>begint binnen 2 uur</p>
+  <div id="vandaag-lijst"></div>
+</section>
+
+<footer id="voet">
+  <span id="bijgewerkt"></span>Bronnen: ESPN-uitslagenfeed en europeanopen.be &middot; scores verversen elke 5 minuten in de browser.<br>
+  Tv in Nederland: alle partijen bij Ziggo Sport (exclusieve ATP-rechten in 2026). Tijden van 2e/3e partijen op een baan zijn aansluitend en daarom indicatief.
+</footer>
+<noscript><p>Deze pagina heeft JavaScript nodig om het schema te tonen.</p></noscript>
+
+<script>
+(function(){
+  'use strict';
+  var H = 960, TOP = 130, BH = H - TOP - 30, slotH = 26, margin = 30;
+  var counts = [16, 8, 4, 2, 1];
+
+  var DATA = null, current = null, edits = {};
+  var canvas = document.getElementById('canvas');
+  var zoomwrap = document.getElementById('zoomwrap');
+  var tabs = document.getElementById('tabs');
+  var melding = document.getElementById('melding');
+
+  /* ===================== weergave ===================== */
+
+  function geo(ev, code){
+    var pair = ev && ev.pair;
+    var vol = pair ? 280 : 200, leeg = pair ? 150 : 110, gap = 26;
+    var alles = Object.assign({}, (ev && ev.slots) || {}, edits[code] || {});
+    var ratio = [], gevuld = [];
+    for (var r = 0; r < 5; r++){
+      var tot = counts[r] * 2, n = 0;
+      ['L','R'].forEach(function(side){
+        for (var i = 0; i < counts[r]; i++) if (alles[side + '-' + r + '-' + i]) n++;
+      });
+      ratio[r] = n / tot; gevuld[r] = n > 0;
+    }
+    var start = (ev && ev.basis) || 0;
+    while (start < 3 && ratio[start + 1] === 1) start++;
+
+    var w = [], x = [], pos = margin;
+    for (r = 0; r < 5; r++) w[r] = r < start ? 0 : (gevuld[r] ? vol : leeg);
+    for (r = 0; r < 5; r++){ x[r] = pos; if (w[r]) pos += w[r] + gap; }
+    var champW = pair ? 280 : 210;
+    var W = 2 * (pos - gap) + (pair ? 220 : 140);
+    return { w: w, x: x, W: W, champW: champW, pair: pair, start: start };
+  }
+  function colX(g, side, r){
+    return side === 'L' ? g.x[r] : g.W - g.x[r] - g.w[r];
+  }
+  function slotY(r, i){ return TOP + (i + 0.5) * (BH / counts[r]) - slotH / 2; }
+  function key(side, r, i){ return side + '-' + r + '-' + i; }
+  function lab(ev, side, r, p){
+    var L = ev.labels && ev.labels[side];
+    if (!L) return '';
+    if (Array.isArray(L[0])) return (L[r] || [])[p] || '';
+    return r === 0 ? (L[p] || '') : '';
+  }
+
+  function bouw(code){
+    var ev = DATA.events[code];
+    var g = geo(ev, code);
+    canvas.innerHTML = '';
+    canvas.style.width = g.W + 'px';
+
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'lines');
+    svg.setAttribute('width', g.W); svg.setAttribute('height', H);
+    var d = '';
+    ['L','R'].forEach(function(side){
+      for (var r = g.start; r < 4; r++){
+        for (var i = 0; i < counts[r]; i++){
+          var x1 = side === 'L' ? colX(g, side, r) + g.w[r] : colX(g, side, r);
+          var y1 = slotY(r, i) + slotH/2;
+          var x2 = side === 'L' ? colX(g, side, r+1) : colX(g, side, r+1) + g.w[r+1];
+          var y2 = slotY(r+1, Math.floor(i/2)) + slotH/2;
+          var mx = (x1 + x2) / 2;
+          d += 'M' + x1 + ' ' + y1 + ' H' + mx + ' V' + y2 + ' H' + x2 + ' ';
+        }
+      }
+      var fx = side === 'L' ? colX(g, side, 4) + g.w[4] : colX(g, side, 4);
+      var fy = slotY(4, 0) + slotH/2;
+      var cx = g.W/2 + (side === 'L' ? -g.champW/2 : g.champW/2);
+      var cy = TOP + BH/2 - 42;
+      d += 'M' + fx + ' ' + fy + ' H' + cx + ' V' + (cy + 18) + ' ';
+    });
+    var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', d); p.setAttribute('fill', 'none');
+    p.setAttribute('stroke', 'rgba(255,255,255,.9)'); p.setAttribute('stroke-width', '2');
+    svg.appendChild(p);
+    canvas.appendChild(svg);
+
+    var frame = document.createElement('div'); frame.className = 'frame'; canvas.appendChild(frame);
+    var badge = document.createElement('div'); badge.className = 'badge';
+    badge.innerHTML = '<div class="b1">BNP PARIBAS FORTIS</div><div class="b2">EUROPEAN OPEN</div><div class="b3">2026 · BRUSSEL · ' + ev.badge + '</div>';
+    canvas.appendChild(badge);
+
+    ['L','R'].forEach(function(side){
+      for (var r = g.start; r < 5; r++){
+        var lbl = document.createElement('div');
+        lbl.className = 'roundlbl';
+        lbl.textContent = ev.rondes[r] || '';
+        lbl.style.width = g.w[r] + 'px';
+        lbl.style.left = colX(g, side, r) + 'px';
+        lbl.style.top = (TOP - 24) + 'px';
+        canvas.appendChild(lbl);
+      }
+      for (r = g.start; r < 4; r++){
+        for (var q = 0; q < counts[r] / 2; q++){
+          var mltekst = lab(ev, side, r, q);
+          if (!mltekst) continue;
+          var ml = document.createElement('div');
+          ml.className = 'matchlbl' + (mltekst.indexOf('LIVE') === 0 ? ' live' : '');
+          ml.textContent = mltekst;
+          ml.style.width = g.w[r] + 'px';
+          ml.style.left = colX(g, side, r) + 'px';
+          ml.style.top = (TOP + (2*q + 1) * (BH/counts[r]) - 6) + 'px';
+          canvas.appendChild(ml);
+        }
+      }
+    });
+
+    function slotWaarde(k){
+      var e = edits[code] || {};
+      if (k in e) return e[k];
+      return (ev.slots && ev.slots[k]) || '';
+    }
+    function maakInput(side, r, i){
+      var inp = document.createElement('input');
+      inp.className = 'slot' + (g.pair ? ' pair' : '');
+      inp.style.width = g.w[r] + 'px';
+      inp.style.left = colX(g, side, r) + 'px';
+      inp.style.top = slotY(r, i) + 'px';
+      inp.dataset.k = key(side, r, i);
+      inp.value = slotWaarde(inp.dataset.k);
+      inp.title = inp.value;
+      inp.setAttribute('aria-label', 'Ronde ' + (r+1) + ' vak ' + (i+1));
+      inp.addEventListener('input', function(){
+        (edits[code] = edits[code] || {})[inp.dataset.k] = inp.value;
+      });
+      inp.addEventListener('dblclick', function(){
+        if (!inp.value) return;
+        var doel = r < 4 ? key(side, r+1, Math.floor(i/2)) : 'CHAMP';
+        (edits[code] = edits[code] || {})[doel] = inp.value;
+        bouw(code);
+      });
+      canvas.appendChild(inp);
+    }
+    ['L','R'].forEach(function(side){
+      for (var r = g.start; r < 5; r++)
+        for (var i = 0; i < counts[r]; i++) maakInput(side, r, i);
+    });
+
+    var champLbl = document.createElement('div');
+    champLbl.className = 'champlbl';
+    champLbl.textContent = '🏆 KAMPIOEN';
+    champLbl.style.width = g.champW + 'px';
+    champLbl.style.left = (g.W/2 - g.champW/2) + 'px';
+    champLbl.style.top = (TOP + BH/2 - 68) + 'px';
+    canvas.appendChild(champLbl);
+
+    var champ = document.createElement('input');
+    champ.className = 'slot champ' + (g.pair ? ' pair' : '');
+    champ.style.width = g.champW + 'px';
+    champ.style.left = (g.W/2 - g.champW/2) + 'px';
+    champ.style.top = (TOP + BH/2 - 42) + 'px';
+    champ.dataset.k = 'CHAMP';
+    champ.setAttribute('aria-label', 'Kampioen');
+    champ.value = (edits[code] && edits[code].CHAMP) || ev.champ || '';
+    champ.addEventListener('input', function(){
+      (edits[code] = edits[code] || {}).CHAMP = champ.value;
+    });
+    canvas.appendChild(champ);
+
+    var fin = document.createElement('div');
+    fin.className = 'finalelbl';
+    fin.textContent = ev.finale || '';
+    fin.style.width = g.champW + 'px';
+    fin.style.left = (g.W/2 - g.champW/2) + 'px';
+    fin.style.top = (TOP + BH/2 + 2) + 'px';
+    canvas.appendChild(fin);
+
+    var isLeeg = !Object.keys(ev.slots || {}).length && !ev.champ;
+    if (isLeeg){
+      var uitleg = document.createElement('div');
+      uitleg.className = 'finalelbl';
+      uitleg.style.cssText = 'width:460px;left:' + (g.W/2 - 230) + 'px;top:' + (TOP + BH/2 + 40) + 'px;font-size:13px;';
+      uitleg.textContent = ev.mededeling || 'De loting is nog niet bekend; dit schema vult zich automatisch zodra de eerste gegevens beschikbaar zijn.';
+      canvas.appendChild(uitleg);
+    }
+
+    schaal(g);
+    toonVandaag(ev);
+  }
+
+  function schaal(g){
+    var beschikbaar = zoomwrap.parentNode.clientWidth || document.documentElement.clientWidth;
+    var s = Math.min(1, beschikbaar / g.W);
+    s = Math.max(s, 0.55);
+    canvas.style.transform = 'scale(' + s + ')';
+    zoomwrap.style.width = Math.min(g.W, g.W * s) + 'px';
+    zoomwrap.style.height = (H * s) + 'px';
+    zoomwrap.style.margin = '0 auto';
+  }
+  window.addEventListener('resize', function(){
+    if (DATA && current) schaal(geo(DATA.events[current], current));
+  });
+
+  function toonVandaag(ev){
+    var sec = document.getElementById('vandaag');
+    var lijst = document.getElementById('vandaag-lijst');
+    lijst.innerHTML = '';
+    sec.hidden = false;
+    var rows = ev.vandaag || [];
+    if (!rows.length){
+      var leeg = document.createElement('p');
+      leeg.className = 'leeg';
+      leeg.textContent = 'Vandaag geen partijen in dit onderdeel.';
+      lijst.appendChild(leeg);
+      return;
+    }
+    var nu = Date.now() / 1000;
+    rows.forEach(function(m){
+      var r = document.createElement('div');
+      var klaar = String(m.status).indexOf('gespeeld') === 0;
+      var live = String(m.status).indexOf('LIVE') === 0 ||
+                 (!klaar && m.start && m.start <= nu);
+      var accent = '';
+      if (live) accent = ' nu';
+      else if (!klaar && m.start && m.start - nu <= 3600) accent = ' straks1';
+      else if (!klaar && m.start && m.start - nu <= 7200) accent = ' straks2';
+      r.className = 'match' + accent;
+      var t = document.createElement('span');
+      t.className = 'tijd'; t.textContent = m.tijd;
+      r.appendChild(t);
+      var info = document.createElement('div');
+      info.className = 'info';
+      var pa = document.createElement('div');
+      pa.className = 'partij'; pa.textContent = m.partij;
+      info.appendChild(pa);
+      var meta = document.createElement('div');
+      meta.className = 'meta';
+      function md(cls, tekst){
+        var s = document.createElement('span');
+        s.className = cls; s.textContent = tekst || '';
+        meta.appendChild(s);
+      }
+      md('ronde', m.ronde);
+      md('baan', m.court);
+      md('status' + (String(m.status).indexOf('LIVE') === 0 ? ' live' : ''), m.status);
+      md('tv', '📺 ' + m.tv);
+      info.appendChild(meta);
+      r.appendChild(info);
+      lijst.appendChild(r);
+    });
+  }
+
+  function bouwTabs(){
+    tabs.querySelectorAll('.tab').forEach(function(b){ b.remove(); });
+    var hint = tabs.querySelector('.hint');
+    DATA.volgorde.forEach(function(code){
+      var ev = DATA.events[code];
+      if (!ev) return;
+      var b = document.createElement('button');
+      b.className = 'tab' + (code === current ? ' active' : '');
+      b.textContent = ev.tab;
+      b.dataset.code = code;
+      b.addEventListener('click', function(){
+        current = code;
+        tabs.querySelectorAll('.tab').forEach(function(x){
+          x.classList.toggle('active', x.dataset.code === code);
+        });
+        bouw(code);
+      });
+      tabs.insertBefore(b, hint);
+    });
+  }
+
+  function zetBijgewerkt(tekst){
+    document.getElementById('bijgewerkt').textContent = 'Laatst bijgewerkt: ' + tekst + ' · ';
+  }
+
+  /* ===================== live generator (elke 5 minuten) =====================
+     Browser-port van scripts/europeanopen/update.py: haalt de ESPN-feed
+     rechtstreeks op (CORS staat open) en herberekent de brackets. data.json
+     blijft de eerste weergave en het vangnet. */
+
+  var ESPN_URL = 'https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard';
+  var EVENT_NAAM = 'european open';
+  var RONDE_NAAM = ['1e ronde', 'Laatste 16', 'Kwartfinale', 'Halve finale', 'Finale'];
+
+  var IOC = {ARG:'AR',AUS:'AU',AUT:'AT',BEL:'BE',BIH:'BA',BLR:'BY',BOL:'BO',BRA:'BR',BUL:'BG',CAN:'CA',CHI:'CL',CHN:'CN',COL:'CO',CRO:'HR',CZE:'CZ',DEN:'DK',ECU:'EC',EGY:'EG',ESA:'SV',ESP:'ES',EST:'EE',FIN:'FI',FRA:'FR',GBR:'GB',GEO:'GE',GER:'DE',GRE:'GR',HKG:'HK',HUN:'HU',INA:'ID',IND:'IN',IRL:'IE',ISR:'IL',ITA:'IT',JPN:'JP',KAZ:'KZ',KOR:'KR',LAT:'LV',LIB:'LB',LTU:'LT',LUX:'LU',MAR:'MA',MDA:'MD',MEX:'MX',MKD:'MK',MON:'MC',NED:'NL',NOR:'NO',NZL:'NZ',PER:'PE',PHI:'PH',POL:'PL',POR:'PT',PUR:'PR',ROU:'RO',RSA:'ZA',RUS:'RU',SLO:'SI',SRB:'RS',SUI:'CH',SVK:'SK',SWE:'SE',THA:'TH',TPE:'TW',TUN:'TN',TUR:'TR',UKR:'UA',URU:'UY',USA:'US',UZB:'UZ',VEN:'VE',VIE:'VN',CYP:'CY',PAR:'PY',DOM:'DO',JOR:'JO',KUW:'KW',QAT:'QA',UAE:'AE',SGP:'SG',MAS:'MY',SRI:'LK',PAK:'PK',NGR:'NG',KEN:'KE',ALG:'DZ',AND:'AD',ARM:'AM',AZE:'AZ',BAR:'BB',BER:'BM',CRC:'CR',GUA:'GT',HAI:'HT',HON:'HN',ISL:'IS',JAM:'JM',KGZ:'KG',MLT:'MT',MNE:'ME',NCA:'NI',PAN:'PA',ZIM:'ZW'};
+
+  // Loting-volgorde: INVULLEN zodra de loting bekend is (± vr 16 okt),
+  // zelfde lijsten als in scripts/europeanopen/update.py.
+  var SEEDS = {
+    MS: [],
+    MD: []
+  };
+
+  var EVMETA = {
+    MS: { tab:'Heren', badge:'HERENENKELSPEL', espn:'mens-singles', pair:false, basis:0,
+          finale:'Finale: zondag 25 oktober',
+          kolom:{ 'Round 1':0, 'Round of 32':0, '1st Round':0,
+                  'Round 2':1, 'Round of 16':1, '2nd Round':1,
+                  'Quarterfinal':2, 'Quarterfinals':2, 'Semifinal':3, 'Semifinals':3, 'Final':4 },
+          rondes:['1e ronde','Laatste 16','Kwartfinale','Halve finale','Finalist'] },
+    MD: { tab:'Heren dubbel', badge:'HERENDUBBELSPEL', espn:'mens-doubles', pair:true, basis:1,
+          finale:'Finale: zondag 25 oktober',
+          kolom:{ 'Round 1':1, 'Round of 16':1, '1st Round':1, 'Quarterfinal':2, 'Quarterfinals':2,
+                  'Semifinal':3, 'Semifinals':3, 'Final':4 },
+          rondes:['','Laatste 16','Kwartfinale','Halve finale','Finalist'] }
+  };
+
+  function vlagEmoji(ioc){
+    var iso = IOC[(ioc || '').toUpperCase()];
+    if (!iso) return '';
+    return String.fromCodePoint(0x1F1E6 + iso.charCodeAt(0) - 65, 0x1F1E6 + iso.charCodeAt(1) - 65) + ' ';
+  }
+  function norm(naam){
+    if (!naam) return '';
+    var s = naam.normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^\x20-\x7E]/g, '');
+    s = s.replace(/\[.*?\]/g, '').replace(/-/g, ' ').replace(/\//g, ' ').toLowerCase().trim();
+    return s.split(/\s+/).filter(function(d){ return d && !/\.$/.test(d); }).join(' ');
+  }
+  function zelfde(slottekst, kortnorm){
+    var s = norm(slottekst);
+    return s === kortnorm || s.slice(-(kortnorm.length + 1)) === ' ' + kortnorm ||
+           (kortnorm && s.indexOf(kortnorm) >= 0);
+  }
+  function tijdInfo(ms){
+    var d = new Date(ms);
+    var parts = {};
+    new Intl.DateTimeFormat('nl-NL', { timeZone:'Europe/Amsterdam', weekday:'short',
+        day:'numeric', hour:'2-digit', minute:'2-digit', hour12:false })
+      .formatToParts(d).forEach(function(p){ parts[p.type] = p.value; });
+    var datum = new Intl.DateTimeFormat('en-CA', { timeZone:'Europe/Amsterdam' }).format(d);
+    return { dag: parts.weekday, dagnr: parts.day, tijd: parts.hour + ':' + parts.minute, datum: datum };
+  }
+  function vandaagStr(){
+    return new Intl.DateTimeFormat('en-CA', { timeZone:'Europe/Amsterdam' }).format(new Date());
+  }
+  function flipScore(score){
+    return score.split(' ').map(function(p){ return p.split('-').reverse().join('-'); }).join(' ');
+  }
+  function liveDetail(status){
+    return (status.detail || '').replace(/(\d)(?:st|nd|rd|th)\s+Set/, '$1e set');
+  }
+  function scoreEspn(comp){
+    try{
+      var t1 = comp.competitors[0], t2 = comp.competitors[1];
+      var a = (t1.linescores || []).map(function(s){ return Math.round(s.value || 0); });
+      var b = (t2.linescores || []).map(function(s){ return Math.round(s.value || 0); });
+      return a.map(function(x, i){ return x + '-' + (b[i] === undefined ? '' : b[i]); }).join(' ');
+    } catch(e){ return ''; }
+  }
+  function espnNamen(t){
+    var roster = t.roster || [];
+    if (roster.length){
+      return roster.map(function(a){
+        var at = a.athlete || a;
+        return at.shortName || at.displayName || '';
+      }).join(' / ');
+    }
+    var a = t.athlete || {};
+    return a.shortName || a.displayName || t.displayName || '';
+  }
+  function espnVlag(t){
+    var m = /\/([a-z]{3})\.png/.exec(((t.athlete || {}).flag || {}).href || '');
+    return m ? vlagEmoji(m[1].toUpperCase()) : '';
+  }
+
+  function bouwLive(code, comps, vandaag){
+    var meta = EVMETA[code];
+    var basis = meta.basis;
+
+    var vlaggen = {}, vollen = {};
+    comps.forEach(function(c){
+      (c.competitors || []).forEach(function(t){
+        var n = norm(espnNamen(t));
+        if (!n) return;
+        if (!(n in vlaggen)) vlaggen[n] = meta.pair ? '' : espnVlag(t);
+        var volle = (t.athlete || {}).fullName;
+        if (volle && !(n in vollen)) vollen[n] = volle;
+      });
+    });
+    function toon(naam){
+      var n = norm(naam);
+      var m = /\s*(\[\d+\])/.exec(naam);
+      var seed = m ? ' ' + m[1] : '';
+      var basisnaam = vollen[n] || naam.replace(/\s*\[\d+\]/, '');
+      return (vlaggen[n] || '') + basisnaam + seed;
+    }
+
+    var slots = {}, champ = '';
+    var labels = { L: [new Array(8).fill(''), new Array(4).fill(''), new Array(2).fill(''), new Array(1).fill('')],
+                   R: [new Array(8).fill(''), new Array(4).fill(''), new Array(2).fill(''), new Array(1).fill('')] };
+    var positie = [{}, {}, {}, {}, {}];
+    var perKant = counts[basis];
+    (SEEDS[code] || []).forEach(function(naam, i){
+      var kant = i < perKant ? 'L' : 'R', idx = i < perKant ? i : i - perKant;
+      var isBye = naam.toLowerCase() === 'bye';
+      slots[kant + '-' + basis + '-' + idx] = isBye ? 'bye' : toon(naam);
+      if (!isBye) positie[basis][norm(naam)] = [kant, idx];
+    });
+    if ((SEEDS[code] || []).length){
+      ['L','R'].forEach(function(kant){
+        for (var paar = 0; paar < perKant / 2; paar++){
+          var a = slots[kant + '-' + basis + '-' + (paar*2)] || '';
+          var b = slots[kant + '-' + basis + '-' + (paar*2+1)] || '';
+          var door = b.toLowerCase() === 'bye' ? a : (a.toLowerCase() === 'bye' ? b : '');
+          if (door){
+            slots[kant + '-' + (basis+1) + '-' + paar] = door;
+            positie[basis+1][norm(door)] = [kant, paar];
+          }
+        }
+      });
+    }
+
+    var vandaagLijst = [];
+    var perKolom = [[], [], [], [], []];
+    comps.forEach(function(c){
+      var k = meta.kolom[((c.round || {}).displayName) || ''];
+      if (k !== undefined) perKolom[k].push(c);
+    });
+
+    for (var k = basis; k < 5; k++){
+      perKolom[k].forEach(function(c){
+        var namen = (c.competitors || []).map(espnNamen);
+        var status = (c.status || {}).type || {};
+        var ti = tijdInfo(c.date);
+        var court = (c.venue || {}).court || '';
+        var tv = 'Ziggo Sport';
+
+        if (ti.datum === vandaag){
+          vandaagLijst.push({
+            start: Math.floor(new Date(c.date).getTime() / 1000),
+            tijd: ti.tijd, court: court || 'baan volgt',
+            ronde: RONDE_NAAM[k] || '',
+            partij: namen.filter(Boolean).map(toon).join(' – '),
+            status: status.completed ? ('gespeeld · ' + scoreEspn(c))
+                    : (status.state === 'in'
+                       ? ('LIVE · ' + liveDetail(status) + (scoreEspn(c).replace(/[-\s]/g, '') ? ' · ' + scoreEspn(c) : ''))
+                       : 'gepland'),
+            tv: tv
+          });
+        }
+
+        var pos = namen.map(function(n){ return positie[k][norm(n)]; }).filter(Boolean);
+        if (!pos.length) return;
+        pos.sort(function(a, b){ return a[1] - b[1]; });
+        var kant = pos[0][0], idx = pos[0][1], paar = Math.floor(idx / 2);
+
+        if (k <= 3){
+          var score = scoreEspn(c);
+          var bovenste = slots[kant + '-' + k + '-' + (paar * 2)] || '';
+          if (namen.length && !zelfde(bovenste, norm(namen[0]))) score = flipScore(score);
+          if (status.completed) labels[kant][k][paar] = ti.dag + ' ' + ti.dagnr + ' okt · ' + score;
+          else if (status.state === 'in') labels[kant][k][paar] = 'LIVE · ' + liveDetail(status) + (score.replace(/[-\s]/g, '') ? ' · ' + score : '') + ' · ' + tv;
+          else if (c.timeValid !== false) labels[kant][k][paar] = ti.dag + ' ' + ti.tijd + ' · ' + (court || 'baan volgt') + ' · ' + tv;
+          else labels[kant][k][paar] = ti.dag + ' ' + ti.dagnr + ' okt · tijd volgt · ' + tv;
+        }
+
+        if (status.completed){
+          var w = null;
+          (c.competitors || []).forEach(function(t){ if (t.winner) w = t; });
+          if (w){
+            var wnorm = norm(espnNamen(w));
+            var buur = idx % 2 === 0 ? idx + 1 : idx - 1;
+            var bron = null;
+            [idx, buur].forEach(function(j){
+              if (!bron && zelfde(slots[kant + '-' + k + '-' + j] || '', wnorm))
+                bron = slots[kant + '-' + k + '-' + j];
+            });
+            if (!bron) bron = toon(espnNamen(w));
+            if (k < 4){
+              slots[kant + '-' + (k+1) + '-' + paar] = bron;
+              positie[k+1][wnorm] = [kant, paar];
+            } else champ = bron;
+          }
+        } else {
+          namen.forEach(function(n){
+            var p = positie[k][norm(n)];
+            if (p && !slots[p[0] + '-' + k + '-' + p[1]]) slots[p[0] + '-' + k + '-' + p[1]] = toon(n);
+          });
+        }
+      });
+    }
+    vandaagLijst.sort(function(a, b){ return a.tijd < b.tijd ? -1 : 1; });
+    var uit = { tab: meta.tab, badge: meta.badge, rondes: meta.rondes, finale: meta.finale,
+                pair: meta.pair, basis: basis, slots: slots, labels: labels, champ: champ,
+                vandaag: vandaagLijst };
+    if (!(SEEDS[code] || []).length){
+      uit.mededeling = 'De loting is nog niet ingevoerd; de daglijst hieronder toont de partijen al wel.';
+    }
+    return uit;
+  }
+
+  function vandaagCompact(){
+    var d = new Intl.DateTimeFormat('en-CA', { timeZone:'Europe/Amsterdam' }).format(new Date());
+    return d.replace(/-/g, '');
+  }
+  function vernieuw(){
+    if (!DATA) return;
+    var vd = vandaagStr();
+    // ?dates=<vandaag>: geeft de volledige toernooiboom van de dag-actieve events.
+    fetch(ESPN_URL + '?dates=' + vandaagCompact(), { cache: 'no-store' })
+      .then(function(r){ return r.json(); })
+      .then(function(json){
+        var toernooi = null;
+        (json.events || []).forEach(function(e){
+          if (!toernooi && String(e.name || '').toLowerCase().indexOf(EVENT_NAAM) >= 0) toernooi = e;
+        });
+        if (!toernooi) return; // voorfase: data.json blijft staan
+        var ok = 0;
+        ['MS','MD'].forEach(function(code){
+          var groep = null;
+          (toernooi.groupings || []).forEach(function(g){
+            if (g.grouping && g.grouping.slug === EVMETA[code].espn) groep = g;
+          });
+          if (!groep) return;
+          try{ DATA.events[code] = bouwLive(code, groep.competitions || [], vd); ok++; } catch(e){}
+        });
+        if (ok > 0){
+          var t = tijdInfo(Date.now());
+          zetBijgewerkt(t.tijd + ' uur (live)');
+          bouwTabs();
+          bouw(current);
+        }
+      })
+      .catch(function(){ /* voorfase of feed-storing: data.json blijft staan */ });
+  }
+
+  /* ===================== laden ===================== */
+
+  function laad(eerste){
+    fetch('data.json?ts=' + Date.now(), { cache: 'no-store' })
+      .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(json){
+        DATA = json;
+        if (!current || !DATA.events[current]) current = DATA.volgorde[0];
+        melding.style.display = 'none';
+        if (DATA.bijgewerkt) zetBijgewerkt(DATA.bijgewerkt + ' uur');
+        bouwTabs();
+        bouw(current);
+        if (eerste) vernieuw();
+      })
+      .catch(function(e){
+        if (eerste){
+          melding.textContent = 'Schemagegevens konden niet geladen worden (' + e.message + '). Probeer het later opnieuw.';
+          melding.style.display = 'block';
+        }
+      });
+  }
+
+  laad(true);
+  setInterval(vernieuw, 5 * 60 * 1000);
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) vernieuw();
+  });
+  setInterval(function(){
+    if (DATA && current) toonVandaag(DATA.events[current]);
+  }, 60 * 1000);
+})();
+</script>
+</body>
+</html>

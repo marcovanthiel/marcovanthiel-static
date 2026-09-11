@@ -1,0 +1,150 @@
+{
+ "bijgewerkt": "11 september 2026, 14:11",
+ "bijgewerkt_iso": "2026-09-11T14:11+02:00",
+ "volgorde": [
+  "MS",
+  "MD"
+ ],
+ "events": {
+  "MS": {
+   "tab": "Heren",
+   "badge": "HERENENKELSPEL",
+   "rondes": [
+    "1e ronde",
+    "Laatste 16",
+    "Kwartfinale",
+    "Halve finale",
+    "Finalist"
+   ],
+   "finale": "Finale: zondag 25 oktober",
+   "pair": false,
+   "basis": 0,
+   "slots": {},
+   "labels": {
+    "L": [
+     [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      ""
+     ],
+     [
+      ""
+     ]
+    ],
+    "R": [
+     [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      ""
+     ],
+     [
+      ""
+     ]
+    ]
+   },
+   "champ": "",
+   "vandaag": [],
+   "mededeling": "De loting is nog niet bekend; die wordt rond vrijdag 16 oktober verwacht. Dit schema vult zich daarna automatisch. Het toernooi duurt van 17 t/m 25 oktober 2026 (Brussels Expo)."
+  },
+  "MD": {
+   "tab": "Heren dubbel",
+   "badge": "HERENDUBBELSPEL",
+   "rondes": [
+    "",
+    "Laatste 16",
+    "Kwartfinale",
+    "Halve finale",
+    "Finalist"
+   ],
+   "finale": "Finale: zondag 25 oktober",
+   "pair": true,
+   "basis": 1,
+   "slots": {},
+   "labels": {
+    "L": [
+     [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      ""
+     ],
+     [
+      ""
+     ]
+    ],
+    "R": [
+     [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      "",
+      "",
+      ""
+     ],
+     [
+      "",
+      ""
+     ],
+     [
+      ""
+     ]
+    ]
+   },
+   "champ": "",
+   "vandaag": [],
+   "mededeling": "De loting is nog niet bekend; die wordt rond vrijdag 16 oktober verwacht. Dit schema vult zich daarna automatisch. Het toernooi duurt van 17 t/m 25 oktober 2026 (Brussels Expo)."
+  }
+ }
+}
