@@ -16,11 +16,22 @@
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="stylesheet" href="assets/fonts.css?v=20260911a">
-<link rel="stylesheet" href="assets/styles.css?v=20260911a">
+<link rel="stylesheet" href="assets/styles.css?v=20260911b">
 </head>
 <body>
 
 <a class="skip" href="#lijst">Direct naar het register</a>
+
+<svg class="duotoon-def" aria-hidden="true" focusable="false" width="0" height="0">
+  <filter id="duotoon-petrol" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0.016 0.906"/>
+      <feFuncG type="table" tableValues="0.098 0.788"/>
+      <feFuncB type="table" tableValues="0.118 0.886"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
 
 <header class="masthead">
   <div class="wrap masthead-in">
@@ -35,6 +46,35 @@
 </header>
 
 <div id="inhoud">
+
+<div class="wrap">
+<section class="dagcover" id="locatie-van-de-dag" aria-labelledby="dag-naam">
+  <div class="dagcover-band">
+    <p class="kicker">Locatie van de dag</p>
+    <span class="code" id="dag-datum"></span>
+  </div>
+  <div class="dagcover-grid">
+    <figure class="dagcover-figuur">
+      <div class="duotoon">
+        <img id="dag-foto" src="foto/FR-01.webp" alt="Le Cyclop, Milly-la-For&ecirc;t" width="1000" height="667" decoding="async" fetchpriority="high">
+      </div>
+      <figcaption class="dagcover-credit" id="dag-credit">Foto: lecyclop.com &middot; <a href="https://www.lecyclop.com/" target="_blank" rel="noopener">website van de locatie</a></figcaption>
+    </figure>
+    <div class="dagcover-tekst">
+      <p class="dagcover-plaats" id="dag-plaats">Milly-la-For&ecirc;t &middot; Frankrijk</p>
+      <h2 class="dagcover-naam" id="dag-naam">Le Cyclop</h2>
+      <p class="dagcover-wie" id="dag-wie">Jean Tinguely en Niki de Saint Phalle met ruim twintig anderen, 1969&#8211;1994</p>
+      <p class="dagcover-omschrijving" id="dag-omschrijving">Een 22,5 meter hoge stalen kop van 350 ton, verstopt in het bos; binnenin een bewegend theater van Tinguely-machinerie en Niki's spiegelmoza&iuml;ek. Dit is het referentiepunt.</p>
+      <ul class="dagcover-tags" id="dag-tags"><li>Gesamtkunstwerk</li><li>kern van de lijst</li></ul>
+      <p class="dagcover-acties">
+        <button type="button" id="dag-kaart">toon op de kaart</button>
+        <a id="dag-register" href="#lijst">in het register</a>
+        <a id="dag-site" href="https://www.lecyclop.com/" target="_blank" rel="noopener">lecyclop.com &#8599;</a>
+      </p>
+    </div>
+  </div>
+</section>
+</div>
 
 <div class="wrap">
 <section class="cover">
@@ -144,6 +184,6 @@
 <script src="assets/data.js?v=20260910b"></script>
 <script src="assets/mapdata.js?v=20260910a"></script>
 <script src="assets/fotos.js?v=20260910b"></script>
-<script src="assets/app.js?v=20260911a"></script>
+<script src="assets/app.js?v=20260911b"></script>
 </body>
 </html>

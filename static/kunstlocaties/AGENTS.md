@@ -115,6 +115,51 @@ IT-01 komt bij uitzondering van PromoTurismoFVG (eigen bron ligt plat).
 Bij de vulronde zijn ook dode site-URL's in `data.js` gerepareerd
 (o.a. Middelheim, Scarzuola, Glaskasten Marl, Demeure du Chaos, Villa Müller).
 
+## Locatie van de dag (redactionele cover)
+
+Sinds 11-9-2026 staat helemaal boven de pagina een redactionele **cover** die
+één gefeaturede locatie groot toont met haar foto als openingsbeeld — de
+"locatie van de dag". De hele bestaande pagina (hero, statpillen, kaart,
+register, catalogus) staat er ongewijzigd onder; de cover vervangt niets, hij
+komt ervoor. Sectie `#locatie-van-de-dag` in `index.html`, opgemaakt met
+`.dagcover*` in `styles.css`, gevuld door `bouwDagcover()` in `app.js`.
+
+**Deterministisch op de kalenderdatum, puur client-side** (geen server, geen
+cron, geen `Math.random` — dat zou per refresh wisselen). De keuze:
+
+```
+dagnr = floor( Date.UTC(jaar, maand, dag) / 86400000 )   // hele dagen sinds epoch, lokale kalenderdag
+i     = (dagnr * 173) % aantalGefotografeerd              // 173 = priem, coprime met 302 → spreidt
+locatie = gefotografeerde[i]
+```
+
+Iedereen ziet op dezelfde kalenderdag dezelfde locatie, en hij rouleert elke
+dag. De priem-stap 173 zorgt dat opeenvolgende dagen niet buurlocaties uit de
+lijst pakken maar over landen springen. Alleen locaties **met** een bruikbare
+foto (`FOTOS[e.id].f`) komen in aanmerking (302 van de 303), zodat de cover
+altijd beeld heeft; de fotoloze FR-51 valt er dus buiten.
+
+**Progressive enhancement:** de statische HTML bevat als zinvolle default
+**Le Cyclop (FR-01)** — naam, plaats, foto, omschrijving en tags staan er echt
+in, zodat de cover ook zonder JavaScript en voor crawlers een volledige locatie
+toont. `bouwDagcover()` wisselt hem bij het laden naar die-van-vandaag.
+
+**Foto in de huisstijl:** de willekeurige locatiefoto krijgt een petrol/pruim
+**duotoon** via het SVG-filter `#duotoon-petrol` (verborgen `<svg class=
+"duotoon-def">` boven in de body): een luminantie-`feColorMatrix` gevolgd door
+een `feComponentTransfer` die schaduwen naar diep petrol en hooglichten naar
+lichte orchidee mapt. Toegepast met `filter:url(#duotoon-petrol)` op
+`.duotoon img`. Zo past elk beeld in het palet.
+
+**Acties** (haken op de bestaande functies via de closure van `app.js`): "toon
+op de kaart" scrollt naar `#de-kaart`, roept `kaart.naarPunt(nr)` +
+`selecteer(nr)`; "in het register" is een echt anker `#plek-<id>` dat via
+`selecteer(nr, true)` naar het kaartje scrollt en het markeert; plus de externe
+sitelink. De cover-tekst staat op de petrol-grond (niet over de foto), dus het
+contrast is gelijk aan de rest van de pagina (laagste paar 5,27:1). Tags worden
+hoofdletter-ongevoelig ontdubbeld (soort "Kunsthotel" botste anders met het
+logeer-label "kunsthotel").
+
 ## De kaart
 
 Geen kaartdienst, geen tiles, geen Leaflet: de kaart is één SVG die uit Natural

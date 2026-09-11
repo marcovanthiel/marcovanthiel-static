@@ -68,6 +68,41 @@ nav.rubrieken-nav a{font-family:var(--sans);font-size:.8rem;font-weight:600;lett
   text-transform:uppercase;text-decoration:none;color:var(--inkt);padding-block:.2rem}
 nav.rubrieken-nav a:hover{color:var(--accent)}
 
+/* -- locatie van de dag (redactionele cover; rouleert dagelijks) -- */
+.duotoon-def{position:absolute;width:0;height:0;overflow:hidden}
+.dagcover{padding-block:clamp(2rem,4.5vw,3.4rem) 0;border-bottom:1px solid var(--lijn-zwaar)}
+.dagcover-band{display:flex;align-items:baseline;justify-content:space-between;gap:.8rem 1.4rem;
+  flex-wrap:wrap;margin-bottom:clamp(1.1rem,2.4vw,1.7rem)}
+.dagcover-band .kicker{flex:1 1 12rem}
+#dag-datum{white-space:nowrap}
+.dagcover-grid{display:grid;grid-template-columns:minmax(0,6.6fr) minmax(0,5.4fr);
+  gap:clamp(1.6rem,3.4vw,3.2rem);align-items:center;padding-bottom:clamp(2rem,4.5vw,3.4rem)}
+.dagcover-figuur{margin:0;min-width:0}
+.duotoon{position:relative;border:1px solid var(--lijn);background:var(--diep);aspect-ratio:3/2;overflow:hidden}
+.duotoon img{width:100%;height:100%;object-fit:cover;filter:url(#duotoon-petrol) contrast(1.02)}
+.dagcover-credit{font-family:var(--sans);font-size:.64rem;line-height:1.6;color:var(--gedempt);margin:7px 1px 0;overflow-wrap:anywhere}
+.dagcover-credit a{color:var(--gedempt);text-decoration:underline;text-underline-offset:2px}
+.dagcover-credit a:hover{color:var(--accent)}
+.dagcover-tekst{min-width:0}
+.dagcover-plaats{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+.dagcover-naam{font-family:var(--serif);font-weight:520;font-size:clamp(2.2rem,1.4rem + 3.4vw,4rem);
+  line-height:1.03;letter-spacing:-.018em;color:var(--inkt);margin:0;text-wrap:balance;overflow-wrap:anywhere}
+.dagcover-wie{font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:1.45;
+  color:var(--gedempt);margin:.7rem 0 0;max-width:42ch}
+.dagcover-omschrijving{font-family:var(--serif);font-size:clamp(1.05rem,1rem + .3vw,1.18rem);
+  line-height:1.56;color:var(--inkt);margin:1rem 0 0;max-width:48ch;overflow-wrap:anywhere}
+.dagcover-tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:1.2rem 0 0;padding:0}
+.dagcover-tags li{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gedempt);border:1px solid var(--lijn);padding:5px 10px}
+.dagcover-acties{display:flex;flex-wrap:wrap;gap:14px 22px;margin:1.5rem 0 0;align-items:center}
+.dagcover-acties button,.dagcover-acties a{font-family:var(--sans);font-size:.74rem;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;cursor:pointer;text-decoration:none;border:0;background:none;padding:0}
+.dagcover-acties #dag-kaart{color:var(--papier);background:var(--accent);padding:9px 16px}
+.dagcover-acties #dag-kaart:hover{background:var(--inkt)}
+.dagcover-acties a{color:var(--accent);border-bottom:1px solid transparent;padding-bottom:2px}
+.dagcover-acties a:hover{border-bottom-color:var(--accent);color:var(--inkt)}
+
 /* -- cover -- */
 .cover{padding-block:clamp(2.6rem,6vw,4.6rem) clamp(1.4rem,3vw,2.4rem)}
 .cover-kop{display:grid;grid-template-columns:minmax(0,8.4fr) minmax(0,3.6fr);gap:1.4rem 3rem;align-items:end}
@@ -276,6 +311,7 @@ article.plek.kern .meta .nr{color:var(--accent)}
 @media (max-width:900px){
   .cover-kop{grid-template-columns:1fr}
   .cover-nr{display:none}
+  .dagcover-grid{grid-template-columns:1fr;gap:1.4rem;align-items:start}
   article.plek{grid-template-columns:150px minmax(0,1fr)}
   .plek .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;
     justify-content:flex-start;text-align:left;gap:9px 14px;margin-top:.75rem}

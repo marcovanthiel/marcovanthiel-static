@@ -565,6 +565,69 @@
     };
   }
 
+  /* --------------------------------------------- locatie van de dag ---- */
+  /* Redactionele cover boven de pagina. De keuze is deterministisch op de
+     kalenderdatum (geen server, geen random): een dagnummer sinds de epoch
+     maal een priem-stap, modulo het aantal gefotografeerde locaties. Iedereen
+     ziet op dezelfde dag dezelfde plek; hij rouleert elke dag. Alleen locaties
+     met bruikbare foto komen in aanmerking, zodat de cover altijd beeld heeft.
+     Statische HTML toont Le Cyclop als zinvolle default zonder JS. */
+  function bouwDagcover() {
+    var wortel = $("locatie-van-de-dag");
+    if (!wortel) return;
+    var GEFOTO = DATA.filter(function (e) { return FOTOS[e.id] && FOTOS[e.id].f; });
+    if (!GEFOTO.length) return;
+    var nu = new Date();
+    var dagnr = Math.floor(Date.UTC(nu.getFullYear(), nu.getMonth(), nu.getDate()) / 86400000);
+    var i = ((dagnr * 173) % GEFOTO.length + GEFOTO.length) % GEFOTO.length;
+    var e = GEFOTO[i], f = FOTOS[e.id];
+
+    try {
+      $("dag-datum").textContent = nu.toLocaleDateString("nl-NL",
+        { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    } catch (err) { $("dag-datum").textContent = ""; }
+
+    var img = $("dag-foto");
+    img.src = "foto/" + f.f;
+    img.alt = e.n + ", " + e.p;
+    $("dag-plaats").textContent = e.p + " · " + e.land;
+    $("dag-naam").textContent = e.n;
+    $("dag-wie").textContent = e.w;
+    $("dag-omschrijving").textContent = e.x;
+
+    $("dag-credit").innerHTML = f.licentie === "eigen foto"
+      ? "Foto: Marco van Thiel"
+      : "Foto: " + esc(f.maker || "onbekend") + " · " +
+        (f.bron ? '<a href="' + esc(f.bron) + '" target="_blank" rel="noopener">' + esc(f.licentie) + "</a>"
+                : esc(f.licentie));
+
+    var tags = [e.t];
+    if (e.arch) tags.push("spraakmakende architectuur");
+    if (e.lo) tags.push(LOGEREN[e.lo]);
+    if (e.kern) tags.push("kern van de lijst");
+    var gezien = {}, uniek = [];
+    tags.forEach(function (t) {
+      var sl = t.toLowerCase();
+      if (!gezien[sl]) { gezien[sl] = 1; uniek.push(t); }
+    });
+    $("dag-tags").innerHTML = uniek.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("");
+
+    var site = $("dag-site");
+    site.href = e.u;
+    site.innerHTML = esc(host(e.u)) + " ↗";
+
+    var reg = $("dag-register");
+    reg.setAttribute("href", "#plek-" + e.id);
+    reg.addEventListener("click", function (ev) { ev.preventDefault(); selecteer(e.nr, true); });
+
+    $("dag-kaart").addEventListener("click", function () {
+      var mk = $("de-kaart");
+      if (mk) mk.scrollIntoView({ behavior: rustig ? "auto" : "smooth", block: "start" });
+      if (kaart) kaart.naarPunt(e.nr);
+      selecteer(e.nr, false);
+    });
+  }
+
   /* Het millimeterpapier achter de pagina — één keer tekenen, verder niets. */
   function bouwRaster() {
     var g = document.getElementById("raster");
@@ -594,4 +657,5 @@
   }
   kaart = bouwKaart();
   teken();
+  bouwDagcover();
 })();

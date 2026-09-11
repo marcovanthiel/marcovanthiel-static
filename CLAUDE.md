@@ -363,6 +363,24 @@ scripts/kunstlocaties/  # build-map.js (kaartdata), fetch-webfotos.js (foto's),
                         # build-dossier.js (reisdossier uit data.js)
 ```
 
+**Locatie van de dag (11-9-2026):** boven aan de homepage staat nu een
+redactionele cover (`#locatie-van-de-dag`) die één gefeaturede locatie groot
+toont met haar foto als openingsbeeld; de hele bestaande pagina (hero,
+statpillen, kaart, register, catalogus) blijft ongewijzigd eronder. De keuze is
+**puur client-side en deterministisch op de kalenderdatum** (geen server, geen
+cron): `dagnr = floor(Date.UTC(y,m,d)/86400000)`, `i = (dagnr*173) % 302`
+(alleen de 302 gefotografeerde locaties; 173 is priem en coprime, dus hij
+springt dagelijks over landen). Iedereen ziet dezelfde dag dezelfde plek en hij
+rouleert elke dag — nadrukkelijk niet `Math.random`. De statische HTML toont Le
+Cyclop (FR-01) als no-JS/crawler-default; `bouwDagcover()` in `app.js` wisselt
+hem naar vandaag. De willekeurige locatiefoto krijgt de petrol/pruim-duotoon via
+SVG-filter `#duotoon-petrol` (feColorMatrix + feComponentTransfer). De
+cover-acties haken op de bestaande "toon op de kaart"/`selecteer`-functies en op
+het anker `#plek-<id>`. Contrast gelijk aan de rest (laagste paar 5,27:1);
+scrollWidth == viewport op 1180 en 390; drie datums gaven drie verschillende
+locaties (LU-03, ES-15, IT-28) en dezelfde datum steeds dezelfde. Details in
+`static/kunstlocaties/AGENTS.md`.
+
 **Beeldtaal (sinds 11-9-2026): Editorial reismagazine, petrol + pruim.** Door
 Marco gekozen uit 8 ontwerp- + 8 kleurvoorstellen; dit **verving** voor deze
 subsite de oude machine-stijl (Anton/millimeterpapier/vermiljoen — die was niet
