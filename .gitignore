@@ -26,3 +26,10 @@ Claude outputs/
 # Python cache
 __pycache__/
 *.pyc
+
+# Machine-lokale agent-instellingen (nooit committen; .claude/settings.json en
+# .claude/commands/ blijven wél in versiebeheer).
+.claude/settings.local.json
+
+# Scratch-werkmap kunstlocaties (alleen node_modules + run-output, geen broncode).
+scripts/kunstlocaties/
