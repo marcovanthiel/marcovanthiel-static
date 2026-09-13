@@ -5,6 +5,21 @@ Fundraising, Manifest). Zie `README.md`
 voor stack en build-details. (/zilvermanagement is 20-6-2026 verwijderd;
 /felix is 11-9-2026 verwijderd.)
 
+**Hosting (sinds 13-9-2026): Cloudflare Workers Static Assets + GitHub Actions**
+(fase 5 platform-standaard; wég van Cloudflare Pages). `wrangler.toml` met
+`[assets] directory = "./public"`, geen Worker-code (de site is puur statisch;
+"kunstwerk van de dag" is client-side en haalt de EXTERNE kunstcollectie-API op).
+Deploy: push naar main → `.github/workflows/deploy.yml` installeert **Hugo 0.161.1
+extended**, draait `hugo --minify` en `wrangler deploy`. `wranglerVersion 4.107.0`
+in de action zodat `static/_headers` (CSP) en `static/_redirects` worden toegepast.
+Custom domains marcovanthiel.nl + www via de Workers-API (Pages-project verwijderd;
+alléén apex+www omgehangen, alle M365-mail/MX/TXT en de kunstcollectie-subdomeinen
+in de zone ongemoeid). **Let op Hugo-versie:** het theme gebruikt
+`.Site.Language.LanguageCode` e.d.; bouwen met de oude 0.92.2 faalt, gebruik 0.161.1.
+De 3 oude Pages Functions (`functions/api/contact` + Klank reserve/export) zijn
+13-9-2026 verwijderd: allemaal dode code (contactpagina is mailto-only, Klank-concert
+voorbij + geen KLANK_DB).
+
 **ToegankelijkScan is 11-9-2026 verhuisd** naar het eigen domein
 **toegankelijkscan.nl** (zelfstandige Worker, repo `marcovanthiel/toegankelijkscan`).
 De subsite hier (Pages Functions, 10-9-2026) is verwijderd; `/toegankelijkscan(/**)`
@@ -32,12 +47,13 @@ NL-homepage); kunstpagina nu als gekoppelde vertaling in 5 talen
 (content/<taal>/kunst.md, slug per taal), DE-menu kreeg zijn Home-item.
 (5) tel:-link zonder "(0)". Logo-img kreeg width/height.
 
-**Deploy-gotcha (2026-07-06):** Cloudflare Pages kan een push naar `main`
-missen (geen build voor die commit; controleer met
-`npx wrangler pages deployment list --project-name=marcovanthiel` of de
-commit-hash erbij staat). Remedie: een lege commit pushen
-(`git commit --allow-empty`) — nooit handmatig uploaden, GitHub blijft de bron.
-Verifieer een deploy dus altijd op de live URL, niet alleen op de groene Action.
+**Deploy (sinds 13-9-2026):** push naar `main` → GitHub Actions
+(`.github/workflows/deploy.yml`) bouwt Hugo en deployt de Worker. Controleer de
+nieuwste run bij je eigen commit-sha (`gh run list --workflow=deploy.yml --limit 1`)
+en verifieer altijd op de live URL met een `?cb=`-parameter, niet alleen op de
+groene Action. GitHub is de bron; niet lokaal deployen (behalve noodfix). De
+content-Actions (Biennale, Italië, European Open) committen gegenereerde bestanden
+en triggeren daarmee dezelfde deploy.
 
 ## Werken in deze repo met Claude Code
 
