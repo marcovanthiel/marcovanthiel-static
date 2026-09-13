@@ -1,21 +1,15 @@
-# marcovanthiel.nl — Cloudflare Worker met Workers Static Assets.
-# Hugo bouwt de site naar ./public (build in CI: hugo --minify, versie 0.92.2).
-# De Worker (src/index.js) serveert die assets en handelt POST /api/contact af.
-# Deploy via GitHub Actions (push naar main); custom domains via de Workers-API
-# (niet hier: een route schakelt workers.dev uit -> error 1042).
+# marcovanthiel.nl — Cloudflare Workers Static Assets (puur statisch).
+# Hugo bouwt de site naar ./public (build in CI: hugo --minify, Hugo 0.161.1;
+# het theme vereist een moderne Hugo, de oude HUGO_VERSION 0.92.2 was verouderd).
+# Geen Worker-code: de site heeft geen dynamische endpoints. "Kunstwerk van de
+# dag" is client-side en haalt de EXTERNE kunstcollectie-API op (zie CSP in
+# static/_headers). Deploy via GitHub Actions (push naar main); custom domains
+# via de Workers-API (niet hier: een route schakelt workers.dev uit -> error 1042).
 name = "marcovanthiel-static"
-main = "src/index.js"
 compatibility_date = "2026-07-01"
 workers_dev = true
 
 [assets]
 directory = "./public"
-binding = "ASSETS"
 html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"
-
-# Niet-geheime afzender/ontvanger voor het contactformulier.
-# RESEND_API_KEY is een echte secret (wrangler secret / dashboard), niet hier.
-[vars]
-RESEND_FROM = "Marco van Thiel <no-reply@marcovanthiel.nl>"
-RESEND_TO = "marco@marcovanthiel.nl"
