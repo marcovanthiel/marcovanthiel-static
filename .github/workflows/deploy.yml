@@ -17,9 +17,9 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: Hugo 0.92.2 extended installeren
+      - name: Hugo 0.161.1 extended installeren
         run: |
-          curl -sSL https://github.com/gohugoio/hugo/releases/download/v0.92.2/hugo_extended_0.92.2_Linux-64bit.tar.gz -o /tmp/hugo.tar.gz
+          curl -sSL https://github.com/gohugoio/hugo/releases/download/v0.161.1/hugo_extended_0.161.1_linux-amd64.tar.gz -o /tmp/hugo.tar.gz
           tar -xzf /tmp/hugo.tar.gz -C /tmp hugo
           sudo mv /tmp/hugo /usr/local/bin/hugo
           hugo version
