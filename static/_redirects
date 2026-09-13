@@ -1,3 +1,8 @@
+# De NL-content staat op de root; /nl/ is een Hugo-alias (meta-refresh).
+# Een 301 op Pages-niveau is een sterker en sneller signaal voor crawlers.
+/nl/                    /  301
+/nl/*                   /:splat  301
+
 /toegankelijkscan       https://toegankelijkscan.nl/  301
 /toegankelijkscan/      https://toegankelijkscan.nl/  301
 /toegankelijkscan/*     https://toegankelijkscan.nl/:splat  301

@@ -6,6 +6,11 @@ theme: "marcotheme"
 # Verberg de Hugo-versie uit de generator-meta-tag (kleine attack-surface).
 disableHugoGeneratorInject: true
 
+# De site gebruikt geen tags/categorieën; de lege Hugo-taxonomiepagina's
+# (/categories/, /tags/) zijn thin content en indexbloat. Uitschakelen zodat
+# ze niet meer worden gegenereerd en uit de sitemap verdwijnen.
+disableKinds: ["taxonomy", "term"]
+
 # Sta inline-HTML in markdown toe (nodig voor het contactformulier).
 markup:
   goldmark:
@@ -20,7 +25,7 @@ languages:
     languageName: "Nederlands"
     weight: 1
     contentDir: "content/nl"
-    title: "Marco van Thiel — Interim CIO & Programmamanager Nijmegen"
+    title: "Marco van Thiel | Interim CIO & Programmamanager Nijmegen"
     params:
       description: "Senior programmamanager en interim CIO uit Nijmegen — 20+ jaar ervaring met fusies, carve-outs en organisatietransities in onderwijs, zorg en industrie."
   en:
@@ -28,7 +33,7 @@ languages:
     weight: 2
     contentDir: "content/en"
     languageCode: "en"
-    title: "Marco van Thiel — Interim CIO & Program Manager Nijmegen"
+    title: "Marco van Thiel | Interim CIO & Program Manager Nijmegen"
     params:
       description: "Senior program manager and interim CIO based in Nijmegen — 20+ years of experience with mergers, carve-outs and organisational transitions in education, healthcare and industry."
   de:
@@ -36,15 +41,15 @@ languages:
     weight: 3
     contentDir: "content/de"
     languageCode: "de"
-    title: "Marco van Thiel — Interim-CIO & Programmmanager Nijmegen"
+    title: "Marco van Thiel | Interim-CIO & Programmanager Nijmegen"
     params:
-      description: "Senior-Programmmanager und Interim-CIO aus Nijmegen — 20+ Jahre Erfahrung mit Fusionen, Carve-outs und Organisationstransformation in Bildung, Gesundheitswesen und Industrie."
+      description: "Senior-Programmanager und Interim-CIO aus Nijmegen — 20+ Jahre Erfahrung mit Fusionen, Carve-outs und Organisationstransformation in Bildung, Gesundheitswesen und Industrie."
   it:
     languageName: "Italiano"
     weight: 4
     contentDir: "content/it"
     languageCode: "it"
-    title: "Marco van Thiel — Interim CIO & Program Manager Nijmegen"
+    title: "Marco van Thiel | CIO interim e program manager a Nijmegen"
     params:
       description: "Senior program manager e CIO interim a Nijmegen — oltre 20 anni di esperienza in fusioni, carve-out e transizioni organizzative in istruzione, sanità e industria."
   cn:
@@ -55,13 +60,13 @@ languages:
     # taalattribuut wijst correct naar Mandarijn (zh-CN), niet naar het
     # land "China" — dat scheelt rare hreflang-warnings in Search Console.
     languageCode: "zh-CN"
-    title: "Marco van Thiel — 临时 CIO 与项目集经理（奈梅亨）"
+    title: "Marco van Thiel | 临时 CIO 与项目集经理（奈梅亨）"
     params:
       description: "驻奈梅亨的资深项目集经理与临时 CIO，拥有 20 多年合并、剥离和组织转型经验，覆盖教育、医疗与工业领域。"
 
 # Site parameters
 params:
-  version: "1.18.0"
+  version: "1.19.0"
   author: "Marco van Thiel"
   description: "Marco van Thiel - Interim manager, CIO, Programmamanager en Projectmanager"
   mainSections: ["posts"]

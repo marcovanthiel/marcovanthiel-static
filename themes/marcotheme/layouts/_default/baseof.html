@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+{{/* lang-attribuut: "cn" is een landcode, geen taalcode. Voor Mandarijn
+     zetten we zh-Hans (vereenvoudigd Chinees). De overige talen gebruiken
+     hun eigen taalcode. De hreflang blijft zh-CN (regio-targeting). */}}
+<html lang="{{ if eq .Site.Language.Lang "cn" }}zh-Hans{{ else }}{{ .Site.Language.Lang }}{{ end }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    {{/* Title — kort + lokaal-keyword voor betere SERP-CTR */}}
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    {{/* Title — kort + lokaal-keyword voor betere SERP-CTR. Subpagina's
+         krijgen een korte merk-suffix ("| Marco van Thiel") i.p.v. de volle
+         site-title, anders lopen case-titels over de ~60-tekengrens en kapt
+         Google ze af. */}}
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | Marco van Thiel{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
 
     {{/* Sociale-deel-previews. og:image valt terug op site-default als
@@ -23,7 +29,7 @@
     <meta property="og:image" content="{{ $absOg }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Marco van Thiel — Interim CIO & Programmamanager">
+    <meta property="og:image:alt" content="Marco van Thiel | Interim CIO & Programmamanager">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
@@ -64,41 +70,78 @@
     <link rel="apple-touch-icon" href="/images/logo/favicon.png">
     <link rel="manifest" href="/manifest.webmanifest">
 
-    {{/* JSON-LD Person + LocalBusiness schema voor de homepage —
-         brengt entity-recognition naar Google's Knowledge Graph. */}}
+    {{/* JSON-LD @graph voor de homepage — Person, WebSite en
+         ProfessionalService (bedrijfsentiteit) aan elkaar gekoppeld via
+         @id-referenties. Brengt entity-recognition naar Google's Knowledge
+         Graph en ondersteunt een kennispaneel. */}}
     {{ if .IsHome }}
+    {{ $portrait := absURL "/images/profile/profile.jpg" }}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Marco van Thiel",
-      "url": "{{ .Site.BaseURL }}",
-      "email": "{{ .Site.Params.contact.email }}",
-      "telephone": "{{ .Site.Params.contact.phone }}",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "{{ .Site.Params.contact.locality | default "Nijmegen" }}",
-        "addressRegion": "{{ .Site.Params.contact.region | default "Gelderland" }}",
-        "addressCountry": "{{ .Site.Params.contact.country | default "NL" }}"
-      },
-      "sameAs": ["{{ .Site.Params.contact.linkedin }}"],
-      "jobTitle": "Interim CIO, Programma- en Projectmanager",
-      "description": "{{ .Site.Params.description }}",
-      "alumniOf": [
-        {"@type": "EducationalOrganization", "name": "Maastricht University"},
-        {"@type": "EducationalOrganization", "name": "Hogeschool van Arnhem en Nijmegen"}
-      ],
-      "knowsAbout": [
-        "Programmamanagement",
-        "Organisatieverandering",
-        "Carve-out",
-        "Fusiemanagement",
-        "Prince2",
-        "MSP",
-        "Lean Six Sigma",
-        "Governance",
-        "Interim management",
-        "Digitale transformatie"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "{{ .Site.BaseURL }}#person",
+          "name": "Marco van Thiel",
+          "url": "{{ .Site.BaseURL }}",
+          "image": "{{ $portrait }}",
+          "email": "{{ .Site.Params.contact.email }}",
+          "telephone": "{{ .Site.Params.contact.phone }}",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "{{ .Site.Params.contact.locality | default "Nijmegen" }}",
+            "addressRegion": "{{ .Site.Params.contact.region | default "Gelderland" }}",
+            "addressCountry": "{{ .Site.Params.contact.country | default "NL" }}"
+          },
+          "sameAs": ["{{ .Site.Params.contact.linkedin }}"],
+          "jobTitle": "Interim CIO, Programma- en Projectmanager",
+          "description": "{{ .Site.Params.description }}",
+          "worksFor": {"@id": "{{ .Site.BaseURL }}#organization"},
+          "alumniOf": [
+            {"@type": "EducationalOrganization", "name": "Maastricht University"},
+            {"@type": "EducationalOrganization", "name": "Hogeschool van Arnhem en Nijmegen"}
+          ],
+          "knowsAbout": [
+            "Programmamanagement",
+            "Organisatieverandering",
+            "Carve-out",
+            "Fusiemanagement",
+            "Prince2",
+            "MSP",
+            "Lean Six Sigma",
+            "Governance",
+            "Interim management",
+            "Digitale transformatie"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "{{ .Site.BaseURL }}#organization",
+          "name": "Van Thiel Management & Consultancy",
+          "url": "{{ .Site.BaseURL }}",
+          "image": "{{ $portrait }}",
+          "email": "{{ .Site.Params.contact.email }}",
+          "telephone": "{{ .Site.Params.contact.phone }}",
+          "founder": {"@id": "{{ .Site.BaseURL }}#person"},
+          "description": "{{ .Site.Params.description }}",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "{{ .Site.Params.contact.locality | default "Nijmegen" }}",
+            "addressRegion": "{{ .Site.Params.contact.region | default "Gelderland" }}",
+            "addressCountry": "{{ .Site.Params.contact.country | default "NL" }}"
+          },
+          "areaServed": "NL",
+          "sameAs": ["{{ .Site.Params.contact.linkedin }}"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "{{ .Site.BaseURL }}#website",
+          "url": "{{ .Site.BaseURL }}",
+          "name": "{{ .Site.Title }}",
+          "inLanguage": "{{ .Site.Language.LanguageCode | default .Site.Language.Lang }}",
+          "publisher": {"@id": "{{ .Site.BaseURL }}#person"}
+        }
       ]
     }
     </script>
@@ -158,7 +201,10 @@
 
                 <div class="footer-links">
                     <h3>{{ i18n "footerLinksTitle" | default "Meer" }}</h3>
-                    <p><a href="/privacy/">{{ i18n "privacyTitle" | default "Privacyverklaring" }}</a></p>
+                    {{/* Privacylink taalbewust maken: GetPage geeft de
+                         privacy-pagina in de huidige site-taal (/privacy/,
+                         /en/privacy/, ...) net als de toegankelijkheidslink. */}}
+                    {{ with .Site.GetPage "/privacy" }}<p><a href="{{ .RelPermalink }}">{{ i18n "privacyTitle" | default "Privacyverklaring" }}</a></p>{{ end }}
                     {{ with .Site.GetPage "/toegankelijkheid" }}<p><a href="{{ .RelPermalink }}">{{ i18n "accessibilityTitle" | default "Toegankelijkheidsverklaring" }}</a></p>{{ end }}
                     <p><a href="{{ "/sitemap.xml" | absURL }}">Sitemap</a></p>
                 </div>

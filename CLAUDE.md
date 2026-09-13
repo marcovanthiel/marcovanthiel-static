@@ -47,6 +47,24 @@ NL-homepage); kunstpagina nu als gekoppelde vertaling in 5 talen
 (content/<taal>/kunst.md, slug per taal), DE-menu kreeg zijn Home-item.
 (5) tel:-link zonder "(0)". Logo-img kreeg width/height.
 
+**SEO/techniek-fixes (13-9-2026, v1.19.0):** puur binnen de bestaande vormgeving
+(geen redesign). (1) Privacylink in de footer taalbewust gemaakt via
+`.Site.GetPage "/privacy"` (net als de toegankelijkheidslink); wees eerder in
+alle talen naar de NL /privacy/, nu /en/privacy/, /de/privacy/, /it/privacy/,
+/cn/privacy/. (2) `<html lang>` voor Chinees van de ongeldige landcode `cn` naar
+`zh-Hans` (conditie in `baseof.html`); hreflang blijft `zh-CN` voor regio-targeting.
+(3) Titels: DE-typo "Programmmanager" → "Programmanager", IT-homepage-title vertaald
+(was Engels) naar "CIO interim e program manager a Nijmegen", em-dashes uit alle
+5 taaltitels + og:image:alt vervangen door " | " (schrijfstijlregel); subpagina-title
+gebruikt nu de korte suffix "| Marco van Thiel" i.p.v. de volle site-title, zodat
+case-titels onder de ~60-tekengrens blijven. (4) Schema uitgebreid tot een @graph:
+Person (met `image` = profielfoto en `worksFor`), `ProfessionalService`
+"Van Thiel Management & Consultancy" (founder = Person) en `WebSite`; plus
+`BreadcrumbList` (Home > Cases > case) op elke case-pagina. (5) Thin
+Hugo-taxonomiepagina's uitgezet via `disableKinds: ["taxonomy","term"]` (geen
+/categories/ en /tags/ meer, ook uit de sitemap). (6) `/nl/` krijgt een 301 in
+`static/_redirects` (de Hugo-alias blijft als meta-refresh-fallback bestaan).
+
 **Deploy (sinds 13-9-2026):** push naar `main` → GitHub Actions
 (`.github/workflows/deploy.yml`) bouwt Hugo en deployt de Worker. Controleer de
 nieuwste run bij je eigen commit-sha (`gh run list --workflow=deploy.yml --limit 1`)
