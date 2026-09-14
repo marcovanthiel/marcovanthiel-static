@@ -9,6 +9,10 @@ concurrency:
   group: deploy
   cancel-in-progress: true
 
+# Minimale rechten: de job leest de repo en deployt naar Cloudflare.
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
