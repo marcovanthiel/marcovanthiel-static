@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>3D-model Broerdijk 83 &middot; Marco van Thiel</title>
+<meta name="description" content="Interactief 3D-model van de hoekwoning Broerdijk 83 in Nijmegen (1933), opgebouwd uit de bouwtekening van 2021 en de dakkapel-offerte van 2025. Bouwlagen, doorsneden en peilmaten.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.png">
+<meta property="og:title" content="3D-model Broerdijk 83">
+<meta property="og:description" content="Interactief 3D-model van de woning Broerdijk 83, Nijmegen.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<script src="vendor/three.min.js"></script>
+
+<style>
+:root{
+  --ground:#e7e9eb;
+  --surface:#f7f8f9;
+  --surface-2:#eef0f2;
+  --ink:#151b21;
+  --ink-2:#4a5761;
+  --ink-3:#77848e;
+  --line:#c8ced3;
+  --line-soft:#dde1e5;
+  --accent:#0d7a6a;
+  --accent-soft:#d6ece7;
+  --flag:#a8530c;
+  --flag-soft:#f6e6d5;
+  --sky-a:#dfe4e8;
+  --sky-b:#f4f5f6;
+  --shadow:0 1px 2px rgba(21,27,33,.06), 0 8px 24px rgba(21,27,33,.07);
+  --rail:320px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0f1317;
+    --surface:#171d23;
+    --surface-2:#1e262d;
+    --ink:#dfe5ea;
+    --ink-2:#9aa7b1;
+    --ink-3:#6f7d87;
+    --line:#2c363e;
+    --line-soft:#232b32;
+    --accent:#35c2aa;
+    --accent-soft:#12352f;
+    --flag:#e0964f;
+    --flag-soft:#3a2a17;
+    --sky-a:#0b0e11;
+    --sky-b:#1a2127;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0f1317;
+  --surface:#171d23;
+  --surface-2:#1e262d;
+  --ink:#dfe5ea;
+  --ink-2:#9aa7b1;
+  --ink-3:#6f7d87;
+  --line:#2c363e;
+  --line-soft:#232b32;
+  --accent:#35c2aa;
+  --accent-soft:#12352f;
+  --flag:#e0964f;
+  --flag-soft:#3a2a17;
+  --sky-a:#0b0e11;
+  --sky-b:#1a2127;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:14px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.eyebrow{
+  font-family:"Archivo Narrow","Arial Narrow",sans-serif;
+  text-transform:uppercase; letter-spacing:.14em; font-weight:600;
+  font-size:11px; color:var(--ink-3);
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+/* ---------- shell ---------- */
+.app{display:grid; grid-template-columns:var(--rail) 1fr; height:100dvh; min-height:520px}
+.rail{
+  background:var(--surface); border-right:1px solid var(--line);
+  display:flex; flex-direction:column; min-height:0;
+}
+.stage{position:relative; min-width:0; background:var(--ground)}
+canvas{display:block; width:100%; height:100%; touch-action:none}
+
+/* ---------- rail head ---------- */
+.head{padding:18px 18px 14px; border-bottom:1px solid var(--line); display:flex; flex-direction:column; gap:2px}
+.head h1{
+  font-family:"Archivo Narrow","Arial Narrow",sans-serif;
+  font-size:26px; line-height:1.05; font-weight:700; margin:0; letter-spacing:-.01em;
+}
+.head .sub{color:var(--ink-2); font-size:12.5px}
+.head .back{
+  align-self:flex-start; margin-bottom:10px; font-size:11.5px; text-decoration:none;
+  color:var(--ink-3); border-bottom:1px solid transparent; transition:.12s;
+}
+.head .back:hover{color:var(--accent); border-bottom-color:var(--accent)}
+.head .back:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:2px}
+.head .tag{
+  margin-top:8px; display:inline-flex; gap:6px; align-items:center; align-self:flex-start;
+  background:var(--surface-2); border:1px solid var(--line-soft); border-radius:3px;
+  padding:3px 7px; font-size:10.5px;
+}
+
+.scroll{overflow-y:auto; flex:1; min-height:0; padding:4px 0 24px}
+.block{padding:16px 18px; border-bottom:1px solid var(--line-soft)}
+.block > .eyebrow{display:block; margin-bottom:10px}
+
+/* ---------- controls ---------- */
+.rows{display:flex; flex-direction:column; gap:1px}
+.row{
+  display:flex; align-items:center; gap:10px; cursor:pointer;
+  padding:6px 8px; margin:0 -8px; border-radius:4px; user-select:none;
+}
+.row:hover{background:var(--surface-2)}
+.row input{position:absolute; opacity:0; width:0; height:0}
+.tick{
+  width:15px; height:15px; flex:none; border:1.5px solid var(--line);
+  border-radius:3px; background:var(--surface); position:relative;
+}
+.row input:checked + .tick{background:var(--accent); border-color:var(--accent)}
+.row input:checked + .tick::after{
+  content:""; position:absolute; left:4px; top:1px; width:4px; height:8px;
+  border:solid #fff; border-width:0 1.8px 1.8px 0; transform:rotate(42deg);
+}
+.row input:focus-visible + .tick{outline:2px solid var(--accent); outline-offset:2px}
+.row .lbl{flex:1; font-size:13px}
+.row .val{font-size:11px; color:var(--ink-3)}
+.swatch{width:9px; height:9px; border-radius:2px; flex:none}
+
+.seg{display:grid; grid-template-columns:repeat(3,1fr); gap:5px}
+.seg button, .modebtns button{
+  font-family:inherit; font-size:11.5px; color:var(--ink-2);
+  background:var(--surface-2); border:1px solid var(--line-soft);
+  border-radius:4px; padding:7px 4px; cursor:pointer; transition:.12s;
+}
+.seg button:hover, .modebtns button:hover{border-color:var(--accent); color:var(--ink)}
+.seg button:focus-visible, .modebtns button:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.modebtns{display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-bottom:12px}
+.modebtns button[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff}
+
+.slider{display:flex; flex-direction:column; gap:6px}
+.slider .top{display:flex; justify-content:space-between; align-items:baseline}
+.slider .top span:last-child{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--accent)}
+input[type=range]{width:100%; accent-color:var(--accent); height:20px}
+
+/* ---------- data table ---------- */
+table.peil{width:100%; border-collapse:collapse; font-size:12px}
+table.peil th{
+  text-align:left; font-family:"Archivo Narrow",sans-serif; text-transform:uppercase;
+  letter-spacing:.1em; font-size:10px; color:var(--ink-3); font-weight:600;
+  padding:0 0 6px; border-bottom:1px solid var(--line-soft);
+}
+table.peil th:last-child, table.peil td:last-child{text-align:right}
+table.peil td{padding:4px 0; border-bottom:1px solid var(--line-soft)}
+table.peil td:last-child{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; color:var(--ink-2)}
+table.peil tr.key td{color:var(--ink); font-weight:500}
+table.peil tr.key td:last-child{color:var(--accent)}
+
+.note{
+  border-left:2px solid var(--flag); background:var(--flag-soft);
+  padding:10px 12px; font-size:12px; line-height:1.5; border-radius:0 4px 4px 0;
+}
+.note b{font-weight:600}
+.facts{display:flex; flex-direction:column; gap:7px; font-size:12px}
+.fact{display:flex; justify-content:space-between; gap:12px}
+.fact span:first-child{color:var(--ink-2)}
+.fact span:last-child{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
+ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); display:flex; flex-direction:column; gap:5px}
+
+/* ---------- stage overlays ---------- */
+.hud{
+  position:absolute; left:16px; top:16px; display:flex; gap:6px; flex-wrap:wrap;
+  pointer-events:none;
+}
+.chip{
+  background:color-mix(in srgb, var(--surface) 88%, transparent);
+  border:1px solid var(--line); border-radius:3px; padding:4px 9px;
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-2);
+  backdrop-filter:blur(6px);
+}
+.compass{
+  position:absolute; right:16px; top:16px; width:58px; height:58px;
+  border-radius:50%; border:1px solid var(--line);
+  background:color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter:blur(6px); pointer-events:none;
+}
+.compass i{
+  position:absolute; inset:0; display:grid; place-items:center;
+  font-family:"Archivo Narrow",sans-serif; font-style:normal;
+  font-size:10px; letter-spacing:.08em; color:var(--ink-3);
+}
+.compass .n{align-items:start; padding-top:5px; color:var(--accent); font-weight:700}
+.compass .s{align-items:end; padding-bottom:5px}
+.hint{
+  position:absolute; left:16px; bottom:14px; font-size:11px; color:var(--ink-3);
+  pointer-events:none; font-family:"IBM Plex Mono",monospace;
+}
+.loading{
+  position:absolute; inset:0; display:grid; place-items:center;
+  background:var(--ground); color:var(--ink-3); font-size:13px; transition:opacity .4s;
+}
+.loading.gone{opacity:0; pointer-events:none}
+
+/* ---------- mobile ---------- */
+.railtoggle{display:none}
+@media (max-width: 900px){
+  :root{--rail:280px}
+}
+@media (max-width: 720px){
+  .app{grid-template-columns:1fr; grid-template-rows:56dvh 1fr; height:auto; min-height:100dvh}
+  .rail{border-right:0; border-top:1px solid var(--line); order:2}
+  .stage{order:1; min-height:360px}
+  .scroll{overflow:visible; max-height:none}
+  body{overflow-y:auto}
+}
+</style>
+
+<div class="app">
+  <aside class="rail">
+    <div class="head">
+      <a class="back" href="https://www.marcovanthiel.nl/">&larr; marcovanthiel.nl</a>
+      <div class="eyebrow">Broerdijk 83 &middot; 6523 GR Nijmegen</div>
+      <h1>3D-model<br>hoekwoning 1933</h1>
+      <div class="sub">Opgebouwd uit bouwtekening AD_6523GR_83</div>
+      <div class="tag mono">peil P = bovenkant begane grondvloer</div>
+    </div>
+
+    <div class="scroll">
+      <div class="block">
+        <span class="eyebrow">Bouwlagen</span>
+        <div class="rows" id="levels"></div>
+      </div>
+
+      <div class="block">
+        <span class="eyebrow">Onderdelen</span>
+        <div class="rows" id="parts"></div>
+      </div>
+
+      <div class="block">
+        <span class="eyebrow">Doorsnede</span>
+        <div class="modebtns" id="cutmode">
+          <button data-cut="none" aria-pressed="true">Geen</button>
+          <button data-cut="h" aria-pressed="false">Horizontaal</button>
+          <button data-cut="y" aria-pressed="false">Langs (A–D)</button>
+          <button data-cut="x" aria-pressed="false">Dwars (1–2)</button>
+        </div>
+        <div class="slider">
+          <div class="top"><span id="cutlabel">Snijvlak</span><span id="cutval">—</span></div>
+          <input type="range" id="cutrange" min="0" max="1000" value="500" disabled aria-label="Positie snijvlak">
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="eyebrow">Aanzicht</span>
+        <div class="seg">
+          <button data-view="iso">Iso</button>
+          <button data-view="front">Voor</button>
+          <button data-view="back">Achter</button>
+          <button data-view="left">Links</button>
+          <button data-view="right">Rechts</button>
+          <button data-view="top">Boven</button>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="eyebrow">Peilmaten</span>
+        <table class="peil">
+          <thead><tr><th>Niveau</th><th>t.o.v. P</th></tr></thead>
+          <tbody>
+            <tr class="key"><td>Nok</td><td>+9 870</td></tr>
+            <tr><td>Schoorsteen</td><td>+10 570</td></tr>
+            <tr><td>03 verdieping</td><td>+8 200</td></tr>
+            <tr class="key"><td>02 verdieping (zolder)</td><td>+5 870</td></tr>
+            <tr><td>Platdak linkerdeel</td><td>+5 920</td></tr>
+            <tr class="key"><td>01 verdieping</td><td>+2 950</td></tr>
+            <tr class="key"><td>Begane grond</td><td>0</td></tr>
+            <tr><td>Maaiveld voor</td><td>−80</td></tr>
+            <tr><td>Kelder</td><td>−2 300</td></tr>
+            <tr><td>Bk. fundering</td><td>−2 900</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="block">
+        <span class="eyebrow">Nieuwe dakkapel — Scheer 2025/38009</span>
+        <div class="facts">
+          <div class="fact"><span>Buitenmaat</span><span>7 760 × 1 750 mm</span></div>
+          <div class="fact"><span>Binnenmaat</span><span>7 479 × 1 450 mm</span></div>
+          <div class="fact"><span>Kozijnen</span><span>1742 / 3142 / 2201</span></div>
+          <div class="fact"><span>Tussenvlakken</span><span>2 × 197 mm</span></div>
+          <div class="fact"><span>Overstek</span><span>200 voor / 175 zij</span></div>
+          <div class="fact"><span>Starthoogte</span><span>700 mm boven vloer</span></div>
+          <div class="fact"><span>Kleur trespa/kozijn</span><span>RAL 7016</span></div>
+        </div>
+        <div class="note" style="margin-top:12px">
+          <b>Controlepunt dakhelling.</b> De offerte rekent met <b>50,3°</b>. Uit de bouwtekening volgt ±<b>45°</b>: goot op +5 870 bij x = 1 680, nok op +9 870 bij de bouwmuur (Δ 3 990 mm horizontaal / 4 000 mm verticaal). Dat verschil verandert de voetafmeting van de dakkapel en daarmee de sparing. Verifiëren vóór montage.
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="eyebrow">Uitgangspunten &amp; marges</span>
+        <ul class="assump">
+          <li>Buitenmaten, verdiepingshoogten en stramien zijn overgenomen uit de bouwtekening en zijn betrouwbaar op ±20 mm.</li>
+          <li>Binnenwanden zijn uit de plattegronden afgeleid; reken op ±100 tot 200 mm.</li>
+          <li>Kozijnen zijn indicatief geplaatst op basis van de gevelaanzichten, behalve de dakkapel — die is op maat uit de offerte.</li>
+          <li>Achteraanbouw en terras volgen de vergunningstekening &ldquo;nieuwe toestand&rdquo; van 12-10-2021.</li>
+          <li>Trappen zijn als volume weergegeven, niet als treden.</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <main class="stage" id="stage">
+    <div class="hud">
+      <div class="chip" id="chip-scale">schaal 1:1 &middot; maten in mm</div>
+      <div class="chip" id="chip-cut">volledig model</div>
+    </div>
+    <div class="compass" aria-hidden="true">
+      <i class="n">STRAAT</i><i class="s">TUIN</i>
+    </div>
+    <div class="hint">slepen = draaien &nbsp;·&nbsp; scrollen = zoomen &nbsp;·&nbsp; shift+slepen = schuiven</div>
+    <div class="loading" id="loading">model wordt opgebouwd…</div>
+  </main>
+</div>
+
+<script>
+(function(){
+"use strict";
+const stage = document.getElementById('stage');
+
+/* ============================================================
+   1. PARAMETERS  — alle maten in mm, peil P = 0
+   x : 0 = buitenkant linker zijgevel (stramien 1)  →  5670 = bouwmuur buren (stramien 2)
+   y : 0 = voorkant erker (stramien A)              →  16220 = achterkant terras (stramien D)
+   z : hoogte t.o.v. peil
+   ============================================================ */
+const G = {
+  x1:0, x2:5670,
+  A:0, B:1220, C:10220, D:16220,
+  wallExt:250, wallParty:110, wallInt:110,
+  frontWall:2220,            // buitenkant voorgevel hoofdbouw
+  rearWall:9970,             // binnenkant achtergevel
+  erkerX0:1950, erkerY0:1420,
+  midWallX:2010,             // hoofd-binnenwand (250 + 1760)
+  eavesX:1680,               // voet dakvlak
+};
+const L = {
+  fund:-2900, kelder:-2300, mv:-80, bg:0, v1:2950, v2:5870,
+  flat:5920, v3:8200, nok:9870, chim:10570, tuin:-2300
+};
+const DK = {  // dakkapel Scheer 2025/38009
+  w:7760, h:1750, binnenW:7479, kozH:1450, sill:700,
+  overVoor:200, overZij:175,
+  kozijnen:[1742,3142,2201], tussen:197
+};
+const slope = (L.nok - L.flat) / (G.x2 - G.eavesX);  // 3 950 / 3 990 → 44,7°
+
+// z van het dakvlak bij een gegeven x
+const roofZ = x => L.flat + (x - G.eavesX) * slope;
+// x van het dakvlak bij een gegeven z
+const roofX = z => G.eavesX + (z - L.flat) / slope;
+
+const dkZ0 = L.v2 + 650;                 // onderkant dakkapelvoorvlak
+const dkZ1 = dkZ0 + DK.h;                // bovenkant
+const dkX0 = roofX(dkZ0);                // voorvlak
+const dkX1 = roofX(dkZ1);                // aansluiting op dakvlak
+const dkY0 = (G.frontWall + G.C)/2 - DK.w/2;
+const dkY1 = dkY0 + DK.w;
+
+/* ============================================================
+   2. SCENE
+   ============================================================ */
+const dark = () => {
+  const t = document.documentElement.getAttribute('data-theme');
+  if (t) return t === 'dark';
+  return matchMedia('(prefers-color-scheme: dark)').matches;
+};
+
+const renderer = new THREE.WebGLRenderer({antialias:true, alpha:false});
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.localClippingEnabled = true;
+stage.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(38, 1, 0.5, 400);
+
+function paintScene(){
+  const d = dark();
+  scene.background = new THREE.Color(d ? 0x0d1114 : 0xe4e7ea);
+  scene.fog = new THREE.Fog(d ? 0x0d1114 : 0xe4e7ea, 60, 190);
+}
+paintScene();
+
+const hemi = new THREE.HemisphereLight(0xdce6f0, 0x56534c, 0.62);
+scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xfff2dc, 1.02);
+sun.position.set(-20, 26, 17);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048,2048);
+const sc = sun.shadow.camera;
+sc.left=-18; sc.right=18; sc.top=20; sc.bottom=-20; sc.near=1; sc.far=70;
+scene.add(sun);
+scene.add(new THREE.DirectionalLight(0xb9cada, 0.22).translateX(19).translateY(13).translateZ(-21));
+
+/* ============================================================
+   3. MATERIALEN
+   ============================================================ */
+const clipPlanes = [];
+function mk(hex, o){
+  return new THREE.MeshLambertMaterial(Object.assign({
+    color:hex, clippingPlanes:clipPlanes, clipShadows:true
+  }, o||{}));
+}
+const MAT = {
+  brick:      mk(0xa78e79),
+  brickDark:  mk(0x7e6455),
+  party:      mk(0x8d7364),
+  concrete:   mk(0x9ea19f),
+  slab:       mk(0xb9bab6),
+  inner:      mk(0xdad7d0),
+  roof:       mk(0x4a4b4d),
+  roofEdge:   mk(0x3a3b3d),
+  trespa:     mk(0x373b3a),          // RAL 7016
+  frame:      mk(0x2c2f31),
+  glass:      new THREE.MeshLambertMaterial({color:0x9fc4cf, transparent:true, opacity:0.34, side:THREE.DoubleSide, clippingPlanes:clipPlanes}),
+  stair:      mk(0xc3b8a8),
+  deck:       mk(0x9b8468),
+  steel:      mk(0x5b6165),
+  sedum:      mk(0x5f7a4c),
+  earth:      mk(0x86867f),
+  lawn:       mk(0x77836a),
+  neighbour:  new THREE.MeshLambertMaterial({color:0xb4b7ba, transparent:true, opacity:0.22, clippingPlanes:clipPlanes})
+};
+
+/* ============================================================
+   4. BOUWSTENEN
+   ============================================================ */
+const M = v => v/1000;
+const CX = M((G.x1+G.x2)/2), CZ = M((G.A+G.D)/2);   // centreren rond de oorsprong
+
+const TZ = y => CZ - M(y);                          // straat op +Z, tuin op −Z
+function place(mesh, x0,x1, y0,y1, z0,z1){
+  mesh.position.set(M((x0+x1)/2) - CX, M((z0+z1)/2), TZ((y0+y1)/2));
+  return mesh;
+}
+function box(x0,x1,y0,y1,z0,z1, mat, group){
+  if (x1<=x0 || y1<=y0 || z1<=z0) return null;
+  const g = new THREE.BoxGeometry(M(x1-x0), M(z1-z0), M(y1-y0));
+  const m = new THREE.Mesh(g, mat);
+  m.castShadow = true; m.receiveShadow = true;
+  place(m, x0,x1,y0,y1,z0,z1);
+  (group||scene).add(m);
+  return m;
+}
+// Prisma uit een (x,z)-profiel, geëxtrudeerd over de diepte y
+function prism(profile, y0, y1, mat, group){
+  const s = new THREE.Shape();
+  profile.forEach((p,i)=> i? s.lineTo(M(p[0]), M(p[1])) : s.moveTo(M(p[0]), M(p[1])));
+  s.closePath();
+  const g = new THREE.ExtrudeGeometry(s, {depth:M(y1-y0), bevelEnabled:false});
+  const m = new THREE.Mesh(g, mat);
+  m.castShadow = true; m.receiveShadow = true;
+  m.position.set(-CX, 0, TZ(y1));
+  (group||scene).add(m);
+  return m;
+}
+
+/* Wand met sparingen.  openings = [{a0,a1,z0,z1,glass}]  (a = maat langs de lange as) */
+function wall(x0,x1,y0,y1,z0,z1, mat, group, openings, glassGroup){
+  const alongX = (x1-x0) >= (y1-y0);
+  const a0 = alongX ? x0 : y0, a1 = alongX ? x1 : y1;
+  const seg = (s,e,zb,zt) => alongX ? box(s,e,y0,y1,zb,zt,mat,group) : box(x0,x1,s,e,zb,zt,mat,group);
+  const ops = (openings||[]).filter(o=>o.a1>a0 && o.a0<a1)
+                            .map(o=>({a0:Math.max(o.a0,a0), a1:Math.min(o.a1,a1), z0:o.z0, z1:o.z1, glass:o.glass!==false}))
+                            .sort((p,q)=>p.a0-q.a0);
+  let cur = a0;
+  ops.forEach(o=>{
+    if (o.a0 > cur) seg(cur, o.a0, z0, z1);
+    if (o.z0 > z0) seg(o.a0, o.a1, z0, o.z0);
+    if (o.z1 < z1) seg(o.a0, o.a1, o.z1, z1);
+    cur = o.a1;
+    if (o.glass && glassGroup){
+      const t = 60, mid = alongX ? (y0+y1)/2 : (x0+x1)/2;
+      if (alongX) {
+        box(o.a0+50, o.a1-50, mid-t/2, mid+t/2, o.z0+50, o.z1-50, MAT.glass, glassGroup);
+        box(o.a0, o.a1, mid-t, mid+t, o.z0, o.z0+60, MAT.frame, glassGroup);
+        box(o.a0, o.a1, mid-t, mid+t, o.z1-60, o.z1, MAT.frame, glassGroup);
+        box(o.a0, o.a0+60, mid-t, mid+t, o.z0, o.z1, MAT.frame, glassGroup);
+        box(o.a1-60, o.a1, mid-t, mid+t, o.z0, o.z1, MAT.frame, glassGroup);
+      } else {
+        box(mid-t/2, mid+t/2, o.a0+50, o.a1-50, o.z0+50, o.z1-50, MAT.glass, glassGroup);
+        box(mid-t, mid+t, o.a0, o.a1, o.z0, o.z0+60, MAT.frame, glassGroup);
+        box(mid-t, mid+t, o.a0, o.a1, o.z1-60, o.z1, MAT.frame, glassGroup);
+        box(mid-t, mid+t, o.a0, o.a0+60, o.z0, o.z1, MAT.frame, glassGroup);
+        box(mid-t, mid+t, o.a1-60, o.a1, o.z0, o.z1, MAT.frame, glassGroup);
+      }
+    }
+  });
+  if (cur < a1) seg(cur, a1, z0, z1);
+}
+
+/* ============================================================
+   5. GROEPEN
+   ============================================================ */
+const GRP = {};
+['terrein','kelder','bg','v1','zolder','dak','dakkapel','aanbouw','binnen','glas','buren','maten']
+  .forEach(k => { GRP[k] = new THREE.Group(); scene.add(GRP[k]); });
+
+/* ---------- terrein ---------- */
+(function terrein(){
+  box(-9000, 15000, -5000, G.C-400, L.mv-700, L.mv, MAT.lawn, GRP.terrein);
+  box(-9000, 15000, G.C-400, 23000, L.tuin-700, L.tuin, MAT.lawn, GRP.terrein);
+  box(-9000, 15000, -5000, -1600, L.mv-720, L.mv-40, MAT.earth, GRP.terrein); // straat
+})();
+
+/* ---------- kelder ---------- */
+(function kelder(){
+  const g = GRP.kelder;
+  box(G.x1, G.x2, G.B+200, G.D, L.kelder-300, L.kelder, MAT.concrete, g);           // vloer
+  wall(G.x1, G.x1+300, G.B+200, G.D, L.kelder, L.bg, MAT.concrete, g);
+  wall(G.x2-300, G.x2, G.B+200, G.D, L.kelder, L.bg, MAT.concrete, g);
+  wall(G.x1, G.x2, G.B+200, G.B+500, L.kelder, L.bg, MAT.concrete, g);
+  wall(G.x1, G.x2, G.D-300, G.D, L.kelder, L.bg, MAT.concrete, g,
+       [{a0:600,a1:2600,z0:L.kelder+200,z1:L.kelder+2000}], GRP.glas);              // tuindeuren
+  box(G.x1+300, G.x2-300, G.C-250, G.C, L.kelder, L.bg, MAT.concrete, g);           // dragende muur onder achtergevel
+  box(G.x1+300, 2200, 5500, 5750, L.kelder, L.bg, MAT.concrete, g);
+  box(G.x1, G.x2, G.B+200, G.D, L.bg-250, L.bg, MAT.slab, g);                       // begane grondvloer
+})();
+
+/* ---------- casco begane grond + 1e ---------- */
+function gevelLaag(z0, z1, g, ops){
+  wall(G.x1, G.x1+G.wallExt, G.frontWall, G.C, z0, z1, MAT.brick, g, ops.links, GRP.glas);
+  wall(G.x2-G.wallParty, G.x2, G.erkerY0, G.C, z0, z1, MAT.party, g);
+  wall(G.x1, G.midWallX+110, G.frontWall, G.frontWall+G.wallExt, z0, z1, MAT.brick, g, ops.voor, GRP.glas);
+  wall(G.x1, G.x2, G.rearWall, G.C, z0, z1, MAT.brick, g, ops.achter, GRP.glas);
+}
+
+(function beganeGrond(){
+  const g = GRP.bg;
+  gevelLaag(L.bg, L.v1, g, {
+    links:  [{a0:3000,a1:4100,z0:900,z1:2250}],
+    voor:   [{a0:900, a1:1650,z0:0,  z1:2200}],
+    achter: [{a0:500, a1:4600,z0:100,z1:2350}]
+  });
+  // erker (twee lagen, hier de onderste)
+  wall(G.erkerX0, G.erkerX0+120, G.erkerY0, G.frontWall, L.bg, 2328, MAT.brick, g,
+       [{a0:G.erkerY0+150,a1:G.frontWall-150,z0:750,z1:2100}], GRP.glas);
+  wall(G.erkerX0, G.x2-G.wallParty, G.erkerY0, G.erkerY0+120, L.bg, 2328, MAT.brick, g,
+       [{a0:G.erkerX0+250,a1:G.x2-500,z0:750,z1:2100}], GRP.glas);
+  box(G.erkerX0-150, G.x2, G.erkerY0-150, G.frontWall, 2328, 2428, MAT.roofEdge, g);   // luifel
+  // vloer 1e verdieping
+  box(G.x1, G.x2, G.frontWall, G.C, L.v1-280, L.v1, MAT.slab, g);
+  box(G.erkerX0, G.x2, G.erkerY0, G.frontWall, L.v1-280, L.v1, MAT.slab, g);
+  // voorstoep
+  box(1900, 4450, 150, G.erkerY0, L.mv, L.bg, MAT.stair, g);
+})();
+
+(function eersteVerdieping(){
+  const g = GRP.v1;
+  gevelLaag(L.v1, L.v2, g, {
+    links:  [{a0:3200,a1:4200,z0:L.v1+800,z1:L.v1+2200},{a0:7600,a1:8600,z0:L.v1+800,z1:L.v1+2200}],
+    voor:   [{a0:600, a1:1500,z0:L.v1+900,z1:L.v1+2200}],
+    achter: [{a0:700, a1:2100,z0:L.v1+900,z1:L.v1+2400},{a0:2900,a1:4300,z0:L.v1+900,z1:L.v1+2400}]
+  });
+  wall(G.erkerX0, G.erkerX0+120, G.erkerY0, G.frontWall, L.v1, 5470, MAT.brick, g,
+       [{a0:G.erkerY0+150,a1:G.frontWall-150,z0:L.v1+800,z1:L.v1+2250}], GRP.glas);
+  wall(G.erkerX0, G.x2-G.wallParty, G.erkerY0, G.erkerY0+120, L.v1, 5470, MAT.brick, g,
+       [{a0:G.erkerX0+250,a1:G.x2-500,z0:L.v1+800,z1:L.v1+2250}], GRP.glas);
+  box(G.erkerX0-150, G.x2, G.erkerY0-150, G.frontWall, 5470, 5570, MAT.roofEdge, g);
+  // vloer zolder + platdak linkerdeel
+  box(G.eavesX, G.x2, G.frontWall, G.C, L.v2-280, L.v2, MAT.slab, g);
+  box(G.x1, G.eavesX, G.frontWall, G.C, L.flat-160, L.flat, MAT.roofEdge, g);
+  box(G.x1-120, G.eavesX+40, G.frontWall-120, G.C+120, L.flat, L.flat+135, MAT.brickDark, g); // dakrand
+})();
+
+/* ---------- zolder, dak, dakkapel ---------- */
+(function kap(){
+  const g = GRP.zolder, d = GRP.dak;
+  // topgevels voor en achter
+  const gable = [[G.eavesX,L.flat],[G.x2,L.nok],[G.x2,L.v2],[G.eavesX,L.v2]];
+  prism(gable, G.frontWall, G.frontWall+G.wallExt, MAT.brick, g);
+  prism(gable, G.rearWall,  G.C,  MAT.brick, g);
+  // bouwmuur doorgetrokken tot de nok
+  prism([[G.x2-G.wallParty,L.v2],[G.x2,L.v2],[G.x2,L.nok],[G.x2-G.wallParty,L.nok-110]],
+        G.frontWall, G.C, MAT.party, g);
+  // dakvlak
+  const t = 300;
+  prism([[G.eavesX-170,roofZ(G.eavesX-170)],[G.x2,L.nok],[G.x2,L.nok-t],[G.eavesX-170,roofZ(G.eavesX-170)-t]],
+        G.frontWall-170, G.C+170, MAT.roof, d);
+  // schoorsteen
+  box(4950, G.x2, 5000, 6600, L.v2, L.chim, MAT.brickDark, d);
+  box(4900, G.x2, 4950, 6650, L.chim-140, L.chim, MAT.roofEdge, d);
+})();
+
+(function dakkapel(){
+  const g = GRP.dakkapel;
+  // wangen + voorvlak als driehoekig prisma (alles boven het dakvlak)
+  prism([[dkX0,dkZ0],[dkX0,dkZ1],[dkX1,dkZ1]], dkY0, dkY1, MAT.trespa, g);
+  // platte dakrand met overstek
+  box(dkX0-DK.overVoor, dkX1, dkY0-DK.overZij, dkY1+DK.overZij, dkZ1, dkZ1+120, MAT.trespa, g);
+  box(dkX0-DK.overVoor-40, dkX1, dkY0-DK.overZij-40, dkY1+DK.overZij+40, dkZ1+120, dkZ1+175, MAT.roofEdge, g);
+  // kozijnen op maat uit de offerte
+  const zb = L.v2 + DK.sill, zt = zb + DK.kozH;
+  let a = dkY0 + (DK.w - DK.binnenW)/2;
+  DK.kozijnen.forEach((w,i)=>{
+    box(dkX0-70, dkX0+40, a, a+w, zb, zt, MAT.glass, g);
+    box(dkX0-80, dkX0+50, a-40, a+w+40, zb-90, zb, MAT.frame, g);
+    box(dkX0-80, dkX0+50, a-40, a+w+40, zt, zt+90, MAT.frame, g);
+    box(dkX0-80, dkX0+50, a-40, a, zb, zt, MAT.frame, g);
+    box(dkX0-80, dkX0+50, a+w, a+w+40, zb, zt, MAT.frame, g);
+    a += w + DK.tussen;
+  });
+})();
+
+/* ---------- achteraanbouw + terras (nieuwe toestand 2021) ---------- */
+(function achter(){
+  const g = GRP.aanbouw;
+  const y0 = G.C, y1 = G.C+4000, x0 = 250, x1 = 4750;
+  wall(x0, x0+200, y0, y1, L.bg, L.v1, MAT.brick, g);
+  wall(x1-200, x1, y0, y1, L.bg, L.v1, MAT.brick, g);
+  wall(x0, x1, y1-200, y1, L.bg, L.v1, MAT.frame, g,
+       [{a0:x0+250,a1:x1-250,z0:L.bg+150,z1:L.v1-450}], GRP.glas);     // harmonicapui
+  box(x0-120, x1+120, y0, y1+120, L.v1, L.v1+120, MAT.roofEdge, g);
+  box(x0, x1, y0, y1, L.v1+120, L.v1+220, MAT.sedum, g);                // sedumdak
+  // terras op het kelderdek
+  box(G.x1, G.x2, y1, G.D, L.bg, L.bg+60, MAT.deck, g);
+  [[G.x1,G.x1+90,y1,G.D],[G.x2-90,G.x2,y1,G.D],[G.x1,G.x2,G.D-90,G.D]].forEach(r=>
+    box(r[0],r[1],r[2],r[3], L.bg+60, L.bg+1060, MAT.steel, g));
+  // buitentrap naar de tuin
+  for (let i=0;i<10;i++)
+    box(4700, 5560, G.D-260-i*240, G.D-20-i*240, L.bg-i*230-230, L.bg-i*230, MAT.steel, g);
+})();
+
+/* ---------- binnenwanden ---------- */
+(function binnen(){
+  const g = GRP.binnen, W = G.wallInt;
+  const mid = G.midWallX, mid2 = mid + W;
+  // begane grond
+  box(mid, mid2, 2470, 6500, L.bg, L.v1, MAT.inner, g);
+  box(250, mid, 6500, 6610, L.bg, L.v1, MAT.inner, g);
+  box(mid, mid2, 6610, 7550, L.bg, L.v1, MAT.inner, g);
+  box(250, 2400, 7450, 7560, L.bg, L.v1, MAT.inner, g);
+  box(2350, 2460, 7560, 8100, L.bg, L.v1, MAT.inner, g);
+  box(300, 1300, 3900, 6450, L.bg, L.bg+250, MAT.stair, g);   // trapgat-volume bg
+  for (let i=0;i<13;i++) box(300, 1300, 3900+i*196, 4096+i*196, L.bg+i*227, L.bg+i*227+227, MAT.stair, g);
+  // 1e verdieping
+  box(mid, mid2, 2470, 5500, L.v1, L.v2, MAT.inner, g);
+  box(250, mid, 4450, 4560, L.v1, L.v2, MAT.inner, g);
+  box(mid, 5560, 5500, 5610, L.v1, L.v2, MAT.inner, g);
+  box(mid, 5560, 6500, 6610, L.v1, L.v2, MAT.inner, g);
+  box(3400, 3510, 5610, 6500, L.v1, L.v2, MAT.inner, g);
+  box(250, 2510, 7450, 7560, L.v1, L.v2, MAT.inner, g);
+  box(2400, 2510, 7560, 9970, L.v1, L.v2, MAT.inner, g);
+  for (let i=0;i<13;i++) box(2200+i*80, 2280+i*80, 5610, 6500, L.v1+i*225, L.v1+i*225+225, MAT.stair, g);
+})();
+
+/* ---------- buren (context) ---------- */
+(function buren(){
+  const g = GRP.buren;
+  const x0 = G.x2, x1 = G.x2 + 5670;
+  box(x0, x1, G.frontWall, G.C, L.mv, L.v2, MAT.neighbour, g);
+  prism([[x0,L.nok],[x1-G.eavesX+0,L.v2],[x1,L.v2],[x1,L.nok]], G.frontWall, G.C, MAT.neighbour, g);
+  box(-5670, G.x1, G.frontWall+600, G.C, L.mv, L.flat, MAT.neighbour, g);
+})();
+
+/* ---------- peilmaat-labels ---------- */
+(function maten(){
+  const g = GRP.maten;
+  const rows = [['nok','+9 870',L.nok],['03','+8 200',L.v3],['02','+5 870',L.v2],
+                ['01','+2 950',L.v1],['bg','0',L.bg],['kelder','−2 300',L.kelder]];
+  rows.forEach(r=>{
+    const c = document.createElement('canvas'); c.width=320; c.height=64;
+    const x = c.getContext('2d');
+    x.fillStyle = dark() ? 'rgba(23,29,35,.9)' : 'rgba(247,248,249,.92)';
+    x.fillRect(0,0,320,64);
+    x.strokeStyle = dark() ? '#35c2aa' : '#0d7a6a'; x.lineWidth=3;
+    x.beginPath(); x.moveTo(0,62); x.lineTo(320,62); x.stroke();
+    x.fillStyle = dark() ? '#dfe5ea' : '#151b21';
+    x.font = '600 34px "IBM Plex Mono", monospace';
+    x.fillText(r[1], 10, 42);
+    x.fillStyle = dark() ? '#6f7d87' : '#77848e';
+    x.font = '500 22px "Archivo Narrow", sans-serif';
+    x.fillText(r[0].toUpperCase(), 200, 40);
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c), depthTest:false, transparent:true}));
+    s.scale.set(2.6,0.52,1);
+    s.position.set(M(G.x1)-CX-2.7, M(r[2]), TZ(3200));
+    s.renderOrder = 10;
+    g.add(s);
+  });
+  const line = (a,b)=>{
+    const geo = new THREE.BufferGeometry().setFromPoints([a,b]);
+    g.add(new THREE.Line(geo, new THREE.LineBasicMaterial({color:dark()?0x35c2aa:0x0d7a6a, transparent:true, opacity:.5, depthTest:false})));
+  };
+  rows.forEach(r=> line(new THREE.Vector3(M(G.x1)-CX-1.4, M(r[2]), TZ(3200)),
+                        new THREE.Vector3(M(G.x1)-CX+0.15, M(r[2]), TZ(3200))));
+})();
+
+/* ============================================================
+   6. CAMERA / ORBIT
+   ============================================================ */
+const target = new THREE.Vector3(0, 3.2, 0);
+let sph = {r:33, th:0.62, ph:1.06};
+function applyCam(){
+  sph.ph = Math.max(0.12, Math.min(Math.PI/2 - 0.02, sph.ph));
+  sph.r  = Math.max(9, Math.min(110, sph.r));
+  camera.position.set(
+    target.x + sph.r*Math.sin(sph.ph)*Math.sin(sph.th),
+    target.y + sph.r*Math.cos(sph.ph),
+    target.z + sph.r*Math.sin(sph.ph)*Math.cos(sph.th)
+  );
+  camera.lookAt(target);
+}
+applyCam();
+
+const el = renderer.domElement;
+let drag = null;
+el.addEventListener('pointerdown', e=>{ drag={x:e.clientX,y:e.clientY,pan:e.shiftKey||e.button===2}; el.setPointerCapture(e.pointerId); });
+el.addEventListener('pointermove', e=>{
+  if(!drag) return;
+  const dx = e.clientX-drag.x, dy = e.clientY-drag.y;
+  drag.x = e.clientX; drag.y = e.clientY;
+  if (drag.pan){
+    const right = new THREE.Vector3().crossVectors(camera.up, camera.getWorldDirection(new THREE.Vector3())).normalize();
+    const k = sph.r*0.0016;
+    target.addScaledVector(right, dx*k);
+    target.y += dy*k;
+  } else { sph.th -= dx*0.006; sph.ph -= dy*0.006; }
+  applyCam();
+});
+['pointerup','pointercancel','pointerleave'].forEach(t=> el.addEventListener(t, ()=> drag=null));
+el.addEventListener('contextmenu', e=>e.preventDefault());
+el.addEventListener('wheel', e=>{ e.preventDefault(); sph.r *= Math.exp(e.deltaY*0.0012); applyCam(); }, {passive:false});
+
+let pinch = 0;
+el.addEventListener('touchmove', e=>{
+  if (e.touches.length===2){
+    const d = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+    if (pinch) { sph.r *= pinch/d; applyCam(); }
+    pinch = d; drag = null;
+  }
+}, {passive:true});
+el.addEventListener('touchend', ()=> pinch=0);
+
+const VIEWS = {
+  iso:   {th:0.62,  ph:1.06, r:33, ty:3.2},
+  front: {th:0,          ph:1.46, r:34, ty:3.6},
+  back:  {th:Math.PI,    ph:1.46, r:34, ty:3.6},
+  left:  {th:-Math.PI/2, ph:1.46, r:38, ty:3.6},
+  right: {th:Math.PI/2,  ph:1.46, r:38, ty:3.6},
+  top:   {th:0,          ph:0.13, r:36, ty:2.0}
+};
+document.querySelectorAll('[data-view]').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const v = VIEWS[b.dataset.view];
+    const from = {th:sph.th, ph:sph.ph, r:sph.r, ty:target.y};
+    let th = v.th; while (th - from.th >  Math.PI) th -= 2*Math.PI;
+    while (th - from.th < -Math.PI) th += 2*Math.PI;
+    const t0 = performance.now();
+    (function step(){
+      const k = Math.min(1,(performance.now()-t0)/520), e = k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+      sph.th = from.th + (th-from.th)*e;
+      sph.ph = from.ph + (v.ph-from.ph)*e;
+      sph.r  = from.r  + (v.r -from.r )*e;
+      target.y = from.ty + (v.ty-from.ty)*e;
+      applyCam();
+      if (k<1) requestAnimationFrame(step);
+    })();
+  });
+});
+
+/* ============================================================
+   7. UI
+   ============================================================ */
+const LEVELS = [
+  {k:'kelder', n:'Kelder', v:'−2 300 … 0', c:'#9ea19f'},
+  {k:'bg',     n:'Begane grond', v:'0 … +2 950', c:'#9c7f6d'},
+  {k:'v1',     n:'1e verdieping', v:'+2 950 … +5 870', c:'#9c7f6d'},
+  {k:'zolder', n:'Zolder', v:'+5 870 … nok', c:'#8d7364'},
+  {k:'dak',    n:'Dakvlak &amp; schoorsteen', v:'45°', c:'#4a4b4d'},
+  {k:'dakkapel', n:'Dakkapel 2025', v:'7 760 mm', c:'#373b3a'}
+];
+const PARTS = [
+  {k:'binnen',  n:'Binnenwanden &amp; trappen', d:true},
+  {k:'glas',    n:'Kozijnen &amp; beglazing', d:true},
+  {k:'aanbouw', n:'Achteraanbouw &amp; terras', d:true},
+  {k:'terrein', n:'Maaiveld &amp; tuin', d:true},
+  {k:'maten',   n:'Peilmaten in beeld', d:true},
+  {k:'buren',   n:'Buurpanden (context)', d:false}
+];
+function addRow(host, key, label, extra, swatch, checked){
+  const l = document.createElement('label'); l.className='row';
+  l.innerHTML = '<input type="checkbox" id="chk-'+key+'"'+(checked?' checked':'')+'>'
+    + '<span class="tick"></span>'
+    + (swatch ? '<span class="swatch" style="background:'+swatch+'"></span>' : '')
+    + '<span class="lbl">'+label+'</span>'
+    + (extra ? '<span class="val mono">'+extra+'</span>' : '');
+  host.appendChild(l);
+  const input = l.querySelector('input');
+  input.addEventListener('change', ()=>{ GRP[key].visible = input.checked; });
+  GRP[key].visible = checked;
+}
+LEVELS.forEach(o=> addRow(document.getElementById('levels'), o.k, o.n, o.v, o.c, true));
+PARTS .forEach(o=> addRow(document.getElementById('parts'),  o.k, o.n, '', null, o.d));
+
+/* -------- doorsnede -------- */
+const plane = new THREE.Plane(new THREE.Vector3(0,-1,0), 0);
+const range = document.getElementById('cutrange');
+const cutval = document.getElementById('cutval');
+const cutlabel = document.getElementById('cutlabel');
+const chipCut = document.getElementById('chip-cut');
+let cutMode = 'none';
+
+const CUTS = {
+  h: {label:'Snijhoogte', min:L.kelder, max:L.nok,  norm:0.42, n:[0,-1,0], axis:'y'},
+  y: {label:'Positie A–D', min:G.A,     max:G.D,    norm:0.45, n:[0,0,-1], axis:'z'},
+  x: {label:'Positie 1–2', min:G.x1,    max:G.x2,   norm:0.5,  n:[-1,0,0], axis:'x'}
+};
+function applyCut(){
+  clipPlanes.length = 0;
+  if (cutMode === 'none'){
+    range.disabled = true; cutval.textContent = '—';
+    cutlabel.textContent = 'Snijvlak';
+    chipCut.textContent = 'volledig model';
+  } else {
+    const c = CUTS[cutMode];
+    range.disabled = false;
+    const t = range.value/1000;
+    const mm = c.min + (c.max-c.min)*t;
+    plane.normal.set(c.n[0], c.n[1], c.n[2]);
+    const off = c.axis==='y' ? M(mm) : (c.axis==='z' ? TZ(mm) : M(mm)-CX);
+    plane.constant = off;
+    clipPlanes.push(plane);
+    cutlabel.textContent = c.label;
+    cutval.textContent = (mm>=0?'+':'−') + Math.abs(Math.round(mm)).toLocaleString('nl-NL') + ' mm';
+    chipCut.textContent = ({h:'horizontale doorsnede',y:'langsdoorsnede A–D',x:'dwarsdoorsnede 1–2'})[cutMode]
+                        + ' · ' + cutval.textContent;
+  }
+}
+document.querySelectorAll('#cutmode button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    cutMode = b.dataset.cut;
+    document.querySelectorAll('#cutmode button').forEach(o=> o.setAttribute('aria-pressed', String(o===b)));
+    if (cutMode!=='none') range.value = Math.round(CUTS[cutMode].norm*1000);
+    applyCut();
+  });
+});
+range.addEventListener('input', applyCut);
+applyCut();
+
+/* ============================================================
+   8. RENDER LOOP
+   ============================================================ */
+function resize(){
+  const w = stage.clientWidth, h = stage.clientHeight;
+  if (!w || !h) return;
+  renderer.setSize(w, h, false);
+  camera.aspect = w/h; camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(stage);
+resize();
+
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', paintScene);
+
+(function loop(){ requestAnimationFrame(loop); renderer.render(scene, camera); })();
+setTimeout(()=> document.getElementById('loading').classList.add('gone'), 260);
+})();
+</script>
+
+</body>
+</html>

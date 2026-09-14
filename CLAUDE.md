@@ -387,6 +387,36 @@ dat blijvend op.
 `/weerstatistieken/*`-blok in `static/_headers` met `'unsafe-inline'` in
 script-src (zelfde patroon als /wimbledon). Vendor-assets cachen 30 dagen.
 
+## Subsite: /huis
+
+**marcovanthiel.nl/huis** — interactief 3D-model van de eigen woning Broerdijk 83
+(hoekwoning/tweekapper, 1933). Gemaakt 2026-09-14. Kale static (geen Hugo-content):
+`static/huis/`. `noindex, nofollow` — de pagina is een werkdocument, geen publicatie.
+
+```
+static/huis/
+├── index.html    # alles-in-één: markup, inline <style>, inline <script> met het model
+└── vendor/
+    └── three.min.js   # three.js r128 (0.128.0), self-hosted — site-CSP is 'self'
+```
+
+**Bron van de maatvoering**: bouwtekening ArchitectDirect `AD_6523GR_83` dd. 12-10-2021
+(bestaande + nieuwe toestand) en de dakkapel-offerte Scheer `2025/38009` dd. 06-10-2025.
+Stramien 1-2 = 5670 mm breed, A-D = 16220 mm diep; peil P = bk begane grondvloer.
+Alle maten staan als één parameterblok bovenaan het `<script>` (`G`, `L`, `DK`);
+geometrie wordt daaruit opgebouwd, dus maatcorrecties gaan via dat blok.
+
+**Functies**: bouwlagen los aan/uit, doorsnede horizontaal of langs beide stramienrichtingen
+(three.js clipping plane), zes vaste aanzichten, peilmaten als sprites in beeld.
+
+**Openstaand**: de offerte rekent met dakhelling 50,3°, uit de bouwtekening volgt ~45°
+(dakvoet +5870 bij x=1680, nok +9870 op de bouwmuur). Staat als controlepunt op de pagina.
+Wordt beslecht met een LiDAR-scan van de zolder; binnenwanden zijn nu ~±150 mm.
+
+**CSP**: eigen `/huis/*`-blok in `static/_headers` met `'unsafe-inline'` voor script en
+style (zelfde patroon als /wimbledon en /weerstatistieken), plus Google Fonts zoals
+site-breed. Vendor cachen 30 dagen.
+
 ## Verhuisde projecten
 
 - **Kunstlocaties** (voorheen `/kunstlocaties`) is per **2026-09-11** verhuisd naar het

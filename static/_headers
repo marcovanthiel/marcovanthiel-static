@@ -57,6 +57,16 @@
 /weerstatistieken/vendor/*
   Cache-Control: public, max-age=2592000
 
+# /huis: 3D-model van Broerdijk 83 (three.js). Eén inline <script> en inline
+# <style>, dus hier 'unsafe-inline' voor script en style. three.js staat
+# self-hosted in vendor/; Google Fonts zoals in de site-brede CSP.
+/huis/*
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; form-action 'self'
+
+/huis/vendor/*
+  Cache-Control: public, max-age=2592000
+
 # Statische assets met fingerprint in de filename — agressief cachen
 /css/*
   Cache-Control: public, max-age=31536000, immutable
