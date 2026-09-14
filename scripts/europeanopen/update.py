@@ -13,8 +13,10 @@ De ESPN-volgorde is NIET de loting-volgorde; zodra de loting bekend is
 (rond vrijdag 16 oktober op europeanopen.be) moet die hieronder in SEEDS
 worden ingevuld, in dit bestand ÉN in de JS-port in index.html.
 
-Draait elk uur via .github/workflows/europeanopen-hourly.yml; commit alleen
-bij wijzigingen. Na EINDDATUM doet het script niets meer.
+Draait elk uur via .github/workflows/europeanopen-hourly.yml, maar alleen
+in het toernooivenster (15 t/m 26 oktober); commit alleen bij wijzigingen.
+Na EINDDATUM doet het script niets meer. Live verversen tijdens het
+toernooi gebeurt in de browser (JS-port in static/europeanopen/index.html).
 """
 import json
 import pathlib

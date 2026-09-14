@@ -2,7 +2,15 @@ name: europeanopen-hourly
 
 on:
   schedule:
-    - cron: "7 * * * *"
+    # Alleen tijdens het toernooivenster: 15 t/m 26 oktober, van lotingsdag
+    # (± vr 16 okt) t/m de dag na de finale (25 okt). Buiten dat venster
+    # verandert data.json niet: vóór het toernooi staat het voorfase-kader
+    # erin en na EINDDATUM (26-10-2026) doet update.py niets meer.
+    # Live verversen gebeurt sowieso in de browser — static/europeanopen/
+    # index.html haalt de ESPN-feed elke 5 minuten zelf op — dus tussen de
+    # toernooien is een uurlijkse run puur verbruik.
+    # Datums per jaar bijstellen als het toernooi verschuift.
+    - cron: "7 * 15-26 10 *"
   workflow_dispatch:
 
 permissions:
@@ -12,7 +20,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Genereer data.json
         run: python3 scripts/europeanopen/update.py
       - name: Commit bij wijziging
