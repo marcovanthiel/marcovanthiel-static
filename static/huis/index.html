@@ -326,7 +326,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <thead><tr><th>Niveau</th><th>t.o.v. P</th></tr></thead>
           <tbody>
             <tr class="key"><td>Nok</td><td>+9 870</td></tr>
-            <tr><td>Schoorsteen</td><td>+10 570</td></tr>
+            <tr><td>Schoorsteen (tekening; vervallen)</td><td>+10 570</td></tr>
             <tr><td>03 verdieping</td><td>+8 200</td></tr>
             <tr class="key"><td>2e verdieping</td><td>+5 870</td></tr>
             <tr><td>Platdak linkerdeel</td><td>+5 920</td></tr>
@@ -442,7 +442,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <li>De achterzijde combineert de vergunningstekening &ldquo;nieuwe toestand&rdquo; (uitbouw met harmonicapui en sedumdak tot 13 100 mm) met de gebouwde veranda op de foto&rsquo;s van 2026: douglas, 5 450 &times; 3 450 mm, 8&deg;, polycarbonaat, bevestigd aan de uitbouw.</li>
           <li>De zijgevel is blind: doorlopend metselwerk, geen raamopeningen. Alle vloeren zijn houten balklagen binnen het metselwerk, geen betonvloeren.</li>
           <li>De voorgevel ligt in twee vlakken: begane grond en 1e verdieping staan vóór, gelijk met de ramen; de voorgevel loopt in dat vlak door tot de nok. De nis met de voordeur, het trapraam en het lage linkerdeel ligt <b>1 050 mm</b> terug en is <b>1 750 mm</b> breed &mdash; beide uit de buitenscan van 17-09-2026 (bouwtekening: 770 en 2 060 mm). Begane grond en 1e verdieping liggen in &eacute;&eacute;n vlak, binnen 40 mm: er is geen uitkragende erker. De voordeur staat gecentreerd in de nis, het trapraam iets rechts van het midden, tegen de dagkant.</li>
-          <li>De buurpanden zijn ingekleurd naar de foto&rsquo;s: de aangebouwde tweelingwoning met hetzelfde metselwerk en een lagere kap met rode pannen, en over de gang de vrijstaande linkerbuur in lichter metselwerk met erker, dakkapel en donkergroene voordeur. Hun maten zijn indicatief.</li>
+          <li>Nummer 85 is het spiegelbeeld van 83 om de bouwmuur: in het straatbeeld vormen de twee lessenaarsdaken samen &eacute;&eacute;n symmetrische kap met de nok op de bouwmuur, met aan weerszijden een zoldervenster. Dat is uit de Street View-opname nagemeten: de bouwmuur ligt op 467 px, de nok op 450 px. Rechts van 85 de houten poort naar het achterpad. Nummer 81, over de gang, heeft een schilddak met zonnepanelen en een erker; die maten zijn indicatief.</li>
           <li>Op de begane grond is de achtergevel vervallen; de woning loopt door in de uitbouw, met een stalen ligger op de plaats van de oude gevel.</li>
           <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen. Het metselwerk is procedureel in waalformaat gezet (210 &times; 50 mm, voeg 12) en in wereldco&ouml;rdinaten gemapt, zodat de lagenmaat over alle geveldelen doorloopt. De dakkapelkozijnen zijn RAL 7016 conform de offerte.</li>
           <li>Het souterrain beslaat de volle diepte van het pand tot 16 550 mm en is daarmee de grootste bouwlaag. Alleen de achterzijde is met LiDAR ingemeten: het aaneengesloten plafondvlak meet daar 8,0 &times; 5,2 m, oftewel 41,6 m&sup2;. Het voorste deel is onzelfstandig verhuurd en niet toegankelijk voor de scan; daar is plattegrond NT_0-2 de bron. De maatvoering van dat deel heeft dus de marge van de tekening, niet die van de scan.</li>
@@ -814,7 +814,8 @@ const MAT = {
   brickWarm:  wm(TEX.brickWarm, 1.0),
   roofRed:    wm(TEX.tilesRed, 1.0, {roughness:0.85}),
   doorGreen:  mk(0x2f4a3a, {roughness:0.5}),
-  glassDark:  glassMat(0x3d4a55, 0.88)
+  glassDark:  glassMat(0x3d4a55, 0.88),
+  pv:         mk(0x141c2a, {roughness:0.25, metalness:0.4})
 };
 
 /* ============================================================
@@ -1072,9 +1073,20 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
     voor: [{a0:2200,a1:4650, z0:900, z1:2250}]
   }, false, SUB.glas.bg);                                  // achtergevel bg is verplaatst naar de uitbouw
   box(G.x1+250, G.x2-110, G.rearWall, G.C, L.v1-420, L.v1-220, MAT.steel, g);  // stalen ligger
-  // voordeur: dicht wit paneel, in de dagkant van de sparing (foto 7)
-  box(430, 1320, G.frontWall+60, G.frontWall+110, L.bg+20, L.bg+2320, MAT.trim, g);
-  [560, 690, 820, 950, 1080, 1210].forEach(x => box(x, x+14, G.frontWall+40, G.frontWall+60, L.bg+120, L.bg+2200, MAT.frame, g));
+  // voordeur in de nis: wit kozijn, paneeldeur, bovenlicht, greep, huisnummer
+  (function voordeur(){
+    const Y = G.frontWall, X0 = 400, X1 = 1350, ZT = 2350, ZD = 2080;
+    box(X0, X1, Y+30, Y+130, L.bg+ZD, L.bg+ZD+60, MAT.frame, g);                   // kalf
+    box(X0+60, X1-60, Y+70, Y+90, L.bg+ZD+60, L.bg+ZT-30, MAT.glass, SUB.glas.bg); // bovenlicht
+    box(X0+40, X1-40, Y+60, Y+110, L.bg+30, L.bg+ZD, MAT.trim, g);                 // deurblad
+    [[130,560],[130,1180],[560,1180]].forEach(([za,zb]) =>                         // vlakke panelen
+      [[X0+110, X0+440],[X1-440, X1-110]].forEach(([xa,xb]) =>
+        box(xa, xb, Y+42, Y+62, L.bg+za, L.bg+zb, MAT.inner, g)));
+    box(X0+120, X1-120, Y+42, Y+62, L.bg+1320, L.bg+1900, MAT.inner, g);           // groot bovenpaneel
+    box(X1-230, X1-130, Y+20, Y+48, L.bg+990, L.bg+1030, MAT.steel, g);            // greep
+    box(X0-20, X0+8, Y+20, Y+48, L.bg+1560, L.bg+1740, MAT.roofEdge, g);           // huisnummerplaat
+    box(X0-40, X1+40, Y+30, Y+130, L.bg-5, L.bg+30, MAT.stair, g);                 // dorpel
+  })();
   // luifels op 2328: doorlopend over voorvlak en entree
   box(G.stepX-160, G.x2, G.frontFace-170, G.frontFace+G.wallExt, 2328, 2448, MAT.trim, g);
   box(300, G.stepX+120, G.frontFace-170, G.frontWall+G.wallExt, 2328, 2448, MAT.trim, g);   // entreeluifel overspant de hele nis (foto 7)
@@ -1087,7 +1099,8 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
   box(G.x1-600, 1880, -1600, G.frontFace, L.mv, L.mv+35, MAT.klinker, g);
   box(1880, G.x2, -1600, 130, L.mv, L.mv+35, MAT.klinker, g);
   box(G.x2, G.x2+5670, -1600, G.frontFace, L.mv, L.mv+35, MAT.klinker, g);   // voortuin tweelingwoning, ook betegeld
-  box(950, 1900, G.frontFace, G.frontWall, L.mv, L.bg, MAT.stair, g);
+  box(300, 1870, G.frontFace, G.frontWall, L.mv, L.bg, MAT.stair, g);              // entreestoep over de volle nisbreedte
+  box(300, 1870, G.frontWall, G.frontWall+G.wallExt+30, L.bg-5, L.bg+30, MAT.klinker, g); // tegelvloer in de nis, over de houten vloer
 })();
 
 (function eersteVerdieping(){
@@ -1153,11 +1166,10 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
     box(x0-90,x0,   y0-40,y1+40,z0,z1,    MAT.frame, zg);
     box(x1,   x1+90,y0-40,y1+40,z0,z1,    MAT.frame, zg);
   };
-  // twee smalle vensters naast elkaar hoog in de topgevel (foto's 17-09-2026)
-  box(3450,3850, G.frontFace, G.frontFace+G.wallExt, 6850, 7750, MAT.glass, zg);
-  kozijn(3450,3850, G.frontFace, G.frontFace+G.wallExt, 6850, 7750);
-  box(4000,4400, G.frontFace, G.frontFace+G.wallExt, 6850, 7750, MAT.glass, zg);
-  kozijn(4000,4400, G.frontFace, G.frontFace+G.wallExt, 6850, 7750);
+  // zoldervenster hoog in de topgevel, direct naast de bouwmuur; het tweede
+  // venster in het straatbeeld is het gespiegelde venster van nummer 85
+  box(4880,5330, G.frontFace, G.frontFace+G.wallExt, 7450, 8250, MAT.glass, zg);
+  kozijn(4880,5330, G.frontFace, G.frontFace+G.wallExt, 7450, 8250);
   box(4820,5380, G.rearWall, G.C, 6855, 8000, MAT.glass, zg);
   kozijn(4820,5380, G.rearWall, G.C, 6855, 8000);
   // bouwmuur doorgetrokken tot de nok
@@ -1167,9 +1179,8 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
   const t = 300;
   prism([[G.eavesX-170,roofZ(G.eavesX-170)],[G.x2,L.nok],[G.x2,L.nok-t],[G.eavesX-170,roofZ(G.eavesX-170)-t]],
         G.frontFace-170, G.C+170, MAT.roof, d);
-  // schoorsteen
-  box(4950, G.x2, 5000, 6600, L.v2, L.chim, MAT.brickDark, d);
-  box(4900, G.x2, 4950, 6650, L.chim-140, L.chim, MAT.roofEdge, d);
+  // de schoorsteen uit de tekening van 2021 (+10 570) staat er niet meer: noch de
+  // eigen foto's noch Street View 2025 tonen er een op de nok
 })();
 
 (function kniewand(){                       // borstwering 600 mm waar de dakkapel op staat
@@ -1296,51 +1307,84 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
     box(x0-80,x1+80, y0-40,y1+40, z0-80,z0, MAT.frame, gl);  box(x0-80,x1+80, y0-40,y1+40, z1,z1+80, MAT.frame, gl);
     box(x0-80,x0,    y0-40,y1+40, z0,z1,    MAT.frame, gl);  box(x1,x1+80,    y0-40,y1+40, z0,z1,    MAT.frame, gl);
   };
-  /* rechts: de aangebouwde tweelingwoning (foto's 1 en 3) - zelfde metselwerk,
-     lagere kap met rode pannen, groot raam op bg en 1e, eigen luifel          */
-  (function tweeling(){
-    const x0 = G.x2, x1 = G.x2 + 5670, yF = G.frontFace, yR = G.C, zG = L.v2 + 700;
-    wall(x0, x1, yF, yF+G.wallExt, L.mv, L.v1, MAT.brick, g, [{a0:x0+700, a1:x0+3100, z0:900,  z1:2250}], gl);   // bg
-    wall(x0, x1, yF, yF+G.wallExt, L.v1, zG,   MAT.brick, g, [{a0:x0+900, a1:x0+2600, z0:3850, z1:5300}], gl);   // 1e
-    wall(x1-G.wallExt, x1, yF, yR, L.mv, zG, MAT.brick, g);
-    wall(x0, x1, yR-G.wallExt, yR, L.mv, zG, MAT.brick, g);
-    box(x0+200, x1+150, yF-170, yF+G.wallExt, 2328, 2448, MAT.trim, g);          // luifel
-    // schilddak met rode pannen, nok evenwijdig aan de straat
-    const nok = zG + 2100;
-    prism([[x0-100,zG],[x1+100,zG],[x1+100,zG+120],[x0-100,zG+120]], yF-150, yR+150, MAT.trim, g);   // goot/boeiboord
-    const dak = new THREE.Mesh(new THREE.ConeGeometry(1, 1, 4), MAT.roofRed);
-    dak.castShadow = true; dak.receiveShadow = true;
-    dak.scale.set(M((x1-x0)/2)*1.42, M(nok-zG), M((yR-yF)/2)*1.42);
-    dak.rotation.y = Math.PI/4;
-    dak.position.set(M((x0+x1)/2)-CX, M(zG) + M(nok-zG)/2, TZ((yF+yR)/2));
-    g.add(dak);
+
+  /* Rechts: nummer 85, het spiegelbeeld van 83 (Street View: de nok staat op de
+     bouwmuur, de nis met de voordeur zit aan de rechterkant, één zoldervenster
+     naast de bouwmuur, schoorsteen op de platte strook).                        */
+  (function nr85(){
+    const W = G.x2, mx = x => 2*W - x;                    // spiegelen om de bouwmuur
+    const B = (x0,x1,y0,y1,z0,z1,mat,grp,ops,gg) => wall(mx(x1),mx(x0),y0,y1,z0,z1,mat,grp,
+      ops && ops.map(o => ({a0:mx(o.a1), a1:mx(o.a0), z0:o.z0, z1:o.z1, glass:o.glass})), gg);
+    const laag = (z0,z1,ops,achter) => {
+      B(G.x1, G.stepX+120, G.frontWall, G.frontWall+G.wallExt, z0, z1, MAT.brick, g, ops.deur, gl);   // nis
+      B(G.x1, G.x1+G.wallExt, G.frontWall, G.C, z0, z1, MAT.brick, g);                                 // buitengevel rechts
+      B(G.stepX, G.x2, G.frontFace, G.frontFace+G.wallExt, z0, z1, MAT.brick, g, ops.voor, gl);        // voorvlak
+      B(G.stepX, 2160, G.frontFace, 2400, z0, z1, MAT.brick, g);                                        // hoekpenant
+      if (achter) B(G.x1, G.x2, G.rearWall, G.C, z0, z1, MAT.brick, g, ops.achter, gl);
+    };
+    laag(L.mv, L.v1, { deur:[{a0:400, a1:1350, z0:0, z1:2350, glass:false}], voor:[{a0:2200, a1:4650, z0:900,  z1:2250}] }, true);
+    laag(L.v1, L.v2, { deur:[{a0:660, a1:1530, z0:3790, z1:5240}],            voor:[{a0:2200, a1:4650, z0:3850, z1:5450}],
+                       achter:[{a0:700,a1:2250,z0:3850,z1:5370},{a0:3000,a1:4700,z0:3850,z1:5370}] }, true);
+    // voordeur met bovenlicht, luifels, dorpel
+    box(mx(1350), mx(400), G.frontWall+60, G.frontWall+110, L.bg+30, L.bg+2080, MAT.trim, g);
+    box(mx(1290), mx(460), G.frontWall+70, G.frontWall+90, L.bg+2140, L.bg+2320, MAT.glassDark, g);
+    box(mx(1350), mx(400), G.frontWall+30, G.frontWall+130, L.bg+2080, L.bg+2140, MAT.frame, g);
+    box(mx(G.x2), mx(G.stepX-160), G.frontFace-170, G.frontFace+G.wallExt, 2328, 2448, MAT.trim, g);
+    box(mx(G.stepX+120), mx(300), G.frontFace-170, G.frontWall+G.wallExt, 2328, 2448, MAT.trim, g);
+    box(mx(G.x2), mx(G.stepX-160), G.frontFace-170, G.frontFace+G.wallExt, 5470, 5590, MAT.trim, g);
+    // topgevels, zoldervenster, bouwmuur-hoek en dakvlak, gespiegeld
+    const gable = [[mx(G.eavesX),L.flat],[mx(G.x2),L.nok],[mx(G.x2),L.v2],[mx(G.eavesX),L.v2]];
+    prism(gable, G.frontFace, G.frontFace+G.wallExt, MAT.brick, g);
+    prism(gable, G.rearWall,  G.C,  MAT.brick, g);
+    raam(mx(5330), mx(4880), G.frontFace, G.frontFace+G.wallExt, 7450, 8250);
+    const t = 300, xe = G.eavesX-170;
+    prism([[mx(xe),roofZ(xe)],[mx(G.x2),L.nok],[mx(G.x2),L.nok-t],[mx(xe),roofZ(xe)-t]], G.frontFace-170, G.C+170, MAT.roof, g);
+    // platte strook boven de nis: dakvlak donker, wit boeiboord
+    box(mx(G.eavesX), mx(G.x1), G.frontWall, G.C, L.flat-160, L.flat, MAT.roofEdge, g);
+    box(mx(G.eavesX+40), mx(G.x1-120), G.frontWall-120, G.frontWall, L.flat-160, L.flat+135, MAT.trim, g);
+    box(mx(G.x1), mx(G.x1-120), G.frontWall-120, G.C+120, L.flat-160, L.flat+135, MAT.trim, g);
+    box(mx(G.eavesX), mx(G.x1), G.C, G.C+120, L.flat-160, L.flat+135, MAT.trim, g);
+    // schoorsteen op de platte strook, met roestvrijstalen pijp (Street View)
+    box(mx(1500), mx(700), 2600, 3400, L.flat, L.flat+1650, MAT.brickDark, g);
+    box(mx(1560), mx(640), 2540, 3460, L.flat+1650, L.flat+1780, MAT.roofEdge, g);
+    box(mx(1200), mx(1000), 2900, 3100, L.flat+1780, L.flat+2700, MAT.steel, g);
+    // bestrating voortuin
+    box(mx(G.x2), mx(G.x1), -1600, G.frontFace, L.mv, L.mv+35, MAT.klinker, g);
+    // houten poort rechts van 85, toegang tot het achterpad naar de tuin van 83
+    const px0 = mx(G.x1), px1 = px0 + 2600, py = G.frontWall + 200;
+    box(px0-60, px0+160, py-60, py+160, L.mv, L.mv+2300, MAT.brickDark, g);                       // gemetselde penant
+    box(px1-160, px1+60, py-60, py+160, L.mv, L.mv+2300, MAT.brickDark, g);
+    for (let x = px0+180; x < px1-170; x += 140)
+      box(x, x+120, py, py+40, L.mv+40, L.mv+2100, MAT.wood, g);                                   // verticale delen
+    [L.mv+350, L.mv+1150, L.mv+1950].forEach(z => box(px0+170, px1-170, py+40, py+90, z, z+90, MAT.wood, g));
   })();
-  /* links, over de gang: vrijstaande buurwoning (foto 2) - lichter metselwerk,
-     erker op de bg, dakkapel, donkergroene voordeur                            */
-  (function linkerbuur(){
-    const x1 = G.x1 - 2200, x0 = x1 - 7200, yF = G.frontWall + 400, yR = G.C + 800, zG = L.v2 + 500;
+
+  /* Links, over de gang: vrijstaande buurwoning met schilddak, zonnepanelen en erker (Street View, foto 2) */
+  (function nr81(){
+    const x1 = G.x1 - 2200, x0 = x1 - 7200, yF = G.frontWall + 400, yR = G.C + 800, zG = L.v2 + 300;
     wall(x0, x1, yF, yF+250, L.mv, L.v1, MAT.brickWarm, g,
-         [{a0:x0+700,  a1:x0+2300, z0:900, z1:2300},  {a0:x0+4700, a1:x0+6400, z0:900, z1:2300}], gl);          // bg
+         [{a0:x0+700,  a1:x0+2300, z0:900, z1:2300},  {a0:x0+4700, a1:x0+6400, z0:900, z1:2300}], gl);
     wall(x0, x1, yF, yF+250, L.v1, zG, MAT.brickWarm, g,
          [{a0:x0+800,  a1:x0+2200, z0:3900, z1:5200}, {a0:x0+3200, a1:x0+4300, z0:3900, z1:5200},
-          {a0:x0+4800, a1:x0+6300, z0:3900, z1:5200}], gl);                                                     // 1e
-    box(x0+3300, x0+4200, yF+80, yF+130, L.mv+50, L.mv+2200, MAT.doorGreen, g);    // voordeur
-    box(x0+2900, x0+4600, yF-260, yF+250, 2330, 2440, MAT.trim, g);                // luifel
+          {a0:x0+4800, a1:x0+6300, z0:3900, z1:5200}], gl);
+    box(x0+3300, x0+4200, yF+80, yF+130, L.mv+50, L.mv+2200, MAT.doorGreen, g);
+    box(x0+2900, x0+4600, yF-260, yF+250, 2330, 2440, MAT.trim, g);
     wall(x0, x0+250, yF, yR, L.mv, zG, MAT.brickWarm, g);
     wall(x1-250, x1, yF, yR, L.mv, zG, MAT.brickWarm, g);
     wall(x0, x1, yR-250, yR, L.mv, zG, MAT.brickWarm, g);
-    // erker op de bg, rechts van de voordeur
-    box(x0+4600, x0+6500, yF-700, yF, L.mv, L.mv+2500, MAT.brickWarm, g);
+    box(x0+4600, x0+6500, yF-700, yF, L.mv, L.mv+2500, MAT.brickWarm, g);                   // erker
     raam(x0+4800, x0+6300, yF-720, yF-700, 900, 2300);
     box(x0+4500, x0+6600, yF-800, yF+50, L.mv+2500, L.mv+2620, MAT.trim, g);
-    // zadeldak met antracieten pannen, nok evenwijdig aan de straat, met dakkapel
-    const nok = zG + 3200, ym = (yF+yR)/2;
+    // schilddak: vier vlakken, wit boeiboord, drie zonnepanelen op het voorvlak
+    const nok = zG + 3400, ym = (yF+yR)/2, xm = (x0+x1)/2, nl = 1800;
     prism([[x0-150,zG],[x1+150,zG],[x1+150,zG+120],[x0-150,zG+120]], yF-150, yR+150, MAT.trim, g);
-    tilted(x0-150, x1+150, yF-200, ym, zG, nok, 120, MAT.roof, g);
-    tilted(x0-150, x1+150, yR+200, ym, zG, nok, 120, MAT.roof, g);
-    box(x0+1300, x0+4900, yF+300, yF+1900, zG+300, zG+1900, MAT.trespa, g);        // dakkapel
-    raam(x0+1500, x0+4700, yF+280, yF+300, zG+500, zG+1700);
-    box(x0+1200, x0+5000, yF+200, yF+2000, zG+1900, zG+2020, MAT.roofEdge, g);
+    const dak = new THREE.Mesh(new THREE.ConeGeometry(1, 1, 4), MAT.roof);
+    dak.castShadow = true; dak.receiveShadow = true;
+    dak.scale.set(M((x1-x0)/2+150)*1.42, M(nok-zG), M((yR-yF)/2+150)*1.42);
+    dak.rotation.y = Math.PI/4;
+    dak.position.set(M(xm)-CX, M(zG)+M(nok-zG)/2, TZ(ym));
+    g.add(dak);
+    [0,1,2].forEach(k => tilted(x0+1400+k*1750, x0+3000+k*1750, yF+250, yF+1900, zG+350, zG+1600, 60, MAT.pv, g));
   })();
   g.traverse(o => { if (o.isMesh && o.material === MAT.glass) o.material = MAT.glassDark; });
 })();
