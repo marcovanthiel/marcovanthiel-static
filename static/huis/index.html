@@ -37,9 +37,13 @@
   --sky-b:#f4f5f6;
   --shadow:0 1px 2px rgba(21,27,33,.06), 0 8px 24px rgba(21,27,33,.07);
   --rail:320px;
+  --pl-wall:#1d242b; --pl-room:#f0ab6a; --pl-wet:#8fc3e8; --pl-circ:#bfae9a;
+  --pl-cold:#c9cdd1; --pl-low:#e2e5e8; --pl-ink:#22303a; --pl-ink2:#5a6771;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
+    --pl-wall:#070b0f; --pl-room:#a4703f; --pl-wet:#40617c; --pl-circ:#6d6154;
+    --pl-cold:#5b6169; --pl-low:#2a3138; --pl-ink:#f0f3f5; --pl-ink2:#aab4bc;
     --ground:#0f1317;
     --surface:#171d23;
     --surface-2:#1e262d;
@@ -95,6 +99,34 @@ body{
   background:var(--surface); border-right:1px solid var(--line);
   display:flex; flex-direction:column; min-height:0;
 }
+/* ---------- tabs + plattegronden ---------- */
+.tabs{position:absolute; top:14px; left:50%; transform:translateX(-50%); z-index:7;
+  display:flex; gap:2px; padding:3px; border-radius:9px; background:var(--surface);
+  border:1px solid var(--line); box-shadow:var(--shadow)}
+.tabs button{appearance:none; border:0; background:none; cursor:pointer; padding:6px 16px;
+  border-radius:7px; font:inherit; font-size:12.5px; font-weight:600; color:var(--ink-2)}
+.tabs button[aria-selected="true"]{background:var(--accent); color:#fff}
+.tabs button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.plans{position:absolute; inset:0; z-index:5; overflow-y:auto; background:var(--ground);
+  padding:62px 22px 40px; display:none}
+.plans.on{display:block}
+.plans .wrap{max-width:880px; margin:0 auto}
+.plans figure{margin:0 0 30px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:16px 18px 10px; box-shadow:var(--shadow)}
+.plans figcaption{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:8px}
+.plans figcaption b{font-family:"Archivo Narrow","Arial Narrow",sans-serif; font-size:16px}
+.plans figcaption span{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-3)}
+.plans svg{width:100%; height:auto; display:block}
+.pl-wall{fill:var(--pl-wall)}
+.pl-room{fill:var(--pl-room)}
+.pl-wet{fill:var(--pl-wet)}
+.pl-circ{fill:var(--pl-circ)}
+.pl-cold{fill:var(--pl-cold)}
+.pl-low{fill:var(--pl-low)}
+.pl-name{font-family:"IBM Plex Sans",sans-serif; font-weight:600; fill:var(--pl-ink); text-anchor:middle}
+.pl-area{font-family:"IBM Plex Mono",monospace; fill:var(--pl-ink2); text-anchor:middle}
+.pl-dim{stroke:var(--pl-ink2); stroke-width:10; fill:none}
+.pl-dimtxt{font-family:"IBM Plex Mono",monospace; fill:var(--pl-ink2); text-anchor:middle}
 .stage{position:relative; min-width:0; background:var(--ground)}
 canvas{display:block; width:100%; height:100%; touch-action:none}
 
@@ -301,6 +333,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
             <tr class="key"><td>01 verdieping</td><td>+2 950</td></tr>
             <tr class="key"><td>Begane grond</td><td>0</td></tr>
             <tr><td>Maaiveld voor</td><td>−80</td></tr>
+            <tr><td>Tuinpeil</td><td>−1 490</td></tr>
             <tr><td>Souterrain</td><td>−2 300</td></tr>
             <tr><td>Bk. fundering</td><td>−2 900</td></tr>
           </tbody>
@@ -336,7 +369,10 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <div class="fact"><span>Vrije hoogte souterrain</span><span>2 240 mm</span></div>
           <div class="fact"><span>Breedte binnenwerks</span><span>5 360 mm</span></div>
           <div class="fact"><span>Lengte 2e verdieping langs de nok</span><span>7 400 mm</span></div>
-          <div class="fact"><span>Optrede trappen</span><span>&plusmn;295 mm</span></div>
+          <div class="fact"><span>Optrede trappen binnen</span><span>&plusmn;295 mm</span></div>
+          <div class="fact"><span>Optrede buitentrappen</span><span>202 mm</span></div>
+          <div class="fact"><span>Buitentrap voor / achter</span><span>11 / 4 treden</span></div>
+          <div class="fact"><span>Tuinpeil t.o.v. P</span><span>−1 490 mm</span></div>
         </div>
       </div>
 
@@ -409,6 +445,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <li>Op de begane grond is de achtergevel vervallen; de woning loopt door in de uitbouw, met een stalen ligger op de plaats van de oude gevel.</li>
           <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen.</li>
           <li>Het souterrain beslaat de volle diepte van het pand tot 16 550 mm en is daarmee de grootste bouwlaag. Alleen de achterzijde is met LiDAR ingemeten: het aaneengesloten plafondvlak meet daar 8,0 &times; 5,2 m, oftewel 41,6 m&sup2;. Het voorste deel is onzelfstandig verhuurd en niet toegankelijk voor de scan; daar is plattegrond NT_0-2 de bron. De maatvoering van dat deel heeft dus de marge van de tekening, niet die van de scan.</li>
+          <li>Het tuinpeil ligt op &minus;1 490 mm, niet op souterrainniveau. Dat volgt uit het aantal treden in de LiDAR-scan: 11 aan de voorzijde over het verval van 2 220 mm tussen stoep en souterrainvloer geeft een optrede van 202 mm, en de 4 treden achter geven daarmee 807 mm tussen souterrain en tuin. De buitenscan meet onafhankelijk een stap van circa 1,5 m tussen stoep en tuin, tegen 1 410 mm berekend &mdash; die twee bevestigen elkaar. Achter het souterrain ligt een verzonken buitenplaats op &minus;2 300 mm.</li>
           <li>Beide tuinhuizen blijven ruim onder de vergunningvrije hoogtegrenzen. Het oude tuinhuis heeft een nok van 2,87 m, onder de 3,00 m die zelfs p&aacute;l op de erfgrens nog is toegestaan. Het nieuwe tuinhuis heeft een nok van 3,45 m op 2,08 m uit de erfgrens, waar de formule (afstand &times; 0,47) + 3 een maximum van 3,98 m geeft.</li>
           <li>De tuin is opgezet op perceel K-559 uit de kadastrale kaart (circa 12 &times; 27 m achter het terras). De tuinscan bevat te veel drift voor exacte maatvoering; de vlonder, de hagen en de bomen staan daarom indicatief. Het tuinhuis staat op de maten van ontwerp v12: 3 120 &times; 3 600 mm met een afdak van 2 000 mm, goot 2 250 en nok 3 450.</li>
         </ul>
@@ -417,6 +454,11 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
   </aside>
 
   <main class="stage" id="stage">
+    <div class="tabs" role="tablist" aria-label="Weergave">
+      <button id="tab-3d"   role="tab" aria-selected="true"  aria-controls="view-3d">3D-model</button>
+      <button id="tab-plan" role="tab" aria-selected="false" aria-controls="view-plan">Plattegronden</button>
+    </div>
+    <div class="plans" id="view-plan" role="tabpanel" aria-labelledby="tab-plan"><div class="wrap" id="plans-wrap"></div></div>
     <div class="hud">
       <div class="chip" id="chip-scale">schaal 1:1 &middot; maten in mm</div>
       <div class="chip" id="chip-cut">volledig model</div>
@@ -455,7 +497,7 @@ const G = {
 };
 const L = {
   fund:-2900, kelder:-2300, mv:-80, bg:0, v1:2950, v2:5870,
-  flat:5920, v3:8200, nok:9870, chim:10570, tuin:-2300
+  flat:5920, v3:8200, nok:9870, chim:10570, tuin:-1490
 };
 const DK = {  // dakkapel Scheer 2025/38009
   w:7760, h:1750, binnenW:7479, kozH:1450, sill:700,
@@ -655,7 +697,23 @@ const SUB = { binnen:{}, glas:{} };
 (function tuin(){
   const g = GRP.tuin;
   const X0=-3200, X1=8900, Y0=G.terrD, Y1=43550;      // 12,1 x 27,0 m achter het terras
-  box(X0-300, X1+300, Y0, Y1+300, L.tuin-800, L.tuin, MAT.lawn, g);
+  const PAT = 3600;                                   // diepte van de verzonken buitenplaats
+  box(X0-300, X1+300, Y0+PAT, Y1+300, L.tuin-800, L.tuin, MAT.lawn, g);
+
+  /* buitenplaats achter het souterrain: verzonken tot op de souterrainvloer,
+     met vier treden omhoog naar het tuinpeil. Uit de LiDAR-scan van 17-09-2026:
+     11 treden aan de voorzijde, 4 hier; optrede 202 mm.                        */
+  (function buitenplaats(){
+    const P0 = Y0, P1 = Y0 + PAT, W0 = G.x1 - 900, W1 = G.x2 + 900;
+    box(W0, W1, P0, P1, L.kelder-250, L.kelder, MAT.klinker, g);
+    box(W0-250, W0, P0, P1, L.kelder, L.tuin, MAT.paint, g);
+    box(W1, W1+250, P0, P1, L.kelder, L.tuin, MAT.paint, g);
+    box(W0-250, 1400, P1, P1+250, L.kelder, L.tuin, MAT.paint, g);
+    box(4300, W1+250, P1, P1+250, L.kelder, L.tuin, MAT.paint, g);
+    const N = 4, rise = (L.tuin - L.kelder) / N, d = 300;
+    for (let i = 0; i < N; i++)
+      box(1400, 4300, P1 - (i+1)*d, P1 - i*d, L.kelder + i*rise, L.kelder + (i+1)*rise, MAT.stair, g);
+  })();
   // hagen en erfafscheidingen, 1,8 m
   box(X0-220, X0, Y0, Y1, L.tuin, L.tuin+1800, MAT.haag, g);
   box(X1, X1+220, Y0, Y1, L.tuin, L.tuin+1800, MAT.haag, g);
@@ -1169,6 +1227,114 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', paintScene
 
 (function loop(){ requestAnimationFrame(loop); renderer.render(scene, camera); })();
 setTimeout(()=> document.getElementById('loading').classList.add('gone'), 260);
+/* -------- vloerplattegronden per bouwlaag -------- */
+(function plattegronden(){
+  const XL = G.x1 + G.wallExt, XR = G.x2 - G.wallParty;      // binnenzijde links / bouwmuur
+  const YF1 = G.frontFace + G.wallExt;                        // voorvlak binnen  1700
+  const YF2 = G.frontWall  + G.wallExt;                       // teruggelegd vlak 2470
+  const YR  = G.rearWall;                                     // achtergevel binnen 9970
+  const UIT = 12800;                                          // binnenzijde uitbouw
+  const KEL0 = 1720, KEL1 = 16250;                            // souterrain binnenwerks
+
+  const F = [
+    { n:'Souterrain', peil:'−2 300', bron:'NT_0-2 + LiDAR achterzijde',
+      walls:[[0,300,1420,16550],[5370,5670,1420,16550],[0,5670,1420,1720],[0,5670,16250,16550],
+             [300,5370,7000,7150],[1750,1900,7150,9900],[2400,2700,5400,6700],
+             [2400,2620,9300,9950],[1950,2170,1420,2400],[300,2170,2200,2400]],
+      rooms:[['Verhuurde kamer','room',[300,5370,1720,7000]],
+             ['Berging',       'cold',[300,1750,7150,9900]],
+             ['Woonruimte',    'room',[1900,5370,7150,KEL1]],
+             ['Kelderberging', 'cold',[300,1750,9900,KEL1]]] },
+
+    { n:'Begane grond', peil:'0', bron:'BT_00',
+      walls:[[0,250,G.frontWall,UIT],[0,2180,G.frontWall,YF2],[2060,5670,G.frontFace,YF1],
+             [2060,2180,YF1,YF2],[5560,5670,G.frontFace,UIT],[0,5670,UIT,13100],
+             [2050,2160,2400,7550],[250,2050,6550,6660],[250,2400,7500,7610],
+             [2300,2410,7610,8200]],
+      rooms:[['Entree & trap','circ',[250,2050,YF2,6550]],
+             ['Meterkast','cold',[250,620,6660,7500]],
+             ['Toilet',   'wet', [620,2050,6660,7500]],
+             ['Keuken',   'room',[250,2400,7610,YR]],
+             ['Woonkamer','room',[2160,XR,YF1,YR]],
+             ['Uitbouw',  'room',[250,XR,YR,UIT]]] },
+
+    { n:'1e verdieping', peil:'+2 950', bron:'BT_01',
+      walls:[[0,250,G.frontWall,G.C],[0,2180,G.frontWall,YF2],[2060,5670,G.frontFace,YF1],
+             [2060,2180,YF1,YF2],[5560,5670,G.frontFace,G.C],[0,5670,YR,G.C],
+             [2010,2120,2400,5500],[250,2010,4450,4560],[2120,5560,5500,5610],
+             [2120,5560,6500,6610],[3400,3510,5610,6500],[250,2510,7450,7560],[2400,2510,7560,9970]],
+      rooms:[['Overloop',  'circ',[250,2010,YF2,4450]],
+             ['Slaapkamer','room',[2120,XR,YF1,5500]],
+             ['Trapgat',   'circ',[2120,3400,5610,6500]],
+             ['Kast',      'cold',[3510,XR,5610,6500]],
+             ['Slaapkamer','room',[250,2120,4560,7450]],
+             ['Badkamer',  'wet', [250,2400,7560,YR]],
+             ['Gang',      'circ',[2120,2510,6610,7450]],
+             ['Slaapkamer','room',[2510,XR,6610,YR]]] },
+
+    { n:'2e verdieping', peil:'+5 870', bron:'BT_02 + LiDAR-kap 49,9°',
+      walls:[[G.eavesX-110,G.eavesX,YF2,YR],[G.eavesX-110,5670,G.frontWall,YF2],
+             [5560,5670,G.frontWall,G.C],[G.eavesX-110,5670,YR,G.C]],
+      rooms:[['Zolder',            'room',[2804,XR,YF2,YR]],
+             ['Onder 1,50 m',      'low', [G.eavesX,2804,YF2,YR]],
+             ['Bergkast',          'cold',[5000,XR,6000,7000]]] }
+  ];
+
+  const ov = (a,b) => Math.max(0, Math.min(a[1],b[1])-Math.max(a[0],b[0]))
+                    * Math.max(0, Math.min(a[3],b[3])-Math.max(a[2],b[2]));
+  const wrap = document.getElementById('plans-wrap');
+
+  // gemeenschappelijke horizontale schaal: alle plattegronden even breed, dus zelfde mm per pixel
+  let gx0=1e9, gx1=-1e9;
+  F.forEach(f => f.walls.forEach(w => { gx0=Math.min(gx0,w[0]); gx1=Math.max(gx1,w[1]); }));
+  F.forEach(f => {
+    let x0=gx0, x1=gx1, y0=1e9, y1=-1e9;
+    f.walls.forEach(w => { y0=Math.min(y0,w[2]); y1=Math.max(y1,w[3]); });
+    const pad = 1500, W = x1-x0+2*pad, H = y1-y0+2*pad;
+    const P = [];
+    P.push(`<svg viewBox="${x0-pad} ${y0-pad} ${W} ${H}" role="img" aria-label="Plattegrond ${f.n}">`);
+    f.rooms.forEach(([naam,cls,r]) => {
+      P.push(`<rect class="pl-${cls}" x="${r[0]}" y="${r[2]}" width="${r[1]-r[0]}" height="${r[3]-r[2]}"/>`);
+    });
+    f.walls.forEach(w => P.push(`<rect class="pl-wall" x="${w[0]}" y="${w[2]}" width="${w[1]-w[0]}" height="${w[3]-w[2]}"/>`));
+    f.rooms.forEach(([naam,cls,r]) => {
+      let a = (r[1]-r[0])*(r[3]-r[2]);
+      f.walls.forEach(w => { a -= ov(r,w); });
+      const cx = (r[0]+r[1])/2, cy = (r[2]+r[3])/2, smal = (r[1]-r[0]) < 1400;
+      P.push(`<text class="pl-name" x="${cx}" y="${cy-30}" font-size="${smal?105:135}">${naam}</text>`);
+      P.push(`<text class="pl-area" x="${cx}" y="${cy+150}" font-size="${smal?95:115}">${(a/1e6).toFixed(1).replace('.',',')} m²</text>`);
+    });
+    // maatlijnen: totale breedte boven, totale diepte links
+    const db = y0-700, dl = x0-700;
+    P.push(`<path class="pl-dim" d="M${x0} ${db} H${x1} M${x0} ${db-160} V${db+160} M${x1} ${db-160} V${db+160}"/>`);
+    P.push(`<text class="pl-dimtxt" x="${(x0+x1)/2}" y="${db-230}" font-size="115">${((x1-x0)/1000).toFixed(2).replace('.',',')} m</text>`);
+    P.push(`<path class="pl-dim" d="M${dl} ${y0} V${y1} M${dl-160} ${y0} H${dl+160} M${dl-160} ${y1} H${dl+160}"/>`);
+    P.push(`<text class="pl-dimtxt" x="${dl-250}" y="${(y0+y1)/2}" font-size="115" transform="rotate(-90 ${dl-250} ${(y0+y1)/2})">${((y1-y0)/1000).toFixed(2).replace('.',',')} m</text>`);
+    P.push('</svg>');
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<figcaption><b>${f.n}</b><span>peil ${f.peil} &middot; ${f.bron}</span></figcaption>` + P.join('');
+    wrap.appendChild(fig);
+  });
+
+  wrap.insertAdjacentHTML('beforeend',
+    '<div class="note">Straat boven, tuin onder. De plattegronden zijn uit dezelfde maatvoering opgebouwd als het 3D-model: '
+    + 'buitenmuren 250 mm, bouwmuur 110 mm, binnenwanden 110 mm. De vermelde oppervlakten zijn binnenwerks per ruimte, '
+    + 'met de wanddoorsnede eraf gerekend; ze tellen daarom iets lager op dan de gebruiksoppervlakte per bouwlaag, '
+    + 'waarin gangen en trapgaten onder de 4 m² wél meetellen. Ruimtebenamingen zijn indicatief.</div>');
+
+  /* tabs */
+  const t3 = document.getElementById('tab-3d'), tp = document.getElementById('tab-plan');
+  const vp = document.getElementById('view-plan');
+  const kies = plan => {
+    t3.setAttribute('aria-selected', plan ? 'false' : 'true');
+    tp.setAttribute('aria-selected', plan ? 'true' : 'false');
+    vp.classList.toggle('on', plan);
+  };
+  t3.addEventListener('click', ()=> kies(false));
+  tp.addEventListener('click', ()=> kies(true));
+  kies(false);
+})();
+
 })();
 /* -------- inklapbare secties in de linkerbalk -------- */
 (function accordeon(){
@@ -1213,6 +1379,7 @@ setTimeout(()=> document.getElementById('loading').classList.add('gone'), 260);
     });
   });
 })();
+
 
 </script>
 
