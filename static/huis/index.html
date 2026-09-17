@@ -619,20 +619,38 @@ function gevelLaag(z0, z1, g, ops, achtergevel){
 (function eersteVerdieping(){
   const g = GRP.v1;
   gevelLaag(L.v1, L.v2, g, {
-    deur: [{a0:1000,a1:1730, z0:3850, z1:5450, glass:false}],   // driehoekig trapraam
+    deur: [{a0:850, a1:1720, z0:3790, z1:5240, glass:false}],   // trapraam, sparing
     voor: [{a0:2200,a1:4650, z0:3850, z1:5450}],
     achter: [{a0:700, a1:2250,z0:3850,z1:5370},{a0:3000,a1:4700,z0:3850,z1:5370}]
   }, true);
-  // taps toelopend trapraam: 1000-1730 onder, 1290-1570 boven
-  const TR=[[1000,3850],[1290,5450],[1570,5450],[1730,3850]];
-  const TRg=[[1075,3925],[1345,5375],[1515,5375],[1655,3925]];
-  prism([[1000,3850],[1000,5450],[1290,5450]], G.frontWall, G.frontWall+G.wallExt, MAT.brick, g);
-  prism([[1730,3850],[1570,5450],[1730,5450]], G.frontWall, G.frontWall+G.wallExt, MAT.brick, g);
-  prism(TR,  G.frontWall+55, G.frontWall+165, MAT.frame, GRP.glas);
-  prism(TRg, G.frontWall+40, G.frontWall+180, MAT.glass, GRP.glas);
-  [4150,4450,4750,5050].forEach(z =>                                  // roedes
-    box(1020,1710, G.frontWall+35, G.frontWall+185, z-22, z+22, MAT.frame, GRP.glas));
-  box(1020,1710, G.frontWall+35, G.frontWall+185, 4060, 4110, MAT.frame, GRP.glas);
+  // ---- trapraam voorgevel, kenmerkend stijlelement ----
+  // onderbouw 870-1700 met twee ruiten; daarboven een taps kozijn 3 x 2 ruiten
+  (function trapraam(){
+    const Y0=G.frontWall, Y1=G.frontWall+G.wallExt, gl=GRP.glas;
+    const MID=1290, Z_DOR=3810, Z_TUS=4315, Z_TOP=5210;           // dorpels
+    const HW0=400, HW1=135;                                       // halve breedte onder en boven
+    const hw = z => HW0 + (HW1-HW0)*(z-Z_TUS)/(Z_TOP-Z_TUS);      // taps verloop
+    const L = z => MID-hw(z), R = z => MID+hw(z);
+    // metselwerk naast het taps deel
+    prism([[850,Z_TUS],[MID-HW0,Z_TUS],[MID-HW1,Z_TOP],[850,Z_TOP]], Y0, Y1, MAT.brick, g);
+    prism([[MID+HW0,Z_TUS],[1720,Z_TUS],[1720,Z_TOP],[MID+HW1,Z_TOP]], Y0, Y1, MAT.brick, g);
+    // beglazing
+    box(880, 1700, Y0+55, Y0+125, 3865, Z_TUS-25, MAT.glass, gl);
+    prism([[L(Z_TUS)+20,Z_TUS+25],[R(Z_TUS)-20,Z_TUS+25],[R(Z_TOP)-20,Z_TOP-25],[L(Z_TOP)+20,Z_TOP-25]],
+          Y0+55, Y0+125, MAT.glass, gl);
+    // kozijnhout: stijlen, dorpels, middenstijl en roeden
+    const F=(x0,x1,z0,z1)=> box(x0,x1, Y0+40, Y0+150, z0, z1, MAT.frame, gl);
+    F(855, 905, Z_DOR, Z_TUS);  F(1675,1725, Z_DOR, Z_TUS);       // stijlen onderbouw
+    F(855, 1725, Z_DOR, 3865);                                     // onderdorpel
+    F(855, 1725, Z_TUS-50, Z_TUS+40);                              // tussendorpel
+    F(L(Z_TOP)-10, R(Z_TOP)+10, Z_TOP-45, Z_TOP);                  // bovendorpel
+    F(MID-22, MID+22, Z_DOR, Z_TOP);                               // middenstijl
+    prism([[L(Z_TUS)-25,Z_TUS],[L(Z_TUS)+25,Z_TUS],[L(Z_TOP)+25,Z_TOP],[L(Z_TOP)-25,Z_TOP]],
+          Y0+40, Y0+150, MAT.frame, gl);                           // schuine stijl links
+    prism([[R(Z_TUS)-25,Z_TUS],[R(Z_TUS)+25,Z_TUS],[R(Z_TOP)+25,Z_TOP],[R(Z_TOP)-25,Z_TOP]],
+          Y0+40, Y0+150, MAT.frame, gl);                           // schuine stijl rechts
+    [4525, 4805].forEach(z => F(L(z)-10, R(z)+10, z-18, z+18));    // twee roeden
+  })();
   // luifel op 5470 boven het voorvlak
   box(G.stepX-160, G.x2, G.frontFace-170, G.frontFace+G.wallExt, 5470, 5590, MAT.trim, g);
   // vloer zolder + platdak linkerdeel
