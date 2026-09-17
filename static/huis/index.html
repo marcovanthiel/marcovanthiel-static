@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>3D-model Broerdijk 83 &middot; Marco van Thiel</title>
-<meta name="description" content="Interactief 3D-model van de hoekwoning Broerdijk 83 in Nijmegen (1933), opgebouwd uit de bouwtekening van 2021, de dakkapel-offerte van 2025 en een LiDAR-inmeting. Bouwlagen, doorsneden en peilmaten.">
+<meta name="description" content="Interactief 3D-model van de hoekwoning Broerdijk 83 in Nijmegen (1933), opgebouwd uit de bouwtekening van 2021, de dakkapel-offerte van 2025 en een LiDAR-inmeting. Bouwlagen, binnenwanden, doorsneden en peilmaten.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/favicon.png">
 <meta property="og:title" content="3D-model Broerdijk 83">
@@ -376,8 +376,8 @@ const G = {
   wallExt:250, wallParty:110, wallInt:110,
   frontWall:2220,            // buitenkant voorgevel hoofdbouw
   rearWall:9970,             // binnenkant achtergevel
-  frontFace:1420,            // voorvlak bg + 1e verdieping, gelijk met de ramen
-  stepX:1850,                // grens met het teruggelegde deel (voordeur en alles daarboven)
+  frontFace:1450,            // voorvlak bg + 1e verdieping, gelijk met de ramen
+  stepX:2060,                // grens met het teruggelegde deel (voordeur en alles daarboven)
   midWallX:2010,             // hoofd-binnenwand (250 + 1760)
   eavesX:2340,               // voet dakvlak, uit de LiDAR-scan (helling 49,9°)
   uitD:13100,                // voorkant uitbouw (harmonica pui)
@@ -575,7 +575,8 @@ const GRP = {};
   box(G.x1, G.x2, G.B+200, G.terrD, L.kelder-300, L.kelder, MAT.concrete, g);           // vloer
   wall(G.x1, G.x1+300, G.B+200, G.terrD, L.kelder, L.bg, MAT.paint, g);
   wall(G.x2-300, G.x2, G.B+200, G.terrD, L.kelder, L.bg, MAT.concrete, g);
-  wall(G.x1, G.x2, G.B+200, G.B+500, L.kelder, L.bg, MAT.concrete, g);
+  wall(G.x1, G.x2, G.B+200, G.B+500, L.kelder, L.bg, MAT.paint, g,
+       [{a0:2400,a1:4200,z0:L.kelder+300,z1:L.kelder+1900}], GRP.glas);
   wall(G.x1, G.x2, G.terrD-300, G.terrD, L.kelder, L.bg, MAT.paint, g,
        [{a0:800, a1:2350,z0:L.kelder+150,z1:L.kelder+2350},
         {a0:2750,a1:4300,z0:L.kelder+150,z1:L.kelder+2350}], GRP.glas);             // openslaande tuindeuren
@@ -600,8 +601,8 @@ function gevelLaag(z0, z1, g, ops, achtergevel){
 (function beganeGrond(){
   const g = GRP.bg;
   gevelLaag(L.bg, L.v1, g, {
-    deur: [{a0:900, a1:1650, z0:0,   z1:2200}],
-    voor: [{a0:1950,a1:4400, z0:750, z1:2150}]
+    deur: [{a0:1150,a1:1950, z0:0,   z1:2350}],
+    voor: [{a0:2200,a1:4650, z0:900, z1:2250}]
   }, false);                                  // achtergevel bg is verplaatst naar de uitbouw
   box(G.x1+250, G.x2-110, G.rearWall, G.C, L.v1-420, L.v1-220, MAT.steel, g);  // stalen ligger
   // luifels op 2328: doorlopend over voorvlak en entree
@@ -618,15 +619,20 @@ function gevelLaag(z0, z1, g, ops, achtergevel){
 (function eersteVerdieping(){
   const g = GRP.v1;
   gevelLaag(L.v1, L.v2, g, {
-    deur: [{a0:790, a1:1520, z0:3850, z1:5310, glass:false}],   // driehoekig trapraam
-    voor: [{a0:1950,a1:4400, z0:3850, z1:5300}],
-    achter: [{a0:834, a1:1901,z0:3850,z1:5370},{a0:3168,a1:4636,z0:3850,z1:5370}]
+    deur: [{a0:1000,a1:1730, z0:3850, z1:5450, glass:false}],   // driehoekig trapraam
+    voor: [{a0:2200,a1:4650, z0:3850, z1:5450}],
+    achter: [{a0:700, a1:2250,z0:3850,z1:5370},{a0:3000,a1:4700,z0:3850,z1:5370}]
   }, true);
-  // driehoekig trapraam: glas onder de diagonaal, metselwerk erboven
-  prism([[790,3850],[790,5310],[1520,5310]], G.frontWall, G.frontWall+G.wallExt, MAT.brick, g);
-  prism([[820,3880],[1490,3880],[1490,5280]], G.frontWall+60, G.frontWall+130, MAT.glass, GRP.glas);
-  prism([[790,3850],[1520,3850],[1520,5310],[1440,5310],[1440,3930],[790,3930]],
-        G.frontWall+40, G.frontWall+150, MAT.frame, GRP.glas);
+  // taps toelopend trapraam: 1000-1730 onder, 1290-1570 boven
+  const TR=[[1000,3850],[1290,5450],[1570,5450],[1730,3850]];
+  const TRg=[[1075,3925],[1345,5375],[1515,5375],[1655,3925]];
+  prism([[1000,3850],[1000,5450],[1290,5450]], G.frontWall, G.frontWall+G.wallExt, MAT.brick, g);
+  prism([[1730,3850],[1570,5450],[1730,5450]], G.frontWall, G.frontWall+G.wallExt, MAT.brick, g);
+  prism(TR,  G.frontWall+55, G.frontWall+165, MAT.frame, GRP.glas);
+  prism(TRg, G.frontWall+40, G.frontWall+180, MAT.glass, GRP.glas);
+  [4150,4450,4750,5050].forEach(z =>                                  // roedes
+    box(1020,1710, G.frontWall+35, G.frontWall+185, z-22, z+22, MAT.frame, GRP.glas));
+  box(1020,1710, G.frontWall+35, G.frontWall+185, 4060, 4110, MAT.frame, GRP.glas);
   // luifel op 5470 boven het voorvlak
   box(G.stepX-160, G.x2, G.frontFace-170, G.frontFace+G.wallExt, 5470, 5590, MAT.trim, g);
   // vloer zolder + platdak linkerdeel
@@ -650,10 +656,10 @@ function gevelLaag(z0, z1, g, ops, achtergevel){
     box(x0-90,x0,   y0-40,y1+40,z0,z1,    MAT.frame, GRP.glas);
     box(x1,   x1+90,y0-40,y1+40,z0,z1,    MAT.frame, GRP.glas);
   };
-  box(4818,5346, G.frontFace, G.frontFace+G.wallExt, 6870, 8000, MAT.glass, GRP.glas);
-  kozijn(4818,5346, G.frontFace, G.frontFace+G.wallExt, 6870, 8000);
-  box(4970,5400, G.rearWall, G.C, 6855, 8000, MAT.glass, GRP.glas);
-  kozijn(4970,5400, G.rearWall, G.C, 6855, 8000);
+  box(4780,5320, G.frontFace, G.frontFace+G.wallExt, 6870, 8000, MAT.glass, GRP.glas);
+  kozijn(4780,5320, G.frontFace, G.frontFace+G.wallExt, 6870, 8000);
+  box(4820,5380, G.rearWall, G.C, 6855, 8000, MAT.glass, GRP.glas);
+  kozijn(4820,5380, G.rearWall, G.C, 6855, 8000);
   // bouwmuur doorgetrokken tot de nok
   prism([[G.x2-G.wallParty,L.v2],[G.x2,L.v2],[G.x2,L.nok],[G.x2-G.wallParty,L.nok-110]],
         G.frontFace, G.C, MAT.party, g);
@@ -736,27 +742,47 @@ function gevelLaag(z0, z1, g, ops, achtergevel){
     box(4750, 5560, yE-260-i*240, yE-20-i*240, L.bg-i*230-230, L.bg-i*230, MAT.wood, g);
 })();
 
-/* ---------- binnenwanden ---------- */
+/* ---------- binnenwanden, trappen en kokers ---------- */
 (function binnen(){
-  const g = GRP.binnen, W = G.wallInt;
-  const mid = G.midWallX, mid2 = mid + W;
-  // begane grond
-  box(mid, mid2, 2470, 6500, L.bg, L.v1, MAT.inner, g);
-  box(250, mid, 6500, 6610, L.bg, L.v1, MAT.inner, g);
-  box(mid, mid2, 6610, 7550, L.bg, L.v1, MAT.inner, g);
-  box(250, 2400, 7450, 7560, L.bg, L.v1, MAT.inner, g);
-  box(2350, 2460, 7560, 8100, L.bg, L.v1, MAT.inner, g);
-  box(300, 1300, 3900, 6450, L.bg, L.bg+250, MAT.stair, g);   // trapgat-volume bg
-  for (let i=0;i<13;i++) box(300, 1300, 3900+i*196, 4096+i*196, L.bg+i*227, L.bg+i*227+227, MAT.stair, g);
-  // 1e verdieping
-  box(mid, mid2, 2470, 5500, L.v1, L.v2, MAT.inner, g);
-  box(250, mid, 4450, 4560, L.v1, L.v2, MAT.inner, g);
-  box(mid, 5560, 5500, 5610, L.v1, L.v2, MAT.inner, g);
-  box(mid, 5560, 6500, 6610, L.v1, L.v2, MAT.inner, g);
-  box(3400, 3510, 5610, 6500, L.v1, L.v2, MAT.inner, g);
-  box(250, 2510, 7450, 7560, L.v1, L.v2, MAT.inner, g);
-  box(2400, 2510, 7560, 9970, L.v1, L.v2, MAT.inner, g);
-  for (let i=0;i<13;i++) box(2200+i*80, 2280+i*80, 5610, 6500, L.v1+i*225, L.v1+i*225+225, MAT.stair, g);
+  const g = GRP.binnen;
+  const W = (x0,x1,y0,y1,z0,z1,ops) => wall(x0,x1,y0,y1,z0,z1, MAT.inner, g, ops||[]);
+  const trap = (x0,x1,y0,y1,z0,n,rise) => {            // trap als treden, optrede 295 mm
+    const d=(y1-y0)/n;
+    for (let i=0;i<n;i++) box(x0,x1, y0+i*d, y1, z0+i*rise, z0+(i+1)*rise, MAT.stair, g);
+  };
+
+  /* ===== souterrain  (NT_0-2) ===== */
+  W(300, 5370, 7000, 7150, L.kelder, L.bg-220, [{a0:1780,a1:2680,z0:L.kelder,z1:L.kelder+2050}]);
+  W(1750, 1900, 7150, 9900, L.kelder, L.bg-220, [{a0:8250,a1:9150,z0:L.kelder,z1:L.kelder+2050}]);
+  W(2400, 2700, 5400, 6700, L.kelder, L.bg-220);                       // koker
+  W(2400, 2620, 9300, 9950, L.kelder, L.bg-220);                       // kolom
+  W(1950, 2170, 1420, 2400, L.kelder, L.bg-220);
+  W(300, 2170, 2200, 2400, L.kelder, L.bg-220);
+  trap(300,1350, 3950, 6550, L.kelder, 8, 295);
+
+  /* ===== begane grond  (BT_00) ===== */
+  W(2050, 2160, 2400, 7550, L.bg, L.v1,
+    [{a0:3050,a1:3950,z0:L.bg,z1:L.bg+2300}, {a0:6750,a1:7450,z0:L.bg,z1:L.bg+2300}]);
+  W(250, 2050, 6550, 6660, L.bg, L.v1, [{a0:1150,a1:1950,z0:L.bg,z1:L.bg+2300}]);
+  W(250, 2400, 7500, 7610, L.bg, L.v1, [{a0:900, a1:1700,z0:L.bg,z1:L.bg+2300}]);
+  W(2300, 2410, 7610, 8200, L.bg, L.v1);                               // penant keuken
+  W(250, 620,  6660, 7500, L.bg, L.v1);                                // koker naast toilet
+  trap(250,1350, 3950, 6550, L.bg, 9, 295);
+
+  /* ===== 1e verdieping  (BT_01) ===== */
+  W(2010, 2120, 2400, 5500, L.v1, L.v2, [{a0:3600,a1:4450,z0:L.v1,z1:L.v1+2300}]);
+  W(250, 2010, 4450, 4560, L.v1, L.v2, [{a0:950, a1:1750,z0:L.v1,z1:L.v1+2300}]);
+  W(2120, 5560, 5500, 5610, L.v1, L.v2, [{a0:4400,a1:5250,z0:L.v1,z1:L.v1+2300}]);
+  W(2120, 5560, 6500, 6610, L.v1, L.v2);
+  W(3400, 3510, 5610, 6500, L.v1, L.v2);                               // scheiding kasten
+  W(250, 2510, 7450, 7560, L.v1, L.v2,
+    [{a0:700,a1:1500,z0:L.v1,z1:L.v1+2300}, {a0:2000,a1:2450,z0:L.v1,z1:L.v1+2300}]);
+  W(2400, 2510, 7560, 9970, L.v1, L.v2);
+  trap(2120,3300, 5550, 6450, L.v1, 10, 295);
+
+  /* ===== zolder  (BT_02) ===== */
+  W(5000, 5560, 6000, 7000, L.v2, L.v2+2000);                          // bergkast tegen de bouwmuur
+  box(3400,4400, 5500, 6500, L.v2-220, L.v2, MAT.hout, g);             // trapgat-rand
 })();
 
 /* ---------- buren (context) ---------- */
