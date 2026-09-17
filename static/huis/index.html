@@ -119,6 +119,15 @@ canvas{display:block; width:100%; height:100%; touch-action:none}
 .scroll{overflow-y:auto; flex:1; min-height:0; padding:4px 0 24px}
 .block{padding:16px 18px; border-bottom:1px solid var(--line-soft)}
 .block > .eyebrow{display:block; margin-bottom:10px}
+.scroll .block > .eyebrow.sec{display:flex; align-items:center; gap:10px; width:100%; margin:0;
+  padding:3px 0; cursor:pointer; user-select:none}
+.scroll .block > .eyebrow.sec > .htxt{flex:1 1 auto; min-width:0}
+.scroll .block > .eyebrow.sec:hover{color:var(--ink-2)}
+.scroll .block > .eyebrow.sec:focus-visible{outline:2px solid var(--accent); outline-offset:4px; border-radius:3px}
+.chev{flex:none; width:7px; height:7px; margin-top:-3px; border-right:1.7px solid currentColor;
+  border-bottom:1.7px solid currentColor; transform:rotate(45deg); transition:transform .2s ease}
+.block.open > .eyebrow.sec .chev{transform:rotate(-135deg); margin-top:2px}
+.block-body{padding-top:12px}
 
 /* ---------- controls ---------- */
 .rows{display:flex; flex-direction:column; gap:1px}
@@ -355,7 +364,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           Gemeten volgens <b>NEN 2580</b>, toegepast via de <i>Meetinstructie Gebruiksoppervlakte Woningen</i> (versie 1, 1 juli 2019, NVM/VBO/VastgoedPRO, afgestemd met de Waarderingskamer). Binnenwerks, alleen waar de vrije hoogte &ge; 1,50 m is, zonder dragende wanden, schachten en vides groter dan 4 m&sup2;.
         </div>
         <div class="note" style="margin-top:10px; border-left-color:var(--accent); background:var(--accent-soft)">
-          <b>Onafhankelijk bevestigd.</b> De BAG registreerde verblijfsobject 0268010000008030 op 17-09-2026 (versie 5, document D260648389) op <b>193 m&sup2;</b>, tegen 179 m&sup2; daarvoor. Dit model komt onafhankelijk op 191 m&sup2; uit: een verschil van <b>1,8 m&sup2;, ofwel 0,9 %</b>. De gemeente meet uit de vergunningstekeningen, dit model uit diezelfde tekeningen plus de LiDAR-scans.
+          <b>Vergelijking met de BAG.</b> De BAG registreerde verblijfsobject 0268010000008030 op 17-09-2026 (versie 5, document D260648389) op <b>193 m&sup2;</b>, tegen 179 m&sup2; daarvoor. De sprong van +14 m&sup2; is de uitbouw op de begane grond, die in dit model op 14,3 m&sup2; uitkomt. De <b>dakkapel zat niet in de vergunningsaanvraag</b> en is dus niet in de 193 m&sup2; verwerkt. Gelijk gemeten &mdash; beide zonder dakkapel &mdash; staat de BAG op 193 m&sup2; en dit model op 185 m&sup2;: een verschil van <b>7,8 m&sup2;, ofwel 4,0 %</b>. Ruim 3 m&sup2; daarvan is de dakhelling: de gemeente meet uit de bouwtekening, waar de kap op aanname ~45&deg; staat en de 1,50 m-lijn op 3 145 mm ligt, terwijl de LiDAR 49,9&deg; geeft en die lijn op 3 605 mm legt. Het restant van 4,4 m&sup2; over de drie onderste bouwlagen is 2,6 % en past binnen de conventies voor het aftrekken van binnenwanden.
         </div>
 
         <span class="eyebrow" style="margin-top:20px; display:block">Wonen, per bouwlaag</span>
@@ -1143,6 +1152,50 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', paintScene
 (function loop(){ requestAnimationFrame(loop); renderer.render(scene, camera); })();
 setTimeout(()=> document.getElementById('loading').classList.add('gone'), 260);
 })();
+/* -------- inklapbare secties in de linkerbalk -------- */
+(function accordeon(){
+  const KEY = 'broerdijk83.open';
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e) { saved = null; }
+  const state = {};
+  document.querySelectorAll('.scroll > .block').forEach(b => {
+    const eb = b.querySelector(':scope > .eyebrow');
+    if (!eb) return;
+    const id = (eb.textContent || '').trim().slice(0, 40);
+    const body = document.createElement('div');
+    body.className = 'block-body';
+    while (eb.nextSibling) body.appendChild(eb.nextSibling);
+    b.appendChild(body);
+
+    const txt = document.createElement('span');
+    txt.className = 'htxt';
+    while (eb.firstChild) txt.appendChild(eb.firstChild);
+    eb.appendChild(txt);
+    eb.insertAdjacentHTML('beforeend', '<span class="chev" aria-hidden="true"></span>');
+    eb.classList.add('sec');
+    eb.setAttribute('role', 'button');
+    eb.setAttribute('tabindex', '0');
+
+    // secties met bedieningselementen staan open, detailgegevens ingeklapt
+    const std = !!b.querySelector('input, button:not(.sec)');
+    const open0 = (saved && Object.prototype.hasOwnProperty.call(saved, id)) ? !!saved[id] : std;
+
+    const set = o => {
+      state[id] = o;
+      b.classList.toggle('open', o);
+      body.hidden = !o;
+      eb.setAttribute('aria-expanded', o ? 'true' : 'false');
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {}
+    };
+    set(open0);
+    const toggle = () => set(!b.classList.contains('open'));
+    eb.addEventListener('click', toggle);
+    eb.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); toggle(); }
+    });
+  });
+})();
+
 </script>
 
 </body>
