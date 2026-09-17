@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>3D-model Broerdijk 83 &middot; Marco van Thiel</title>
-<meta name="description" content="Interactief 3D-model van de hoekwoning Broerdijk 83 in Nijmegen (1933), opgebouwd uit de bouwtekening van 2021 en de dakkapel-offerte van 2025. Bouwlagen, doorsneden en peilmaten.">
+<meta name="description" content="Interactief 3D-model van de hoekwoning Broerdijk 83 in Nijmegen (1933), opgebouwd uit de bouwtekening van 2021, de dakkapel-offerte van 2025 en foto&#39;s van de gebouwde situatie. Bouwlagen, doorsneden en peilmaten.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/favicon.png">
 <meta property="og:title" content="3D-model Broerdijk 83">
@@ -318,7 +318,8 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <li>Buitenmaten, verdiepingshoogten en stramien zijn overgenomen uit de bouwtekening en zijn betrouwbaar op ±20 mm.</li>
           <li>Binnenwanden zijn uit de plattegronden afgeleid; reken op ±100 tot 200 mm.</li>
           <li>Kozijnen zijn indicatief geplaatst op basis van de gevelaanzichten, behalve de dakkapel — die is op maat uit de offerte.</li>
-          <li>Achteraanbouw en terras volgen de vergunningstekening &ldquo;nieuwe toestand&rdquo; van 12-10-2021.</li>
+          <li>De achterzijde volgt de gebouwde situatie op foto&rsquo;s van 2026: terras met douglas veranda (5 450 &times; 3 450 mm, 8&deg;, polycarbonaat) en een glazen balustrade. De dichte aanbouw met sedumdak uit de vergunningstekening van 2021 is niet uitgevoerd.</li>
+          <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen.</li>
           <li>Trappen zijn als volume weergegeven, niet als treden.</li>
         </ul>
       </div>
@@ -355,7 +356,7 @@ const G = {
   wallExt:250, wallParty:110, wallInt:110,
   frontWall:2220,            // buitenkant voorgevel hoofdbouw
   rearWall:9970,             // binnenkant achtergevel
-  erkerX0:1950, erkerY0:1420,
+  erkerX0:1850, erkerX1:4490, erkerY0:1420,
   midWallX:2010,             // hoofd-binnenwand (250 + 1760)
   eavesX:1680,               // voet dakvlak
 };
@@ -429,21 +430,24 @@ function mk(hex, o){
   }, o||{}));
 }
 const MAT = {
-  brick:      mk(0xa78e79),
-  brickDark:  mk(0x7e6455),
-  party:      mk(0x8d7364),
+  brick:      mk(0xbe8a64),          // roodbruine baksteen, 1933
+  brickDark:  mk(0xa0714e),
+  party:      mk(0xb07f5b),
+  paint:      mk(0xe6e2d9),          // wit gesausde souterrain- en zijmuren
   concrete:   mk(0x9ea19f),
   slab:       mk(0xb9bab6),
   inner:      mk(0xdad7d0),
-  roof:       mk(0x4a4b4d),
-  roofEdge:   mk(0x3a3b3d),
-  trespa:     mk(0x373b3a),          // RAL 7016
-  frame:      mk(0x2c2f31),
-  glass:      new THREE.MeshLambertMaterial({color:0x9fc4cf, transparent:true, opacity:0.34, side:THREE.DoubleSide, clippingPlanes:clipPlanes}),
+  roof:       mk(0x44474a),          // antracietkleurige pannen
+  roofEdge:   mk(0x34373a),
+  trim:       mk(0xf0ece4),          // witte boeiboorden en luifels
+  trespa:     mk(0x373b3a),          // RAL 7016, dakkapel
+  frame:      mk(0xeeeae2),          // witte kozijnen
+  glass:      new THREE.MeshLambertMaterial({color:0xaacdd8, transparent:true, opacity:0.30, side:THREE.DoubleSide, clippingPlanes:clipPlanes}),
+  poly:       new THREE.MeshLambertMaterial({color:0xd8e6ea, transparent:true, opacity:0.28, side:THREE.DoubleSide, clippingPlanes:clipPlanes}),
+  wood:       mk(0xb08a54),          // douglas veranda
   stair:      mk(0xc3b8a8),
-  deck:       mk(0x9b8468),
+  deck:       mk(0xa9a49a),
   steel:      mk(0x5b6165),
-  sedum:      mk(0x5f7a4c),
   earth:      mk(0x86867f),
   lawn:       mk(0x77836a),
   neighbour:  new THREE.MeshLambertMaterial({color:0xb4b7ba, transparent:true, opacity:0.22, clippingPlanes:clipPlanes})
@@ -478,6 +482,17 @@ function prism(profile, y0, y1, mat, group){
   const m = new THREE.Mesh(g, mat);
   m.castShadow = true; m.receiveShadow = true;
   m.position.set(-CX, 0, TZ(y1));
+  (group||scene).add(m);
+  return m;
+}
+
+// Hellend vlak: dikte langs de hoogte, helling in de diepterichting y
+function tilted(x0,x1, y0,y1, z0,z1, thick, mat, group){
+  const len = Math.hypot(M(y1-y0), M(z1-z0));
+  const m = new THREE.Mesh(new THREE.BoxGeometry(M(x1-x0), M(thick), len), mat);
+  m.castShadow = true; m.receiveShadow = true;
+  m.position.set(M((x0+x1)/2) - CX, M((z0+z1)/2), TZ((y0+y1)/2));
+  m.rotation.x = Math.atan2(M(z1-z0), M(y1-y0));
   (group||scene).add(m);
   return m;
 }
@@ -534,11 +549,12 @@ const GRP = {};
 (function kelder(){
   const g = GRP.kelder;
   box(G.x1, G.x2, G.B+200, G.D, L.kelder-300, L.kelder, MAT.concrete, g);           // vloer
-  wall(G.x1, G.x1+300, G.B+200, G.D, L.kelder, L.bg, MAT.concrete, g);
+  wall(G.x1, G.x1+300, G.B+200, G.D, L.kelder, L.bg, MAT.paint, g);
   wall(G.x2-300, G.x2, G.B+200, G.D, L.kelder, L.bg, MAT.concrete, g);
   wall(G.x1, G.x2, G.B+200, G.B+500, L.kelder, L.bg, MAT.concrete, g);
-  wall(G.x1, G.x2, G.D-300, G.D, L.kelder, L.bg, MAT.concrete, g,
-       [{a0:600,a1:2600,z0:L.kelder+200,z1:L.kelder+2000}], GRP.glas);              // tuindeuren
+  wall(G.x1, G.x2, G.D-300, G.D, L.kelder, L.bg, MAT.paint, g,
+       [{a0:800, a1:2350,z0:L.kelder+150,z1:L.kelder+2350},
+        {a0:2750,a1:4300,z0:L.kelder+150,z1:L.kelder+2350}], GRP.glas);             // openslaande tuindeuren
   box(G.x1+300, G.x2-300, G.C-250, G.C, L.kelder, L.bg, MAT.concrete, g);           // dragende muur onder achtergevel
   box(G.x1+300, 2200, 5500, 5750, L.kelder, L.bg, MAT.concrete, g);
   box(G.x1, G.x2, G.B+200, G.D, L.bg-250, L.bg, MAT.slab, g);                       // begane grondvloer
@@ -548,7 +564,7 @@ const GRP = {};
 function gevelLaag(z0, z1, g, ops){
   wall(G.x1, G.x1+G.wallExt, G.frontWall, G.C, z0, z1, MAT.brick, g, ops.links, GRP.glas);
   wall(G.x2-G.wallParty, G.x2, G.erkerY0, G.C, z0, z1, MAT.party, g);
-  wall(G.x1, G.midWallX+110, G.frontWall, G.frontWall+G.wallExt, z0, z1, MAT.brick, g, ops.voor, GRP.glas);
+  wall(G.x1, G.x2, G.frontWall, G.frontWall+G.wallExt, z0, z1, MAT.brick, g, ops.voor, GRP.glas);
   wall(G.x1, G.x2, G.rearWall, G.C, z0, z1, MAT.brick, g, ops.achter, GRP.glas);
 }
 
@@ -556,18 +572,20 @@ function gevelLaag(z0, z1, g, ops){
   const g = GRP.bg;
   gevelLaag(L.bg, L.v1, g, {
     links:  [{a0:3000,a1:4100,z0:900,z1:2250}],
-    voor:   [{a0:900, a1:1650,z0:0,  z1:2200}],
+    voor:   [{a0:900, a1:1650,z0:0,  z1:2200},
+             {a0:G.erkerX0+150,a1:G.erkerX1-150,z0:400,z1:2200,glass:false}],
     achter: [{a0:500, a1:4600,z0:100,z1:2350}]
   });
   // erker (twee lagen, hier de onderste)
+  wall(G.erkerX1-120, G.erkerX1, G.erkerY0, G.frontWall, L.bg, 2328, MAT.brick, g);
   wall(G.erkerX0, G.erkerX0+120, G.erkerY0, G.frontWall, L.bg, 2328, MAT.brick, g,
        [{a0:G.erkerY0+150,a1:G.frontWall-150,z0:750,z1:2100}], GRP.glas);
-  wall(G.erkerX0, G.x2-G.wallParty, G.erkerY0, G.erkerY0+120, L.bg, 2328, MAT.brick, g,
-       [{a0:G.erkerX0+250,a1:G.x2-500,z0:750,z1:2100}], GRP.glas);
-  box(G.erkerX0-150, G.x2, G.erkerY0-150, G.frontWall, 2328, 2428, MAT.roofEdge, g);   // luifel
+  wall(G.erkerX0, G.erkerX1, G.erkerY0, G.erkerY0+120, L.bg, 2328, MAT.brick, g,
+       [{a0:G.erkerX0+200,a1:G.erkerX1-200,z0:750,z1:2100}], GRP.glas);
+  box(G.erkerX0-160, G.erkerX1+160, G.erkerY0-160, G.frontWall, 2328, 2448, MAT.trim, g);   // luifel
   // vloer 1e verdieping
   box(G.x1, G.x2, G.frontWall, G.C, L.v1-280, L.v1, MAT.slab, g);
-  box(G.erkerX0, G.x2, G.erkerY0, G.frontWall, L.v1-280, L.v1, MAT.slab, g);
+  box(G.erkerX0, G.erkerX1, G.erkerY0, G.frontWall, L.v1-280, L.v1, MAT.slab, g);
   // voorstoep
   box(1900, 4450, 150, G.erkerY0, L.mv, L.bg, MAT.stair, g);
 })();
@@ -576,18 +594,20 @@ function gevelLaag(z0, z1, g, ops){
   const g = GRP.v1;
   gevelLaag(L.v1, L.v2, g, {
     links:  [{a0:3200,a1:4200,z0:L.v1+800,z1:L.v1+2200},{a0:7600,a1:8600,z0:L.v1+800,z1:L.v1+2200}],
-    voor:   [{a0:600, a1:1500,z0:L.v1+900,z1:L.v1+2200}],
+    voor:   [{a0:790, a1:1520,z0:3850,z1:5310},   // trapraam
+             {a0:G.erkerX0+150,a1:G.erkerX1-150,z0:L.v1+400,z1:L.v1+2250,glass:false}],
     achter: [{a0:700, a1:2100,z0:L.v1+900,z1:L.v1+2400},{a0:2900,a1:4300,z0:L.v1+900,z1:L.v1+2400}]
   });
+  wall(G.erkerX1-120, G.erkerX1, G.erkerY0, G.frontWall, L.v1, 5470, MAT.brick, g);
   wall(G.erkerX0, G.erkerX0+120, G.erkerY0, G.frontWall, L.v1, 5470, MAT.brick, g,
        [{a0:G.erkerY0+150,a1:G.frontWall-150,z0:L.v1+800,z1:L.v1+2250}], GRP.glas);
-  wall(G.erkerX0, G.x2-G.wallParty, G.erkerY0, G.erkerY0+120, L.v1, 5470, MAT.brick, g,
-       [{a0:G.erkerX0+250,a1:G.x2-500,z0:L.v1+800,z1:L.v1+2250}], GRP.glas);
-  box(G.erkerX0-150, G.x2, G.erkerY0-150, G.frontWall, 5470, 5570, MAT.roofEdge, g);
+  wall(G.erkerX0, G.erkerX1, G.erkerY0, G.erkerY0+120, L.v1, 5470, MAT.brick, g,
+       [{a0:G.erkerX0+200,a1:G.erkerX1-200,z0:L.v1+800,z1:L.v1+2250}], GRP.glas);
+  box(G.erkerX0-160, G.erkerX1+160, G.erkerY0-160, G.frontWall, 5470, 5590, MAT.trim, g);
   // vloer zolder + platdak linkerdeel
   box(G.eavesX, G.x2, G.frontWall, G.C, L.v2-280, L.v2, MAT.slab, g);
   box(G.x1, G.eavesX, G.frontWall, G.C, L.flat-160, L.flat, MAT.roofEdge, g);
-  box(G.x1-120, G.eavesX+40, G.frontWall-120, G.C+120, L.flat, L.flat+135, MAT.brickDark, g); // dakrand
+  box(G.x1-120, G.eavesX+40, G.frontWall-120, G.C+120, L.flat, L.flat+135, MAT.trim, g); // dakrand
 })();
 
 /* ---------- zolder, dak, dakkapel ---------- */
@@ -629,23 +649,40 @@ function gevelLaag(z0, z1, g, ops){
   });
 })();
 
-/* ---------- achteraanbouw + terras (nieuwe toestand 2021) ---------- */
+/* ---------- terras + douglas veranda (gebouwde situatie, foto's 2026) ---------- */
 (function achter(){
   const g = GRP.aanbouw;
-  const y0 = G.C, y1 = G.C+4000, x0 = 250, x1 = 4750;
-  wall(x0, x0+200, y0, y1, L.bg, L.v1, MAT.brick, g);
-  wall(x1-200, x1, y0, y1, L.bg, L.v1, MAT.brick, g);
-  wall(x0, x1, y1-200, y1, L.bg, L.v1, MAT.frame, g,
-       [{a0:x0+250,a1:x1-250,z0:L.bg+150,z1:L.v1-450}], GRP.glas);     // harmonicapui
-  box(x0-120, x1+120, y0, y1+120, L.v1, L.v1+120, MAT.roofEdge, g);
-  box(x0, x1, y0, y1, L.v1+120, L.v1+220, MAT.sedum, g);                // sedumdak
-  // terras op het kelderdek
-  box(G.x1, G.x2, y1, G.D, L.bg, L.bg+60, MAT.deck, g);
-  [[G.x1,G.x1+90,y1,G.D],[G.x2-90,G.x2,y1,G.D],[G.x1,G.x2,G.D-90,G.D]].forEach(r=>
-    box(r[0],r[1],r[2],r[3], L.bg+60, L.bg+1060, MAT.steel, g));
-  // buitentrap naar de tuin
+  const y0 = G.C, yEdge = G.D;              // terras van achtergevel tot erfgrens
+  const V = {x0:110, x1:5560, y1:13670, zMuur:2800, zVoor:3300};
+
+  // terrasdek op het kelderdek
+  box(G.x1, G.x2, y0, yEdge, L.bg, L.bg+60, MAT.deck, g);
+
+  // glazen balustrade met stalen bovenregel
+  const rail = (bx0,bx1,by0,by1) => {
+    box(bx0,bx1,by0,by1, L.bg+120, L.bg+1000, MAT.glass, g);
+    box(bx0-30,bx1+30,by0-30,by1+30, L.bg+1000, L.bg+1060, MAT.steel, g);
+  };
+  rail(G.x1, 4650, yEdge-70, yEdge);
+  rail(G.x1, G.x1+70, y0, yEdge);
+  rail(G.x2-70, G.x2, y0, yEdge);
+
+  // veranda: B 5450 x D 3450, 8 graden, douglas 100x250
+  box(V.x0, V.x1, y0, y0+100, V.zMuur, V.zMuur+250, MAT.wood, g);              // muurbalk
+  box(V.x0, V.x1, V.y1-100, V.y1, V.zVoor, V.zVoor+250, MAT.wood, g);          // voorligger
+  tilted(V.x0, V.x0+100, y0, V.y1, V.zMuur+125, V.zVoor+125, 250, MAT.wood, g);// zijligger links
+  tilted(V.x1-100, V.x1, y0, V.y1, V.zMuur+125, V.zVoor+125, 250, MAT.wood, g);// zijligger rechts
+  for (let i=1;i<9;i++){                                                        // roeden 50x70 op hun kant
+    const x = V.x0 + i*(V.x1-V.x0)/9;
+    tilted(x-25, x+25, y0, V.y1, V.zMuur+255, V.zVoor+255, 70, MAT.wood, g);
+  }
+  tilted(V.x0, V.x1, y0-60, V.y1+120, V.zMuur+300, V.zVoor+300, 8, MAT.poly, g); // polycarbonaat
+  [V.x0, (V.x0+V.x1)/2, V.x1-100].forEach(px =>                                  // stijlen 100x100
+    box(px, px+100, V.y1-100, V.y1, L.bg+60, V.zVoor, MAT.wood, g));
+
+  // buitentrap van terras naar tuin, aan de bouwmuurzijde
   for (let i=0;i<10;i++)
-    box(4700, 5560, G.D-260-i*240, G.D-20-i*240, L.bg-i*230-230, L.bg-i*230, MAT.steel, g);
+    box(4750, 5560, yEdge-260-i*240, yEdge-20-i*240, L.bg-i*230-230, L.bg-i*230, MAT.wood, g);
 })();
 
 /* ---------- binnenwanden ---------- */
@@ -799,7 +836,7 @@ const LEVELS = [
 const PARTS = [
   {k:'binnen',  n:'Binnenwanden &amp; trappen', d:true},
   {k:'glas',    n:'Kozijnen &amp; beglazing', d:true},
-  {k:'aanbouw', n:'Achteraanbouw &amp; terras', d:true},
+  {k:'aanbouw', n:'Terras &amp; veranda', d:true},
   {k:'terrein', n:'Maaiveld &amp; tuin', d:true},
   {k:'maten',   n:'Peilmaten in beeld', d:true},
   {k:'buren',   n:'Buurpanden (context)', d:false}
