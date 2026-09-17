@@ -442,7 +442,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <li>De achterzijde combineert de vergunningstekening &ldquo;nieuwe toestand&rdquo; (uitbouw met harmonicapui en sedumdak tot 13 100 mm) met de gebouwde veranda op de foto&rsquo;s van 2026: douglas, 5 450 &times; 3 450 mm, 8&deg;, polycarbonaat, bevestigd aan de uitbouw.</li>
           <li>De zijgevel is blind: doorlopend metselwerk, geen raamopeningen. Alle vloeren zijn houten balklagen binnen het metselwerk, geen betonvloeren.</li>
           <li>De voorgevel ligt in twee vlakken: begane grond en 1e verdieping staan vóór, gelijk met de ramen; de voorgevel loopt in dat vlak door tot de nok. De nis met de voordeur, het trapraam en het lage linkerdeel ligt <b>1 050 mm</b> terug en is <b>1 750 mm</b> breed &mdash; beide uit de buitenscan van 17-09-2026 (bouwtekening: 770 en 2 060 mm). Begane grond en 1e verdieping liggen in &eacute;&eacute;n vlak, binnen 40 mm: er is geen uitkragende erker. De voordeur staat gecentreerd in de nis, het trapraam iets rechts van het midden, tegen de dagkant.</li>
-          <li>Nummer 85 deelt de nok op de bouwmuur, maar is geen spiegelbeeld: het dakvlak loopt flauwer (~36&deg;) af naar een plat blok van twee lagen met borstwering op ~6,7 m en de schoorsteen; raam en deur zitten in &eacute;&eacute;n gevelvlak onder &eacute;&eacute;n luifel, zonder nis. Nagemeten uit de Street View-opname (11,7 mm/px; bouwmuur op 467 px, nok op 450 px). Rechts van 85 de houten poort naar het achterpad. Nummer 81, over de gang, heeft een schilddak met zonnepanelen en een erker; die maten zijn indicatief.</li>
+          <li>Nummer 85 is in maat het spiegelbeeld van 83: 5 670 mm breed, nok op de bouwmuur, strook van 2 340 mm aan de rechterkant. Dat volgt uit de aanvraagtekening van 1981 voor nummer 83, die het hele dubbele pand toont (nis 1 890, nok op 5 506, kaphelft 3 616 mm), en uit Street View 2025. Anders dan bij 83 is die strook een plat blok van twee lagen met borstwering op ~6,7 m en de schoorsteen, en loopt het dakvlak iets flauwer (~46&deg;) tot dat blok; raam en deur zitten in &eacute;&eacute;n gevelvlak onder &eacute;&eacute;n luifel, zonder nis. Rechts van 85 de houten poort naar het achterpad. Nummer 81, over de gang, heeft een schilddak met zonnepanelen en een erker; die maten zijn indicatief.</li>
           <li>Op de begane grond is de achtergevel vervallen; de woning loopt door in de uitbouw, met een stalen ligger op de plaats van de oude gevel.</li>
           <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen. Het metselwerk is procedureel in waalformaat gezet (210 &times; 50 mm, voeg 12) en in wereldco&ouml;rdinaten gemapt, zodat de lagenmaat over alle geveldelen doorloopt. De dakkapelkozijnen zijn RAL 7016 conform de offerte.</li>
           <li>Het souterrain beslaat de volle diepte van het pand tot 16 550 mm en is daarmee de grootste bouwlaag. Alleen de achterzijde is met LiDAR ingemeten: het aaneengesloten plafondvlak meet daar 8,0 &times; 5,2 m, oftewel 41,6 m&sup2;. Het voorste deel is onzelfstandig verhuurd en niet toegankelijk voor de scan; daar is plattegrond NT_0-2 de bron. De maatvoering van dat deel heeft dus de marge van de tekening, niet die van de scan.</li>
@@ -740,6 +740,7 @@ const TEX = (function(){
     klinkers:  klinkers(),
     grass:     grass(),
     douglas:   planks([176, 132, 84], 40),
+    meranti:   planks([112, 66, 48], 26),
     schuur:    planks([70, 96, 76], 26),
     paint:     plain([232, 228, 220], 12),
     concrete:  plain([160, 162, 158], 20),
@@ -809,6 +810,8 @@ const MAT = {
   stam:       mk(0x6b5a48, {roughness:1}),
   klinker:    wm(TEX.paving, 1.0, {roughness:0.95}),
   schuurGroen:wm(TEX.schuur, 1.0, {roughness:0.85}),
+  meranti:    wm(TEX.meranti, 1.0, {roughness:0.7}),
+  douglas:    wm(TEX.douglas, 1.0, {roughness:0.75}),
   sedum:      wm(TEX.sedum, 1.0, {roughness:1}),
   neighbour:  new THREE.MeshLambertMaterial({color:0xb4b7ba, transparent:true, opacity:0.22, clippingPlanes:clipPlanes}),
   brickWarm:  wm(TEX.brickWarm, 1.0),
@@ -858,6 +861,16 @@ function tilted(x0,x1, y0,y1, z0,z1, thick, mat, group){
   m.castShadow = true; m.receiveShadow = true;
   m.position.set(M((x0+x1)/2) - CX, M((z0+z1)/2), TZ((y0+y1)/2));
   m.rotation.x = Math.atan2(M(z1-z0), M(y1-y0));
+  (group||scene).add(m);
+  return m;
+}
+
+function tiltedX(x0,x1, y0,y1, z0,z1, thick, mat, group){      // hellend vlak dat langs x stijgt van (x0,z0) naar (x1,z1)
+  const len = Math.hypot(M(x1-x0), M(z1-z0));
+  const m = new THREE.Mesh(new THREE.BoxGeometry(len, M(thick), M(y1-y0)), mat);
+  m.castShadow = true; m.receiveShadow = true;
+  m.position.set(M((x0+x1)/2) - CX, M((z0+z1)/2), TZ((y0+y1)/2));
+  m.rotation.z = Math.atan2(M(z1-z0), M(x1-x0));
   (group||scene).add(m);
   return m;
 }
@@ -927,16 +940,21 @@ const SUB = { binnen:{}, glas:{} };
 
 /* ---------- tuin (perceel K-559, uit de kadastrale kaart en de tuinscan) ---------- */
 (function tuin(){
-  const g = GRP.tuin;
-  const X0=-3200, X1=8900, Y0=G.terrD, Y1=43550;      // 12,1 x 27,0 m achter het terras
+  const g = GRP.tuin, gl = SUB.glas.tuin;
+  /* Perceel K-559: 12 m breed, met de bouwmuur als rechter erfgrens en ~6,3 m tuin
+     links van de woning (de gang), tot 43,5 m diep. Ligging van de bouwsels uit de
+     buitenscan van 17-09-2026 (drift in de lengte gecorrigeerd met 0,9), maten van
+     het oude tuinhuis uit de scan, van het nieuwe uit ontwerp v12, uiterlijk uit de
+     foto's.                                                                     */
+  const X0=-6330, X1=G.x2, Y0=G.terrD, Y1=43550;
   const PAT = 3600;                                   // diepte van de verzonken buitenplaats
   box(X0-300, X1+300, Y0+PAT, Y1+300, L.tuin-800, L.tuin, MAT.lawn, g);
   box(X0-300, G.x1-900-250, Y0, Y0+PAT, L.tuin-800, L.tuin, MAT.lawn, g);   // gras naast de buitenplaats
   box(G.x2+900+250, X1+300, Y0, Y0+PAT, L.tuin-800, L.tuin, MAT.lawn, g);
+  box(X0-300, G.x1-600, G.frontFace, Y0, L.tuin-800, L.tuin, MAT.lawn, g);   // zijtuin langs de gang
 
   /* buitenplaats achter het souterrain: verzonken tot op de souterrainvloer,
-     met vier treden omhoog naar het tuinpeil. Uit de LiDAR-scan van 17-09-2026:
-     11 treden aan de voorzijde, 4 hier; optrede 202 mm.                        */
+     met vier treden omhoog naar het tuinpeil (LiDAR: 11 treden voor, 4 hier).  */
   (function buitenplaats(){
     const P0 = Y0, P1 = Y0 + PAT, W0 = G.x1 - 900, W1 = G.x2 + 900;
     box(W0, W1, P0, P1, L.kelder-250, L.kelder, MAT.klinker, g);
@@ -948,29 +966,98 @@ const SUB = { binnen:{}, glas:{} };
     for (let i = 0; i < N; i++)
       box(1400, 4300, P1 - (i+1)*d, P1 - i*d, L.kelder + i*rise, L.kelder + (i+1)*rise, MAT.stair, g);
   })();
-  // hagen en erfafscheidingen, 1,8 m
-  box(X0-220, X0, Y0, Y1, L.tuin, L.tuin+1800, MAT.haag, g);
-  box(X1, X1+220, Y0, Y1, L.tuin, L.tuin+1800, MAT.haag, g);
+  // erfafscheidingen: haag links en achter, houten schutting op de grens met 85
+  box(X0-220, X0, G.frontWall, Y1, L.tuin, L.tuin+1800, MAT.haag, g);
   box(X0-220, X1+220, Y1, Y1+220, L.tuin, L.tuin+1900, MAT.haag, g);
-  // bestrating direct achter het terras
-  box(-1000, 6700, Y0, Y0+3200, L.tuin, L.tuin+60, MAT.klinker, g);
-  // houten vlonder midden in de tuin
-  box(500, 4100, Y0+7000, Y0+10600, L.tuin+40, L.tuin+160, MAT.wood, g);
-  // tuinhuis v12: 3120 x 3600 plus 2000 mm afdak, goot 2250, nok 3450
-  (function tuinhuis(){
-    const tx0=5000, tx1=8120, ty0=Y1-5200, ty1=Y1-1600;
-    box(tx0, tx1, ty0, ty1, L.tuin, L.tuin+2250, MAT.schuurGroen, g);
-    box(tx0+150, tx1-150, ty0-40, ty0+40, L.tuin+900, L.tuin+1900, MAT.glass, SUB.glas.tuin);
-    prism([[tx0-150,L.tuin+2250],[(tx0+tx1)/2,L.tuin+3450],[tx1+150,L.tuin+2250],
-           [tx1+150,L.tuin+2100],[(tx0+tx1)/2,L.tuin+3300],[tx0-150,L.tuin+2100]],
-          ty0-150, ty1+150, MAT.roofEdge, g);
-    box(tx0, tx1, ty0-2000, ty0, L.tuin+2150, L.tuin+2250, MAT.wood, g);        // afdak
-    [tx0+50, tx1-150].forEach(px => box(px, px+100, ty0-2100, ty0-2000, L.tuin, L.tuin+2200, MAT.wood, g));
+  for (let y = Y0+PAT; y < Y1; y += 1800) box(X1, X1+40, y, Math.min(y+1760, Y1), L.tuin, L.tuin+1800, MAT.wood, g);
+  // bestrating direct achter de buitenplaats en het gangpad langs de woning
+  box(-1000, 6700, Y0+PAT, Y0+PAT+2400, L.tuin, L.tuin+60, MAT.klinker, g);
+  box(G.x1-1600, G.x1-300, G.frontFace, Y0+PAT, L.tuin, L.tuin+60, MAT.klinker, g);
+
+  /* --- nieuw tuinhuis (D), ontwerp v12: 3 120 x 3 600 + 2 000 afdak; goot 2 250,
+         nok 3 450; asymmetrische kap 49,1 / 30 graden; meranti dakpansgewijs, Trespa
+         aan de erfgrens; EPDM-dak. Staat pal tegen de linker erfgrens, nok langs y. */
+  (function nieuwTuinhuis(){
+    const x0 = X0 + 40, x1 = x0 + 3120, y0 = Y0 + 1200, y1 = y0 + 3600;
+    const zg = L.tuin + 2250, zn = L.tuin + 3450, xn = x0 + 2078;      // nok 2 078 uit de Trespa-wand
+    box(x0, x0+20, y0, y1, L.tuin, zg, MAT.trespa, g);                  // Trespa-wand op de erfgrens
+    box(x0+20, x1, y0, y0+20, L.tuin, zg, MAT.meranti, g);              // kopgevels en zijwand in meranti
+    box(x0+20, x1, y1-20, y1, L.tuin, zg, MAT.meranti, g);
+    box(x1-20, x1, y0, y1, L.tuin, zg, MAT.meranti, g);
+    prism([[x0,zg],[xn,zn],[x1,zg]], y0, y0+20, MAT.meranti, g);        // puntgevels
+    prism([[x0,zg],[xn,zn],[x1,zg]], y1-20, y1, MAT.meranti, g);
+    box(x1-20, x1, y0+600, y0+1500, L.tuin+50, L.tuin+2050, MAT.frame, g);        // deur
+    box(x1-16, x1-4, y0+2000, y0+3200, L.tuin+900, L.tuin+1900, MAT.glass, gl);   // raam
+    // dakvlakken (EPDM) met 150 mm overstek, plus het afdak van 2 000 mm aan de voorkant
+    prism([[x0-150,zg-90],[xn,zn+30],[x1+150,zg-60],[x1+150,zg-140],[xn,zn-50],[x0-150,zg-170]], y0-150, y1+150, MAT.roofEdge, g);
+    prism([[x0-150,zg-90],[xn,zn+30],[x1+150,zg-60],[x1+150,zg-140],[xn,zn-50],[x0-150,zg-170]], y0-2000, y0-150, MAT.roofEdge, g);
+    box(xn-50, xn+50, y0-2000, y1, zn-60, zn+30, MAT.douglas, g);                  // nokbalk
+    box(xn-50, xn+50, y0-2000, y0-1900, L.tuin, zn-60, MAT.douglas, g);            // kolom onder het afdak
+    box(x0, x1, y0-2000, y0, L.tuin+30, L.tuin+90, MAT.klinker, g);                // bestrating onder het afdak
   })();
+
+  /* --- oud tuinhuis (A), fitness: 5,44 x 2,72 m, groen geschilderd hout, lessenaarsdak
+         17,5 graden van 2,15 naar 2,87 m met drie zonnepanelen, glazen pui, vlonder. */
+  (function fitness(){
+    /* lange zijde langs de tuin (scan: 73 gr t.o.v. de dwarsas), glazen pui op de
+       westzijde naar de open tuin, lessenaarsdak hoog aan de pui (2,87) en laag
+       tegen de schutting (2,15), vlonder voor de pui.                            */
+    const x0 = 700, x1 = x0 + 2720, y0 = 26600, y1 = y0 + 5440;
+    const zh = L.tuin + 2870, zl = L.tuin + 2150;
+    box(x0+20, x1, y0, y1, L.tuin+80, L.tuin+100, MAT.douglas, g);                     // vloer
+    box(x1-20, x1, y0, y1, L.tuin, zl, MAT.schuurGroen, g);                             // achterwand (schuttingzijde)
+    prism([[x0,L.tuin],[x0,zh],[x1,zl],[x1,L.tuin]], y0, y0+20, MAT.schuurGroen, g);    // kopgevels
+    prism([[x0,L.tuin],[x0,zh],[x1,zl],[x1,L.tuin]], y1-20, y1, MAT.schuurGroen, g);
+    box(x0, x0+20, y0, y1, zl-140, zh, MAT.schuurGroen, g);                             // strook boven de pui
+    // glazen pui: dubbele deur in het midden, ramen ernaast
+    [[y0+80, y0+1900], [y0+1900, y1-1900], [y1-1900, y1-80]].forEach(([a,b], k) => {
+      box(x0+4, x0+16, a+40, b-40, L.tuin+(k===1?80:900), zl-180, MAT.glass, gl);
+      box(x0, x0+20, a, a+40, L.tuin+60, zl-140, MAT.frame, g);  box(x0, x0+20, b-40, b, L.tuin+60, zl-140, MAT.frame, g);
+      box(x0, x0+20, a, b, zl-180, zl-140, MAT.frame, g);        box(x0, x0+20, a, b, L.tuin+(k===1?60:860), L.tuin+(k===1?100:900), MAT.frame, g);
+    });
+    box(x0, x0+20, (y0+y1)/2-20, (y0+y1)/2+20, L.tuin+80, zl-180, MAT.frame, g);        // deurnaad
+    // lessenaarsdak met overstek, drie zonnepanelen erop, boeiboord en downlights aan de puizijde
+    tiltedX(x0-250, x1+250, y0-250, y1+250, zh+120, zl+120, 120, MAT.roofEdge, g);
+    const zr = x => zh + 200 - (x - x0) * (zh - zl) / (x1 - x0);                          // bovenkant dak
+    [0,1,2].forEach(k => { const ya = y0 + 250 + k*1700, yb = ya + 1500;
+      tiltedX(x0+200, x1-200, ya, yb, zr(x0+200)+40, zr(x1-200)+40, 40, MAT.pv, g); });
+    box(x0-250, x0-190, y0-250, y1+250, zh+40, zh+240, MAT.trim, g);
+    [y0+900, (y0+y1)/2, y1-900].forEach(y => box(x0-200, x0-140, y-60, y+60, zh+100, zh+160, MAT.steel, g));
+    box(x0-2400, x0-20, y0-400, y1+400, L.tuin+40, L.tuin+160, MAT.wood, g);           // vlonder
+  })();
+
+  /* --- barbecuepaviljoen (C): open houten overkapping 5,9 x 3,3 m, oude rode
+         dakpannen op een zadeldak, tafel met banken en een kamado.              */
+  (function paviljoen(){
+    const x0 = -2450, x1 = x0 + 3290, y0 = 35850, y1 = y0 + 5930;
+    const zg = L.tuin + 2100, zn = L.tuin + 3150, xm = (x0+x1)/2;
+    [[x0,y0],[x1,y0],[x0,(y0+y1)/2],[x1,(y0+y1)/2],[x0,y1],[x1,y1]].forEach(([x,y]) =>
+      box(x-60, x+60, y-60, y+60, L.tuin, zg, MAT.wood, g));
+    box(x0-100, x1+100, y0-100, y0-40, zg-120, zg, MAT.wood, g);  box(x0-100, x1+100, y1+40, y1+100, zg-120, zg, MAT.wood, g);
+    box(x0-100, x0-40, y0-100, y1+100, zg-120, zg, MAT.wood, g);  box(x1+40, x1+100, y0-100, y1+100, zg-120, zg, MAT.wood, g);
+    box(xm-60, xm+60, y0-300, y1+300, zn-160, zn-40, MAT.wood, g);                    // nokbalk
+    tiltedX(x0-300, xm, y0-300, y1+300, zg-40, zn-40, 90, MAT.roofRed, g);            // twee dakvlakken
+    tiltedX(xm, x1+300, y0-300, y1+300, zn-40, zg-40, 90, MAT.roofRed, g);
+    box(xm-40, xm+40, y0-300, y1+300, zn-40, zn+60, MAT.roofRed, g);                  // nokvorsten
+    box(x0+700, x1-700, y0+1800, y0+2800, L.tuin+700, L.tuin+760, MAT.douglas, g);    // tafel
+    [x0+500, x1-660].forEach(x => box(x, x+160, y0+1700, y0+2900, L.tuin+420, L.tuin+460, MAT.douglas, g));
+    box(x1-1300, x1-600, y0+4300, y0+5000, L.tuin+300, L.tuin+1000, MAT.roofEdge, g); // kamado
+    box(x0, x1, y0, y1, L.tuin+20, L.tuin+60, MAT.klinker, g);
+  })();
+
+  /* --- tuinzitje (B): houten pergola 3,5 x 3,5 m met lattenrooster.            */
+  (function zitje(){
+    const x0 = -6100, x1 = x0 + 3500, y0 = 37000, y1 = y0 + 3500, zt = L.tuin + 2400;
+    [[x0,y0],[x1,y0],[x0,y1],[x1,y1]].forEach(([x,y]) => box(x-60, x+60, y-60, y+60, L.tuin, zt, MAT.wood, g));
+    box(x0-100, x1+100, y0-60, y0+60, zt-140, zt, MAT.wood, g);  box(x0-100, x1+100, y1-60, y1+60, zt-140, zt, MAT.wood, g);
+    for (let x = x0+200; x < x1; x += 350) box(x, x+60, y0-200, y1+200, zt, zt+60, MAT.wood, g);
+    box(x0+400, x1-400, y0+1200, y1-1200, L.tuin+380, L.tuin+430, MAT.douglas, g);   // bank/tafel
+    box(x0, x1, y0, y1, L.tuin+20, L.tuin+60, MAT.klinker, g);
+  })();
+
   // bomen en struiken, posities indicatief uit de tuinscan
   const boom = (x,y,h,r) => {
     box(x-90, x+90, y-90, y+90, L.tuin, L.tuin+h*0.5, MAT.stam, g);
-    // kroon: hoofdbol plus vier kleinere, verschoven bollen; twee tinten loof
     const bol = (cx,cy,cz,rr,mat) => {
       const m=new THREE.Mesh(new THREE.SphereGeometry(M(rr),14,10), mat);
       m.castShadow=true; m.receiveShadow=true; place(m, cx-rr,cx+rr, cy-rr,cy+rr, cz-rr,cz+rr); g.add(m);
@@ -982,12 +1069,12 @@ const SUB = { binnen:{}, glas:{} };
     bol(x+r*0.1,  y-r*0.6, zc+r*0.2,  r*0.6,  MAT.loof2);
     bol(x-r*0.2,  y+r*0.55, zc+r*0.35, r*0.55, MAT.loof);
   };
-  boom(-2100, Y0+4500, 5200, 1500);
-  boom(-2300, Y0+14000, 6400, 1900);
-  boom( 7600, Y0+9000,  5800, 1700);
-  boom( 1200, Y1-2200,  7000, 2100);
-  boom( 5200, Y1-3000,  6000, 1800);
-  [ [ -2600, Y0+9000 ], [ 7900, Y0+3000 ], [ 7900, Y0+16000 ], [ -2600, Y0+20000 ] ]
+  boom(-5200, Y0+9000, 5600, 1600);
+  boom( 4600, Y0+12500, 6400, 1900);
+  boom(-3200, Y0+20000, 5200, 1500);
+  boom( 4400, Y1-2500,  7000, 2100);
+  boom(-5500, Y1-1800,  6000, 1800);
+  [ [ -5400, Y0+4500 ], [ 4800, Y0+16000 ], [ -4200, Y0+13500 ] ]
     .forEach(([x,y]) => box(x-700, x+700, y-700, y+700, L.tuin, L.tuin+1300, MAT.loof, g));
 })();
 
@@ -1312,24 +1399,25 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
      bouwmuur, de nis met de voordeur zit aan de rechterkant, één zoldervenster
      naast de bouwmuur, schoorsteen op de platte strook).                        */
   (function nr85(){
-    /* Nummer 85, nagemeten uit Street View (11,7 mm/px, bouwmuur op 467 px).
-       Geen nis: raam en deur in één gevelvlak onder één luifel. Nok op de
-       bouwmuur, dakvlak ~36 graden naar rechts tot een plat blok van twee lagen
-       (borstwering ~6,7 m) met de schoorsteen; totale breedte ~7,2 m.          */
+    /* Nummer 85: spiegelbeeld van 83 in maat (5 670 breed, strook 2 340), maar de
+       rechterstrook is een plat blok van twee lagen met borstwering op ~6,7 m en
+       de schoorsteen, en het dakvlak loopt iets flauwer (~46 graden) tot dat blok.
+       Geen nis: raam en deur in één gevelvlak onder één luifel. Bronnen: de
+       aanvraagtekening van 1981 (dubbel pand) en Street View 2025.             */
     const W = G.x2, X = x => W + x;                       // x' vanaf de bouwmuur
-    const YF = G.frontFace, YF1 = G.frontFace + G.wallExt, ZB = 6750, XB = 3430, XR = 7200;
-    const slope85 = Math.tan(36 * Math.PI/180), roofR = x => L.nok - x * slope85;   // x' -> dakhoogte
+    const YF = G.frontFace, YF1 = G.frontFace + G.wallExt, ZB = 6700, XB = W - G.eavesX, XR = W;
+    const slope85 = (L.nok - 6420) / XB, roofR = x => L.nok - x * slope85;          // x' -> dakhoogte
     // gevel onder de zolderverdieping, met openingen
     wall(X(0), X(XR), YF, YF1, L.mv, L.v1, MAT.brick, g,
-         [{a0:X(390), a1:X(3900), z0:900, z1:2250}, {a0:X(4250), a1:X(5200), z0:0, z1:2350, glass:false}], gl);
+         [{a0:X(390), a1:X(3700), z0:900, z1:2250}, {a0:X(4300), a1:X(5250), z0:0, z1:2350, glass:false}], gl);
     wall(X(0), X(XR), YF, YF1, L.v1, L.v2, MAT.brick, g, [{a0:X(910), a1:X(3250), z0:3850, z1:5300}], gl);
     box(X(1060), X(1120), YF+80, YF+170, 960, 2190, MAT.frame, g);                       // stijl van het zijlicht
     // deur met bovenlicht, in het gevelvlak
-    box(X(4270), X(5180), YF+40, YF+90, L.bg+30, L.bg+2080, MAT.trim, g);
-    box(X(4250), X(5200), YF+20, YF+120, L.bg+2080, L.bg+2140, MAT.frame, g);
-    box(X(4300), X(5150), YF+60, YF+80, L.bg+2140, L.bg+2320, MAT.glassDark, g);
-    box(X(4990), X(5090), YF+10, YF+40, L.bg+990, L.bg+1030, MAT.steel, g);
-    box(X(390), X(5700), YF-170, YF1, 2328, 2448, MAT.trim, g);                          // luifel over raam en deur
+    box(X(4320), X(5230), YF+40, YF+90, L.bg+30, L.bg+2080, MAT.trim, g);
+    box(X(4300), X(5250), YF+20, YF+120, L.bg+2080, L.bg+2140, MAT.frame, g);
+    box(X(4350), X(5200), YF+60, YF+80, L.bg+2140, L.bg+2320, MAT.glassDark, g);
+    box(X(5040), X(5140), YF+10, YF+40, L.bg+990, L.bg+1030, MAT.steel, g);
+    box(X(390), X(5500), YF-170, YF1, 2328, 2448, MAT.trim, g);                          // luifel over raam en deur
     // bovenbouw: topgevel-driehoek links, plat blok rechts; zoldervenster in de driehoek
     const tri = (a,b) => prism([[X(a),L.v2],[X(a),roofR(a)],[X(b),roofR(b)],[X(b),L.v2]], YF, YF1, MAT.brick, g);
     tri(0, 340);  tri(790, XB);
@@ -1352,10 +1440,10 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
     box(X(XR)-180, X(XR), YF, G.C, ZB-250, ZB+40, MAT.trim, g);
     box(X(XB)-G.wallExt, X(XB)-G.wallExt+180, YF, G.C, ZB-250, ZB+40, MAT.trim, g);
     // schoorsteen op het platte blok, met roestvrijstalen pijp
-    box(X(4250), X(5180), 2600, 3400, ZB, ZB+650, MAT.brickDark, g);
-    box(X(4190), X(5240), 2540, 3460, ZB+650, ZB+760, MAT.roofEdge, g);
-    box(X(4620), X(4820), 2900, 3100, ZB+760, ZB+1450, MAT.steel, g);
-    box(X(4570), X(4870), 2850, 3150, ZB+1450, ZB+1520, MAT.steel, g);
+    box(X(4150), X(5000), 2600, 3400, ZB, ZB+650, MAT.brickDark, g);
+    box(X(4090), X(5060), 2540, 3460, ZB+650, ZB+760, MAT.roofEdge, g);
+    box(X(4480), X(4680), 2900, 3100, ZB+760, ZB+1450, MAT.steel, g);
+    box(X(4430), X(4730), 2850, 3150, ZB+1450, ZB+1520, MAT.steel, g);
     // bestrating voortuin
     box(X(0), X(XR), -1600, YF, L.mv, L.mv+35, MAT.klinker, g);
     // houten poort rechts van 85, toegang tot het achterpad naar de tuin van 83
