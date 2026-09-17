@@ -689,7 +689,14 @@ const SUB = { binnen:{}, glas:{} };
 
 /* ---------- terrein ---------- */
 (function terrein(){
-  box(-9000, 15000, -5000, G.terrD, L.mv-700, L.mv, MAT.lawn, GRP.terrein);
+  // terreinplaat: naast het pand over de volle diepte, vóór het pand tot aan de
+  // souterraingevel (y 1 420), met een uitsparing voor het trapgat (x 1 750..5 520, y 250..1 420).
+  // Onder het pand zelf ligt geen terrein: daar zit het souterrain.
+  box(-9000, G.x1,  -5000, G.terrD, L.mv-700, L.mv, MAT.lawn, GRP.terrein);
+  box(G.x2,  15000, -5000, G.terrD, L.mv-700, L.mv, MAT.lawn, GRP.terrein);
+  box(G.x1,  1750,  -5000, 1420,    L.mv-700, L.mv, MAT.lawn, GRP.terrein);
+  box(5520,  G.x2,  -5000, 1420,    L.mv-700, L.mv, MAT.lawn, GRP.terrein);
+  box(1750,  5520,  -5000, 250,     L.mv-700, L.mv, MAT.lawn, GRP.terrein);
   box(-9000, 15000, -5000, -1600, L.mv-720, L.mv-40, MAT.earth, GRP.terrein); // straat
 })();
 
@@ -699,6 +706,8 @@ const SUB = { binnen:{}, glas:{} };
   const X0=-3200, X1=8900, Y0=G.terrD, Y1=43550;      // 12,1 x 27,0 m achter het terras
   const PAT = 3600;                                   // diepte van de verzonken buitenplaats
   box(X0-300, X1+300, Y0+PAT, Y1+300, L.tuin-800, L.tuin, MAT.lawn, g);
+  box(X0-300, G.x1-900-250, Y0, Y0+PAT, L.tuin-800, L.tuin, MAT.lawn, g);   // gras naast de buitenplaats
+  box(G.x2+900+250, X1+300, Y0, Y0+PAT, L.tuin-800, L.tuin, MAT.lawn, g);
 
   /* buitenplaats achter het souterrain: verzonken tot op de souterrainvloer,
      met vier treden omhoog naar het tuinpeil. Uit de LiDAR-scan van 17-09-2026:
@@ -756,7 +765,9 @@ const SUB = { binnen:{}, glas:{} };
   wall(G.x1, G.x1+300, G.B+200, G.terrD, L.kelder, L.bg, MAT.paint, g);
   wall(G.x2-300, G.x2, G.B+200, G.terrD, L.kelder, L.bg, MAT.concrete, g);
   wall(G.x1, G.x2, G.B+200, G.B+500, L.kelder, L.bg, MAT.paint, g,
-       [{a0:2400,a1:4200,z0:L.kelder+300,z1:L.kelder+1900}], SUB.glas.kelder);
+       [{a0:2900,a1:4350,z0:L.kelder+700,z1:L.kelder+1950},        // raamstrook in de lichtkoker
+        {a0:4550,a1:5350,z0:L.kelder,    z1:L.kelder+2050}],       // entreedeur onderaan de trap
+       SUB.glas.kelder);
   wall(G.x1, G.x2, G.terrD-300, G.terrD, L.kelder, L.bg, MAT.paint, g,
        [{a0:800, a1:2350,z0:L.kelder+150,z1:L.kelder+2350},
         {a0:2750,a1:4300,z0:L.kelder+150,z1:L.kelder+2350}], SUB.glas.kelder);             // openslaande tuindeuren
@@ -765,41 +776,47 @@ const SUB = { binnen:{}, glas:{} };
   box(G.x1+300, G.x2-300, G.B+500, G.terrD-300, L.bg-220, L.bg, MAT.hout, g);            // begane grondvloer
 
   /* Buitentrap vanaf de stoep naar de souterrainentree, voorzijde.
-     Uit de foto's van 17-09-2026 en de LiDAR-scan: een verdiept trapgat in de
-     stoep, evenwijdig aan de gevel. Elf treden dalen vanaf de voordeur naar
-     rechts af; onderaan een bordes voor de souterraindeur. Zwart stalen hek
-     langs de straatzijde, gemetselde keermuur aan het eind.
-     Optrede 202 mm (2 220 mm verval over 11 treden), aantrede 260 mm.       */
+     Uit de foto's en de LiDAR-scan van 17-09-2026: een verdiept, gewit trapgat
+     in de stoep, evenwijdig aan de gevel. Elf treden dalen vanaf de voordeur
+     naar rechts af naar een bordes met de entreedeur; rechts daarvan loopt het
+     gat door als lichtkoker voor het souterrainraam. Zwart stalen hek langs de
+     straatzijde, leuning op de gevel, zinken afdekband op de lage keermuur.
+     Optrede 202 mm (2 220 mm verval over 11 treden), aantrede 250 mm.        */
   (function souterrainEntree(){
     const WX0 = 1750, WX1 = 5400;              // trapgat + lichtkoker langs de gevel
-    const WY0 = 560,  WY1 = G.B + 200;         // straatzijde .. souterraingevel
+    const WY0 = 250,  WY1 = G.B + 200;         // straatzijde .. souterraingevel (1 170 diep)
     const N = 11, rise = (L.mv - L.kelder) / N, go = 250;
-    const XE = WX0 + N * go;                   // onderaan de laatste trede, 4 500
+    const XE = WX0 + N * go;                   // 4 500: onderaan de laatste trede
+    const slopeX = (x0,x1,y0,y1,z0,z1,thick,mat) => {   // balk die langs x daalt
+      const len = Math.hypot(M(x1-x0), M(z1-z0));
+      const m = new THREE.Mesh(new THREE.BoxGeometry(len, M(thick), M(y1-y0)), mat);
+      m.castShadow = true; m.receiveShadow = true;
+      m.position.set(M((x0+x1)/2) - CX, M((z0+z1)/2), TZ((y0+y1)/2));
+      m.rotation.z = Math.atan2(M(z1-z0), M(x1-x0));
+      g.add(m);
+    };
 
-    box(WX0-120, WX1+120, WY0-120, WY1, L.kelder-250, L.kelder, MAT.concrete, g);   // bodem
-    for (let i = 0; i < N; i++)                                                     // treden
-      box(WX0 + i*go, WX0 + (i+1)*go, WY0, WY1,
-          L.mv - (i+1)*rise, L.mv - i*rise, MAT.stair, g);
-    box(XE, WX1, WY0, WY1, L.kelder-60, L.kelder, MAT.klinker, g);                  // bordes + lichtkoker
-    // zinken afdekband op de straatzijde, meedalend met de trap
+    // gewit trapgat: bodem en drie keermuren
+    box(WX0-120, WX1+120, WY0-120, WY1, L.kelder-250, L.kelder, MAT.paint, g);
+    box(WX0-120, WX1+120, WY0-120, WY0, L.kelder, L.mv, MAT.paint, g);          // straatzijde
+    box(WX1, WX1+120, WY0-120, WY1, L.kelder, L.mv, MAT.paint, g);              // kopse kant rechts
+    box(WX0-120, WX0, WY0-120, WY1, L.kelder, L.mv-40, MAT.paint, g);           // kopse kant links
+
+    // treden als massieve blokken, aflopend naar rechts
     for (let i = 0; i < N; i++)
-      box(WX0 + i*go, WX0 + (i+1)*go, WY0-130, WY0-20,
-          L.mv - i*rise - 60, L.mv - i*rise + 40, MAT.roofEdge, g);
+      box(WX0 + i*go, WX0 + (i+1)*go, WY0, WY1, L.kelder, L.mv - (i+1)*rise + rise, MAT.stair, g);
+    box(XE, WX1, WY0, WY1, L.kelder, L.kelder+40, MAT.stair, g);                // bordes + koker
 
-    // keermuren: straatzijde over de volle lengte, kopse kant aan het eind
-    box(WX0-120, WX1+120, WY0-120, WY0, L.kelder, L.mv, MAT.paint, g);
-    box(WX1, WX1+120, WY0-120, WY1, L.kelder, L.mv, MAT.paint, g);
-
-    // stalen hek op stoepniveau langs het trapgat
+    // hek op stoepniveau langs de straatzijde, met een korte terugslag rechts
     const H = 900;
-    box(WX0-120, WX1+120, WY0-100, WY0-40, L.mv+H-60, L.mv+H, MAT.steel, g);        // bovenregel
+    box(WX0-120, WX1+120, WY0-100, WY0-40, L.mv+H-60, L.mv+H, MAT.steel, g);
     box(WX1+60,  WX1+120, WY0-100, WY1,    L.mv+H-60, L.mv+H, MAT.steel, g);
     for (let x = WX0-100; x <= WX1+100; x += 175)
-      box(x, x+26, WY0-88, WY0-62, L.mv, L.mv+H, MAT.steel, g);                     // spijlen
-    // leuning die met de trap meedaalt, aan de gevelzijde
-    for (let i = 0; i < N; i++)
-      box(WX0 + i*go, WX0 + (i+1)*go, WY1-90, WY1-30,
-          L.mv - i*rise + 840, L.mv - i*rise + 900, MAT.steel, g);
+      box(x, x+26, WY0-88, WY0-62, L.mv, L.mv+H, MAT.steel, g);
+    // leuning op de gevel, meedalend met de trap
+    slopeX(WX0, XE, WY1-95, WY1-45, L.mv+870, L.kelder+870, 50, MAT.steel);
+    // zinken afdekband op de keermuur, meedalend met de trap
+    slopeX(WX0-120, XE, WY0-140, WY0+10, L.mv+10, L.kelder+10, 70, MAT.roofEdge);
   })();
 })();
 
@@ -831,9 +848,10 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
   box(G.x1+G.wallExt, G.stepX, G.frontWall+G.wallExt, G.rearWall, L.v1-220, L.v1, MAT.hout, g);
   // bestrating en entreetrap
   // bestrating, opengelaten waar het trapgat naar het souterrain ligt
-  box(G.x1, 1630, 0, G.frontFace, L.mv-40, L.mv, MAT.stair, g);
-  box(5520, G.x2, 0, G.frontFace, L.mv-40, L.mv, MAT.stair, g);
-  box(1630, 5520, 0, 430, L.mv-40, L.mv, MAT.stair, g);
+  // voortuin en stoep zijn betegeld tot aan de straat
+  box(G.x1-600, 1630, -1600, G.frontFace, L.mv, L.mv+35, MAT.klinker, g);
+  box(5520, G.x2, -1600, G.frontFace, L.mv, L.mv+35, MAT.klinker, g);
+  box(1630, 5520, -1600, 130, L.mv, L.mv+35, MAT.klinker, g);
   box(950, 1900, G.frontFace, G.frontWall, L.mv, L.bg, MAT.stair, g);
 })();
 
