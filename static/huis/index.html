@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>3D-model Broerdijk 83 &middot; Marco van Thiel</title>
-<meta name="description" content="Interactief 3D-model van de hoekwoning Broerdijk 83 in Nijmegen (1933), opgebouwd uit de bouwtekening van 2021, de dakkapel-offerte van 2025 en foto&#39;s van de gebouwde situatie. Bouwlagen, doorsneden en peilmaten.">
+<meta name="description" content="Interactief 3D-model van de hoekwoning Broerdijk 83 in Nijmegen (1933), opgebouwd uit de bouwtekening van 2021, de dakkapel-offerte van 2025 en een LiDAR-inmeting. Bouwlagen, doorsneden en peilmaten.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/favicon.png">
 <meta property="og:title" content="3D-model Broerdijk 83">
@@ -236,7 +236,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
       <a class="back" href="https://www.marcovanthiel.nl/">&larr; marcovanthiel.nl</a>
       <div class="eyebrow">Broerdijk 83 &middot; 6523 GR Nijmegen</div>
       <h1>3D-model<br>hoekwoning 1933</h1>
-      <div class="sub">Opgebouwd uit bouwtekening AD_6523GR_83</div>
+      <div class="sub">Bouwtekening AD_6523GR_83, ingemeten met LiDAR</div>
       <div class="tag mono">peil P = bovenkant begane grondvloer</div>
     </div>
 
@@ -307,8 +307,25 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <div class="fact"><span>Starthoogte</span><span>700 mm boven vloer</span></div>
           <div class="fact"><span>Kleur trespa/kozijn</span><span>RAL 7016</span></div>
         </div>
-        <div class="note" style="margin-top:12px">
-          <b>Controlepunt dakhelling.</b> De offerte rekent met <b>50,3°</b>. Uit de bouwtekening volgt ±<b>45°</b>: goot op +5 870 bij x = 1 680, nok op +9 870 bij de bouwmuur (Δ 3 990 mm horizontaal / 4 000 mm verticaal). Dat verschil verandert de voetafmeting van de dakkapel en daarmee de sparing. Verifiëren vóór montage.
+        <div class="note" style="margin-top:12px; border-left-color:var(--accent); background:var(--accent-soft)">
+          <b>Dakhelling: opgelost.</b> De LiDAR-scan van de zolder geeft <b>49,9&deg;</b> over 91 000 punten, met een spreiding van 10 mm op het vlak. De offerte rekent met 50,3&deg; en zit er dus goed op. De bouwtekening suggereerde ~45&deg;, maar die kap staat op doorsnede C zelf aangemerkt als <i>&ldquo;spant op aanname getekend&rdquo;</i>. Geen wijziging nodig in de opdracht; het model is bijgesteld.
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="eyebrow">Gemeten met LiDAR &middot; 17-09-2026</span>
+        <div class="facts">
+          <div class="fact"><span>Dakhelling</span><span>49,9&deg;</span></div>
+          <div class="fact"><span>Nok boven zoldervloer</span><span>3 680 mm</span></div>
+          <div class="fact"><span>Kniewand</span><span>600 mm hoog</span></div>
+          <div class="fact"><span>Kniewand uit de nok</span><span>2 640 mm</span></div>
+          <div class="fact"><span>Zolder tot dakkapelplafond</span><span>2 250 mm</span></div>
+          <div class="fact"><span>Vrije hoogte begane grond</span><span>2 680 mm</span></div>
+          <div class="fact"><span>Vrije hoogte 1e verdieping</span><span>2 540 mm</span></div>
+          <div class="fact"><span>Vrije hoogte souterrain</span><span>2 240 mm</span></div>
+          <div class="fact"><span>Breedte binnenwerks</span><span>5 360 mm</span></div>
+          <div class="fact"><span>Zolderlengte langs de nok</span><span>7 400 mm</span></div>
+          <div class="fact"><span>Optrede trappen</span><span>&plusmn;295 mm</span></div>
         </div>
       </div>
 
@@ -362,7 +379,7 @@ const G = {
   frontFace:1420,            // voorvlak bg + 1e verdieping, gelijk met de ramen
   stepX:1850,                // grens met het teruggelegde deel (voordeur en alles daarboven)
   midWallX:2010,             // hoofd-binnenwand (250 + 1760)
-  eavesX:1680,               // voet dakvlak
+  eavesX:2340,               // voet dakvlak, uit de LiDAR-scan (helling 49,9°)
   uitD:13100,                // voorkant uitbouw (harmonica pui)
   terrD:16550,               // rand terras / veranda
 };
@@ -375,14 +392,14 @@ const DK = {  // dakkapel Scheer 2025/38009
   overVoor:200, overZij:175,
   kozijnen:[1742,3142,2201], tussen:197
 };
-const slope = (L.nok - L.flat) / (G.x2 - G.eavesX);  // 3 950 / 3 990 → 44,7°
+const slope = (L.nok - L.flat) / (G.x2 - G.eavesX);  // 3 950 / 3 330 → 49,9° (gemeten)
 
 // z van het dakvlak bij een gegeven x
 const roofZ = x => L.flat + (x - G.eavesX) * slope;
 // x van het dakvlak bij een gegeven z
 const roofX = z => G.eavesX + (z - L.flat) / slope;
 
-const dkZ0 = L.v2 + 650;                 // onderkant dakkapelvoorvlak
+const dkZ0 = L.v2 + 600;                 // bovenkant kniewand, gemeten 600 mm
 const dkZ1 = dkZ0 + DK.h;                // bovenkant
 const dkX0 = roofX(dkZ0);                // voorvlak
 const dkX1 = roofX(dkZ1);                // aansluiting op dakvlak
@@ -649,6 +666,10 @@ function gevelLaag(z0, z1, g, ops, achtergevel){
   box(4900, G.x2, 4950, 6650, L.chim-140, L.chim, MAT.roofEdge, d);
 })();
 
+(function kniewand(){                       // borstwering 600 mm waar de dakkapel op staat
+  box(dkX0, dkX0+110, G.frontWall, G.C, L.v2, dkZ0, MAT.inner, GRP.zolder);
+})();
+
 (function dakkapel(){
   const g = GRP.dakkapel;
   // wangen + voorvlak als driehoekig prisma (alles boven het dakvlak)
@@ -860,7 +881,7 @@ const LEVELS = [
   {k:'bg',     n:'Begane grond', v:'0 … +2 950', c:'#9c7f6d'},
   {k:'v1',     n:'1e verdieping', v:'+2 950 … +5 870', c:'#9c7f6d'},
   {k:'zolder', n:'Zolder', v:'+5 870 … nok', c:'#8d7364'},
-  {k:'dak',    n:'Dakvlak &amp; schoorsteen', v:'45°', c:'#4a4b4d'},
+  {k:'dak',    n:'Dakvlak &amp; schoorsteen', v:'49,9°', c:'#4a4b4d'},
   {k:'dakkapel', n:'Dakkapel 2025', v:'7 760 mm', c:'#373b3a'}
 ];
 const PARTS = [
