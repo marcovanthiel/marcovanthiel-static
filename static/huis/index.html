@@ -183,6 +183,7 @@ table.peil tr.key td:last-child{color:var(--accent)}
 .tbl thead th{color:var(--ink-2); font-weight:600; font-size:11px; letter-spacing:.04em; text-transform:uppercase}
 .tbl td{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
 .tbl tr.tot td,.tbl tr.tot th{border-top:1px solid var(--ink-2); border-bottom:none; font-weight:700; color:var(--ink)}
+.tbl tr.hd th{text-align:left; padding-top:0; color:var(--ink); font-size:12px}
 .tbl tr.sub td,.tbl tr.sub th{color:var(--ink-2); font-size:11.5px; border-bottom:none; padding-top:2px}
 .fact{display:flex; justify-content:space-between; gap:12px}
 .fact span:first-child{color:var(--ink-2)}
@@ -337,7 +338,23 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
       </div>
 
       <div class="block">
-        <span class="eyebrow">Oppervlakte &amp; inhoud &middot; NEN 2580</span>
+        <span class="eyebrow">Gebruiksoppervlakten &middot; NEN 2580</span>
+        <table class="tbl">
+          <tbody>
+            <tr class="hd"><th colspan="2">Gebruiksoppervlakten</th></tr>
+            <tr><td>Wonen</td><td>191 m&sup2;</td></tr>
+            <tr><td>Overige inpandige ruimte</td><td>0 m&sup2;</td></tr>
+            <tr><td>Gebouwgebonden buitenruimte</td><td>19 m&sup2;</td></tr>
+            <tr><td>Externe bergruimte</td><td>10 m&sup2;</td></tr>
+            <tr class="tot"><th>Perceel</th><td>525 m&sup2;</td></tr>
+            <tr class="tot"><th>Inhoud</th><td>591 m&sup3;</td></tr>
+          </tbody>
+        </table>
+        <div class="note" style="margin-top:12px">
+          Gemeten volgens <b>NEN 2580</b>, toegepast via de <i>Meetinstructie Gebruiksoppervlakte Woningen</i> (versie 1, 1 juli 2019, NVM/VBO/VastgoedPRO, afgestemd met de Waarderingskamer). Binnenwerks, alleen waar de vrije hoogte &ge; 1,50 m is, zonder dragende wanden, schachten en vides groter dan 4 m&sup2;.
+        </div>
+
+        <span class="eyebrow" style="margin-top:20px; display:block">Wonen, per bouwlaag</span>
         <table class="tbl">
           <thead><tr><th>Bouwlaag</th><th>BVO m&sup2;</th><th>GO m&sup2;</th><th>m&sup3;</th></tr></thead>
           <tbody>
@@ -346,19 +363,28 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
             <tr><td>1e verdieping</td><td>48,1</td><td>42,1</td><td>140,6</td></tr>
             <tr><td>Zolder onder de kap</td><td>26,6</td><td>20,7</td><td>62,6</td></tr>
             <tr class="tot"><th>Totaal</th><td>225,0</td><td>191,2</td><td>590,7</td></tr>
-            <tr class="sub"><th>waarvan zonder souterrain</th><td>139,2</td><td>119,1</td><td>393,4</td></tr>
           </tbody>
         </table>
         <div class="note" style="margin-top:12px">
-          <b>BVO</b> is buitenwerks gemeten (NEN 2580, bruto vloeroppervlakte). <b>GO</b> is de gebruiksoppervlakte wonen volgens de <i>Meetinstructie Gebruiksoppervlakte Woningen</i> (versie 1, 1 juli 2019, NVM/VBO/VastgoedPRO): binnenwerks, alleen waar de vrije hoogte &ge; 1,50 m is, en zonder dragende wanden, schachten en vides groter dan 4 m&sup2;. Het verschil van circa 15 % zit vrijwel volledig in het metselwerk van 250 mm en de bouwmuur.
+          <b>BVO</b> is buitenwerks (bruto vloeroppervlakte), <b>GO</b> binnenwerks. Het verschil van circa 15 % zit vrijwel volledig in het metselwerk van 250 mm en de bouwmuur. Het souterrain telt volledig als wonen: vrije hoogte 2,24 m, ge&iuml;soleerd, verwarmd en met daglicht via de tuindeuren. Er is daardoor geen overige inpandige ruimte.
         </div>
         <div class="note" style="margin-top:10px; border-left-color:var(--accent); background:var(--accent-soft)">
           <b>De dakkapel levert 6,0 m&sup2; op.</b> Zonder dakkapel ligt de 1,50 m-lijn op 3 605 mm uit de linkergevel en telt de zolder 14,7 m&sup2;. Met de dakkapel schuift die lijn naar 2 804 mm en telt de zolder 20,7 m&sup2;. Daaronder blijft 3,5 m&sup2; kruipzone over die niet meetelt.
         </div>
-        <div class="facts" style="margin-top:12px">
-          <div class="fact"><span>Gebouwgebonden buitenruimte &mdash; terras</span><span>19,6 m&sup2;</span></div>
-          <div class="fact"><span>Gebouwgebonden buitenruimte &mdash; voorstoep</span><span>8,2 m&sup2;</span></div>
-          <div class="fact"><span>Externe bergruimte &mdash; tuinhuis</span><span>11,2 m&sup2;</span></div>
+
+        <span class="eyebrow" style="margin-top:20px; display:block">Buitenruimte en bijgebouwen</span>
+        <table class="tbl">
+          <thead><tr><th>Onderdeel</th><th>Categorie</th><th>m&sup2;</th></tr></thead>
+          <tbody>
+            <tr><td>Veranda aan de uitbouw</td><td>Gebouwgeb. buitenruimte</td><td>18,8</td></tr>
+            <tr><td>Nieuw tuinhuis (2026)</td><td>Externe bergruimte</td><td>10,1</td></tr>
+            <tr><td>Oud tuinhuis / sportruimte</td><td>Externe bergruimte</td><td>p.m.</td></tr>
+            <tr class="sub"><td>Afdak nieuw tuinhuis</td><td>telt niet mee</td><td>6,2</td></tr>
+            <tr class="sub"><td>Voorstoep</td><td>telt niet mee</td><td>8,2</td></tr>
+          </tbody>
+        </table>
+        <div class="note" style="margin-top:12px">
+          De veranda (5 450 &times; 3 450 mm) is overdekt en zit vast aan de uitbouw en telt daarmee als gebouwgebonden buitenruimte. Het nieuwe tuinhuis is een vrijstaand, niet-ge&iuml;soleerd bijgebouw: externe bergruimte, binnenwerks gemeten. Het afdak van 2 000 mm zit aan het bijgebouw en niet aan de woning en telt daarom in geen enkele categorie mee; hetzelfde geldt voor de onoverdekte voorstoep en voor de tuin zelf. Het oude tuinhuis wordt sportruimte; zodra het ge&iuml;soleerd, verwarmbaar en van daglicht voorzien is, verschuift het volgens vraag 36 van de meetinstructie van externe bergruimte naar gebruiksoppervlakte wonen &mdash; apart te vermelden, want de BAG telt een vrijstaand gebouw niet bij de woning op.
         </div>
       </div>
 
@@ -373,7 +399,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <li>De voorgevel ligt in twee vlakken: begane grond en 1e verdieping staan vóór, gelijk met de ramen; de voorgevel loopt in dat vlak door tot de nok. Alleen de voordeur, het trappenhuis en het lage linkerdeel liggen 800 mm terug; naast de voordeur staat geen muur.</li>
           <li>Op de begane grond is de achtergevel vervallen; de woning loopt door in de uitbouw, met een stalen ligger op de plaats van de oude gevel.</li>
           <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen.</li>
-          <li>Het souterrain loopt in het model door onder de uitbouw en het terras tot 16 550 mm; daardoor is het de grootste bouwlaag. Of dat volledig als gebruiksoppervlakte wonen telt, hangt af van de bouwkundige staat en de vaste trap &mdash; anders valt een deel onder &ldquo;overige inpandige ruimte&rdquo;.</li>
+          <li>Het souterrain loopt door onder de uitbouw en het terras tot 16 550 mm en is daarmee de grootste bouwlaag. De LiDAR-scan bevestigt een binnenwerkse lengte van circa 13,5 m. Het is volwaardige woonruimte en telt volledig als gebruiksoppervlakte wonen.</li>
           <li>De tuin is opgezet op perceel K-559 uit de kadastrale kaart (circa 12 &times; 27 m achter het terras). De tuinscan bevat te veel drift voor exacte maatvoering; de vlonder, de hagen en de bomen staan daarom indicatief. Het tuinhuis staat op de maten van ontwerp v12: 3 120 &times; 3 600 mm met een afdak van 2 000 mm, goot 2 250 en nok 3 450.</li>
         </ul>
       </div>
