@@ -320,7 +320,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <li>Kozijnen zijn indicatief geplaatst op basis van de gevelaanzichten, behalve de dakkapel — die is op maat uit de offerte.</li>
           <li>De achterzijde combineert de vergunningstekening &ldquo;nieuwe toestand&rdquo; (uitbouw met harmonicapui en sedumdak tot 13 100 mm) met de gebouwde veranda op de foto&rsquo;s van 2026: douglas, 5 450 &times; 3 450 mm, 8&deg;, polycarbonaat, bevestigd aan de uitbouw.</li>
           <li>De zijgevel is blind: doorlopend metselwerk, geen raamopeningen. Alle vloeren zijn houten balklagen binnen het metselwerk, geen betonvloeren.</li>
-          <li>De voorgevel ligt in twee vlakken: begane grond en 1e verdieping staan vóór, gelijk met de ramen; de voordeur, het trappenhuis en alles daarboven liggen 800 mm terug.</li>
+          <li>De voorgevel ligt in twee vlakken: begane grond en 1e verdieping staan vóór, gelijk met de ramen; de voorgevel loopt in dat vlak door tot de nok. Alleen de voordeur, het trappenhuis en het lage linkerdeel liggen 800 mm terug; naast de voordeur staat geen muur.</li>
           <li>Op de begane grond is de achtergevel vervallen; de woning loopt door in de uitbouw, met een stalen ligger op de plaats van de oude gevel.</li>
           <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen.</li>
           <li>Trappen zijn als volume weergegeven, niet als treden.</li>
@@ -571,7 +571,7 @@ const GRP = {};
 function gevelLaag(z0, z1, g, ops, achtergevel){
   // teruggelegd vlak: voordeur, trappenhuis en alles daarboven
   wall(G.x1, G.stepX+120, G.frontWall, G.frontWall+G.wallExt, z0, z1, MAT.brick, g, ops.deur, GRP.glas);
-  wall(G.x1, G.x1+G.wallExt, G.frontFace, G.C, z0, z1, MAT.brick, g);
+  wall(G.x1, G.x1+G.wallExt, G.frontWall, G.C, z0, z1, MAT.brick, g);
   // voorvlak, gelijk met de ramen
   wall(G.stepX, G.x2, G.frontFace, G.frontFace+G.wallExt, z0, z1, MAT.brick, g, ops.voor, GRP.glas);
   wall(G.stepX, G.stepX+120, G.frontFace, G.frontWall+G.wallExt, z0, z1, MAT.brick, g);
@@ -613,8 +613,7 @@ function gevelLaag(z0, z1, g, ops, achtergevel){
   // luifel op 5470 boven het voorvlak
   box(G.stepX-160, G.x2, G.frontFace-170, G.frontFace+G.wallExt, 5470, 5590, MAT.trim, g);
   // vloer zolder + platdak linkerdeel
-  box(G.eavesX, G.x2-G.wallParty, G.frontWall+G.wallExt, G.rearWall, L.v2-220, L.v2, MAT.hout, g);
-  box(G.stepX, G.x2, G.frontFace, G.frontWall, L.v2-220, L.v2, MAT.hout, g);
+  box(G.eavesX, G.x2-G.wallParty, G.frontFace+G.wallExt, G.rearWall, L.v2-220, L.v2, MAT.hout, g);
   box(G.x1, G.eavesX, G.frontWall, G.C, L.flat-160, L.flat, MAT.roofEdge, g);
   box(G.x1-120, G.eavesX+40, G.frontWall-120, G.C+120, L.flat, L.flat+135, MAT.trim, g); // dakrand
 })();
@@ -624,7 +623,7 @@ function gevelLaag(z0, z1, g, ops, achtergevel){
   const g = GRP.zolder, d = GRP.dak;
   // topgevels voor en achter
   const gable = [[G.eavesX,L.flat],[G.x2,L.nok],[G.x2,L.v2],[G.eavesX,L.v2]];
-  prism(gable, G.frontWall, G.frontWall+G.wallExt, MAT.brick, g);
+  prism(gable, G.frontFace, G.frontFace+G.wallExt, MAT.brick, g);
   prism(gable, G.rearWall,  G.C,  MAT.brick, g);
   // zoldervensters: voorgevel 4818-5346 / achtergevel 4970-5400, beide naast de bouwmuur
   const kozijn = (x0,x1,y0,y1,z0,z1) => {
@@ -634,17 +633,17 @@ function gevelLaag(z0, z1, g, ops, achtergevel){
     box(x0-90,x0,   y0-40,y1+40,z0,z1,    MAT.frame, GRP.glas);
     box(x1,   x1+90,y0-40,y1+40,z0,z1,    MAT.frame, GRP.glas);
   };
-  box(4818,5346, G.frontWall, G.frontWall+G.wallExt, 6870, 8000, MAT.glass, GRP.glas);
-  kozijn(4818,5346, G.frontWall, G.frontWall+G.wallExt, 6870, 8000);
+  box(4818,5346, G.frontFace, G.frontFace+G.wallExt, 6870, 8000, MAT.glass, GRP.glas);
+  kozijn(4818,5346, G.frontFace, G.frontFace+G.wallExt, 6870, 8000);
   box(4970,5400, G.rearWall, G.C, 6855, 8000, MAT.glass, GRP.glas);
   kozijn(4970,5400, G.rearWall, G.C, 6855, 8000);
   // bouwmuur doorgetrokken tot de nok
   prism([[G.x2-G.wallParty,L.v2],[G.x2,L.v2],[G.x2,L.nok],[G.x2-G.wallParty,L.nok-110]],
-        G.frontWall, G.C, MAT.party, g);
+        G.frontFace, G.C, MAT.party, g);
   // dakvlak
   const t = 300;
   prism([[G.eavesX-170,roofZ(G.eavesX-170)],[G.x2,L.nok],[G.x2,L.nok-t],[G.eavesX-170,roofZ(G.eavesX-170)-t]],
-        G.frontWall-170, G.C+170, MAT.roof, d);
+        G.frontFace-170, G.C+170, MAT.roof, d);
   // schoorsteen
   box(4950, G.x2, 5000, 6600, L.v2, L.chim, MAT.brickDark, d);
   box(4900, G.x2, 4950, 6650, L.chim-140, L.chim, MAT.roofEdge, d);
