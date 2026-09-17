@@ -13,6 +13,7 @@
 <meta property="og:type" content="website">
 </head>
 <body>
+<title>Broerdijk 83</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -104,12 +105,6 @@ canvas{display:block; width:100%; height:100%; touch-action:none}
   font-size:26px; line-height:1.05; font-weight:700; margin:0; letter-spacing:-.01em;
 }
 .head .sub{color:var(--ink-2); font-size:12.5px}
-.head .back{
-  align-self:flex-start; margin-bottom:10px; font-size:11.5px; text-decoration:none;
-  color:var(--ink-3); border-bottom:1px solid transparent; transition:.12s;
-}
-.head .back:hover{color:var(--accent); border-bottom-color:var(--accent)}
-.head .back:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:2px}
 .head .tag{
   margin-top:8px; display:inline-flex; gap:6px; align-items:center; align-self:flex-start;
   background:var(--surface-2); border:1px solid var(--line-soft); border-radius:3px;
@@ -250,7 +245,6 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
 <div class="app">
   <aside class="rail">
     <div class="head">
-      <a class="back" href="https://www.marcovanthiel.nl/">&larr; marcovanthiel.nl</a>
       <div class="eyebrow">Broerdijk 83 &middot; 6523 GR Nijmegen</div>
       <h1>3D-model<br>hoekwoning 1933</h1>
       <div class="sub">Bouwtekening AD_6523GR_83, ingemeten met LiDAR</div>
@@ -354,7 +348,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
             <tr><td>Wonen</td><td>191 m&sup2;</td></tr>
             <tr><td>Overige inpandige ruimte</td><td>0 m&sup2;</td></tr>
             <tr><td>Gebouwgebonden buitenruimte</td><td>19 m&sup2;</td></tr>
-            <tr><td>Externe bergruimte</td><td>10 m&sup2;</td></tr>
+            <tr><td>Externe bergruimte</td><td>24 m&sup2;</td></tr>
             <tr class="tot"><th>Perceel</th><td>525 m&sup2;</td></tr>
             <tr class="tot"><th>Inhoud</th><td>591 m&sup3;</td></tr>
             <tr class="sub"><td>BAG / Kadaster, 17-09-2026</td><td>193 m&sup2;</td></tr>
@@ -390,14 +384,16 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <thead><tr><th>Onderdeel</th><th>Categorie</th><th>m&sup2;</th></tr></thead>
           <tbody>
             <tr><td>Veranda aan de uitbouw</td><td>Gebouwgeb. buitenruimte</td><td>18,8</td></tr>
-            <tr><td>Nieuw tuinhuis (2026)</td><td>Externe bergruimte</td><td>10,1</td></tr>
-            <tr><td>Oud tuinhuis / sportruimte</td><td>Externe bergruimte</td><td>p.m.</td></tr>
+            <tr><td>Nieuw tuinhuis &mdash; berging</td><td>Externe bergruimte</td><td>10,1</td></tr>
+            <tr><td>Oud tuinhuis &mdash; fitness</td><td>Externe bergruimte</td><td>13,7</td></tr>
             <tr class="sub"><td>Afdak nieuw tuinhuis</td><td>telt niet mee</td><td>6,2</td></tr>
+            <tr class="sub"><td>Barbecuepaviljoen (open)</td><td>telt niet mee</td><td>19,5</td></tr>
+            <tr class="sub"><td>Tuinzitje (open)</td><td>telt niet mee</td><td>&mdash;</td></tr>
             <tr class="sub"><td>Voorstoep</td><td>telt niet mee</td><td>8,2</td></tr>
           </tbody>
         </table>
         <div class="note" style="margin-top:12px">
-          De veranda (5 450 &times; 3 450 mm) is overdekt en zit vast aan de uitbouw en telt daarmee als gebouwgebonden buitenruimte. Het nieuwe tuinhuis is een vrijstaand, niet-ge&iuml;soleerd bijgebouw: externe bergruimte, binnenwerks gemeten. Het afdak van 2 000 mm zit aan het bijgebouw en niet aan de woning en telt daarom in geen enkele categorie mee; hetzelfde geldt voor de onoverdekte voorstoep en voor de tuin zelf. Het oude tuinhuis wordt sportruimte; zodra het ge&iuml;soleerd, verwarmbaar en van daglicht voorzien is, verschuift het volgens vraag 36 van de meetinstructie van externe bergruimte naar gebruiksoppervlakte wonen &mdash; apart te vermelden, want de BAG telt een vrijstaand gebouw niet bij de woning op.
+          De veranda (5 450 &times; 3 450 mm) is overdekt en zit vast aan de uitbouw en telt daarmee als gebouwgebonden buitenruimte. Beide tuinhuizen zijn vrijstaande, afsluitbare bijgebouwen zonder woonfunctie: externe bergruimte, binnenwerks gemeten. Het <b>oude tuinhuis</b> is op 17-09-2026 uit de buitenscan ingemeten op 5,44 &times; 2,72 m buitenwerks, met een lessenaarsdak van 17,5&deg; dat van 2,15 m goot naar 2,87 m nok loopt; binnenwerks komt dat op 13,7 m&sup2;. Zodra die fitnessruimte ge&iuml;soleerd, verwarmbaar en van daglicht voorzien is, verschuift die oppervlakte volgens vraag 36 van de meetinstructie naar gebruiksoppervlakte wonen &mdash; apart te vermelden, want de BAG telt een vrijstaand gebouw niet bij de woning op. Het <b>barbecuepaviljoen</b> en het <b>tuinzitje</b> zijn open houten overkappingen zonder wanden: niet afsluitbaar, dus geen externe bergruimte, en niet aan de woning gebonden, dus ook geen gebouwgebonden buitenruimte. Ze tellen nergens mee. Hetzelfde geldt voor het afdak aan het nieuwe tuinhuis, de onoverdekte voorstoep en de tuin zelf.
         </div>
       </div>
 
@@ -413,6 +409,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <li>Op de begane grond is de achtergevel vervallen; de woning loopt door in de uitbouw, met een stalen ligger op de plaats van de oude gevel.</li>
           <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen.</li>
           <li>Het souterrain beslaat de volle diepte van het pand tot 16 550 mm en is daarmee de grootste bouwlaag. Alleen de achterzijde is met LiDAR ingemeten: het aaneengesloten plafondvlak meet daar 8,0 &times; 5,2 m, oftewel 41,6 m&sup2;. Het voorste deel is onzelfstandig verhuurd en niet toegankelijk voor de scan; daar is plattegrond NT_0-2 de bron. De maatvoering van dat deel heeft dus de marge van de tekening, niet die van de scan.</li>
+          <li>Beide tuinhuizen blijven ruim onder de vergunningvrije hoogtegrenzen. Het oude tuinhuis heeft een nok van 2,87 m, onder de 3,00 m die zelfs p&aacute;l op de erfgrens nog is toegestaan. Het nieuwe tuinhuis heeft een nok van 3,45 m op 2,08 m uit de erfgrens, waar de formule (afstand &times; 0,47) + 3 een maximum van 3,98 m geeft.</li>
           <li>De tuin is opgezet op perceel K-559 uit de kadastrale kaart (circa 12 &times; 27 m achter het terras). De tuinscan bevat te veel drift voor exacte maatvoering; de vlonder, de hagen en de bomen staan daarom indicatief. Het tuinhuis staat op de maten van ontwerp v12: 3 120 &times; 3 600 mm met een afdak van 2 000 mm, goot 2 250 en nok 3 450.</li>
         </ul>
       </div>
@@ -708,6 +705,27 @@ const SUB = { binnen:{}, glas:{} };
   box(G.x1+300, G.x2-300, G.C-250, G.C, L.kelder, L.bg, MAT.concrete, g);           // dragende muur onder achtergevel
   box(G.x1+300, 2200, 5500, 5750, L.kelder, L.bg, MAT.concrete, g);
   box(G.x1+300, G.x2-300, G.B+500, G.terrD-300, L.bg-220, L.bg, MAT.hout, g);            // begane grondvloer
+
+  /* buitentrap vanaf de stoep naar de souterrainentree, voorzijde.
+     Op de foto's van 17-09-2026: acht treden langs de gevel, zwart stalen hek
+     op stoepniveau, souterrainraam en -deur onder het erkerraam van de bg.   */
+  (function souterrainEntree(){
+    const X0 = 2350, X1 = 4250;                 // breedte van het trapgat
+    const Y0 = G.B + 500, Y1 = G.frontFace;     // tussen souterraingevel en voorvlak
+    const N = 8, rise = (L.mv - L.kelder) / N;  // acht treden
+    box(X0-120, X1+120, Y0, Y1, L.kelder-300, L.kelder, MAT.concrete, g);   // bodem van het trapgat
+    for (let i = 0; i < N; i++){                // treden, afdalend naar de gevel toe
+      const d = (Y1 - Y0) / N;
+      box(X0, X1, Y1 - (i+1)*d, Y1 - i*d, L.mv - (i+1)*rise, L.mv - i*rise, MAT.stair, g);
+    }
+    box(X0-120, X0, Y0, Y1, L.kelder, L.mv, MAT.paint, g);                  // keermuurtjes
+    box(X1, X1+120, Y0, Y1, L.kelder, L.mv, MAT.paint, g);
+    // stalen hekwerk op stoepniveau
+    const rail = (x0,x1,y0,y1) => box(x0,x1,y0,y1, L.mv+880, L.mv+940, MAT.steel, g);
+    rail(X0-140, X1+140, Y1-60, Y1+10);
+    for (let x = X0-120; x <= X1+120; x += 190)
+      box(x, x+28, Y1-45, Y1-17, L.mv, L.mv+900, MAT.steel, g);
+  })();
 })();
 
 /* ---------- casco begane grond + 1e ---------- */
@@ -1197,6 +1215,7 @@ setTimeout(()=> document.getElementById('loading').classList.add('gone'), 260);
 })();
 
 </script>
+
 
 </body>
 </html>
