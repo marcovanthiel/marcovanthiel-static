@@ -441,9 +441,10 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <li>Kozijnen zijn indicatief geplaatst op basis van de gevelaanzichten, behalve de dakkapel — die is op maat uit de offerte.</li>
           <li>De achterzijde combineert de vergunningstekening &ldquo;nieuwe toestand&rdquo; (uitbouw met harmonicapui en sedumdak tot 13 100 mm) met de gebouwde veranda op de foto&rsquo;s van 2026: douglas, 5 450 &times; 3 450 mm, 8&deg;, polycarbonaat, bevestigd aan de uitbouw.</li>
           <li>De zijgevel is blind: doorlopend metselwerk, geen raamopeningen. Alle vloeren zijn houten balklagen binnen het metselwerk, geen betonvloeren.</li>
-          <li>De voorgevel ligt in twee vlakken: begane grond en 1e verdieping staan vóór, gelijk met de ramen; de voorgevel loopt in dat vlak door tot de nok. Alleen de voordeur, het trappenhuis en het lage linkerdeel liggen 800 mm terug; naast de voordeur staat geen muur.</li>
+          <li>De voorgevel ligt in twee vlakken: begane grond en 1e verdieping staan vóór, gelijk met de ramen; de voorgevel loopt in dat vlak door tot de nok. De nis met de voordeur, het trapraam en het lage linkerdeel ligt <b>1 050 mm</b> terug en is <b>1 750 mm</b> breed &mdash; beide uit de buitenscan van 17-09-2026 (bouwtekening: 770 en 2 060 mm). Begane grond en 1e verdieping liggen in &eacute;&eacute;n vlak, binnen 40 mm: er is geen uitkragende erker. De voordeur staat gecentreerd in de nis, het trapraam iets rechts van het midden, tegen de dagkant.</li>
+          <li>De buurpanden zijn ingekleurd naar de foto&rsquo;s: de aangebouwde tweelingwoning met hetzelfde metselwerk en een lagere kap met rode pannen, en over de gang de vrijstaande linkerbuur in lichter metselwerk met erker, dakkapel en donkergroene voordeur. Hun maten zijn indicatief.</li>
           <li>Op de begane grond is de achtergevel vervallen; de woning loopt door in de uitbouw, met een stalen ligger op de plaats van de oude gevel.</li>
-          <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen.</li>
+          <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen. Het metselwerk is procedureel in waalformaat gezet (210 &times; 50 mm, voeg 12) en in wereldco&ouml;rdinaten gemapt, zodat de lagenmaat over alle geveldelen doorloopt. De dakkapelkozijnen zijn RAL 7016 conform de offerte.</li>
           <li>Het souterrain beslaat de volle diepte van het pand tot 16 550 mm en is daarmee de grootste bouwlaag. Alleen de achterzijde is met LiDAR ingemeten: het aaneengesloten plafondvlak meet daar 8,0 &times; 5,2 m, oftewel 41,6 m&sup2;. Het voorste deel is onzelfstandig verhuurd en niet toegankelijk voor de scan; daar is plattegrond NT_0-2 de bron. De maatvoering van dat deel heeft dus de marge van de tekening, niet die van de scan.</li>
           <li>Het tuinpeil ligt op &minus;1 490 mm, niet op souterrainniveau. Dat volgt uit het aantal treden in de LiDAR-scan: 11 aan de voorzijde over het verval van 2 220 mm tussen stoep en souterrainvloer geeft een optrede van 202 mm, en de 4 treden achter geven daarmee 807 mm tussen souterrain en tuin. De buitenscan meet onafhankelijk een stap van circa 1,5 m tussen stoep en tuin, tegen 1 410 mm berekend &mdash; die twee bevestigen elkaar. Achter het souterrain ligt een verzonken buitenplaats op &minus;2 300 mm.</li>
           <li>Beide tuinhuizen blijven ruim onder de vergunningvrije hoogtegrenzen. Het oude tuinhuis heeft een nok van 2,87 m, onder de 3,00 m die zelfs p&aacute;l op de erfgrens nog is toegestaan. Het nieuwe tuinhuis heeft een nok van 3,45 m op 2,08 m uit de erfgrens, waar de formule (afstand &times; 0,47) + 3 een maximum van 3,98 m geeft.</li>
@@ -486,10 +487,10 @@ const G = {
   x1:0, x2:5670,
   A:0, B:1220, C:10220, D:16220,
   wallExt:250, wallParty:110, wallInt:110,
-  frontWall:2220,            // buitenkant voorgevel hoofdbouw
+  frontWall:2500,            // buitenkant teruggelegd deel: 1 050 mm achter het voorvlak (LiDAR 17-09-2026; tekening gaf 770)
   rearWall:9970,             // binnenkant achtergevel
   frontFace:1450,            // voorvlak bg + 1e verdieping, gelijk met de ramen
-  stepX:2060,                // grens met het teruggelegde deel (voordeur en alles daarboven)
+  stepX:1750,                // grens met het teruggelegde deel (LiDAR: nis 0..1 750; tekening gaf 2 060)
   midWallX:2010,             // hoofd-binnenwand (250 + 1760)
   eavesX:2340,               // voet dakvlak, uit de LiDAR-scan (helling 49,9°)
   uitD:13100,                // voorkant uitbouw (harmonica pui)
@@ -532,66 +533,288 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.localClippingEnabled = true;
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
 stage.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(38, 1, 0.5, 400);
 
-function paintScene(){
-  const d = dark();
-  scene.background = new THREE.Color(d ? 0x0d1114 : 0xe4e7ea);
-  scene.fog = new THREE.Fog(d ? 0x0d1114 : 0xe4e7ea, 60, 190);
+/* lucht als equirectangulaire gradient: achtergrond, mist en (via PMREM) de
+   omgevingsreflectie in glas, staal en de zachte vulling van het metselwerk */
+const pmrem = new THREE.PMREMGenerator(renderer);
+pmrem.compileEquirectangularShader();
+function skyTexture(d){
+  const c = document.createElement('canvas'); c.width = 1024; c.height = 512;
+  const x = c.getContext('2d'), g = x.createLinearGradient(0,0,0,512);
+  if (!d){
+    g.addColorStop(0.00,'#8fa9c2'); g.addColorStop(0.28,'#bfcfdd'); g.addColorStop(0.46,'#e0e6ea');
+    g.addColorStop(0.50,'#eceef0'); g.addColorStop(0.52,'#8f928a'); g.addColorStop(1.00,'#4b4e49');
+  } else {
+    g.addColorStop(0.00,'#0b1119'); g.addColorStop(0.35,'#1a2430'); g.addColorStop(0.49,'#2b333b');
+    g.addColorStop(0.51,'#1c1f22'); g.addColorStop(1.00,'#0b0d0f');
+  }
+  x.fillStyle = g; x.fillRect(0,0,1024,512);
+  const t = new THREE.CanvasTexture(c);
+  t.mapping = THREE.EquirectangularReflectionMapping; t.encoding = THREE.sRGBEncoding;
+  return t;
 }
-paintScene();
-
-const hemi = new THREE.HemisphereLight(0xdce6f0, 0x56534c, 0.62);
+const hemi = new THREE.HemisphereLight(0xdfe7ee, 0x5d5b53, 1.15);
 scene.add(hemi);
-const sun = new THREE.DirectionalLight(0xfff2dc, 1.02);
+const sun = new THREE.DirectionalLight(0xfff4e6, 1.55);
 sun.position.set(-20, 26, 17);
 sun.castShadow = true;
 sun.shadow.mapSize.set(2048,2048);
+sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
 const sc = sun.shadow.camera;
 sc.left=-18; sc.right=18; sc.top=20; sc.bottom=-20; sc.near=1; sc.far=70;
 scene.add(sun);
-scene.add(new THREE.DirectionalLight(0xb9cada, 0.22).translateX(19).translateY(13).translateZ(-21));
+const fill = new THREE.DirectionalLight(0xbfd0e0, 0.35);
+fill.position.set(19, 13, -21); scene.add(fill);
+
+function paintScene(){
+  const d = dark();
+  const sky = skyTexture(d);
+  scene.background = sky;
+  scene.environment = pmrem.fromEquirectangular(sky).texture;
+  scene.fog = new THREE.Fog(d ? 0x1c1f22 : 0xe4e8eb, 70, 220);
+  hemi.intensity = d ? 0.6 : 1.15;  sun.intensity = d ? 1.0 : 1.55;  fill.intensity = d ? 0.2 : 0.35;
+  renderer.toneMappingExposure = d ? 0.8 : 1.0;
+}
+paintScene();
 
 /* ============================================================
    3. MATERIALEN
    ============================================================ */
 const clipPlanes = [];
+
+/* ---------- procedurele texturen, in world-space gemapt ----------
+   Eén tegel = 1,0 x 1,0 m. De materialen rekenen hun textuurcoördinaten uit de
+   wereldpositie, zodat het metselwerk over losse dozen heen doorloopt en de
+   lagenmaat overal klopt: waalformaat 210 x 50 mm, voeg 12 mm.               */
+const TEX = (function(){
+  const S = 512;
+  let seed = 20260917;
+  const rnd = () => { seed = (seed*1664525 + 1013904223) >>> 0; return seed/4294967296; };
+  const cv  = () => { const c = document.createElement('canvas'); c.width = S; c.height = S; return c; };
+  const clamp = v => Math.max(0, Math.min(255, v));
+  const col = (r,g,b) => `rgb(${clamp(r)|0},${clamp(g)|0},${clamp(b)|0})`;
+  const grain = (x, amp) => {
+    const id = x.getImageData(0,0,S,S), d = id.data;
+    for (let i=0; i<d.length; i+=4){ const n=(rnd()-0.5)*amp; d[i]=clamp(d[i]+n); d[i+1]=clamp(d[i+1]+n); d[i+2]=clamp(d[i+2]+n); }
+    x.putImageData(id,0,0);
+  };
+  const tex = c => {
+    const t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.encoding = THREE.sRGBEncoding;
+    t.anisotropy = 8;
+    return t;
+  };
+
+  function brick(base, mortar, spread){
+    const c = cv(), x = c.getContext('2d');
+    x.fillStyle = mortar; x.fillRect(0,0,S,S);
+    const bw = 0.222*S, bh = 0.0625*S, j = 0.012*S;
+    for (let row=0; row<17; row++){
+      const off = (row % 2) ? bw/2 : 0;
+      for (let k=-1; k<6; k++){
+        const px = k*bw + off, py = row*bh, t = rnd()-0.5, u = rnd()-0.5;
+        x.fillStyle = col(base[0]+t*spread+u*14, base[1]+t*spread*0.7+u*10, base[2]+t*spread*0.55+u*8);
+        x.fillRect(px+j/2, py+j/2, bw-j, bh-j);
+        x.fillStyle = 'rgba(255,255,255,0.06)'; x.fillRect(px+j/2, py+j/2, bw-j, 2);
+        x.fillStyle = 'rgba(0,0,0,0.16)';       x.fillRect(px+j/2, py+bh-j/2-2, bw-j, 2);
+        if (rnd() < 0.18){ x.fillStyle = 'rgba(30,18,14,0.28)'; x.fillRect(px+j/2+rnd()*bw*0.5, py+j/2, bw*0.3, bh-j); }
+      }
+    }
+    grain(x, 16);
+    return tex(c);
+  }
+  function tiles(){                          // antracieten dakpannen, ~3,3 per meter
+    const c = cv(), x = c.getContext('2d');
+    x.fillStyle = '#3b3e41'; x.fillRect(0,0,S,S);
+    const tw = S/3.3, th = S/3.3;
+    for (let row=0; row<5; row++){
+      const off = (row % 2) ? tw/2 : 0;
+      for (let k=-1; k<5; k++){
+        const px = k*tw + off, py = row*th, t = rnd()-0.5;
+        const g = x.createLinearGradient(px, py, px+tw, py);
+        g.addColorStop(0,   col(70+t*10, 73+t*10, 76+t*10));
+        g.addColorStop(0.45,col(92+t*10, 95+t*10, 98+t*10));
+        g.addColorStop(0.7, col(56+t*10, 59+t*10, 62+t*10));
+        g.addColorStop(1,   col(48+t*10, 51+t*10, 54+t*10));
+        x.fillStyle = g; x.fillRect(px, py, tw, th-3);
+        x.fillStyle = 'rgba(0,0,0,0.35)'; x.fillRect(px, py+th-5, tw, 5);
+        x.fillStyle = 'rgba(255,255,255,0.08)'; x.fillRect(px, py, tw, 2);
+      }
+    }
+    grain(x, 10);
+    return tex(c);
+  }
+  function tilesRed(){                       // rode oud-hollandse pannen van de buren
+    const c = cv(), x = c.getContext('2d');
+    x.fillStyle = '#7a3f2e'; x.fillRect(0,0,S,S);
+    const tw = S/3.3, th = S/3.3;
+    for (let row=0; row<5; row++){
+      const off = (row % 2) ? tw/2 : 0;
+      for (let k=-1; k<5; k++){
+        const px = k*tw + off, py = row*th, t = rnd()-0.5;
+        const g = x.createLinearGradient(px, py, px+tw, py);
+        g.addColorStop(0,   col(126+t*30, 70+t*20, 54+t*16));
+        g.addColorStop(0.45,col(158+t*30, 92+t*22, 70+t*16));
+        g.addColorStop(0.7, col(108+t*30, 58+t*20, 46+t*16));
+        g.addColorStop(1,   col(96+t*30, 52+t*20, 42+t*16));
+        x.fillStyle = g; x.fillRect(px, py, tw, th-3);
+        x.fillStyle = 'rgba(0,0,0,0.35)'; x.fillRect(px, py+th-5, tw, 5);
+      }
+    }
+    grain(x, 12);
+    return tex(c);
+  }
+  function paving(){                         // betontegels 300 x 300, voeg 6 mm
+    const c = cv(), x = c.getContext('2d');
+    x.fillStyle = '#7d7468'; x.fillRect(0,0,S,S);
+    const tw = 0.3*S, j = 0.006*S;
+    for (let r=0; r<4; r++) for (let k=0; k<4; k++){
+      const t = rnd()-0.5, u = rnd()-0.5;
+      x.fillStyle = col(158+t*22+u*8, 140+t*20+u*6, 124+t*18+u*4);
+      x.fillRect(k*tw+j/2, r*tw+j/2, tw-j, tw-j);
+      x.fillStyle = 'rgba(0,0,0,0.10)'; x.fillRect(k*tw+j/2, r*tw+tw-j/2-2, tw-j, 2);
+    }
+    grain(x, 14);
+    return tex(c);
+  }
+  function klinkers(){                       // gebakken klinkers 200 x 65, halfsteens
+    const c = cv(), x = c.getContext('2d');
+    x.fillStyle = '#6f6257'; x.fillRect(0,0,S,S);
+    const bw = 0.205*S, bh = 0.07*S, j = 0.006*S;
+    for (let row=0; row<15; row++){
+      const off = (row % 2) ? bw/2 : 0;
+      for (let k=-1; k<6; k++){
+        const t = rnd()-0.5;
+        x.fillStyle = col(150+t*40, 112+t*30, 92+t*24);
+        x.fillRect(k*bw+off+j/2, row*bh+j/2, bw-j, bh-j);
+      }
+    }
+    grain(x, 14);
+    return tex(c);
+  }
+  function grass(){
+    const c = cv(), x = c.getContext('2d');
+    x.fillStyle = '#5f7a49'; x.fillRect(0,0,S,S);
+    for (let i=0; i<9000; i++){
+      const t = rnd();
+      x.fillStyle = col(78+t*50, 112+t*46, 58+t*30);
+      x.fillRect(rnd()*S, rnd()*S, 1+rnd()*3, 1+rnd()*5);
+    }
+    grain(x, 12);
+    return tex(c);
+  }
+  function planks(base, spread){             // douglas, planken 145 mm
+    const c = cv(), x = c.getContext('2d');
+    const pw = 0.145*S;
+    for (let k=0; k<8; k++){
+      const t = rnd()-0.5;
+      x.fillStyle = col(base[0]+t*spread, base[1]+t*spread*0.8, base[2]+t*spread*0.6);
+      x.fillRect(k*pw, 0, pw-2, S);
+      for (let g=0; g<14; g++){ x.fillStyle = 'rgba(60,35,15,0.18)'; x.fillRect(k*pw+rnd()*pw, 0, 1, S); }
+      x.fillStyle = 'rgba(0,0,0,0.35)'; x.fillRect(k*pw+pw-2, 0, 2, S);
+    }
+    grain(x, 10);
+    return tex(c);
+  }
+  function plain(base, amp){
+    const c = cv(), x = c.getContext('2d');
+    x.fillStyle = col(base[0], base[1], base[2]); x.fillRect(0,0,S,S);
+    grain(x, amp);
+    return tex(c);
+  }
+  return {
+    brick:     brick([118, 70, 58],  '#a89f93', 46),   // donker roodbruin met paarse zweem, lichte voeg (foto's)
+    brickDark: brick([96, 56, 46],   '#928a80', 36),
+    tiles:     tiles(),
+    tilesRed:  tilesRed(),
+    brickWarm: brick([150, 92, 66],  '#b3aa9c', 40),   // lichter, oranjer metselwerk van de linkerbuur
+    paving:    paving(),
+    klinkers:  klinkers(),
+    grass:     grass(),
+    douglas:   planks([176, 132, 84], 40),
+    schuur:    planks([70, 96, 76], 26),
+    paint:     plain([232, 228, 220], 12),
+    concrete:  plain([160, 162, 158], 20),
+    sedum:     plain([116, 122, 80], 40)
+  };
+})();
+
+/* materiaal met world-space textuurcoördinaten (triplanair, harde keuze per as) */
+function wm(map, tile, o){
+  const m = new THREE.MeshStandardMaterial(Object.assign({
+    map, roughness:0.93, metalness:0.0, clippingPlanes:clipPlanes, clipShadows:true
+  }, o||{}));
+  m.onBeforeCompile = sh => {
+    sh.uniforms.uTile = {value: tile};
+    sh.vertexShader = sh.vertexShader
+      .replace('#include <common>', '#include <common>\nvarying vec3 vWPos; varying vec3 vWNrm;')
+      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvWPos = (modelMatrix * vec4(transformed, 1.0)).xyz;\nvWNrm = normalize(mat3(modelMatrix) * objectNormal);');
+    sh.fragmentShader = sh.fragmentShader
+      .replace('#include <common>', '#include <common>\nvarying vec3 vWPos; varying vec3 vWNrm; uniform float uTile;')
+      .replace('#include <map_fragment>',
+        'vec3 an = abs(vWNrm);\n'
+      + 'vec2 tuv = (an.y > an.x && an.y > an.z) ? vWPos.xz : ((an.x > an.z) ? vWPos.zy : vWPos.xy);\n'
+      + 'vec4 texelColor = texture2D(map, tuv / uTile);\n'
+      + 'texelColor = mapTexelToLinear(texelColor);\n'
+      + 'diffuseColor *= texelColor;');
+  };
+  m.customProgramCacheKey = () => 'wm';
+  return m;
+}
 function mk(hex, o){
-  return new THREE.MeshLambertMaterial(Object.assign({
-    color:hex, clippingPlanes:clipPlanes, clipShadows:true
+  return new THREE.MeshStandardMaterial(Object.assign({
+    color: new THREE.Color(hex).convertSRGBToLinear(), roughness:0.85, metalness:0.0,
+    clippingPlanes:clipPlanes, clipShadows:true
   }, o||{}));
 }
+const glassMat = (hex, op) => new THREE.MeshPhysicalMaterial({
+  color: new THREE.Color(hex).convertSRGBToLinear(), transparent:true, opacity:op,
+  roughness:0.06, metalness:0.0, envMapIntensity:1.6, side:THREE.DoubleSide,
+  clippingPlanes:clipPlanes, depthWrite:false
+});
+
 const MAT = {
-  brick:      mk(0xbe8a64),          // roodbruine baksteen, 1933
-  brickDark:  mk(0xa0714e),
-  party:      mk(0xb07f5b),
-  paint:      mk(0xe6e2d9),          // wit gesausde souterrain- en zijmuren
-  concrete:   mk(0x9ea19f),
+  brick:      wm(TEX.brick, 1.0),                     // roodbruine baksteen, 1933
+  brickDark:  wm(TEX.brickDark, 1.0),
+  party:      wm(TEX.brick, 1.0),
+  paint:      wm(TEX.paint, 1.0, {roughness:0.9}),     // wit gesausde souterrain- en zijmuren
+  concrete:   wm(TEX.concrete, 1.0),
   slab:       mk(0xb9bab6),
-  hout:       mk(0xb08f62),          // houten balklagen en vloeren
-  inner:      mk(0xdad7d0),
-  roof:       mk(0x44474a),          // antracietkleurige pannen
-  roofEdge:   mk(0x34373a),
-  trim:       mk(0xf0ece4),          // witte boeiboorden en luifels
-  trespa:     mk(0x373b3a),          // RAL 7016, dakkapel
-  frame:      mk(0xeeeae2),          // witte kozijnen
-  glass:      new THREE.MeshLambertMaterial({color:0xaacdd8, transparent:true, opacity:0.30, side:THREE.DoubleSide, clippingPlanes:clipPlanes}),
-  poly:       new THREE.MeshLambertMaterial({color:0xd8e6ea, transparent:true, opacity:0.28, side:THREE.DoubleSide, clippingPlanes:clipPlanes}),
-  wood:       mk(0xb08a54),          // douglas veranda
-  stair:      mk(0xc3b8a8),
-  deck:       mk(0xa9a49a),
-  steel:      mk(0x5b6165),
-  earth:      mk(0x86867f),
-  lawn:       mk(0x77836a),
-  haag:       mk(0x4f6642),
-  loof:       mk(0x60784d),
-  stam:       mk(0x6b5a48),
-  klinker:    mk(0x9c8574),
-  schuurGroen:mk(0x3f5946),
-  neighbour:  new THREE.MeshLambertMaterial({color:0xb4b7ba, transparent:true, opacity:0.22, clippingPlanes:clipPlanes})
+  hout:       wm(TEX.douglas, 1.0, {roughness:0.75}),  // houten balklagen en vloeren
+  inner:      mk(0xdad7d0, {roughness:0.95}),
+  roof:       wm(TEX.tiles, 1.0, {roughness:0.8}),     // antracietkleurige pannen
+  roofEdge:   mk(0x34373a, {roughness:0.6}),
+  trim:       mk(0xf0ece4, {roughness:0.55}),          // witte boeiboorden en luifels
+  trespa:     mk(0x373b3a, {roughness:0.45}),          // RAL 7016, dakkapel
+  frame:      mk(0xeeeae2, {roughness:0.5}),           // witte kozijnen
+  glass:      glassMat(0x9fb9c8, 0.42),
+  poly:       glassMat(0xd8e6ea, 0.30),
+  wood:       wm(TEX.douglas, 1.0, {roughness:0.7}),   // douglas veranda
+  stair:      wm(TEX.concrete, 1.0, {roughness:0.85}),
+  deck:       wm(TEX.douglas, 1.0, {roughness:0.8}),
+  steel:      mk(0x2f3336, {roughness:0.45, metalness:0.6}),
+  earth:      mk(0x4c4d4a, {roughness:1}),           // asfalt
+  lawn:       wm(TEX.grass, 1.0, {roughness:1}),
+  haag:       mk(0x4f6642, {roughness:1}),
+  loof:       mk(0x55704a, {roughness:1}),
+  loof2:      mk(0x6c8a52, {roughness:1}),
+  stam:       mk(0x6b5a48, {roughness:1}),
+  klinker:    wm(TEX.paving, 1.0, {roughness:0.95}),
+  schuurGroen:wm(TEX.schuur, 1.0, {roughness:0.85}),
+  sedum:      wm(TEX.sedum, 1.0, {roughness:1}),
+  neighbour:  new THREE.MeshLambertMaterial({color:0xb4b7ba, transparent:true, opacity:0.22, clippingPlanes:clipPlanes}),
+  brickWarm:  wm(TEX.brickWarm, 1.0),
+  roofRed:    wm(TEX.tilesRed, 1.0, {roughness:0.85}),
+  doorGreen:  mk(0x2f4a3a, {roughness:0.5}),
+  glassDark:  glassMat(0x3d4a55, 0.88)
 };
 
 /* ============================================================
@@ -690,14 +913,15 @@ const SUB = { binnen:{}, glas:{} };
 /* ---------- terrein ---------- */
 (function terrein(){
   // terreinplaat: naast het pand over de volle diepte, vóór het pand tot aan de
-  // souterraingevel (y 1 420), met een uitsparing voor het trapgat (x 1 750..5 520, y 250..1 420).
+  // souterraingevel (y 1 420), met een uitsparing voor het trapgat (x 1 880..5 670, y 250..1 420).
   // Onder het pand zelf ligt geen terrein: daar zit het souterrain.
   box(-9000, G.x1,  -5000, G.terrD, L.mv-700, L.mv, MAT.lawn, GRP.terrein);
   box(G.x2,  15000, -5000, G.terrD, L.mv-700, L.mv, MAT.lawn, GRP.terrein);
-  box(G.x1,  1750,  -5000, 1420,    L.mv-700, L.mv, MAT.lawn, GRP.terrein);
-  box(5520,  G.x2,  -5000, 1420,    L.mv-700, L.mv, MAT.lawn, GRP.terrein);
-  box(1750,  5520,  -5000, 250,     L.mv-700, L.mv, MAT.lawn, GRP.terrein);
-  box(-9000, 15000, -5000, -1600, L.mv-720, L.mv-40, MAT.earth, GRP.terrein); // straat
+  box(G.x1,  1880,  -5000, 1420,    L.mv-700, L.mv, MAT.lawn, GRP.terrein);
+  box(1880,  G.x2,  -5000, 250,     L.mv-700, L.mv, MAT.lawn, GRP.terrein);
+  box(-9000, 15000, -5000, -3400, L.mv-720, L.mv-120, MAT.earth, GRP.terrein);   // rijbaan, asfalt
+  box(-9000, 15000, -3400, -3250, L.mv-720, L.mv+20,  MAT.concrete, GRP.terrein); // trottoirband
+  box(-9000, 15000, -3250, -1600, L.mv-720, L.mv+20,  MAT.klinker, GRP.terrein);  // trottoir
 })();
 
 /* ---------- tuin (perceel K-559, uit de kadastrale kaart en de tuinscan) ---------- */
@@ -744,10 +968,18 @@ const SUB = { binnen:{}, glas:{} };
   })();
   // bomen en struiken, posities indicatief uit de tuinscan
   const boom = (x,y,h,r) => {
-    box(x-90, x+90, y-90, y+90, L.tuin, L.tuin+h*0.45, MAT.stam, g);
-    const s1=new THREE.Mesh(new THREE.SphereGeometry(M(r),12,9), MAT.loof);
-    s1.castShadow=true; place(s1, x-r,x+r, y-r,y+r, L.tuin+h-2*r, L.tuin+h);
-    g.add(s1);
+    box(x-90, x+90, y-90, y+90, L.tuin, L.tuin+h*0.5, MAT.stam, g);
+    // kroon: hoofdbol plus vier kleinere, verschoven bollen; twee tinten loof
+    const bol = (cx,cy,cz,rr,mat) => {
+      const m=new THREE.Mesh(new THREE.SphereGeometry(M(rr),14,10), mat);
+      m.castShadow=true; m.receiveShadow=true; place(m, cx-rr,cx+rr, cy-rr,cy+rr, cz-rr,cz+rr); g.add(m);
+    };
+    const zc = L.tuin + h - r;
+    bol(x, y, zc, r, MAT.loof);
+    bol(x+r*0.55, y+r*0.2, zc-r*0.25, r*0.72, MAT.loof2);
+    bol(x-r*0.5,  y-r*0.3, zc-r*0.15, r*0.66, MAT.loof);
+    bol(x+r*0.1,  y-r*0.6, zc+r*0.2,  r*0.6,  MAT.loof2);
+    bol(x-r*0.2,  y+r*0.55, zc+r*0.35, r*0.55, MAT.loof);
   };
   boom(-2100, Y0+4500, 5200, 1500);
   boom(-2300, Y0+14000, 6400, 1900);
@@ -765,8 +997,8 @@ const SUB = { binnen:{}, glas:{} };
   wall(G.x1, G.x1+300, G.B+200, G.terrD, L.kelder, L.bg, MAT.paint, g);
   wall(G.x2-300, G.x2, G.B+200, G.terrD, L.kelder, L.bg, MAT.concrete, g);
   wall(G.x1, G.x2, G.B+200, G.B+500, L.kelder, L.bg, MAT.paint, g,
-       [{a0:2900,a1:4350,z0:L.kelder+700,z1:L.kelder+1950},        // raamstrook in de lichtkoker
-        {a0:4550,a1:5350,z0:L.kelder,    z1:L.kelder+2050}],       // entreedeur onderaan de trap
+       [{a0:3050,a1:4550,z0:L.kelder+700,z1:L.kelder+1950},        // raamstrook in de lichtkoker
+        {a0:4750,a1:5450,z0:L.kelder,    z1:L.kelder+2050}],       // entreedeur onderaan de trap
        SUB.glas.kelder);
   wall(G.x1, G.x2, G.terrD-300, G.terrD, L.kelder, L.bg, MAT.paint, g,
        [{a0:800, a1:2350,z0:L.kelder+150,z1:L.kelder+2350},
@@ -783,9 +1015,9 @@ const SUB = { binnen:{}, glas:{} };
      straatzijde, leuning op de gevel, zinken afdekband op de lage keermuur.
      Optrede 202 mm (2 220 mm verval over 11 treden), aantrede 250 mm.        */
   (function souterrainEntree(){
-    const WX0 = 1750, WX1 = 5400;              // trapgat + lichtkoker langs de gevel
+    const WX0 = 2000, WX1 = 5560;              // trapgat + lichtkoker langs de gevel, tot de bouwmuur (LiDAR)
     const WY0 = 250,  WY1 = G.B + 200;         // straatzijde .. souterraingevel (1 170 diep)
-    const N = 11, rise = (L.mv - L.kelder) / N, go = 250;
+    const N = 11, rise = (L.mv - L.kelder) / N, go = 245;
     const XE = WX0 + N * go;                   // 4 500: onderaan de laatste trede
     const slopeX = (x0,x1,y0,y1,z0,z1,thick,mat) => {   // balk die langs x daalt
       const len = Math.hypot(M(x1-x0), M(z1-z0));
@@ -827,7 +1059,7 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
   wall(G.x1, G.x1+G.wallExt, G.frontWall, G.C, z0, z1, MAT.brick, g);
   // voorvlak, gelijk met de ramen
   wall(G.stepX, G.x2, G.frontFace, G.frontFace+G.wallExt, z0, z1, MAT.brick, g, ops.voor, gl);
-  wall(G.stepX, G.stepX+120, G.frontFace, G.frontWall+G.wallExt, z0, z1, MAT.brick, g);
+  wall(G.stepX, 2160, G.frontFace, 2400, z0, z1, MAT.brick, g);              // hoekpenant naast de nis
   // bouwmuur en, waar aanwezig, de achtergevel
   wall(G.x2-G.wallParty, G.x2, G.frontFace, G.C, z0, z1, MAT.party, g);
   if (achtergevel) wall(G.x1, G.x2, G.rearWall, G.C, z0, z1, MAT.brick, g, ops.achter, gl);
@@ -836,29 +1068,32 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
 (function beganeGrond(){
   const g = GRP.bg;
   gevelLaag(L.bg, L.v1, g, {
-    deur: [{a0:1150,a1:1950, z0:0,   z1:2350}],
+    deur: [{a0:400, a1:1350, z0:0,   z1:2350, glass:false}],
     voor: [{a0:2200,a1:4650, z0:900, z1:2250}]
   }, false, SUB.glas.bg);                                  // achtergevel bg is verplaatst naar de uitbouw
   box(G.x1+250, G.x2-110, G.rearWall, G.C, L.v1-420, L.v1-220, MAT.steel, g);  // stalen ligger
+  // voordeur: dicht wit paneel, in de dagkant van de sparing (foto 7)
+  box(430, 1320, G.frontWall+60, G.frontWall+110, L.bg+20, L.bg+2320, MAT.trim, g);
+  [560, 690, 820, 950, 1080, 1210].forEach(x => box(x, x+14, G.frontWall+40, G.frontWall+60, L.bg+120, L.bg+2200, MAT.frame, g));
   // luifels op 2328: doorlopend over voorvlak en entree
   box(G.stepX-160, G.x2, G.frontFace-170, G.frontFace+G.wallExt, 2328, 2448, MAT.trim, g);
-  box(300, G.stepX+120, G.frontWall-170, G.frontWall+G.wallExt, 2328, 2448, MAT.trim, g);
+  box(300, G.stepX+120, G.frontFace-170, G.frontWall+G.wallExt, 2328, 2448, MAT.trim, g);   // entreeluifel overspant de hele nis (foto 7)
   // vloer 1e verdieping (houten balklaag)
   box(G.stepX, G.x2-G.wallParty, G.frontFace+G.wallExt, G.rearWall, L.v1-220, L.v1, MAT.hout, g);
   box(G.x1+G.wallExt, G.stepX, G.frontWall+G.wallExt, G.rearWall, L.v1-220, L.v1, MAT.hout, g);
   // bestrating en entreetrap
   // bestrating, opengelaten waar het trapgat naar het souterrain ligt
   // voortuin en stoep zijn betegeld tot aan de straat
-  box(G.x1-600, 1630, -1600, G.frontFace, L.mv, L.mv+35, MAT.klinker, g);
-  box(5520, G.x2, -1600, G.frontFace, L.mv, L.mv+35, MAT.klinker, g);
-  box(1630, 5520, -1600, 130, L.mv, L.mv+35, MAT.klinker, g);
+  box(G.x1-600, 1880, -1600, G.frontFace, L.mv, L.mv+35, MAT.klinker, g);
+  box(1880, G.x2, -1600, 130, L.mv, L.mv+35, MAT.klinker, g);
+  box(G.x2, G.x2+5670, -1600, G.frontFace, L.mv, L.mv+35, MAT.klinker, g);   // voortuin tweelingwoning, ook betegeld
   box(950, 1900, G.frontFace, G.frontWall, L.mv, L.bg, MAT.stair, g);
 })();
 
 (function eersteVerdieping(){
   const g = GRP.v1;
   gevelLaag(L.v1, L.v2, g, {
-    deur: [{a0:850, a1:1720, z0:3790, z1:5240, glass:false}],   // trapraam, sparing
+    deur: [{a0:660, a1:1530, z0:3790, z1:5240, glass:false}],   // trapraam, sparing
     voor: [{a0:2200,a1:4650, z0:3850, z1:5450}],
     achter: [{a0:700, a1:2250,z0:3850,z1:5370},{a0:3000,a1:4700,z0:3850,z1:5370}]
   }, true, SUB.glas.v1);
@@ -866,22 +1101,22 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
   // onderbouw 870-1700 met twee ruiten; daarboven een taps kozijn 3 x 2 ruiten
   (function trapraam(){
     const Y0=G.frontWall, Y1=G.frontWall+G.wallExt, gl=SUB.glas.v1;
-    const MID=1290, Z_DOR=3810, Z_TUS=4315, Z_TOP=5210;           // dorpels
+    const MID=1100, Z_DOR=3810, Z_TUS=4315, Z_TOP=5210;           // dorpels; midden uit de scan
     const HW0=400, HW1=135;                                       // halve breedte onder en boven
     const hw = z => HW0 + (HW1-HW0)*(z-Z_TUS)/(Z_TOP-Z_TUS);      // taps verloop
     const L = z => MID-hw(z), R = z => MID+hw(z);
     // metselwerk naast het taps deel
-    prism([[850,Z_TUS],[MID-HW0,Z_TUS],[MID-HW1,Z_TOP],[850,Z_TOP]], Y0, Y1, MAT.brick, g);
-    prism([[MID+HW0,Z_TUS],[1720,Z_TUS],[1720,Z_TOP],[MID+HW1,Z_TOP]], Y0, Y1, MAT.brick, g);
+    prism([[660,Z_TUS],[MID-HW0,Z_TUS],[MID-HW1,Z_TOP],[660,Z_TOP]], Y0, Y1, MAT.brick, g);
+    prism([[MID+HW0,Z_TUS],[1530,Z_TUS],[1530,Z_TOP],[MID+HW1,Z_TOP]], Y0, Y1, MAT.brick, g);
     // beglazing
-    box(880, 1700, Y0+55, Y0+125, 3865, Z_TUS-25, MAT.glass, gl);
+    box(690, 1510, Y0+55, Y0+125, 3865, Z_TUS-25, MAT.glass, gl);
     prism([[L(Z_TUS)+20,Z_TUS+25],[R(Z_TUS)-20,Z_TUS+25],[R(Z_TOP)-20,Z_TOP-25],[L(Z_TOP)+20,Z_TOP-25]],
           Y0+55, Y0+125, MAT.glass, gl);
     // kozijnhout: stijlen, dorpels, middenstijl en roeden
     const F=(x0,x1,z0,z1)=> box(x0,x1, Y0+40, Y0+150, z0, z1, MAT.frame, gl);
-    F(855, 905, Z_DOR, Z_TUS);  F(1675,1725, Z_DOR, Z_TUS);       // stijlen onderbouw
-    F(855, 1725, Z_DOR, 3865);                                     // onderdorpel
-    F(855, 1725, Z_TUS-50, Z_TUS+40);                              // tussendorpel
+    F(665, 715, Z_DOR, Z_TUS);  F(1485,1535, Z_DOR, Z_TUS);       // stijlen onderbouw
+    F(665, 1535, Z_DOR, 3865);                                     // onderdorpel
+    F(665, 1535, Z_TUS-50, Z_TUS+40);                              // tussendorpel
     F(L(Z_TOP)-10, R(Z_TOP)+10, Z_TOP-45, Z_TOP);                  // bovendorpel
     F(MID-22, MID+22, Z_DOR, Z_TOP);                               // middenstijl
     prism([[L(Z_TUS)-25,Z_TUS],[L(Z_TUS)+25,Z_TUS],[L(Z_TOP)+25,Z_TOP],[L(Z_TOP)-25,Z_TOP]],
@@ -895,7 +1130,11 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
   // vloer zolder + platdak linkerdeel
   box(G.eavesX, G.x2-G.wallParty, G.frontFace+G.wallExt, G.rearWall, L.v2-220, L.v2, MAT.hout, g);
   box(G.x1, G.eavesX, G.frontWall, G.C, L.flat-160, L.flat, MAT.roofEdge, g);
-  box(G.x1-120, G.eavesX+40, G.frontWall-120, G.C+120, L.flat, L.flat+135, MAT.trim, g); // dakrand
+  // boeiboord langs de dakrand, dakvlak zelf blijft donker (bitumen)
+  box(G.x1-120, G.x1, G.frontWall-120, G.C+120, L.flat-160, L.flat+135, MAT.trim, g);
+  box(G.x1-120, G.eavesX+40, G.frontWall-120, G.frontWall, L.flat-160, L.flat+135, MAT.trim, g);
+  box(G.x1-120, G.eavesX+40, G.C, G.C+120, L.flat-160, L.flat+135, MAT.trim, g);
+  box(G.eavesX-40, G.eavesX+40, G.frontWall-120, G.C+120, L.flat-160, L.flat+135, MAT.trim, g);
 })();
 
 /* ---------- zolder, dak, dakkapel ---------- */
@@ -914,8 +1153,11 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
     box(x0-90,x0,   y0-40,y1+40,z0,z1,    MAT.frame, zg);
     box(x1,   x1+90,y0-40,y1+40,z0,z1,    MAT.frame, zg);
   };
-  box(4780,5320, G.frontFace, G.frontFace+G.wallExt, 6870, 8000, MAT.glass, zg);
-  kozijn(4780,5320, G.frontFace, G.frontFace+G.wallExt, 6870, 8000);
+  // twee smalle vensters naast elkaar hoog in de topgevel (foto's 17-09-2026)
+  box(3450,3850, G.frontFace, G.frontFace+G.wallExt, 6850, 7750, MAT.glass, zg);
+  kozijn(3450,3850, G.frontFace, G.frontFace+G.wallExt, 6850, 7750);
+  box(4000,4400, G.frontFace, G.frontFace+G.wallExt, 6850, 7750, MAT.glass, zg);
+  kozijn(4000,4400, G.frontFace, G.frontFace+G.wallExt, 6850, 7750);
   box(4820,5380, G.rearWall, G.C, 6855, 8000, MAT.glass, zg);
   kozijn(4820,5380, G.rearWall, G.C, 6855, 8000);
   // bouwmuur doorgetrokken tot de nok
@@ -946,10 +1188,10 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
   let a = dkY0 + (DK.w - DK.binnenW)/2;
   DK.kozijnen.forEach((w,i)=>{
     box(dkX0-70, dkX0+40, a, a+w, zb, zt, MAT.glass, g);
-    box(dkX0-80, dkX0+50, a-40, a+w+40, zb-90, zb, MAT.frame, g);
-    box(dkX0-80, dkX0+50, a-40, a+w+40, zt, zt+90, MAT.frame, g);
-    box(dkX0-80, dkX0+50, a-40, a, zb, zt, MAT.frame, g);
-    box(dkX0-80, dkX0+50, a+w, a+w+40, zb, zt, MAT.frame, g);
+    box(dkX0-80, dkX0+50, a-40, a+w+40, zb-90, zb, MAT.trespa, g);
+    box(dkX0-80, dkX0+50, a-40, a+w+40, zt, zt+90, MAT.trespa, g);
+    box(dkX0-80, dkX0+50, a-40, a, zb, zt, MAT.trespa, g);
+    box(dkX0-80, dkX0+50, a+w, a+w+40, zb, zt, MAT.trespa, g);
     a += w + DK.tussen;
   });
 })();
@@ -1048,11 +1290,59 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
 
 /* ---------- buren (context) ---------- */
 (function buren(){
-  const g = GRP.buren;
-  const x0 = G.x2, x1 = G.x2 + 5670;
-  box(x0, x1, G.frontWall, G.C, L.mv, L.v2, MAT.neighbour, g);
-  prism([[x0,L.nok],[x1-G.eavesX+0,L.v2],[x1,L.v2],[x1,L.nok]], G.frontWall, G.C, MAT.neighbour, g);
-  box(-5670, G.x1, G.frontWall+600, G.C, L.mv, L.flat, MAT.neighbour, g);
+  const g = GRP.buren, gl = g;
+  const raam = (x0,x1,y0,y1,z0,z1) => {
+    box(x0,x1, y0-20,y1+20, z0,z1, MAT.glassDark, gl);
+    box(x0-80,x1+80, y0-40,y1+40, z0-80,z0, MAT.frame, gl);  box(x0-80,x1+80, y0-40,y1+40, z1,z1+80, MAT.frame, gl);
+    box(x0-80,x0,    y0-40,y1+40, z0,z1,    MAT.frame, gl);  box(x1,x1+80,    y0-40,y1+40, z0,z1,    MAT.frame, gl);
+  };
+  /* rechts: de aangebouwde tweelingwoning (foto's 1 en 3) - zelfde metselwerk,
+     lagere kap met rode pannen, groot raam op bg en 1e, eigen luifel          */
+  (function tweeling(){
+    const x0 = G.x2, x1 = G.x2 + 5670, yF = G.frontFace, yR = G.C, zG = L.v2 + 700;
+    wall(x0, x1, yF, yF+G.wallExt, L.mv, L.v1, MAT.brick, g, [{a0:x0+700, a1:x0+3100, z0:900,  z1:2250}], gl);   // bg
+    wall(x0, x1, yF, yF+G.wallExt, L.v1, zG,   MAT.brick, g, [{a0:x0+900, a1:x0+2600, z0:3850, z1:5300}], gl);   // 1e
+    wall(x1-G.wallExt, x1, yF, yR, L.mv, zG, MAT.brick, g);
+    wall(x0, x1, yR-G.wallExt, yR, L.mv, zG, MAT.brick, g);
+    box(x0+200, x1+150, yF-170, yF+G.wallExt, 2328, 2448, MAT.trim, g);          // luifel
+    // schilddak met rode pannen, nok evenwijdig aan de straat
+    const nok = zG + 2100;
+    prism([[x0-100,zG],[x1+100,zG],[x1+100,zG+120],[x0-100,zG+120]], yF-150, yR+150, MAT.trim, g);   // goot/boeiboord
+    const dak = new THREE.Mesh(new THREE.ConeGeometry(1, 1, 4), MAT.roofRed);
+    dak.castShadow = true; dak.receiveShadow = true;
+    dak.scale.set(M((x1-x0)/2)*1.42, M(nok-zG), M((yR-yF)/2)*1.42);
+    dak.rotation.y = Math.PI/4;
+    dak.position.set(M((x0+x1)/2)-CX, M(zG) + M(nok-zG)/2, TZ((yF+yR)/2));
+    g.add(dak);
+  })();
+  /* links, over de gang: vrijstaande buurwoning (foto 2) - lichter metselwerk,
+     erker op de bg, dakkapel, donkergroene voordeur                            */
+  (function linkerbuur(){
+    const x1 = G.x1 - 2200, x0 = x1 - 7200, yF = G.frontWall + 400, yR = G.C + 800, zG = L.v2 + 500;
+    wall(x0, x1, yF, yF+250, L.mv, L.v1, MAT.brickWarm, g,
+         [{a0:x0+700,  a1:x0+2300, z0:900, z1:2300},  {a0:x0+4700, a1:x0+6400, z0:900, z1:2300}], gl);          // bg
+    wall(x0, x1, yF, yF+250, L.v1, zG, MAT.brickWarm, g,
+         [{a0:x0+800,  a1:x0+2200, z0:3900, z1:5200}, {a0:x0+3200, a1:x0+4300, z0:3900, z1:5200},
+          {a0:x0+4800, a1:x0+6300, z0:3900, z1:5200}], gl);                                                     // 1e
+    box(x0+3300, x0+4200, yF+80, yF+130, L.mv+50, L.mv+2200, MAT.doorGreen, g);    // voordeur
+    box(x0+2900, x0+4600, yF-260, yF+250, 2330, 2440, MAT.trim, g);                // luifel
+    wall(x0, x0+250, yF, yR, L.mv, zG, MAT.brickWarm, g);
+    wall(x1-250, x1, yF, yR, L.mv, zG, MAT.brickWarm, g);
+    wall(x0, x1, yR-250, yR, L.mv, zG, MAT.brickWarm, g);
+    // erker op de bg, rechts van de voordeur
+    box(x0+4600, x0+6500, yF-700, yF, L.mv, L.mv+2500, MAT.brickWarm, g);
+    raam(x0+4800, x0+6300, yF-720, yF-700, 900, 2300);
+    box(x0+4500, x0+6600, yF-800, yF+50, L.mv+2500, L.mv+2620, MAT.trim, g);
+    // zadeldak met antracieten pannen, nok evenwijdig aan de straat, met dakkapel
+    const nok = zG + 3200, ym = (yF+yR)/2;
+    prism([[x0-150,zG],[x1+150,zG],[x1+150,zG+120],[x0-150,zG+120]], yF-150, yR+150, MAT.trim, g);
+    tilted(x0-150, x1+150, yF-200, ym, zG, nok, 120, MAT.roof, g);
+    tilted(x0-150, x1+150, yR+200, ym, zG, nok, 120, MAT.roof, g);
+    box(x0+1300, x0+4900, yF+300, yF+1900, zG+300, zG+1900, MAT.trespa, g);        // dakkapel
+    raam(x0+1500, x0+4700, yF+280, yF+300, zG+500, zG+1700);
+    box(x0+1200, x0+5000, yF+200, yF+2000, zG+1900, zG+2020, MAT.roofEdge, g);
+  })();
+  g.traverse(o => { if (o.isMesh && o.material === MAT.glass) o.material = MAT.glassDark; });
 })();
 
 /* ---------- peilmaat-labels ---------- */
@@ -1178,7 +1468,7 @@ const PARTS = [
   {k:'terrein', n:'Maaiveld &amp; straat', d:true},
   {k:'tuin',    n:'Tuin, vlonder &amp; tuinhuis', d:true},
   {k:'maten',   n:'Peilmaten in beeld', d:true},
-  {k:'buren',   n:'Buurpanden (context)', d:false}
+  {k:'buren',   n:'Buurpanden', d:true}
 ];
 function addRow(host, key, label, extra, swatch, checked){
   const l = document.createElement('label'); l.className='row';
@@ -1285,8 +1575,8 @@ setTimeout(()=> document.getElementById('loading').classList.add('gone'), 260);
              ['Kelderberging', 'cold',[300,1750,9900,KEL1]]] },
 
     { n:'Begane grond', peil:'0', bron:'BT_00',
-      walls:[[0,250,G.frontWall,UIT],[0,2180,G.frontWall,YF2],[2060,5670,G.frontFace,YF1],
-             [2060,2180,YF1,YF2],[5560,5670,G.frontFace,UIT],[0,5670,UIT,13100],
+      walls:[[0,250,G.frontWall,UIT],[0,G.stepX+120,G.frontWall,YF2],[G.stepX,5670,G.frontFace,YF1],
+             [G.stepX,2160,YF1,2400],[5560,5670,G.frontFace,UIT],[0,5670,UIT,13100],
              [2050,2160,2400,7550],[250,2050,6550,6660],[250,2400,7500,7610],
              [2300,2410,7610,8200]],
       rooms:[['Entree & trap','circ',[250,2050,YF2,6550]],
@@ -1297,8 +1587,8 @@ setTimeout(()=> document.getElementById('loading').classList.add('gone'), 260);
              ['Uitbouw',  'room',[250,XR,YR,UIT]]] },
 
     { n:'1e verdieping', peil:'+2 950', bron:'BT_01',
-      walls:[[0,250,G.frontWall,G.C],[0,2180,G.frontWall,YF2],[2060,5670,G.frontFace,YF1],
-             [2060,2180,YF1,YF2],[5560,5670,G.frontFace,G.C],[0,5670,YR,G.C],
+      walls:[[0,250,G.frontWall,G.C],[0,G.stepX+120,G.frontWall,YF2],[G.stepX,5670,G.frontFace,YF1],
+             [G.stepX,2160,YF1,2400],[5560,5670,G.frontFace,G.C],[0,5670,YR,G.C],
              [2010,2120,2400,5500],[250,2010,4450,4560],[2120,5560,5500,5610],
              [2120,5560,6500,6610],[3400,3510,5610,6500],[250,2510,7450,7560],[2400,2510,7560,9970]],
       rooms:[['Overloop',  'circ',[250,2010,YF2,4450]],
