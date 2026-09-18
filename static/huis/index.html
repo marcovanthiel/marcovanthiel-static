@@ -442,7 +442,7 @@ ul.assump{margin:0; padding-left:16px; font-size:12px; color:var(--ink-2); displ
           <li>De achterzijde combineert de vergunningstekening &ldquo;nieuwe toestand&rdquo; (uitbouw met harmonicapui en sedumdak tot 13 100 mm) met de gebouwde veranda op de foto&rsquo;s van 2026: douglas, 5 450 &times; 3 450 mm, 8&deg;, polycarbonaat, bevestigd aan de uitbouw.</li>
           <li>De zijgevel is blind: doorlopend metselwerk, geen raamopeningen. Alle vloeren zijn houten balklagen binnen het metselwerk, geen betonvloeren.</li>
           <li>De voorgevel ligt in twee vlakken: begane grond en 1e verdieping staan vóór, gelijk met de ramen; de voorgevel loopt in dat vlak door tot de nok. De nis met de voordeur, het trapraam en het lage linkerdeel ligt <b>1 050 mm</b> terug en is <b>1 750 mm</b> breed &mdash; beide uit de buitenscan van 17-09-2026 (bouwtekening: 770 en 2 060 mm). Begane grond en 1e verdieping liggen in &eacute;&eacute;n vlak, binnen 40 mm: er is geen uitkragende erker. De voordeur staat gecentreerd in de nis, het trapraam iets rechts van het midden, tegen de dagkant.</li>
-          <li>Nummer 85 is in maat het spiegelbeeld van 83: 5 670 mm breed, nok op de bouwmuur, strook van 2 340 mm aan de rechterkant. Dat volgt uit de aanvraagtekening van 1981 voor nummer 83, die het hele dubbele pand toont (nis 1 890, nok op 5 506, kaphelft 3 616 mm), en uit Street View 2025. Anders dan bij 83 is die strook een plat blok van twee lagen met borstwering op ~6,7 m en de schoorsteen, en loopt het dakvlak iets flauwer (~46&deg;) tot dat blok; raam en deur zitten in &eacute;&eacute;n gevelvlak onder &eacute;&eacute;n luifel, zonder nis. Rechts van 85 de houten poort naar het achterpad van 2,06 m, en daarnaast nummer 87 als indicatief blok. 85 heeft achter een uitbouw tot 17,2 m (scan). Nummer 81, over de gang, heeft een schilddak met zonnepanelen en een erker; die maten zijn indicatief.</li>
+          <li>Nummer 85 is in maat het spiegelbeeld van 83: 5 670 mm breed, nok op de bouwmuur, strook van 2 340 mm aan de rechterkant. Dat volgt uit de aanvraagtekening van 1981 voor nummer 83, die het hele dubbele pand toont (nis 1 890, nok op 5 506, kaphelft 3 616 mm), en uit Street View 2025. Anders dan bij 83 is die strook een plat blok van twee lagen met borstwering op ~6,7 m en de schoorsteen, en loopt het dakvlak iets flauwer (~46&deg;) tot dat blok; raam en deur zitten in &eacute;&eacute;n gevelvlak onder &eacute;&eacute;n luifel, zonder nis. Rechts van 85 de houten poort naar het achterpad van 2,06 m, en daarnaast nummer 87 als indicatief blok. 85 heeft achter een uitbouw tot 17,2 m (scan). Nummer 81, over de gang, heeft een schilddak (nok in de diepterichting) met zonnepanelen en een erker; nummer 87 rechts van de poort heeft eveneens een schilddak met schoorsteen op de nok. Die maten zijn indicatief; de scan toont alleen de zijgevel van 87 langs het achterpad.</li>
           <li>Op de begane grond is de achtergevel vervallen; de woning loopt door in de uitbouw, met een stalen ligger op de plaats van de oude gevel.</li>
           <li>Metselwerk, witte kozijnen, antracieten pannen en de gesausde souterreingevel zijn op de foto&rsquo;s afgelezen. Het metselwerk is procedureel in waalformaat gezet (210 &times; 50 mm, voeg 12) en in wereldco&ouml;rdinaten gemapt, zodat de lagenmaat over alle geveldelen doorloopt. De dakkapelkozijnen zijn RAL 7016 conform de offerte.</li>
           <li>Het souterrain beslaat de volle diepte van het pand tot 16 550 mm en is daarmee de grootste bouwlaag. Alleen de achterzijde is met LiDAR ingemeten: het aaneengesloten plafondvlak meet daar 8,0 &times; 5,2 m, oftewel 41,6 m&sup2;. Het voorste deel is onzelfstandig verhuurd en niet toegankelijk voor de scan; daar is plattegrond NT_0-2 de bron. De maatvoering van dat deel heeft dus de marge van de tekening, niet die van de scan.</li>
@@ -850,6 +850,33 @@ function prism(profile, y0, y1, mat, group){
   const m = new THREE.Mesh(g, mat);
   m.castShadow = true; m.receiveShadow = true;
   m.position.set(-CX, 0, TZ(y1));
+  (group||scene).add(m);
+  return m;
+}
+
+// Schilddak met vier schilden. richting 'x': nok evenwijdig aan de straat, richting 'y':
+// nok in de diepterichting (voor een pand dat dieper is dan breed, zoals 81 en 87).
+// nokIn = inspringing van de nok aan weerszijden, over = overstek rondom.
+function schilddak(x0,x1, y0,y1, zG, nok, richting, nokIn, over, mat, group){
+  const X0 = M(x0-over)-CX, X1 = M(x1+over)-CX, Z0 = TZ(y0-over), Z1 = TZ(y1+over);
+  const H0 = M(zG), H1 = M(nok);
+  let v, tri;
+  if (richting === 'x'){
+    const Xa = M(x0+nokIn)-CX, Xb = M(x1-nokIn)-CX, Zm = (Z0+Z1)/2;
+    v = [ [X0,H0,Z0],[X1,H0,Z0],[X1,H0,Z1],[X0,H0,Z1], [Xa,H1,Zm],[Xb,H1,Zm] ];
+    tri = [ [0,1,5],[0,5,4], [2,3,4],[2,4,5], [3,0,4], [1,2,5] ];
+  } else {
+    const Xm = (X0+X1)/2, Za = TZ(y0+nokIn), Zb = TZ(y1-nokIn);
+    v = [ [X0,H0,Z0],[X1,H0,Z0],[X1,H0,Z1],[X0,H0,Z1], [Xm,H1,Za],[Xm,H1,Zb] ];
+    tri = [ [0,1,4], [1,2,5],[1,5,4], [2,3,5], [3,0,4],[3,4,5] ];
+  }
+  const pos = [];
+  tri.forEach(t => t.forEach(i => pos.push(...v[i])));
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.computeVertexNormals();
+  const m = new THREE.Mesh(g, mat);
+  m.castShadow = true; m.receiveShadow = true;
   (group||scene).add(m);
   return m;
 }
@@ -1531,14 +1558,12 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
     wall(x0, x0+250, yF, yR, L.mv, zG, MAT.brick, g);                                   // zijgevel aan het achterpad
     wall(x1-250, x1, yF, yR, L.mv, zG, MAT.brick, g);
     wall(x0, x1, yR-250, yR, L.mv, zG, MAT.brick, g);
-    const nok = zG + 3200, ym = (yF+yR)/2, xm = (x0+x1)/2;
+    // schilddak, nok in de diepterichting (het pand is 5,7 breed en 8,8 diep), 45 graden
+    const nok = zG + 2835, xm = (x0+x1)/2;
     prism([[x0-150,zG],[x1+150,zG],[x1+150,zG+120],[x0-150,zG+120]], yF-150, yR+150, MAT.trim, g);
-    const dak = new THREE.Mesh(new THREE.ConeGeometry(1, 1, 4), MAT.roof);
-    dak.castShadow = true; dak.receiveShadow = true;
-    dak.scale.set(M((x1-x0)/2+150)*1.42, M(nok-zG), M((yR-yF)/2+150)*1.42);
-    dak.rotation.y = Math.PI/4;
-    dak.position.set(M(xm)-CX, M(zG)+M(nok-zG)/2, TZ(ym));
-    g.add(dak);
+    schilddak(x0, x1, yF, yR, zG+120, nok, 'y', 2835, 250, MAT.roof, g);
+    box(xm-400, xm+400, (yF+yR)/2-350, (yF+yR)/2+350, nok-800, nok+700, MAT.brickDark, g);   // schoorsteen op de nok
+    box(xm-460, xm+460, (yF+yR)/2-410, (yF+yR)/2+410, nok+700, nok+800, MAT.roofEdge, g);
     box(x0, x1, -1600, yF, L.mv, L.mv+35, MAT.klinker, g);
   })();
 
@@ -1559,15 +1584,12 @@ function gevelLaag(z0, z1, g, ops, achtergevel, gl){
     raam(x0+4800, x0+6300, yF-720, yF-700, 900, 2300);
     box(x0+4500, x0+6600, yF-800, yF+50, L.mv+2500, L.mv+2620, MAT.trim, g);
     // schilddak: vier vlakken, wit boeiboord, drie zonnepanelen op het voorvlak
-    const nok = zG + 3400, ym = (yF+yR)/2, xm = (x0+x1)/2, nl = 1800;
+    const nok = zG + 3700;
     prism([[x0-150,zG],[x1+150,zG],[x1+150,zG+120],[x0-150,zG+120]], yF-150, yR+150, MAT.trim, g);
-    const dak = new THREE.Mesh(new THREE.ConeGeometry(1, 1, 4), MAT.roof);
-    dak.castShadow = true; dak.receiveShadow = true;
-    dak.scale.set(M((x1-x0)/2+150)*1.42, M(nok-zG), M((yR-yF)/2+150)*1.42);
-    dak.rotation.y = Math.PI/4;
-    dak.position.set(M(xm)-CX, M(zG)+M(nok-zG)/2, TZ(ym));
-    g.add(dak);
-    [0,1,2].forEach(k => tilted(x0+1400+k*1750, x0+3000+k*1750, yF+250, yF+1900, zG+350, zG+1600, 60, MAT.pv, g));
+    schilddak(x0, x1, yF, yR, zG+120, nok, 'y', 3400, 250, MAT.roof, g);   // schilddak, nok in de diepterichting, ~47 graden
+    // drie zonnepanelen in het voorschild (helling 3 580 / 3 400), net boven het dakvlak
+    const sl = (nok-zG-120)/3400, zp = y => zG + 120 + (y-yF)*sl + 90;
+    [0,1,2].forEach(k => tilted(x0+2000+k*1050, x0+3000+k*1050, yF+300, yF+1800, zp(yF+300), zp(yF+1800), 60, MAT.pv, g));
   })();
   g.traverse(o => { if (o.isMesh && o.material === MAT.glass) o.material = MAT.glassDark; });
 })();
